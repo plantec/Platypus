@@ -1075,7 +1075,25 @@ PltPlatypusDictionarySchemaSchemaDefinition >> entityDefinition74^ [ #( #'meta_c
 ]
 
 { #category : #'platypus-generated-entities' }
+PltPlatypusDictionarySchemaSchemaDefinition >> entityDefinition74^ [ #( #'meta_concept_definition' #PltMetaConceptDefinition )
+
+
+]
+
+{ #category : #'platypus-generated-entities' }
 PltPlatypusDictionarySchemaSchemaDefinition >> entityDefinition75^ [ #( #'derived_attribute' #PltDerivedAttribute )
+
+
+]
+
+{ #category : #'platypus-generated-entities' }
+PltPlatypusDictionarySchemaSchemaDefinition >> entityDefinition75^ [ #( #'derived_attribute' #PltDerivedAttribute )
+
+
+]
+
+{ #category : #'platypus-generated-entities' }
+PltPlatypusDictionarySchemaSchemaDefinition >> entityDefinition76^ [ #( #'explicit_attribute' #PltExplicitAttribute )
 
 
 ]
@@ -1093,7 +1111,25 @@ PltPlatypusDictionarySchemaSchemaDefinition >> entityDefinition77^ [ #( #'invers
 ]
 
 { #category : #'platypus-generated-entities' }
+PltPlatypusDictionarySchemaSchemaDefinition >> entityDefinition77^ [ #( #'inverse_attribute' #PltInverseAttribute )
+
+
+]
+
+{ #category : #'platypus-generated-entities' }
 PltPlatypusDictionarySchemaSchemaDefinition >> entityDefinition78^ [ #( #'meta_mapping_rule' #PltMetaMappingRule )
+
+
+]
+
+{ #category : #'platypus-generated-entities' }
+PltPlatypusDictionarySchemaSchemaDefinition >> entityDefinition78^ [ #( #'meta_mapping_rule' #PltMetaMappingRule )
+
+
+]
+
+{ #category : #'platypus-generated-entities' }
+PltPlatypusDictionarySchemaSchemaDefinition >> entityDefinition79^ [ #( #'meta_mapping_definition' #PltMetaMappingDefinition )
 
 
 ]
@@ -1107,6 +1143,12 @@ PltPlatypusDictionarySchemaSchemaDefinition >> entityDefinition79^ [ #( #'meta_m
 { #category : #'platypus-generated-entities' }
 PltPlatypusDictionarySchemaSchemaDefinition >> entityDefinition8 [
   ^#(#global_rule #PltGlobalRule)
+
+
+]
+
+{ #category : #'platypus-generated-entities' }
+PltPlatypusDictionarySchemaSchemaDefinition >> entityDefinition80^ [ #( #'schema_definition' #PltSchemaDefinition )
 
 
 ]
