@@ -190,12 +190,6 @@ PltPlatypusPopulationSchemaSchemaDefinition >> entityDefinition16^ [ #( #'file_s
 ]
 
 { #category : #'platypus-generated-entities' }
-PltPlatypusPopulationSchemaSchemaDefinition >> entityDefinition16^ [ #( #'file_schema' #PltFileSchema )
-
-
-]
-
-{ #category : #'platypus-generated-entities' }
 PltPlatypusPopulationSchemaSchemaDefinition >> entityDefinition2 [
   ^#(#application_instance #PltApplicationInstance)
 
