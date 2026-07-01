@@ -20,7 +20,7 @@ PltBound class >> context [ ^ self schemaDefinition context
 
 { #category : #'platypus-generated-platypus-signature' }
 PltBound class >> iso10303P11Translater [
-  ^'Platypus (c) LISYC EA3883, Universite de Bretagne occidentale. Brest.'
+	^ 'Platypus (c) LISYC EA3883, Universite de Bretagne occidentale. Brest.'
 
 
 ]
@@ -33,86 +33,86 @@ PltBound class >> platypusMetaData [ 	^ self schemaDefinition metaDataFor: self 
 
 { #category : #'platypus-generated-meta-data-accessing' }
 PltBound class >> schemaDefinition [
-  ^PltPlatypusDictionarySchemaSchemaDefinition singleton
+	^ PltPlatypusDictionarySchemaSchemaDefinition singleton
 
 
 ]
 
 { #category : #'platypus-generated-meta-data-accessing' }
 PltBound class >> schemaInstance [
-  ^PltPlatypusMetaSchemasSchemaInstance singleton
+	^ PltPlatypusMetaSchemasSchemaInstance singleton
 
 
 ]
 
 { #category : #'platypus-generated-platypus-signature' }
 PltBound class >> translatedFromISO10303P11 [
-  ^true
+	^ true
 
 
 ]
 
 { #category : #'platypus-generated-platypus-signature' }
 PltBound class >> vwNamespaceName [
-  ^#Platypus
+	^ #Platypus
 
 
 ]
 
 { #category : #'platypus-generated-visiting' }
 PltBound >> accept: aVisitor [
-  ^aVisitor acceptBound: self
+	^ aVisitor acceptBound: self
 
 
 ]
 
 { #category : #'platypus-generated-copying' }
 PltBound >> boundCopyTo: another [
-  
+	
 
 
 ]
 
 { #category : #'platypus-generated-group-accessing' }
 PltBound >> boundFromValues: values [
-  | valuesloc |
-  valuesloc := values asOrderedCollection.
-  ^valuesloc
+	| valuesloc |
+	valuesloc := values asOrderedCollection.
+	^ valuesloc
 
 
 ]
 
 { #category : #'platypus-generated-group-accessing' }
 PltBound >> boundToValues: values [
-  ^values
+	^ values
 
 
 ]
 
 { #category : #'platypus-generated-group-accessing' }
 PltBound >> fromValues: values [
-  ^self boundFromValues: (super fromValues: values)
+	^ self boundFromValues: (super fromValues: values)
 
 
 ]
 
 { #category : #'platypus-generated-classifying' }
 PltBound >> isPltBound [
-  ^true
+	^ true
 
 
 ]
 
 { #category : #'platypus-generated-group-accessing' }
 PltBound >> localFromValues: values [
-  ^self boundFromValues: values
+	^ self boundFromValues: values
 
 
 ]
 
 { #category : #'platypus-generated-group-accessing' }
 PltBound >> localToValues: values [
-  ^self boundToValues: values
+	^ self boundToValues: values
 
 
 ]
@@ -126,36 +126,38 @@ PltBound >> owner [
 
 { #category : #'platypus-generated-copying' }
 PltBound >> pltCopyGroup: aClassSymbol to: anObject [
-  self class name == aClassSymbol ifTrue: [ self pltCopyTo: anObject ] ifFalse: [ super pltCopyGroup: aClassSymbol to: anObject ]
+	self class name == aClassSymbol
+		ifTrue: [ self pltCopyTo: anObject ]
+		ifFalse: [ super pltCopyGroup: aClassSymbol to: anObject ]
 
 
 ]
 
 { #category : #'platypus-generated-copying' }
 PltBound >> pltCopyTo: another [
-  super pltCopyTo: another.
-  self boundCopyTo: another
+	super pltCopyTo: another.
+	self boundCopyTo: another
 
 
 ]
 
 { #category : #'platypus-generated-copying' }
 PltBound >> pltLocalCopyTo: another [
-  self boundCopyTo: another
+	self boundCopyTo: another
 
 
 ]
 
 { #category : #'platypus-generated-initializing' }
 PltBound >> stepInitialize [
-  super stepInitialize
+	super stepInitialize
 
 
 ]
 
 { #category : #'platypus-generated-group-accessing' }
 PltBound >> toValues: values [
-  ^self boundToValues: (super toValues: values)
+	^ self boundToValues: (super toValues: values)
 
 
 ]

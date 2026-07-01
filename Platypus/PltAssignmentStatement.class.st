@@ -11,8 +11,8 @@ Class {
 	#name : #PltAssignmentStatement,
 	#superclass : #PltStatement,
 	#instVars : [
-		'left',
-		'rightExpr'
+		'rightExpr',
+		'left'
 	],
 	#category : #'Platypus-PlatypusStatementsSchemaSchema'
 }
@@ -25,7 +25,7 @@ PltAssignmentStatement class >> context [ ^ self schemaDefinition context
 
 { #category : #'platypus-generated-platypus-signature' }
 PltAssignmentStatement class >> iso10303P11Translater [
-  ^'Platypus (c) LISYC EA3883, Universite de Bretagne occidentale. Brest.'
+	^ 'Platypus (c) LISYC EA3883, Universite de Bretagne occidentale. Brest.'
 
 
 ]
@@ -38,105 +38,105 @@ PltAssignmentStatement class >> platypusMetaData [ 	^ self schemaDefinition meta
 
 { #category : #'platypus-generated-meta-data-accessing' }
 PltAssignmentStatement class >> schemaDefinition [
-  ^PltPlatypusStatementsSchemaSchemaDefinition singleton
+	^ PltPlatypusStatementsSchemaSchemaDefinition singleton
 
 
 ]
 
 { #category : #'platypus-generated-meta-data-accessing' }
 PltAssignmentStatement class >> schemaInstance [
-  ^PltPlatypusMetaSchemasSchemaInstance singleton
+	^ PltPlatypusMetaSchemasSchemaInstance singleton
 
 
 ]
 
 { #category : #'platypus-generated-platypus-signature' }
 PltAssignmentStatement class >> translatedFromISO10303P11 [
-  ^true
+	^ true
 
 
 ]
 
 { #category : #'platypus-generated-platypus-signature' }
 PltAssignmentStatement class >> vwNamespaceName [
-  ^#Platypus
+	^ #Platypus
 
 
 ]
 
 { #category : #'platypus-generated-visiting' }
 PltAssignmentStatement >> accept: aVisitor [
-  ^aVisitor acceptAssignmentStatement: self
+	^ aVisitor acceptAssignmentStatement: self
 
 
 ]
 
 { #category : #'platypus-generated-copying' }
 PltAssignmentStatement >> assignmentStatementCopyTo: another [
-  another fastSetLeft: self left.
-  another fastSetRightExpr: self rightExpr
+	another fastSetLeft: self left.
+	another fastSetRightExpr: self rightExpr
 
 
 ]
 
 { #category : #'platypus-generated-group-accessing' }
 PltAssignmentStatement >> assignmentStatementFromValues: values [
-  | valuesloc |
-  valuesloc := values asOrderedCollection.
-  self setLeft: valuesloc removeFirst.
-  self setRightExpr: valuesloc removeFirst.
-  ^valuesloc
+	| valuesloc |
+	valuesloc := values asOrderedCollection.
+	self setLeft: valuesloc removeFirst.
+	self setRightExpr: valuesloc removeFirst.
+	^ valuesloc
 
 
 ]
 
 { #category : #'platypus-generated-group-accessing' }
 PltAssignmentStatement >> assignmentStatementToValues: values [
-  values add: self left.
-  values add: self rightExpr.
-  ^values
+	values add: self left.
+	values add: self rightExpr.
+	^ values
 
 
 ]
 
 { #category : #'platypus-generated-fast-set-accessing' }
 PltAssignmentStatement >> fastSetLeft: aPltAssignable [
-  left := aPltAssignable
+	left := aPltAssignable
 
 
 ]
 
 { #category : #'platypus-generated-fast-set-accessing' }
 PltAssignmentStatement >> fastSetRightExpr: aPltExpression [
-  rightExpr := aPltExpression
+	rightExpr := aPltExpression
 
 
 ]
 
 { #category : #'platypus-generated-group-accessing' }
 PltAssignmentStatement >> fromValues: values [
-  ^self assignmentStatementFromValues: (super fromValues: values)
+	^ self assignmentStatementFromValues: (super fromValues: values)
 
 
 ]
 
 { #category : #'platypus-generated-classifying' }
 PltAssignmentStatement >> isPltAssignmentStatement [
-  ^true
+	^ true
 
 
 ]
 
 { #category : #'platypus-generated-accessing' }
 PltAssignmentStatement >> left [
-  ^left
+	^ left
 
 
 ]
 
 { #category : #'platypus-generated-accessing' }
 PltAssignmentStatement >> left: aPltAssignable [
-  left := aPltAssignable
+	left := aPltAssignable
 
 
 ]
@@ -149,94 +149,96 @@ PltAssignmentStatement >> left: aPltAssignable rightExpr: aPltExpression [ 	self
 
 { #category : #'platypus-generated-with-context-accessing' }
 PltAssignmentStatement >> leftUsingContext: aContext [
-  ^self left
+	^ self left
 
 
 ]
 
 { #category : #'platypus-generated-group-accessing' }
 PltAssignmentStatement >> localFromValues: values [
-  ^self assignmentStatementFromValues: values
+	^ self assignmentStatementFromValues: values
 
 
 ]
 
 { #category : #'platypus-generated-group-accessing' }
 PltAssignmentStatement >> localToValues: values [
-  ^self assignmentStatementToValues: values
+	^ self assignmentStatementToValues: values
 
 
 ]
 
 { #category : #'platypus-generated-copying' }
 PltAssignmentStatement >> pltCopyGroup: aClassSymbol to: anObject [
-  self class name == aClassSymbol ifTrue: [ self pltCopyTo: anObject ] ifFalse: [ super pltCopyGroup: aClassSymbol to: anObject ]
+	self class name == aClassSymbol
+		ifTrue: [ self pltCopyTo: anObject ]
+		ifFalse: [ super pltCopyGroup: aClassSymbol to: anObject ]
 
 
 ]
 
 { #category : #'platypus-generated-copying' }
 PltAssignmentStatement >> pltCopyTo: another [
-  super pltCopyTo: another.
-  self assignmentStatementCopyTo: another
+	super pltCopyTo: another.
+	self assignmentStatementCopyTo: another
 
 
 ]
 
 { #category : #'platypus-generated-copying' }
 PltAssignmentStatement >> pltLocalCopyTo: another [
-  self assignmentStatementCopyTo: another
+	self assignmentStatementCopyTo: another
 
 
 ]
 
 { #category : #'platypus-generated-accessing' }
 PltAssignmentStatement >> rightExpr [
-  ^rightExpr
+	^ rightExpr
 
 
 ]
 
 { #category : #'platypus-generated-accessing' }
 PltAssignmentStatement >> rightExpr: aPltExpression [
-  rightExpr := aPltExpression
+	rightExpr := aPltExpression
 
 
 ]
 
 { #category : #'platypus-generated-with-context-accessing' }
 PltAssignmentStatement >> rightExprUsingContext: aContext [
-  ^self rightExpr
+	^ self rightExpr
 
 
 ]
 
 { #category : #'platypus-generated-set-accessing' }
 PltAssignmentStatement >> setLeft: aPltAssignable [
-  self left: aPltAssignable
+	self left: aPltAssignable
 
 
 ]
 
 { #category : #'platypus-generated-set-accessing' }
 PltAssignmentStatement >> setRightExpr: aPltExpression [
-  self rightExpr: aPltExpression
+	self rightExpr: aPltExpression
 
 
 ]
 
 { #category : #'platypus-generated-initializing' }
 PltAssignmentStatement >> stepInitialize [
-  super stepInitialize.
-  left := nil.
-  rightExpr := nil
+	super stepInitialize.
+	left := nil.
+	rightExpr := nil
 
 
 ]
 
 { #category : #'platypus-generated-group-accessing' }
 PltAssignmentStatement >> toValues: values [
-  ^self assignmentStatementToValues: (super toValues: values)
+	^ self assignmentStatementToValues: (super toValues: values)
 
 
 ]

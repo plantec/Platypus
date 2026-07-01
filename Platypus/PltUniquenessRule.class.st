@@ -12,8 +12,8 @@ Class {
 	#name : #PltUniquenessRule,
 	#superclass : #PltDictionaryInstance,
 	#instVars : [
-		'attributes',
-		'label'
+		'label',
+		'attributes'
 	],
 	#category : #'Platypus-PlatypusDictionarySchemaSchema'
 }
@@ -26,7 +26,7 @@ PltUniquenessRule class >> context [ ^ self schemaDefinition context
 
 { #category : #'platypus-generated-platypus-signature' }
 PltUniquenessRule class >> iso10303P11Translater [
-  ^'Platypus (c) LISYC EA3883, Universite de Bretagne occidentale. Brest.'
+	^ 'Platypus (c) LISYC EA3883, Universite de Bretagne occidentale. Brest.'
 
 
 ]
@@ -39,105 +39,107 @@ PltUniquenessRule class >> platypusMetaData [ 	^ self schemaDefinition metaDataF
 
 { #category : #'platypus-generated-meta-data-accessing' }
 PltUniquenessRule class >> schemaDefinition [
-  ^PltPlatypusDictionarySchemaSchemaDefinition singleton
+	^ PltPlatypusDictionarySchemaSchemaDefinition singleton
 
 
 ]
 
 { #category : #'platypus-generated-meta-data-accessing' }
 PltUniquenessRule class >> schemaInstance [
-  ^PltPlatypusMetaSchemasSchemaInstance singleton
+	^ PltPlatypusMetaSchemasSchemaInstance singleton
 
 
 ]
 
 { #category : #'platypus-generated-platypus-signature' }
 PltUniquenessRule class >> translatedFromISO10303P11 [
-  ^true
+	^ true
 
 
 ]
 
 { #category : #'platypus-generated-platypus-signature' }
 PltUniquenessRule class >> vwNamespaceName [
-  ^#Platypus
+	^ #Platypus
 
 
 ]
 
 { #category : #'platypus-generated-visiting' }
 PltUniquenessRule >> accept: aVisitor [
-  ^aVisitor acceptUniquenessRule: self
+	^ aVisitor acceptUniquenessRule: self
 
 
 ]
 
 { #category : #'platypus-generated-accessing' }
 PltUniquenessRule >> attributes [
-  ^attributes
+	^ attributes
 
 
 ]
 
 { #category : #'platypus-generated-accessing' }
 PltUniquenessRule >> attributes: aListOfPltUniquenessRuleAttributeIdentifier [
-  attributes := aListOfPltUniquenessRuleAttributeIdentifier ifNil: [ OrderedCollection new ] ifNotNil: [ aListOfPltUniquenessRuleAttributeIdentifier as: OrderedCollection ]
+	attributes := aListOfPltUniquenessRuleAttributeIdentifier
+		ifNil: [ OrderedCollection new ]
+		ifNotNil: [ aListOfPltUniquenessRuleAttributeIdentifier as: OrderedCollection ]
 
 
 ]
 
 { #category : #'platypus-generated-with-context-accessing' }
 PltUniquenessRule >> attributesUsingContext: aContext [
-  ^self attributes
+	^ self attributes
 
 
 ]
 
 { #category : #'platypus-generated-fast-set-accessing' }
 PltUniquenessRule >> fastSetAttributes: aListOfPltUniquenessRuleAttributeIdentifier [
-  attributes := aListOfPltUniquenessRuleAttributeIdentifier
+	attributes := aListOfPltUniquenessRuleAttributeIdentifier
 
 
 ]
 
 { #category : #'platypus-generated-fast-set-accessing' }
 PltUniquenessRule >> fastSetLabel: aString [
-  label := aString
+	label := aString
 
 
 ]
 
 { #category : #'platypus-generated-fast-set-accessing' }
 PltUniquenessRule >> fastSetOwner: aPltEntityDefinition [
-  owner := aPltEntityDefinition
+	owner := aPltEntityDefinition
 
 
 ]
 
 { #category : #'platypus-generated-group-accessing' }
 PltUniquenessRule >> fromValues: values [
-  ^self uniquenessRuleFromValues: (super fromValues: values)
+	^ self uniquenessRuleFromValues: (super fromValues: values)
 
 
 ]
 
 { #category : #'platypus-generated-classifying' }
 PltUniquenessRule >> isPltUniquenessRule [
-  ^true
+	^ true
 
 
 ]
 
 { #category : #'platypus-generated-accessing' }
 PltUniquenessRule >> label [
-  ^label
+	^ label
 
 
 ]
 
 { #category : #'platypus-generated-accessing' }
 PltUniquenessRule >> label: aString [
-  label := aString
+	label := aString
 
 
 ]
@@ -150,133 +152,135 @@ PltUniquenessRule >> label: aString attributes: aListOfPltUniquenessRuleAttribut
 
 { #category : #'platypus-generated-with-context-accessing' }
 PltUniquenessRule >> labelUsingContext: aContext [
-  ^self label
+	^ self label
 
 
 ]
 
 { #category : #'platypus-generated-group-accessing' }
 PltUniquenessRule >> localFromValues: values [
-  ^self uniquenessRuleFromValues: values
+	^ self uniquenessRuleFromValues: values
 
 
 ]
 
 { #category : #'platypus-generated-group-accessing' }
 PltUniquenessRule >> localToValues: values [
-  ^self uniquenessRuleToValues: values
+	^ self uniquenessRuleToValues: values
 
 
 ]
 
 { #category : #'platypus-generated-accessing' }
 PltUniquenessRule >> owner [
-  ^owner
+	^ owner
 
 
 ]
 
 { #category : #'platypus-generated-accessing' }
 PltUniquenessRule >> owner: aPltEntityDefinition [
-  owner := aPltEntityDefinition
+	owner := aPltEntityDefinition
 
 
 ]
 
 { #category : #'platypus-generated-with-context-accessing' }
 PltUniquenessRule >> ownerUsingContext: aContext [
-  ^self owner
+	^ self owner
 
 
 ]
 
 { #category : #'platypus-generated-copying' }
 PltUniquenessRule >> pltCopyGroup: aClassSymbol to: anObject [
-  self class name == aClassSymbol ifTrue: [ self pltCopyTo: anObject ] ifFalse: [ super pltCopyGroup: aClassSymbol to: anObject ]
+	self class name == aClassSymbol
+		ifTrue: [ self pltCopyTo: anObject ]
+		ifFalse: [ super pltCopyGroup: aClassSymbol to: anObject ]
 
 
 ]
 
 { #category : #'platypus-generated-copying' }
 PltUniquenessRule >> pltCopyTo: another [
-  super pltCopyTo: another.
-  self uniquenessRuleCopyTo: another
+	super pltCopyTo: another.
+	self uniquenessRuleCopyTo: another
 
 
 ]
 
 { #category : #'platypus-generated-copying' }
 PltUniquenessRule >> pltLocalCopyTo: another [
-  self uniquenessRuleCopyTo: another
+	self uniquenessRuleCopyTo: another
 
 
 ]
 
 { #category : #'platypus-generated-set-accessing' }
 PltUniquenessRule >> setAttributes: aListOfPltUniquenessRuleAttributeIdentifier [
-  self attributes: aListOfPltUniquenessRuleAttributeIdentifier
+	self attributes: aListOfPltUniquenessRuleAttributeIdentifier
 
 
 ]
 
 { #category : #'platypus-generated-set-accessing' }
 PltUniquenessRule >> setLabel: aString [
-  self label: aString
+	self label: aString
 
 
 ]
 
 { #category : #'platypus-generated-set-accessing' }
 PltUniquenessRule >> setOwner: aPltEntityDefinition [
-  self owner: aPltEntityDefinition
+	self owner: aPltEntityDefinition
 
 
 ]
 
 { #category : #'platypus-generated-initializing' }
 PltUniquenessRule >> stepInitialize [
-  super stepInitialize.
-  label := nil.
-  attributes := OrderedCollection new.
-  owner := nil
+	super stepInitialize.
+	label := nil.
+	attributes := OrderedCollection new.
+	owner := nil
 
 
 ]
 
 { #category : #'platypus-generated-group-accessing' }
 PltUniquenessRule >> toValues: values [
-  ^self uniquenessRuleToValues: (super toValues: values)
+	^ self uniquenessRuleToValues: (super toValues: values)
 
 
 ]
 
 { #category : #'platypus-generated-copying' }
 PltUniquenessRule >> uniquenessRuleCopyTo: another [
-  another fastSetLabel: self label.
-  another fastSetAttributes: self attributes.
-  another fastSetOwner: self owner
+	another fastSetLabel: self label.
+	another fastSetAttributes: self attributes.
+	another fastSetOwner: self owner
 
 
 ]
 
 { #category : #'platypus-generated-group-accessing' }
 PltUniquenessRule >> uniquenessRuleFromValues: values [
-  | valuesloc |
-  valuesloc := values asOrderedCollection.
-  self setLabel: valuesloc removeFirst.
-  self setAttributes: valuesloc removeFirst.
-  self setOwner: valuesloc removeFirst.
-  ^valuesloc
+	| valuesloc |
+	valuesloc := values asOrderedCollection.
+	self setLabel: valuesloc removeFirst.
+	self setAttributes: valuesloc removeFirst.
+	self setOwner: valuesloc removeFirst.
+	^ valuesloc
 
 
 ]
 
 { #category : #'platypus-generated-group-accessing' }
 PltUniquenessRule >> uniquenessRuleToValues: values [
-  values add: self label.
-  values add: self attributes.
-  values add: self owner.
-  ^values
+	values add: self label.
+	values add: self attributes.
+	values add: self owner.
+	^ values
 
 
 ]

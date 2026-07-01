@@ -20,7 +20,7 @@ PltQualifier class >> context [ ^ self schemaDefinition context
 
 { #category : #'platypus-generated-platypus-signature' }
 PltQualifier class >> iso10303P11Translater [
-  ^'Platypus (c) LISYC EA3883, Universite de Bretagne occidentale. Brest.'
+	^ 'Platypus (c) LISYC EA3883, Universite de Bretagne occidentale. Brest.'
 
 
 ]
@@ -33,122 +33,124 @@ PltQualifier class >> platypusMetaData [ 	^ self schemaDefinition metaDataFor: s
 
 { #category : #'platypus-generated-meta-data-accessing' }
 PltQualifier class >> schemaDefinition [
-  ^PltPlatypusExpressionsSchemaSchemaDefinition singleton
+	^ PltPlatypusExpressionsSchemaSchemaDefinition singleton
 
 
 ]
 
 { #category : #'platypus-generated-meta-data-accessing' }
 PltQualifier class >> schemaInstance [
-  ^PltPlatypusMetaSchemasSchemaInstance singleton
+	^ PltPlatypusMetaSchemasSchemaInstance singleton
 
 
 ]
 
 { #category : #'platypus-generated-platypus-signature' }
 PltQualifier class >> translatedFromISO10303P11 [
-  ^true
+	^ true
 
 
 ]
 
 { #category : #'platypus-generated-platypus-signature' }
 PltQualifier class >> vwNamespaceName [
-  ^#Platypus
+	^ #Platypus
 
 
 ]
 
 { #category : #'platypus-generated-visiting' }
 PltQualifier >> accept: aVisitor [
-  ^aVisitor acceptQualifier: self
+	^ aVisitor acceptQualifier: self
 
 
 ]
 
 { #category : #'platypus-generated-group-accessing' }
 PltQualifier >> fromValues: values [
-  ^self qualifierFromValues: (super fromValues: values)
+	^ self qualifierFromValues: (super fromValues: values)
 
 
 ]
 
 { #category : #'platypus-generated-classifying' }
 PltQualifier >> isPltQualifier [
-  ^true
+	^ true
 
 
 ]
 
 { #category : #'platypus-generated-group-accessing' }
 PltQualifier >> localFromValues: values [
-  ^self qualifierFromValues: values
+	^ self qualifierFromValues: values
 
 
 ]
 
 { #category : #'platypus-generated-group-accessing' }
 PltQualifier >> localToValues: values [
-  ^self qualifierToValues: values
+	^ self qualifierToValues: values
 
 
 ]
 
 { #category : #'platypus-generated-copying' }
 PltQualifier >> pltCopyGroup: aClassSymbol to: anObject [
-  self class name == aClassSymbol ifTrue: [ self pltCopyTo: anObject ] ifFalse: [ super pltCopyGroup: aClassSymbol to: anObject ]
+	self class name == aClassSymbol
+		ifTrue: [ self pltCopyTo: anObject ]
+		ifFalse: [ super pltCopyGroup: aClassSymbol to: anObject ]
 
 
 ]
 
 { #category : #'platypus-generated-copying' }
 PltQualifier >> pltCopyTo: another [
-  super pltCopyTo: another.
-  self qualifierCopyTo: another
+	super pltCopyTo: another.
+	self qualifierCopyTo: another
 
 
 ]
 
 { #category : #'platypus-generated-copying' }
 PltQualifier >> pltLocalCopyTo: another [
-  self qualifierCopyTo: another
+	self qualifierCopyTo: another
 
 
 ]
 
 { #category : #'platypus-generated-copying' }
 PltQualifier >> qualifierCopyTo: another [
-  
+	
 
 
 ]
 
 { #category : #'platypus-generated-group-accessing' }
 PltQualifier >> qualifierFromValues: values [
-  | valuesloc |
-  valuesloc := values asOrderedCollection.
-  ^valuesloc
+	| valuesloc |
+	valuesloc := values asOrderedCollection.
+	^ valuesloc
 
 
 ]
 
 { #category : #'platypus-generated-group-accessing' }
 PltQualifier >> qualifierToValues: values [
-  ^values
+	^ values
 
 
 ]
 
 { #category : #'platypus-generated-initializing' }
 PltQualifier >> stepInitialize [
-  super stepInitialize
+	super stepInitialize
 
 
 ]
 
 { #category : #'platypus-generated-group-accessing' }
 PltQualifier >> toValues: values [
-  ^self qualifierToValues: (super toValues: values)
+	^ self qualifierToValues: (super toValues: values)
 
 
 ]

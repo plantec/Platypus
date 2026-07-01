@@ -11,109 +11,109 @@ Class {
 	#name : #PltMetaMappingRule,
 	#superclass : #PltDictionaryInstance,
 	#instVars : [
-		'metaCondition',
-		'expression',
-		'metaExpression',
 		'haveError',
-		'condition'
+		'metaCondition',
+		'condition',
+		'expression',
+		'metaExpression'
 	],
 	#category : #'Platypus-PlatypusDictionarySchemaSchema'
 }
 
 { #category : #'platypus-generated-platypus-signature' }
 PltMetaMappingRule class >> iso10303P11Translater [
-  ^'Platypus (c) LISYC EA3883, Universite de Bretagne occidentale. Brest.'
+	^ 'Platypus (c) LISYC EA3883, Universite de Bretagne occidentale. Brest.'
 
 
 ]
 
 { #category : #'platypus-generated-meta-data-accessing' }
 PltMetaMappingRule class >> schemaDefinition [
-  ^PltPlatypusDictionarySchemaSchemaDefinition singleton
+	^ PltPlatypusDictionarySchemaSchemaDefinition singleton
 
 
 ]
 
 { #category : #'platypus-generated-meta-data-accessing' }
 PltMetaMappingRule class >> schemaInstance [
-  ^PltPlatypusMetaSchemasSchemaInstance singleton
+	^ PltPlatypusMetaSchemasSchemaInstance singleton
 
 
 ]
 
 { #category : #'platypus-generated-platypus-signature' }
 PltMetaMappingRule class >> translatedFromISO10303P11 [
-  ^true
+	^ true
 
 
 ]
 
 { #category : #'platypus-generated-platypus-signature' }
 PltMetaMappingRule class >> vwNamespaceName [
-  ^#Platypus
+	^ #Platypus
 
 
 ]
 
 { #category : #'platypus-generated-visiting' }
 PltMetaMappingRule >> accept: aVisitor [
-  ^aVisitor acceptMetaMappingRule: self
+	^ aVisitor acceptMetaMappingRule: self
 
 
 ]
 
 { #category : #'platypus-generated-accessing' }
 PltMetaMappingRule >> condition [
-  ^condition
+	^ condition
 
 
 ]
 
 { #category : #'platypus-generated-accessing' }
 PltMetaMappingRule >> condition: aString [
-  condition := aString
+	condition := aString
 
 
 ]
 
 { #category : #'platypus-generated-with-context-accessing' }
 PltMetaMappingRule >> conditionUsingContext: aContext [
-  ^self condition
+	^ self condition
 
 
 ]
 
 { #category : #'platypus-generated-accessing' }
 PltMetaMappingRule >> expression [
-  ^expression
+	^ expression
 
 
 ]
 
 { #category : #'platypus-generated-accessing' }
 PltMetaMappingRule >> expression: aString [
-  expression := aString
+	expression := aString
 
 
 ]
 
 { #category : #'platypus-generated-with-context-accessing' }
 PltMetaMappingRule >> expressionUsingContext: aContext [
-  ^self expression
+	^ self expression
 
 
 ]
 
 { #category : #'platypus-generated-fast-set-accessing' }
 PltMetaMappingRule >> fastSetCondition: aString [
-  condition := aString
+	condition := aString
 
 
 ]
 
 { #category : #'platypus-generated-fast-set-accessing' }
 PltMetaMappingRule >> fastSetExpression: aString [
-  expression := aString
+	expression := aString
 
 
 ]
@@ -132,28 +132,28 @@ PltMetaMappingRule >> fastSetMetaExpression:aPltExpression [	metaExpression := a
 
 { #category : #'platypus-generated-group-accessing' }
 PltMetaMappingRule >> fromValues: values [
-  ^self metaMappingRuleFromValues: (super fromValues: values)
+	^ self metaMappingRuleFromValues: (super fromValues: values)
 
 
 ]
 
 { #category : #'platypus-generated-classifying' }
 PltMetaMappingRule >> isPltMetaMappingRule [
-  ^true
+	^ true
 
 
 ]
 
 { #category : #'platypus-generated-group-accessing' }
 PltMetaMappingRule >> localFromValues: values [
-  ^self metaMappingRuleFromValues: values
+	^ self metaMappingRuleFromValues: values
 
 
 ]
 
 { #category : #'platypus-generated-group-accessing' }
 PltMetaMappingRule >> localToValues: values [
-  ^self metaMappingRuleToValues: values
+	^ self metaMappingRuleToValues: values
 
 
 ]
@@ -184,64 +184,66 @@ PltMetaMappingRule >> metaExpressionUsingContext:aContext [	^ self metaExpressio
 
 { #category : #'platypus-generated-copying' }
 PltMetaMappingRule >> metaMappingRuleCopyTo: another [
-  another fastSetCondition: self condition.
-  another fastSetExpression: self expression
+	another fastSetCondition: self condition.
+	another fastSetExpression: self expression
 
 
 ]
 
 { #category : #'platypus-generated-group-accessing' }
 PltMetaMappingRule >> metaMappingRuleFromValues: values [
-  | valuesloc |
-  valuesloc := values asOrderedCollection.
-  self setCondition: valuesloc removeFirst.
-  self setExpression: valuesloc removeFirst.
-  ^valuesloc
+	| valuesloc |
+	valuesloc := values asOrderedCollection.
+	self setCondition: valuesloc removeFirst.
+	self setExpression: valuesloc removeFirst.
+	^ valuesloc
 
 
 ]
 
 { #category : #'platypus-generated-group-accessing' }
 PltMetaMappingRule >> metaMappingRuleToValues: values [
-  values add: self condition.
-  values add: self expression.
-  ^values
+	values add: self condition.
+	values add: self expression.
+	^ values
 
 
 ]
 
 { #category : #'platypus-generated-copying' }
 PltMetaMappingRule >> pltCopyGroup: aClassSymbol to: anObject [
-  self class name == aClassSymbol ifTrue: [ self pltCopyTo: anObject ] ifFalse: [ super pltCopyGroup: aClassSymbol to: anObject ]
+	self class name == aClassSymbol
+		ifTrue: [ self pltCopyTo: anObject ]
+		ifFalse: [ super pltCopyGroup: aClassSymbol to: anObject ]
 
 
 ]
 
 { #category : #'platypus-generated-copying' }
 PltMetaMappingRule >> pltCopyTo: another [
-  super pltCopyTo: another.
-  self metaMappingRuleCopyTo: another
+	super pltCopyTo: another.
+	self metaMappingRuleCopyTo: another
 
 
 ]
 
 { #category : #'platypus-generated-copying' }
 PltMetaMappingRule >> pltLocalCopyTo: another [
-  self metaMappingRuleCopyTo: another
+	self metaMappingRuleCopyTo: another
 
 
 ]
 
 { #category : #'platypus-generated-set-accessing' }
 PltMetaMappingRule >> setCondition: aString [
-  self condition: aString
+	self condition: aString
 
 
 ]
 
 { #category : #'platypus-generated-set-accessing' }
 PltMetaMappingRule >> setExpression: aString [
-  self expression: aString
+	self expression: aString
 
 
 ]
@@ -260,16 +262,16 @@ PltMetaMappingRule >> setMetaExpression:aPltExpression [	self metaExpression:aPl
 
 { #category : #'platypus-generated-initializing' }
 PltMetaMappingRule >> stepInitialize [
-  super stepInitialize.
-  condition := ''.
-  expression := ''
+	super stepInitialize.
+	condition := ''.
+	expression := ''
 
 
 ]
 
 { #category : #'platypus-generated-group-accessing' }
 PltMetaMappingRule >> toValues: values [
-  ^self metaMappingRuleToValues: (super toValues: values)
+	^ self metaMappingRuleToValues: (super toValues: values)
 
 
 ]

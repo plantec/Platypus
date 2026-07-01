@@ -12,8 +12,8 @@ Class {
 	#name : #PltAggregateInitializerElement,
 	#superclass : #PltDictionaryInstance,
 	#instVars : [
-		'repetition',
-		'val'
+		'val',
+		'repetition'
 	],
 	#category : #'Platypus-PlatypusAggregateDataSchemaSchema'
 }
@@ -26,7 +26,7 @@ PltAggregateInitializerElement class >> context [ ^ self schemaDefinition contex
 
 { #category : #'platypus-generated-platypus-signature' }
 PltAggregateInitializerElement class >> iso10303P11Translater [
-  ^'Platypus (c) LISYC EA3883, Universite de Bretagne occidentale. Brest.'
+	^ 'Platypus (c) LISYC EA3883, Universite de Bretagne occidentale. Brest.'
 
 
 ]
@@ -39,231 +39,233 @@ PltAggregateInitializerElement class >> platypusMetaData [ 	^ self schemaDefinit
 
 { #category : #'platypus-generated-meta-data-accessing' }
 PltAggregateInitializerElement class >> schemaDefinition [
-  ^PltPlatypusAggregateDataSchemaSchemaDefinition singleton
+	^ PltPlatypusAggregateDataSchemaSchemaDefinition singleton
 
 
 ]
 
 { #category : #'platypus-generated-meta-data-accessing' }
 PltAggregateInitializerElement class >> schemaInstance [
-  ^PltPlatypusMetaSchemasSchemaInstance singleton
+	^ PltPlatypusMetaSchemasSchemaInstance singleton
 
 
 ]
 
 { #category : #'platypus-generated-platypus-signature' }
 PltAggregateInitializerElement class >> translatedFromISO10303P11 [
-  ^true
+	^ true
 
 
 ]
 
 { #category : #'platypus-generated-platypus-signature' }
 PltAggregateInitializerElement class >> vwNamespaceName [
-  ^#Platypus
+	^ #Platypus
 
 
 ]
 
 { #category : #'platypus-generated-visiting' }
 PltAggregateInitializerElement >> accept: aVisitor [
-  ^aVisitor acceptAggregateInitializerElement: self
+	^ aVisitor acceptAggregateInitializerElement: self
 
 
 ]
 
 { #category : #'platypus-generated-copying' }
 PltAggregateInitializerElement >> aggregateInitializerElementCopyTo: another [
-  another fastSetOwner: self owner.
-  another fastSetVal: self val.
-  another fastSetRepetition: self repetition
+	another fastSetOwner: self owner.
+	another fastSetVal: self val.
+	another fastSetRepetition: self repetition
 
 
 ]
 
 { #category : #'platypus-generated-group-accessing' }
 PltAggregateInitializerElement >> aggregateInitializerElementFromValues: values [
-  | valuesloc |
-  valuesloc := values asOrderedCollection.
-  self setOwner: valuesloc removeFirst.
-  self setVal: valuesloc removeFirst.
-  self setRepetition: valuesloc removeFirst.
-  ^valuesloc
+	| valuesloc |
+	valuesloc := values asOrderedCollection.
+	self setOwner: valuesloc removeFirst.
+	self setVal: valuesloc removeFirst.
+	self setRepetition: valuesloc removeFirst.
+	^ valuesloc
 
 
 ]
 
 { #category : #'platypus-generated-group-accessing' }
 PltAggregateInitializerElement >> aggregateInitializerElementToValues: values [
-  values add: self owner.
-  values add: self val.
-  values add: self repetition.
-  ^values
+	values add: self owner.
+	values add: self val.
+	values add: self repetition.
+	^ values
 
 
 ]
 
 { #category : #'platypus-generated-fast-set-accessing' }
 PltAggregateInitializerElement >> fastSetOwner: aPltAggregateInitializer [
-  owner := aPltAggregateInitializer
+	owner := aPltAggregateInitializer
 
 
 ]
 
 { #category : #'platypus-generated-fast-set-accessing' }
 PltAggregateInitializerElement >> fastSetRepetition: aPltExpression [
-  repetition := aPltExpression
+	repetition := aPltExpression
 
 
 ]
 
 { #category : #'platypus-generated-fast-set-accessing' }
 PltAggregateInitializerElement >> fastSetVal: aPltExpression [
-  val := aPltExpression
+	val := aPltExpression
 
 
 ]
 
 { #category : #'platypus-generated-group-accessing' }
 PltAggregateInitializerElement >> fromValues: values [
-  ^self aggregateInitializerElementFromValues: (super fromValues: values)
+	^ self aggregateInitializerElementFromValues: (super fromValues: values)
 
 
 ]
 
 { #category : #'platypus-generated-classifying' }
 PltAggregateInitializerElement >> isPltAggregateInitializerElement [
-  ^true
+	^ true
 
 
 ]
 
 { #category : #'platypus-generated-group-accessing' }
 PltAggregateInitializerElement >> localFromValues: values [
-  ^self aggregateInitializerElementFromValues: values
+	^ self aggregateInitializerElementFromValues: values
 
 
 ]
 
 { #category : #'platypus-generated-group-accessing' }
 PltAggregateInitializerElement >> localToValues: values [
-  ^self aggregateInitializerElementToValues: values
+	^ self aggregateInitializerElementToValues: values
 
 
 ]
 
 { #category : #'platypus-generated-accessing' }
 PltAggregateInitializerElement >> owner [
-  ^owner
+	^ owner
 
 
 ]
 
 { #category : #'platypus-generated-accessing' }
 PltAggregateInitializerElement >> owner: aPltAggregateInitializer [
-  owner := aPltAggregateInitializer
+	owner := aPltAggregateInitializer
 
 
 ]
 
 { #category : #'platypus-generated-with-context-accessing' }
 PltAggregateInitializerElement >> ownerUsingContext: aContext [
-  ^self owner
+	^ self owner
 
 
 ]
 
 { #category : #'platypus-generated-copying' }
 PltAggregateInitializerElement >> pltCopyGroup: aClassSymbol to: anObject [
-  self class name == aClassSymbol ifTrue: [ self pltCopyTo: anObject ] ifFalse: [ super pltCopyGroup: aClassSymbol to: anObject ]
+	self class name == aClassSymbol
+		ifTrue: [ self pltCopyTo: anObject ]
+		ifFalse: [ super pltCopyGroup: aClassSymbol to: anObject ]
 
 
 ]
 
 { #category : #'platypus-generated-copying' }
 PltAggregateInitializerElement >> pltCopyTo: another [
-  super pltCopyTo: another.
-  self aggregateInitializerElementCopyTo: another
+	super pltCopyTo: another.
+	self aggregateInitializerElementCopyTo: another
 
 
 ]
 
 { #category : #'platypus-generated-copying' }
 PltAggregateInitializerElement >> pltLocalCopyTo: another [
-  self aggregateInitializerElementCopyTo: another
+	self aggregateInitializerElementCopyTo: another
 
 
 ]
 
 { #category : #'platypus-generated-accessing' }
 PltAggregateInitializerElement >> repetition [
-  ^repetition
+	^ repetition
 
 
 ]
 
 { #category : #'platypus-generated-accessing' }
 PltAggregateInitializerElement >> repetition: aPltExpression [
-  repetition := aPltExpression
+	repetition := aPltExpression
 
 
 ]
 
 { #category : #'platypus-generated-with-context-accessing' }
 PltAggregateInitializerElement >> repetitionUsingContext: aContext [
-  ^self repetition
+	^ self repetition
 
 
 ]
 
 { #category : #'platypus-generated-set-accessing' }
 PltAggregateInitializerElement >> setOwner: aPltAggregateInitializer [
-  self owner: aPltAggregateInitializer
+	self owner: aPltAggregateInitializer
 
 
 ]
 
 { #category : #'platypus-generated-set-accessing' }
 PltAggregateInitializerElement >> setRepetition: aPltExpression [
-  self repetition: aPltExpression
+	self repetition: aPltExpression
 
 
 ]
 
 { #category : #'platypus-generated-set-accessing' }
 PltAggregateInitializerElement >> setVal: aPltExpression [
-  self val: aPltExpression
+	self val: aPltExpression
 
 
 ]
 
 { #category : #'platypus-generated-initializing' }
 PltAggregateInitializerElement >> stepInitialize [
-  super stepInitialize.
-  owner := nil.
-  val := nil.
-  repetition := nil
+	super stepInitialize.
+	owner := nil.
+	val := nil.
+	repetition := nil
 
 
 ]
 
 { #category : #'platypus-generated-group-accessing' }
 PltAggregateInitializerElement >> toValues: values [
-  ^self aggregateInitializerElementToValues: (super toValues: values)
+	^ self aggregateInitializerElementToValues: (super toValues: values)
 
 
 ]
 
 { #category : #'platypus-generated-accessing' }
 PltAggregateInitializerElement >> val [
-  ^val
+	^ val
 
 
 ]
 
 { #category : #'platypus-generated-accessing' }
 PltAggregateInitializerElement >> val: aPltExpression [
-  val := aPltExpression
+	val := aPltExpression
 
 
 ]
@@ -276,7 +278,7 @@ PltAggregateInitializerElement >> val: aPltExpression repetition: aPltExpression
 
 { #category : #'platypus-generated-with-context-accessing' }
 PltAggregateInitializerElement >> valUsingContext: aContext [
-  ^self val
+	^ self val
 
 
 ]

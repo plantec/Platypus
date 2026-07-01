@@ -56,7 +56,7 @@ PlatypusExpressStructure2PharoTranslater >> fileOutMethodSource: aSource classNa
 				className: aClassName
 				meta: isMeta.
 	self nextPutAllCrCr: categoryCode.
-	self nextPutAllCrCr: (BISimpleFormatter new format: (RBParser parseMethod: aSource)).
+	self nextPutAllCrCr: (RBConfigurableFormatter new format: (RBParser parseMethod: aSource)).
 	self nextPutAllCr: '! !'.
 
 ]

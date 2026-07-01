@@ -18,14 +18,14 @@ Class {
 	#name : #PltEntityDefinition,
 	#superclass : #PltNamedType,
 	#instVars : [
+		'independent',
+		'subtypes',
 		'uniquenessRules',
 		'instantiable',
 		'complex',
-		'supertypeConstraint',
-		'subtypes',
-		'independent',
+		'attributes',
 		'supertypes',
-		'attributes'
+		'supertypeConstraint'
 	],
 	#category : #'Platypus-PlatypusDictionarySchemaSchema'
 }
@@ -38,7 +38,7 @@ PltEntityDefinition class >> context [ ^ self schemaDefinition context
 
 { #category : #'platypus-generated-platypus-signature' }
 PltEntityDefinition class >> iso10303P11Translater [
-  ^'Platypus (c) LISYC EA3883, Universite de Bretagne occidentale. Brest.'
+	^ 'Platypus (c) LISYC EA3883, Universite de Bretagne occidentale. Brest.'
 
 
 ]
@@ -51,359 +51,363 @@ PltEntityDefinition class >> platypusMetaData [ 	^ self schemaDefinition metaDat
 
 { #category : #'platypus-generated-meta-data-accessing' }
 PltEntityDefinition class >> schemaDefinition [
-  ^PltPlatypusDictionarySchemaSchemaDefinition singleton
+	^ PltPlatypusDictionarySchemaSchemaDefinition singleton
 
 
 ]
 
 { #category : #'platypus-generated-meta-data-accessing' }
 PltEntityDefinition class >> schemaInstance [
-  ^PltPlatypusMetaSchemasSchemaInstance singleton
+	^ PltPlatypusMetaSchemasSchemaInstance singleton
 
 
 ]
 
 { #category : #'platypus-generated-platypus-signature' }
 PltEntityDefinition class >> translatedFromISO10303P11 [
-  ^true
+	^ true
 
 
 ]
 
 { #category : #'platypus-generated-platypus-signature' }
 PltEntityDefinition class >> vwNamespaceName [
-  ^#Platypus
+	^ #Platypus
 
 
 ]
 
 { #category : #'platypus-generated-visiting' }
 PltEntityDefinition >> accept: aVisitor [
-  ^aVisitor acceptEntityDefinition: self
+	^ aVisitor acceptEntityDefinition: self
 
 
 ]
 
 { #category : #'platypus-generated-deriving' }
 PltEntityDefinition >> accepted [
-  ^self acceptedUsingContext: self class context
+	^ self acceptedUsingContext: self class context
 
 
 ]
 
 { #category : #'platypus-generated-deriving' }
 PltEntityDefinition >> acceptedUsingContext: aContext [
-  ^self acceptedUsingContext: aContext receiver: self
+	^ self acceptedUsingContext: aContext receiver: self
 
 
 ]
 
 { #category : #'platypus-generated-deriving' }
 PltEntityDefinition >> acceptedUsingContext: aContext receiver: aReceiver [
-  ^aReceiver acceptEntityDefinitionUsingContext: aContext
+	^ aReceiver acceptEntityDefinitionUsingContext: aContext
 
 
 ]
 
 { #category : #'platypus-generated-accessing' }
 PltEntityDefinition >> attributes [
-  ^attributes
+	^ attributes
 
 
 ]
 
 { #category : #'platypus-generated-accessing' }
 PltEntityDefinition >> attributes: aListOfPltAttribute [
-  attributes := aListOfPltAttribute ifNil: [ OrderedCollection new ] ifNotNil: [ aListOfPltAttribute as: OrderedCollection ]
+	attributes := aListOfPltAttribute
+		ifNil: [ OrderedCollection new ]
+		ifNotNil: [ aListOfPltAttribute as: OrderedCollection ]
 
 
 ]
 
 { #category : #'platypus-generated-with-context-accessing' }
 PltEntityDefinition >> attributesUsingContext: aContext [
-  ^self attributes
+	^ self attributes
 
 
 ]
 
 { #category : #'platypus-generated-accessing' }
 PltEntityDefinition >> complex [
-  ^complex
+	^ complex
 
 
 ]
 
 { #category : #'platypus-generated-accessing' }
 PltEntityDefinition >> complex: aBoolean [
-  complex := aBoolean
+	complex := aBoolean
 
 
 ]
 
 { #category : #'platypus-generated-with-context-accessing' }
 PltEntityDefinition >> complexUsingContext: aContext [
-  ^self complex
+	^ self complex
 
 
 ]
 
 { #category : #'platypus-generated-copying' }
 PltEntityDefinition >> entityDefinitionCopyTo: another [
-  another fastSetSupertypeConstraint: self supertypeConstraint.
-  another fastSetSupertypes: self supertypes.
-  another fastSetAttributes: self attributes.
-  another fastSetUniquenessRules: self uniquenessRules.
-  another fastSetComplex: self complex.
-  another fastSetInstantiable: self instantiable.
-  another fastSetIndependent: self independent
+	another fastSetSupertypeConstraint: self supertypeConstraint.
+	another fastSetSupertypes: self supertypes.
+	another fastSetAttributes: self attributes.
+	another fastSetUniquenessRules: self uniquenessRules.
+	another fastSetComplex: self complex.
+	another fastSetInstantiable: self instantiable.
+	another fastSetIndependent: self independent
 
 
 ]
 
 { #category : #'platypus-generated-group-accessing' }
 PltEntityDefinition >> entityDefinitionFromValues: values [
-  | valuesloc |
-  valuesloc := values asOrderedCollection.
-  self setSupertypeConstraint: valuesloc removeFirst.
-  self setSupertypes: valuesloc removeFirst.
-  self setAttributes: valuesloc removeFirst.
-  self setUniquenessRules: valuesloc removeFirst.
-  self setComplex: valuesloc removeFirst.
-  self setInstantiable: valuesloc removeFirst.
-  self setIndependent: valuesloc removeFirst.
-  ^valuesloc
+	| valuesloc |
+	valuesloc := values asOrderedCollection.
+	self setSupertypeConstraint: valuesloc removeFirst.
+	self setSupertypes: valuesloc removeFirst.
+	self setAttributes: valuesloc removeFirst.
+	self setUniquenessRules: valuesloc removeFirst.
+	self setComplex: valuesloc removeFirst.
+	self setInstantiable: valuesloc removeFirst.
+	self setIndependent: valuesloc removeFirst.
+	^ valuesloc
 
 
 ]
 
 { #category : #'platypus-generated-group-accessing' }
 PltEntityDefinition >> entityDefinitionToValues: values [
-  values add: self supertypeConstraint.
-  values add: self supertypes.
-  values add: self attributes.
-  values add: self uniquenessRules.
-  values add: self complex.
-  values add: self instantiable.
-  values add: self independent.
-  ^values
+	values add: self supertypeConstraint.
+	values add: self supertypes.
+	values add: self attributes.
+	values add: self uniquenessRules.
+	values add: self complex.
+	values add: self instantiable.
+	values add: self independent.
+	^ values
 
 
 ]
 
 { #category : #'platypus-generated-fast-set-accessing' }
 PltEntityDefinition >> fastSetAttributes: aListOfPltAttribute [
-  attributes := aListOfPltAttribute
+	attributes := aListOfPltAttribute
 
 
 ]
 
 { #category : #'platypus-generated-fast-set-accessing' }
 PltEntityDefinition >> fastSetComplex: aBoolean [
-  complex := aBoolean
+	complex := aBoolean
 
 
 ]
 
 { #category : #'platypus-generated-fast-set-accessing' }
 PltEntityDefinition >> fastSetIndependent: aBoolean [
-  independent := aBoolean
+	independent := aBoolean
 
 
 ]
 
 { #category : #'platypus-generated-fast-set-accessing' }
 PltEntityDefinition >> fastSetInstantiable: aBoolean [
-  instantiable := aBoolean
+	instantiable := aBoolean
 
 
 ]
 
 { #category : #'platypus-generated-fast-set-accessing' }
 PltEntityDefinition >> fastSetSupertypeConstraint: aPltSupertypeConstraint [
-  supertypeConstraint := aPltSupertypeConstraint
+	supertypeConstraint := aPltSupertypeConstraint
 
 
 ]
 
 { #category : #'platypus-generated-fast-set-accessing' }
 PltEntityDefinition >> fastSetSupertypes: aListOfPltEntityDefinitionReference [
-  supertypes := aListOfPltEntityDefinitionReference
+	supertypes := aListOfPltEntityDefinitionReference
 
 
 ]
 
 { #category : #'platypus-generated-fast-set-accessing' }
 PltEntityDefinition >> fastSetUniquenessRules: aListOfPltUniquenessRule [
-  uniquenessRules := aListOfPltUniquenessRule
+	uniquenessRules := aListOfPltUniquenessRule
 
 
 ]
 
 { #category : #'platypus-generated-group-accessing' }
 PltEntityDefinition >> fromValues: values [
-  ^self entityDefinitionFromValues: (super fromValues: values)
+	^ self entityDefinitionFromValues: (super fromValues: values)
 
 
 ]
 
 { #category : #'platypus-generated-accessing' }
 PltEntityDefinition >> independent [
-  ^independent
+	^ independent
 
 
 ]
 
 { #category : #'platypus-generated-accessing' }
 PltEntityDefinition >> independent: aBoolean [
-  independent := aBoolean
+	independent := aBoolean
 
 
 ]
 
 { #category : #'platypus-generated-with-context-accessing' }
 PltEntityDefinition >> independentUsingContext: aContext [
-  ^self independent
+	^ self independent
 
 
 ]
 
 { #category : #'platypus-generated-accessing' }
 PltEntityDefinition >> instantiable [
-  ^instantiable
+	^ instantiable
 
 
 ]
 
 { #category : #'platypus-generated-accessing' }
 PltEntityDefinition >> instantiable: aBoolean [
-  instantiable := aBoolean
+	instantiable := aBoolean
 
 
 ]
 
 { #category : #'platypus-generated-with-context-accessing' }
 PltEntityDefinition >> instantiableUsingContext: aContext [
-  ^self instantiable
+	^ self instantiable
 
 
 ]
 
 { #category : #'platypus-generated-classifying' }
 PltEntityDefinition >> isPltEntityDefinition [
-  ^true
+	^ true
 
 
 ]
 
 { #category : #'platypus-generated-group-accessing' }
 PltEntityDefinition >> localFromValues: values [
-  ^self entityDefinitionFromValues: values
+	^ self entityDefinitionFromValues: values
 
 
 ]
 
 { #category : #'platypus-generated-group-accessing' }
 PltEntityDefinition >> localToValues: values [
-  ^self entityDefinitionToValues: values
+	^ self entityDefinitionToValues: values
 
 
 ]
 
 { #category : #'platypus-generated-copying' }
 PltEntityDefinition >> pltCopyGroup: aClassSymbol to: anObject [
-  self class name == aClassSymbol ifTrue: [ self pltCopyTo: anObject ] ifFalse: [ super pltCopyGroup: aClassSymbol to: anObject ]
+	self class name == aClassSymbol
+		ifTrue: [ self pltCopyTo: anObject ]
+		ifFalse: [ super pltCopyGroup: aClassSymbol to: anObject ]
 
 
 ]
 
 { #category : #'platypus-generated-copying' }
 PltEntityDefinition >> pltCopyTo: another [
-  super pltCopyTo: another.
-  self entityDefinitionCopyTo: another
+	super pltCopyTo: another.
+	self entityDefinitionCopyTo: another
 
 
 ]
 
 { #category : #'platypus-generated-copying' }
 PltEntityDefinition >> pltLocalCopyTo: another [
-  self entityDefinitionCopyTo: another
+	self entityDefinitionCopyTo: another
 
 
 ]
 
 { #category : #'platypus-generated-set-accessing' }
 PltEntityDefinition >> setAttributes: aListOfPltAttribute [
-  self attributes: aListOfPltAttribute
+	self attributes: aListOfPltAttribute
 
 
 ]
 
 { #category : #'platypus-generated-set-accessing' }
 PltEntityDefinition >> setComplex: aBoolean [
-  self complex: aBoolean
+	self complex: aBoolean
 
 
 ]
 
 { #category : #'platypus-generated-set-accessing' }
 PltEntityDefinition >> setIndependent: aBoolean [
-  self independent: aBoolean
+	self independent: aBoolean
 
 
 ]
 
 { #category : #'platypus-generated-set-accessing' }
 PltEntityDefinition >> setInstantiable: aBoolean [
-  self instantiable: aBoolean
+	self instantiable: aBoolean
 
 
 ]
 
 { #category : #'platypus-generated-set-accessing' }
 PltEntityDefinition >> setSupertypeConstraint: aPltSupertypeConstraint [
-  self supertypeConstraint: aPltSupertypeConstraint
+	self supertypeConstraint: aPltSupertypeConstraint
 
 
 ]
 
 { #category : #'platypus-generated-set-accessing' }
 PltEntityDefinition >> setSupertypes: aListOfPltEntityDefinitionReference [
-  self supertypes: aListOfPltEntityDefinitionReference
+	self supertypes: aListOfPltEntityDefinitionReference
 
 
 ]
 
 { #category : #'platypus-generated-set-accessing' }
 PltEntityDefinition >> setUniquenessRules: aListOfPltUniquenessRule [
-  self uniquenessRules: aListOfPltUniquenessRule
+	self uniquenessRules: aListOfPltUniquenessRule
 
 
 ]
 
 { #category : #'platypus-generated-initializing' }
 PltEntityDefinition >> stepInitialize [
-  super stepInitialize.
-  supertypeConstraint := nil.
-  supertypes := OrderedCollection new.
-  attributes := OrderedCollection new.
-  uniquenessRules := OrderedCollection new.
-  complex := false.
-  instantiable := false.
-  independent := false
+	super stepInitialize.
+	supertypeConstraint := nil.
+	supertypes := OrderedCollection new.
+	attributes := OrderedCollection new.
+	uniquenessRules := OrderedCollection new.
+	complex := false.
+	instantiable := false.
+	independent := false
 
 
 ]
 
 { #category : #'platypus-generated-accessing' }
 PltEntityDefinition >> supertypeConstraint [
-  ^supertypeConstraint
+	^ supertypeConstraint
 
 
 ]
 
 { #category : #'platypus-generated-accessing' }
 PltEntityDefinition >> supertypeConstraint: aPltSupertypeConstraint [
-  supertypeConstraint := aPltSupertypeConstraint
+	supertypeConstraint := aPltSupertypeConstraint
 
 
 ]
@@ -416,56 +420,60 @@ PltEntityDefinition >> supertypeConstraint: aPltSupertypeConstraint supertypes: 
 
 { #category : #'platypus-generated-with-context-accessing' }
 PltEntityDefinition >> supertypeConstraintUsingContext: aContext [
-  ^self supertypeConstraint
+	^ self supertypeConstraint
 
 
 ]
 
 { #category : #'platypus-generated-accessing' }
 PltEntityDefinition >> supertypes [
-  ^supertypes
+	^ supertypes
 
 
 ]
 
 { #category : #'platypus-generated-accessing' }
 PltEntityDefinition >> supertypes: aListOfPltEntityDefinitionReference [
-  supertypes := aListOfPltEntityDefinitionReference ifNil: [ OrderedCollection new ] ifNotNil: [ aListOfPltEntityDefinitionReference as: OrderedCollection ]
+	supertypes := aListOfPltEntityDefinitionReference
+		ifNil: [ OrderedCollection new ]
+		ifNotNil: [ aListOfPltEntityDefinitionReference as: OrderedCollection ]
 
 
 ]
 
 { #category : #'platypus-generated-with-context-accessing' }
 PltEntityDefinition >> supertypesUsingContext: aContext [
-  ^self supertypes
+	^ self supertypes
 
 
 ]
 
 { #category : #'platypus-generated-group-accessing' }
 PltEntityDefinition >> toValues: values [
-  ^self entityDefinitionToValues: (super toValues: values)
+	^ self entityDefinitionToValues: (super toValues: values)
 
 
 ]
 
 { #category : #'platypus-generated-accessing' }
 PltEntityDefinition >> uniquenessRules [
-  ^uniquenessRules
+	^ uniquenessRules
 
 
 ]
 
 { #category : #'platypus-generated-accessing' }
 PltEntityDefinition >> uniquenessRules: aListOfPltUniquenessRule [
-  uniquenessRules := aListOfPltUniquenessRule ifNil: [ OrderedCollection new ] ifNotNil: [ aListOfPltUniquenessRule as: OrderedCollection ]
+	uniquenessRules := aListOfPltUniquenessRule
+		ifNil: [ OrderedCollection new ]
+		ifNotNil: [ aListOfPltUniquenessRule as: OrderedCollection ]
 
 
 ]
 
 { #category : #'platypus-generated-with-context-accessing' }
 PltEntityDefinition >> uniquenessRulesUsingContext: aContext [
-  ^self uniquenessRules
+	^ self uniquenessRules
 
 
 ]

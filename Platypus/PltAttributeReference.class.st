@@ -26,7 +26,7 @@ PltAttributeReference class >> context [ ^ self schemaDefinition context
 
 { #category : #'platypus-generated-platypus-signature' }
 PltAttributeReference class >> iso10303P11Translater [
-  ^'Platypus (c) LISYC EA3883, Universite de Bretagne occidentale. Brest.'
+	^ 'Platypus (c) LISYC EA3883, Universite de Bretagne occidentale. Brest.'
 
 
 ]
@@ -39,183 +39,185 @@ PltAttributeReference class >> platypusMetaData [ 	^ self schemaDefinition metaD
 
 { #category : #'platypus-generated-meta-data-accessing' }
 PltAttributeReference class >> schemaDefinition [
-  ^PltPlatypusDictionarySchemaSchemaDefinition singleton
+	^ PltPlatypusDictionarySchemaSchemaDefinition singleton
 
 
 ]
 
 { #category : #'platypus-generated-meta-data-accessing' }
 PltAttributeReference class >> schemaInstance [
-  ^PltPlatypusMetaSchemasSchemaInstance singleton
+	^ PltPlatypusMetaSchemasSchemaInstance singleton
 
 
 ]
 
 { #category : #'platypus-generated-platypus-signature' }
 PltAttributeReference class >> translatedFromISO10303P11 [
-  ^true
+	^ true
 
 
 ]
 
 { #category : #'platypus-generated-platypus-signature' }
 PltAttributeReference class >> vwNamespaceName [
-  ^#Platypus
+	^ #Platypus
 
 
 ]
 
 { #category : #'platypus-generated-visiting' }
 PltAttributeReference >> accept: aVisitor [
-  ^aVisitor acceptAttributeReference: self
+	^ aVisitor acceptAttributeReference: self
 
 
 ]
 
 { #category : #'platypus-generated-deriving' }
 PltAttributeReference >> accepted [
-  ^self acceptedUsingContext: self class context
+	^ self acceptedUsingContext: self class context
 
 
 ]
 
 { #category : #'platypus-generated-deriving' }
 PltAttributeReference >> acceptedUsingContext: aContext [
-  ^self acceptedUsingContext: aContext receiver: self
+	^ self acceptedUsingContext: aContext receiver: self
 
 
 ]
 
 { #category : #'platypus-generated-deriving' }
 PltAttributeReference >> acceptedUsingContext: aContext receiver: aReceiver [
-  ^aReceiver acceptAttributeReferenceUsingContext: aContext
+	^ aReceiver acceptAttributeReferenceUsingContext: aContext
 
 
 ]
 
 { #category : #'platypus-generated-copying' }
 PltAttributeReference >> attributeReferenceCopyTo: another [
-  another fastSetRef: self ref.
-  another fastSetEntityRef: self entityRef
+	another fastSetRef: self ref.
+	another fastSetEntityRef: self entityRef
 
 
 ]
 
 { #category : #'platypus-generated-group-accessing' }
 PltAttributeReference >> attributeReferenceFromValues: values [
-  | valuesloc |
-  valuesloc := values asOrderedCollection.
-  self setRef: valuesloc removeFirst.
-  self setEntityRef: valuesloc removeFirst.
-  ^valuesloc
+	| valuesloc |
+	valuesloc := values asOrderedCollection.
+	self setRef: valuesloc removeFirst.
+	self setEntityRef: valuesloc removeFirst.
+	^ valuesloc
 
 
 ]
 
 { #category : #'platypus-generated-group-accessing' }
 PltAttributeReference >> attributeReferenceToValues: values [
-  values add: self ref.
-  values add: self entityRef.
-  ^values
+	values add: self ref.
+	values add: self entityRef.
+	^ values
 
 
 ]
 
 { #category : #'platypus-generated-accessing' }
 PltAttributeReference >> entityRef [
-  ^entityRef
+	^ entityRef
 
 
 ]
 
 { #category : #'platypus-generated-accessing' }
 PltAttributeReference >> entityRef: aPltEntityDefinitionReference [
-  entityRef := aPltEntityDefinitionReference
+	entityRef := aPltEntityDefinitionReference
 
 
 ]
 
 { #category : #'platypus-generated-with-context-accessing' }
 PltAttributeReference >> entityRefUsingContext: aContext [
-  ^self entityRef
+	^ self entityRef
 
 
 ]
 
 { #category : #'platypus-generated-fast-set-accessing' }
 PltAttributeReference >> fastSetEntityRef: aPltEntityDefinitionReference [
-  entityRef := aPltEntityDefinitionReference
+	entityRef := aPltEntityDefinitionReference
 
 
 ]
 
 { #category : #'platypus-generated-fast-set-accessing' }
 PltAttributeReference >> fastSetRef: aPltAttribute [
-  ref := aPltAttribute
+	ref := aPltAttribute
 
 
 ]
 
 { #category : #'platypus-generated-group-accessing' }
 PltAttributeReference >> fromValues: values [
-  ^self attributeReferenceFromValues: (super fromValues: values)
+	^ self attributeReferenceFromValues: (super fromValues: values)
 
 
 ]
 
 { #category : #'platypus-generated-classifying' }
 PltAttributeReference >> isPltAttributeReference [
-  ^true
+	^ true
 
 
 ]
 
 { #category : #'platypus-generated-group-accessing' }
 PltAttributeReference >> localFromValues: values [
-  ^self attributeReferenceFromValues: values
+	^ self attributeReferenceFromValues: values
 
 
 ]
 
 { #category : #'platypus-generated-group-accessing' }
 PltAttributeReference >> localToValues: values [
-  ^self attributeReferenceToValues: values
+	^ self attributeReferenceToValues: values
 
 
 ]
 
 { #category : #'platypus-generated-copying' }
 PltAttributeReference >> pltCopyGroup: aClassSymbol to: anObject [
-  self class name == aClassSymbol ifTrue: [ self pltCopyTo: anObject ] ifFalse: [ super pltCopyGroup: aClassSymbol to: anObject ]
+	self class name == aClassSymbol
+		ifTrue: [ self pltCopyTo: anObject ]
+		ifFalse: [ super pltCopyGroup: aClassSymbol to: anObject ]
 
 
 ]
 
 { #category : #'platypus-generated-copying' }
 PltAttributeReference >> pltCopyTo: another [
-  super pltCopyTo: another.
-  self attributeReferenceCopyTo: another
+	super pltCopyTo: another.
+	self attributeReferenceCopyTo: another
 
 
 ]
 
 { #category : #'platypus-generated-copying' }
 PltAttributeReference >> pltLocalCopyTo: another [
-  self attributeReferenceCopyTo: another
+	self attributeReferenceCopyTo: another
 
 
 ]
 
 { #category : #'platypus-generated-accessing' }
 PltAttributeReference >> ref [
-  ^ref
+	^ ref
 
 
 ]
 
 { #category : #'platypus-generated-accessing' }
 PltAttributeReference >> ref: aPltAttribute [
-  ref := aPltAttribute
+	ref := aPltAttribute
 
 
 ]
@@ -228,37 +230,37 @@ PltAttributeReference >> ref: aPltAttribute entityRef: aPltEntityDefinitionRefer
 
 { #category : #'platypus-generated-with-context-accessing' }
 PltAttributeReference >> refUsingContext: aContext [
-  ^self ref
+	^ self ref
 
 
 ]
 
 { #category : #'platypus-generated-set-accessing' }
 PltAttributeReference >> setEntityRef: aPltEntityDefinitionReference [
-  self entityRef: aPltEntityDefinitionReference
+	self entityRef: aPltEntityDefinitionReference
 
 
 ]
 
 { #category : #'platypus-generated-set-accessing' }
 PltAttributeReference >> setRef: aPltAttribute [
-  self ref: aPltAttribute
+	self ref: aPltAttribute
 
 
 ]
 
 { #category : #'platypus-generated-initializing' }
 PltAttributeReference >> stepInitialize [
-  super stepInitialize.
-  ref := nil.
-  entityRef := nil
+	super stepInitialize.
+	ref := nil.
+	entityRef := nil
 
 
 ]
 
 { #category : #'platypus-generated-group-accessing' }
 PltAttributeReference >> toValues: values [
-  ^self attributeReferenceToValues: (super toValues: values)
+	^ self attributeReferenceToValues: (super toValues: values)
 
 
 ]

@@ -16,13 +16,13 @@ Class {
 	#name : #PltContextDefinition,
 	#superclass : #PltDictionaryInstance,
 	#instVars : [
-		'entities',
+		'namedTypesCache',
+		'types',
 		'constants',
 		'identifiersCache',
-		'types',
-		'namedTypesCache',
 		'name',
-		'algorithmes'
+		'algorithmes',
+		'entities'
 	],
 	#category : #'Platypus-PlatypusDictionarySchemaSchema'
 }
@@ -35,7 +35,7 @@ PltContextDefinition class >> context [ ^ self schemaDefinition context
 
 { #category : #'platypus-generated-platypus-signature' }
 PltContextDefinition class >> iso10303P11Translater [
-  ^'Platypus (c) LISYC EA3883, Universite de Bretagne occidentale. Brest.'
+	^ 'Platypus (c) LISYC EA3883, Universite de Bretagne occidentale. Brest.'
 
 
 ]
@@ -48,222 +48,228 @@ PltContextDefinition class >> platypusMetaData [ 	^ self schemaDefinition metaDa
 
 { #category : #'platypus-generated-meta-data-accessing' }
 PltContextDefinition class >> schemaDefinition [
-  ^PltPlatypusDictionarySchemaSchemaDefinition singleton
+	^ PltPlatypusDictionarySchemaSchemaDefinition singleton
 
 
 ]
 
 { #category : #'platypus-generated-meta-data-accessing' }
 PltContextDefinition class >> schemaInstance [
-  ^PltPlatypusMetaSchemasSchemaInstance singleton
+	^ PltPlatypusMetaSchemasSchemaInstance singleton
 
 
 ]
 
 { #category : #'platypus-generated-platypus-signature' }
 PltContextDefinition class >> translatedFromISO10303P11 [
-  ^true
+	^ true
 
 
 ]
 
 { #category : #'platypus-generated-platypus-signature' }
 PltContextDefinition class >> vwNamespaceName [
-  ^#Platypus
+	^ #Platypus
 
 
 ]
 
 { #category : #'platypus-generated-visiting' }
 PltContextDefinition >> accept: aVisitor [
-  ^aVisitor acceptContextDefinition: self
+	^ aVisitor acceptContextDefinition: self
 
 
 ]
 
 { #category : #'platypus-generated-accessing' }
 PltContextDefinition >> algorithmes [
-  ^algorithmes
+	^ algorithmes
 
 
 ]
 
 { #category : #'platypus-generated-accessing' }
 PltContextDefinition >> algorithmes: aListOfPltAlgorithmDeclaration [
-  algorithmes := aListOfPltAlgorithmDeclaration ifNil: [ OrderedCollection new ] ifNotNil: [ aListOfPltAlgorithmDeclaration as: OrderedCollection ]
+	algorithmes := aListOfPltAlgorithmDeclaration
+		ifNil: [ OrderedCollection new ]
+		ifNotNil: [ aListOfPltAlgorithmDeclaration as: OrderedCollection ]
 
 
 ]
 
 { #category : #'platypus-generated-with-context-accessing' }
 PltContextDefinition >> algorithmesUsingContext: aContext [
-  ^self algorithmes
+	^ self algorithmes
 
 
 ]
 
 { #category : #'platypus-generated-accessing' }
 PltContextDefinition >> constants [
-  ^constants
+	^ constants
 
 
 ]
 
 { #category : #'platypus-generated-accessing' }
 PltContextDefinition >> constants: aListOfPltConstantDefinition [
-  constants := aListOfPltConstantDefinition ifNil: [ OrderedCollection new ] ifNotNil: [ aListOfPltConstantDefinition as: OrderedCollection ]
+	constants := aListOfPltConstantDefinition
+		ifNil: [ OrderedCollection new ]
+		ifNotNil: [ aListOfPltConstantDefinition as: OrderedCollection ]
 
 
 ]
 
 { #category : #'platypus-generated-with-context-accessing' }
 PltContextDefinition >> constantsUsingContext: aContext [
-  ^self constants
+	^ self constants
 
 
 ]
 
 { #category : #'platypus-generated-copying' }
 PltContextDefinition >> contextDefinitionCopyTo: another [
-  another fastSetName: self name.
-  another fastSetConstants: self constants.
-  another fastSetTypes: self types.
-  another fastSetEntities: self entities.
-  another fastSetAlgorithmes: self algorithmes.
-  another fastSetOwner: self owner
+	another fastSetName: self name.
+	another fastSetConstants: self constants.
+	another fastSetTypes: self types.
+	another fastSetEntities: self entities.
+	another fastSetAlgorithmes: self algorithmes.
+	another fastSetOwner: self owner
 
 
 ]
 
 { #category : #'platypus-generated-group-accessing' }
 PltContextDefinition >> contextDefinitionFromValues: values [
-  | valuesloc |
-  valuesloc := values asOrderedCollection.
-  self setName: valuesloc removeFirst.
-  self setConstants: valuesloc removeFirst.
-  self setTypes: valuesloc removeFirst.
-  self setEntities: valuesloc removeFirst.
-  self setAlgorithmes: valuesloc removeFirst.
-  self setOwner: valuesloc removeFirst.
-  ^valuesloc
+	| valuesloc |
+	valuesloc := values asOrderedCollection.
+	self setName: valuesloc removeFirst.
+	self setConstants: valuesloc removeFirst.
+	self setTypes: valuesloc removeFirst.
+	self setEntities: valuesloc removeFirst.
+	self setAlgorithmes: valuesloc removeFirst.
+	self setOwner: valuesloc removeFirst.
+	^ valuesloc
 
 
 ]
 
 { #category : #'platypus-generated-group-accessing' }
 PltContextDefinition >> contextDefinitionToValues: values [
-  values add: self name.
-  values add: self constants.
-  values add: self types.
-  values add: self entities.
-  values add: self algorithmes.
-  values add: self owner.
-  ^values
+	values add: self name.
+	values add: self constants.
+	values add: self types.
+	values add: self entities.
+	values add: self algorithmes.
+	values add: self owner.
+	^ values
 
 
 ]
 
 { #category : #'platypus-generated-accessing' }
 PltContextDefinition >> entities [
-  ^entities
+	^ entities
 
 
 ]
 
 { #category : #'platypus-generated-accessing' }
 PltContextDefinition >> entities: aListOfPltEntityDefinition [
-  entities := aListOfPltEntityDefinition ifNil: [ OrderedCollection new ] ifNotNil: [ aListOfPltEntityDefinition as: OrderedCollection ]
+	entities := aListOfPltEntityDefinition
+		ifNil: [ OrderedCollection new ]
+		ifNotNil: [ aListOfPltEntityDefinition as: OrderedCollection ]
 
 
 ]
 
 { #category : #'platypus-generated-with-context-accessing' }
 PltContextDefinition >> entitiesUsingContext: aContext [
-  ^self entities
+	^ self entities
 
 
 ]
 
 { #category : #'platypus-generated-fast-set-accessing' }
 PltContextDefinition >> fastSetAlgorithmes: aListOfPltAlgorithmDeclaration [
-  algorithmes := aListOfPltAlgorithmDeclaration
+	algorithmes := aListOfPltAlgorithmDeclaration
 
 
 ]
 
 { #category : #'platypus-generated-fast-set-accessing' }
 PltContextDefinition >> fastSetConstants: aListOfPltConstantDefinition [
-  constants := aListOfPltConstantDefinition
+	constants := aListOfPltConstantDefinition
 
 
 ]
 
 { #category : #'platypus-generated-fast-set-accessing' }
 PltContextDefinition >> fastSetEntities: aListOfPltEntityDefinition [
-  entities := aListOfPltEntityDefinition
+	entities := aListOfPltEntityDefinition
 
 
 ]
 
 { #category : #'platypus-generated-fast-set-accessing' }
 PltContextDefinition >> fastSetName: aString [
-  name := aString
+	name := aString
 
 
 ]
 
 { #category : #'platypus-generated-fast-set-accessing' }
 PltContextDefinition >> fastSetOwner: aPltContextOwner [
-  owner := aPltContextOwner
+	owner := aPltContextOwner
 
 
 ]
 
 { #category : #'platypus-generated-fast-set-accessing' }
 PltContextDefinition >> fastSetTypes: aListOfPltDefinedType [
-  types := aListOfPltDefinedType
+	types := aListOfPltDefinedType
 
 
 ]
 
 { #category : #'platypus-generated-group-accessing' }
 PltContextDefinition >> fromValues: values [
-  ^self contextDefinitionFromValues: (super fromValues: values)
+	^ self contextDefinitionFromValues: (super fromValues: values)
 
 
 ]
 
 { #category : #'platypus-generated-classifying' }
 PltContextDefinition >> isPltContextDefinition [
-  ^true
+	^ true
 
 
 ]
 
 { #category : #'platypus-generated-group-accessing' }
 PltContextDefinition >> localFromValues: values [
-  ^self contextDefinitionFromValues: values
+	^ self contextDefinitionFromValues: values
 
 
 ]
 
 { #category : #'platypus-generated-group-accessing' }
 PltContextDefinition >> localToValues: values [
-  ^self contextDefinitionToValues: values
+	^ self contextDefinitionToValues: values
 
 
 ]
 
 { #category : #'platypus-generated-accessing' }
 PltContextDefinition >> name [
-  ^name
+	^ name
 
 
 ]
 
 { #category : #'platypus-generated-accessing' }
 PltContextDefinition >> name: aString [
-  name := aString
+	name := aString
 
 
 ]
@@ -276,133 +282,137 @@ PltContextDefinition >> name: aString constants: aListOfPltConstantDefinition ty
 
 { #category : #'platypus-generated-with-context-accessing' }
 PltContextDefinition >> nameUsingContext: aContext [
-  ^self name
+	^ self name
 
 
 ]
 
 { #category : #'platypus-generated-accessing' }
 PltContextDefinition >> owner [
-  ^owner
+	^ owner
 
 
 ]
 
 { #category : #'platypus-generated-accessing' }
 PltContextDefinition >> owner: aPltContextOwner [
-  owner := aPltContextOwner
+	owner := aPltContextOwner
 
 
 ]
 
 { #category : #'platypus-generated-with-context-accessing' }
 PltContextDefinition >> ownerUsingContext: aContext [
-  ^self owner
+	^ self owner
 
 
 ]
 
 { #category : #'platypus-generated-copying' }
 PltContextDefinition >> pltCopyGroup: aClassSymbol to: anObject [
-  self class name == aClassSymbol ifTrue: [ self pltCopyTo: anObject ] ifFalse: [ super pltCopyGroup: aClassSymbol to: anObject ]
+	self class name == aClassSymbol
+		ifTrue: [ self pltCopyTo: anObject ]
+		ifFalse: [ super pltCopyGroup: aClassSymbol to: anObject ]
 
 
 ]
 
 { #category : #'platypus-generated-copying' }
 PltContextDefinition >> pltCopyTo: another [
-  super pltCopyTo: another.
-  self contextDefinitionCopyTo: another
+	super pltCopyTo: another.
+	self contextDefinitionCopyTo: another
 
 
 ]
 
 { #category : #'platypus-generated-copying' }
 PltContextDefinition >> pltLocalCopyTo: another [
-  self contextDefinitionCopyTo: another
+	self contextDefinitionCopyTo: another
 
 
 ]
 
 { #category : #'platypus-generated-set-accessing' }
 PltContextDefinition >> setAlgorithmes: aListOfPltAlgorithmDeclaration [
-  self algorithmes: aListOfPltAlgorithmDeclaration
+	self algorithmes: aListOfPltAlgorithmDeclaration
 
 
 ]
 
 { #category : #'platypus-generated-set-accessing' }
 PltContextDefinition >> setConstants: aListOfPltConstantDefinition [
-  self constants: aListOfPltConstantDefinition
+	self constants: aListOfPltConstantDefinition
 
 
 ]
 
 { #category : #'platypus-generated-set-accessing' }
 PltContextDefinition >> setEntities: aListOfPltEntityDefinition [
-  self entities: aListOfPltEntityDefinition
+	self entities: aListOfPltEntityDefinition
 
 
 ]
 
 { #category : #'platypus-generated-set-accessing' }
 PltContextDefinition >> setName: aString [
-  self name: aString
+	self name: aString
 
 
 ]
 
 { #category : #'platypus-generated-set-accessing' }
 PltContextDefinition >> setOwner: aPltContextOwner [
-  self owner: aPltContextOwner
+	self owner: aPltContextOwner
 
 
 ]
 
 { #category : #'platypus-generated-set-accessing' }
 PltContextDefinition >> setTypes: aListOfPltDefinedType [
-  self types: aListOfPltDefinedType
+	self types: aListOfPltDefinedType
 
 
 ]
 
 { #category : #'platypus-generated-initializing' }
 PltContextDefinition >> stepInitialize [
-  super stepInitialize.
-  name := ''.
-  constants := OrderedCollection new.
-  types := OrderedCollection new.
-  entities := OrderedCollection new.
-  algorithmes := OrderedCollection new.
-  owner := nil
+	super stepInitialize.
+	name := ''.
+	constants := OrderedCollection new.
+	types := OrderedCollection new.
+	entities := OrderedCollection new.
+	algorithmes := OrderedCollection new.
+	owner := nil
 
 
 ]
 
 { #category : #'platypus-generated-group-accessing' }
 PltContextDefinition >> toValues: values [
-  ^self contextDefinitionToValues: (super toValues: values)
+	^ self contextDefinitionToValues: (super toValues: values)
 
 
 ]
 
 { #category : #'platypus-generated-accessing' }
 PltContextDefinition >> types [
-  ^types
+	^ types
 
 
 ]
 
 { #category : #'platypus-generated-accessing' }
 PltContextDefinition >> types: aListOfPltDefinedType [
-  types := aListOfPltDefinedType ifNil: [ OrderedCollection new ] ifNotNil: [ aListOfPltDefinedType as: OrderedCollection ]
+	types := aListOfPltDefinedType
+		ifNil: [ OrderedCollection new ]
+		ifNotNil: [ aListOfPltDefinedType as: OrderedCollection ]
 
 
 ]
 
 { #category : #'platypus-generated-with-context-accessing' }
 PltContextDefinition >> typesUsingContext: aContext [
-  ^self types
+	^ self types
 
 
 ]

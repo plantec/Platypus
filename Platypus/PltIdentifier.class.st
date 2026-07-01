@@ -12,9 +12,9 @@ Class {
 	#name : #PltIdentifier,
 	#superclass : #PltUnaryExpression,
 	#instVars : [
-		'parameters',
-		'contextsStack',
 		'name',
+		'contextsStack',
+		'parameters',
 		'ref'
 	],
 	#category : #'Platypus-PlatypusExpressionsSchemaSchema'
@@ -28,7 +28,7 @@ PltIdentifier class >> context [ ^ self schemaDefinition context
 
 { #category : #'platypus-generated-platypus-signature' }
 PltIdentifier class >> iso10303P11Translater [
-  ^'Platypus (c) LISYC EA3883, Universite de Bretagne occidentale. Brest.'
+	^ 'Platypus (c) LISYC EA3883, Universite de Bretagne occidentale. Brest.'
 
 
 ]
@@ -41,129 +41,129 @@ PltIdentifier class >> platypusMetaData [ 	^ self schemaDefinition metaDataFor: 
 
 { #category : #'platypus-generated-meta-data-accessing' }
 PltIdentifier class >> schemaDefinition [
-  ^PltPlatypusExpressionsSchemaSchemaDefinition singleton
+	^ PltPlatypusExpressionsSchemaSchemaDefinition singleton
 
 
 ]
 
 { #category : #'platypus-generated-meta-data-accessing' }
 PltIdentifier class >> schemaInstance [
-  ^PltPlatypusMetaSchemasSchemaInstance singleton
+	^ PltPlatypusMetaSchemasSchemaInstance singleton
 
 
 ]
 
 { #category : #'platypus-generated-platypus-signature' }
 PltIdentifier class >> translatedFromISO10303P11 [
-  ^true
+	^ true
 
 
 ]
 
 { #category : #'platypus-generated-platypus-signature' }
 PltIdentifier class >> vwNamespaceName [
-  ^#Platypus
+	^ #Platypus
 
 
 ]
 
 { #category : #'platypus-generated-visiting' }
 PltIdentifier >> accept: aVisitor [
-  ^aVisitor acceptIdentifier: self
+	^ aVisitor acceptIdentifier: self
 
 
 ]
 
 { #category : #'platypus-generated-fast-set-accessing' }
 PltIdentifier >> fastSetName: aString [
-  name := aString
+	name := aString
 
 
 ]
 
 { #category : #'platypus-generated-fast-set-accessing' }
 PltIdentifier >> fastSetParameters: aListOfPltExpression [
-  parameters := aListOfPltExpression
+	parameters := aListOfPltExpression
 
 
 ]
 
 { #category : #'platypus-generated-fast-set-accessing' }
 PltIdentifier >> fastSetRef: aPltDictionaryInstance [
-  ref := aPltDictionaryInstance
+	ref := aPltDictionaryInstance
 
 
 ]
 
 { #category : #'platypus-generated-group-accessing' }
 PltIdentifier >> fromValues: values [
-  ^self identifierFromValues: (super fromValues: values)
+	^ self identifierFromValues: (super fromValues: values)
 
 
 ]
 
 { #category : #'platypus-generated-copying' }
 PltIdentifier >> identifierCopyTo: another [
-  another fastSetName: self name.
-  another fastSetRef: self ref.
-  another fastSetParameters: self parameters
+	another fastSetName: self name.
+	another fastSetRef: self ref.
+	another fastSetParameters: self parameters
 
 
 ]
 
 { #category : #'platypus-generated-group-accessing' }
 PltIdentifier >> identifierFromValues: values [
-  | valuesloc |
-  valuesloc := values asOrderedCollection.
-  self setName: valuesloc removeFirst.
-  self setRef: valuesloc removeFirst.
-  self setParameters: valuesloc removeFirst.
-  ^valuesloc
+	| valuesloc |
+	valuesloc := values asOrderedCollection.
+	self setName: valuesloc removeFirst.
+	self setRef: valuesloc removeFirst.
+	self setParameters: valuesloc removeFirst.
+	^ valuesloc
 
 
 ]
 
 { #category : #'platypus-generated-group-accessing' }
 PltIdentifier >> identifierToValues: values [
-  values add: self name.
-  values add: self ref.
-  values add: self parameters.
-  ^values
+	values add: self name.
+	values add: self ref.
+	values add: self parameters.
+	^ values
 
 
 ]
 
 { #category : #'platypus-generated-classifying' }
 PltIdentifier >> isPltIdentifier [
-  ^true
+	^ true
 
 
 ]
 
 { #category : #'platypus-generated-group-accessing' }
 PltIdentifier >> localFromValues: values [
-  ^self identifierFromValues: values
+	^ self identifierFromValues: values
 
 
 ]
 
 { #category : #'platypus-generated-group-accessing' }
 PltIdentifier >> localToValues: values [
-  ^self identifierToValues: values
+	^ self identifierToValues: values
 
 
 ]
 
 { #category : #'platypus-generated-accessing' }
 PltIdentifier >> name [
-  ^name
+	^ name
 
 
 ]
 
 { #category : #'platypus-generated-accessing' }
 PltIdentifier >> name: aString [
-  name := aString
+	name := aString
 
 
 ]
@@ -176,109 +176,113 @@ PltIdentifier >> name: aString ref: aPltDictionaryInstance parameters: aListOfPl
 
 { #category : #'platypus-generated-with-context-accessing' }
 PltIdentifier >> nameUsingContext: aContext [
-  ^self name
+	^ self name
 
 
 ]
 
 { #category : #'platypus-generated-accessing' }
 PltIdentifier >> parameters [
-  ^parameters
+	^ parameters
 
 
 ]
 
 { #category : #'platypus-generated-accessing' }
 PltIdentifier >> parameters: aListOfPltExpression [
-  parameters := aListOfPltExpression ifNil: [ OrderedCollection new ] ifNotNil: [ aListOfPltExpression as: OrderedCollection ]
+	parameters := aListOfPltExpression
+		ifNil: [ OrderedCollection new ]
+		ifNotNil: [ aListOfPltExpression as: OrderedCollection ]
 
 
 ]
 
 { #category : #'platypus-generated-with-context-accessing' }
 PltIdentifier >> parametersUsingContext: aContext [
-  ^self parameters
+	^ self parameters
 
 
 ]
 
 { #category : #'platypus-generated-copying' }
 PltIdentifier >> pltCopyGroup: aClassSymbol to: anObject [
-  self class name == aClassSymbol ifTrue: [ self pltCopyTo: anObject ] ifFalse: [ super pltCopyGroup: aClassSymbol to: anObject ]
+	self class name == aClassSymbol
+		ifTrue: [ self pltCopyTo: anObject ]
+		ifFalse: [ super pltCopyGroup: aClassSymbol to: anObject ]
 
 
 ]
 
 { #category : #'platypus-generated-copying' }
 PltIdentifier >> pltCopyTo: another [
-  super pltCopyTo: another.
-  self identifierCopyTo: another
+	super pltCopyTo: another.
+	self identifierCopyTo: another
 
 
 ]
 
 { #category : #'platypus-generated-copying' }
 PltIdentifier >> pltLocalCopyTo: another [
-  self identifierCopyTo: another
+	self identifierCopyTo: another
 
 
 ]
 
 { #category : #'platypus-generated-accessing' }
 PltIdentifier >> ref [
-  ^ref
+	^ ref
 
 
 ]
 
 { #category : #'platypus-generated-accessing' }
 PltIdentifier >> ref: aPltDictionaryInstance [
-  ref := aPltDictionaryInstance
+	ref := aPltDictionaryInstance
 
 
 ]
 
 { #category : #'platypus-generated-with-context-accessing' }
 PltIdentifier >> refUsingContext: aContext [
-  ^self ref
+	^ self ref
 
 
 ]
 
 { #category : #'platypus-generated-set-accessing' }
 PltIdentifier >> setName: aString [
-  self name: aString
+	self name: aString
 
 
 ]
 
 { #category : #'platypus-generated-set-accessing' }
 PltIdentifier >> setParameters: aListOfPltExpression [
-  self parameters: aListOfPltExpression
+	self parameters: aListOfPltExpression
 
 
 ]
 
 { #category : #'platypus-generated-set-accessing' }
 PltIdentifier >> setRef: aPltDictionaryInstance [
-  self ref: aPltDictionaryInstance
+	self ref: aPltDictionaryInstance
 
 
 ]
 
 { #category : #'platypus-generated-initializing' }
 PltIdentifier >> stepInitialize [
-  super stepInitialize.
-  name := ''.
-  ref := nil.
-  parameters := nil
+	super stepInitialize.
+	name := ''.
+	ref := nil.
+	parameters := nil
 
 
 ]
 
 { #category : #'platypus-generated-group-accessing' }
 PltIdentifier >> toValues: values [
-  ^self identifierToValues: (super toValues: values)
+	^ self identifierToValues: (super toValues: values)
 
 
 ]

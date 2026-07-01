@@ -28,7 +28,7 @@ PltParameterDefinition class >> context [ ^ self schemaDefinition context
 
 { #category : #'platypus-generated-platypus-signature' }
 PltParameterDefinition class >> iso10303P11Translater [
-  ^'Platypus (c) LISYC EA3883, Universite de Bretagne occidentale. Brest.'
+	^ 'Platypus (c) LISYC EA3883, Universite de Bretagne occidentale. Brest.'
 
 
 ]
@@ -41,168 +41,168 @@ PltParameterDefinition class >> platypusMetaData [ 	^ self schemaDefinition meta
 
 { #category : #'platypus-generated-meta-data-accessing' }
 PltParameterDefinition class >> schemaDefinition [
-  ^PltPlatypusDictionarySchemaSchemaDefinition singleton
+	^ PltPlatypusDictionarySchemaSchemaDefinition singleton
 
 
 ]
 
 { #category : #'platypus-generated-meta-data-accessing' }
 PltParameterDefinition class >> schemaInstance [
-  ^PltPlatypusMetaSchemasSchemaInstance singleton
+	^ PltPlatypusMetaSchemasSchemaInstance singleton
 
 
 ]
 
 { #category : #'platypus-generated-platypus-signature' }
 PltParameterDefinition class >> translatedFromISO10303P11 [
-  ^true
+	^ true
 
 
 ]
 
 { #category : #'platypus-generated-platypus-signature' }
 PltParameterDefinition class >> vwNamespaceName [
-  ^#Platypus
+	^ #Platypus
 
 
 ]
 
 { #category : #'platypus-generated-visiting' }
 PltParameterDefinition >> accept: aVisitor [
-  ^aVisitor acceptParameterDefinition: self
+	^ aVisitor acceptParameterDefinition: self
 
 
 ]
 
 { #category : #'platypus-generated-accessing' }
 PltParameterDefinition >> byCopy [
-  ^byCopy
+	^ byCopy
 
 
 ]
 
 { #category : #'platypus-generated-accessing' }
 PltParameterDefinition >> byCopy: aBoolean [
-  byCopy := aBoolean
+	byCopy := aBoolean
 
 
 ]
 
 { #category : #'platypus-generated-with-context-accessing' }
 PltParameterDefinition >> byCopyUsingContext: aContext [
-  ^self byCopy
+	^ self byCopy
 
 
 ]
 
 { #category : #'platypus-generated-accessing' }
 PltParameterDefinition >> domain [
-  ^domain
+	^ domain
 
 
 ]
 
 { #category : #'platypus-generated-accessing' }
 PltParameterDefinition >> domain: aPltParameterType [
-  domain := aPltParameterType
+	domain := aPltParameterType
 
 
 ]
 
 { #category : #'platypus-generated-with-context-accessing' }
 PltParameterDefinition >> domainUsingContext: aContext [
-  ^self domain
+	^ self domain
 
 
 ]
 
 { #category : #'platypus-generated-fast-set-accessing' }
 PltParameterDefinition >> fastSetByCopy: aBoolean [
-  byCopy := aBoolean
+	byCopy := aBoolean
 
 
 ]
 
 { #category : #'platypus-generated-fast-set-accessing' }
 PltParameterDefinition >> fastSetDomain: aPltParameterType [
-  domain := aPltParameterType
+	domain := aPltParameterType
 
 
 ]
 
 { #category : #'platypus-generated-fast-set-accessing' }
 PltParameterDefinition >> fastSetName: aString [
-  name := aString
+	name := aString
 
 
 ]
 
 { #category : #'platypus-generated-fast-set-accessing' }
 PltParameterDefinition >> fastSetOwner: aPltAlgorithmDeclaration [
-  owner := aPltAlgorithmDeclaration
+	owner := aPltAlgorithmDeclaration
 
 
 ]
 
 { #category : #'platypus-generated-group-accessing' }
 PltParameterDefinition >> fromValues: values [
-  ^self parameterDefinitionFromValues: (super fromValues: values)
+	^ self parameterDefinitionFromValues: (super fromValues: values)
 
 
 ]
 
 { #category : #'platypus-generated-classifying' }
 PltParameterDefinition >> isPltParameterDefinition [
-  ^true
+	^ true
 
 
 ]
 
 { #category : #'platypus-generated-group-accessing' }
 PltParameterDefinition >> localFromValues: values [
-  ^self parameterDefinitionFromValues: values
+	^ self parameterDefinitionFromValues: values
 
 
 ]
 
 { #category : #'platypus-generated-group-accessing' }
 PltParameterDefinition >> localToValues: values [
-  ^self parameterDefinitionToValues: values
+	^ self parameterDefinitionToValues: values
 
 
 ]
 
 { #category : #'platypus-generated-accessing' }
 PltParameterDefinition >> name [
-  ^name
+	^ name
 
 
 ]
 
 { #category : #'platypus-generated-accessing' }
 PltParameterDefinition >> name: aString [
-  name := aString
+	name := aString
 
 
 ]
 
 { #category : #'platypus-generated-with-context-accessing' }
 PltParameterDefinition >> nameUsingContext: aContext [
-  ^self name
+	^ self name
 
 
 ]
 
 { #category : #'platypus-generated-accessing' }
 PltParameterDefinition >> owner [
-  ^owner
+	^ owner
 
 
 ]
 
 { #category : #'platypus-generated-accessing' }
 PltParameterDefinition >> owner: aPltAlgorithmDeclaration [
-  owner := aPltAlgorithmDeclaration
+	owner := aPltAlgorithmDeclaration
 
 
 ]
@@ -215,109 +215,111 @@ PltParameterDefinition >> owner: aPltAlgorithmDeclaration name: aString byCopy: 
 
 { #category : #'platypus-generated-with-context-accessing' }
 PltParameterDefinition >> ownerUsingContext: aContext [
-  ^self owner
+	^ self owner
 
 
 ]
 
 { #category : #'platypus-generated-copying' }
 PltParameterDefinition >> parameterDefinitionCopyTo: another [
-  another fastSetOwner: self owner.
-  another fastSetName: self name.
-  another fastSetByCopy: self byCopy.
-  another fastSetDomain: self domain
+	another fastSetOwner: self owner.
+	another fastSetName: self name.
+	another fastSetByCopy: self byCopy.
+	another fastSetDomain: self domain
 
 
 ]
 
 { #category : #'platypus-generated-group-accessing' }
 PltParameterDefinition >> parameterDefinitionFromValues: values [
-  | valuesloc |
-  valuesloc := values asOrderedCollection.
-  self setOwner: valuesloc removeFirst.
-  self setName: valuesloc removeFirst.
-  self setByCopy: valuesloc removeFirst.
-  self setDomain: valuesloc removeFirst.
-  ^valuesloc
+	| valuesloc |
+	valuesloc := values asOrderedCollection.
+	self setOwner: valuesloc removeFirst.
+	self setName: valuesloc removeFirst.
+	self setByCopy: valuesloc removeFirst.
+	self setDomain: valuesloc removeFirst.
+	^ valuesloc
 
 
 ]
 
 { #category : #'platypus-generated-group-accessing' }
 PltParameterDefinition >> parameterDefinitionToValues: values [
-  values add: self owner.
-  values add: self name.
-  values add: self byCopy.
-  values add: self domain.
-  ^values
+	values add: self owner.
+	values add: self name.
+	values add: self byCopy.
+	values add: self domain.
+	^ values
 
 
 ]
 
 { #category : #'platypus-generated-copying' }
 PltParameterDefinition >> pltCopyGroup: aClassSymbol to: anObject [
-  self class name == aClassSymbol ifTrue: [ self pltCopyTo: anObject ] ifFalse: [ super pltCopyGroup: aClassSymbol to: anObject ]
+	self class name == aClassSymbol
+		ifTrue: [ self pltCopyTo: anObject ]
+		ifFalse: [ super pltCopyGroup: aClassSymbol to: anObject ]
 
 
 ]
 
 { #category : #'platypus-generated-copying' }
 PltParameterDefinition >> pltCopyTo: another [
-  super pltCopyTo: another.
-  self parameterDefinitionCopyTo: another
+	super pltCopyTo: another.
+	self parameterDefinitionCopyTo: another
 
 
 ]
 
 { #category : #'platypus-generated-copying' }
 PltParameterDefinition >> pltLocalCopyTo: another [
-  self parameterDefinitionCopyTo: another
+	self parameterDefinitionCopyTo: another
 
 
 ]
 
 { #category : #'platypus-generated-set-accessing' }
 PltParameterDefinition >> setByCopy: aBoolean [
-  self byCopy: aBoolean
+	self byCopy: aBoolean
 
 
 ]
 
 { #category : #'platypus-generated-set-accessing' }
 PltParameterDefinition >> setDomain: aPltParameterType [
-  self domain: aPltParameterType
+	self domain: aPltParameterType
 
 
 ]
 
 { #category : #'platypus-generated-set-accessing' }
 PltParameterDefinition >> setName: aString [
-  self name: aString
+	self name: aString
 
 
 ]
 
 { #category : #'platypus-generated-set-accessing' }
 PltParameterDefinition >> setOwner: aPltAlgorithmDeclaration [
-  self owner: aPltAlgorithmDeclaration
+	self owner: aPltAlgorithmDeclaration
 
 
 ]
 
 { #category : #'platypus-generated-initializing' }
 PltParameterDefinition >> stepInitialize [
-  super stepInitialize.
-  owner := nil.
-  name := ''.
-  byCopy := false.
-  domain := nil
+	super stepInitialize.
+	owner := nil.
+	name := ''.
+	byCopy := false.
+	domain := nil
 
 
 ]
 
 { #category : #'platypus-generated-group-accessing' }
 PltParameterDefinition >> toValues: values [
-  ^self parameterDefinitionToValues: (super toValues: values)
+	^ self parameterDefinitionToValues: (super toValues: values)
 
 
 ]

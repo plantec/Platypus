@@ -23,7 +23,7 @@ PltAttributeQualifier class >> context [ ^ self schemaDefinition context
 
 { #category : #'platypus-generated-platypus-signature' }
 PltAttributeQualifier class >> iso10303P11Translater [
-  ^'Platypus (c) LISYC EA3883, Universite de Bretagne occidentale. Brest.'
+	^ 'Platypus (c) LISYC EA3883, Universite de Bretagne occidentale. Brest.'
 
 
 ]
@@ -36,160 +36,162 @@ PltAttributeQualifier class >> platypusMetaData [ 	^ self schemaDefinition metaD
 
 { #category : #'platypus-generated-meta-data-accessing' }
 PltAttributeQualifier class >> schemaDefinition [
-  ^PltPlatypusExpressionsSchemaSchemaDefinition singleton
+	^ PltPlatypusExpressionsSchemaSchemaDefinition singleton
 
 
 ]
 
 { #category : #'platypus-generated-meta-data-accessing' }
 PltAttributeQualifier class >> schemaInstance [
-  ^PltPlatypusMetaSchemasSchemaInstance singleton
+	^ PltPlatypusMetaSchemasSchemaInstance singleton
 
 
 ]
 
 { #category : #'platypus-generated-platypus-signature' }
 PltAttributeQualifier class >> translatedFromISO10303P11 [
-  ^true
+	^ true
 
 
 ]
 
 { #category : #'platypus-generated-platypus-signature' }
 PltAttributeQualifier class >> vwNamespaceName [
-  ^#Platypus
+	^ #Platypus
 
 
 ]
 
 { #category : #'platypus-generated-visiting' }
 PltAttributeQualifier >> accept: aVisitor [
-  ^aVisitor acceptAttributeQualifier: self
+	^ aVisitor acceptAttributeQualifier: self
 
 
 ]
 
 { #category : #'platypus-generated-accessing' }
 PltAttributeQualifier >> attributeName [
-  ^attributeName
+	^ attributeName
 
 
 ]
 
 { #category : #'platypus-generated-accessing' }
 PltAttributeQualifier >> attributeName: aString [
-  attributeName := aString
+	attributeName := aString
 
 
 ]
 
 { #category : #'platypus-generated-with-context-accessing' }
 PltAttributeQualifier >> attributeNameUsingContext: aContext [
-  ^self attributeName
+	^ self attributeName
 
 
 ]
 
 { #category : #'platypus-generated-copying' }
 PltAttributeQualifier >> attributeQualifierCopyTo: another [
-  another fastSetAttributeName: self attributeName
+	another fastSetAttributeName: self attributeName
 
 
 ]
 
 { #category : #'platypus-generated-group-accessing' }
 PltAttributeQualifier >> attributeQualifierFromValues: values [
-  | valuesloc |
-  valuesloc := values asOrderedCollection.
-  self setAttributeName: valuesloc removeFirst.
-  ^valuesloc
+	| valuesloc |
+	valuesloc := values asOrderedCollection.
+	self setAttributeName: valuesloc removeFirst.
+	^ valuesloc
 
 
 ]
 
 { #category : #'platypus-generated-group-accessing' }
 PltAttributeQualifier >> attributeQualifierToValues: values [
-  values add: self attributeName.
-  ^values
+	values add: self attributeName.
+	^ values
 
 
 ]
 
 { #category : #'platypus-generated-fast-set-accessing' }
 PltAttributeQualifier >> fastSetAttributeName: aString [
-  attributeName := aString
+	attributeName := aString
 
 
 ]
 
 { #category : #'platypus-generated-group-accessing' }
 PltAttributeQualifier >> fromValues: values [
-  ^self attributeQualifierFromValues: (super fromValues: values)
+	^ self attributeQualifierFromValues: (super fromValues: values)
 
 
 ]
 
 { #category : #'platypus-generated-classifying' }
 PltAttributeQualifier >> isPltAttributeQualifier [
-  ^true
+	^ true
 
 
 ]
 
 { #category : #'platypus-generated-group-accessing' }
 PltAttributeQualifier >> localFromValues: values [
-  ^self attributeQualifierFromValues: values
+	^ self attributeQualifierFromValues: values
 
 
 ]
 
 { #category : #'platypus-generated-group-accessing' }
 PltAttributeQualifier >> localToValues: values [
-  ^self attributeQualifierToValues: values
+	^ self attributeQualifierToValues: values
 
 
 ]
 
 { #category : #'platypus-generated-copying' }
 PltAttributeQualifier >> pltCopyGroup: aClassSymbol to: anObject [
-  self class name == aClassSymbol ifTrue: [ self pltCopyTo: anObject ] ifFalse: [ super pltCopyGroup: aClassSymbol to: anObject ]
+	self class name == aClassSymbol
+		ifTrue: [ self pltCopyTo: anObject ]
+		ifFalse: [ super pltCopyGroup: aClassSymbol to: anObject ]
 
 
 ]
 
 { #category : #'platypus-generated-copying' }
 PltAttributeQualifier >> pltCopyTo: another [
-  super pltCopyTo: another.
-  self attributeQualifierCopyTo: another
+	super pltCopyTo: another.
+	self attributeQualifierCopyTo: another
 
 
 ]
 
 { #category : #'platypus-generated-copying' }
 PltAttributeQualifier >> pltLocalCopyTo: another [
-  self attributeQualifierCopyTo: another
+	self attributeQualifierCopyTo: another
 
 
 ]
 
 { #category : #'platypus-generated-set-accessing' }
 PltAttributeQualifier >> setAttributeName: aString [
-  self attributeName: aString
+	self attributeName: aString
 
 
 ]
 
 { #category : #'platypus-generated-initializing' }
 PltAttributeQualifier >> stepInitialize [
-  super stepInitialize.
-  attributeName := ''
+	super stepInitialize.
+	attributeName := ''
 
 
 ]
 
 { #category : #'platypus-generated-group-accessing' }
 PltAttributeQualifier >> toValues: values [
-  ^self attributeQualifierToValues: (super toValues: values)
+	^ self attributeQualifierToValues: (super toValues: values)
 
 
 ]

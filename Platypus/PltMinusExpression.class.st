@@ -21,7 +21,7 @@ PltMinusExpression class >> context [ ^ self schemaDefinition context
 
 { #category : #'platypus-generated-platypus-signature' }
 PltMinusExpression class >> iso10303P11Translater [
-  ^'Platypus (c) LISYC EA3883, Universite de Bretagne occidentale. Brest.'
+	^ 'Platypus (c) LISYC EA3883, Universite de Bretagne occidentale. Brest.'
 
 
 ]
@@ -34,143 +34,145 @@ PltMinusExpression class >> platypusMetaData [ 	^ self schemaDefinition metaData
 
 { #category : #'platypus-generated-meta-data-accessing' }
 PltMinusExpression class >> schemaDefinition [
-  ^PltPlatypusExpressionsSchemaSchemaDefinition singleton
+	^ PltPlatypusExpressionsSchemaSchemaDefinition singleton
 
 
 ]
 
 { #category : #'platypus-generated-meta-data-accessing' }
 PltMinusExpression class >> schemaInstance [
-  ^PltPlatypusMetaSchemasSchemaInstance singleton
+	^ PltPlatypusMetaSchemasSchemaInstance singleton
 
 
 ]
 
 { #category : #'platypus-generated-platypus-signature' }
 PltMinusExpression class >> translatedFromISO10303P11 [
-  ^true
+	^ true
 
 
 ]
 
 { #category : #'platypus-generated-platypus-signature' }
 PltMinusExpression class >> vwNamespaceName [
-  ^#Platypus
+	^ #Platypus
 
 
 ]
 
 { #category : #'platypus-generated-visiting' }
 PltMinusExpression >> accept: aVisitor [
-  ^aVisitor acceptMinusExpression: self
+	^ aVisitor acceptMinusExpression: self
 
 
 ]
 
 { #category : #'platypus-generated-group-accessing' }
 PltMinusExpression >> fromValues: values [
-  ^self minusExpressionFromValues: (super fromValues: values)
+	^ self minusExpressionFromValues: (super fromValues: values)
 
 
 ]
 
 { #category : #'platypus-generated-classifying' }
 PltMinusExpression >> isPltMinusExpression [
-  ^true
+	^ true
 
 
 ]
 
 { #category : #'platypus-generated-group-accessing' }
 PltMinusExpression >> localFromValues: values [
-  ^self minusExpressionFromValues: values
+	^ self minusExpressionFromValues: values
 
 
 ]
 
 { #category : #'platypus-generated-group-accessing' }
 PltMinusExpression >> localToValues: values [
-  ^self minusExpressionToValues: values
+	^ self minusExpressionToValues: values
 
 
 ]
 
 { #category : #'platypus-generated-copying' }
 PltMinusExpression >> minusExpressionCopyTo: another [
-  
+	
 
 
 ]
 
 { #category : #'platypus-generated-group-accessing' }
 PltMinusExpression >> minusExpressionFromValues: values [
-  | valuesloc |
-  valuesloc := values asOrderedCollection.
-  ^valuesloc
+	| valuesloc |
+	valuesloc := values asOrderedCollection.
+	^ valuesloc
 
 
 ]
 
 { #category : #'platypus-generated-group-accessing' }
 PltMinusExpression >> minusExpressionToValues: values [
-  ^values
+	^ values
 
 
 ]
 
 { #category : #'platypus-generated-deriving' }
 PltMinusExpression >> opString [
-  ^self opStringUsingContext: self class context
+	^ self opStringUsingContext: self class context
 
 
 ]
 
 { #category : #'platypus-generated-deriving' }
 PltMinusExpression >> opStringUsingContext: aContext [
-  ^self opStringUsingContext: aContext receiver: self
+	^ self opStringUsingContext: aContext receiver: self
 
 
 ]
 
 { #category : #'platypus-generated-deriving' }
 PltMinusExpression >> opStringUsingContext: aContext receiver: aReceiver [
-  ^'-'
+	^ '-'
 
 
 ]
 
 { #category : #'platypus-generated-copying' }
 PltMinusExpression >> pltCopyGroup: aClassSymbol to: anObject [
-  self class name == aClassSymbol ifTrue: [ self pltCopyTo: anObject ] ifFalse: [ super pltCopyGroup: aClassSymbol to: anObject ]
+	self class name == aClassSymbol
+		ifTrue: [ self pltCopyTo: anObject ]
+		ifFalse: [ super pltCopyGroup: aClassSymbol to: anObject ]
 
 
 ]
 
 { #category : #'platypus-generated-copying' }
 PltMinusExpression >> pltCopyTo: another [
-  super pltCopyTo: another.
-  self minusExpressionCopyTo: another
+	super pltCopyTo: another.
+	self minusExpressionCopyTo: another
 
 
 ]
 
 { #category : #'platypus-generated-copying' }
 PltMinusExpression >> pltLocalCopyTo: another [
-  self minusExpressionCopyTo: another
+	self minusExpressionCopyTo: another
 
 
 ]
 
 { #category : #'platypus-generated-initializing' }
 PltMinusExpression >> stepInitialize [
-  super stepInitialize
+	super stepInitialize
 
 
 ]
 
 { #category : #'platypus-generated-group-accessing' }
 PltMinusExpression >> toValues: values [
-  ^self minusExpressionToValues: (super toValues: values)
+	^ self minusExpressionToValues: (super toValues: values)
 
 
 ]

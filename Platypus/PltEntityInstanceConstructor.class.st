@@ -11,8 +11,8 @@ Class {
 	#name : #PltEntityInstanceConstructor,
 	#superclass : #PltUnaryExpression,
 	#instVars : [
-		'parameters',
-		'decl'
+		'decl',
+		'parameters'
 	],
 	#category : #'Platypus-PlatypusExpressionsSchemaSchema'
 }
@@ -25,7 +25,7 @@ PltEntityInstanceConstructor class >> context [ ^ self schemaDefinition context
 
 { #category : #'platypus-generated-platypus-signature' }
 PltEntityInstanceConstructor class >> iso10303P11Translater [
-  ^'Platypus (c) LISYC EA3883, Universite de Bretagne occidentale. Brest.'
+	^ 'Platypus (c) LISYC EA3883, Universite de Bretagne occidentale. Brest.'
 
 
 ]
@@ -38,49 +38,49 @@ PltEntityInstanceConstructor class >> platypusMetaData [ 	^ self schemaDefinitio
 
 { #category : #'platypus-generated-meta-data-accessing' }
 PltEntityInstanceConstructor class >> schemaDefinition [
-  ^PltPlatypusExpressionsSchemaSchemaDefinition singleton
+	^ PltPlatypusExpressionsSchemaSchemaDefinition singleton
 
 
 ]
 
 { #category : #'platypus-generated-meta-data-accessing' }
 PltEntityInstanceConstructor class >> schemaInstance [
-  ^PltPlatypusMetaSchemasSchemaInstance singleton
+	^ PltPlatypusMetaSchemasSchemaInstance singleton
 
 
 ]
 
 { #category : #'platypus-generated-platypus-signature' }
 PltEntityInstanceConstructor class >> translatedFromISO10303P11 [
-  ^true
+	^ true
 
 
 ]
 
 { #category : #'platypus-generated-platypus-signature' }
 PltEntityInstanceConstructor class >> vwNamespaceName [
-  ^#Platypus
+	^ #Platypus
 
 
 ]
 
 { #category : #'platypus-generated-visiting' }
 PltEntityInstanceConstructor >> accept: aVisitor [
-  ^aVisitor acceptEntityInstanceConstructor: self
+	^ aVisitor acceptEntityInstanceConstructor: self
 
 
 ]
 
 { #category : #'platypus-generated-accessing' }
 PltEntityInstanceConstructor >> decl [
-  ^decl
+	^ decl
 
 
 ]
 
 { #category : #'platypus-generated-accessing' }
 PltEntityInstanceConstructor >> decl: aPltEntityDefinitionReference [
-  decl := aPltEntityDefinitionReference
+	decl := aPltEntityDefinitionReference
 
 
 ]
@@ -93,150 +93,154 @@ PltEntityInstanceConstructor >> decl: aPltEntityDefinitionReference parameters: 
 
 { #category : #'platypus-generated-with-context-accessing' }
 PltEntityInstanceConstructor >> declUsingContext: aContext [
-  ^self decl
+	^ self decl
 
 
 ]
 
 { #category : #'platypus-generated-copying' }
 PltEntityInstanceConstructor >> entityInstanceConstructorCopyTo: another [
-  another fastSetDecl: self decl.
-  another fastSetParameters: self parameters
+	another fastSetDecl: self decl.
+	another fastSetParameters: self parameters
 
 
 ]
 
 { #category : #'platypus-generated-group-accessing' }
 PltEntityInstanceConstructor >> entityInstanceConstructorFromValues: values [
-  | valuesloc |
-  valuesloc := values asOrderedCollection.
-  self setDecl: valuesloc removeFirst.
-  self setParameters: valuesloc removeFirst.
-  ^valuesloc
+	| valuesloc |
+	valuesloc := values asOrderedCollection.
+	self setDecl: valuesloc removeFirst.
+	self setParameters: valuesloc removeFirst.
+	^ valuesloc
 
 
 ]
 
 { #category : #'platypus-generated-group-accessing' }
 PltEntityInstanceConstructor >> entityInstanceConstructorToValues: values [
-  values add: self decl.
-  values add: self parameters.
-  ^values
+	values add: self decl.
+	values add: self parameters.
+	^ values
 
 
 ]
 
 { #category : #'platypus-generated-fast-set-accessing' }
 PltEntityInstanceConstructor >> fastSetDecl: aPltEntityDefinitionReference [
-  decl := aPltEntityDefinitionReference
+	decl := aPltEntityDefinitionReference
 
 
 ]
 
 { #category : #'platypus-generated-fast-set-accessing' }
 PltEntityInstanceConstructor >> fastSetParameters: aListOfPltExpression [
-  parameters := aListOfPltExpression
+	parameters := aListOfPltExpression
 
 
 ]
 
 { #category : #'platypus-generated-group-accessing' }
 PltEntityInstanceConstructor >> fromValues: values [
-  ^self entityInstanceConstructorFromValues: (super fromValues: values)
+	^ self entityInstanceConstructorFromValues: (super fromValues: values)
 
 
 ]
 
 { #category : #'platypus-generated-classifying' }
 PltEntityInstanceConstructor >> isPltEntityInstanceConstructor [
-  ^true
+	^ true
 
 
 ]
 
 { #category : #'platypus-generated-group-accessing' }
 PltEntityInstanceConstructor >> localFromValues: values [
-  ^self entityInstanceConstructorFromValues: values
+	^ self entityInstanceConstructorFromValues: values
 
 
 ]
 
 { #category : #'platypus-generated-group-accessing' }
 PltEntityInstanceConstructor >> localToValues: values [
-  ^self entityInstanceConstructorToValues: values
+	^ self entityInstanceConstructorToValues: values
 
 
 ]
 
 { #category : #'platypus-generated-accessing' }
 PltEntityInstanceConstructor >> parameters [
-  ^parameters
+	^ parameters
 
 
 ]
 
 { #category : #'platypus-generated-accessing' }
 PltEntityInstanceConstructor >> parameters: aListOfPltExpression [
-  parameters := aListOfPltExpression ifNil: [ OrderedCollection new ] ifNotNil: [ aListOfPltExpression as: OrderedCollection ]
+	parameters := aListOfPltExpression
+		ifNil: [ OrderedCollection new ]
+		ifNotNil: [ aListOfPltExpression as: OrderedCollection ]
 
 
 ]
 
 { #category : #'platypus-generated-with-context-accessing' }
 PltEntityInstanceConstructor >> parametersUsingContext: aContext [
-  ^self parameters
+	^ self parameters
 
 
 ]
 
 { #category : #'platypus-generated-copying' }
 PltEntityInstanceConstructor >> pltCopyGroup: aClassSymbol to: anObject [
-  self class name == aClassSymbol ifTrue: [ self pltCopyTo: anObject ] ifFalse: [ super pltCopyGroup: aClassSymbol to: anObject ]
+	self class name == aClassSymbol
+		ifTrue: [ self pltCopyTo: anObject ]
+		ifFalse: [ super pltCopyGroup: aClassSymbol to: anObject ]
 
 
 ]
 
 { #category : #'platypus-generated-copying' }
 PltEntityInstanceConstructor >> pltCopyTo: another [
-  super pltCopyTo: another.
-  self entityInstanceConstructorCopyTo: another
+	super pltCopyTo: another.
+	self entityInstanceConstructorCopyTo: another
 
 
 ]
 
 { #category : #'platypus-generated-copying' }
 PltEntityInstanceConstructor >> pltLocalCopyTo: another [
-  self entityInstanceConstructorCopyTo: another
+	self entityInstanceConstructorCopyTo: another
 
 
 ]
 
 { #category : #'platypus-generated-set-accessing' }
 PltEntityInstanceConstructor >> setDecl: aPltEntityDefinitionReference [
-  self decl: aPltEntityDefinitionReference
+	self decl: aPltEntityDefinitionReference
 
 
 ]
 
 { #category : #'platypus-generated-set-accessing' }
 PltEntityInstanceConstructor >> setParameters: aListOfPltExpression [
-  self parameters: aListOfPltExpression
+	self parameters: aListOfPltExpression
 
 
 ]
 
 { #category : #'platypus-generated-initializing' }
 PltEntityInstanceConstructor >> stepInitialize [
-  super stepInitialize.
-  decl := nil.
-  parameters := OrderedCollection new
+	super stepInitialize.
+	decl := nil.
+	parameters := OrderedCollection new
 
 
 ]
 
 { #category : #'platypus-generated-group-accessing' }
 PltEntityInstanceConstructor >> toValues: values [
-  ^self entityInstanceConstructorToValues: (super toValues: values)
+	^ self entityInstanceConstructorToValues: (super toValues: values)
 
 
 ]

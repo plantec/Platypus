@@ -11,67 +11,67 @@ Class {
 	#name : #PltMetaMappingDefinition,
 	#superclass : #PltDictionaryInstance,
 	#instVars : [
-		'expression',
-		'metaExpression',
-		'haveError',
 		'definitionPath',
-		'definition'
+		'haveError',
+		'definition',
+		'expression',
+		'metaExpression'
 	],
 	#category : #'Platypus-PlatypusDictionarySchemaSchema'
 }
 
 { #category : #'platypus-generated-platypus-signature' }
 PltMetaMappingDefinition class >> iso10303P11Translater [
-  ^'Platypus (c) LISYC EA3883, Universite de Bretagne occidentale. Brest.'
+	^ 'Platypus (c) LISYC EA3883, Universite de Bretagne occidentale. Brest.'
 
 
 ]
 
 { #category : #'platypus-generated-meta-data-accessing' }
 PltMetaMappingDefinition class >> schemaDefinition [
-  ^PltPlatypusDictionarySchemaSchemaDefinition singleton
+	^ PltPlatypusDictionarySchemaSchemaDefinition singleton
 
 
 ]
 
 { #category : #'platypus-generated-meta-data-accessing' }
 PltMetaMappingDefinition class >> schemaInstance [
-  ^PltPlatypusMetaSchemasSchemaInstance singleton
+	^ PltPlatypusMetaSchemasSchemaInstance singleton
 
 
 ]
 
 { #category : #'platypus-generated-platypus-signature' }
 PltMetaMappingDefinition class >> translatedFromISO10303P11 [
-  ^true
+	^ true
 
 
 ]
 
 { #category : #'platypus-generated-platypus-signature' }
 PltMetaMappingDefinition class >> vwNamespaceName [
-  ^#Platypus
+	^ #Platypus
 
 
 ]
 
 { #category : #'platypus-generated-visiting' }
 PltMetaMappingDefinition >> accept: aVisitor [
-  ^aVisitor acceptMetaMappingDefinition: self
+	^ aVisitor acceptMetaMappingDefinition: self
 
 
 ]
 
 { #category : #'platypus-generated-accessing' }
 PltMetaMappingDefinition >> definition [
-  ^definition
+	^ definition
 
 
 ]
 
 { #category : #'platypus-generated-accessing' }
 PltMetaMappingDefinition >> definition: aPltDictionaryInstance [
-  definition := aPltDictionaryInstance
+	definition := aPltDictionaryInstance
 
 
 ]
@@ -84,42 +84,42 @@ PltMetaMappingDefinition >> definition: aPltDictionaryInstance expression: aStri
 
 { #category : #'platypus-generated-with-context-accessing' }
 PltMetaMappingDefinition >> definitionUsingContext: aContext [
-  ^self definition
+	^ self definition
 
 
 ]
 
 { #category : #'platypus-generated-accessing' }
 PltMetaMappingDefinition >> expression [
-  ^expression
+	^ expression
 
 
 ]
 
 { #category : #'platypus-generated-accessing' }
 PltMetaMappingDefinition >> expression: aString [
-  expression := aString
+	expression := aString
 
 
 ]
 
 { #category : #'platypus-generated-with-context-accessing' }
 PltMetaMappingDefinition >> expressionUsingContext: aContext [
-  ^self expression
+	^ self expression
 
 
 ]
 
 { #category : #'platypus-generated-fast-set-accessing' }
 PltMetaMappingDefinition >> fastSetDefinition: aPltDictionaryInstance [
-  definition := aPltDictionaryInstance
+	definition := aPltDictionaryInstance
 
 
 ]
 
 { #category : #'platypus-generated-fast-set-accessing' }
 PltMetaMappingDefinition >> fastSetExpression: aString [
-  expression := aString
+	expression := aString
 
 
 ]
@@ -132,28 +132,28 @@ PltMetaMappingDefinition >> fastSetMetaExpression:aPltExpression [	metaExpressio
 
 { #category : #'platypus-generated-group-accessing' }
 PltMetaMappingDefinition >> fromValues: values [
-  ^self metaMappingDefinitionFromValues: (super fromValues: values)
+	^ self metaMappingDefinitionFromValues: (super fromValues: values)
 
 
 ]
 
 { #category : #'platypus-generated-classifying' }
 PltMetaMappingDefinition >> isPltMetaMappingDefinition [
-  ^true
+	^ true
 
 
 ]
 
 { #category : #'platypus-generated-group-accessing' }
 PltMetaMappingDefinition >> localFromValues: values [
-  ^self metaMappingDefinitionFromValues: values
+	^ self metaMappingDefinitionFromValues: values
 
 
 ]
 
 { #category : #'platypus-generated-group-accessing' }
 PltMetaMappingDefinition >> localToValues: values [
-  ^self metaMappingDefinitionToValues: values
+	^ self metaMappingDefinitionToValues: values
 
 
 ]
@@ -172,64 +172,66 @@ PltMetaMappingDefinition >> metaExpressionUsingContext:aContext [	^ self metaExp
 
 { #category : #'platypus-generated-copying' }
 PltMetaMappingDefinition >> metaMappingDefinitionCopyTo: another [
-  another fastSetDefinition: self definition.
-  another fastSetExpression: self expression
+	another fastSetDefinition: self definition.
+	another fastSetExpression: self expression
 
 
 ]
 
 { #category : #'platypus-generated-group-accessing' }
 PltMetaMappingDefinition >> metaMappingDefinitionFromValues: values [
-  | valuesloc |
-  valuesloc := values asOrderedCollection.
-  self setDefinition: valuesloc removeFirst.
-  self setExpression: valuesloc removeFirst.
-  ^valuesloc
+	| valuesloc |
+	valuesloc := values asOrderedCollection.
+	self setDefinition: valuesloc removeFirst.
+	self setExpression: valuesloc removeFirst.
+	^ valuesloc
 
 
 ]
 
 { #category : #'platypus-generated-group-accessing' }
 PltMetaMappingDefinition >> metaMappingDefinitionToValues: values [
-  values add: self definition.
-  values add: self expression.
-  ^values
+	values add: self definition.
+	values add: self expression.
+	^ values
 
 
 ]
 
 { #category : #'platypus-generated-copying' }
 PltMetaMappingDefinition >> pltCopyGroup: aClassSymbol to: anObject [
-  self class name == aClassSymbol ifTrue: [ self pltCopyTo: anObject ] ifFalse: [ super pltCopyGroup: aClassSymbol to: anObject ]
+	self class name == aClassSymbol
+		ifTrue: [ self pltCopyTo: anObject ]
+		ifFalse: [ super pltCopyGroup: aClassSymbol to: anObject ]
 
 
 ]
 
 { #category : #'platypus-generated-copying' }
 PltMetaMappingDefinition >> pltCopyTo: another [
-  super pltCopyTo: another.
-  self metaMappingDefinitionCopyTo: another
+	super pltCopyTo: another.
+	self metaMappingDefinitionCopyTo: another
 
 
 ]
 
 { #category : #'platypus-generated-copying' }
 PltMetaMappingDefinition >> pltLocalCopyTo: another [
-  self metaMappingDefinitionCopyTo: another
+	self metaMappingDefinitionCopyTo: another
 
 
 ]
 
 { #category : #'platypus-generated-set-accessing' }
 PltMetaMappingDefinition >> setDefinition: aPltDictionaryInstance [
-  self definition: aPltDictionaryInstance
+	self definition: aPltDictionaryInstance
 
 
 ]
 
 { #category : #'platypus-generated-set-accessing' }
 PltMetaMappingDefinition >> setExpression: aString [
-  self expression: aString
+	self expression: aString
 
 
 ]
@@ -242,16 +244,16 @@ PltMetaMappingDefinition >> setMetaExpression:aPltExpression [	self metaExpressi
 
 { #category : #'platypus-generated-initializing' }
 PltMetaMappingDefinition >> stepInitialize [
-  super stepInitialize.
-  definition := nil.
-  expression := ''
+	super stepInitialize.
+	definition := nil.
+	expression := ''
 
 
 ]
 
 { #category : #'platypus-generated-group-accessing' }
 PltMetaMappingDefinition >> toValues: values [
-  ^self metaMappingDefinitionToValues: (super toValues: values)
+	^ self metaMappingDefinitionToValues: (super toValues: values)
 
 
 ]

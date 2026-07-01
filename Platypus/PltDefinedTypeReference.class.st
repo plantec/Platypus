@@ -22,7 +22,7 @@ PltDefinedTypeReference class >> context [ ^ self schemaDefinition context
 
 { #category : #'platypus-generated-platypus-signature' }
 PltDefinedTypeReference class >> iso10303P11Translater [
-  ^'Platypus (c) LISYC EA3883, Universite de Bretagne occidentale. Brest.'
+	^ 'Platypus (c) LISYC EA3883, Universite de Bretagne occidentale. Brest.'
 
 
 ]
@@ -35,181 +35,183 @@ PltDefinedTypeReference class >> platypusMetaData [ 	^ self schemaDefinition met
 
 { #category : #'platypus-generated-meta-data-accessing' }
 PltDefinedTypeReference class >> schemaDefinition [
-  ^PltPlatypusDictionarySchemaSchemaDefinition singleton
+	^ PltPlatypusDictionarySchemaSchemaDefinition singleton
 
 
 ]
 
 { #category : #'platypus-generated-meta-data-accessing' }
 PltDefinedTypeReference class >> schemaInstance [
-  ^PltPlatypusMetaSchemasSchemaInstance singleton
+	^ PltPlatypusMetaSchemasSchemaInstance singleton
 
 
 ]
 
 { #category : #'platypus-generated-platypus-signature' }
 PltDefinedTypeReference class >> translatedFromISO10303P11 [
-  ^true
+	^ true
 
 
 ]
 
 { #category : #'platypus-generated-platypus-signature' }
 PltDefinedTypeReference class >> vwNamespaceName [
-  ^#Platypus
+	^ #Platypus
 
 
 ]
 
 { #category : #'platypus-generated-visiting' }
 PltDefinedTypeReference >> accept: aVisitor [
-  ^aVisitor acceptDefinedTypeReference: self
+	^ aVisitor acceptDefinedTypeReference: self
 
 
 ]
 
 { #category : #'platypus-generated-deriving' }
 PltDefinedTypeReference >> accepted [
-  ^self acceptedUsingContext: self class context
+	^ self acceptedUsingContext: self class context
 
 
 ]
 
 { #category : #'platypus-generated-deriving' }
 PltDefinedTypeReference >> acceptedUsingContext: aContext [
-  ^self acceptedUsingContext: aContext receiver: self
+	^ self acceptedUsingContext: aContext receiver: self
 
 
 ]
 
 { #category : #'platypus-generated-deriving' }
 PltDefinedTypeReference >> acceptedUsingContext: aContext receiver: aReceiver [
-  ^aReceiver acceptDefinedTypeReferenceUsingContext: aContext
+	^ aReceiver acceptDefinedTypeReferenceUsingContext: aContext
 
 
 ]
 
 { #category : #'platypus-generated-copying' }
 PltDefinedTypeReference >> definedTypeReferenceCopyTo: another [
-  another fastSetRef: self ref
+	another fastSetRef: self ref
 
 
 ]
 
 { #category : #'platypus-generated-group-accessing' }
 PltDefinedTypeReference >> definedTypeReferenceFromValues: values [
-  | valuesloc |
-  valuesloc := values asOrderedCollection.
-  self setRef: valuesloc removeFirst.
-  ^valuesloc
+	| valuesloc |
+	valuesloc := values asOrderedCollection.
+	self setRef: valuesloc removeFirst.
+	^ valuesloc
 
 
 ]
 
 { #category : #'platypus-generated-group-accessing' }
 PltDefinedTypeReference >> definedTypeReferenceToValues: values [
-  values add: self ref.
-  ^values
+	values add: self ref.
+	^ values
 
 
 ]
 
 { #category : #'platypus-generated-fast-set-accessing' }
 PltDefinedTypeReference >> fastSetRef: aPltDefinedType [
-  ref := aPltDefinedType
+	ref := aPltDefinedType
 
 
 ]
 
 { #category : #'platypus-generated-group-accessing' }
 PltDefinedTypeReference >> fromValues: values [
-  ^self definedTypeReferenceFromValues: (super fromValues: values)
+	^ self definedTypeReferenceFromValues: (super fromValues: values)
 
 
 ]
 
 { #category : #'platypus-generated-classifying' }
 PltDefinedTypeReference >> isPltDefinedTypeReference [
-  ^true
+	^ true
 
 
 ]
 
 { #category : #'platypus-generated-group-accessing' }
 PltDefinedTypeReference >> localFromValues: values [
-  ^self definedTypeReferenceFromValues: values
+	^ self definedTypeReferenceFromValues: values
 
 
 ]
 
 { #category : #'platypus-generated-group-accessing' }
 PltDefinedTypeReference >> localToValues: values [
-  ^self definedTypeReferenceToValues: values
+	^ self definedTypeReferenceToValues: values
 
 
 ]
 
 { #category : #'platypus-generated-copying' }
 PltDefinedTypeReference >> pltCopyGroup: aClassSymbol to: anObject [
-  self class name == aClassSymbol ifTrue: [ self pltCopyTo: anObject ] ifFalse: [ super pltCopyGroup: aClassSymbol to: anObject ]
+	self class name == aClassSymbol
+		ifTrue: [ self pltCopyTo: anObject ]
+		ifFalse: [ super pltCopyGroup: aClassSymbol to: anObject ]
 
 
 ]
 
 { #category : #'platypus-generated-copying' }
 PltDefinedTypeReference >> pltCopyTo: another [
-  super pltCopyTo: another.
-  self definedTypeReferenceCopyTo: another
+	super pltCopyTo: another.
+	self definedTypeReferenceCopyTo: another
 
 
 ]
 
 { #category : #'platypus-generated-copying' }
 PltDefinedTypeReference >> pltLocalCopyTo: another [
-  self definedTypeReferenceCopyTo: another
+	self definedTypeReferenceCopyTo: another
 
 
 ]
 
 { #category : #'platypus-generated-accessing' }
 PltDefinedTypeReference >> ref [
-  ^ref
+	^ ref
 
 
 ]
 
 { #category : #'platypus-generated-accessing' }
 PltDefinedTypeReference >> ref: aPltDefinedType [
-  ref := aPltDefinedType
+	ref := aPltDefinedType
 
 
 ]
 
 { #category : #'platypus-generated-with-context-accessing' }
 PltDefinedTypeReference >> refUsingContext: aContext [
-  ^self ref
+	^ self ref
 
 
 ]
 
 { #category : #'platypus-generated-set-accessing' }
 PltDefinedTypeReference >> setRef: aPltDefinedType [
-  self ref: aPltDefinedType
+	self ref: aPltDefinedType
 
 
 ]
 
 { #category : #'platypus-generated-initializing' }
 PltDefinedTypeReference >> stepInitialize [
-  super stepInitialize.
-  ref := nil
+	super stepInitialize.
+	ref := nil
 
 
 ]
 
 { #category : #'platypus-generated-group-accessing' }
 PltDefinedTypeReference >> toValues: values [
-  ^self definedTypeReferenceToValues: (super toValues: values)
+	^ self definedTypeReferenceToValues: (super toValues: values)
 
 
 ]

@@ -12,8 +12,8 @@ Class {
 	#name : #PltIfStatement,
 	#superclass : #PltStatement,
 	#instVars : [
-		'elseStatements',
 		'thenStatements',
+		'elseStatements',
 		'selector'
 	],
 	#category : #'Platypus-PlatypusStatementsSchemaSchema'
@@ -27,7 +27,7 @@ PltIfStatement class >> context [ ^ self schemaDefinition context
 
 { #category : #'platypus-generated-platypus-signature' }
 PltIfStatement class >> iso10303P11Translater [
-  ^'Platypus (c) LISYC EA3883, Universite de Bretagne occidentale. Brest.'
+	^ 'Platypus (c) LISYC EA3883, Universite de Bretagne occidentale. Brest.'
 
 
 ]
@@ -40,172 +40,176 @@ PltIfStatement class >> platypusMetaData [ 	^ self schemaDefinition metaDataFor:
 
 { #category : #'platypus-generated-meta-data-accessing' }
 PltIfStatement class >> schemaDefinition [
-  ^PltPlatypusStatementsSchemaSchemaDefinition singleton
+	^ PltPlatypusStatementsSchemaSchemaDefinition singleton
 
 
 ]
 
 { #category : #'platypus-generated-meta-data-accessing' }
 PltIfStatement class >> schemaInstance [
-  ^PltPlatypusMetaSchemasSchemaInstance singleton
+	^ PltPlatypusMetaSchemasSchemaInstance singleton
 
 
 ]
 
 { #category : #'platypus-generated-platypus-signature' }
 PltIfStatement class >> translatedFromISO10303P11 [
-  ^true
+	^ true
 
 
 ]
 
 { #category : #'platypus-generated-platypus-signature' }
 PltIfStatement class >> vwNamespaceName [
-  ^#Platypus
+	^ #Platypus
 
 
 ]
 
 { #category : #'platypus-generated-visiting' }
 PltIfStatement >> accept: aVisitor [
-  ^aVisitor acceptIfStatement: self
+	^ aVisitor acceptIfStatement: self
 
 
 ]
 
 { #category : #'platypus-generated-accessing' }
 PltIfStatement >> elseStatements [
-  ^elseStatements
+	^ elseStatements
 
 
 ]
 
 { #category : #'platypus-generated-accessing' }
 PltIfStatement >> elseStatements: aListOfPltStatement [
-  elseStatements := aListOfPltStatement ifNil: [ OrderedCollection new ] ifNotNil: [ aListOfPltStatement as: OrderedCollection ]
+	elseStatements := aListOfPltStatement
+		ifNil: [ OrderedCollection new ]
+		ifNotNil: [ aListOfPltStatement as: OrderedCollection ]
 
 
 ]
 
 { #category : #'platypus-generated-with-context-accessing' }
 PltIfStatement >> elseStatementsUsingContext: aContext [
-  ^self elseStatements
+	^ self elseStatements
 
 
 ]
 
 { #category : #'platypus-generated-fast-set-accessing' }
 PltIfStatement >> fastSetElseStatements: aListOfPltStatement [
-  elseStatements := aListOfPltStatement
+	elseStatements := aListOfPltStatement
 
 
 ]
 
 { #category : #'platypus-generated-fast-set-accessing' }
 PltIfStatement >> fastSetSelector: aPltExpression [
-  selector := aPltExpression
+	selector := aPltExpression
 
 
 ]
 
 { #category : #'platypus-generated-fast-set-accessing' }
 PltIfStatement >> fastSetThenStatements: aListOfPltStatement [
-  thenStatements := aListOfPltStatement
+	thenStatements := aListOfPltStatement
 
 
 ]
 
 { #category : #'platypus-generated-group-accessing' }
 PltIfStatement >> fromValues: values [
-  ^self ifStatementFromValues: (super fromValues: values)
+	^ self ifStatementFromValues: (super fromValues: values)
 
 
 ]
 
 { #category : #'platypus-generated-copying' }
 PltIfStatement >> ifStatementCopyTo: another [
-  another fastSetSelector: self selector.
-  another fastSetThenStatements: self thenStatements.
-  another fastSetElseStatements: self elseStatements
+	another fastSetSelector: self selector.
+	another fastSetThenStatements: self thenStatements.
+	another fastSetElseStatements: self elseStatements
 
 
 ]
 
 { #category : #'platypus-generated-group-accessing' }
 PltIfStatement >> ifStatementFromValues: values [
-  | valuesloc |
-  valuesloc := values asOrderedCollection.
-  self setSelector: valuesloc removeFirst.
-  self setThenStatements: valuesloc removeFirst.
-  self setElseStatements: valuesloc removeFirst.
-  ^valuesloc
+	| valuesloc |
+	valuesloc := values asOrderedCollection.
+	self setSelector: valuesloc removeFirst.
+	self setThenStatements: valuesloc removeFirst.
+	self setElseStatements: valuesloc removeFirst.
+	^ valuesloc
 
 
 ]
 
 { #category : #'platypus-generated-group-accessing' }
 PltIfStatement >> ifStatementToValues: values [
-  values add: self selector.
-  values add: self thenStatements.
-  values add: self elseStatements.
-  ^values
+	values add: self selector.
+	values add: self thenStatements.
+	values add: self elseStatements.
+	^ values
 
 
 ]
 
 { #category : #'platypus-generated-classifying' }
 PltIfStatement >> isPltIfStatement [
-  ^true
+	^ true
 
 
 ]
 
 { #category : #'platypus-generated-group-accessing' }
 PltIfStatement >> localFromValues: values [
-  ^self ifStatementFromValues: values
+	^ self ifStatementFromValues: values
 
 
 ]
 
 { #category : #'platypus-generated-group-accessing' }
 PltIfStatement >> localToValues: values [
-  ^self ifStatementToValues: values
+	^ self ifStatementToValues: values
 
 
 ]
 
 { #category : #'platypus-generated-copying' }
 PltIfStatement >> pltCopyGroup: aClassSymbol to: anObject [
-  self class name == aClassSymbol ifTrue: [ self pltCopyTo: anObject ] ifFalse: [ super pltCopyGroup: aClassSymbol to: anObject ]
+	self class name == aClassSymbol
+		ifTrue: [ self pltCopyTo: anObject ]
+		ifFalse: [ super pltCopyGroup: aClassSymbol to: anObject ]
 
 
 ]
 
 { #category : #'platypus-generated-copying' }
 PltIfStatement >> pltCopyTo: another [
-  super pltCopyTo: another.
-  self ifStatementCopyTo: another
+	super pltCopyTo: another.
+	self ifStatementCopyTo: another
 
 
 ]
 
 { #category : #'platypus-generated-copying' }
 PltIfStatement >> pltLocalCopyTo: another [
-  self ifStatementCopyTo: another
+	self ifStatementCopyTo: another
 
 
 ]
 
 { #category : #'platypus-generated-accessing' }
 PltIfStatement >> selector [
-  ^selector
+	^ selector
 
 
 ]
 
 { #category : #'platypus-generated-accessing' }
 PltIfStatement >> selector: aPltExpression [
-  selector := aPltExpression
+	selector := aPltExpression
 
 
 ]
@@ -218,66 +222,68 @@ PltIfStatement >> selector: aPltExpression thenStatements: aListOfPltStatement e
 
 { #category : #'platypus-generated-with-context-accessing' }
 PltIfStatement >> selectorUsingContext: aContext [
-  ^self selector
+	^ self selector
 
 
 ]
 
 { #category : #'platypus-generated-set-accessing' }
 PltIfStatement >> setElseStatements: aListOfPltStatement [
-  self elseStatements: aListOfPltStatement
+	self elseStatements: aListOfPltStatement
 
 
 ]
 
 { #category : #'platypus-generated-set-accessing' }
 PltIfStatement >> setSelector: aPltExpression [
-  self selector: aPltExpression
+	self selector: aPltExpression
 
 
 ]
 
 { #category : #'platypus-generated-set-accessing' }
 PltIfStatement >> setThenStatements: aListOfPltStatement [
-  self thenStatements: aListOfPltStatement
+	self thenStatements: aListOfPltStatement
 
 
 ]
 
 { #category : #'platypus-generated-initializing' }
 PltIfStatement >> stepInitialize [
-  super stepInitialize.
-  selector := nil.
-  thenStatements := OrderedCollection new.
-  elseStatements := nil
+	super stepInitialize.
+	selector := nil.
+	thenStatements := OrderedCollection new.
+	elseStatements := nil
 
 
 ]
 
 { #category : #'platypus-generated-accessing' }
 PltIfStatement >> thenStatements [
-  ^thenStatements
+	^ thenStatements
 
 
 ]
 
 { #category : #'platypus-generated-accessing' }
 PltIfStatement >> thenStatements: aListOfPltStatement [
-  thenStatements := aListOfPltStatement ifNil: [ OrderedCollection new ] ifNotNil: [ aListOfPltStatement as: OrderedCollection ]
+	thenStatements := aListOfPltStatement
+		ifNil: [ OrderedCollection new ]
+		ifNotNil: [ aListOfPltStatement as: OrderedCollection ]
 
 
 ]
 
 { #category : #'platypus-generated-with-context-accessing' }
 PltIfStatement >> thenStatementsUsingContext: aContext [
-  ^self thenStatements
+	^ self thenStatements
 
 
 ]
 
 { #category : #'platypus-generated-group-accessing' }
 PltIfStatement >> toValues: values [
-  ^self ifStatementToValues: (super toValues: values)
+	^ self ifStatementToValues: (super toValues: values)
 
 
 ]

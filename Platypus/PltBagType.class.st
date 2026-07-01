@@ -21,7 +21,7 @@ PltBagType class >> context [ ^ self schemaDefinition context
 
 { #category : #'platypus-generated-platypus-signature' }
 PltBagType class >> iso10303P11Translater [
-  ^'Platypus (c) LISYC EA3883, Universite de Bretagne occidentale. Brest.'
+	^ 'Platypus (c) LISYC EA3883, Universite de Bretagne occidentale. Brest.'
 
 
 ]
@@ -34,143 +34,145 @@ PltBagType class >> platypusMetaData [ 	^ self schemaDefinition metaDataFor: sel
 
 { #category : #'platypus-generated-meta-data-accessing' }
 PltBagType class >> schemaDefinition [
-  ^PltPlatypusDictionarySchemaSchemaDefinition singleton
+	^ PltPlatypusDictionarySchemaSchemaDefinition singleton
 
 
 ]
 
 { #category : #'platypus-generated-meta-data-accessing' }
 PltBagType class >> schemaInstance [
-  ^PltPlatypusMetaSchemasSchemaInstance singleton
+	^ PltPlatypusMetaSchemasSchemaInstance singleton
 
 
 ]
 
 { #category : #'platypus-generated-platypus-signature' }
 PltBagType class >> translatedFromISO10303P11 [
-  ^true
+	^ true
 
 
 ]
 
 { #category : #'platypus-generated-platypus-signature' }
 PltBagType class >> vwNamespaceName [
-  ^#Platypus
+	^ #Platypus
 
 
 ]
 
 { #category : #'platypus-generated-visiting' }
 PltBagType >> accept: aVisitor [
-  ^aVisitor acceptBagType: self
+	^ aVisitor acceptBagType: self
 
 
 ]
 
 { #category : #'platypus-generated-deriving' }
 PltBagType >> accepted [
-  ^self acceptedUsingContext: self class context
+	^ self acceptedUsingContext: self class context
 
 
 ]
 
 { #category : #'platypus-generated-deriving' }
 PltBagType >> acceptedUsingContext: aContext [
-  ^self acceptedUsingContext: aContext receiver: self
+	^ self acceptedUsingContext: aContext receiver: self
 
 
 ]
 
 { #category : #'platypus-generated-deriving' }
 PltBagType >> acceptedUsingContext: aContext receiver: aReceiver [
-  ^aReceiver acceptBagTypeUsingContext: aContext
+	^ aReceiver acceptBagTypeUsingContext: aContext
 
 
 ]
 
 { #category : #'platypus-generated-copying' }
 PltBagType >> bagTypeCopyTo: another [
-  
+	
 
 
 ]
 
 { #category : #'platypus-generated-group-accessing' }
 PltBagType >> bagTypeFromValues: values [
-  | valuesloc |
-  valuesloc := values asOrderedCollection.
-  ^valuesloc
+	| valuesloc |
+	valuesloc := values asOrderedCollection.
+	^ valuesloc
 
 
 ]
 
 { #category : #'platypus-generated-group-accessing' }
 PltBagType >> bagTypeToValues: values [
-  ^values
+	^ values
 
 
 ]
 
 { #category : #'platypus-generated-group-accessing' }
 PltBagType >> fromValues: values [
-  ^self bagTypeFromValues: (super fromValues: values)
+	^ self bagTypeFromValues: (super fromValues: values)
 
 
 ]
 
 { #category : #'platypus-generated-classifying' }
 PltBagType >> isPltBagType [
-  ^true
+	^ true
 
 
 ]
 
 { #category : #'platypus-generated-group-accessing' }
 PltBagType >> localFromValues: values [
-  ^self bagTypeFromValues: values
+	^ self bagTypeFromValues: values
 
 
 ]
 
 { #category : #'platypus-generated-group-accessing' }
 PltBagType >> localToValues: values [
-  ^self bagTypeToValues: values
+	^ self bagTypeToValues: values
 
 
 ]
 
 { #category : #'platypus-generated-copying' }
 PltBagType >> pltCopyGroup: aClassSymbol to: anObject [
-  self class name == aClassSymbol ifTrue: [ self pltCopyTo: anObject ] ifFalse: [ super pltCopyGroup: aClassSymbol to: anObject ]
+	self class name == aClassSymbol
+		ifTrue: [ self pltCopyTo: anObject ]
+		ifFalse: [ super pltCopyGroup: aClassSymbol to: anObject ]
 
 
 ]
 
 { #category : #'platypus-generated-copying' }
 PltBagType >> pltCopyTo: another [
-  super pltCopyTo: another.
-  self bagTypeCopyTo: another
+	super pltCopyTo: another.
+	self bagTypeCopyTo: another
 
 
 ]
 
 { #category : #'platypus-generated-copying' }
 PltBagType >> pltLocalCopyTo: another [
-  self bagTypeCopyTo: another
+	self bagTypeCopyTo: another
 
 
 ]
 
 { #category : #'platypus-generated-initializing' }
 PltBagType >> stepInitialize [
-  super stepInitialize
+	super stepInitialize
 
 
 ]
 
 { #category : #'platypus-generated-group-accessing' }
 PltBagType >> toValues: values [
-  ^self bagTypeToValues: (super toValues: values)
+	^ self bagTypeToValues: (super toValues: values)
 
 
 ]

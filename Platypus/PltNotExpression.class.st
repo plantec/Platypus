@@ -19,7 +19,7 @@ PltNotExpression class >> context [ ^ self schemaDefinition context
 
 { #category : #'platypus-generated-platypus-signature' }
 PltNotExpression class >> iso10303P11Translater [
-  ^'Platypus (c) LISYC EA3883, Universite de Bretagne occidentale. Brest.'
+	^ 'Platypus (c) LISYC EA3883, Universite de Bretagne occidentale. Brest.'
 
 
 ]
@@ -32,122 +32,124 @@ PltNotExpression class >> platypusMetaData [ 	^ self schemaDefinition metaDataFo
 
 { #category : #'platypus-generated-meta-data-accessing' }
 PltNotExpression class >> schemaDefinition [
-  ^PltPlatypusExpressionsSchemaSchemaDefinition singleton
+	^ PltPlatypusExpressionsSchemaSchemaDefinition singleton
 
 
 ]
 
 { #category : #'platypus-generated-meta-data-accessing' }
 PltNotExpression class >> schemaInstance [
-  ^PltPlatypusMetaSchemasSchemaInstance singleton
+	^ PltPlatypusMetaSchemasSchemaInstance singleton
 
 
 ]
 
 { #category : #'platypus-generated-platypus-signature' }
 PltNotExpression class >> translatedFromISO10303P11 [
-  ^true
+	^ true
 
 
 ]
 
 { #category : #'platypus-generated-platypus-signature' }
 PltNotExpression class >> vwNamespaceName [
-  ^#Platypus
+	^ #Platypus
 
 
 ]
 
 { #category : #'platypus-generated-visiting' }
 PltNotExpression >> accept: aVisitor [
-  ^aVisitor acceptNotExpression: self
+	^ aVisitor acceptNotExpression: self
 
 
 ]
 
 { #category : #'platypus-generated-group-accessing' }
 PltNotExpression >> fromValues: values [
-  ^self notExpressionFromValues: (super fromValues: values)
+	^ self notExpressionFromValues: (super fromValues: values)
 
 
 ]
 
 { #category : #'platypus-generated-classifying' }
 PltNotExpression >> isPltNotExpression [
-  ^true
+	^ true
 
 
 ]
 
 { #category : #'platypus-generated-group-accessing' }
 PltNotExpression >> localFromValues: values [
-  ^self notExpressionFromValues: values
+	^ self notExpressionFromValues: values
 
 
 ]
 
 { #category : #'platypus-generated-group-accessing' }
 PltNotExpression >> localToValues: values [
-  ^self notExpressionToValues: values
+	^ self notExpressionToValues: values
 
 
 ]
 
 { #category : #'platypus-generated-copying' }
 PltNotExpression >> notExpressionCopyTo: another [
-  
+	
 
 
 ]
 
 { #category : #'platypus-generated-group-accessing' }
 PltNotExpression >> notExpressionFromValues: values [
-  | valuesloc |
-  valuesloc := values asOrderedCollection.
-  ^valuesloc
+	| valuesloc |
+	valuesloc := values asOrderedCollection.
+	^ valuesloc
 
 
 ]
 
 { #category : #'platypus-generated-group-accessing' }
 PltNotExpression >> notExpressionToValues: values [
-  ^values
+	^ values
 
 
 ]
 
 { #category : #'platypus-generated-copying' }
 PltNotExpression >> pltCopyGroup: aClassSymbol to: anObject [
-  self class name == aClassSymbol ifTrue: [ self pltCopyTo: anObject ] ifFalse: [ super pltCopyGroup: aClassSymbol to: anObject ]
+	self class name == aClassSymbol
+		ifTrue: [ self pltCopyTo: anObject ]
+		ifFalse: [ super pltCopyGroup: aClassSymbol to: anObject ]
 
 
 ]
 
 { #category : #'platypus-generated-copying' }
 PltNotExpression >> pltCopyTo: another [
-  super pltCopyTo: another.
-  self notExpressionCopyTo: another
+	super pltCopyTo: another.
+	self notExpressionCopyTo: another
 
 
 ]
 
 { #category : #'platypus-generated-copying' }
 PltNotExpression >> pltLocalCopyTo: another [
-  self notExpressionCopyTo: another
+	self notExpressionCopyTo: another
 
 
 ]
 
 { #category : #'platypus-generated-initializing' }
 PltNotExpression >> stepInitialize [
-  super stepInitialize
+	super stepInitialize
 
 
 ]
 
 { #category : #'platypus-generated-group-accessing' }
 PltNotExpression >> toValues: values [
-  ^self notExpressionToValues: (super toValues: values)
+	^ self notExpressionToValues: (super toValues: values)
 
 
 ]

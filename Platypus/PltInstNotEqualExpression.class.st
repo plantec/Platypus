@@ -19,7 +19,7 @@ PltInstNotEqualExpression class >> context [ ^ self schemaDefinition context
 
 { #category : #'platypus-generated-platypus-signature' }
 PltInstNotEqualExpression class >> iso10303P11Translater [
-  ^'Platypus (c) LISYC EA3883, Universite de Bretagne occidentale. Brest.'
+	^ 'Platypus (c) LISYC EA3883, Universite de Bretagne occidentale. Brest.'
 
 
 ]
@@ -32,122 +32,124 @@ PltInstNotEqualExpression class >> platypusMetaData [ 	^ self schemaDefinition m
 
 { #category : #'platypus-generated-meta-data-accessing' }
 PltInstNotEqualExpression class >> schemaDefinition [
-  ^PltPlatypusExpressionsSchemaSchemaDefinition singleton
+	^ PltPlatypusExpressionsSchemaSchemaDefinition singleton
 
 
 ]
 
 { #category : #'platypus-generated-meta-data-accessing' }
 PltInstNotEqualExpression class >> schemaInstance [
-  ^PltPlatypusMetaSchemasSchemaInstance singleton
+	^ PltPlatypusMetaSchemasSchemaInstance singleton
 
 
 ]
 
 { #category : #'platypus-generated-platypus-signature' }
 PltInstNotEqualExpression class >> translatedFromISO10303P11 [
-  ^true
+	^ true
 
 
 ]
 
 { #category : #'platypus-generated-platypus-signature' }
 PltInstNotEqualExpression class >> vwNamespaceName [
-  ^#Platypus
+	^ #Platypus
 
 
 ]
 
 { #category : #'platypus-generated-visiting' }
 PltInstNotEqualExpression >> accept: aVisitor [
-  ^aVisitor acceptInstNotEqualExpression: self
+	^ aVisitor acceptInstNotEqualExpression: self
 
 
 ]
 
 { #category : #'platypus-generated-group-accessing' }
 PltInstNotEqualExpression >> fromValues: values [
-  ^self instNotEqualExpressionFromValues: (super fromValues: values)
+	^ self instNotEqualExpressionFromValues: (super fromValues: values)
 
 
 ]
 
 { #category : #'platypus-generated-copying' }
 PltInstNotEqualExpression >> instNotEqualExpressionCopyTo: another [
-  
+	
 
 
 ]
 
 { #category : #'platypus-generated-group-accessing' }
 PltInstNotEqualExpression >> instNotEqualExpressionFromValues: values [
-  | valuesloc |
-  valuesloc := values asOrderedCollection.
-  ^valuesloc
+	| valuesloc |
+	valuesloc := values asOrderedCollection.
+	^ valuesloc
 
 
 ]
 
 { #category : #'platypus-generated-group-accessing' }
 PltInstNotEqualExpression >> instNotEqualExpressionToValues: values [
-  ^values
+	^ values
 
 
 ]
 
 { #category : #'platypus-generated-classifying' }
 PltInstNotEqualExpression >> isPltInstNotEqualExpression [
-  ^true
+	^ true
 
 
 ]
 
 { #category : #'platypus-generated-group-accessing' }
 PltInstNotEqualExpression >> localFromValues: values [
-  ^self instNotEqualExpressionFromValues: values
+	^ self instNotEqualExpressionFromValues: values
 
 
 ]
 
 { #category : #'platypus-generated-group-accessing' }
 PltInstNotEqualExpression >> localToValues: values [
-  ^self instNotEqualExpressionToValues: values
+	^ self instNotEqualExpressionToValues: values
 
 
 ]
 
 { #category : #'platypus-generated-copying' }
 PltInstNotEqualExpression >> pltCopyGroup: aClassSymbol to: anObject [
-  self class name == aClassSymbol ifTrue: [ self pltCopyTo: anObject ] ifFalse: [ super pltCopyGroup: aClassSymbol to: anObject ]
+	self class name == aClassSymbol
+		ifTrue: [ self pltCopyTo: anObject ]
+		ifFalse: [ super pltCopyGroup: aClassSymbol to: anObject ]
 
 
 ]
 
 { #category : #'platypus-generated-copying' }
 PltInstNotEqualExpression >> pltCopyTo: another [
-  super pltCopyTo: another.
-  self instNotEqualExpressionCopyTo: another
+	super pltCopyTo: another.
+	self instNotEqualExpressionCopyTo: another
 
 
 ]
 
 { #category : #'platypus-generated-copying' }
 PltInstNotEqualExpression >> pltLocalCopyTo: another [
-  self instNotEqualExpressionCopyTo: another
+	self instNotEqualExpressionCopyTo: another
 
 
 ]
 
 { #category : #'platypus-generated-initializing' }
 PltInstNotEqualExpression >> stepInitialize [
-  super stepInitialize
+	super stepInitialize
 
 
 ]
 
 { #category : #'platypus-generated-group-accessing' }
 PltInstNotEqualExpression >> toValues: values [
-  ^self instNotEqualExpressionToValues: (super toValues: values)
+	^ self instNotEqualExpressionToValues: (super toValues: values)
 
 
 ]

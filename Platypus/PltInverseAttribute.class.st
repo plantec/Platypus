@@ -16,9 +16,9 @@ Class {
 	#name : #PltInverseAttribute,
 	#superclass : #PltAttribute,
 	#instVars : [
-		'maxCardinality',
 		'minCardinality',
 		'duplicates',
+		'maxCardinality',
 		'invertedAttr'
 	],
 	#category : #'Platypus-PlatypusDictionarySchemaSchema'
@@ -32,7 +32,7 @@ PltInverseAttribute class >> context [ ^ self schemaDefinition context
 
 { #category : #'platypus-generated-platypus-signature' }
 PltInverseAttribute class >> iso10303P11Translater [
-  ^'Platypus (c) LISYC EA3883, Universite de Bretagne occidentale. Brest.'
+	^ 'Platypus (c) LISYC EA3883, Universite de Bretagne occidentale. Brest.'
 
 
 ]
@@ -45,181 +45,181 @@ PltInverseAttribute class >> platypusMetaData [ 	^ self schemaDefinition metaDat
 
 { #category : #'platypus-generated-meta-data-accessing' }
 PltInverseAttribute class >> schemaDefinition [
-  ^PltPlatypusDictionarySchemaSchemaDefinition singleton
+	^ PltPlatypusDictionarySchemaSchemaDefinition singleton
 
 
 ]
 
 { #category : #'platypus-generated-meta-data-accessing' }
 PltInverseAttribute class >> schemaInstance [
-  ^PltPlatypusMetaSchemasSchemaInstance singleton
+	^ PltPlatypusMetaSchemasSchemaInstance singleton
 
 
 ]
 
 { #category : #'platypus-generated-platypus-signature' }
 PltInverseAttribute class >> translatedFromISO10303P11 [
-  ^true
+	^ true
 
 
 ]
 
 { #category : #'platypus-generated-platypus-signature' }
 PltInverseAttribute class >> vwNamespaceName [
-  ^#Platypus
+	^ #Platypus
 
 
 ]
 
 { #category : #'platypus-generated-visiting' }
 PltInverseAttribute >> accept: aVisitor [
-  ^aVisitor acceptInverseAttribute: self
+	^ aVisitor acceptInverseAttribute: self
 
 
 ]
 
 { #category : #'platypus-generated-deriving' }
 PltInverseAttribute >> accepted [
-  ^self acceptedUsingContext: self class context
+	^ self acceptedUsingContext: self class context
 
 
 ]
 
 { #category : #'platypus-generated-deriving' }
 PltInverseAttribute >> acceptedUsingContext: aContext [
-  ^self acceptedUsingContext: aContext receiver: self
+	^ self acceptedUsingContext: aContext receiver: self
 
 
 ]
 
 { #category : #'platypus-generated-deriving' }
 PltInverseAttribute >> acceptedUsingContext: aContext receiver: aReceiver [
-  ^aReceiver acceptInverseAttributeUsingContext: aContext
+	^ aReceiver acceptInverseAttributeUsingContext: aContext
 
 
 ]
 
 { #category : #'platypus-generated-deriving' }
 PltInverseAttribute >> domain [
-  ^self domainUsingContext: self class context
+	^ self domainUsingContext: self class context
 
 
 ]
 
 { #category : #'platypus-generated-deriving' }
 PltInverseAttribute >> domainUsingContext: aContext [
-  ^self domainUsingContext: aContext receiver: self
+	^ self domainUsingContext: aContext receiver: self
 
 
 ]
 
 { #category : #'platypus-generated-deriving' }
 PltInverseAttribute >> domainUsingContext: aContext receiver: aReceiver [
-  ^aReceiver invertedAttr entityRefUsingContext: aContext
+	^ aReceiver invertedAttr entityRefUsingContext: aContext
 
 
 ]
 
 { #category : #'platypus-generated-accessing' }
 PltInverseAttribute >> duplicates [
-  ^duplicates
+	^ duplicates
 
 
 ]
 
 { #category : #'platypus-generated-accessing' }
 PltInverseAttribute >> duplicates: aBoolean [
-  duplicates := aBoolean
+	duplicates := aBoolean
 
 
 ]
 
 { #category : #'platypus-generated-with-context-accessing' }
 PltInverseAttribute >> duplicatesUsingContext: aContext [
-  ^self duplicates
+	^ self duplicates
 
 
 ]
 
 { #category : #'platypus-generated-fast-set-accessing' }
 PltInverseAttribute >> fastSetDuplicates: aBoolean [
-  duplicates := aBoolean
+	duplicates := aBoolean
 
 
 ]
 
 { #category : #'platypus-generated-fast-set-accessing' }
 PltInverseAttribute >> fastSetInvertedAttr: aPltAttributeReference [
-  invertedAttr := aPltAttributeReference
+	invertedAttr := aPltAttributeReference
 
 
 ]
 
 { #category : #'platypus-generated-fast-set-accessing' }
 PltInverseAttribute >> fastSetMaxCardinality: aPltBound [
-  maxCardinality := aPltBound
+	maxCardinality := aPltBound
 
 
 ]
 
 { #category : #'platypus-generated-fast-set-accessing' }
 PltInverseAttribute >> fastSetMinCardinality: aPltBound [
-  minCardinality := aPltBound
+	minCardinality := aPltBound
 
 
 ]
 
 { #category : #'platypus-generated-group-accessing' }
 PltInverseAttribute >> fromValues: values [
-  ^self inverseAttributeFromValues: (super fromValues: values)
+	^ self inverseAttributeFromValues: (super fromValues: values)
 
 
 ]
 
 { #category : #'platypus-generated-copying' }
 PltInverseAttribute >> inverseAttributeCopyTo: another [
-  another fastSetInvertedAttr: self invertedAttr.
-  another fastSetMinCardinality: self minCardinality.
-  another fastSetMaxCardinality: self maxCardinality.
-  another fastSetDuplicates: self duplicates
+	another fastSetInvertedAttr: self invertedAttr.
+	another fastSetMinCardinality: self minCardinality.
+	another fastSetMaxCardinality: self maxCardinality.
+	another fastSetDuplicates: self duplicates
 
 
 ]
 
 { #category : #'platypus-generated-group-accessing' }
 PltInverseAttribute >> inverseAttributeFromValues: values [
-  | valuesloc |
-  valuesloc := values asOrderedCollection.
-  self setInvertedAttr: valuesloc removeFirst.
-  self setMinCardinality: valuesloc removeFirst.
-  self setMaxCardinality: valuesloc removeFirst.
-  self setDuplicates: valuesloc removeFirst.
-  ^valuesloc
+	| valuesloc |
+	valuesloc := values asOrderedCollection.
+	self setInvertedAttr: valuesloc removeFirst.
+	self setMinCardinality: valuesloc removeFirst.
+	self setMaxCardinality: valuesloc removeFirst.
+	self setDuplicates: valuesloc removeFirst.
+	^ valuesloc
 
 
 ]
 
 { #category : #'platypus-generated-group-accessing' }
 PltInverseAttribute >> inverseAttributeToValues: values [
-  values add: self invertedAttr.
-  values add: self minCardinality.
-  values add: self maxCardinality.
-  values add: self duplicates.
-  ^values
+	values add: self invertedAttr.
+	values add: self minCardinality.
+	values add: self maxCardinality.
+	values add: self duplicates.
+	^ values
 
 
 ]
 
 { #category : #'platypus-generated-accessing' }
 PltInverseAttribute >> invertedAttr [
-  ^invertedAttr
+	^ invertedAttr
 
 
 ]
 
 { #category : #'platypus-generated-accessing' }
 PltInverseAttribute >> invertedAttr: aPltAttributeReference [
-  invertedAttr := aPltAttributeReference
+	invertedAttr := aPltAttributeReference
 
 
 ]
@@ -232,138 +232,140 @@ PltInverseAttribute >> invertedAttr: aPltAttributeReference minCardinality: aPlt
 
 { #category : #'platypus-generated-with-context-accessing' }
 PltInverseAttribute >> invertedAttrUsingContext: aContext [
-  ^self invertedAttr
+	^ self invertedAttr
 
 
 ]
 
 { #category : #'platypus-generated-classifying' }
 PltInverseAttribute >> isPltInverseAttribute [
-  ^true
+	^ true
 
 
 ]
 
 { #category : #'platypus-generated-group-accessing' }
 PltInverseAttribute >> localFromValues: values [
-  ^self inverseAttributeFromValues: values
+	^ self inverseAttributeFromValues: values
 
 
 ]
 
 { #category : #'platypus-generated-group-accessing' }
 PltInverseAttribute >> localToValues: values [
-  ^self inverseAttributeToValues: values
+	^ self inverseAttributeToValues: values
 
 
 ]
 
 { #category : #'platypus-generated-accessing' }
 PltInverseAttribute >> maxCardinality [
-  ^maxCardinality
+	^ maxCardinality
 
 
 ]
 
 { #category : #'platypus-generated-accessing' }
 PltInverseAttribute >> maxCardinality: aPltBound [
-  maxCardinality := aPltBound
+	maxCardinality := aPltBound
 
 
 ]
 
 { #category : #'platypus-generated-with-context-accessing' }
 PltInverseAttribute >> maxCardinalityUsingContext: aContext [
-  ^self maxCardinality
+	^ self maxCardinality
 
 
 ]
 
 { #category : #'platypus-generated-accessing' }
 PltInverseAttribute >> minCardinality [
-  ^minCardinality
+	^ minCardinality
 
 
 ]
 
 { #category : #'platypus-generated-accessing' }
 PltInverseAttribute >> minCardinality: aPltBound [
-  minCardinality := aPltBound
+	minCardinality := aPltBound
 
 
 ]
 
 { #category : #'platypus-generated-with-context-accessing' }
 PltInverseAttribute >> minCardinalityUsingContext: aContext [
-  ^self minCardinality
+	^ self minCardinality
 
 
 ]
 
 { #category : #'platypus-generated-copying' }
 PltInverseAttribute >> pltCopyGroup: aClassSymbol to: anObject [
-  self class name == aClassSymbol ifTrue: [ self pltCopyTo: anObject ] ifFalse: [ super pltCopyGroup: aClassSymbol to: anObject ]
+	self class name == aClassSymbol
+		ifTrue: [ self pltCopyTo: anObject ]
+		ifFalse: [ super pltCopyGroup: aClassSymbol to: anObject ]
 
 
 ]
 
 { #category : #'platypus-generated-copying' }
 PltInverseAttribute >> pltCopyTo: another [
-  super pltCopyTo: another.
-  self inverseAttributeCopyTo: another
+	super pltCopyTo: another.
+	self inverseAttributeCopyTo: another
 
 
 ]
 
 { #category : #'platypus-generated-copying' }
 PltInverseAttribute >> pltLocalCopyTo: another [
-  self inverseAttributeCopyTo: another
+	self inverseAttributeCopyTo: another
 
 
 ]
 
 { #category : #'platypus-generated-set-accessing' }
 PltInverseAttribute >> setDuplicates: aBoolean [
-  self duplicates: aBoolean
+	self duplicates: aBoolean
 
 
 ]
 
 { #category : #'platypus-generated-set-accessing' }
 PltInverseAttribute >> setInvertedAttr: aPltAttributeReference [
-  self invertedAttr: aPltAttributeReference
+	self invertedAttr: aPltAttributeReference
 
 
 ]
 
 { #category : #'platypus-generated-set-accessing' }
 PltInverseAttribute >> setMaxCardinality: aPltBound [
-  self maxCardinality: aPltBound
+	self maxCardinality: aPltBound
 
 
 ]
 
 { #category : #'platypus-generated-set-accessing' }
 PltInverseAttribute >> setMinCardinality: aPltBound [
-  self minCardinality: aPltBound
+	self minCardinality: aPltBound
 
 
 ]
 
 { #category : #'platypus-generated-initializing' }
 PltInverseAttribute >> stepInitialize [
-  super stepInitialize.
-  invertedAttr := nil.
-  minCardinality := nil.
-  maxCardinality := nil.
-  duplicates := false
+	super stepInitialize.
+	invertedAttr := nil.
+	minCardinality := nil.
+	maxCardinality := nil.
+	duplicates := false
 
 
 ]
 
 { #category : #'platypus-generated-group-accessing' }
 PltInverseAttribute >> toValues: values [
-  ^self inverseAttributeToValues: (super toValues: values)
+	^ self inverseAttributeToValues: (super toValues: values)
 
 
 ]

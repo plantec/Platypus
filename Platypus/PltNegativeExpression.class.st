@@ -19,7 +19,7 @@ PltNegativeExpression class >> context [ ^ self schemaDefinition context
 
 { #category : #'platypus-generated-platypus-signature' }
 PltNegativeExpression class >> iso10303P11Translater [
-  ^'Platypus (c) LISYC EA3883, Universite de Bretagne occidentale. Brest.'
+	^ 'Platypus (c) LISYC EA3883, Universite de Bretagne occidentale. Brest.'
 
 
 ]
@@ -32,122 +32,124 @@ PltNegativeExpression class >> platypusMetaData [ 	^ self schemaDefinition metaD
 
 { #category : #'platypus-generated-meta-data-accessing' }
 PltNegativeExpression class >> schemaDefinition [
-  ^PltPlatypusExpressionsSchemaSchemaDefinition singleton
+	^ PltPlatypusExpressionsSchemaSchemaDefinition singleton
 
 
 ]
 
 { #category : #'platypus-generated-meta-data-accessing' }
 PltNegativeExpression class >> schemaInstance [
-  ^PltPlatypusMetaSchemasSchemaInstance singleton
+	^ PltPlatypusMetaSchemasSchemaInstance singleton
 
 
 ]
 
 { #category : #'platypus-generated-platypus-signature' }
 PltNegativeExpression class >> translatedFromISO10303P11 [
-  ^true
+	^ true
 
 
 ]
 
 { #category : #'platypus-generated-platypus-signature' }
 PltNegativeExpression class >> vwNamespaceName [
-  ^#Platypus
+	^ #Platypus
 
 
 ]
 
 { #category : #'platypus-generated-visiting' }
 PltNegativeExpression >> accept: aVisitor [
-  ^aVisitor acceptNegativeExpression: self
+	^ aVisitor acceptNegativeExpression: self
 
 
 ]
 
 { #category : #'platypus-generated-group-accessing' }
 PltNegativeExpression >> fromValues: values [
-  ^self negativeExpressionFromValues: (super fromValues: values)
+	^ self negativeExpressionFromValues: (super fromValues: values)
 
 
 ]
 
 { #category : #'platypus-generated-classifying' }
 PltNegativeExpression >> isPltNegativeExpression [
-  ^true
+	^ true
 
 
 ]
 
 { #category : #'platypus-generated-group-accessing' }
 PltNegativeExpression >> localFromValues: values [
-  ^self negativeExpressionFromValues: values
+	^ self negativeExpressionFromValues: values
 
 
 ]
 
 { #category : #'platypus-generated-group-accessing' }
 PltNegativeExpression >> localToValues: values [
-  ^self negativeExpressionToValues: values
+	^ self negativeExpressionToValues: values
 
 
 ]
 
 { #category : #'platypus-generated-copying' }
 PltNegativeExpression >> negativeExpressionCopyTo: another [
-  
+	
 
 
 ]
 
 { #category : #'platypus-generated-group-accessing' }
 PltNegativeExpression >> negativeExpressionFromValues: values [
-  | valuesloc |
-  valuesloc := values asOrderedCollection.
-  ^valuesloc
+	| valuesloc |
+	valuesloc := values asOrderedCollection.
+	^ valuesloc
 
 
 ]
 
 { #category : #'platypus-generated-group-accessing' }
 PltNegativeExpression >> negativeExpressionToValues: values [
-  ^values
+	^ values
 
 
 ]
 
 { #category : #'platypus-generated-copying' }
 PltNegativeExpression >> pltCopyGroup: aClassSymbol to: anObject [
-  self class name == aClassSymbol ifTrue: [ self pltCopyTo: anObject ] ifFalse: [ super pltCopyGroup: aClassSymbol to: anObject ]
+	self class name == aClassSymbol
+		ifTrue: [ self pltCopyTo: anObject ]
+		ifFalse: [ super pltCopyGroup: aClassSymbol to: anObject ]
 
 
 ]
 
 { #category : #'platypus-generated-copying' }
 PltNegativeExpression >> pltCopyTo: another [
-  super pltCopyTo: another.
-  self negativeExpressionCopyTo: another
+	super pltCopyTo: another.
+	self negativeExpressionCopyTo: another
 
 
 ]
 
 { #category : #'platypus-generated-copying' }
 PltNegativeExpression >> pltLocalCopyTo: another [
-  self negativeExpressionCopyTo: another
+	self negativeExpressionCopyTo: another
 
 
 ]
 
 { #category : #'platypus-generated-initializing' }
 PltNegativeExpression >> stepInitialize [
-  super stepInitialize
+	super stepInitialize
 
 
 ]
 
 { #category : #'platypus-generated-group-accessing' }
 PltNegativeExpression >> toValues: values [
-  ^self negativeExpressionToValues: (super toValues: values)
+	^ self negativeExpressionToValues: (super toValues: values)
 
 
 ]

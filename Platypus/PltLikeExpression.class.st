@@ -19,7 +19,7 @@ PltLikeExpression class >> context [ ^ self schemaDefinition context
 
 { #category : #'platypus-generated-platypus-signature' }
 PltLikeExpression class >> iso10303P11Translater [
-  ^'Platypus (c) LISYC EA3883, Universite de Bretagne occidentale. Brest.'
+	^ 'Platypus (c) LISYC EA3883, Universite de Bretagne occidentale. Brest.'
 
 
 ]
@@ -32,122 +32,124 @@ PltLikeExpression class >> platypusMetaData [ 	^ self schemaDefinition metaDataF
 
 { #category : #'platypus-generated-meta-data-accessing' }
 PltLikeExpression class >> schemaDefinition [
-  ^PltPlatypusExpressionsSchemaSchemaDefinition singleton
+	^ PltPlatypusExpressionsSchemaSchemaDefinition singleton
 
 
 ]
 
 { #category : #'platypus-generated-meta-data-accessing' }
 PltLikeExpression class >> schemaInstance [
-  ^PltPlatypusMetaSchemasSchemaInstance singleton
+	^ PltPlatypusMetaSchemasSchemaInstance singleton
 
 
 ]
 
 { #category : #'platypus-generated-platypus-signature' }
 PltLikeExpression class >> translatedFromISO10303P11 [
-  ^true
+	^ true
 
 
 ]
 
 { #category : #'platypus-generated-platypus-signature' }
 PltLikeExpression class >> vwNamespaceName [
-  ^#Platypus
+	^ #Platypus
 
 
 ]
 
 { #category : #'platypus-generated-visiting' }
 PltLikeExpression >> accept: aVisitor [
-  ^aVisitor acceptLikeExpression: self
+	^ aVisitor acceptLikeExpression: self
 
 
 ]
 
 { #category : #'platypus-generated-group-accessing' }
 PltLikeExpression >> fromValues: values [
-  ^self likeExpressionFromValues: (super fromValues: values)
+	^ self likeExpressionFromValues: (super fromValues: values)
 
 
 ]
 
 { #category : #'platypus-generated-classifying' }
 PltLikeExpression >> isPltLikeExpression [
-  ^true
+	^ true
 
 
 ]
 
 { #category : #'platypus-generated-copying' }
 PltLikeExpression >> likeExpressionCopyTo: another [
-  
+	
 
 
 ]
 
 { #category : #'platypus-generated-group-accessing' }
 PltLikeExpression >> likeExpressionFromValues: values [
-  | valuesloc |
-  valuesloc := values asOrderedCollection.
-  ^valuesloc
+	| valuesloc |
+	valuesloc := values asOrderedCollection.
+	^ valuesloc
 
 
 ]
 
 { #category : #'platypus-generated-group-accessing' }
 PltLikeExpression >> likeExpressionToValues: values [
-  ^values
+	^ values
 
 
 ]
 
 { #category : #'platypus-generated-group-accessing' }
 PltLikeExpression >> localFromValues: values [
-  ^self likeExpressionFromValues: values
+	^ self likeExpressionFromValues: values
 
 
 ]
 
 { #category : #'platypus-generated-group-accessing' }
 PltLikeExpression >> localToValues: values [
-  ^self likeExpressionToValues: values
+	^ self likeExpressionToValues: values
 
 
 ]
 
 { #category : #'platypus-generated-copying' }
 PltLikeExpression >> pltCopyGroup: aClassSymbol to: anObject [
-  self class name == aClassSymbol ifTrue: [ self pltCopyTo: anObject ] ifFalse: [ super pltCopyGroup: aClassSymbol to: anObject ]
+	self class name == aClassSymbol
+		ifTrue: [ self pltCopyTo: anObject ]
+		ifFalse: [ super pltCopyGroup: aClassSymbol to: anObject ]
 
 
 ]
 
 { #category : #'platypus-generated-copying' }
 PltLikeExpression >> pltCopyTo: another [
-  super pltCopyTo: another.
-  self likeExpressionCopyTo: another
+	super pltCopyTo: another.
+	self likeExpressionCopyTo: another
 
 
 ]
 
 { #category : #'platypus-generated-copying' }
 PltLikeExpression >> pltLocalCopyTo: another [
-  self likeExpressionCopyTo: another
+	self likeExpressionCopyTo: another
 
 
 ]
 
 { #category : #'platypus-generated-initializing' }
 PltLikeExpression >> stepInitialize [
-  super stepInitialize
+	super stepInitialize
 
 
 ]
 
 { #category : #'platypus-generated-group-accessing' }
 PltLikeExpression >> toValues: values [
-  ^self likeExpressionToValues: (super toValues: values)
+	^ self likeExpressionToValues: (super toValues: values)
 
 
 ]

@@ -20,7 +20,7 @@ PltVariableSizeAggregationType class >> context [ ^ self schemaDefinition contex
 
 { #category : #'platypus-generated-platypus-signature' }
 PltVariableSizeAggregationType class >> iso10303P11Translater [
-  ^'Platypus (c) LISYC EA3883, Universite de Bretagne occidentale. Brest.'
+	^ 'Platypus (c) LISYC EA3883, Universite de Bretagne occidentale. Brest.'
 
 
 ]
@@ -33,122 +33,124 @@ PltVariableSizeAggregationType class >> platypusMetaData [ 	^ self schemaDefinit
 
 { #category : #'platypus-generated-meta-data-accessing' }
 PltVariableSizeAggregationType class >> schemaDefinition [
-  ^PltPlatypusDictionarySchemaSchemaDefinition singleton
+	^ PltPlatypusDictionarySchemaSchemaDefinition singleton
 
 
 ]
 
 { #category : #'platypus-generated-meta-data-accessing' }
 PltVariableSizeAggregationType class >> schemaInstance [
-  ^PltPlatypusMetaSchemasSchemaInstance singleton
+	^ PltPlatypusMetaSchemasSchemaInstance singleton
 
 
 ]
 
 { #category : #'platypus-generated-platypus-signature' }
 PltVariableSizeAggregationType class >> translatedFromISO10303P11 [
-  ^true
+	^ true
 
 
 ]
 
 { #category : #'platypus-generated-platypus-signature' }
 PltVariableSizeAggregationType class >> vwNamespaceName [
-  ^#Platypus
+	^ #Platypus
 
 
 ]
 
 { #category : #'platypus-generated-visiting' }
 PltVariableSizeAggregationType >> accept: aVisitor [
-  ^aVisitor acceptVariableSizeAggregationType: self
+	^ aVisitor acceptVariableSizeAggregationType: self
 
 
 ]
 
 { #category : #'platypus-generated-group-accessing' }
 PltVariableSizeAggregationType >> fromValues: values [
-  ^self variableSizeAggregationTypeFromValues: (super fromValues: values)
+	^ self variableSizeAggregationTypeFromValues: (super fromValues: values)
 
 
 ]
 
 { #category : #'platypus-generated-classifying' }
 PltVariableSizeAggregationType >> isPltVariableSizeAggregationType [
-  ^true
+	^ true
 
 
 ]
 
 { #category : #'platypus-generated-group-accessing' }
 PltVariableSizeAggregationType >> localFromValues: values [
-  ^self variableSizeAggregationTypeFromValues: values
+	^ self variableSizeAggregationTypeFromValues: values
 
 
 ]
 
 { #category : #'platypus-generated-group-accessing' }
 PltVariableSizeAggregationType >> localToValues: values [
-  ^self variableSizeAggregationTypeToValues: values
+	^ self variableSizeAggregationTypeToValues: values
 
 
 ]
 
 { #category : #'platypus-generated-copying' }
 PltVariableSizeAggregationType >> pltCopyGroup: aClassSymbol to: anObject [
-  self class name == aClassSymbol ifTrue: [ self pltCopyTo: anObject ] ifFalse: [ super pltCopyGroup: aClassSymbol to: anObject ]
+	self class name == aClassSymbol
+		ifTrue: [ self pltCopyTo: anObject ]
+		ifFalse: [ super pltCopyGroup: aClassSymbol to: anObject ]
 
 
 ]
 
 { #category : #'platypus-generated-copying' }
 PltVariableSizeAggregationType >> pltCopyTo: another [
-  super pltCopyTo: another.
-  self variableSizeAggregationTypeCopyTo: another
+	super pltCopyTo: another.
+	self variableSizeAggregationTypeCopyTo: another
 
 
 ]
 
 { #category : #'platypus-generated-copying' }
 PltVariableSizeAggregationType >> pltLocalCopyTo: another [
-  self variableSizeAggregationTypeCopyTo: another
+	self variableSizeAggregationTypeCopyTo: another
 
 
 ]
 
 { #category : #'platypus-generated-initializing' }
 PltVariableSizeAggregationType >> stepInitialize [
-  super stepInitialize
+	super stepInitialize
 
 
 ]
 
 { #category : #'platypus-generated-group-accessing' }
 PltVariableSizeAggregationType >> toValues: values [
-  ^self variableSizeAggregationTypeToValues: (super toValues: values)
+	^ self variableSizeAggregationTypeToValues: (super toValues: values)
 
 
 ]
 
 { #category : #'platypus-generated-copying' }
 PltVariableSizeAggregationType >> variableSizeAggregationTypeCopyTo: another [
-  
+	
 
 
 ]
 
 { #category : #'platypus-generated-group-accessing' }
 PltVariableSizeAggregationType >> variableSizeAggregationTypeFromValues: values [
-  | valuesloc |
-  valuesloc := values asOrderedCollection.
-  ^valuesloc
+	| valuesloc |
+	valuesloc := values asOrderedCollection.
+	^ valuesloc
 
 
 ]
 
 { #category : #'platypus-generated-group-accessing' }
 PltVariableSizeAggregationType >> variableSizeAggregationTypeToValues: values [
-  ^values
+	^ values
 
 
 ]

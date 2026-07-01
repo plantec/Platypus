@@ -20,7 +20,7 @@ PltLogicalLiteral class >> context [ ^ self schemaDefinition context
 
 { #category : #'platypus-generated-platypus-signature' }
 PltLogicalLiteral class >> iso10303P11Translater [
-  ^'Platypus (c) LISYC EA3883, Universite de Bretagne occidentale. Brest.'
+	^ 'Platypus (c) LISYC EA3883, Universite de Bretagne occidentale. Brest.'
 
 
 ]
@@ -33,122 +33,124 @@ PltLogicalLiteral class >> platypusMetaData [ 	^ self schemaDefinition metaDataF
 
 { #category : #'platypus-generated-meta-data-accessing' }
 PltLogicalLiteral class >> schemaDefinition [
-  ^PltPlatypusExpressionsSchemaSchemaDefinition singleton
+	^ PltPlatypusExpressionsSchemaSchemaDefinition singleton
 
 
 ]
 
 { #category : #'platypus-generated-meta-data-accessing' }
 PltLogicalLiteral class >> schemaInstance [
-  ^PltPlatypusMetaSchemasSchemaInstance singleton
+	^ PltPlatypusMetaSchemasSchemaInstance singleton
 
 
 ]
 
 { #category : #'platypus-generated-platypus-signature' }
 PltLogicalLiteral class >> translatedFromISO10303P11 [
-  ^true
+	^ true
 
 
 ]
 
 { #category : #'platypus-generated-platypus-signature' }
 PltLogicalLiteral class >> vwNamespaceName [
-  ^#Platypus
+	^ #Platypus
 
 
 ]
 
 { #category : #'platypus-generated-visiting' }
 PltLogicalLiteral >> accept: aVisitor [
-  ^aVisitor acceptLogicalLiteral: self
+	^ aVisitor acceptLogicalLiteral: self
 
 
 ]
 
 { #category : #'platypus-generated-group-accessing' }
 PltLogicalLiteral >> fromValues: values [
-  ^self logicalLiteralFromValues: (super fromValues: values)
+	^ self logicalLiteralFromValues: (super fromValues: values)
 
 
 ]
 
 { #category : #'platypus-generated-classifying' }
 PltLogicalLiteral >> isPltLogicalLiteral [
-  ^true
+	^ true
 
 
 ]
 
 { #category : #'platypus-generated-group-accessing' }
 PltLogicalLiteral >> localFromValues: values [
-  ^self logicalLiteralFromValues: values
+	^ self logicalLiteralFromValues: values
 
 
 ]
 
 { #category : #'platypus-generated-group-accessing' }
 PltLogicalLiteral >> localToValues: values [
-  ^self logicalLiteralToValues: values
+	^ self logicalLiteralToValues: values
 
 
 ]
 
 { #category : #'platypus-generated-copying' }
 PltLogicalLiteral >> logicalLiteralCopyTo: another [
-  
+	
 
 
 ]
 
 { #category : #'platypus-generated-group-accessing' }
 PltLogicalLiteral >> logicalLiteralFromValues: values [
-  | valuesloc |
-  valuesloc := values asOrderedCollection.
-  ^valuesloc
+	| valuesloc |
+	valuesloc := values asOrderedCollection.
+	^ valuesloc
 
 
 ]
 
 { #category : #'platypus-generated-group-accessing' }
 PltLogicalLiteral >> logicalLiteralToValues: values [
-  ^values
+	^ values
 
 
 ]
 
 { #category : #'platypus-generated-copying' }
 PltLogicalLiteral >> pltCopyGroup: aClassSymbol to: anObject [
-  self class name == aClassSymbol ifTrue: [ self pltCopyTo: anObject ] ifFalse: [ super pltCopyGroup: aClassSymbol to: anObject ]
+	self class name == aClassSymbol
+		ifTrue: [ self pltCopyTo: anObject ]
+		ifFalse: [ super pltCopyGroup: aClassSymbol to: anObject ]
 
 
 ]
 
 { #category : #'platypus-generated-copying' }
 PltLogicalLiteral >> pltCopyTo: another [
-  super pltCopyTo: another.
-  self logicalLiteralCopyTo: another
+	super pltCopyTo: another.
+	self logicalLiteralCopyTo: another
 
 
 ]
 
 { #category : #'platypus-generated-copying' }
 PltLogicalLiteral >> pltLocalCopyTo: another [
-  self logicalLiteralCopyTo: another
+	self logicalLiteralCopyTo: another
 
 
 ]
 
 { #category : #'platypus-generated-initializing' }
 PltLogicalLiteral >> stepInitialize [
-  super stepInitialize
+	super stepInitialize
 
 
 ]
 
 { #category : #'platypus-generated-group-accessing' }
 PltLogicalLiteral >> toValues: values [
-  ^self logicalLiteralToValues: (super toValues: values)
+	^ self logicalLiteralToValues: (super toValues: values)
 
 
 ]

@@ -20,7 +20,7 @@ PltAggrUnaryExpression class >> context [ ^ self schemaDefinition context
 
 { #category : #'platypus-generated-platypus-signature' }
 PltAggrUnaryExpression class >> iso10303P11Translater [
-  ^'Platypus (c) LISYC EA3883, Universite de Bretagne occidentale. Brest.'
+	^ 'Platypus (c) LISYC EA3883, Universite de Bretagne occidentale. Brest.'
 
 
 ]
@@ -33,122 +33,124 @@ PltAggrUnaryExpression class >> platypusMetaData [ 	^ self schemaDefinition meta
 
 { #category : #'platypus-generated-meta-data-accessing' }
 PltAggrUnaryExpression class >> schemaDefinition [
-  ^PltPlatypusExpressionsSchemaSchemaDefinition singleton
+	^ PltPlatypusExpressionsSchemaSchemaDefinition singleton
 
 
 ]
 
 { #category : #'platypus-generated-meta-data-accessing' }
 PltAggrUnaryExpression class >> schemaInstance [
-  ^PltPlatypusMetaSchemasSchemaInstance singleton
+	^ PltPlatypusMetaSchemasSchemaInstance singleton
 
 
 ]
 
 { #category : #'platypus-generated-platypus-signature' }
 PltAggrUnaryExpression class >> translatedFromISO10303P11 [
-  ^true
+	^ true
 
 
 ]
 
 { #category : #'platypus-generated-platypus-signature' }
 PltAggrUnaryExpression class >> vwNamespaceName [
-  ^#Platypus
+	^ #Platypus
 
 
 ]
 
 { #category : #'platypus-generated-visiting' }
 PltAggrUnaryExpression >> accept: aVisitor [
-  ^aVisitor acceptAggrUnaryExpression: self
+	^ aVisitor acceptAggrUnaryExpression: self
 
 
 ]
 
 { #category : #'platypus-generated-copying' }
 PltAggrUnaryExpression >> aggrUnaryExpressionCopyTo: another [
-  
+	
 
 
 ]
 
 { #category : #'platypus-generated-group-accessing' }
 PltAggrUnaryExpression >> aggrUnaryExpressionFromValues: values [
-  | valuesloc |
-  valuesloc := values asOrderedCollection.
-  ^valuesloc
+	| valuesloc |
+	valuesloc := values asOrderedCollection.
+	^ valuesloc
 
 
 ]
 
 { #category : #'platypus-generated-group-accessing' }
 PltAggrUnaryExpression >> aggrUnaryExpressionToValues: values [
-  ^values
+	^ values
 
 
 ]
 
 { #category : #'platypus-generated-group-accessing' }
 PltAggrUnaryExpression >> fromValues: values [
-  ^self aggrUnaryExpressionFromValues: (super fromValues: values)
+	^ self aggrUnaryExpressionFromValues: (super fromValues: values)
 
 
 ]
 
 { #category : #'platypus-generated-classifying' }
 PltAggrUnaryExpression >> isPltAggrUnaryExpression [
-  ^true
+	^ true
 
 
 ]
 
 { #category : #'platypus-generated-group-accessing' }
 PltAggrUnaryExpression >> localFromValues: values [
-  ^self aggrUnaryExpressionFromValues: values
+	^ self aggrUnaryExpressionFromValues: values
 
 
 ]
 
 { #category : #'platypus-generated-group-accessing' }
 PltAggrUnaryExpression >> localToValues: values [
-  ^self aggrUnaryExpressionToValues: values
+	^ self aggrUnaryExpressionToValues: values
 
 
 ]
 
 { #category : #'platypus-generated-copying' }
 PltAggrUnaryExpression >> pltCopyGroup: aClassSymbol to: anObject [
-  self class name == aClassSymbol ifTrue: [ self pltCopyTo: anObject ] ifFalse: [ super pltCopyGroup: aClassSymbol to: anObject ]
+	self class name == aClassSymbol
+		ifTrue: [ self pltCopyTo: anObject ]
+		ifFalse: [ super pltCopyGroup: aClassSymbol to: anObject ]
 
 
 ]
 
 { #category : #'platypus-generated-copying' }
 PltAggrUnaryExpression >> pltCopyTo: another [
-  super pltCopyTo: another.
-  self aggrUnaryExpressionCopyTo: another
+	super pltCopyTo: another.
+	self aggrUnaryExpressionCopyTo: another
 
 
 ]
 
 { #category : #'platypus-generated-copying' }
 PltAggrUnaryExpression >> pltLocalCopyTo: another [
-  self aggrUnaryExpressionCopyTo: another
+	self aggrUnaryExpressionCopyTo: another
 
 
 ]
 
 { #category : #'platypus-generated-initializing' }
 PltAggrUnaryExpression >> stepInitialize [
-  super stepInitialize
+	super stepInitialize
 
 
 ]
 
 { #category : #'platypus-generated-group-accessing' }
 PltAggrUnaryExpression >> toValues: values [
-  ^self aggrUnaryExpressionToValues: (super toValues: values)
+	^ self aggrUnaryExpressionToValues: (super toValues: values)
 
 
 ]

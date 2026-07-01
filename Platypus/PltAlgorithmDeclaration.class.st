@@ -24,7 +24,7 @@ PltAlgorithmDeclaration class >> context [ ^ self schemaDefinition context
 
 { #category : #'platypus-generated-platypus-signature' }
 PltAlgorithmDeclaration class >> iso10303P11Translater [
-  ^'Platypus (c) LISYC EA3883, Universite de Bretagne occidentale. Brest.'
+	^ 'Platypus (c) LISYC EA3883, Universite de Bretagne occidentale. Brest.'
 
 
 ]
@@ -37,160 +37,164 @@ PltAlgorithmDeclaration class >> platypusMetaData [ 	^ self schemaDefinition met
 
 { #category : #'platypus-generated-meta-data-accessing' }
 PltAlgorithmDeclaration class >> schemaDefinition [
-  ^PltPlatypusDictionarySchemaSchemaDefinition singleton
+	^ PltPlatypusDictionarySchemaSchemaDefinition singleton
 
 
 ]
 
 { #category : #'platypus-generated-meta-data-accessing' }
 PltAlgorithmDeclaration class >> schemaInstance [
-  ^PltPlatypusMetaSchemasSchemaInstance singleton
+	^ PltPlatypusMetaSchemasSchemaInstance singleton
 
 
 ]
 
 { #category : #'platypus-generated-platypus-signature' }
 PltAlgorithmDeclaration class >> translatedFromISO10303P11 [
-  ^true
+	^ true
 
 
 ]
 
 { #category : #'platypus-generated-platypus-signature' }
 PltAlgorithmDeclaration class >> vwNamespaceName [
-  ^#Platypus
+	^ #Platypus
 
 
 ]
 
 { #category : #'platypus-generated-visiting' }
 PltAlgorithmDeclaration >> accept: aVisitor [
-  ^aVisitor acceptAlgorithmDeclaration: self
+	^ aVisitor acceptAlgorithmDeclaration: self
 
 
 ]
 
 { #category : #'platypus-generated-copying' }
 PltAlgorithmDeclaration >> algorithmDeclarationCopyTo: another [
-  another fastSetFormalParameters: self formalParameters
+	another fastSetFormalParameters: self formalParameters
 
 
 ]
 
 { #category : #'platypus-generated-group-accessing' }
 PltAlgorithmDeclaration >> algorithmDeclarationFromValues: values [
-  | valuesloc |
-  valuesloc := values asOrderedCollection.
-  self setFormalParameters: valuesloc removeFirst.
-  ^valuesloc
+	| valuesloc |
+	valuesloc := values asOrderedCollection.
+	self setFormalParameters: valuesloc removeFirst.
+	^ valuesloc
 
 
 ]
 
 { #category : #'platypus-generated-group-accessing' }
 PltAlgorithmDeclaration >> algorithmDeclarationToValues: values [
-  values add: self formalParameters.
-  ^values
+	values add: self formalParameters.
+	^ values
 
 
 ]
 
 { #category : #'platypus-generated-fast-set-accessing' }
 PltAlgorithmDeclaration >> fastSetFormalParameters: aListOfPltParameterDefinition [
-  formalParameters := aListOfPltParameterDefinition
+	formalParameters := aListOfPltParameterDefinition
 
 
 ]
 
 { #category : #'platypus-generated-accessing' }
 PltAlgorithmDeclaration >> formalParameters [
-  ^formalParameters
+	^ formalParameters
 
 
 ]
 
 { #category : #'platypus-generated-accessing' }
 PltAlgorithmDeclaration >> formalParameters: aListOfPltParameterDefinition [
-  formalParameters := aListOfPltParameterDefinition ifNil: [ OrderedCollection new ] ifNotNil: [ aListOfPltParameterDefinition as: OrderedCollection ]
+	formalParameters := aListOfPltParameterDefinition
+		ifNil: [ OrderedCollection new ]
+		ifNotNil: [ aListOfPltParameterDefinition as: OrderedCollection ]
 
 
 ]
 
 { #category : #'platypus-generated-with-context-accessing' }
 PltAlgorithmDeclaration >> formalParametersUsingContext: aContext [
-  ^self formalParameters
+	^ self formalParameters
 
 
 ]
 
 { #category : #'platypus-generated-group-accessing' }
 PltAlgorithmDeclaration >> fromValues: values [
-  ^self algorithmDeclarationFromValues: (super fromValues: values)
+	^ self algorithmDeclarationFromValues: (super fromValues: values)
 
 
 ]
 
 { #category : #'platypus-generated-classifying' }
 PltAlgorithmDeclaration >> isPltAlgorithmDeclaration [
-  ^true
+	^ true
 
 
 ]
 
 { #category : #'platypus-generated-group-accessing' }
 PltAlgorithmDeclaration >> localFromValues: values [
-  ^self algorithmDeclarationFromValues: values
+	^ self algorithmDeclarationFromValues: values
 
 
 ]
 
 { #category : #'platypus-generated-group-accessing' }
 PltAlgorithmDeclaration >> localToValues: values [
-  ^self algorithmDeclarationToValues: values
+	^ self algorithmDeclarationToValues: values
 
 
 ]
 
 { #category : #'platypus-generated-copying' }
 PltAlgorithmDeclaration >> pltCopyGroup: aClassSymbol to: anObject [
-  self class name == aClassSymbol ifTrue: [ self pltCopyTo: anObject ] ifFalse: [ super pltCopyGroup: aClassSymbol to: anObject ]
+	self class name == aClassSymbol
+		ifTrue: [ self pltCopyTo: anObject ]
+		ifFalse: [ super pltCopyGroup: aClassSymbol to: anObject ]
 
 
 ]
 
 { #category : #'platypus-generated-copying' }
 PltAlgorithmDeclaration >> pltCopyTo: another [
-  super pltCopyTo: another.
-  self algorithmDeclarationCopyTo: another
+	super pltCopyTo: another.
+	self algorithmDeclarationCopyTo: another
 
 
 ]
 
 { #category : #'platypus-generated-copying' }
 PltAlgorithmDeclaration >> pltLocalCopyTo: another [
-  self algorithmDeclarationCopyTo: another
+	self algorithmDeclarationCopyTo: another
 
 
 ]
 
 { #category : #'platypus-generated-set-accessing' }
 PltAlgorithmDeclaration >> setFormalParameters: aListOfPltParameterDefinition [
-  self formalParameters: aListOfPltParameterDefinition
+	self formalParameters: aListOfPltParameterDefinition
 
 
 ]
 
 { #category : #'platypus-generated-initializing' }
 PltAlgorithmDeclaration >> stepInitialize [
-  super stepInitialize.
-  formalParameters := OrderedCollection new
+	super stepInitialize.
+	formalParameters := OrderedCollection new
 
 
 ]
 
 { #category : #'platypus-generated-group-accessing' }
 PltAlgorithmDeclaration >> toValues: values [
-  ^self algorithmDeclarationToValues: (super toValues: values)
+	^ self algorithmDeclarationToValues: (super toValues: values)
 
 
 ]

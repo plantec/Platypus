@@ -19,7 +19,7 @@ PltUnknownConstant class >> context [ ^ self schemaDefinition context
 
 { #category : #'platypus-generated-platypus-signature' }
 PltUnknownConstant class >> iso10303P11Translater [
-  ^'Platypus (c) LISYC EA3883, Universite de Bretagne occidentale. Brest.'
+	^ 'Platypus (c) LISYC EA3883, Universite de Bretagne occidentale. Brest.'
 
 
 ]
@@ -32,122 +32,124 @@ PltUnknownConstant class >> platypusMetaData [ 	^ self schemaDefinition metaData
 
 { #category : #'platypus-generated-meta-data-accessing' }
 PltUnknownConstant class >> schemaDefinition [
-  ^PltPlatypusExpressionsSchemaSchemaDefinition singleton
+	^ PltPlatypusExpressionsSchemaSchemaDefinition singleton
 
 
 ]
 
 { #category : #'platypus-generated-meta-data-accessing' }
 PltUnknownConstant class >> schemaInstance [
-  ^PltPlatypusMetaSchemasSchemaInstance singleton
+	^ PltPlatypusMetaSchemasSchemaInstance singleton
 
 
 ]
 
 { #category : #'platypus-generated-platypus-signature' }
 PltUnknownConstant class >> translatedFromISO10303P11 [
-  ^true
+	^ true
 
 
 ]
 
 { #category : #'platypus-generated-platypus-signature' }
 PltUnknownConstant class >> vwNamespaceName [
-  ^#Platypus
+	^ #Platypus
 
 
 ]
 
 { #category : #'platypus-generated-visiting' }
 PltUnknownConstant >> accept: aVisitor [
-  ^aVisitor acceptUnknownConstant: self
+	^ aVisitor acceptUnknownConstant: self
 
 
 ]
 
 { #category : #'platypus-generated-group-accessing' }
 PltUnknownConstant >> fromValues: values [
-  ^self unknownConstantFromValues: (super fromValues: values)
+	^ self unknownConstantFromValues: (super fromValues: values)
 
 
 ]
 
 { #category : #'platypus-generated-classifying' }
 PltUnknownConstant >> isPltUnknownConstant [
-  ^true
+	^ true
 
 
 ]
 
 { #category : #'platypus-generated-group-accessing' }
 PltUnknownConstant >> localFromValues: values [
-  ^self unknownConstantFromValues: values
+	^ self unknownConstantFromValues: values
 
 
 ]
 
 { #category : #'platypus-generated-group-accessing' }
 PltUnknownConstant >> localToValues: values [
-  ^self unknownConstantToValues: values
+	^ self unknownConstantToValues: values
 
 
 ]
 
 { #category : #'platypus-generated-copying' }
 PltUnknownConstant >> pltCopyGroup: aClassSymbol to: anObject [
-  self class name == aClassSymbol ifTrue: [ self pltCopyTo: anObject ] ifFalse: [ super pltCopyGroup: aClassSymbol to: anObject ]
+	self class name == aClassSymbol
+		ifTrue: [ self pltCopyTo: anObject ]
+		ifFalse: [ super pltCopyGroup: aClassSymbol to: anObject ]
 
 
 ]
 
 { #category : #'platypus-generated-copying' }
 PltUnknownConstant >> pltCopyTo: another [
-  super pltCopyTo: another.
-  self unknownConstantCopyTo: another
+	super pltCopyTo: another.
+	self unknownConstantCopyTo: another
 
 
 ]
 
 { #category : #'platypus-generated-copying' }
 PltUnknownConstant >> pltLocalCopyTo: another [
-  self unknownConstantCopyTo: another
+	self unknownConstantCopyTo: another
 
 
 ]
 
 { #category : #'platypus-generated-initializing' }
 PltUnknownConstant >> stepInitialize [
-  super stepInitialize
+	super stepInitialize
 
 
 ]
 
 { #category : #'platypus-generated-group-accessing' }
 PltUnknownConstant >> toValues: values [
-  ^self unknownConstantToValues: (super toValues: values)
+	^ self unknownConstantToValues: (super toValues: values)
 
 
 ]
 
 { #category : #'platypus-generated-copying' }
 PltUnknownConstant >> unknownConstantCopyTo: another [
-  
+	
 
 
 ]
 
 { #category : #'platypus-generated-group-accessing' }
 PltUnknownConstant >> unknownConstantFromValues: values [
-  | valuesloc |
-  valuesloc := values asOrderedCollection.
-  ^valuesloc
+	| valuesloc |
+	valuesloc := values asOrderedCollection.
+	^ valuesloc
 
 
 ]
 
 { #category : #'platypus-generated-group-accessing' }
 PltUnknownConstant >> unknownConstantToValues: values [
-  ^values
+	^ values
 
 
 ]

@@ -1217,17 +1217,9 @@ PltPlatypusMetaSchemasSchemaInstance class >> bootstraps [ 	self reinitializeSin
 
 ]
 
-{ #category : #'platypus-generated-initializing' }
-PltPlatypusMetaSchemasSchemaInstance class >> initialize [
-  self reinitializeSingleton.
-  self singleton buildIndexes
-
-
-]
-
 { #category : #'platypus-generated-platypus-signature' }
 PltPlatypusMetaSchemasSchemaInstance class >> iso10303P11Translater [
-  ^'Platypus (c) LISYC EA3883, Universite de Bretagne occidentale. Brest.'
+	^ 'Platypus (c) LISYC EA3883, Universite de Bretagne occidentale. Brest.'
 
 
 ]
@@ -1240,29 +1232,29 @@ PltPlatypusMetaSchemasSchemaInstance class >> singleton [
 
 { #category : #'platypus-generated-platypus-signature' }
 PltPlatypusMetaSchemasSchemaInstance class >> translatedFromISO10303P11 [
-  ^true
+	^ true
 
 
 ]
 
 { #category : #'platypus-generated-platypus-signature' }
 PltPlatypusMetaSchemasSchemaInstance class >> vwNamespaceName [
-  ^#Platypus
+	^ #Platypus
 
 
 ]
 
 { #category : #'platypus-generated-context-accessing' }
 PltPlatypusMetaSchemasSchemaInstance >> context [
-  ^context
+	^ context
 
 
 ]
 
 { #category : #'platypus-generated-context-accessing' }
 PltPlatypusMetaSchemasSchemaInstance >> context: aContext [
-  context := aContext.
-  super context: aContext
+	context := aContext.
+	super context: aContext
 
 
 ]
@@ -1311,76 +1303,76 @@ PltPlatypusMetaSchemasSchemaInstance >> expressSchemaCodePartsCount [ ^7
 
 { #category : #'platypus-generated-accessing' }
 PltPlatypusMetaSchemasSchemaInstance >> externalSchemaInstanceClassNames [
-  ^#()
+	^ #()
 
 
 ]
 
 { #category : #'platypus-generated-accessing' }
 PltPlatypusMetaSchemasSchemaInstance >> namesBuilder [
-  | namesBuilder |
-  namesBuilder := self namesBuilderClass new.
-  namesBuilder classPrefix: #Plt.
-  namesBuilder systemCategoryPrefix: #Platypus.
-  namesBuilder rootClassName: #PltEntityInstance.
-  namesBuilder rootClassSystemCategory: #'Platypus-PlatypusDictionarySchemaSchema'.
-  ^namesBuilder
+	| namesBuilder |
+	namesBuilder := self namesBuilderClass new.
+	namesBuilder classPrefix: #Plt.
+	namesBuilder systemCategoryPrefix: #Platypus.
+	namesBuilder rootClassName: #PltEntityInstance.
+	namesBuilder rootClassSystemCategory: #'Platypus-PlatypusDictionarySchemaSchema'.
+	^ namesBuilder
 
 
 ]
 
 { #category : #'platypus-generated-accessing' }
 PltPlatypusMetaSchemasSchemaInstance >> namesBuilderClassName [
-  ^#PlatypusNamesBuilder
+	^ #PlatypusNamesBuilder
 
 
 ]
 
 { #category : #'platypus-generated-accessing' }
 PltPlatypusMetaSchemasSchemaInstance >> repositoryClassName [
-  ^#PltPlatypusMetaSchemasRepository
+	^ #PltPlatypusMetaSchemasRepository
 
 
 ]
 
 { #category : #'platypus-generated-schemata-accessing' }
 PltPlatypusMetaSchemasSchemaInstance >> schemaDefinition1 [
-  ^#(#Platypus_expressions_schema #PltPlatypusExpressionsSchemaSchemaDefinition)
+	^ #(#Platypus_expressions_schema #PltPlatypusExpressionsSchemaSchemaDefinition)
 
 
 ]
 
 { #category : #'platypus-generated-schemata-accessing' }
 PltPlatypusMetaSchemasSchemaInstance >> schemaDefinition2 [
-  ^#(#Platypus_statements_schema #PltPlatypusStatementsSchemaSchemaDefinition)
+	^ #(#Platypus_statements_schema #PltPlatypusStatementsSchemaSchemaDefinition)
 
 
 ]
 
 { #category : #'platypus-generated-schemata-accessing' }
 PltPlatypusMetaSchemasSchemaInstance >> schemaDefinition3 [
-  ^#(#Platypus_aggregate_data_schema #PltPlatypusAggregateDataSchemaSchemaDefinition)
+	^ #(#Platypus_aggregate_data_schema #PltPlatypusAggregateDataSchemaSchemaDefinition)
 
 
 ]
 
 { #category : #'platypus-generated-schemata-accessing' }
 PltPlatypusMetaSchemasSchemaInstance >> schemaDefinition4 [
-  ^#(#Platypus_population_schema #PltPlatypusPopulationSchemaSchemaDefinition)
+	^ #(#Platypus_population_schema #PltPlatypusPopulationSchemaSchemaDefinition)
 
 
 ]
 
 { #category : #'platypus-generated-schemata-accessing' }
 PltPlatypusMetaSchemasSchemaInstance >> schemaDefinition5 [
-  ^#(#Platypus_environment_schema #PltPlatypusEnvironmentSchemaSchemaDefinition)
+	^ #(#Platypus_environment_schema #PltPlatypusEnvironmentSchemaSchemaDefinition)
 
 
 ]
 
 { #category : #'platypus-generated-schemata-accessing' }
 PltPlatypusMetaSchemasSchemaInstance >> schemaDefinition6 [
-  ^#(#Platypus_dictionary_schema #PltPlatypusDictionarySchemaSchemaDefinition)
+	^ #(#Platypus_dictionary_schema #PltPlatypusDictionarySchemaSchemaDefinition)
 
 
 ]
@@ -1393,7 +1385,7 @@ PltPlatypusMetaSchemasSchemaInstance >> schemaDefinition7 [
 
 { #category : #'platypus-generated-schemata-accessing' }
 PltPlatypusMetaSchemasSchemaInstance >> schemaDefinitionCount [
-  ^6
+	^ 6
 
 
 ]

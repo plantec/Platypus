@@ -13,12 +13,12 @@ Class {
 	#superclass : #PltSessionInstance,
 	#instVars : [
 		'headerInstances',
-		'dataInstancesByEntityIndex',
 		'dataInstances',
-		'entitiesByInstanceIndex',
-		'dataInstancesByLabelIndex',
 		'positionByDataInstanceIndex',
-		'recordComputedInstances'
+		'dataInstancesByEntityIndex',
+		'dataInstancesByLabelIndex',
+		'recordComputedInstances',
+		'entitiesByInstanceIndex'
 	],
 	#category : #'Platypus-PlatypusEnvironmentSchemaSchema'
 }
@@ -31,7 +31,7 @@ PltModelContents class >> context [ ^ self schemaDefinition context
 
 { #category : #'platypus-generated-platypus-signature' }
 PltModelContents class >> iso10303P11Translater [
-  ^'Platypus (c) LISYC EA3883, Universite de Bretagne occidentale. Brest.'
+	^ 'Platypus (c) LISYC EA3883, Universite de Bretagne occidentale. Brest.'
 
 
 ]
@@ -44,178 +44,184 @@ PltModelContents class >> platypusMetaData [ 	^ self schemaDefinition metaDataFo
 
 { #category : #'platypus-generated-meta-data-accessing' }
 PltModelContents class >> schemaDefinition [
-  ^PltPlatypusEnvironmentSchemaSchemaDefinition singleton
+	^ PltPlatypusEnvironmentSchemaSchemaDefinition singleton
 
 
 ]
 
 { #category : #'platypus-generated-meta-data-accessing' }
 PltModelContents class >> schemaInstance [
-  ^PltPlatypusMetaSchemasSchemaInstance singleton
+	^ PltPlatypusMetaSchemasSchemaInstance singleton
 
 
 ]
 
 { #category : #'platypus-generated-platypus-signature' }
 PltModelContents class >> translatedFromISO10303P11 [
-  ^true
+	^ true
 
 
 ]
 
 { #category : #'platypus-generated-platypus-signature' }
 PltModelContents class >> vwNamespaceName [
-  ^#Platypus
+	^ #Platypus
 
 
 ]
 
 { #category : #'platypus-generated-visiting' }
 PltModelContents >> accept: aVisitor [
-  ^aVisitor acceptModelContents: self
+	^ aVisitor acceptModelContents: self
 
 
 ]
 
 { #category : #'platypus-generated-fast-set-accessing' }
 PltModelContents >> fastSetOwner: aPltSchemaInstance [
-  owner := aPltSchemaInstance
+	owner := aPltSchemaInstance
 
 
 ]
 
 { #category : #'platypus-generated-group-accessing' }
 PltModelContents >> fromValues: values [
-  ^self modelContentsFromValues: (super fromValues: values)
+	^ self modelContentsFromValues: (super fromValues: values)
 
 
 ]
 
 { #category : #'platypus-generated-inverse-accessing' }
 PltModelContents >> instances [
-  ^self instancesUsingContext: self class context
+	^ self instancesUsingContext: self class context
 
 
 ]
 
 { #category : #'platypus-generated-inverse-accessing' }
 PltModelContents >> instancesUsingContext: aContext [
-  | founds |
-  founds := Set new.
-  aContext allInstancesOf: PltApplicationInstance do: [:repo :inst |  | curr |
-        (curr := inst owningModel) == self ifTrue: [ founds add: curr ] ].
-  ^founds
+	| founds |
+	founds := Set new.
+	aContext
+		allInstancesOf: PltApplicationInstance
+		do: [ :repo :inst | 
+			| curr |
+			(curr := inst owningModel) == self
+				ifTrue: [ founds add: curr ] ].
+	^ founds
 
 
 ]
 
 { #category : #'platypus-generated-classifying' }
 PltModelContents >> isPltModelContents [
-  ^true
+	^ true
 
 
 ]
 
 { #category : #'platypus-generated-group-accessing' }
 PltModelContents >> localFromValues: values [
-  ^self modelContentsFromValues: values
+	^ self modelContentsFromValues: values
 
 
 ]
 
 { #category : #'platypus-generated-group-accessing' }
 PltModelContents >> localToValues: values [
-  ^self modelContentsToValues: values
+	^ self modelContentsToValues: values
 
 
 ]
 
 { #category : #'platypus-generated-copying' }
 PltModelContents >> modelContentsCopyTo: another [
-  another fastSetOwner: self owner
+	another fastSetOwner: self owner
 
 
 ]
 
 { #category : #'platypus-generated-group-accessing' }
 PltModelContents >> modelContentsFromValues: values [
-  | valuesloc |
-  valuesloc := values asOrderedCollection.
-  self setOwner: valuesloc removeFirst.
-  ^valuesloc
+	| valuesloc |
+	valuesloc := values asOrderedCollection.
+	self setOwner: valuesloc removeFirst.
+	^ valuesloc
 
 
 ]
 
 { #category : #'platypus-generated-group-accessing' }
 PltModelContents >> modelContentsToValues: values [
-  values add: self owner.
-  ^values
+	values add: self owner.
+	^ values
 
 
 ]
 
 { #category : #'platypus-generated-accessing' }
 PltModelContents >> owner [
-  ^owner
+	^ owner
 
 
 ]
 
 { #category : #'platypus-generated-accessing' }
 PltModelContents >> owner: aPltSchemaInstance [
-  owner := aPltSchemaInstance
+	owner := aPltSchemaInstance
 
 
 ]
 
 { #category : #'platypus-generated-with-context-accessing' }
 PltModelContents >> ownerUsingContext: aContext [
-  ^self owner
+	^ self owner
 
 
 ]
 
 { #category : #'platypus-generated-copying' }
 PltModelContents >> pltCopyGroup: aClassSymbol to: anObject [
-  self class name == aClassSymbol ifTrue: [ self pltCopyTo: anObject ] ifFalse: [ super pltCopyGroup: aClassSymbol to: anObject ]
+	self class name == aClassSymbol
+		ifTrue: [ self pltCopyTo: anObject ]
+		ifFalse: [ super pltCopyGroup: aClassSymbol to: anObject ]
 
 
 ]
 
 { #category : #'platypus-generated-copying' }
 PltModelContents >> pltCopyTo: another [
-  super pltCopyTo: another.
-  self modelContentsCopyTo: another
+	super pltCopyTo: another.
+	self modelContentsCopyTo: another
 
 
 ]
 
 { #category : #'platypus-generated-copying' }
 PltModelContents >> pltLocalCopyTo: another [
-  self modelContentsCopyTo: another
+	self modelContentsCopyTo: another
 
 
 ]
 
 { #category : #'platypus-generated-set-accessing' }
 PltModelContents >> setOwner: aPltSchemaInstance [
-  self owner: aPltSchemaInstance
+	self owner: aPltSchemaInstance
 
 
 ]
 
 { #category : #'platypus-generated-initializing' }
 PltModelContents >> stepInitialize [
-  super stepInitialize.
-  owner := nil
+	super stepInitialize.
+	owner := nil
 
 
 ]
 
 { #category : #'platypus-generated-group-accessing' }
 PltModelContents >> toValues: values [
-  ^self modelContentsToValues: (super toValues: values)
+	^ self modelContentsToValues: (super toValues: values)
 
 
 ]

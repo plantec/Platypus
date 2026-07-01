@@ -19,7 +19,7 @@ PltMissingValue class >> context [ ^ self schemaDefinition context
 
 { #category : #'platypus-generated-platypus-signature' }
 PltMissingValue class >> iso10303P11Translater [
-  ^'Platypus (c) LISYC EA3883, Universite de Bretagne occidentale. Brest.'
+	^ 'Platypus (c) LISYC EA3883, Universite de Bretagne occidentale. Brest.'
 
 
 ]
@@ -32,122 +32,124 @@ PltMissingValue class >> platypusMetaData [ 	^ self schemaDefinition metaDataFor
 
 { #category : #'platypus-generated-meta-data-accessing' }
 PltMissingValue class >> schemaDefinition [
-  ^PltPlatypusExpressionsSchemaSchemaDefinition singleton
+	^ PltPlatypusExpressionsSchemaSchemaDefinition singleton
 
 
 ]
 
 { #category : #'platypus-generated-meta-data-accessing' }
 PltMissingValue class >> schemaInstance [
-  ^PltPlatypusMetaSchemasSchemaInstance singleton
+	^ PltPlatypusMetaSchemasSchemaInstance singleton
 
 
 ]
 
 { #category : #'platypus-generated-platypus-signature' }
 PltMissingValue class >> translatedFromISO10303P11 [
-  ^true
+	^ true
 
 
 ]
 
 { #category : #'platypus-generated-platypus-signature' }
 PltMissingValue class >> vwNamespaceName [
-  ^#Platypus
+	^ #Platypus
 
 
 ]
 
 { #category : #'platypus-generated-visiting' }
 PltMissingValue >> accept: aVisitor [
-  ^aVisitor acceptMissingValue: self
+	^ aVisitor acceptMissingValue: self
 
 
 ]
 
 { #category : #'platypus-generated-group-accessing' }
 PltMissingValue >> fromValues: values [
-  ^self missingValueFromValues: (super fromValues: values)
+	^ self missingValueFromValues: (super fromValues: values)
 
 
 ]
 
 { #category : #'platypus-generated-classifying' }
 PltMissingValue >> isPltMissingValue [
-  ^true
+	^ true
 
 
 ]
 
 { #category : #'platypus-generated-group-accessing' }
 PltMissingValue >> localFromValues: values [
-  ^self missingValueFromValues: values
+	^ self missingValueFromValues: values
 
 
 ]
 
 { #category : #'platypus-generated-group-accessing' }
 PltMissingValue >> localToValues: values [
-  ^self missingValueToValues: values
+	^ self missingValueToValues: values
 
 
 ]
 
 { #category : #'platypus-generated-copying' }
 PltMissingValue >> missingValueCopyTo: another [
-  
+	
 
 
 ]
 
 { #category : #'platypus-generated-group-accessing' }
 PltMissingValue >> missingValueFromValues: values [
-  | valuesloc |
-  valuesloc := values asOrderedCollection.
-  ^valuesloc
+	| valuesloc |
+	valuesloc := values asOrderedCollection.
+	^ valuesloc
 
 
 ]
 
 { #category : #'platypus-generated-group-accessing' }
 PltMissingValue >> missingValueToValues: values [
-  ^values
+	^ values
 
 
 ]
 
 { #category : #'platypus-generated-copying' }
 PltMissingValue >> pltCopyGroup: aClassSymbol to: anObject [
-  self class name == aClassSymbol ifTrue: [ self pltCopyTo: anObject ] ifFalse: [ super pltCopyGroup: aClassSymbol to: anObject ]
+	self class name == aClassSymbol
+		ifTrue: [ self pltCopyTo: anObject ]
+		ifFalse: [ super pltCopyGroup: aClassSymbol to: anObject ]
 
 
 ]
 
 { #category : #'platypus-generated-copying' }
 PltMissingValue >> pltCopyTo: another [
-  super pltCopyTo: another.
-  self missingValueCopyTo: another
+	super pltCopyTo: another.
+	self missingValueCopyTo: another
 
 
 ]
 
 { #category : #'platypus-generated-copying' }
 PltMissingValue >> pltLocalCopyTo: another [
-  self missingValueCopyTo: another
+	self missingValueCopyTo: another
 
 
 ]
 
 { #category : #'platypus-generated-initializing' }
 PltMissingValue >> stepInitialize [
-  super stepInitialize
+	super stepInitialize
 
 
 ]
 
 { #category : #'platypus-generated-group-accessing' }
 PltMissingValue >> toValues: values [
-  ^self missingValueToValues: (super toValues: values)
+	^ self missingValueToValues: (super toValues: values)
 
 
 ]

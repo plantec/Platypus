@@ -25,7 +25,7 @@ PltFunctionDeclaration class >> context [ ^ self schemaDefinition context
 
 { #category : #'platypus-generated-platypus-signature' }
 PltFunctionDeclaration class >> iso10303P11Translater [
-  ^'Platypus (c) LISYC EA3883, Universite de Bretagne occidentale. Brest.'
+	^ 'Platypus (c) LISYC EA3883, Universite de Bretagne occidentale. Brest.'
 
 
 ]
@@ -38,181 +38,183 @@ PltFunctionDeclaration class >> platypusMetaData [ 	^ self schemaDefinition meta
 
 { #category : #'platypus-generated-meta-data-accessing' }
 PltFunctionDeclaration class >> schemaDefinition [
-  ^PltPlatypusDictionarySchemaSchemaDefinition singleton
+	^ PltPlatypusDictionarySchemaSchemaDefinition singleton
 
 
 ]
 
 { #category : #'platypus-generated-meta-data-accessing' }
 PltFunctionDeclaration class >> schemaInstance [
-  ^PltPlatypusMetaSchemasSchemaInstance singleton
+	^ PltPlatypusMetaSchemasSchemaInstance singleton
 
 
 ]
 
 { #category : #'platypus-generated-platypus-signature' }
 PltFunctionDeclaration class >> translatedFromISO10303P11 [
-  ^true
+	^ true
 
 
 ]
 
 { #category : #'platypus-generated-platypus-signature' }
 PltFunctionDeclaration class >> vwNamespaceName [
-  ^#Platypus
+	^ #Platypus
 
 
 ]
 
 { #category : #'platypus-generated-visiting' }
 PltFunctionDeclaration >> accept: aVisitor [
-  ^aVisitor acceptFunctionDeclaration: self
+	^ aVisitor acceptFunctionDeclaration: self
 
 
 ]
 
 { #category : #'platypus-generated-deriving' }
 PltFunctionDeclaration >> accepted [
-  ^self acceptedUsingContext: self class context
+	^ self acceptedUsingContext: self class context
 
 
 ]
 
 { #category : #'platypus-generated-deriving' }
 PltFunctionDeclaration >> acceptedUsingContext: aContext [
-  ^self acceptedUsingContext: aContext receiver: self
+	^ self acceptedUsingContext: aContext receiver: self
 
 
 ]
 
 { #category : #'platypus-generated-deriving' }
 PltFunctionDeclaration >> acceptedUsingContext: aContext receiver: aReceiver [
-  ^aReceiver acceptFunctionDeclarationUsingContext: aContext
+	^ aReceiver acceptFunctionDeclarationUsingContext: aContext
 
 
 ]
 
 { #category : #'platypus-generated-fast-set-accessing' }
 PltFunctionDeclaration >> fastSetReturnType: aPltParameterType [
-  returnType := aPltParameterType
+	returnType := aPltParameterType
 
 
 ]
 
 { #category : #'platypus-generated-group-accessing' }
 PltFunctionDeclaration >> fromValues: values [
-  ^self functionDeclarationFromValues: (super fromValues: values)
+	^ self functionDeclarationFromValues: (super fromValues: values)
 
 
 ]
 
 { #category : #'platypus-generated-copying' }
 PltFunctionDeclaration >> functionDeclarationCopyTo: another [
-  another fastSetReturnType: self returnType
+	another fastSetReturnType: self returnType
 
 
 ]
 
 { #category : #'platypus-generated-group-accessing' }
 PltFunctionDeclaration >> functionDeclarationFromValues: values [
-  | valuesloc |
-  valuesloc := values asOrderedCollection.
-  self setReturnType: valuesloc removeFirst.
-  ^valuesloc
+	| valuesloc |
+	valuesloc := values asOrderedCollection.
+	self setReturnType: valuesloc removeFirst.
+	^ valuesloc
 
 
 ]
 
 { #category : #'platypus-generated-group-accessing' }
 PltFunctionDeclaration >> functionDeclarationToValues: values [
-  values add: self returnType.
-  ^values
+	values add: self returnType.
+	^ values
 
 
 ]
 
 { #category : #'platypus-generated-classifying' }
 PltFunctionDeclaration >> isPltFunctionDeclaration [
-  ^true
+	^ true
 
 
 ]
 
 { #category : #'platypus-generated-group-accessing' }
 PltFunctionDeclaration >> localFromValues: values [
-  ^self functionDeclarationFromValues: values
+	^ self functionDeclarationFromValues: values
 
 
 ]
 
 { #category : #'platypus-generated-group-accessing' }
 PltFunctionDeclaration >> localToValues: values [
-  ^self functionDeclarationToValues: values
+	^ self functionDeclarationToValues: values
 
 
 ]
 
 { #category : #'platypus-generated-copying' }
 PltFunctionDeclaration >> pltCopyGroup: aClassSymbol to: anObject [
-  self class name == aClassSymbol ifTrue: [ self pltCopyTo: anObject ] ifFalse: [ super pltCopyGroup: aClassSymbol to: anObject ]
+	self class name == aClassSymbol
+		ifTrue: [ self pltCopyTo: anObject ]
+		ifFalse: [ super pltCopyGroup: aClassSymbol to: anObject ]
 
 
 ]
 
 { #category : #'platypus-generated-copying' }
 PltFunctionDeclaration >> pltCopyTo: another [
-  super pltCopyTo: another.
-  self functionDeclarationCopyTo: another
+	super pltCopyTo: another.
+	self functionDeclarationCopyTo: another
 
 
 ]
 
 { #category : #'platypus-generated-copying' }
 PltFunctionDeclaration >> pltLocalCopyTo: another [
-  self functionDeclarationCopyTo: another
+	self functionDeclarationCopyTo: another
 
 
 ]
 
 { #category : #'platypus-generated-accessing' }
 PltFunctionDeclaration >> returnType [
-  ^returnType
+	^ returnType
 
 
 ]
 
 { #category : #'platypus-generated-accessing' }
 PltFunctionDeclaration >> returnType: aPltParameterType [
-  returnType := aPltParameterType
+	returnType := aPltParameterType
 
 
 ]
 
 { #category : #'platypus-generated-with-context-accessing' }
 PltFunctionDeclaration >> returnTypeUsingContext: aContext [
-  ^self returnType
+	^ self returnType
 
 
 ]
 
 { #category : #'platypus-generated-set-accessing' }
 PltFunctionDeclaration >> setReturnType: aPltParameterType [
-  self returnType: aPltParameterType
+	self returnType: aPltParameterType
 
 
 ]
 
 { #category : #'platypus-generated-initializing' }
 PltFunctionDeclaration >> stepInitialize [
-  super stepInitialize.
-  returnType := nil
+	super stepInitialize.
+	returnType := nil
 
 
 ]
 
 { #category : #'platypus-generated-group-accessing' }
 PltFunctionDeclaration >> toValues: values [
-  ^self functionDeclarationToValues: (super toValues: values)
+	^ self functionDeclarationToValues: (super toValues: values)
 
 
 ]

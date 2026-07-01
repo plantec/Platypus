@@ -19,7 +19,7 @@ PltTailRemark class >> context [ ^ self schemaDefinition context
 
 { #category : #'platypus-generated-platypus-signature' }
 PltTailRemark class >> iso10303P11Translater [
-  ^'Platypus (c) LISYC EA3883, Universite de Bretagne occidentale. Brest.'
+	^ 'Platypus (c) LISYC EA3883, Universite de Bretagne occidentale. Brest.'
 
 
 ]
@@ -32,122 +32,124 @@ PltTailRemark class >> platypusMetaData [ 	^ self schemaDefinition metaDataFor: 
 
 { #category : #'platypus-generated-meta-data-accessing' }
 PltTailRemark class >> schemaDefinition [
-  ^PltPlatypusDictionarySchemaSchemaDefinition singleton
+	^ PltPlatypusDictionarySchemaSchemaDefinition singleton
 
 
 ]
 
 { #category : #'platypus-generated-meta-data-accessing' }
 PltTailRemark class >> schemaInstance [
-  ^PltPlatypusMetaSchemasSchemaInstance singleton
+	^ PltPlatypusMetaSchemasSchemaInstance singleton
 
 
 ]
 
 { #category : #'platypus-generated-platypus-signature' }
 PltTailRemark class >> translatedFromISO10303P11 [
-  ^true
+	^ true
 
 
 ]
 
 { #category : #'platypus-generated-platypus-signature' }
 PltTailRemark class >> vwNamespaceName [
-  ^#Platypus
+	^ #Platypus
 
 
 ]
 
 { #category : #'platypus-generated-visiting' }
 PltTailRemark >> accept: aVisitor [
-  ^aVisitor acceptTailRemark: self
+	^ aVisitor acceptTailRemark: self
 
 
 ]
 
 { #category : #'platypus-generated-group-accessing' }
 PltTailRemark >> fromValues: values [
-  ^self tailRemarkFromValues: (super fromValues: values)
+	^ self tailRemarkFromValues: (super fromValues: values)
 
 
 ]
 
 { #category : #'platypus-generated-classifying' }
 PltTailRemark >> isPltTailRemark [
-  ^true
+	^ true
 
 
 ]
 
 { #category : #'platypus-generated-group-accessing' }
 PltTailRemark >> localFromValues: values [
-  ^self tailRemarkFromValues: values
+	^ self tailRemarkFromValues: values
 
 
 ]
 
 { #category : #'platypus-generated-group-accessing' }
 PltTailRemark >> localToValues: values [
-  ^self tailRemarkToValues: values
+	^ self tailRemarkToValues: values
 
 
 ]
 
 { #category : #'platypus-generated-copying' }
 PltTailRemark >> pltCopyGroup: aClassSymbol to: anObject [
-  self class name == aClassSymbol ifTrue: [ self pltCopyTo: anObject ] ifFalse: [ super pltCopyGroup: aClassSymbol to: anObject ]
+	self class name == aClassSymbol
+		ifTrue: [ self pltCopyTo: anObject ]
+		ifFalse: [ super pltCopyGroup: aClassSymbol to: anObject ]
 
 
 ]
 
 { #category : #'platypus-generated-copying' }
 PltTailRemark >> pltCopyTo: another [
-  super pltCopyTo: another.
-  self tailRemarkCopyTo: another
+	super pltCopyTo: another.
+	self tailRemarkCopyTo: another
 
 
 ]
 
 { #category : #'platypus-generated-copying' }
 PltTailRemark >> pltLocalCopyTo: another [
-  self tailRemarkCopyTo: another
+	self tailRemarkCopyTo: another
 
 
 ]
 
 { #category : #'platypus-generated-initializing' }
 PltTailRemark >> stepInitialize [
-  super stepInitialize
+	super stepInitialize
 
 
 ]
 
 { #category : #'platypus-generated-copying' }
 PltTailRemark >> tailRemarkCopyTo: another [
-  
+	
 
 
 ]
 
 { #category : #'platypus-generated-group-accessing' }
 PltTailRemark >> tailRemarkFromValues: values [
-  | valuesloc |
-  valuesloc := values asOrderedCollection.
-  ^valuesloc
+	| valuesloc |
+	valuesloc := values asOrderedCollection.
+	^ valuesloc
 
 
 ]
 
 { #category : #'platypus-generated-group-accessing' }
 PltTailRemark >> tailRemarkToValues: values [
-  ^values
+	^ values
 
 
 ]
 
 { #category : #'platypus-generated-group-accessing' }
 PltTailRemark >> toValues: values [
-  ^self tailRemarkToValues: (super toValues: values)
+	^ self tailRemarkToValues: (super toValues: values)
 
 
 ]

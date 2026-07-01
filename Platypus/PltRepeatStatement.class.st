@@ -14,8 +14,8 @@ Class {
 	#superclass : #PltStatement,
 	#instVars : [
 		'incrControl',
-		'statements',
 		'whileControl',
+		'statements',
 		'untilControl'
 	],
 	#category : #'Platypus-PlatypusStatementsSchemaSchema'
@@ -29,7 +29,7 @@ PltRepeatStatement class >> context [ ^ self schemaDefinition context
 
 { #category : #'platypus-generated-platypus-signature' }
 PltRepeatStatement class >> iso10303P11Translater [
-  ^'Platypus (c) LISYC EA3883, Universite de Bretagne occidentale. Brest.'
+	^ 'Platypus (c) LISYC EA3883, Universite de Bretagne occidentale. Brest.'
 
 
 ]
@@ -42,84 +42,84 @@ PltRepeatStatement class >> platypusMetaData [ 	^ self schemaDefinition metaData
 
 { #category : #'platypus-generated-meta-data-accessing' }
 PltRepeatStatement class >> schemaDefinition [
-  ^PltPlatypusStatementsSchemaSchemaDefinition singleton
+	^ PltPlatypusStatementsSchemaSchemaDefinition singleton
 
 
 ]
 
 { #category : #'platypus-generated-meta-data-accessing' }
 PltRepeatStatement class >> schemaInstance [
-  ^PltPlatypusMetaSchemasSchemaInstance singleton
+	^ PltPlatypusMetaSchemasSchemaInstance singleton
 
 
 ]
 
 { #category : #'platypus-generated-platypus-signature' }
 PltRepeatStatement class >> translatedFromISO10303P11 [
-  ^true
+	^ true
 
 
 ]
 
 { #category : #'platypus-generated-platypus-signature' }
 PltRepeatStatement class >> vwNamespaceName [
-  ^#Platypus
+	^ #Platypus
 
 
 ]
 
 { #category : #'platypus-generated-visiting' }
 PltRepeatStatement >> accept: aVisitor [
-  ^aVisitor acceptRepeatStatement: self
+	^ aVisitor acceptRepeatStatement: self
 
 
 ]
 
 { #category : #'platypus-generated-fast-set-accessing' }
 PltRepeatStatement >> fastSetIncrControl: aPltIncrementControl [
-  incrControl := aPltIncrementControl
+	incrControl := aPltIncrementControl
 
 
 ]
 
 { #category : #'platypus-generated-fast-set-accessing' }
 PltRepeatStatement >> fastSetStatements: aListOfPltStatement [
-  statements := aListOfPltStatement
+	statements := aListOfPltStatement
 
 
 ]
 
 { #category : #'platypus-generated-fast-set-accessing' }
 PltRepeatStatement >> fastSetUntilControl: aPltExpression [
-  untilControl := aPltExpression
+	untilControl := aPltExpression
 
 
 ]
 
 { #category : #'platypus-generated-fast-set-accessing' }
 PltRepeatStatement >> fastSetWhileControl: aPltExpression [
-  whileControl := aPltExpression
+	whileControl := aPltExpression
 
 
 ]
 
 { #category : #'platypus-generated-group-accessing' }
 PltRepeatStatement >> fromValues: values [
-  ^self repeatStatementFromValues: (super fromValues: values)
+	^ self repeatStatementFromValues: (super fromValues: values)
 
 
 ]
 
 { #category : #'platypus-generated-accessing' }
 PltRepeatStatement >> incrControl [
-  ^incrControl
+	^ incrControl
 
 
 ]
 
 { #category : #'platypus-generated-accessing' }
 PltRepeatStatement >> incrControl: aPltIncrementControl [
-  incrControl := aPltIncrementControl
+	incrControl := aPltIncrementControl
 
 
 ]
@@ -132,193 +132,197 @@ PltRepeatStatement >> incrControl: aPltIncrementControl untilControl: aPltExpres
 
 { #category : #'platypus-generated-with-context-accessing' }
 PltRepeatStatement >> incrControlUsingContext: aContext [
-  ^self incrControl
+	^ self incrControl
 
 
 ]
 
 { #category : #'platypus-generated-classifying' }
 PltRepeatStatement >> isPltRepeatStatement [
-  ^true
+	^ true
 
 
 ]
 
 { #category : #'platypus-generated-group-accessing' }
 PltRepeatStatement >> localFromValues: values [
-  ^self repeatStatementFromValues: values
+	^ self repeatStatementFromValues: values
 
 
 ]
 
 { #category : #'platypus-generated-group-accessing' }
 PltRepeatStatement >> localToValues: values [
-  ^self repeatStatementToValues: values
+	^ self repeatStatementToValues: values
 
 
 ]
 
 { #category : #'platypus-generated-copying' }
 PltRepeatStatement >> pltCopyGroup: aClassSymbol to: anObject [
-  self class name == aClassSymbol ifTrue: [ self pltCopyTo: anObject ] ifFalse: [ super pltCopyGroup: aClassSymbol to: anObject ]
+	self class name == aClassSymbol
+		ifTrue: [ self pltCopyTo: anObject ]
+		ifFalse: [ super pltCopyGroup: aClassSymbol to: anObject ]
 
 
 ]
 
 { #category : #'platypus-generated-copying' }
 PltRepeatStatement >> pltCopyTo: another [
-  super pltCopyTo: another.
-  self repeatStatementCopyTo: another
+	super pltCopyTo: another.
+	self repeatStatementCopyTo: another
 
 
 ]
 
 { #category : #'platypus-generated-copying' }
 PltRepeatStatement >> pltLocalCopyTo: another [
-  self repeatStatementCopyTo: another
+	self repeatStatementCopyTo: another
 
 
 ]
 
 { #category : #'platypus-generated-copying' }
 PltRepeatStatement >> repeatStatementCopyTo: another [
-  another fastSetIncrControl: self incrControl.
-  another fastSetUntilControl: self untilControl.
-  another fastSetWhileControl: self whileControl.
-  another fastSetStatements: self statements
+	another fastSetIncrControl: self incrControl.
+	another fastSetUntilControl: self untilControl.
+	another fastSetWhileControl: self whileControl.
+	another fastSetStatements: self statements
 
 
 ]
 
 { #category : #'platypus-generated-group-accessing' }
 PltRepeatStatement >> repeatStatementFromValues: values [
-  | valuesloc |
-  valuesloc := values asOrderedCollection.
-  self setIncrControl: valuesloc removeFirst.
-  self setUntilControl: valuesloc removeFirst.
-  self setWhileControl: valuesloc removeFirst.
-  self setStatements: valuesloc removeFirst.
-  ^valuesloc
+	| valuesloc |
+	valuesloc := values asOrderedCollection.
+	self setIncrControl: valuesloc removeFirst.
+	self setUntilControl: valuesloc removeFirst.
+	self setWhileControl: valuesloc removeFirst.
+	self setStatements: valuesloc removeFirst.
+	^ valuesloc
 
 
 ]
 
 { #category : #'platypus-generated-group-accessing' }
 PltRepeatStatement >> repeatStatementToValues: values [
-  values add: self incrControl.
-  values add: self untilControl.
-  values add: self whileControl.
-  values add: self statements.
-  ^values
+	values add: self incrControl.
+	values add: self untilControl.
+	values add: self whileControl.
+	values add: self statements.
+	^ values
 
 
 ]
 
 { #category : #'platypus-generated-set-accessing' }
 PltRepeatStatement >> setIncrControl: aPltIncrementControl [
-  self incrControl: aPltIncrementControl
+	self incrControl: aPltIncrementControl
 
 
 ]
 
 { #category : #'platypus-generated-set-accessing' }
 PltRepeatStatement >> setStatements: aListOfPltStatement [
-  self statements: aListOfPltStatement
+	self statements: aListOfPltStatement
 
 
 ]
 
 { #category : #'platypus-generated-set-accessing' }
 PltRepeatStatement >> setUntilControl: aPltExpression [
-  self untilControl: aPltExpression
+	self untilControl: aPltExpression
 
 
 ]
 
 { #category : #'platypus-generated-set-accessing' }
 PltRepeatStatement >> setWhileControl: aPltExpression [
-  self whileControl: aPltExpression
+	self whileControl: aPltExpression
 
 
 ]
 
 { #category : #'platypus-generated-accessing' }
 PltRepeatStatement >> statements [
-  ^statements
+	^ statements
 
 
 ]
 
 { #category : #'platypus-generated-accessing' }
 PltRepeatStatement >> statements: aListOfPltStatement [
-  statements := aListOfPltStatement ifNil: [ OrderedCollection new ] ifNotNil: [ aListOfPltStatement as: OrderedCollection ]
+	statements := aListOfPltStatement
+		ifNil: [ OrderedCollection new ]
+		ifNotNil: [ aListOfPltStatement as: OrderedCollection ]
 
 
 ]
 
 { #category : #'platypus-generated-with-context-accessing' }
 PltRepeatStatement >> statementsUsingContext: aContext [
-  ^self statements
+	^ self statements
 
 
 ]
 
 { #category : #'platypus-generated-initializing' }
 PltRepeatStatement >> stepInitialize [
-  super stepInitialize.
-  incrControl := nil.
-  untilControl := nil.
-  whileControl := nil.
-  statements := OrderedCollection new
+	super stepInitialize.
+	incrControl := nil.
+	untilControl := nil.
+	whileControl := nil.
+	statements := OrderedCollection new
 
 
 ]
 
 { #category : #'platypus-generated-group-accessing' }
 PltRepeatStatement >> toValues: values [
-  ^self repeatStatementToValues: (super toValues: values)
+	^ self repeatStatementToValues: (super toValues: values)
 
 
 ]
 
 { #category : #'platypus-generated-accessing' }
 PltRepeatStatement >> untilControl [
-  ^untilControl
+	^ untilControl
 
 
 ]
 
 { #category : #'platypus-generated-accessing' }
 PltRepeatStatement >> untilControl: aPltExpression [
-  untilControl := aPltExpression
+	untilControl := aPltExpression
 
 
 ]
 
 { #category : #'platypus-generated-with-context-accessing' }
 PltRepeatStatement >> untilControlUsingContext: aContext [
-  ^self untilControl
+	^ self untilControl
 
 
 ]
 
 { #category : #'platypus-generated-accessing' }
 PltRepeatStatement >> whileControl [
-  ^whileControl
+	^ whileControl
 
 
 ]
 
 { #category : #'platypus-generated-accessing' }
 PltRepeatStatement >> whileControl: aPltExpression [
-  whileControl := aPltExpression
+	whileControl := aPltExpression
 
 
 ]
 
 { #category : #'platypus-generated-with-context-accessing' }
 PltRepeatStatement >> whileControlUsingContext: aContext [
-  ^self whileControl
+	^ self whileControl
 
 
 ]

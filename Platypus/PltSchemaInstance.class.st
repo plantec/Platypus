@@ -14,12 +14,12 @@ Class {
 	#name : #PltSchemaInstance,
 	#superclass : #PltSessionInstance,
 	#instVars : [
-		'tamarisItemReferencesIndex',
-		'errorsIndex',
 		'associatedModels',
-		'metaConceptsIndex',
-		'name',
+		'tamarisItemReferencesIndex',
 		'schemata',
+		'name',
+		'metaConceptsIndex',
+		'errorsIndex',
 		'namesBuilder'
 	],
 	#category : #'Platypus-PlatypusEnvironmentSchemaSchema'
@@ -33,7 +33,7 @@ PltSchemaInstance class >> context [ ^ self schemaDefinition context
 
 { #category : #'platypus-generated-platypus-signature' }
 PltSchemaInstance class >> iso10303P11Translater [
-  ^'Platypus (c) LISYC EA3883, Universite de Bretagne occidentale. Brest.'
+	^ 'Platypus (c) LISYC EA3883, Universite de Bretagne occidentale. Brest.'
 
 
 ]
@@ -46,105 +46,107 @@ PltSchemaInstance class >> platypusMetaData [ 	^ self schemaDefinition metaDataF
 
 { #category : #'platypus-generated-meta-data-accessing' }
 PltSchemaInstance class >> schemaDefinition [
-  ^PltPlatypusEnvironmentSchemaSchemaDefinition singleton
+	^ PltPlatypusEnvironmentSchemaSchemaDefinition singleton
 
 
 ]
 
 { #category : #'platypus-generated-meta-data-accessing' }
 PltSchemaInstance class >> schemaInstance [
-  ^PltPlatypusMetaSchemasSchemaInstance singleton
+	^ PltPlatypusMetaSchemasSchemaInstance singleton
 
 
 ]
 
 { #category : #'platypus-generated-platypus-signature' }
 PltSchemaInstance class >> translatedFromISO10303P11 [
-  ^true
+	^ true
 
 
 ]
 
 { #category : #'platypus-generated-platypus-signature' }
 PltSchemaInstance class >> vwNamespaceName [
-  ^#Platypus
+	^ #Platypus
 
 
 ]
 
 { #category : #'platypus-generated-visiting' }
 PltSchemaInstance >> accept: aVisitor [
-  ^aVisitor acceptSchemaInstance: self
+	^ aVisitor acceptSchemaInstance: self
 
 
 ]
 
 { #category : #'platypus-generated-deriving' }
 PltSchemaInstance >> accepted [
-  ^self acceptedUsingContext: self class context
+	^ self acceptedUsingContext: self class context
 
 
 ]
 
 { #category : #'platypus-generated-deriving' }
 PltSchemaInstance >> acceptedUsingContext: aContext [
-  ^self acceptedUsingContext: aContext receiver: self
+	^ self acceptedUsingContext: aContext receiver: self
 
 
 ]
 
 { #category : #'platypus-generated-deriving' }
 PltSchemaInstance >> acceptedUsingContext: aContext receiver: aReceiver [
-  ^aReceiver acceptSchemaInstanceUsingContext: aContext
+	^ aReceiver acceptSchemaInstanceUsingContext: aContext
 
 
 ]
 
 { #category : #'platypus-generated-accessing' }
 PltSchemaInstance >> associatedModels [
-  ^associatedModels
+	^ associatedModels
 
 
 ]
 
 { #category : #'platypus-generated-accessing' }
 PltSchemaInstance >> associatedModels: aListOfPltModelContents [
-  associatedModels := aListOfPltModelContents ifNil: [ OrderedCollection new ] ifNotNil: [ aListOfPltModelContents as: OrderedCollection ]
+	associatedModels := aListOfPltModelContents
+		ifNil: [ OrderedCollection new ]
+		ifNotNil: [ aListOfPltModelContents as: OrderedCollection ]
 
 
 ]
 
 { #category : #'platypus-generated-with-context-accessing' }
 PltSchemaInstance >> associatedModelsUsingContext: aContext [
-  ^self associatedModels
+	^ self associatedModels
 
 
 ]
 
 { #category : #'platypus-generated-fast-set-accessing' }
 PltSchemaInstance >> fastSetAssociatedModels: aListOfPltModelContents [
-  associatedModels := aListOfPltModelContents
+	associatedModels := aListOfPltModelContents
 
 
 ]
 
 { #category : #'platypus-generated-fast-set-accessing' }
 PltSchemaInstance >> fastSetName: aString [
-  name := aString
+	name := aString
 
 
 ]
 
 { #category : #'platypus-generated-fast-set-accessing' }
 PltSchemaInstance >> fastSetSchemata: aListOfPltSchemaDefinition [
-  schemata := aListOfPltSchemaDefinition
+	schemata := aListOfPltSchemaDefinition
 
 
 ]
 
 { #category : #'platypus-generated-group-accessing' }
 PltSchemaInstance >> fromValues: values [
-  ^self schemaInstanceFromValues: (super fromValues: values)
+	^ self schemaInstanceFromValues: (super fromValues: values)
 
 
 ]
@@ -158,35 +160,35 @@ PltSchemaInstance >> interpreterScope [
 
 { #category : #'platypus-generated-classifying' }
 PltSchemaInstance >> isPltSchemaInstance [
-  ^true
+	^ true
 
 
 ]
 
 { #category : #'platypus-generated-group-accessing' }
 PltSchemaInstance >> localFromValues: values [
-  ^self schemaInstanceFromValues: values
+	^ self schemaInstanceFromValues: values
 
 
 ]
 
 { #category : #'platypus-generated-group-accessing' }
 PltSchemaInstance >> localToValues: values [
-  ^self schemaInstanceToValues: values
+	^ self schemaInstanceToValues: values
 
 
 ]
 
 { #category : #'platypus-generated-accessing' }
 PltSchemaInstance >> name [
-  ^name
+	^ name
 
 
 ]
 
 { #category : #'platypus-generated-accessing' }
 PltSchemaInstance >> name: aString [
-  name := aString
+	name := aString
 
 
 ]
@@ -199,29 +201,31 @@ PltSchemaInstance >> name: aString associatedModels: aListOfPltModelContents sch
 
 { #category : #'platypus-generated-with-context-accessing' }
 PltSchemaInstance >> nameUsingContext: aContext [
-  ^self name
+	^ self name
 
 
 ]
 
 { #category : #'platypus-generated-copying' }
 PltSchemaInstance >> pltCopyGroup: aClassSymbol to: anObject [
-  self class name == aClassSymbol ifTrue: [ self pltCopyTo: anObject ] ifFalse: [ super pltCopyGroup: aClassSymbol to: anObject ]
+	self class name == aClassSymbol
+		ifTrue: [ self pltCopyTo: anObject ]
+		ifFalse: [ super pltCopyGroup: aClassSymbol to: anObject ]
 
 
 ]
 
 { #category : #'platypus-generated-copying' }
 PltSchemaInstance >> pltCopyTo: another [
-  super pltCopyTo: another.
-  self schemaInstanceCopyTo: another
+	super pltCopyTo: another.
+	self schemaInstanceCopyTo: another
 
 
 ]
 
 { #category : #'platypus-generated-copying' }
 PltSchemaInstance >> pltLocalCopyTo: another [
-  self schemaInstanceCopyTo: another
+	self schemaInstanceCopyTo: another
 
 
 ]
@@ -233,90 +237,92 @@ PltSchemaInstance >> schemaInstance [
 
 { #category : #'platypus-generated-copying' }
 PltSchemaInstance >> schemaInstanceCopyTo: another [
-  another fastSetName: self name.
-  another fastSetAssociatedModels: self associatedModels.
-  another fastSetSchemata: self schemata
+	another fastSetName: self name.
+	another fastSetAssociatedModels: self associatedModels.
+	another fastSetSchemata: self schemata
 
 
 ]
 
 { #category : #'platypus-generated-group-accessing' }
 PltSchemaInstance >> schemaInstanceFromValues: values [
-  | valuesloc |
-  valuesloc := values asOrderedCollection.
-  self setName: valuesloc removeFirst.
-  self setAssociatedModels: valuesloc removeFirst.
-  self setSchemata: valuesloc removeFirst.
-  ^valuesloc
+	| valuesloc |
+	valuesloc := values asOrderedCollection.
+	self setName: valuesloc removeFirst.
+	self setAssociatedModels: valuesloc removeFirst.
+	self setSchemata: valuesloc removeFirst.
+	^ valuesloc
 
 
 ]
 
 { #category : #'platypus-generated-group-accessing' }
 PltSchemaInstance >> schemaInstanceToValues: values [
-  values add: self name.
-  values add: self associatedModels.
-  values add: self schemata.
-  ^values
+	values add: self name.
+	values add: self associatedModels.
+	values add: self schemata.
+	^ values
 
 
 ]
 
 { #category : #'platypus-generated-accessing' }
 PltSchemaInstance >> schemata [
-  ^schemata
+	^ schemata
 
 
 ]
 
 { #category : #'platypus-generated-accessing' }
 PltSchemaInstance >> schemata: aListOfPltSchemaDefinition [
-  schemata := aListOfPltSchemaDefinition ifNil: [ OrderedCollection new ] ifNotNil: [ aListOfPltSchemaDefinition as: OrderedCollection ]
+	schemata := aListOfPltSchemaDefinition
+		ifNil: [ OrderedCollection new ]
+		ifNotNil: [ aListOfPltSchemaDefinition as: OrderedCollection ]
 
 
 ]
 
 { #category : #'platypus-generated-with-context-accessing' }
 PltSchemaInstance >> schemataUsingContext: aContext [
-  ^self schemata
+	^ self schemata
 
 
 ]
 
 { #category : #'platypus-generated-set-accessing' }
 PltSchemaInstance >> setAssociatedModels: aListOfPltModelContents [
-  self associatedModels: aListOfPltModelContents
+	self associatedModels: aListOfPltModelContents
 
 
 ]
 
 { #category : #'platypus-generated-set-accessing' }
 PltSchemaInstance >> setName: aString [
-  self name: aString
+	self name: aString
 
 
 ]
 
 { #category : #'platypus-generated-set-accessing' }
 PltSchemaInstance >> setSchemata: aListOfPltSchemaDefinition [
-  self schemata: aListOfPltSchemaDefinition
+	self schemata: aListOfPltSchemaDefinition
 
 
 ]
 
 { #category : #'platypus-generated-initializing' }
 PltSchemaInstance >> stepInitialize [
-  super stepInitialize.
-  name := ''.
-  associatedModels := OrderedCollection new.
-  schemata := OrderedCollection new
+	super stepInitialize.
+	name := ''.
+	associatedModels := OrderedCollection new.
+	schemata := OrderedCollection new
 
 
 ]
 
 { #category : #'platypus-generated-group-accessing' }
 PltSchemaInstance >> toValues: values [
-  ^self schemaInstanceToValues: (super toValues: values)
+	^ self schemaInstanceToValues: (super toValues: values)
 
 
 ]

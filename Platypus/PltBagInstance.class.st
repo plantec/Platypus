@@ -23,7 +23,7 @@ PltBagInstance class >> context [ ^ self schemaDefinition context
 
 { #category : #'platypus-generated-platypus-signature' }
 PltBagInstance class >> iso10303P11Translater [
-  ^'Platypus (c) LISYC EA3883, Universite de Bretagne occidentale. Brest.'
+	^ 'Platypus (c) LISYC EA3883, Universite de Bretagne occidentale. Brest.'
 
 
 ]
@@ -36,160 +36,162 @@ PltBagInstance class >> platypusMetaData [ 	^ self schemaDefinition metaDataFor:
 
 { #category : #'platypus-generated-meta-data-accessing' }
 PltBagInstance class >> schemaDefinition [
-  ^PltPlatypusAggregateDataSchemaSchemaDefinition singleton
+	^ PltPlatypusAggregateDataSchemaSchemaDefinition singleton
 
 
 ]
 
 { #category : #'platypus-generated-meta-data-accessing' }
 PltBagInstance class >> schemaInstance [
-  ^PltPlatypusMetaSchemasSchemaInstance singleton
+	^ PltPlatypusMetaSchemasSchemaInstance singleton
 
 
 ]
 
 { #category : #'platypus-generated-platypus-signature' }
 PltBagInstance class >> translatedFromISO10303P11 [
-  ^true
+	^ true
 
 
 ]
 
 { #category : #'platypus-generated-platypus-signature' }
 PltBagInstance class >> vwNamespaceName [
-  ^#Platypus
+	^ #Platypus
 
 
 ]
 
 { #category : #'platypus-generated-visiting' }
 PltBagInstance >> accept: aVisitor [
-  ^aVisitor acceptBagInstance: self
+	^ aVisitor acceptBagInstance: self
 
 
 ]
 
 { #category : #'platypus-generated-copying' }
 PltBagInstance >> bagInstanceCopyTo: another [
-  another fastSetContents: self contents
+	another fastSetContents: self contents
 
 
 ]
 
 { #category : #'platypus-generated-group-accessing' }
 PltBagInstance >> bagInstanceFromValues: values [
-  | valuesloc |
-  valuesloc := values asOrderedCollection.
-  self setContents: valuesloc removeFirst.
-  ^valuesloc
+	| valuesloc |
+	valuesloc := values asOrderedCollection.
+	self setContents: valuesloc removeFirst.
+	^ valuesloc
 
 
 ]
 
 { #category : #'platypus-generated-group-accessing' }
 PltBagInstance >> bagInstanceToValues: values [
-  values add: self contents.
-  ^values
+	values add: self contents.
+	^ values
 
 
 ]
 
 { #category : #'platypus-generated-accessing' }
 PltBagInstance >> contents [
-  ^contents
+	^ contents
 
 
 ]
 
 { #category : #'platypus-generated-accessing' }
 PltBagInstance >> contents: aBagOfPltExpression [
-  contents := aBagOfPltExpression ifNil: [ Bag new ] ifNotNil: [ aBagOfPltExpression as: Bag ]
+	contents := aBagOfPltExpression ifNil: [ Bag new ] ifNotNil: [ aBagOfPltExpression as: Bag ]
 
 
 ]
 
 { #category : #'platypus-generated-with-context-accessing' }
 PltBagInstance >> contentsUsingContext: aContext [
-  ^self contents
+	^ self contents
 
 
 ]
 
 { #category : #'platypus-generated-fast-set-accessing' }
 PltBagInstance >> fastSetContents: aBagOfPltExpression [
-  contents := aBagOfPltExpression
+	contents := aBagOfPltExpression
 
 
 ]
 
 { #category : #'platypus-generated-group-accessing' }
 PltBagInstance >> fromValues: values [
-  ^self bagInstanceFromValues: (super fromValues: values)
+	^ self bagInstanceFromValues: (super fromValues: values)
 
 
 ]
 
 { #category : #'platypus-generated-classifying' }
 PltBagInstance >> isPltBagInstance [
-  ^true
+	^ true
 
 
 ]
 
 { #category : #'platypus-generated-group-accessing' }
 PltBagInstance >> localFromValues: values [
-  ^self bagInstanceFromValues: values
+	^ self bagInstanceFromValues: values
 
 
 ]
 
 { #category : #'platypus-generated-group-accessing' }
 PltBagInstance >> localToValues: values [
-  ^self bagInstanceToValues: values
+	^ self bagInstanceToValues: values
 
 
 ]
 
 { #category : #'platypus-generated-copying' }
 PltBagInstance >> pltCopyGroup: aClassSymbol to: anObject [
-  self class name == aClassSymbol ifTrue: [ self pltCopyTo: anObject ] ifFalse: [ super pltCopyGroup: aClassSymbol to: anObject ]
+	self class name == aClassSymbol
+		ifTrue: [ self pltCopyTo: anObject ]
+		ifFalse: [ super pltCopyGroup: aClassSymbol to: anObject ]
 
 
 ]
 
 { #category : #'platypus-generated-copying' }
 PltBagInstance >> pltCopyTo: another [
-  super pltCopyTo: another.
-  self bagInstanceCopyTo: another
+	super pltCopyTo: another.
+	self bagInstanceCopyTo: another
 
 
 ]
 
 { #category : #'platypus-generated-copying' }
 PltBagInstance >> pltLocalCopyTo: another [
-  self bagInstanceCopyTo: another
+	self bagInstanceCopyTo: another
 
 
 ]
 
 { #category : #'platypus-generated-set-accessing' }
 PltBagInstance >> setContents: aBagOfPltExpression [
-  self contents: aBagOfPltExpression
+	self contents: aBagOfPltExpression
 
 
 ]
 
 { #category : #'platypus-generated-initializing' }
 PltBagInstance >> stepInitialize [
-  super stepInitialize.
-  contents := Bag new
+	super stepInitialize.
+	contents := Bag new
 
 
 ]
 
 { #category : #'platypus-generated-group-accessing' }
 PltBagInstance >> toValues: values [
-  ^self bagInstanceToValues: (super toValues: values)
+	^ self bagInstanceToValues: (super toValues: values)
 
 
 ]

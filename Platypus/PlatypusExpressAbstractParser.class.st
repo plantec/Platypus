@@ -9,7 +9,7 @@ PlatypusExpressAbstractParser class >> parse: aString owner: owner onError: aBlo
 	^ [self parseStream: aString readStream owner: owner]
 		on: SmaCCParserError
 		do: [:ex | ex
-				return: (aBlock value: ex description value: ex signaler position)]
+				return: (aBlock value: ex description value: ex parameter position)]
 ]
 
 { #category : #accessing }

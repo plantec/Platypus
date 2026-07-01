@@ -3,212 +3,212 @@
 SCHEMA EXPRESS_builtins;
 
 	FUNCTION ABS ( P : NUMBER ) : NUMBER;
-		(*#            | v |
+		(*#           | v |
 			(v := self p)
 				ifMissing: [^ self return: v]
 				ifNotMissing: [^ self return: (v class val: (v pltNativeValue) abs)] 
-		           #*) (*# <pharo> | v |
+		          #*) (*# <pharo> | v |
 			^ (v := self p) ifNotNil: [self return: (v abs)] 
-		           #*);
+		          #*);
 	END_FUNCTION;
 
 	FUNCTION ACOS ( P : NUMBER ) : REAL;
-		(*#            | v |
+		(*#           | v |
 			(v := self p)
 				ifMissing: [^ self return: v]
 				ifNotMissing: [^ self return: (PltRealLiteral val: (v pltNativeValue) arcCos)] 
-		           #*) (*# <pharo> | v |
+		          #*) (*# <pharo> | v |
 			^ (v := self p) ifNotNil: [self return: (v arcCos)] 
-		           #*);
+		          #*);
 	END_FUNCTION;
 
 	FUNCTION ASIN ( P : NUMBER ) : REAL;
-		(*#            | v |
+		(*#           | v |
 			(v := self p)
 				ifMissing: [^ self return: v]
 				ifNotMissing: [^ self return: (PltRealLiteral val: (v pltNativeValue) arcSin)] 
-		           #*) (*# <pharo> | v |
+		          #*) (*# <pharo> | v |
 			^ (v := self p) ifNotNil: [self return: (v arcSin)] 
-		           #*);
+		          #*);
 	END_FUNCTION;
 
 	FUNCTION ATAN ( V1 : NUMBER; V2 : NUMBER ) : REAL;
-		(*#            | v |
+		(*#           | v |
 			(v := self v1)
 				ifMissing: [^ self return: v]
 				ifNotMissing: [^ self return: (PltRealLiteral val: (v pltNativeValue) arcTan)] 
-		           #*) (*# <pharo> | v |
+		          #*) (*# <pharo> | v |
 			^ (v := self v1) ifNotNil: [self return: (v arcTan)] 
-		           #*);
+		          #*);
 	END_FUNCTION;
 
 	FUNCTION BLENGTH ( P : BINARY ) : INTEGER;
-		(*#            | v |
+		(*#           | v |
 			(v := self p)
 				ifMissing: [^ self return: v]
 				ifNotMissing: [^ self return: (PltIntegerLiteral val: (v pltNativeValue) size)] 
-		           #*) (*# <pharo> | v |
+		          #*) (*# <pharo> | v |
 			^ (v := self p) ifNotNil: [self return: (v size)] 
-		           #*);
+		          #*);
 	END_FUNCTION;
 
 	FUNCTION COS ( P : NUMBER ) : REAL;
-		(*#            | v |
+		(*#           | v |
 			(v := self p)
 				ifMissing: [^ self return: v]
 				ifNotMissing: [^ self return: (PltRealLiteral val: (v pltNativeValue) cos)] 
-		           #*) (*# <pharo> | v |
+		          #*) (*# <pharo> | v |
 			^ (v := self p) ifNotNil: [self return: (v cos)] 
-		           #*);
+		          #*);
 	END_FUNCTION;
 
 	FUNCTION EVEN ( P : NUMBER ) : BOOLEAN;
-		(*#            | v |
+		(*#           | v |
 			(v := self p)
 				ifMissing: [^ self return: v]
 				ifNotMissing: [^ self return: (PltLogicalLiteral val: (v pltNativeValue) even)] 
-		           #*) (*# <pharo> | v |
+		          #*) (*# <pharo> | v |
 			^ (v := self p) ifNotNil: [self return: (v even)] 
-		           #*);
+		          #*);
 	END_FUNCTION;
 
 	FUNCTION EXISTS ( P : GENERIC ) : BOOLEAN;
-		(*#            
+		(*#           
 			(self p)
 				ifMissing: [^ self return: (PltLogicalLiteral val: false) ]
 				ifNotMissing: [^ self return: (PltLogicalLiteral val: true) ] 
-		           #*) (*# <pharo> | v |
+		          #*) (*# <pharo> | v |
 			^ (self return: self p notNil)
-		           #*);
+		          #*);
 	END_FUNCTION;
 
 	FUNCTION EXP ( P : NUMBER ) : REAL;
-		(*#            | v |
+		(*#           | v |
 			(v := self p)
 				ifMissing: [^ self return: v]
 				ifNotMissing: [^ self return: (PltRealLiteral val: (v pltNativeValue) exp)] 
-		           #*) (*# <pharo> | v |
+		          #*) (*# <pharo> | v |
 			^ (v := self p) ifNotNil: [self return: (v exp)] 
-		           #*);
+		          #*);
 	END_FUNCTION;
 
 	FUNCTION FORMAT ( PN : NUMBER; PF : STRING ) : STRING;
-		(*#            | n f formatted |
+		(*#           | n f formatted |
 			(n := self pN)
 				ifMissing: [^ self return: n]
 				ifNotMissing: [(f := self pF) 
 					ifMissing: [^ self return: f]
 					ifNotMissing: [formatted := PlatypusExpressBuiltinFormatFormatter format: n pltNativeValue sourceFormat: f pltNativeValue trimBoth.
 						^ self return: (PltStringLiteral val: formatted)]]
-		           #*) (*# <pharo> | n f formatted |
+		          #*) (*# <pharo> | n f formatted |
 			(n := self pN)
 				ifNil: [^ self return: n]
 				ifNotNil: [(f := self pF) 
 					ifNil: [^ self return: f]
 					ifNotNil: [formatted := PlatypusExpressBuiltinFormatFormatter format: n sourceFormat: f trimBoth.
 						^ self return: formatted]]
-		           #*);
+		          #*);
 	END_FUNCTION;
 
 	FUNCTION HIBOUND ( P : AGGREGATE OF GENERIC ) : INTEGER;
-		(*#            | v |
+		(*#           | v |
 			(v := self p)
 				ifMissing: [^ self return: v]
 				ifNotMissing: [^ self return: v upperBound] 
-		           #*) (*# <pharo> | v |
+		          #*) (*# <pharo> | v |
 			^ (v := self p) ifNotNil: [self return: (v upperBound)] 
-		           #*);
+		          #*);
 	END_FUNCTION;
 
 	FUNCTION HIINDEX ( P : AGGREGATE OF GENERIC ) : INTEGER;
-		(*#            | v |
+		(*#           | v |
 			(v := self p)
 				ifMissing: [^ self return: v]
 				ifNotMissing: [((v := v pltNativeValue) isPltArray)
 						ifTrue: [^ self return: (v upperBound)]
 						ifFalse: [^ self return: (PltIntegerLiteral val: ( v pltNativeValue ) size)]]
-		           #*) (*# <pharo> | v |
+		          #*) (*# <pharo> | v |
 			^ (v := self p) ifNotNil: [self return: (v upperBound)] 
-		           #*);
+		          #*);
 	END_FUNCTION;
 
 	FUNCTION LENGTH ( P : STRING ) : INTEGER;
-		(*#            | v |
+		(*#           | v |
 			(v := self p)
 				ifMissing: [^ self return: v]
 				ifNotMissing: [^ self return: (PltIntegerLiteral val: (v pltNativeValue) size)] 
-		           #*) (*# <pharo> | v |
+		          #*) (*# <pharo> | v |
 			^ (v := self p) ifNotNil: [self return: (v size)] 
-		           #*);
+		          #*);
 	END_FUNCTION;
 
 	FUNCTION LOBOUND ( P : AGGREGATE OF GENERIC ) : INTEGER;
-		(*#            | v |
+		(*#           | v |
 			(v := self p)
 				ifMissing: [^ self return: v]
 				ifNotMissing: [
 					(v := v lowerBound)
 						ifMissing: [^ self return: (PltIntegerLiteral val: 0)]
 						ifNotMissing: [^ self return: v]].
-		           #*) (*# <pharo> | v |
+		          #*) (*# <pharo> | v |
 			^ (v := self p) ifNotNil: [self return: (v lowerBound)] 
-		           #*);
+		          #*);
 	END_FUNCTION;
 
 	FUNCTION LOG ( P : NUMBER ) : REAL;
-		(*#            | v |
+		(*#           | v |
 			(v := self p)
 				ifMissing: [^ self return: v]
 				ifNotMissing: [^ self return: (PltRealLiteral val: (v pltNativeValue) ln)] 
-		           #*) (*# <pharo> | v |
+		          #*) (*# <pharo> | v |
 			^ (v := self p) ifNotNil: [self return: (v ln)] 
-		           #*);
+		          #*);
 	END_FUNCTION;
 
 	FUNCTION LOG2 ( P : NUMBER ) : REAL;
-		(*#            | v |
+		(*#           | v |
 			(v := self p)
 				ifMissing: [^ self return: v]
 				ifNotMissing: [^ self return: (PltRealLiteral val: (v pltNativeValue) log: 2)] 
-		           #*) (*# <pharo> | v |
+		          #*) (*# <pharo> | v |
 			^ (v := self p) ifNotNil: [self return: (v log: 2)] 
-		           #*);
+		          #*);
 	END_FUNCTION;
 
 	FUNCTION LOG10 ( P : NUMBER ) : REAL;
-		(*#            | v |
+		(*#           | v |
 			(v := self p)
 				ifMissing: [^ self return: v]
 				ifNotMissing: [^ self return: (PltRealLiteral val: (v pltNativeValue) log)] 
-		           #*) (*# <pharo> | v |
+		          #*) (*# <pharo> | v |
 			^ (v := self p) ifNotNil: [self return: (v log)] 
-		           #*);
+		          #*);
 	END_FUNCTION;
 
 	FUNCTION LOINDEX ( P : AGGREGATE OF GENERIC ) : INTEGER;
-		(*#            | v |
+		(*#           | v |
 			(v := self p)
 				ifMissing: [^ self return: v]
 				ifNotMissing: [((v := v pltNativeValue) isPltArray)
 						ifTrue: [^ self return: (v lowerBound)]
 						ifFalse: [^ self return: (PltIntegerLiteral val: 1)]]
-		           #*) (*# <pharo> | v |
+		          #*) (*# <pharo> | v |
 			^ (v := self p) ifNotNil: [self return: (v lowerBound)] 
-		           #*);
+		          #*);
 	END_FUNCTION;
 
 	FUNCTION ODD ( P : INTEGER ) : BOOLEAN;
-		(*#            | v |
+		(*#           | v |
 			(v := self p)
 				ifMissing: [^ self return: v]
 				ifNotMissing: [^ self return: (PltLogicalLiteral val: (v pltNativeValue) odd)] 
-		           #*) (*# <pharo> | v |
+		          #*) (*# <pharo> | v |
 			^ (v := self p) ifNotNil: [self return: v odd] 
-		           #*);
+		          #*);
 	END_FUNCTION;
 
 	FUNCTION ROLESOF ( P : GENERIC ) : SET OF STRING;
-		(*#           
+		(*#          
 			| arg result tmpResult |
 			(arg := self p)
 				ifMissing: [^ self return: arg]
@@ -218,7 +218,7 @@ SCHEMA EXPRESS_builtins;
 						dataDo: [:d | d rolesOf: arg in: tmpResult].
 					result contents: tmpResult.
 					^ self return: result]
-		           #*) (*# <pharo>
+		          #*) (*# <pharo>
 			| arg result |
 			(arg := self p)
 				ifNil: [^ self return: arg]
@@ -227,51 +227,51 @@ SCHEMA EXPRESS_builtins;
 					self
 						dataDo: [:d | d rolesOf: arg in: result].
 					^ self return: result]
-		           #*);
+		          #*);
 	END_FUNCTION;
 
 	FUNCTION SIN ( P : NUMBER ) : REAL;
-		(*#            | v |
+		(*#           | v |
 			(v := self p)
 				ifMissing: [^ self return: v]
 				ifNotMissing: [^ self return: (PltRealLiteral val: (v pltNativeValue) sin)] 
-		           #*) (*# <pharo> | v |
+		          #*) (*# <pharo> | v |
 			^ (v := self p) ifNotNil: [self return: v sin] 
-		           #*);
+		          #*);
 	END_FUNCTION;
 
 	FUNCTION SIZEOF ( P : AGGREGATE OF GENERIC ) : INTEGER;
-		(*#            | v |
+		(*#           | v |
 			(v := self p)
 				ifMissing: [^ self return: v]
 				ifNotMissing: [^ self return: (PltIntegerLiteral val: (v pltNativeValue) size)] 
-		           #*) (*# <pharo> | v |
+		          #*) (*# <pharo> | v |
 			^ (v := self p) ifNotNil: [self return: v size] 
-		           #*);
+		          #*);
 	END_FUNCTION;
 
 	FUNCTION SQRT ( P : NUMBER ) : REAL;
-		(*#            | v |
+		(*#           | v |
 			(v := self p)
 				ifMissing: [^ self return: v]
 				ifNotMissing: [^ self return: (PltRealLiteral val: (v pltNativeValue) sqrt)] 
-		           #*) (*# <pharo> | v |
+		          #*) (*# <pharo> | v |
 			^ (v := self p) ifNotNil: [self return: v sqrt] 
-		           #*);
+		          #*);
 	END_FUNCTION;
 
 	FUNCTION TAN ( P : NUMBER ) : REAL;
-		(*#            | v |
+		(*#           | v |
 			(v := self p)
 				ifMissing: [^ self return: v]
 				ifNotMissing: [^ self return: (PltRealLiteral val: (v pltNativeValue) tan)] 
-		           #*) (*# <pharo> | v |
+		          #*) (*# <pharo> | v |
 			^ (v := self p) ifNotNil: [self return: v tan] 
-		           #*);
+		          #*);
 	END_FUNCTION;
 
 	FUNCTION TYPEOF ( P : GENERIC ) : SET OF STRING;
-		(*#           
+		(*#          
 			| arg result |
 			(arg := self p)
 				ifMissing: [^ self return: arg]
@@ -279,7 +279,7 @@ SCHEMA EXPRESS_builtins;
 					result := PltSetInstance new.
 					result contents: (PlatypusExpressTypeOfBuilder typeOfSetFor: arg computedDomain).
 					^ self return: result]
-		           #*) (*# <pharo>
+		          #*) (*# <pharo>
 			| arg result |
 			(arg := self p)
 				ifNil: [^ self return: arg]
@@ -289,11 +289,11 @@ SCHEMA EXPRESS_builtins;
 							arg records do: [:rec | result addAll: (PlatypusExpressTypeOfBuilder typeOfSetFor: rec class platypusMetaData)]] 
 						ifFalse: [result := (PlatypusExpressTypeOfBuilder typeOfSetFor: arg class platypusMetaData)].
 					^ self return: (result collect: [:r | r val])]
-		           #*);
+		          #*);
 	END_FUNCTION;
 
 	FUNCTION USEDIN ( T : GENERIC; R : STRING ) : BAG OF GENERIC;
-		(*#           
+		(*#          
 			| result tmpResult ent role schemaEntityAttribute schemaKey entityKey attributeKey |
 			ent := self t.
 			role := self r.
@@ -322,7 +322,7 @@ SCHEMA EXPRESS_builtins;
 									in: tmpResult].
 							result contents: tmpResult.
 							^ self return: result]]
-		           #*) (*# <pharo>
+		          #*) (*# <pharo>
 			| result tmpResult ent role schemaEntityAttribute schemaKey entityKey attributeKey |
 			ent := self t.
 			role := self r.
@@ -349,11 +349,11 @@ SCHEMA EXPRESS_builtins;
 									roleAttribute: attributeKey
 									in: result].
 							^ self return: result]]
-		           #*);
+		          #*);
 	END_FUNCTION;
 
 	FUNCTION VALUE ( V : STRING ) : NUMBER;
-		(*#            | param nb result |
+		(*#           | param nb result |
 			param := self v.
 			param pltNativeValue isString
 				ifTrue: [[nb := param pltNativeValue asNumber.
@@ -365,34 +365,34 @@ SCHEMA EXPRESS_builtins;
 						do: [result := PltMissingValue new]]
 				ifFalse: [result := PltMissingValue new].
 			^ self return: result
-		           #*) (*# <pharo> | param nb result |
+		          #*) (*# <pharo> | param nb result |
 			(param := self v) isString
 				ifTrue: [[result := param asNumber]
 						on: Error
 						do: [result := nil]]
 				ifFalse: [result := nil].
 			^ self return: result
-		           #*);
+		          #*);
 	END_FUNCTION;
 
 	FUNCTION VALUE_IN ( C : AGGREGATE OF GENERIC : gen; V : GENERIC : gen ) : LOGICAL;
-		(*#            self signal: 'Value_in primitive is not implemented'.            #*) (*# <pharo> self signal: 'VALUE_IN primitive is not implemented'.            #*);
+		(*#           self signal: 'Value_in primitive is not implemented'.           #*) (*# <pharo> self signal: 'VALUE_IN primitive is not implemented'.           #*);
 		RETURN ( ? );
 	END_FUNCTION;
 
 	FUNCTION VALUE_UNIQUE ( V : AGGREGATE OF GENERIC ) : LOGICAL;
-		(*#            self signal: 'Value_unique primitive is not implemented'.            #*) (*# <pharo> self signal: 'VALUE_UNIQUE primitive is not implemented'.            #*);
+		(*#           self signal: 'Value_unique primitive is not implemented'.           #*) (*# <pharo> self signal: 'VALUE_UNIQUE primitive is not implemented'.           #*);
 		RETURN ( ? );
 	END_FUNCTION;
 
 	PROCEDURE INSERT ( VAR PL : LIST OF GENERIC : gen; PE : GENERIC : gen; PP : INTEGER );
-		(*#           
+		(*#          
 			| l e p |
 			l := self pL.
 			e := self pE.
 			p := self pP pltNativeValue.
 			l pltAdd: e beforeIndex: p
-		           #*) (*# <pharo>
+		          #*) (*# <pharo>
 			| l e p |
 			l := self pL.
 			e := self pE.
@@ -402,31 +402,31 @@ SCHEMA EXPRESS_builtins;
 				ifFalse: [p >= l size
 						ifTrue: [l addLast: e]
 						ifFalse: [l add: e afterIndex: p]]
-		           #*);
+		          #*);
 	END_PROCEDURE;
 
 	PROCEDURE REMOVE ( VAR PL : LIST OF GENERIC : gen; PP : INTEGER );
-		(*#           
+		(*#          
 			| l p |
 			l := self pL.
 			p := self pP pltNativeValue.
 			l removeAt: p	
-		           #*) (*# <pharo>
+		          #*) (*# <pharo>
 			| l p |
 			l := self pL.
 			p := self pP.
 			l removeAt: p	
-		           #*);
+		          #*);
 	END_PROCEDURE;
 
 	FUNCTION NVL ( P : GENERIC : gen1; substitute : GENERIC : gen1 ) : GENERIC : gen1;
-		(*#            | v | 
+		(*#           | v | 
 			(v := self p)
 				ifMissing: [^ self return: (self substitute)]
 				ifNotMissing: [^ self return: (v)]
-		           #*) (*# <pharo> | v |
+		          #*) (*# <pharo> | v |
 			^ (v := self p) ifNil: [self return: self substitute] ifNotNil: [self return: v] 
-		           #*);
+		          #*);
 	END_FUNCTION;
 END_SCHEMA;
 
@@ -440,259 +440,259 @@ Class {
 
 { #category : #'platypus-generated-platypus-signature' }
 PltExpressBuiltinsSchemaDefinition class >> iso10303P11Translater [
-  ^'Platypus (c) LISYC EA3883, Universite de Bretagne occidentale. Brest.'
+	^ 'Platypus (c) LISYC EA3883, Universite de Bretagne occidentale. Brest.'
 
 
 ]
 
 { #category : #'platypus-generated-platypus-signature' }
 PltExpressBuiltinsSchemaDefinition class >> translatedFromISO10303P11 [
-  ^true
+	^ true
 
 
 ]
 
 { #category : #'platypus-generated-platypus-signature' }
 PltExpressBuiltinsSchemaDefinition class >> vwNamespaceName [
-  ^#Platypus
+	^ #Platypus
 
 
 ]
 
 { #category : #'platypus-generated-context-accessing' }
 PltExpressBuiltinsSchemaDefinition >> context [
-  ^self schemaInstance context
+	^ self schemaInstance context
 
 
 ]
 
 { #category : #'platypus-generated-entities' }
 PltExpressBuiltinsSchemaDefinition >> entityDefinitionCount [
-  ^0
+	^ 0
 
 
 ]
 
 { #category : #'platypus-generated-functions' }
 PltExpressBuiltinsSchemaDefinition >> functionDeclaration1 [
-  ^#(#ABS #PltABSFunction)
+	^ #(#ABS #PltABSFunction)
 
 
 ]
 
 { #category : #'platypus-generated-functions' }
 PltExpressBuiltinsSchemaDefinition >> functionDeclaration10 [
-  ^#(#FORMAT #PltFORMATFunction)
+	^ #(#FORMAT #PltFORMATFunction)
 
 
 ]
 
 { #category : #'platypus-generated-functions' }
 PltExpressBuiltinsSchemaDefinition >> functionDeclaration11 [
-  ^#(#HIBOUND #PltHIBOUNDFunction)
+	^ #(#HIBOUND #PltHIBOUNDFunction)
 
 
 ]
 
 { #category : #'platypus-generated-functions' }
 PltExpressBuiltinsSchemaDefinition >> functionDeclaration12 [
-  ^#(#HIINDEX #PltHIINDEXFunction)
+	^ #(#HIINDEX #PltHIINDEXFunction)
 
 
 ]
 
 { #category : #'platypus-generated-functions' }
 PltExpressBuiltinsSchemaDefinition >> functionDeclaration13 [
-  ^#(#LENGTH #PltLENGTHFunction)
+	^ #(#LENGTH #PltLENGTHFunction)
 
 
 ]
 
 { #category : #'platypus-generated-functions' }
 PltExpressBuiltinsSchemaDefinition >> functionDeclaration14 [
-  ^#(#LOBOUND #PltLOBOUNDFunction)
+	^ #(#LOBOUND #PltLOBOUNDFunction)
 
 
 ]
 
 { #category : #'platypus-generated-functions' }
 PltExpressBuiltinsSchemaDefinition >> functionDeclaration15 [
-  ^#(#LOG #PltLOGFunction)
+	^ #(#LOG #PltLOGFunction)
 
 
 ]
 
 { #category : #'platypus-generated-functions' }
 PltExpressBuiltinsSchemaDefinition >> functionDeclaration16 [
-  ^#(#LOG2 #PltLOG2Function)
+	^ #(#LOG2 #PltLOG2Function)
 
 
 ]
 
 { #category : #'platypus-generated-functions' }
 PltExpressBuiltinsSchemaDefinition >> functionDeclaration17 [
-  ^#(#LOG10 #PltLOG10Function)
+	^ #(#LOG10 #PltLOG10Function)
 
 
 ]
 
 { #category : #'platypus-generated-functions' }
 PltExpressBuiltinsSchemaDefinition >> functionDeclaration18 [
-  ^#(#LOINDEX #PltLOINDEXFunction)
+	^ #(#LOINDEX #PltLOINDEXFunction)
 
 
 ]
 
 { #category : #'platypus-generated-functions' }
 PltExpressBuiltinsSchemaDefinition >> functionDeclaration19 [
-  ^#(#ODD #PltODDFunction)
+	^ #(#ODD #PltODDFunction)
 
 
 ]
 
 { #category : #'platypus-generated-functions' }
 PltExpressBuiltinsSchemaDefinition >> functionDeclaration2 [
-  ^#(#ACOS #PltACOSFunction)
+	^ #(#ACOS #PltACOSFunction)
 
 
 ]
 
 { #category : #'platypus-generated-functions' }
 PltExpressBuiltinsSchemaDefinition >> functionDeclaration20 [
-  ^#(#ROLESOF #PltROLESOFFunction)
+	^ #(#ROLESOF #PltROLESOFFunction)
 
 
 ]
 
 { #category : #'platypus-generated-functions' }
 PltExpressBuiltinsSchemaDefinition >> functionDeclaration21 [
-  ^#(#SIN #PltSINFunction)
+	^ #(#SIN #PltSINFunction)
 
 
 ]
 
 { #category : #'platypus-generated-functions' }
 PltExpressBuiltinsSchemaDefinition >> functionDeclaration22 [
-  ^#(#SIZEOF #PltSIZEOFFunction)
+	^ #(#SIZEOF #PltSIZEOFFunction)
 
 
 ]
 
 { #category : #'platypus-generated-functions' }
 PltExpressBuiltinsSchemaDefinition >> functionDeclaration23 [
-  ^#(#SQRT #PltSQRTFunction)
+	^ #(#SQRT #PltSQRTFunction)
 
 
 ]
 
 { #category : #'platypus-generated-functions' }
 PltExpressBuiltinsSchemaDefinition >> functionDeclaration24 [
-  ^#(#TAN #PltTANFunction)
+	^ #(#TAN #PltTANFunction)
 
 
 ]
 
 { #category : #'platypus-generated-functions' }
 PltExpressBuiltinsSchemaDefinition >> functionDeclaration25 [
-  ^#(#TYPEOF #PltTYPEOFFunction)
+	^ #(#TYPEOF #PltTYPEOFFunction)
 
 
 ]
 
 { #category : #'platypus-generated-functions' }
 PltExpressBuiltinsSchemaDefinition >> functionDeclaration26 [
-  ^#(#USEDIN #PltUSEDINFunction)
+	^ #(#USEDIN #PltUSEDINFunction)
 
 
 ]
 
 { #category : #'platypus-generated-functions' }
 PltExpressBuiltinsSchemaDefinition >> functionDeclaration27 [
-  ^#(#VALUE #PltVALUEFunction)
+	^ #(#VALUE #PltVALUEFunction)
 
 
 ]
 
 { #category : #'platypus-generated-functions' }
 PltExpressBuiltinsSchemaDefinition >> functionDeclaration28 [
-  ^#(#VALUE_IN #PltValueInFunction)
+	^ #(#VALUE_IN #PltValueInFunction)
 
 
 ]
 
 { #category : #'platypus-generated-functions' }
 PltExpressBuiltinsSchemaDefinition >> functionDeclaration29 [
-  ^#(#VALUE_UNIQUE #PltValueUniqueFunction)
+	^ #(#VALUE_UNIQUE #PltValueUniqueFunction)
 
 
 ]
 
 { #category : #'platypus-generated-functions' }
 PltExpressBuiltinsSchemaDefinition >> functionDeclaration3 [
-  ^#(#ASIN #PltASINFunction)
+	^ #(#ASIN #PltASINFunction)
 
 
 ]
 
 { #category : #'platypus-generated-functions' }
 PltExpressBuiltinsSchemaDefinition >> functionDeclaration30 [
-  ^#(#NVL #PltNVLFunction)
+	^ #(#NVL #PltNVLFunction)
 
 
 ]
 
 { #category : #'platypus-generated-functions' }
 PltExpressBuiltinsSchemaDefinition >> functionDeclaration4 [
-  ^#(#ATAN #PltATANFunction)
+	^ #(#ATAN #PltATANFunction)
 
 
 ]
 
 { #category : #'platypus-generated-functions' }
 PltExpressBuiltinsSchemaDefinition >> functionDeclaration5 [
-  ^#(#BLENGTH #PltBLENGTHFunction)
+	^ #(#BLENGTH #PltBLENGTHFunction)
 
 
 ]
 
 { #category : #'platypus-generated-functions' }
 PltExpressBuiltinsSchemaDefinition >> functionDeclaration6 [
-  ^#(#COS #PltCOSFunction)
+	^ #(#COS #PltCOSFunction)
 
 
 ]
 
 { #category : #'platypus-generated-functions' }
 PltExpressBuiltinsSchemaDefinition >> functionDeclaration7 [
-  ^#(#EVEN #PltEVENFunction)
+	^ #(#EVEN #PltEVENFunction)
 
 
 ]
 
 { #category : #'platypus-generated-functions' }
 PltExpressBuiltinsSchemaDefinition >> functionDeclaration8 [
-  ^#(#EXISTS #PltEXISTSFunction)
+	^ #(#EXISTS #PltEXISTSFunction)
 
 
 ]
 
 { #category : #'platypus-generated-functions' }
 PltExpressBuiltinsSchemaDefinition >> functionDeclaration9 [
-  ^#(#EXP #PltEXPFunction)
+	^ #(#EXP #PltEXPFunction)
 
 
 ]
 
 { #category : #'platypus-generated-functions' }
 PltExpressBuiltinsSchemaDefinition >> functionDeclarationCount [
-  ^30
+	^ 30
 
 
 ]
 
 { #category : #'platypus-generated-meta-data-accessing' }
 PltExpressBuiltinsSchemaDefinition >> schemaInstanceClassName [
-  ^#PltPlatypusExpressPrimitivesSchemaInstance
+	^ #PltPlatypusExpressPrimitivesSchemaInstance
 
 
 ]

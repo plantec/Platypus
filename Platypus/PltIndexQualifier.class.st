@@ -19,7 +19,7 @@ PltIndexQualifier class >> context [ ^ self schemaDefinition context
 
 { #category : #'platypus-generated-platypus-signature' }
 PltIndexQualifier class >> iso10303P11Translater [
-  ^'Platypus (c) LISYC EA3883, Universite de Bretagne occidentale. Brest.'
+	^ 'Platypus (c) LISYC EA3883, Universite de Bretagne occidentale. Brest.'
 
 
 ]
@@ -32,122 +32,124 @@ PltIndexQualifier class >> platypusMetaData [ 	^ self schemaDefinition metaDataF
 
 { #category : #'platypus-generated-meta-data-accessing' }
 PltIndexQualifier class >> schemaDefinition [
-  ^PltPlatypusExpressionsSchemaSchemaDefinition singleton
+	^ PltPlatypusExpressionsSchemaSchemaDefinition singleton
 
 
 ]
 
 { #category : #'platypus-generated-meta-data-accessing' }
 PltIndexQualifier class >> schemaInstance [
-  ^PltPlatypusMetaSchemasSchemaInstance singleton
+	^ PltPlatypusMetaSchemasSchemaInstance singleton
 
 
 ]
 
 { #category : #'platypus-generated-platypus-signature' }
 PltIndexQualifier class >> translatedFromISO10303P11 [
-  ^true
+	^ true
 
 
 ]
 
 { #category : #'platypus-generated-platypus-signature' }
 PltIndexQualifier class >> vwNamespaceName [
-  ^#Platypus
+	^ #Platypus
 
 
 ]
 
 { #category : #'platypus-generated-visiting' }
 PltIndexQualifier >> accept: aVisitor [
-  ^aVisitor acceptIndexQualifier: self
+	^ aVisitor acceptIndexQualifier: self
 
 
 ]
 
 { #category : #'platypus-generated-group-accessing' }
 PltIndexQualifier >> fromValues: values [
-  ^self indexQualifierFromValues: (super fromValues: values)
+	^ self indexQualifierFromValues: (super fromValues: values)
 
 
 ]
 
 { #category : #'platypus-generated-copying' }
 PltIndexQualifier >> indexQualifierCopyTo: another [
-  
+	
 
 
 ]
 
 { #category : #'platypus-generated-group-accessing' }
 PltIndexQualifier >> indexQualifierFromValues: values [
-  | valuesloc |
-  valuesloc := values asOrderedCollection.
-  ^valuesloc
+	| valuesloc |
+	valuesloc := values asOrderedCollection.
+	^ valuesloc
 
 
 ]
 
 { #category : #'platypus-generated-group-accessing' }
 PltIndexQualifier >> indexQualifierToValues: values [
-  ^values
+	^ values
 
 
 ]
 
 { #category : #'platypus-generated-classifying' }
 PltIndexQualifier >> isPltIndexQualifier [
-  ^true
+	^ true
 
 
 ]
 
 { #category : #'platypus-generated-group-accessing' }
 PltIndexQualifier >> localFromValues: values [
-  ^self indexQualifierFromValues: values
+	^ self indexQualifierFromValues: values
 
 
 ]
 
 { #category : #'platypus-generated-group-accessing' }
 PltIndexQualifier >> localToValues: values [
-  ^self indexQualifierToValues: values
+	^ self indexQualifierToValues: values
 
 
 ]
 
 { #category : #'platypus-generated-copying' }
 PltIndexQualifier >> pltCopyGroup: aClassSymbol to: anObject [
-  self class name == aClassSymbol ifTrue: [ self pltCopyTo: anObject ] ifFalse: [ super pltCopyGroup: aClassSymbol to: anObject ]
+	self class name == aClassSymbol
+		ifTrue: [ self pltCopyTo: anObject ]
+		ifFalse: [ super pltCopyGroup: aClassSymbol to: anObject ]
 
 
 ]
 
 { #category : #'platypus-generated-copying' }
 PltIndexQualifier >> pltCopyTo: another [
-  super pltCopyTo: another.
-  self indexQualifierCopyTo: another
+	super pltCopyTo: another.
+	self indexQualifierCopyTo: another
 
 
 ]
 
 { #category : #'platypus-generated-copying' }
 PltIndexQualifier >> pltLocalCopyTo: another [
-  self indexQualifierCopyTo: another
+	self indexQualifierCopyTo: another
 
 
 ]
 
 { #category : #'platypus-generated-initializing' }
 PltIndexQualifier >> stepInitialize [
-  super stepInitialize
+	super stepInitialize
 
 
 ]
 
 { #category : #'platypus-generated-group-accessing' }
 PltIndexQualifier >> toValues: values [
-  ^self indexQualifierToValues: (super toValues: values)
+	^ self indexQualifierToValues: (super toValues: values)
 
 
 ]

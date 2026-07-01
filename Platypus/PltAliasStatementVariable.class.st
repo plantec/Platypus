@@ -26,7 +26,7 @@ PltAliasStatementVariable class >> context [ ^ self schemaDefinition context
 
 { #category : #'platypus-generated-platypus-signature' }
 PltAliasStatementVariable class >> iso10303P11Translater [
-  ^'Platypus (c) LISYC EA3883, Universite de Bretagne occidentale. Brest.'
+	^ 'Platypus (c) LISYC EA3883, Universite de Bretagne occidentale. Brest.'
 
 
 ]
@@ -39,49 +39,49 @@ PltAliasStatementVariable class >> platypusMetaData [ 	^ self schemaDefinition m
 
 { #category : #'platypus-generated-meta-data-accessing' }
 PltAliasStatementVariable class >> schemaDefinition [
-  ^PltPlatypusStatementsSchemaSchemaDefinition singleton
+	^ PltPlatypusStatementsSchemaSchemaDefinition singleton
 
 
 ]
 
 { #category : #'platypus-generated-meta-data-accessing' }
 PltAliasStatementVariable class >> schemaInstance [
-  ^PltPlatypusMetaSchemasSchemaInstance singleton
+	^ PltPlatypusMetaSchemasSchemaInstance singleton
 
 
 ]
 
 { #category : #'platypus-generated-platypus-signature' }
 PltAliasStatementVariable class >> translatedFromISO10303P11 [
-  ^true
+	^ true
 
 
 ]
 
 { #category : #'platypus-generated-platypus-signature' }
 PltAliasStatementVariable class >> vwNamespaceName [
-  ^#Platypus
+	^ #Platypus
 
 
 ]
 
 { #category : #'platypus-generated-visiting' }
 PltAliasStatementVariable >> accept: aVisitor [
-  ^aVisitor acceptAliasStatementVariable: self
+	^ aVisitor acceptAliasStatementVariable: self
 
 
 ]
 
 { #category : #'platypus-generated-accessing' }
 PltAliasStatementVariable >> aliasIdent [
-  ^aliasIdent
+	^ aliasIdent
 
 
 ]
 
 { #category : #'platypus-generated-accessing' }
 PltAliasStatementVariable >> aliasIdent: aString [
-  aliasIdent := aString
+	aliasIdent := aString
 
 
 ]
@@ -94,189 +94,191 @@ PltAliasStatementVariable >> aliasIdent: aString ref: aPltAssignable owner: aPlt
 
 { #category : #'platypus-generated-with-context-accessing' }
 PltAliasStatementVariable >> aliasIdentUsingContext: aContext [
-  ^self aliasIdent
+	^ self aliasIdent
 
 
 ]
 
 { #category : #'platypus-generated-copying' }
 PltAliasStatementVariable >> aliasStatementVariableCopyTo: another [
-  another fastSetAliasIdent: self aliasIdent.
-  another fastSetRef: self ref.
-  another fastSetOwner: self owner
+	another fastSetAliasIdent: self aliasIdent.
+	another fastSetRef: self ref.
+	another fastSetOwner: self owner
 
 
 ]
 
 { #category : #'platypus-generated-group-accessing' }
 PltAliasStatementVariable >> aliasStatementVariableFromValues: values [
-  | valuesloc |
-  valuesloc := values asOrderedCollection.
-  self setAliasIdent: valuesloc removeFirst.
-  self setRef: valuesloc removeFirst.
-  self setOwner: valuesloc removeFirst.
-  ^valuesloc
+	| valuesloc |
+	valuesloc := values asOrderedCollection.
+	self setAliasIdent: valuesloc removeFirst.
+	self setRef: valuesloc removeFirst.
+	self setOwner: valuesloc removeFirst.
+	^ valuesloc
 
 
 ]
 
 { #category : #'platypus-generated-group-accessing' }
 PltAliasStatementVariable >> aliasStatementVariableToValues: values [
-  values add: self aliasIdent.
-  values add: self ref.
-  values add: self owner.
-  ^values
+	values add: self aliasIdent.
+	values add: self ref.
+	values add: self owner.
+	^ values
 
 
 ]
 
 { #category : #'platypus-generated-fast-set-accessing' }
 PltAliasStatementVariable >> fastSetAliasIdent: aString [
-  aliasIdent := aString
+	aliasIdent := aString
 
 
 ]
 
 { #category : #'platypus-generated-fast-set-accessing' }
 PltAliasStatementVariable >> fastSetOwner: aPltAliasStatement [
-  owner := aPltAliasStatement
+	owner := aPltAliasStatement
 
 
 ]
 
 { #category : #'platypus-generated-fast-set-accessing' }
 PltAliasStatementVariable >> fastSetRef: aPltAssignable [
-  ref := aPltAssignable
+	ref := aPltAssignable
 
 
 ]
 
 { #category : #'platypus-generated-group-accessing' }
 PltAliasStatementVariable >> fromValues: values [
-  ^self aliasStatementVariableFromValues: (super fromValues: values)
+	^ self aliasStatementVariableFromValues: (super fromValues: values)
 
 
 ]
 
 { #category : #'platypus-generated-classifying' }
 PltAliasStatementVariable >> isPltAliasStatementVariable [
-  ^true
+	^ true
 
 
 ]
 
 { #category : #'platypus-generated-group-accessing' }
 PltAliasStatementVariable >> localFromValues: values [
-  ^self aliasStatementVariableFromValues: values
+	^ self aliasStatementVariableFromValues: values
 
 
 ]
 
 { #category : #'platypus-generated-group-accessing' }
 PltAliasStatementVariable >> localToValues: values [
-  ^self aliasStatementVariableToValues: values
+	^ self aliasStatementVariableToValues: values
 
 
 ]
 
 { #category : #'platypus-generated-accessing' }
 PltAliasStatementVariable >> owner [
-  ^owner
+	^ owner
 
 
 ]
 
 { #category : #'platypus-generated-accessing' }
 PltAliasStatementVariable >> owner: aPltAliasStatement [
-  owner := aPltAliasStatement
+	owner := aPltAliasStatement
 
 
 ]
 
 { #category : #'platypus-generated-with-context-accessing' }
 PltAliasStatementVariable >> ownerUsingContext: aContext [
-  ^self owner
+	^ self owner
 
 
 ]
 
 { #category : #'platypus-generated-copying' }
 PltAliasStatementVariable >> pltCopyGroup: aClassSymbol to: anObject [
-  self class name == aClassSymbol ifTrue: [ self pltCopyTo: anObject ] ifFalse: [ super pltCopyGroup: aClassSymbol to: anObject ]
+	self class name == aClassSymbol
+		ifTrue: [ self pltCopyTo: anObject ]
+		ifFalse: [ super pltCopyGroup: aClassSymbol to: anObject ]
 
 
 ]
 
 { #category : #'platypus-generated-copying' }
 PltAliasStatementVariable >> pltCopyTo: another [
-  super pltCopyTo: another.
-  self aliasStatementVariableCopyTo: another
+	super pltCopyTo: another.
+	self aliasStatementVariableCopyTo: another
 
 
 ]
 
 { #category : #'platypus-generated-copying' }
 PltAliasStatementVariable >> pltLocalCopyTo: another [
-  self aliasStatementVariableCopyTo: another
+	self aliasStatementVariableCopyTo: another
 
 
 ]
 
 { #category : #'platypus-generated-accessing' }
 PltAliasStatementVariable >> ref [
-  ^ref
+	^ ref
 
 
 ]
 
 { #category : #'platypus-generated-accessing' }
 PltAliasStatementVariable >> ref: aPltAssignable [
-  ref := aPltAssignable
+	ref := aPltAssignable
 
 
 ]
 
 { #category : #'platypus-generated-with-context-accessing' }
 PltAliasStatementVariable >> refUsingContext: aContext [
-  ^self ref
+	^ self ref
 
 
 ]
 
 { #category : #'platypus-generated-set-accessing' }
 PltAliasStatementVariable >> setAliasIdent: aString [
-  self aliasIdent: aString
+	self aliasIdent: aString
 
 
 ]
 
 { #category : #'platypus-generated-set-accessing' }
 PltAliasStatementVariable >> setOwner: aPltAliasStatement [
-  self owner: aPltAliasStatement
+	self owner: aPltAliasStatement
 
 
 ]
 
 { #category : #'platypus-generated-set-accessing' }
 PltAliasStatementVariable >> setRef: aPltAssignable [
-  self ref: aPltAssignable
+	self ref: aPltAssignable
 
 
 ]
 
 { #category : #'platypus-generated-initializing' }
 PltAliasStatementVariable >> stepInitialize [
-  super stepInitialize.
-  aliasIdent := ''.
-  ref := nil.
-  owner := nil
+	super stepInitialize.
+	aliasIdent := ''.
+	ref := nil.
+	owner := nil
 
 
 ]
 
 { #category : #'platypus-generated-group-accessing' }
 PltAliasStatementVariable >> toValues: values [
-  ^self aliasStatementVariableToValues: (super toValues: values)
+	^ self aliasStatementVariableToValues: (super toValues: values)
 
 
 ]

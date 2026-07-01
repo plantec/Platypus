@@ -108,160 +108,154 @@ Class {
 
 { #category : #'platypus-generated-platypus-signature' }
 PltPlatypusPopulationSchemaSchemaDefinition class >> iso10303P11Translater [
-  ^'Platypus (c) LISYC EA3883, Universite de Bretagne occidentale. Brest.'
+	^ 'Platypus (c) LISYC EA3883, Universite de Bretagne occidentale. Brest.'
 
 
 ]
 
 { #category : #'platypus-generated-platypus-signature' }
 PltPlatypusPopulationSchemaSchemaDefinition class >> translatedFromISO10303P11 [
-  ^true
+	^ true
 
 
 ]
 
 { #category : #'platypus-generated-platypus-signature' }
 PltPlatypusPopulationSchemaSchemaDefinition class >> vwNamespaceName [
-  ^#Platypus
+	^ #Platypus
 
 
 ]
 
 { #category : #'platypus-generated-context-accessing' }
 PltPlatypusPopulationSchemaSchemaDefinition >> context [
-  ^self schemaInstance context
+	^ self schemaInstance context
 
 
 ]
 
 { #category : #'platypus-generated-entities' }
 PltPlatypusPopulationSchemaSchemaDefinition >> entityDefinition1 [
-  ^#(#instance_scope #PltInstanceScope)
+	^ #(#instance_scope #PltInstanceScope)
 
 
 ]
 
 { #category : #'platypus-generated-entities' }
 PltPlatypusPopulationSchemaSchemaDefinition >> entityDefinition10 [
-  ^#(#simple_record #PltSimpleRecord)
+	^ #(#simple_record #PltSimpleRecord)
 
 
 ]
 
 { #category : #'platypus-generated-entities' }
 PltPlatypusPopulationSchemaSchemaDefinition >> entityDefinition11 [
-  ^#(#header_instance #PltHeaderInstance)
+	^ #(#header_instance #PltHeaderInstance)
 
 
 ]
 
 { #category : #'platypus-generated-entities' }
 PltPlatypusPopulationSchemaSchemaDefinition >> entityDefinition12 [
-  ^#(#user_defined_header_instance #PltUserDefinedHeaderInstance)
+	^ #(#user_defined_header_instance #PltUserDefinedHeaderInstance)
 
 
 ]
 
 { #category : #'platypus-generated-entities' }
 PltPlatypusPopulationSchemaSchemaDefinition >> entityDefinition13 [
-  ^#(#file_description #PltFileDescription)
+	^ #(#file_description #PltFileDescription)
 
 
 ]
 
 { #category : #'platypus-generated-entities' }
 PltPlatypusPopulationSchemaSchemaDefinition >> entityDefinition14 [
-  ^#(#file_name #PltFileName)
+	^ #(#file_name #PltFileName)
 
 
 ]
 
 { #category : #'platypus-generated-entities' }
 PltPlatypusPopulationSchemaSchemaDefinition >> entityDefinition15 [
-  ^#(#file_schema #PltFileSchema)
-
-
-]
-
-{ #category : #'platypus-generated-entities' }
-PltPlatypusPopulationSchemaSchemaDefinition >> entityDefinition16^ [ #( #'file_schema' #PltFileSchema )
+	^ #(#file_schema #PltFileSchema)
 
 
 ]
 
 { #category : #'platypus-generated-entities' }
 PltPlatypusPopulationSchemaSchemaDefinition >> entityDefinition2 [
-  ^#(#application_instance #PltApplicationInstance)
+	^ #(#application_instance #PltApplicationInstance)
 
 
 ]
 
 { #category : #'platypus-generated-entities' }
 PltPlatypusPopulationSchemaSchemaDefinition >> entityDefinition3 [
-  ^#(#generic_instance #PltGenericInstance)
+	^ #(#generic_instance #PltGenericInstance)
 
 
 ]
 
 { #category : #'platypus-generated-entities' }
 PltPlatypusPopulationSchemaSchemaDefinition >> entityDefinition4 [
-  ^#(#internal_representation #PltInternalRepresentation)
+	^ #(#internal_representation #PltInternalRepresentation)
 
 
 ]
 
 { #category : #'platypus-generated-entities' }
 PltPlatypusPopulationSchemaSchemaDefinition >> entityDefinition5 [
-  ^#(#external_representation #PltExternalRepresentation)
+	^ #(#external_representation #PltExternalRepresentation)
 
 
 ]
 
 { #category : #'platypus-generated-entities' }
 PltPlatypusPopulationSchemaSchemaDefinition >> entityDefinition6 [
-  ^#(#group_representation #PltGroupRepresentation)
+	^ #(#group_representation #PltGroupRepresentation)
 
 
 ]
 
 { #category : #'platypus-generated-entities' }
 PltPlatypusPopulationSchemaSchemaDefinition >> entityDefinition7 [
-  ^#(#external_group_representation #PltExternalGroupRepresentation)
+	^ #(#external_group_representation #PltExternalGroupRepresentation)
 
 
 ]
 
 { #category : #'platypus-generated-entities' }
 PltPlatypusPopulationSchemaSchemaDefinition >> entityDefinition8 [
-  ^#(#internal_group_representation #PltInternalGroupRepresentation)
+	^ #(#internal_group_representation #PltInternalGroupRepresentation)
 
 
 ]
 
 { #category : #'platypus-generated-entities' }
 PltPlatypusPopulationSchemaSchemaDefinition >> entityDefinition9 [
-  ^#(#user_defined_application_instance #PltUserDefinedApplicationInstance)
+	^ #(#user_defined_application_instance #PltUserDefinedApplicationInstance)
 
 
 ]
 
 { #category : #'platypus-generated-entities' }
 PltPlatypusPopulationSchemaSchemaDefinition >> entityDefinitionCount [
-  ^15
+	^ 15
 
 
 ]
 
 { #category : #'platypus-generated-functions' }
 PltPlatypusPopulationSchemaSchemaDefinition >> functionDeclarationCount [
-  ^0
+	^ 0
 
 
 ]
 
 { #category : #'platypus-generated-meta-data-accessing' }
 PltPlatypusPopulationSchemaSchemaDefinition >> schemaInstanceClassName [
-  ^#PltPlatypusMetaSchemasSchemaInstance
+	^ #PltPlatypusMetaSchemasSchemaInstance
 
 
 ]

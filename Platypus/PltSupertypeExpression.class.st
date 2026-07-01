@@ -20,7 +20,7 @@ PltSupertypeExpression class >> context [ ^ self schemaDefinition context
 
 { #category : #'platypus-generated-platypus-signature' }
 PltSupertypeExpression class >> iso10303P11Translater [
-  ^'Platypus (c) LISYC EA3883, Universite de Bretagne occidentale. Brest.'
+	^ 'Platypus (c) LISYC EA3883, Universite de Bretagne occidentale. Brest.'
 
 
 ]
@@ -33,122 +33,124 @@ PltSupertypeExpression class >> platypusMetaData [ 	^ self schemaDefinition meta
 
 { #category : #'platypus-generated-meta-data-accessing' }
 PltSupertypeExpression class >> schemaDefinition [
-  ^PltPlatypusDictionarySchemaSchemaDefinition singleton
+	^ PltPlatypusDictionarySchemaSchemaDefinition singleton
 
 
 ]
 
 { #category : #'platypus-generated-meta-data-accessing' }
 PltSupertypeExpression class >> schemaInstance [
-  ^PltPlatypusMetaSchemasSchemaInstance singleton
+	^ PltPlatypusMetaSchemasSchemaInstance singleton
 
 
 ]
 
 { #category : #'platypus-generated-platypus-signature' }
 PltSupertypeExpression class >> translatedFromISO10303P11 [
-  ^true
+	^ true
 
 
 ]
 
 { #category : #'platypus-generated-platypus-signature' }
 PltSupertypeExpression class >> vwNamespaceName [
-  ^#Platypus
+	^ #Platypus
 
 
 ]
 
 { #category : #'platypus-generated-visiting' }
 PltSupertypeExpression >> accept: aVisitor [
-  ^aVisitor acceptSupertypeExpression: self
+	^ aVisitor acceptSupertypeExpression: self
 
 
 ]
 
 { #category : #'platypus-generated-group-accessing' }
 PltSupertypeExpression >> fromValues: values [
-  ^self supertypeExpressionFromValues: (super fromValues: values)
+	^ self supertypeExpressionFromValues: (super fromValues: values)
 
 
 ]
 
 { #category : #'platypus-generated-classifying' }
 PltSupertypeExpression >> isPltSupertypeExpression [
-  ^true
+	^ true
 
 
 ]
 
 { #category : #'platypus-generated-group-accessing' }
 PltSupertypeExpression >> localFromValues: values [
-  ^self supertypeExpressionFromValues: values
+	^ self supertypeExpressionFromValues: values
 
 
 ]
 
 { #category : #'platypus-generated-group-accessing' }
 PltSupertypeExpression >> localToValues: values [
-  ^self supertypeExpressionToValues: values
+	^ self supertypeExpressionToValues: values
 
 
 ]
 
 { #category : #'platypus-generated-copying' }
 PltSupertypeExpression >> pltCopyGroup: aClassSymbol to: anObject [
-  self class name == aClassSymbol ifTrue: [ self pltCopyTo: anObject ] ifFalse: [ super pltCopyGroup: aClassSymbol to: anObject ]
+	self class name == aClassSymbol
+		ifTrue: [ self pltCopyTo: anObject ]
+		ifFalse: [ super pltCopyGroup: aClassSymbol to: anObject ]
 
 
 ]
 
 { #category : #'platypus-generated-copying' }
 PltSupertypeExpression >> pltCopyTo: another [
-  super pltCopyTo: another.
-  self supertypeExpressionCopyTo: another
+	super pltCopyTo: another.
+	self supertypeExpressionCopyTo: another
 
 
 ]
 
 { #category : #'platypus-generated-copying' }
 PltSupertypeExpression >> pltLocalCopyTo: another [
-  self supertypeExpressionCopyTo: another
+	self supertypeExpressionCopyTo: another
 
 
 ]
 
 { #category : #'platypus-generated-initializing' }
 PltSupertypeExpression >> stepInitialize [
-  super stepInitialize
+	super stepInitialize
 
 
 ]
 
 { #category : #'platypus-generated-copying' }
 PltSupertypeExpression >> supertypeExpressionCopyTo: another [
-  
+	
 
 
 ]
 
 { #category : #'platypus-generated-group-accessing' }
 PltSupertypeExpression >> supertypeExpressionFromValues: values [
-  | valuesloc |
-  valuesloc := values asOrderedCollection.
-  ^valuesloc
+	| valuesloc |
+	valuesloc := values asOrderedCollection.
+	^ valuesloc
 
 
 ]
 
 { #category : #'platypus-generated-group-accessing' }
 PltSupertypeExpression >> supertypeExpressionToValues: values [
-  ^values
+	^ values
 
 
 ]
 
 { #category : #'platypus-generated-group-accessing' }
 PltSupertypeExpression >> toValues: values [
-  ^self supertypeExpressionToValues: (super toValues: values)
+	^ self supertypeExpressionToValues: (super toValues: values)
 
 
 ]

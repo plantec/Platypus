@@ -1,6 +1,6 @@
 Extension { #name : #String }
 
-{ #category : #'*Platypus-utilities' }
+{ #category : #'*platypus-utilities' }
 String >> capitalizeFirst: firstCapitalized [ 
 	| instr outstr resString curr |
 	instr := ReadStream on: self.
@@ -16,13 +16,13 @@ String >> capitalizeFirst: firstCapitalized [
 	^ resString
 ]
 
-{ #category : #'*Platypus-accessing' }
+{ #category : #'*platypus-accessing' }
 String >> updateDictionaryInstanceName: aDictionaryInstance [ 
 	aDictionaryInstance name: self 
 
 ]
 
-{ #category : #'*Platypus-utilities' }
+{ #category : #'*platypus-utilities' }
 String >> withoutCr [
 	^ self species streamContents: [:strm |
 		self do: [:c | 

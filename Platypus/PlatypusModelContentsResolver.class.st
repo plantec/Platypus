@@ -19,7 +19,7 @@ PlatypusModelContentsResolver >> acceptEntityDefinitionReference: e [
 	e setRef: (found := self modelContents lookUpEntityDefinitionBN: e name).
 	found
 		ifNil: [(chosen := self interactivelyResolvedSchemaOwningEntityNamed: e name) isNil
-				ifFalse: [self schemaInstance ifNotNil: [:schi | schi tamarisItemRef insertLinkReferenceFrom: chosen] ].
+				ifFalse: [self schemaInstance tamarisItemRef insertLinkReferenceFrom: chosen].
 			e setRef: (found := self modelContents lookUpEntityDefinitionBN: e name).
 			found
 				ifNil: [self declareWithError: e]]

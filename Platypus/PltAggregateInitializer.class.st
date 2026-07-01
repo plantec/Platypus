@@ -23,7 +23,7 @@ PltAggregateInitializer class >> context [ ^ self schemaDefinition context
 
 { #category : #'platypus-generated-platypus-signature' }
 PltAggregateInitializer class >> iso10303P11Translater [
-  ^'Platypus (c) LISYC EA3883, Universite de Bretagne occidentale. Brest.'
+	^ 'Platypus (c) LISYC EA3883, Universite de Bretagne occidentale. Brest.'
 
 
 ]
@@ -36,160 +36,164 @@ PltAggregateInitializer class >> platypusMetaData [ 	^ self schemaDefinition met
 
 { #category : #'platypus-generated-meta-data-accessing' }
 PltAggregateInitializer class >> schemaDefinition [
-  ^PltPlatypusAggregateDataSchemaSchemaDefinition singleton
+	^ PltPlatypusAggregateDataSchemaSchemaDefinition singleton
 
 
 ]
 
 { #category : #'platypus-generated-meta-data-accessing' }
 PltAggregateInitializer class >> schemaInstance [
-  ^PltPlatypusMetaSchemasSchemaInstance singleton
+	^ PltPlatypusMetaSchemasSchemaInstance singleton
 
 
 ]
 
 { #category : #'platypus-generated-platypus-signature' }
 PltAggregateInitializer class >> translatedFromISO10303P11 [
-  ^true
+	^ true
 
 
 ]
 
 { #category : #'platypus-generated-platypus-signature' }
 PltAggregateInitializer class >> vwNamespaceName [
-  ^#Platypus
+	^ #Platypus
 
 
 ]
 
 { #category : #'platypus-generated-visiting' }
 PltAggregateInitializer >> accept: aVisitor [
-  ^aVisitor acceptAggregateInitializer: self
+	^ aVisitor acceptAggregateInitializer: self
 
 
 ]
 
 { #category : #'platypus-generated-copying' }
 PltAggregateInitializer >> aggregateInitializerCopyTo: another [
-  another fastSetContents: self contents
+	another fastSetContents: self contents
 
 
 ]
 
 { #category : #'platypus-generated-group-accessing' }
 PltAggregateInitializer >> aggregateInitializerFromValues: values [
-  | valuesloc |
-  valuesloc := values asOrderedCollection.
-  self setContents: valuesloc removeFirst.
-  ^valuesloc
+	| valuesloc |
+	valuesloc := values asOrderedCollection.
+	self setContents: valuesloc removeFirst.
+	^ valuesloc
 
 
 ]
 
 { #category : #'platypus-generated-group-accessing' }
 PltAggregateInitializer >> aggregateInitializerToValues: values [
-  values add: self contents.
-  ^values
+	values add: self contents.
+	^ values
 
 
 ]
 
 { #category : #'platypus-generated-accessing' }
 PltAggregateInitializer >> contents [
-  ^contents
+	^ contents
 
 
 ]
 
 { #category : #'platypus-generated-accessing' }
 PltAggregateInitializer >> contents: aListOfPltAggregateInitializerElement [
-  contents := aListOfPltAggregateInitializerElement ifNil: [ OrderedCollection new ] ifNotNil: [ aListOfPltAggregateInitializerElement as: OrderedCollection ]
+	contents := aListOfPltAggregateInitializerElement
+		ifNil: [ OrderedCollection new ]
+		ifNotNil: [ aListOfPltAggregateInitializerElement as: OrderedCollection ]
 
 
 ]
 
 { #category : #'platypus-generated-with-context-accessing' }
 PltAggregateInitializer >> contentsUsingContext: aContext [
-  ^self contents
+	^ self contents
 
 
 ]
 
 { #category : #'platypus-generated-fast-set-accessing' }
 PltAggregateInitializer >> fastSetContents: aListOfPltAggregateInitializerElement [
-  contents := aListOfPltAggregateInitializerElement
+	contents := aListOfPltAggregateInitializerElement
 
 
 ]
 
 { #category : #'platypus-generated-group-accessing' }
 PltAggregateInitializer >> fromValues: values [
-  ^self aggregateInitializerFromValues: (super fromValues: values)
+	^ self aggregateInitializerFromValues: (super fromValues: values)
 
 
 ]
 
 { #category : #'platypus-generated-classifying' }
 PltAggregateInitializer >> isPltAggregateInitializer [
-  ^true
+	^ true
 
 
 ]
 
 { #category : #'platypus-generated-group-accessing' }
 PltAggregateInitializer >> localFromValues: values [
-  ^self aggregateInitializerFromValues: values
+	^ self aggregateInitializerFromValues: values
 
 
 ]
 
 { #category : #'platypus-generated-group-accessing' }
 PltAggregateInitializer >> localToValues: values [
-  ^self aggregateInitializerToValues: values
+	^ self aggregateInitializerToValues: values
 
 
 ]
 
 { #category : #'platypus-generated-copying' }
 PltAggregateInitializer >> pltCopyGroup: aClassSymbol to: anObject [
-  self class name == aClassSymbol ifTrue: [ self pltCopyTo: anObject ] ifFalse: [ super pltCopyGroup: aClassSymbol to: anObject ]
+	self class name == aClassSymbol
+		ifTrue: [ self pltCopyTo: anObject ]
+		ifFalse: [ super pltCopyGroup: aClassSymbol to: anObject ]
 
 
 ]
 
 { #category : #'platypus-generated-copying' }
 PltAggregateInitializer >> pltCopyTo: another [
-  super pltCopyTo: another.
-  self aggregateInitializerCopyTo: another
+	super pltCopyTo: another.
+	self aggregateInitializerCopyTo: another
 
 
 ]
 
 { #category : #'platypus-generated-copying' }
 PltAggregateInitializer >> pltLocalCopyTo: another [
-  self aggregateInitializerCopyTo: another
+	self aggregateInitializerCopyTo: another
 
 
 ]
 
 { #category : #'platypus-generated-set-accessing' }
 PltAggregateInitializer >> setContents: aListOfPltAggregateInitializerElement [
-  self contents: aListOfPltAggregateInitializerElement
+	self contents: aListOfPltAggregateInitializerElement
 
 
 ]
 
 { #category : #'platypus-generated-initializing' }
 PltAggregateInitializer >> stepInitialize [
-  super stepInitialize.
-  contents := OrderedCollection new
+	super stepInitialize.
+	contents := OrderedCollection new
 
 
 ]
 
 { #category : #'platypus-generated-group-accessing' }
 PltAggregateInitializer >> toValues: values [
-  ^self aggregateInitializerToValues: (super toValues: values)
+	^ self aggregateInitializerToValues: (super toValues: values)
 
 
 ]

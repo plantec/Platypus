@@ -20,7 +20,7 @@ PltAggregateData class >> context [ ^ self schemaDefinition context
 
 { #category : #'platypus-generated-platypus-signature' }
 PltAggregateData class >> iso10303P11Translater [
-  ^'Platypus (c) LISYC EA3883, Universite de Bretagne occidentale. Brest.'
+	^ 'Platypus (c) LISYC EA3883, Universite de Bretagne occidentale. Brest.'
 
 
 ]
@@ -33,122 +33,124 @@ PltAggregateData class >> platypusMetaData [ 	^ self schemaDefinition metaDataFo
 
 { #category : #'platypus-generated-meta-data-accessing' }
 PltAggregateData class >> schemaDefinition [
-  ^PltPlatypusAggregateDataSchemaSchemaDefinition singleton
+	^ PltPlatypusAggregateDataSchemaSchemaDefinition singleton
 
 
 ]
 
 { #category : #'platypus-generated-meta-data-accessing' }
 PltAggregateData class >> schemaInstance [
-  ^PltPlatypusMetaSchemasSchemaInstance singleton
+	^ PltPlatypusMetaSchemasSchemaInstance singleton
 
 
 ]
 
 { #category : #'platypus-generated-platypus-signature' }
 PltAggregateData class >> translatedFromISO10303P11 [
-  ^true
+	^ true
 
 
 ]
 
 { #category : #'platypus-generated-platypus-signature' }
 PltAggregateData class >> vwNamespaceName [
-  ^#Platypus
+	^ #Platypus
 
 
 ]
 
 { #category : #'platypus-generated-visiting' }
 PltAggregateData >> accept: aVisitor [
-  ^aVisitor acceptAggregateData: self
+	^ aVisitor acceptAggregateData: self
 
 
 ]
 
 { #category : #'platypus-generated-copying' }
 PltAggregateData >> aggregateDataCopyTo: another [
-  
+	
 
 
 ]
 
 { #category : #'platypus-generated-group-accessing' }
 PltAggregateData >> aggregateDataFromValues: values [
-  | valuesloc |
-  valuesloc := values asOrderedCollection.
-  ^valuesloc
+	| valuesloc |
+	valuesloc := values asOrderedCollection.
+	^ valuesloc
 
 
 ]
 
 { #category : #'platypus-generated-group-accessing' }
 PltAggregateData >> aggregateDataToValues: values [
-  ^values
+	^ values
 
 
 ]
 
 { #category : #'platypus-generated-group-accessing' }
 PltAggregateData >> fromValues: values [
-  ^self aggregateDataFromValues: (super fromValues: values)
+	^ self aggregateDataFromValues: (super fromValues: values)
 
 
 ]
 
 { #category : #'platypus-generated-classifying' }
 PltAggregateData >> isPltAggregateData [
-  ^true
+	^ true
 
 
 ]
 
 { #category : #'platypus-generated-group-accessing' }
 PltAggregateData >> localFromValues: values [
-  ^self aggregateDataFromValues: values
+	^ self aggregateDataFromValues: values
 
 
 ]
 
 { #category : #'platypus-generated-group-accessing' }
 PltAggregateData >> localToValues: values [
-  ^self aggregateDataToValues: values
+	^ self aggregateDataToValues: values
 
 
 ]
 
 { #category : #'platypus-generated-copying' }
 PltAggregateData >> pltCopyGroup: aClassSymbol to: anObject [
-  self class name == aClassSymbol ifTrue: [ self pltCopyTo: anObject ] ifFalse: [ super pltCopyGroup: aClassSymbol to: anObject ]
+	self class name == aClassSymbol
+		ifTrue: [ self pltCopyTo: anObject ]
+		ifFalse: [ super pltCopyGroup: aClassSymbol to: anObject ]
 
 
 ]
 
 { #category : #'platypus-generated-copying' }
 PltAggregateData >> pltCopyTo: another [
-  super pltCopyTo: another.
-  self aggregateDataCopyTo: another
+	super pltCopyTo: another.
+	self aggregateDataCopyTo: another
 
 
 ]
 
 { #category : #'platypus-generated-copying' }
 PltAggregateData >> pltLocalCopyTo: another [
-  self aggregateDataCopyTo: another
+	self aggregateDataCopyTo: another
 
 
 ]
 
 { #category : #'platypus-generated-initializing' }
 PltAggregateData >> stepInitialize [
-  super stepInitialize
+	super stepInitialize
 
 
 ]
 
 { #category : #'platypus-generated-group-accessing' }
 PltAggregateData >> toValues: values [
-  ^self aggregateDataToValues: (super toValues: values)
+	^ self aggregateDataToValues: (super toValues: values)
 
 
 ]

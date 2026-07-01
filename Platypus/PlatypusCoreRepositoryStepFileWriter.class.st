@@ -45,7 +45,7 @@ self error: 'not implemented'
 PlatypusCoreRepositoryStepFileWriter >> doFolder [
 	| dateTime instances |
 	dateTime := DateAndTime now.
-	stream nextPutAll: 'ISO-10303-21;'. 
+	stream nextPutAll: 'ISO-10303-21;'.
 	stream nextPut: Character cr.
 	stream nextPutAll: 'HEADER;'.
 	stream nextPut: Character cr.
@@ -58,7 +58,8 @@ PlatypusCoreRepositoryStepFileWriter >> doFolder [
 	stream nextPut: Character cr.
 	instances := folder instances.
 	'Populating...'
-		displayProgressFrom: 1
+		displayProgressAt: Sensor cursorPoint
+		from: 1
 		to: instances size
 		during: [:bar | 1
 				to: instances size

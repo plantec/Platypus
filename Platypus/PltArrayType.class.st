@@ -15,8 +15,8 @@ Class {
 	#name : #PltArrayType,
 	#superclass : #PltAggregationType,
 	#instVars : [
-		'uniqueFlag',
-		'optionalFlag'
+		'optionalFlag',
+		'uniqueFlag'
 	],
 	#category : #'Platypus-PlatypusDictionarySchemaSchema'
 }
@@ -29,7 +29,7 @@ PltArrayType class >> context [ ^ self schemaDefinition context
 
 { #category : #'platypus-generated-platypus-signature' }
 PltArrayType class >> iso10303P11Translater [
-  ^'Platypus (c) LISYC EA3883, Universite de Bretagne occidentale. Brest.'
+	^ 'Platypus (c) LISYC EA3883, Universite de Bretagne occidentale. Brest.'
 
 
 ]
@@ -42,270 +42,272 @@ PltArrayType class >> platypusMetaData [ 	^ self schemaDefinition metaDataFor: s
 
 { #category : #'platypus-generated-meta-data-accessing' }
 PltArrayType class >> schemaDefinition [
-  ^PltPlatypusDictionarySchemaSchemaDefinition singleton
+	^ PltPlatypusDictionarySchemaSchemaDefinition singleton
 
 
 ]
 
 { #category : #'platypus-generated-meta-data-accessing' }
 PltArrayType class >> schemaInstance [
-  ^PltPlatypusMetaSchemasSchemaInstance singleton
+	^ PltPlatypusMetaSchemasSchemaInstance singleton
 
 
 ]
 
 { #category : #'platypus-generated-platypus-signature' }
 PltArrayType class >> translatedFromISO10303P11 [
-  ^true
+	^ true
 
 
 ]
 
 { #category : #'platypus-generated-platypus-signature' }
 PltArrayType class >> vwNamespaceName [
-  ^#Platypus
+	^ #Platypus
 
 
 ]
 
 { #category : #'platypus-generated-visiting' }
 PltArrayType >> accept: aVisitor [
-  ^aVisitor acceptArrayType: self
+	^ aVisitor acceptArrayType: self
 
 
 ]
 
 { #category : #'platypus-generated-deriving' }
 PltArrayType >> accepted [
-  ^self acceptedUsingContext: self class context
+	^ self acceptedUsingContext: self class context
 
 
 ]
 
 { #category : #'platypus-generated-deriving' }
 PltArrayType >> acceptedUsingContext: aContext [
-  ^self acceptedUsingContext: aContext receiver: self
+	^ self acceptedUsingContext: aContext receiver: self
 
 
 ]
 
 { #category : #'platypus-generated-deriving' }
 PltArrayType >> acceptedUsingContext: aContext receiver: aReceiver [
-  ^aReceiver acceptArrayTypeUsingContext: aContext
+	^ aReceiver acceptArrayTypeUsingContext: aContext
 
 
 ]
 
 { #category : #'platypus-generated-copying' }
 PltArrayType >> arrayTypeCopyTo: another [
-  another fastSetUniqueFlag: self uniqueFlag.
-  another fastSetOptionalFlag: self optionalFlag.
-  another fastSetLowerBound: self lowerBound.
-  another fastSetUpperBound: self upperBound
+	another fastSetUniqueFlag: self uniqueFlag.
+	another fastSetOptionalFlag: self optionalFlag.
+	another fastSetLowerBound: self lowerBound.
+	another fastSetUpperBound: self upperBound
 
 
 ]
 
 { #category : #'platypus-generated-group-accessing' }
 PltArrayType >> arrayTypeFromValues: values [
-  | valuesloc |
-  valuesloc := values asOrderedCollection.
-  self setUniqueFlag: valuesloc removeFirst.
-  self setOptionalFlag: valuesloc removeFirst.
-  self setLowerBound: valuesloc removeFirst.
-  self setUpperBound: valuesloc removeFirst.
-  ^valuesloc
+	| valuesloc |
+	valuesloc := values asOrderedCollection.
+	self setUniqueFlag: valuesloc removeFirst.
+	self setOptionalFlag: valuesloc removeFirst.
+	self setLowerBound: valuesloc removeFirst.
+	self setUpperBound: valuesloc removeFirst.
+	^ valuesloc
 
 
 ]
 
 { #category : #'platypus-generated-group-accessing' }
 PltArrayType >> arrayTypeToValues: values [
-  values add: self uniqueFlag.
-  values add: self optionalFlag.
-  values add: self lowerBound.
-  values add: self upperBound.
-  ^values
+	values add: self uniqueFlag.
+	values add: self optionalFlag.
+	values add: self lowerBound.
+	values add: self upperBound.
+	^ values
 
 
 ]
 
 { #category : #'platypus-generated-fast-set-accessing' }
 PltArrayType >> fastSetLowerBound: aPltBound [
-  lowerBound := aPltBound
+	lowerBound := aPltBound
 
 
 ]
 
 { #category : #'platypus-generated-fast-set-accessing' }
 PltArrayType >> fastSetOptionalFlag: aBoolean [
-  optionalFlag := aBoolean
+	optionalFlag := aBoolean
 
 
 ]
 
 { #category : #'platypus-generated-fast-set-accessing' }
 PltArrayType >> fastSetUniqueFlag: aBoolean [
-  uniqueFlag := aBoolean
+	uniqueFlag := aBoolean
 
 
 ]
 
 { #category : #'platypus-generated-fast-set-accessing' }
 PltArrayType >> fastSetUpperBound: aPltBound [
-  upperBound := aPltBound
+	upperBound := aPltBound
 
 
 ]
 
 { #category : #'platypus-generated-group-accessing' }
 PltArrayType >> fromValues: values [
-  ^self arrayTypeFromValues: (super fromValues: values)
+	^ self arrayTypeFromValues: (super fromValues: values)
 
 
 ]
 
 { #category : #'platypus-generated-classifying' }
 PltArrayType >> isPltArrayType [
-  ^true
+	^ true
 
 
 ]
 
 { #category : #'platypus-generated-group-accessing' }
 PltArrayType >> localFromValues: values [
-  ^self arrayTypeFromValues: values
+	^ self arrayTypeFromValues: values
 
 
 ]
 
 { #category : #'platypus-generated-group-accessing' }
 PltArrayType >> localToValues: values [
-  ^self arrayTypeToValues: values
+	^ self arrayTypeToValues: values
 
 
 ]
 
 { #category : #'platypus-generated-accessing' }
 PltArrayType >> lowerBound [
-  ^lowerBound
+	^ lowerBound
 
 
 ]
 
 { #category : #'platypus-generated-accessing' }
 PltArrayType >> lowerBound: aPltBound [
-  lowerBound := aPltBound
+	lowerBound := aPltBound
 
 
 ]
 
 { #category : #'platypus-generated-with-context-accessing' }
 PltArrayType >> lowerBoundUsingContext: aContext [
-  ^self lowerBound
+	^ self lowerBound
 
 
 ]
 
 { #category : #'platypus-generated-accessing' }
 PltArrayType >> optionalFlag [
-  ^optionalFlag
+	^ optionalFlag
 
 
 ]
 
 { #category : #'platypus-generated-accessing' }
 PltArrayType >> optionalFlag: aBoolean [
-  optionalFlag := aBoolean
+	optionalFlag := aBoolean
 
 
 ]
 
 { #category : #'platypus-generated-with-context-accessing' }
 PltArrayType >> optionalFlagUsingContext: aContext [
-  ^self optionalFlag
+	^ self optionalFlag
 
 
 ]
 
 { #category : #'platypus-generated-copying' }
 PltArrayType >> pltCopyGroup: aClassSymbol to: anObject [
-  self class name == aClassSymbol ifTrue: [ self pltCopyTo: anObject ] ifFalse: [ super pltCopyGroup: aClassSymbol to: anObject ]
+	self class name == aClassSymbol
+		ifTrue: [ self pltCopyTo: anObject ]
+		ifFalse: [ super pltCopyGroup: aClassSymbol to: anObject ]
 
 
 ]
 
 { #category : #'platypus-generated-copying' }
 PltArrayType >> pltCopyTo: another [
-  super pltCopyTo: another.
-  self arrayTypeCopyTo: another
+	super pltCopyTo: another.
+	self arrayTypeCopyTo: another
 
 
 ]
 
 { #category : #'platypus-generated-copying' }
 PltArrayType >> pltLocalCopyTo: another [
-  self arrayTypeCopyTo: another
+	self arrayTypeCopyTo: another
 
 
 ]
 
 { #category : #'platypus-generated-set-accessing' }
 PltArrayType >> setLowerBound: aPltBound [
-  self lowerBound: aPltBound
+	self lowerBound: aPltBound
 
 
 ]
 
 { #category : #'platypus-generated-set-accessing' }
 PltArrayType >> setOptionalFlag: aBoolean [
-  self optionalFlag: aBoolean
+	self optionalFlag: aBoolean
 
 
 ]
 
 { #category : #'platypus-generated-set-accessing' }
 PltArrayType >> setUniqueFlag: aBoolean [
-  self uniqueFlag: aBoolean
+	self uniqueFlag: aBoolean
 
 
 ]
 
 { #category : #'platypus-generated-set-accessing' }
 PltArrayType >> setUpperBound: aPltBound [
-  self upperBound: aPltBound
+	self upperBound: aPltBound
 
 
 ]
 
 { #category : #'platypus-generated-initializing' }
 PltArrayType >> stepInitialize [
-  super stepInitialize.
-  uniqueFlag := false.
-  optionalFlag := false.
-  lowerBound := nil.
-  upperBound := nil
+	super stepInitialize.
+	uniqueFlag := false.
+	optionalFlag := false.
+	lowerBound := nil.
+	upperBound := nil
 
 
 ]
 
 { #category : #'platypus-generated-group-accessing' }
 PltArrayType >> toValues: values [
-  ^self arrayTypeToValues: (super toValues: values)
+	^ self arrayTypeToValues: (super toValues: values)
 
 
 ]
 
 { #category : #'platypus-generated-accessing' }
 PltArrayType >> uniqueFlag [
-  ^uniqueFlag
+	^ uniqueFlag
 
 
 ]
 
 { #category : #'platypus-generated-accessing' }
 PltArrayType >> uniqueFlag: aBoolean [
-  uniqueFlag := aBoolean
+	uniqueFlag := aBoolean
 
 
 ]
@@ -322,28 +324,28 @@ PltArrayType >> uniqueFlag: aBoolean optionalFlag: aBoolean1 lowerBound: aPltBou
 
 { #category : #'platypus-generated-with-context-accessing' }
 PltArrayType >> uniqueFlagUsingContext: aContext [
-  ^self uniqueFlag
+	^ self uniqueFlag
 
 
 ]
 
 { #category : #'platypus-generated-accessing' }
 PltArrayType >> upperBound [
-  ^upperBound
+	^ upperBound
 
 
 ]
 
 { #category : #'platypus-generated-accessing' }
 PltArrayType >> upperBound: aPltBound [
-  upperBound := aPltBound
+	upperBound := aPltBound
 
 
 ]
 
 { #category : #'platypus-generated-with-context-accessing' }
 PltArrayType >> upperBoundUsingContext: aContext [
-  ^self upperBound
+	^ self upperBound
 
 
 ]

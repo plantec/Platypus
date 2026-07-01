@@ -1,13 +1,13 @@
 "
 <ISO10303-11-EXPRESS>
 FUNCTION ACOS ( P : NUMBER ) : REAL;
-	(*#            | v |
+	(*#           | v |
 			(v := self p)
 				ifMissing: [^ self return: v]
 				ifNotMissing: [^ self return: (PltRealLiteral val: (v pltNativeValue) arcCos)] 
-		           #*) (*# <pharo> | v |
+		          #*) (*# <pharo> | v |
 			^ (v := self p) ifNotNil: [self return: (v arcCos)] 
-		           #*);
+		          #*);
 END_FUNCTION;
 </ISO10303-11-EXPRESS>
 "
@@ -22,58 +22,63 @@ Class {
 
 { #category : #'platypus-generated-platypus-signature' }
 PltACOSFunction class >> iso10303P11Translater [
-  ^'Platypus (c) LISYC EA3883, Universite de Bretagne occidentale. Brest.'
+	^ 'Platypus (c) LISYC EA3883, Universite de Bretagne occidentale. Brest.'
 
 
 ]
 
 { #category : #'platypus-generated-meta-data-accessing' }
 PltACOSFunction class >> schemaDefinition [
-  ^PltExpressBuiltinsSchemaDefinition singleton
+	^ PltExpressBuiltinsSchemaDefinition singleton
 
 
 ]
 
 { #category : #'platypus-generated-platypus-signature' }
 PltACOSFunction class >> translatedFromISO10303P11 [
-  ^true
+	^ true
 
 
 ]
 
 { #category : #'platypus-generated-platypus-signature' }
 PltACOSFunction class >> vwNamespaceName [
-  ^#Platypus
+	^ #Platypus
 
 
 ]
 
 { #category : #'platypus-generated-accessing' }
 PltACOSFunction >> fromValues: values [
-  self p: (values at: 1)
+	self p: (values at: 1)
 
 
 ]
 
 { #category : #'platypus-generated-invoking' }
 PltACOSFunction >> invoke [
-  " ---------- locals assignments ----------"" ---------- statements ----------""---------- native statement ---------- "
-  | v |
-  ^(v := self p) ifNotNil: [ self return: v arcCos ]
+	" ---------- locals assignments ----------"
+
+	" ---------- statements ----------"
+
+	"---------- native statement ---------- "
+
+	| v |
+	^ (v := self p) ifNotNil: [ self return: v arcCos ]
 
 
 ]
 
 { #category : #'platypus-generated-accessing' }
 PltACOSFunction >> p [
-  ^p
+	^ p
 
 
 ]
 
 { #category : #'platypus-generated-accessing' }
 PltACOSFunction >> p: aNumber [
-  p := aNumber
+	p := aNumber
 
 
 ]

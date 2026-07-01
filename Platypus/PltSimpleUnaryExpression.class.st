@@ -24,7 +24,7 @@ PltSimpleUnaryExpression class >> context [ ^ self schemaDefinition context
 
 { #category : #'platypus-generated-platypus-signature' }
 PltSimpleUnaryExpression class >> iso10303P11Translater [
-  ^'Platypus (c) LISYC EA3883, Universite de Bretagne occidentale. Brest.'
+	^ 'Platypus (c) LISYC EA3883, Universite de Bretagne occidentale. Brest.'
 
 
 ]
@@ -37,160 +37,162 @@ PltSimpleUnaryExpression class >> platypusMetaData [ 	^ self schemaDefinition me
 
 { #category : #'platypus-generated-meta-data-accessing' }
 PltSimpleUnaryExpression class >> schemaDefinition [
-  ^PltPlatypusExpressionsSchemaSchemaDefinition singleton
+	^ PltPlatypusExpressionsSchemaSchemaDefinition singleton
 
 
 ]
 
 { #category : #'platypus-generated-meta-data-accessing' }
 PltSimpleUnaryExpression class >> schemaInstance [
-  ^PltPlatypusMetaSchemasSchemaInstance singleton
+	^ PltPlatypusMetaSchemasSchemaInstance singleton
 
 
 ]
 
 { #category : #'platypus-generated-platypus-signature' }
 PltSimpleUnaryExpression class >> translatedFromISO10303P11 [
-  ^true
+	^ true
 
 
 ]
 
 { #category : #'platypus-generated-platypus-signature' }
 PltSimpleUnaryExpression class >> vwNamespaceName [
-  ^#Platypus
+	^ #Platypus
 
 
 ]
 
 { #category : #'platypus-generated-visiting' }
 PltSimpleUnaryExpression >> accept: aVisitor [
-  ^aVisitor acceptSimpleUnaryExpression: self
+	^ aVisitor acceptSimpleUnaryExpression: self
 
 
 ]
 
 { #category : #'platypus-generated-accessing' }
 PltSimpleUnaryExpression >> expr [
-  ^expr
+	^ expr
 
 
 ]
 
 { #category : #'platypus-generated-accessing' }
 PltSimpleUnaryExpression >> expr: aPltExpression [
-  expr := aPltExpression
+	expr := aPltExpression
 
 
 ]
 
 { #category : #'platypus-generated-with-context-accessing' }
 PltSimpleUnaryExpression >> exprUsingContext: aContext [
-  ^self expr
+	^ self expr
 
 
 ]
 
 { #category : #'platypus-generated-fast-set-accessing' }
 PltSimpleUnaryExpression >> fastSetExpr: aPltExpression [
-  expr := aPltExpression
+	expr := aPltExpression
 
 
 ]
 
 { #category : #'platypus-generated-group-accessing' }
 PltSimpleUnaryExpression >> fromValues: values [
-  ^self simpleUnaryExpressionFromValues: (super fromValues: values)
+	^ self simpleUnaryExpressionFromValues: (super fromValues: values)
 
 
 ]
 
 { #category : #'platypus-generated-classifying' }
 PltSimpleUnaryExpression >> isPltSimpleUnaryExpression [
-  ^true
+	^ true
 
 
 ]
 
 { #category : #'platypus-generated-group-accessing' }
 PltSimpleUnaryExpression >> localFromValues: values [
-  ^self simpleUnaryExpressionFromValues: values
+	^ self simpleUnaryExpressionFromValues: values
 
 
 ]
 
 { #category : #'platypus-generated-group-accessing' }
 PltSimpleUnaryExpression >> localToValues: values [
-  ^self simpleUnaryExpressionToValues: values
+	^ self simpleUnaryExpressionToValues: values
 
 
 ]
 
 { #category : #'platypus-generated-copying' }
 PltSimpleUnaryExpression >> pltCopyGroup: aClassSymbol to: anObject [
-  self class name == aClassSymbol ifTrue: [ self pltCopyTo: anObject ] ifFalse: [ super pltCopyGroup: aClassSymbol to: anObject ]
+	self class name == aClassSymbol
+		ifTrue: [ self pltCopyTo: anObject ]
+		ifFalse: [ super pltCopyGroup: aClassSymbol to: anObject ]
 
 
 ]
 
 { #category : #'platypus-generated-copying' }
 PltSimpleUnaryExpression >> pltCopyTo: another [
-  super pltCopyTo: another.
-  self simpleUnaryExpressionCopyTo: another
+	super pltCopyTo: another.
+	self simpleUnaryExpressionCopyTo: another
 
 
 ]
 
 { #category : #'platypus-generated-copying' }
 PltSimpleUnaryExpression >> pltLocalCopyTo: another [
-  self simpleUnaryExpressionCopyTo: another
+	self simpleUnaryExpressionCopyTo: another
 
 
 ]
 
 { #category : #'platypus-generated-set-accessing' }
 PltSimpleUnaryExpression >> setExpr: aPltExpression [
-  self expr: aPltExpression
+	self expr: aPltExpression
 
 
 ]
 
 { #category : #'platypus-generated-copying' }
 PltSimpleUnaryExpression >> simpleUnaryExpressionCopyTo: another [
-  another fastSetExpr: self expr
+	another fastSetExpr: self expr
 
 
 ]
 
 { #category : #'platypus-generated-group-accessing' }
 PltSimpleUnaryExpression >> simpleUnaryExpressionFromValues: values [
-  | valuesloc |
-  valuesloc := values asOrderedCollection.
-  self setExpr: valuesloc removeFirst.
-  ^valuesloc
+	| valuesloc |
+	valuesloc := values asOrderedCollection.
+	self setExpr: valuesloc removeFirst.
+	^ valuesloc
 
 
 ]
 
 { #category : #'platypus-generated-group-accessing' }
 PltSimpleUnaryExpression >> simpleUnaryExpressionToValues: values [
-  values add: self expr.
-  ^values
+	values add: self expr.
+	^ values
 
 
 ]
 
 { #category : #'platypus-generated-initializing' }
 PltSimpleUnaryExpression >> stepInitialize [
-  super stepInitialize.
-  expr := nil
+	super stepInitialize.
+	expr := nil
 
 
 ]
 
 { #category : #'platypus-generated-group-accessing' }
 PltSimpleUnaryExpression >> toValues: values [
-  ^self simpleUnaryExpressionToValues: (super toValues: values)
+	^ self simpleUnaryExpressionToValues: (super toValues: values)
 
 
 ]

@@ -23,7 +23,7 @@ PltNativeExpression class >> context [ ^ self schemaDefinition context
 
 { #category : #'platypus-generated-platypus-signature' }
 PltNativeExpression class >> iso10303P11Translater [
-  ^'Platypus (c) LISYC EA3883, Universite de Bretagne occidentale. Brest.'
+	^ 'Platypus (c) LISYC EA3883, Universite de Bretagne occidentale. Brest.'
 
 
 ]
@@ -36,160 +36,162 @@ PltNativeExpression class >> platypusMetaData [ 	^ self schemaDefinition metaDat
 
 { #category : #'platypus-generated-meta-data-accessing' }
 PltNativeExpression class >> schemaDefinition [
-  ^PltPlatypusExpressionsSchemaSchemaDefinition singleton
+	^ PltPlatypusExpressionsSchemaSchemaDefinition singleton
 
 
 ]
 
 { #category : #'platypus-generated-meta-data-accessing' }
 PltNativeExpression class >> schemaInstance [
-  ^PltPlatypusMetaSchemasSchemaInstance singleton
+	^ PltPlatypusMetaSchemasSchemaInstance singleton
 
 
 ]
 
 { #category : #'platypus-generated-platypus-signature' }
 PltNativeExpression class >> translatedFromISO10303P11 [
-  ^true
+	^ true
 
 
 ]
 
 { #category : #'platypus-generated-platypus-signature' }
 PltNativeExpression class >> vwNamespaceName [
-  ^#Platypus
+	^ #Platypus
 
 
 ]
 
 { #category : #'platypus-generated-visiting' }
 PltNativeExpression >> accept: aVisitor [
-  ^aVisitor acceptNativeExpression: self
+	^ aVisitor acceptNativeExpression: self
 
 
 ]
 
 { #category : #'platypus-generated-fast-set-accessing' }
 PltNativeExpression >> fastSetSource: aPltNativeAlgorithm [
-  source := aPltNativeAlgorithm
+	source := aPltNativeAlgorithm
 
 
 ]
 
 { #category : #'platypus-generated-group-accessing' }
 PltNativeExpression >> fromValues: values [
-  ^self nativeExpressionFromValues: (super fromValues: values)
+	^ self nativeExpressionFromValues: (super fromValues: values)
 
 
 ]
 
 { #category : #'platypus-generated-classifying' }
 PltNativeExpression >> isPltNativeExpression [
-  ^true
+	^ true
 
 
 ]
 
 { #category : #'platypus-generated-group-accessing' }
 PltNativeExpression >> localFromValues: values [
-  ^self nativeExpressionFromValues: values
+	^ self nativeExpressionFromValues: values
 
 
 ]
 
 { #category : #'platypus-generated-group-accessing' }
 PltNativeExpression >> localToValues: values [
-  ^self nativeExpressionToValues: values
+	^ self nativeExpressionToValues: values
 
 
 ]
 
 { #category : #'platypus-generated-copying' }
 PltNativeExpression >> nativeExpressionCopyTo: another [
-  another fastSetSource: self source
+	another fastSetSource: self source
 
 
 ]
 
 { #category : #'platypus-generated-group-accessing' }
 PltNativeExpression >> nativeExpressionFromValues: values [
-  | valuesloc |
-  valuesloc := values asOrderedCollection.
-  self setSource: valuesloc removeFirst.
-  ^valuesloc
+	| valuesloc |
+	valuesloc := values asOrderedCollection.
+	self setSource: valuesloc removeFirst.
+	^ valuesloc
 
 
 ]
 
 { #category : #'platypus-generated-group-accessing' }
 PltNativeExpression >> nativeExpressionToValues: values [
-  values add: self source.
-  ^values
+	values add: self source.
+	^ values
 
 
 ]
 
 { #category : #'platypus-generated-copying' }
 PltNativeExpression >> pltCopyGroup: aClassSymbol to: anObject [
-  self class name == aClassSymbol ifTrue: [ self pltCopyTo: anObject ] ifFalse: [ super pltCopyGroup: aClassSymbol to: anObject ]
+	self class name == aClassSymbol
+		ifTrue: [ self pltCopyTo: anObject ]
+		ifFalse: [ super pltCopyGroup: aClassSymbol to: anObject ]
 
 
 ]
 
 { #category : #'platypus-generated-copying' }
 PltNativeExpression >> pltCopyTo: another [
-  super pltCopyTo: another.
-  self nativeExpressionCopyTo: another
+	super pltCopyTo: another.
+	self nativeExpressionCopyTo: another
 
 
 ]
 
 { #category : #'platypus-generated-copying' }
 PltNativeExpression >> pltLocalCopyTo: another [
-  self nativeExpressionCopyTo: another
+	self nativeExpressionCopyTo: another
 
 
 ]
 
 { #category : #'platypus-generated-set-accessing' }
 PltNativeExpression >> setSource: aPltNativeAlgorithm [
-  self source: aPltNativeAlgorithm
+	self source: aPltNativeAlgorithm
 
 
 ]
 
 { #category : #'platypus-generated-accessing' }
 PltNativeExpression >> source [
-  ^source
+	^ source
 
 
 ]
 
 { #category : #'platypus-generated-accessing' }
 PltNativeExpression >> source: aPltNativeAlgorithm [
-  source := aPltNativeAlgorithm
+	source := aPltNativeAlgorithm
 
 
 ]
 
 { #category : #'platypus-generated-with-context-accessing' }
 PltNativeExpression >> sourceUsingContext: aContext [
-  ^self source
+	^ self source
 
 
 ]
 
 { #category : #'platypus-generated-initializing' }
 PltNativeExpression >> stepInitialize [
-  super stepInitialize.
-  source := nil
+	super stepInitialize.
+	source := nil
 
 
 ]
 
 { #category : #'platypus-generated-group-accessing' }
 PltNativeExpression >> toValues: values [
-  ^self nativeExpressionToValues: (super toValues: values)
+	^ self nativeExpressionToValues: (super toValues: values)
 
 
 ]

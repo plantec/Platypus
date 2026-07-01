@@ -20,7 +20,7 @@ PltArithmeticExpression class >> context [ ^ self schemaDefinition context
 
 { #category : #'platypus-generated-platypus-signature' }
 PltArithmeticExpression class >> iso10303P11Translater [
-  ^'Platypus (c) LISYC EA3883, Universite de Bretagne occidentale. Brest.'
+	^ 'Platypus (c) LISYC EA3883, Universite de Bretagne occidentale. Brest.'
 
 
 ]
@@ -33,122 +33,124 @@ PltArithmeticExpression class >> platypusMetaData [ 	^ self schemaDefinition met
 
 { #category : #'platypus-generated-meta-data-accessing' }
 PltArithmeticExpression class >> schemaDefinition [
-  ^PltPlatypusExpressionsSchemaSchemaDefinition singleton
+	^ PltPlatypusExpressionsSchemaSchemaDefinition singleton
 
 
 ]
 
 { #category : #'platypus-generated-meta-data-accessing' }
 PltArithmeticExpression class >> schemaInstance [
-  ^PltPlatypusMetaSchemasSchemaInstance singleton
+	^ PltPlatypusMetaSchemasSchemaInstance singleton
 
 
 ]
 
 { #category : #'platypus-generated-platypus-signature' }
 PltArithmeticExpression class >> translatedFromISO10303P11 [
-  ^true
+	^ true
 
 
 ]
 
 { #category : #'platypus-generated-platypus-signature' }
 PltArithmeticExpression class >> vwNamespaceName [
-  ^#Platypus
+	^ #Platypus
 
 
 ]
 
 { #category : #'platypus-generated-visiting' }
 PltArithmeticExpression >> accept: aVisitor [
-  ^aVisitor acceptArithmeticExpression: self
+	^ aVisitor acceptArithmeticExpression: self
 
 
 ]
 
 { #category : #'platypus-generated-copying' }
 PltArithmeticExpression >> arithmeticExpressionCopyTo: another [
-  
+	
 
 
 ]
 
 { #category : #'platypus-generated-group-accessing' }
 PltArithmeticExpression >> arithmeticExpressionFromValues: values [
-  | valuesloc |
-  valuesloc := values asOrderedCollection.
-  ^valuesloc
+	| valuesloc |
+	valuesloc := values asOrderedCollection.
+	^ valuesloc
 
 
 ]
 
 { #category : #'platypus-generated-group-accessing' }
 PltArithmeticExpression >> arithmeticExpressionToValues: values [
-  ^values
+	^ values
 
 
 ]
 
 { #category : #'platypus-generated-group-accessing' }
 PltArithmeticExpression >> fromValues: values [
-  ^self arithmeticExpressionFromValues: (super fromValues: values)
+	^ self arithmeticExpressionFromValues: (super fromValues: values)
 
 
 ]
 
 { #category : #'platypus-generated-classifying' }
 PltArithmeticExpression >> isPltArithmeticExpression [
-  ^true
+	^ true
 
 
 ]
 
 { #category : #'platypus-generated-group-accessing' }
 PltArithmeticExpression >> localFromValues: values [
-  ^self arithmeticExpressionFromValues: values
+	^ self arithmeticExpressionFromValues: values
 
 
 ]
 
 { #category : #'platypus-generated-group-accessing' }
 PltArithmeticExpression >> localToValues: values [
-  ^self arithmeticExpressionToValues: values
+	^ self arithmeticExpressionToValues: values
 
 
 ]
 
 { #category : #'platypus-generated-copying' }
 PltArithmeticExpression >> pltCopyGroup: aClassSymbol to: anObject [
-  self class name == aClassSymbol ifTrue: [ self pltCopyTo: anObject ] ifFalse: [ super pltCopyGroup: aClassSymbol to: anObject ]
+	self class name == aClassSymbol
+		ifTrue: [ self pltCopyTo: anObject ]
+		ifFalse: [ super pltCopyGroup: aClassSymbol to: anObject ]
 
 
 ]
 
 { #category : #'platypus-generated-copying' }
 PltArithmeticExpression >> pltCopyTo: another [
-  super pltCopyTo: another.
-  self arithmeticExpressionCopyTo: another
+	super pltCopyTo: another.
+	self arithmeticExpressionCopyTo: another
 
 
 ]
 
 { #category : #'platypus-generated-copying' }
 PltArithmeticExpression >> pltLocalCopyTo: another [
-  self arithmeticExpressionCopyTo: another
+	self arithmeticExpressionCopyTo: another
 
 
 ]
 
 { #category : #'platypus-generated-initializing' }
 PltArithmeticExpression >> stepInitialize [
-  super stepInitialize
+	super stepInitialize
 
 
 ]
 
 { #category : #'platypus-generated-group-accessing' }
 PltArithmeticExpression >> toValues: values [
-  ^self arithmeticExpressionToValues: (super toValues: values)
+	^ self arithmeticExpressionToValues: (super toValues: values)
 
 
 ]

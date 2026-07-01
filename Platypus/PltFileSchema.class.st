@@ -23,7 +23,7 @@ PltFileSchema class >> context [ ^ self schemaDefinition context
 
 { #category : #'platypus-generated-platypus-signature' }
 PltFileSchema class >> iso10303P11Translater [
-  ^'Platypus (c) LISYC EA3883, Universite de Bretagne occidentale. Brest.'
+	^ 'Platypus (c) LISYC EA3883, Universite de Bretagne occidentale. Brest.'
 
 
 ]
@@ -36,160 +36,162 @@ PltFileSchema class >> platypusMetaData [ 	^ self schemaDefinition metaDataFor: 
 
 { #category : #'platypus-generated-meta-data-accessing' }
 PltFileSchema class >> schemaDefinition [
-  ^PltPlatypusPopulationSchemaSchemaDefinition singleton
+	^ PltPlatypusPopulationSchemaSchemaDefinition singleton
 
 
 ]
 
 { #category : #'platypus-generated-meta-data-accessing' }
 PltFileSchema class >> schemaInstance [
-  ^PltPlatypusMetaSchemasSchemaInstance singleton
+	^ PltPlatypusMetaSchemasSchemaInstance singleton
 
 
 ]
 
 { #category : #'platypus-generated-platypus-signature' }
 PltFileSchema class >> translatedFromISO10303P11 [
-  ^true
+	^ true
 
 
 ]
 
 { #category : #'platypus-generated-platypus-signature' }
 PltFileSchema class >> vwNamespaceName [
-  ^#Platypus
+	^ #Platypus
 
 
 ]
 
 { #category : #'platypus-generated-visiting' }
 PltFileSchema >> accept: aVisitor [
-  ^aVisitor acceptFileSchema: self
+	^ aVisitor acceptFileSchema: self
 
 
 ]
 
 { #category : #'platypus-generated-fast-set-accessing' }
 PltFileSchema >> fastSetSchemaIdentifiers: aListOfString [
-  schemaIdentifiers := aListOfString
+	schemaIdentifiers := aListOfString
 
 
 ]
 
 { #category : #'platypus-generated-copying' }
 PltFileSchema >> fileSchemaCopyTo: another [
-  another fastSetSchemaIdentifiers: self schemaIdentifiers
+	another fastSetSchemaIdentifiers: self schemaIdentifiers
 
 
 ]
 
 { #category : #'platypus-generated-group-accessing' }
 PltFileSchema >> fileSchemaFromValues: values [
-  | valuesloc |
-  valuesloc := values asOrderedCollection.
-  self setSchemaIdentifiers: valuesloc removeFirst.
-  ^valuesloc
+	| valuesloc |
+	valuesloc := values asOrderedCollection.
+	self setSchemaIdentifiers: valuesloc removeFirst.
+	^ valuesloc
 
 
 ]
 
 { #category : #'platypus-generated-group-accessing' }
 PltFileSchema >> fileSchemaToValues: values [
-  values add: self schemaIdentifiers.
-  ^values
+	values add: self schemaIdentifiers.
+	^ values
 
 
 ]
 
 { #category : #'platypus-generated-group-accessing' }
 PltFileSchema >> fromValues: values [
-  ^self fileSchemaFromValues: (super fromValues: values)
+	^ self fileSchemaFromValues: (super fromValues: values)
 
 
 ]
 
 { #category : #'platypus-generated-classifying' }
 PltFileSchema >> isPltFileSchema [
-  ^true
+	^ true
 
 
 ]
 
 { #category : #'platypus-generated-group-accessing' }
 PltFileSchema >> localFromValues: values [
-  ^self fileSchemaFromValues: values
+	^ self fileSchemaFromValues: values
 
 
 ]
 
 { #category : #'platypus-generated-group-accessing' }
 PltFileSchema >> localToValues: values [
-  ^self fileSchemaToValues: values
+	^ self fileSchemaToValues: values
 
 
 ]
 
 { #category : #'platypus-generated-copying' }
 PltFileSchema >> pltCopyGroup: aClassSymbol to: anObject [
-  self class name == aClassSymbol ifTrue: [ self pltCopyTo: anObject ] ifFalse: [ super pltCopyGroup: aClassSymbol to: anObject ]
+	self class name == aClassSymbol
+		ifTrue: [ self pltCopyTo: anObject ]
+		ifFalse: [ super pltCopyGroup: aClassSymbol to: anObject ]
 
 
 ]
 
 { #category : #'platypus-generated-copying' }
 PltFileSchema >> pltCopyTo: another [
-  super pltCopyTo: another.
-  self fileSchemaCopyTo: another
+	super pltCopyTo: another.
+	self fileSchemaCopyTo: another
 
 
 ]
 
 { #category : #'platypus-generated-copying' }
 PltFileSchema >> pltLocalCopyTo: another [
-  self fileSchemaCopyTo: another
+	self fileSchemaCopyTo: another
 
 
 ]
 
 { #category : #'platypus-generated-accessing' }
 PltFileSchema >> schemaIdentifiers [
-  ^schemaIdentifiers
+	^ schemaIdentifiers
 
 
 ]
 
 { #category : #'platypus-generated-accessing' }
 PltFileSchema >> schemaIdentifiers: aListOfString [
-  schemaIdentifiers := aListOfString ifNil: [ OrderedCollection new ] ifNotNil: [ aListOfString as: OrderedCollection ]
+	schemaIdentifiers := aListOfString ifNil: [ OrderedCollection new ] ifNotNil: [ aListOfString as: OrderedCollection ]
 
 
 ]
 
 { #category : #'platypus-generated-with-context-accessing' }
 PltFileSchema >> schemaIdentifiersUsingContext: aContext [
-  ^self schemaIdentifiers
+	^ self schemaIdentifiers
 
 
 ]
 
 { #category : #'platypus-generated-set-accessing' }
 PltFileSchema >> setSchemaIdentifiers: aListOfString [
-  self schemaIdentifiers: aListOfString
+	self schemaIdentifiers: aListOfString
 
 
 ]
 
 { #category : #'platypus-generated-initializing' }
 PltFileSchema >> stepInitialize [
-  super stepInitialize.
-  schemaIdentifiers := OrderedCollection new
+	super stepInitialize.
+	schemaIdentifiers := OrderedCollection new
 
 
 ]
 
 { #category : #'platypus-generated-group-accessing' }
 PltFileSchema >> toValues: values [
-  ^self fileSchemaToValues: (super toValues: values)
+	^ self fileSchemaToValues: (super toValues: values)
 
 
 ]

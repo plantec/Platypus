@@ -19,7 +19,7 @@ PltAndSupertype class >> context [ ^ self schemaDefinition context
 
 { #category : #'platypus-generated-platypus-signature' }
 PltAndSupertype class >> iso10303P11Translater [
-  ^'Platypus (c) LISYC EA3883, Universite de Bretagne occidentale. Brest.'
+	^ 'Platypus (c) LISYC EA3883, Universite de Bretagne occidentale. Brest.'
 
 
 ]
@@ -32,122 +32,124 @@ PltAndSupertype class >> platypusMetaData [ 	^ self schemaDefinition metaDataFor
 
 { #category : #'platypus-generated-meta-data-accessing' }
 PltAndSupertype class >> schemaDefinition [
-  ^PltPlatypusDictionarySchemaSchemaDefinition singleton
+	^ PltPlatypusDictionarySchemaSchemaDefinition singleton
 
 
 ]
 
 { #category : #'platypus-generated-meta-data-accessing' }
 PltAndSupertype class >> schemaInstance [
-  ^PltPlatypusMetaSchemasSchemaInstance singleton
+	^ PltPlatypusMetaSchemasSchemaInstance singleton
 
 
 ]
 
 { #category : #'platypus-generated-platypus-signature' }
 PltAndSupertype class >> translatedFromISO10303P11 [
-  ^true
+	^ true
 
 
 ]
 
 { #category : #'platypus-generated-platypus-signature' }
 PltAndSupertype class >> vwNamespaceName [
-  ^#Platypus
+	^ #Platypus
 
 
 ]
 
 { #category : #'platypus-generated-visiting' }
 PltAndSupertype >> accept: aVisitor [
-  ^aVisitor acceptAndSupertype: self
+	^ aVisitor acceptAndSupertype: self
 
 
 ]
 
 { #category : #'platypus-generated-copying' }
 PltAndSupertype >> andSupertypeCopyTo: another [
-  
+	
 
 
 ]
 
 { #category : #'platypus-generated-group-accessing' }
 PltAndSupertype >> andSupertypeFromValues: values [
-  | valuesloc |
-  valuesloc := values asOrderedCollection.
-  ^valuesloc
+	| valuesloc |
+	valuesloc := values asOrderedCollection.
+	^ valuesloc
 
 
 ]
 
 { #category : #'platypus-generated-group-accessing' }
 PltAndSupertype >> andSupertypeToValues: values [
-  ^values
+	^ values
 
 
 ]
 
 { #category : #'platypus-generated-group-accessing' }
 PltAndSupertype >> fromValues: values [
-  ^self andSupertypeFromValues: (super fromValues: values)
+	^ self andSupertypeFromValues: (super fromValues: values)
 
 
 ]
 
 { #category : #'platypus-generated-classifying' }
 PltAndSupertype >> isPltAndSupertype [
-  ^true
+	^ true
 
 
 ]
 
 { #category : #'platypus-generated-group-accessing' }
 PltAndSupertype >> localFromValues: values [
-  ^self andSupertypeFromValues: values
+	^ self andSupertypeFromValues: values
 
 
 ]
 
 { #category : #'platypus-generated-group-accessing' }
 PltAndSupertype >> localToValues: values [
-  ^self andSupertypeToValues: values
+	^ self andSupertypeToValues: values
 
 
 ]
 
 { #category : #'platypus-generated-copying' }
 PltAndSupertype >> pltCopyGroup: aClassSymbol to: anObject [
-  self class name == aClassSymbol ifTrue: [ self pltCopyTo: anObject ] ifFalse: [ super pltCopyGroup: aClassSymbol to: anObject ]
+	self class name == aClassSymbol
+		ifTrue: [ self pltCopyTo: anObject ]
+		ifFalse: [ super pltCopyGroup: aClassSymbol to: anObject ]
 
 
 ]
 
 { #category : #'platypus-generated-copying' }
 PltAndSupertype >> pltCopyTo: another [
-  super pltCopyTo: another.
-  self andSupertypeCopyTo: another
+	super pltCopyTo: another.
+	self andSupertypeCopyTo: another
 
 
 ]
 
 { #category : #'platypus-generated-copying' }
 PltAndSupertype >> pltLocalCopyTo: another [
-  self andSupertypeCopyTo: another
+	self andSupertypeCopyTo: another
 
 
 ]
 
 { #category : #'platypus-generated-initializing' }
 PltAndSupertype >> stepInitialize [
-  super stepInitialize
+	super stepInitialize
 
 
 ]
 
 { #category : #'platypus-generated-group-accessing' }
 PltAndSupertype >> toValues: values [
-  ^self andSupertypeToValues: (super toValues: values)
+	^ self andSupertypeToValues: (super toValues: values)
 
 
 ]

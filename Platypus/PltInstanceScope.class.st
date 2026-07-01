@@ -11,8 +11,8 @@ Class {
 	#name : #PltInstanceScope,
 	#superclass : #PltSessionInstance,
 	#instVars : [
-		'exportList',
-		'owned'
+		'owned',
+		'exportList'
 	],
 	#category : #'Platypus-PlatypusPopulationSchemaSchema'
 }
@@ -25,7 +25,7 @@ PltInstanceScope class >> context [ ^ self schemaDefinition context
 
 { #category : #'platypus-generated-platypus-signature' }
 PltInstanceScope class >> iso10303P11Translater [
-  ^'Platypus (c) LISYC EA3883, Universite de Bretagne occidentale. Brest.'
+	^ 'Platypus (c) LISYC EA3883, Universite de Bretagne occidentale. Brest.'
 
 
 ]
@@ -38,147 +38,151 @@ PltInstanceScope class >> platypusMetaData [ 	^ self schemaDefinition metaDataFo
 
 { #category : #'platypus-generated-meta-data-accessing' }
 PltInstanceScope class >> schemaDefinition [
-  ^PltPlatypusPopulationSchemaSchemaDefinition singleton
+	^ PltPlatypusPopulationSchemaSchemaDefinition singleton
 
 
 ]
 
 { #category : #'platypus-generated-meta-data-accessing' }
 PltInstanceScope class >> schemaInstance [
-  ^PltPlatypusMetaSchemasSchemaInstance singleton
+	^ PltPlatypusMetaSchemasSchemaInstance singleton
 
 
 ]
 
 { #category : #'platypus-generated-platypus-signature' }
 PltInstanceScope class >> translatedFromISO10303P11 [
-  ^true
+	^ true
 
 
 ]
 
 { #category : #'platypus-generated-platypus-signature' }
 PltInstanceScope class >> vwNamespaceName [
-  ^#Platypus
+	^ #Platypus
 
 
 ]
 
 { #category : #'platypus-generated-visiting' }
 PltInstanceScope >> accept: aVisitor [
-  ^aVisitor acceptInstanceScope: self
+	^ aVisitor acceptInstanceScope: self
 
 
 ]
 
 { #category : #'platypus-generated-accessing' }
 PltInstanceScope >> exportList [
-  ^exportList
+	^ exportList
 
 
 ]
 
 { #category : #'platypus-generated-accessing' }
 PltInstanceScope >> exportList: aListOfPltEntityInstance [
-  exportList := aListOfPltEntityInstance ifNil: [ OrderedCollection new ] ifNotNil: [ aListOfPltEntityInstance as: OrderedCollection ]
+	exportList := aListOfPltEntityInstance
+		ifNil: [ OrderedCollection new ]
+		ifNotNil: [ aListOfPltEntityInstance as: OrderedCollection ]
 
 
 ]
 
 { #category : #'platypus-generated-with-context-accessing' }
 PltInstanceScope >> exportListUsingContext: aContext [
-  ^self exportList
+	^ self exportList
 
 
 ]
 
 { #category : #'platypus-generated-fast-set-accessing' }
 PltInstanceScope >> fastSetExportList: aListOfPltEntityInstance [
-  exportList := aListOfPltEntityInstance
+	exportList := aListOfPltEntityInstance
 
 
 ]
 
 { #category : #'platypus-generated-fast-set-accessing' }
 PltInstanceScope >> fastSetOwned: aListOfPltEntityInstance [
-  owned := aListOfPltEntityInstance
+	owned := aListOfPltEntityInstance
 
 
 ]
 
 { #category : #'platypus-generated-group-accessing' }
 PltInstanceScope >> fromValues: values [
-  ^self instanceScopeFromValues: (super fromValues: values)
+	^ self instanceScopeFromValues: (super fromValues: values)
 
 
 ]
 
 { #category : #'platypus-generated-copying' }
 PltInstanceScope >> instanceScopeCopyTo: another [
-  another fastSetOwned: self owned.
-  another fastSetExportList: self exportList
+	another fastSetOwned: self owned.
+	another fastSetExportList: self exportList
 
 
 ]
 
 { #category : #'platypus-generated-group-accessing' }
 PltInstanceScope >> instanceScopeFromValues: values [
-  | valuesloc |
-  valuesloc := values asOrderedCollection.
-  self setOwned: valuesloc removeFirst.
-  self setExportList: valuesloc removeFirst.
-  ^valuesloc
+	| valuesloc |
+	valuesloc := values asOrderedCollection.
+	self setOwned: valuesloc removeFirst.
+	self setExportList: valuesloc removeFirst.
+	^ valuesloc
 
 
 ]
 
 { #category : #'platypus-generated-group-accessing' }
 PltInstanceScope >> instanceScopeToValues: values [
-  values add: self owned.
-  values add: self exportList.
-  ^values
+	values add: self owned.
+	values add: self exportList.
+	^ values
 
 
 ]
 
 { #category : #'platypus-generated-classifying' }
 PltInstanceScope >> isPltInstanceScope [
-  ^true
+	^ true
 
 
 ]
 
 { #category : #'platypus-generated-group-accessing' }
 PltInstanceScope >> localFromValues: values [
-  ^self instanceScopeFromValues: values
+	^ self instanceScopeFromValues: values
 
 
 ]
 
 { #category : #'platypus-generated-group-accessing' }
 PltInstanceScope >> localToValues: values [
-  ^self instanceScopeToValues: values
+	^ self instanceScopeToValues: values
 
 
 ]
 
 { #category : #'platypus-generated-accessing' }
 PltInstanceScope >> owned [
-  ^owned
+	^ owned
 
 
 ]
 
 { #category : #'platypus-generated-accessing' }
 PltInstanceScope >> owned: aListOfPltEntityInstance [
-  owned := aListOfPltEntityInstance ifNil: [ OrderedCollection new ] ifNotNil: [ aListOfPltEntityInstance as: OrderedCollection ]
+	owned := aListOfPltEntityInstance
+		ifNil: [ OrderedCollection new ]
+		ifNotNil: [ aListOfPltEntityInstance as: OrderedCollection ]
 
 
 ]
 
 { #category : #'platypus-generated-with-context-accessing' }
 PltInstanceScope >> ownedUsingContext: aContext [
-  ^self owned
+	^ self owned
 
 
 ]
@@ -198,52 +202,54 @@ PltInstanceScope >> owner: aPltEntityInstance owned: aListOfPltEntityInstance ex
 
 { #category : #'platypus-generated-copying' }
 PltInstanceScope >> pltCopyGroup: aClassSymbol to: anObject [
-  self class name == aClassSymbol ifTrue: [ self pltCopyTo: anObject ] ifFalse: [ super pltCopyGroup: aClassSymbol to: anObject ]
+	self class name == aClassSymbol
+		ifTrue: [ self pltCopyTo: anObject ]
+		ifFalse: [ super pltCopyGroup: aClassSymbol to: anObject ]
 
 
 ]
 
 { #category : #'platypus-generated-copying' }
 PltInstanceScope >> pltCopyTo: another [
-  super pltCopyTo: another.
-  self instanceScopeCopyTo: another
+	super pltCopyTo: another.
+	self instanceScopeCopyTo: another
 
 
 ]
 
 { #category : #'platypus-generated-copying' }
 PltInstanceScope >> pltLocalCopyTo: another [
-  self instanceScopeCopyTo: another
+	self instanceScopeCopyTo: another
 
 
 ]
 
 { #category : #'platypus-generated-set-accessing' }
 PltInstanceScope >> setExportList: aListOfPltEntityInstance [
-  self exportList: aListOfPltEntityInstance
+	self exportList: aListOfPltEntityInstance
 
 
 ]
 
 { #category : #'platypus-generated-set-accessing' }
 PltInstanceScope >> setOwned: aListOfPltEntityInstance [
-  self owned: aListOfPltEntityInstance
+	self owned: aListOfPltEntityInstance
 
 
 ]
 
 { #category : #'platypus-generated-initializing' }
 PltInstanceScope >> stepInitialize [
-  super stepInitialize.
-  owned := OrderedCollection new.
-  exportList := OrderedCollection new
+	super stepInitialize.
+	owned := OrderedCollection new.
+	exportList := OrderedCollection new
 
 
 ]
 
 { #category : #'platypus-generated-group-accessing' }
 PltInstanceScope >> toValues: values [
-  ^self instanceScopeToValues: (super toValues: values)
+	^ self instanceScopeToValues: (super toValues: values)
 
 
 ]

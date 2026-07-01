@@ -26,7 +26,10 @@ PlatypusExpressBuiltinFormatSymbolicFormatter >> finalStringFrom: aStringEncodin
 	| result |
 	result := aStringEncodingANumber.
 	precZero = $0
-		ifTrue: [result := result padLeftTo: width - 1 with: precZero].
+		ifTrue: [result := result 
+						padded: #left
+						to: width - 1
+						with: precZero].
 	sign = $+
 		ifTrue: [aNumber < 0
 				ifFalse: [aNumber > 0
@@ -35,7 +38,10 @@ PlatypusExpressBuiltinFormatSymbolicFormatter >> finalStringFrom: aStringEncodin
 		ifFalse: [aNumber < 0
 				ifFalse: [result := '' , result]].
 	precZero ~= $0
-		ifTrue: [result := result padLeftTo: width with: precZero].
+		ifTrue: [result := result
+						padded: #left
+						to: width
+						with: precZero].
 	^ result
 ]
 

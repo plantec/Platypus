@@ -20,7 +20,7 @@ PltLogicalExpression class >> context [ ^ self schemaDefinition context
 
 { #category : #'platypus-generated-platypus-signature' }
 PltLogicalExpression class >> iso10303P11Translater [
-  ^'Platypus (c) LISYC EA3883, Universite de Bretagne occidentale. Brest.'
+	^ 'Platypus (c) LISYC EA3883, Universite de Bretagne occidentale. Brest.'
 
 
 ]
@@ -33,122 +33,124 @@ PltLogicalExpression class >> platypusMetaData [ 	^ self schemaDefinition metaDa
 
 { #category : #'platypus-generated-meta-data-accessing' }
 PltLogicalExpression class >> schemaDefinition [
-  ^PltPlatypusExpressionsSchemaSchemaDefinition singleton
+	^ PltPlatypusExpressionsSchemaSchemaDefinition singleton
 
 
 ]
 
 { #category : #'platypus-generated-meta-data-accessing' }
 PltLogicalExpression class >> schemaInstance [
-  ^PltPlatypusMetaSchemasSchemaInstance singleton
+	^ PltPlatypusMetaSchemasSchemaInstance singleton
 
 
 ]
 
 { #category : #'platypus-generated-platypus-signature' }
 PltLogicalExpression class >> translatedFromISO10303P11 [
-  ^true
+	^ true
 
 
 ]
 
 { #category : #'platypus-generated-platypus-signature' }
 PltLogicalExpression class >> vwNamespaceName [
-  ^#Platypus
+	^ #Platypus
 
 
 ]
 
 { #category : #'platypus-generated-visiting' }
 PltLogicalExpression >> accept: aVisitor [
-  ^aVisitor acceptLogicalExpression: self
+	^ aVisitor acceptLogicalExpression: self
 
 
 ]
 
 { #category : #'platypus-generated-group-accessing' }
 PltLogicalExpression >> fromValues: values [
-  ^self logicalExpressionFromValues: (super fromValues: values)
+	^ self logicalExpressionFromValues: (super fromValues: values)
 
 
 ]
 
 { #category : #'platypus-generated-classifying' }
 PltLogicalExpression >> isPltLogicalExpression [
-  ^true
+	^ true
 
 
 ]
 
 { #category : #'platypus-generated-group-accessing' }
 PltLogicalExpression >> localFromValues: values [
-  ^self logicalExpressionFromValues: values
+	^ self logicalExpressionFromValues: values
 
 
 ]
 
 { #category : #'platypus-generated-group-accessing' }
 PltLogicalExpression >> localToValues: values [
-  ^self logicalExpressionToValues: values
+	^ self logicalExpressionToValues: values
 
 
 ]
 
 { #category : #'platypus-generated-copying' }
 PltLogicalExpression >> logicalExpressionCopyTo: another [
-  
+	
 
 
 ]
 
 { #category : #'platypus-generated-group-accessing' }
 PltLogicalExpression >> logicalExpressionFromValues: values [
-  | valuesloc |
-  valuesloc := values asOrderedCollection.
-  ^valuesloc
+	| valuesloc |
+	valuesloc := values asOrderedCollection.
+	^ valuesloc
 
 
 ]
 
 { #category : #'platypus-generated-group-accessing' }
 PltLogicalExpression >> logicalExpressionToValues: values [
-  ^values
+	^ values
 
 
 ]
 
 { #category : #'platypus-generated-copying' }
 PltLogicalExpression >> pltCopyGroup: aClassSymbol to: anObject [
-  self class name == aClassSymbol ifTrue: [ self pltCopyTo: anObject ] ifFalse: [ super pltCopyGroup: aClassSymbol to: anObject ]
+	self class name == aClassSymbol
+		ifTrue: [ self pltCopyTo: anObject ]
+		ifFalse: [ super pltCopyGroup: aClassSymbol to: anObject ]
 
 
 ]
 
 { #category : #'platypus-generated-copying' }
 PltLogicalExpression >> pltCopyTo: another [
-  super pltCopyTo: another.
-  self logicalExpressionCopyTo: another
+	super pltCopyTo: another.
+	self logicalExpressionCopyTo: another
 
 
 ]
 
 { #category : #'platypus-generated-copying' }
 PltLogicalExpression >> pltLocalCopyTo: another [
-  self logicalExpressionCopyTo: another
+	self logicalExpressionCopyTo: another
 
 
 ]
 
 { #category : #'platypus-generated-initializing' }
 PltLogicalExpression >> stepInitialize [
-  super stepInitialize
+	super stepInitialize
 
 
 ]
 
 { #category : #'platypus-generated-group-accessing' }
 PltLogicalExpression >> toValues: values [
-  ^self logicalExpressionToValues: (super toValues: values)
+	^ self logicalExpressionToValues: (super toValues: values)
 
 
 ]

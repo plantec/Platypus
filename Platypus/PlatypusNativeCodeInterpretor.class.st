@@ -12,16 +12,22 @@ Class {
 }
 
 { #category : #private }
-PlatypusNativeCodeInterpretor class >> methodFrom: aString class: aClass requestor: aRequestor ifFail: failBlock [ 
-	| methodNode compiler |
-	(compiler := self compilerClass new)
-		source: 'EvaluatePlatypusInterpreterNativeCode ', aString asString;
-		class: aClass;
-		requestor: aRequestor;
-		noPattern: false;
-		failBlock: [^ failBlock value].
-	methodNode := compiler compile.
-	^ methodNode
+PlatypusNativeCodeInterpretor class >> methodFrom: textOrStream class: aClass requestor: aRequestor ifFail: failBlock [ 
+	| methodNode method compiler |
+	compiler := self compilerClass new.
+	compiler
+		from: textOrStream
+		class: aClass
+		context: nil
+		notifying: aRequestor.
+	methodNode := compiler
+				translate: textOrStream
+				noPattern: true
+				ifFail: [^ failBlock value].
+	method := methodNode generate.
+	compiler interactive
+		ifTrue: [method := method copyWithTempNames: methodNode tempNames].
+	^ method
 ]
 
 { #category : #'requestor error notification' }
@@ -49,23 +55,31 @@ PlatypusNativeCodeInterpretor >> deselect [
 	^ requestor deselect
 ]
 
-{ #category : #evaluating }
-PlatypusNativeCodeInterpretor >> evaluate: e interpretor: anInterpretor requestor: aRequestor [
-	e interpreter: anInterpretor.
-	e cachedMethod
-		ifNil: [ | compiler |
-			replacementPositions := OrderedCollection new.
+{ #category : #interpreting }
+PlatypusNativeCodeInterpretor >> evaluate: e interpretor: anInterpretor requestor: aRequestor [ 
+	| method |
+	receiver := PlatypusExpressInterpretorWrapper interpreter: anInterpretor.
+	(method := e cachedMethod)
+		ifNil: [replacementPositions := OrderedCollection new.
 			source := e code.
 			self requestor: aRequestor.
 			self preparse.
-			(compiler := self class compilerClass new)
-				source: preparsed contents;
-				requestor: aRequestor;
-				class: e class;
-				noPattern: false;
-				failBlock: [ ^ self ].
-			e cachedMethod: compiler parse ].
-	^ e cachedMethod compiledMethod valueWithReceiver: e arguments: (Array with: anInterpretor)
+			method := self class
+						methodFrom: preparsed
+						class: receiver class
+						requestor: aRequestor
+						ifFail: [self halt].
+			e cachedMethod: method].
+	^ self evaluateMethod: method
+]
+
+{ #category : #interpreting }
+PlatypusNativeCodeInterpretor >> evaluateMethod: aMethod [ 
+	| selector |
+	selector := #EvaluatePlatypusInterpreterNativeCode.
+	receiver class addSelectorSilently: selector withMethod: aMethod.
+	self class organization classify: selector under: #'platypus interpreting'.
+	^ receiver EvaluatePlatypusInterpreterNativeCode
 ]
 
 { #category : #'requestor error notification' }
@@ -101,7 +115,7 @@ PlatypusNativeCodeInterpretor >> notify: error at: location in: stream [
 PlatypusNativeCodeInterpretor >> preparse [
 	| ori beginReplPos vname replString |
 	preparsed := ReadWriteStream on: String new.
-	preparsed nextPutAll: '__run_native_code__: interpreter__ '.
+	preparsed nextPut: $[.
 	ori := ReadStream on: source.
 	[ori atEnd]
 		whileFalse: [preparsed
@@ -111,7 +125,7 @@ PlatypusNativeCodeInterpretor >> preparse [
 						ifTrue: [beginReplPos := ori position.
 							ori next.
 							vname := ori upTo: $".
-							replString := '(interpreter__ valueOf: ''' , vname trimBoth , ''') '.
+							replString := '(self valueOf: ''' , vname trimBoth , ''') '.
 							preparsed nextPutAll: replString.
 							replacementPositions
 								add: (Array
@@ -119,9 +133,14 @@ PlatypusNativeCodeInterpretor >> preparse [
 										with: vname size
 										with: replString size)]
 						ifFalse: [preparsed nextPut: $"]]].
-	preparsed nextPutAll: ''.
+	preparsed nextPutAll: '] value'.
 	preparsed reset.
 	^ preparsed
+]
+
+{ #category : #accessing }
+PlatypusNativeCodeInterpretor >> replacementPositions: aCollection [ 
+	replacementPositions := aCollection
 ]
 
 { #category : #accessing }

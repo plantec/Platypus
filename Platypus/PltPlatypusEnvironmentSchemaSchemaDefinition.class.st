@@ -31,63 +31,63 @@ Class {
 
 { #category : #'platypus-generated-platypus-signature' }
 PltPlatypusEnvironmentSchemaSchemaDefinition class >> iso10303P11Translater [
-  ^'Platypus (c) LISYC EA3883, Universite de Bretagne occidentale. Brest.'
+	^ 'Platypus (c) LISYC EA3883, Universite de Bretagne occidentale. Brest.'
 
 
 ]
 
 { #category : #'platypus-generated-platypus-signature' }
 PltPlatypusEnvironmentSchemaSchemaDefinition class >> translatedFromISO10303P11 [
-  ^true
+	^ true
 
 
 ]
 
 { #category : #'platypus-generated-platypus-signature' }
 PltPlatypusEnvironmentSchemaSchemaDefinition class >> vwNamespaceName [
-  ^#Platypus
+	^ #Platypus
 
 
 ]
 
 { #category : #'platypus-generated-context-accessing' }
 PltPlatypusEnvironmentSchemaSchemaDefinition >> context [
-  ^self schemaInstance context
+	^ self schemaInstance context
 
 
 ]
 
 { #category : #'platypus-generated-entities' }
 PltPlatypusEnvironmentSchemaSchemaDefinition >> entityDefinition1 [
-  ^#(#model_contents #PltModelContents)
+	^ #(#model_contents #PltModelContents)
 
 
 ]
 
 { #category : #'platypus-generated-entities' }
 PltPlatypusEnvironmentSchemaSchemaDefinition >> entityDefinition2 [
-  ^#(#schema_instance #PltSchemaInstance)
+	^ #(#schema_instance #PltSchemaInstance)
 
 
 ]
 
 { #category : #'platypus-generated-entities' }
 PltPlatypusEnvironmentSchemaSchemaDefinition >> entityDefinitionCount [
-  ^2
+	^ 2
 
 
 ]
 
 { #category : #'platypus-generated-functions' }
 PltPlatypusEnvironmentSchemaSchemaDefinition >> functionDeclarationCount [
-  ^0
+	^ 0
 
 
 ]
 
 { #category : #'platypus-generated-meta-data-accessing' }
 PltPlatypusEnvironmentSchemaSchemaDefinition >> schemaInstanceClassName [
-  ^#PltPlatypusMetaSchemasSchemaInstance
+	^ #PltPlatypusMetaSchemasSchemaInstance
 
 
 ]

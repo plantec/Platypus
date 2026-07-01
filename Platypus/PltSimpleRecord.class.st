@@ -12,8 +12,8 @@ Class {
 	#name : #PltSimpleRecord,
 	#superclass : #PltEntityInstance,
 	#instVars : [
-		'parameters',
-		'definition'
+		'definition',
+		'parameters'
 	],
 	#category : #'Platypus-PlatypusPopulationSchemaSchema'
 }
@@ -26,7 +26,7 @@ PltSimpleRecord class >> context [ ^ self schemaDefinition context
 
 { #category : #'platypus-generated-platypus-signature' }
 PltSimpleRecord class >> iso10303P11Translater [
-  ^'Platypus (c) LISYC EA3883, Universite de Bretagne occidentale. Brest.'
+	^ 'Platypus (c) LISYC EA3883, Universite de Bretagne occidentale. Brest.'
 
 
 ]
@@ -39,49 +39,49 @@ PltSimpleRecord class >> platypusMetaData [ 	^ self schemaDefinition metaDataFor
 
 { #category : #'platypus-generated-meta-data-accessing' }
 PltSimpleRecord class >> schemaDefinition [
-  ^PltPlatypusPopulationSchemaSchemaDefinition singleton
+	^ PltPlatypusPopulationSchemaSchemaDefinition singleton
 
 
 ]
 
 { #category : #'platypus-generated-meta-data-accessing' }
 PltSimpleRecord class >> schemaInstance [
-  ^PltPlatypusMetaSchemasSchemaInstance singleton
+	^ PltPlatypusMetaSchemasSchemaInstance singleton
 
 
 ]
 
 { #category : #'platypus-generated-platypus-signature' }
 PltSimpleRecord class >> translatedFromISO10303P11 [
-  ^true
+	^ true
 
 
 ]
 
 { #category : #'platypus-generated-platypus-signature' }
 PltSimpleRecord class >> vwNamespaceName [
-  ^#Platypus
+	^ #Platypus
 
 
 ]
 
 { #category : #'platypus-generated-visiting' }
 PltSimpleRecord >> accept: aVisitor [
-  ^aVisitor acceptSimpleRecord: self
+	^ aVisitor acceptSimpleRecord: self
 
 
 ]
 
 { #category : #'platypus-generated-accessing' }
 PltSimpleRecord >> definition [
-  ^definition
+	^ definition
 
 
 ]
 
 { #category : #'platypus-generated-accessing' }
 PltSimpleRecord >> definition: aPltEntityDefinitionReference [
-  definition := aPltEntityDefinitionReference
+	definition := aPltEntityDefinitionReference
 
 
 ]
@@ -94,189 +94,193 @@ PltSimpleRecord >> definition: aPltEntityDefinitionReference parameters: aListOf
 
 { #category : #'platypus-generated-with-context-accessing' }
 PltSimpleRecord >> definitionUsingContext: aContext [
-  ^self definition
+	^ self definition
 
 
 ]
 
 { #category : #'platypus-generated-fast-set-accessing' }
 PltSimpleRecord >> fastSetDefinition: aPltEntityDefinitionReference [
-  definition := aPltEntityDefinitionReference
+	definition := aPltEntityDefinitionReference
 
 
 ]
 
 { #category : #'platypus-generated-fast-set-accessing' }
 PltSimpleRecord >> fastSetOwner: aPltGenericInstance [
-  owner := aPltGenericInstance
+	owner := aPltGenericInstance
 
 
 ]
 
 { #category : #'platypus-generated-fast-set-accessing' }
 PltSimpleRecord >> fastSetParameters: aListOfPltExpression [
-  parameters := aListOfPltExpression
+	parameters := aListOfPltExpression
 
 
 ]
 
 { #category : #'platypus-generated-group-accessing' }
 PltSimpleRecord >> fromValues: values [
-  ^self simpleRecordFromValues: (super fromValues: values)
+	^ self simpleRecordFromValues: (super fromValues: values)
 
 
 ]
 
 { #category : #'platypus-generated-classifying' }
 PltSimpleRecord >> isPltSimpleRecord [
-  ^true
+	^ true
 
 
 ]
 
 { #category : #'platypus-generated-group-accessing' }
 PltSimpleRecord >> localFromValues: values [
-  ^self simpleRecordFromValues: values
+	^ self simpleRecordFromValues: values
 
 
 ]
 
 { #category : #'platypus-generated-group-accessing' }
 PltSimpleRecord >> localToValues: values [
-  ^self simpleRecordToValues: values
+	^ self simpleRecordToValues: values
 
 
 ]
 
 { #category : #'platypus-generated-accessing' }
 PltSimpleRecord >> owner [
-  ^owner
+	^ owner
 
 
 ]
 
 { #category : #'platypus-generated-accessing' }
 PltSimpleRecord >> owner: aPltGenericInstance [
-  owner := aPltGenericInstance
+	owner := aPltGenericInstance
 
 
 ]
 
 { #category : #'platypus-generated-with-context-accessing' }
 PltSimpleRecord >> ownerUsingContext: aContext [
-  ^self owner
+	^ self owner
 
 
 ]
 
 { #category : #'platypus-generated-accessing' }
 PltSimpleRecord >> parameters [
-  ^parameters
+	^ parameters
 
 
 ]
 
 { #category : #'platypus-generated-accessing' }
 PltSimpleRecord >> parameters: aListOfPltExpression [
-  parameters := aListOfPltExpression ifNil: [ OrderedCollection new ] ifNotNil: [ aListOfPltExpression as: OrderedCollection ]
+	parameters := aListOfPltExpression
+		ifNil: [ OrderedCollection new ]
+		ifNotNil: [ aListOfPltExpression as: OrderedCollection ]
 
 
 ]
 
 { #category : #'platypus-generated-with-context-accessing' }
 PltSimpleRecord >> parametersUsingContext: aContext [
-  ^self parameters
+	^ self parameters
 
 
 ]
 
 { #category : #'platypus-generated-copying' }
 PltSimpleRecord >> pltCopyGroup: aClassSymbol to: anObject [
-  self class name == aClassSymbol ifTrue: [ self pltCopyTo: anObject ] ifFalse: [ super pltCopyGroup: aClassSymbol to: anObject ]
+	self class name == aClassSymbol
+		ifTrue: [ self pltCopyTo: anObject ]
+		ifFalse: [ super pltCopyGroup: aClassSymbol to: anObject ]
 
 
 ]
 
 { #category : #'platypus-generated-copying' }
 PltSimpleRecord >> pltCopyTo: another [
-  super pltCopyTo: another.
-  self simpleRecordCopyTo: another
+	super pltCopyTo: another.
+	self simpleRecordCopyTo: another
 
 
 ]
 
 { #category : #'platypus-generated-copying' }
 PltSimpleRecord >> pltLocalCopyTo: another [
-  self simpleRecordCopyTo: another
+	self simpleRecordCopyTo: another
 
 
 ]
 
 { #category : #'platypus-generated-set-accessing' }
 PltSimpleRecord >> setDefinition: aPltEntityDefinitionReference [
-  self definition: aPltEntityDefinitionReference
+	self definition: aPltEntityDefinitionReference
 
 
 ]
 
 { #category : #'platypus-generated-set-accessing' }
 PltSimpleRecord >> setOwner: aPltGenericInstance [
-  self owner: aPltGenericInstance
+	self owner: aPltGenericInstance
 
 
 ]
 
 { #category : #'platypus-generated-set-accessing' }
 PltSimpleRecord >> setParameters: aListOfPltExpression [
-  self parameters: aListOfPltExpression
+	self parameters: aListOfPltExpression
 
 
 ]
 
 { #category : #'platypus-generated-copying' }
 PltSimpleRecord >> simpleRecordCopyTo: another [
-  another fastSetDefinition: self definition.
-  another fastSetParameters: self parameters.
-  another fastSetOwner: self owner
+	another fastSetDefinition: self definition.
+	another fastSetParameters: self parameters.
+	another fastSetOwner: self owner
 
 
 ]
 
 { #category : #'platypus-generated-group-accessing' }
 PltSimpleRecord >> simpleRecordFromValues: values [
-  | valuesloc |
-  valuesloc := values asOrderedCollection.
-  self setDefinition: valuesloc removeFirst.
-  self setParameters: valuesloc removeFirst.
-  self setOwner: valuesloc removeFirst.
-  ^valuesloc
+	| valuesloc |
+	valuesloc := values asOrderedCollection.
+	self setDefinition: valuesloc removeFirst.
+	self setParameters: valuesloc removeFirst.
+	self setOwner: valuesloc removeFirst.
+	^ valuesloc
 
 
 ]
 
 { #category : #'platypus-generated-group-accessing' }
 PltSimpleRecord >> simpleRecordToValues: values [
-  values add: self definition.
-  values add: self parameters.
-  values add: self owner.
-  ^values
+	values add: self definition.
+	values add: self parameters.
+	values add: self owner.
+	^ values
 
 
 ]
 
 { #category : #'platypus-generated-initializing' }
 PltSimpleRecord >> stepInitialize [
-  super stepInitialize.
-  definition := nil.
-  parameters := OrderedCollection new.
-  owner := nil
+	super stepInitialize.
+	definition := nil.
+	parameters := OrderedCollection new.
+	owner := nil
 
 
 ]
 
 { #category : #'platypus-generated-group-accessing' }
 PltSimpleRecord >> toValues: values [
-  ^self simpleRecordToValues: (super toValues: values)
+	^ self simpleRecordToValues: (super toValues: values)
 
 
 ]

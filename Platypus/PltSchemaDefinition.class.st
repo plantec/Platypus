@@ -14,10 +14,10 @@ Class {
 	#name : #PltSchemaDefinition,
 	#superclass : #PltContextDefinition,
 	#instVars : [
-		'mappings',
-		'globalRules',
+		'interface',
 		'remarkReferences',
-		'interface'
+		'mappings',
+		'globalRules'
 	],
 	#category : #'Platypus-PlatypusDictionarySchemaSchema'
 }
@@ -30,7 +30,7 @@ PltSchemaDefinition class >> context [ ^ self schemaDefinition context
 
 { #category : #'platypus-generated-platypus-signature' }
 PltSchemaDefinition class >> iso10303P11Translater [
-  ^'Platypus (c) LISYC EA3883, Universite de Bretagne occidentale. Brest.'
+	^ 'Platypus (c) LISYC EA3883, Universite de Bretagne occidentale. Brest.'
 
 
 ]
@@ -43,98 +43,100 @@ PltSchemaDefinition class >> platypusMetaData [ 	^ self schemaDefinition metaDat
 
 { #category : #'platypus-generated-meta-data-accessing' }
 PltSchemaDefinition class >> schemaDefinition [
-  ^PltPlatypusDictionarySchemaSchemaDefinition singleton
+	^ PltPlatypusDictionarySchemaSchemaDefinition singleton
 
 
 ]
 
 { #category : #'platypus-generated-meta-data-accessing' }
 PltSchemaDefinition class >> schemaInstance [
-  ^PltPlatypusMetaSchemasSchemaInstance singleton
+	^ PltPlatypusMetaSchemasSchemaInstance singleton
 
 
 ]
 
 { #category : #'platypus-generated-platypus-signature' }
 PltSchemaDefinition class >> translatedFromISO10303P11 [
-  ^true
+	^ true
 
 
 ]
 
 { #category : #'platypus-generated-platypus-signature' }
 PltSchemaDefinition class >> vwNamespaceName [
-  ^#Platypus
+	^ #Platypus
 
 
 ]
 
 { #category : #'platypus-generated-visiting' }
 PltSchemaDefinition >> accept: aVisitor [
-  ^aVisitor acceptSchemaDefinition: self
+	^ aVisitor acceptSchemaDefinition: self
 
 
 ]
 
 { #category : #'platypus-generated-deriving' }
 PltSchemaDefinition >> accepted [
-  ^self acceptedUsingContext: self class context
+	^ self acceptedUsingContext: self class context
 
 
 ]
 
 { #category : #'platypus-generated-deriving' }
 PltSchemaDefinition >> acceptedUsingContext: aContext [
-  ^self acceptedUsingContext: aContext receiver: self
+	^ self acceptedUsingContext: aContext receiver: self
 
 
 ]
 
 { #category : #'platypus-generated-deriving' }
 PltSchemaDefinition >> acceptedUsingContext: aContext receiver: aReceiver [
-  ^aReceiver acceptSchemaDefinitionUsingContext: aContext
+	^ aReceiver acceptSchemaDefinitionUsingContext: aContext
 
 
 ]
 
 { #category : #'platypus-generated-fast-set-accessing' }
 PltSchemaDefinition >> fastSetGlobalRules: aListOfPltGlobalRule [
-  globalRules := aListOfPltGlobalRule
+	globalRules := aListOfPltGlobalRule
 
 
 ]
 
 { #category : #'platypus-generated-fast-set-accessing' }
 PltSchemaDefinition >> fastSetInterface: aListOfPltExternalSchema [
-  interface := aListOfPltExternalSchema
+	interface := aListOfPltExternalSchema
 
 
 ]
 
 { #category : #'platypus-generated-fast-set-accessing' }
 PltSchemaDefinition >> fastSetRemarkReferences: aListOfPltRemarkReference [
-  remarkReferences := aListOfPltRemarkReference
+	remarkReferences := aListOfPltRemarkReference
 
 
 ]
 
 { #category : #'platypus-generated-group-accessing' }
 PltSchemaDefinition >> fromValues: values [
-  ^self schemaDefinitionFromValues: (super fromValues: values)
+	^ self schemaDefinitionFromValues: (super fromValues: values)
 
 
 ]
 
 { #category : #'platypus-generated-accessing' }
 PltSchemaDefinition >> globalRules [
-  ^globalRules
+	^ globalRules
 
 
 ]
 
 { #category : #'platypus-generated-accessing' }
 PltSchemaDefinition >> globalRules: aListOfPltGlobalRule [
-  globalRules := aListOfPltGlobalRule ifNil: [ OrderedCollection new ] ifNotNil: [ aListOfPltGlobalRule as: OrderedCollection ]
+	globalRules := aListOfPltGlobalRule
+		ifNil: [ OrderedCollection new ]
+		ifNotNil: [ aListOfPltGlobalRule as: OrderedCollection ]
 
 
 ]
@@ -147,49 +149,51 @@ PltSchemaDefinition >> globalRules: aListOfPltGlobalRule interface: aListOfPltEx
 
 { #category : #'platypus-generated-with-context-accessing' }
 PltSchemaDefinition >> globalRulesUsingContext: aContext [
-  ^self globalRules
+	^ self globalRules
 
 
 ]
 
 { #category : #'platypus-generated-accessing' }
 PltSchemaDefinition >> interface [
-  ^interface
+	^ interface
 
 
 ]
 
 { #category : #'platypus-generated-accessing' }
 PltSchemaDefinition >> interface: aListOfPltExternalSchema [
-  interface := aListOfPltExternalSchema ifNil: [ OrderedCollection new ] ifNotNil: [ aListOfPltExternalSchema as: OrderedCollection ]
+	interface := aListOfPltExternalSchema
+		ifNil: [ OrderedCollection new ]
+		ifNotNil: [ aListOfPltExternalSchema as: OrderedCollection ]
 
 
 ]
 
 { #category : #'platypus-generated-with-context-accessing' }
 PltSchemaDefinition >> interfaceUsingContext: aContext [
-  ^self interface
+	^ self interface
 
 
 ]
 
 { #category : #'platypus-generated-classifying' }
 PltSchemaDefinition >> isPltSchemaDefinition [
-  ^true
+	^ true
 
 
 ]
 
 { #category : #'platypus-generated-group-accessing' }
 PltSchemaDefinition >> localFromValues: values [
-  ^self schemaDefinitionFromValues: values
+	^ self schemaDefinitionFromValues: values
 
 
 ]
 
 { #category : #'platypus-generated-group-accessing' }
 PltSchemaDefinition >> localToValues: values [
-  ^self schemaDefinitionToValues: values
+	^ self schemaDefinitionToValues: values
 
 
 ]
@@ -202,112 +206,116 @@ PltSchemaDefinition >> mappingsUsingContext:aContext [	^ self mappings
 
 { #category : #'platypus-generated-copying' }
 PltSchemaDefinition >> pltCopyGroup: aClassSymbol to: anObject [
-  self class name == aClassSymbol ifTrue: [ self pltCopyTo: anObject ] ifFalse: [ super pltCopyGroup: aClassSymbol to: anObject ]
+	self class name == aClassSymbol
+		ifTrue: [ self pltCopyTo: anObject ]
+		ifFalse: [ super pltCopyGroup: aClassSymbol to: anObject ]
 
 
 ]
 
 { #category : #'platypus-generated-copying' }
 PltSchemaDefinition >> pltCopyTo: another [
-  super pltCopyTo: another.
-  self schemaDefinitionCopyTo: another
+	super pltCopyTo: another.
+	self schemaDefinitionCopyTo: another
 
 
 ]
 
 { #category : #'platypus-generated-copying' }
 PltSchemaDefinition >> pltLocalCopyTo: another [
-  self schemaDefinitionCopyTo: another
+	self schemaDefinitionCopyTo: another
 
 
 ]
 
 { #category : #'platypus-generated-accessing' }
 PltSchemaDefinition >> remarkReferences [
-  ^remarkReferences
+	^ remarkReferences
 
 
 ]
 
 { #category : #'platypus-generated-accessing' }
 PltSchemaDefinition >> remarkReferences: aListOfPltRemarkReference [
-  remarkReferences := aListOfPltRemarkReference ifNil: [ OrderedCollection new ] ifNotNil: [ aListOfPltRemarkReference as: OrderedCollection ]
+	remarkReferences := aListOfPltRemarkReference
+		ifNil: [ OrderedCollection new ]
+		ifNotNil: [ aListOfPltRemarkReference as: OrderedCollection ]
 
 
 ]
 
 { #category : #'platypus-generated-with-context-accessing' }
 PltSchemaDefinition >> remarkReferencesUsingContext: aContext [
-  ^self remarkReferences
+	^ self remarkReferences
 
 
 ]
 
 { #category : #'platypus-generated-copying' }
 PltSchemaDefinition >> schemaDefinitionCopyTo: another [
-  another fastSetGlobalRules: self globalRules.
-  another fastSetInterface: self interface.
-  another fastSetRemarkReferences: self remarkReferences
+	another fastSetGlobalRules: self globalRules.
+	another fastSetInterface: self interface.
+	another fastSetRemarkReferences: self remarkReferences
 
 
 ]
 
 { #category : #'platypus-generated-group-accessing' }
 PltSchemaDefinition >> schemaDefinitionFromValues: values [
-  | valuesloc |
-  valuesloc := values asOrderedCollection.
-  self setGlobalRules: valuesloc removeFirst.
-  self setInterface: valuesloc removeFirst.
-  self setRemarkReferences: valuesloc removeFirst.
-  ^valuesloc
+	| valuesloc |
+	valuesloc := values asOrderedCollection.
+	self setGlobalRules: valuesloc removeFirst.
+	self setInterface: valuesloc removeFirst.
+	self setRemarkReferences: valuesloc removeFirst.
+	^ valuesloc
 
 
 ]
 
 { #category : #'platypus-generated-group-accessing' }
 PltSchemaDefinition >> schemaDefinitionToValues: values [
-  values add: self globalRules.
-  values add: self interface.
-  values add: self remarkReferences.
-  ^values
+	values add: self globalRules.
+	values add: self interface.
+	values add: self remarkReferences.
+	^ values
 
 
 ]
 
 { #category : #'platypus-generated-set-accessing' }
 PltSchemaDefinition >> setGlobalRules: aListOfPltGlobalRule [
-  self globalRules: aListOfPltGlobalRule
+	self globalRules: aListOfPltGlobalRule
 
 
 ]
 
 { #category : #'platypus-generated-set-accessing' }
 PltSchemaDefinition >> setInterface: aListOfPltExternalSchema [
-  self interface: aListOfPltExternalSchema
+	self interface: aListOfPltExternalSchema
 
 
 ]
 
 { #category : #'platypus-generated-set-accessing' }
 PltSchemaDefinition >> setRemarkReferences: aListOfPltRemarkReference [
-  self remarkReferences: aListOfPltRemarkReference
+	self remarkReferences: aListOfPltRemarkReference
 
 
 ]
 
 { #category : #'platypus-generated-initializing' }
 PltSchemaDefinition >> stepInitialize [
-  super stepInitialize.
-  globalRules := OrderedCollection new.
-  interface := OrderedCollection new.
-  remarkReferences := OrderedCollection new
+	super stepInitialize.
+	globalRules := OrderedCollection new.
+	interface := OrderedCollection new.
+	remarkReferences := OrderedCollection new
 
 
 ]
 
 { #category : #'platypus-generated-group-accessing' }
 PltSchemaDefinition >> toValues: values [
-  ^self schemaDefinitionToValues: (super toValues: values)
+	^ self schemaDefinitionToValues: (super toValues: values)
 
 
 ]

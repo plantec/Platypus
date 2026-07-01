@@ -19,7 +19,7 @@ PltInternalGroupRepresentation class >> context [ ^ self schemaDefinition contex
 
 { #category : #'platypus-generated-platypus-signature' }
 PltInternalGroupRepresentation class >> iso10303P11Translater [
-  ^'Platypus (c) LISYC EA3883, Universite de Bretagne occidentale. Brest.'
+	^ 'Platypus (c) LISYC EA3883, Universite de Bretagne occidentale. Brest.'
 
 
 ]
@@ -32,122 +32,124 @@ PltInternalGroupRepresentation class >> platypusMetaData [ 	^ self schemaDefinit
 
 { #category : #'platypus-generated-meta-data-accessing' }
 PltInternalGroupRepresentation class >> schemaDefinition [
-  ^PltPlatypusPopulationSchemaSchemaDefinition singleton
+	^ PltPlatypusPopulationSchemaSchemaDefinition singleton
 
 
 ]
 
 { #category : #'platypus-generated-meta-data-accessing' }
 PltInternalGroupRepresentation class >> schemaInstance [
-  ^PltPlatypusMetaSchemasSchemaInstance singleton
+	^ PltPlatypusMetaSchemasSchemaInstance singleton
 
 
 ]
 
 { #category : #'platypus-generated-platypus-signature' }
 PltInternalGroupRepresentation class >> translatedFromISO10303P11 [
-  ^true
+	^ true
 
 
 ]
 
 { #category : #'platypus-generated-platypus-signature' }
 PltInternalGroupRepresentation class >> vwNamespaceName [
-  ^#Platypus
+	^ #Platypus
 
 
 ]
 
 { #category : #'platypus-generated-visiting' }
 PltInternalGroupRepresentation >> accept: aVisitor [
-  ^aVisitor acceptInternalGroupRepresentation: self
+	^ aVisitor acceptInternalGroupRepresentation: self
 
 
 ]
 
 { #category : #'platypus-generated-group-accessing' }
 PltInternalGroupRepresentation >> fromValues: values [
-  ^self internalGroupRepresentationFromValues: (super fromValues: values)
+	^ self internalGroupRepresentationFromValues: (super fromValues: values)
 
 
 ]
 
 { #category : #'platypus-generated-copying' }
 PltInternalGroupRepresentation >> internalGroupRepresentationCopyTo: another [
-  
+	
 
 
 ]
 
 { #category : #'platypus-generated-group-accessing' }
 PltInternalGroupRepresentation >> internalGroupRepresentationFromValues: values [
-  | valuesloc |
-  valuesloc := values asOrderedCollection.
-  ^valuesloc
+	| valuesloc |
+	valuesloc := values asOrderedCollection.
+	^ valuesloc
 
 
 ]
 
 { #category : #'platypus-generated-group-accessing' }
 PltInternalGroupRepresentation >> internalGroupRepresentationToValues: values [
-  ^values
+	^ values
 
 
 ]
 
 { #category : #'platypus-generated-classifying' }
 PltInternalGroupRepresentation >> isPltInternalGroupRepresentation [
-  ^true
+	^ true
 
 
 ]
 
 { #category : #'platypus-generated-group-accessing' }
 PltInternalGroupRepresentation >> localFromValues: values [
-  ^self internalGroupRepresentationFromValues: values
+	^ self internalGroupRepresentationFromValues: values
 
 
 ]
 
 { #category : #'platypus-generated-group-accessing' }
 PltInternalGroupRepresentation >> localToValues: values [
-  ^self internalGroupRepresentationToValues: values
+	^ self internalGroupRepresentationToValues: values
 
 
 ]
 
 { #category : #'platypus-generated-copying' }
 PltInternalGroupRepresentation >> pltCopyGroup: aClassSymbol to: anObject [
-  self class name == aClassSymbol ifTrue: [ self pltCopyTo: anObject ] ifFalse: [ super pltCopyGroup: aClassSymbol to: anObject ]
+	self class name == aClassSymbol
+		ifTrue: [ self pltCopyTo: anObject ]
+		ifFalse: [ super pltCopyGroup: aClassSymbol to: anObject ]
 
 
 ]
 
 { #category : #'platypus-generated-copying' }
 PltInternalGroupRepresentation >> pltCopyTo: another [
-  super pltCopyTo: another.
-  self internalGroupRepresentationCopyTo: another
+	super pltCopyTo: another.
+	self internalGroupRepresentationCopyTo: another
 
 
 ]
 
 { #category : #'platypus-generated-copying' }
 PltInternalGroupRepresentation >> pltLocalCopyTo: another [
-  self internalGroupRepresentationCopyTo: another
+	self internalGroupRepresentationCopyTo: another
 
 
 ]
 
 { #category : #'platypus-generated-initializing' }
 PltInternalGroupRepresentation >> stepInitialize [
-  super stepInitialize
+	super stepInitialize
 
 
 ]
 
 { #category : #'platypus-generated-group-accessing' }
 PltInternalGroupRepresentation >> toValues: values [
-  ^self internalGroupRepresentationToValues: (super toValues: values)
+	^ self internalGroupRepresentationToValues: (super toValues: values)
 
 
 ]

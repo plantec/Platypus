@@ -26,7 +26,7 @@ PltEnumerationType class >> context [ ^ self schemaDefinition context
 
 { #category : #'platypus-generated-platypus-signature' }
 PltEnumerationType class >> iso10303P11Translater [
-  ^'Platypus (c) LISYC EA3883, Universite de Bretagne occidentale. Brest.'
+	^ 'Platypus (c) LISYC EA3883, Universite de Bretagne occidentale. Brest.'
 
 
 ]
@@ -39,70 +39,70 @@ PltEnumerationType class >> platypusMetaData [ 	^ self schemaDefinition metaData
 
 { #category : #'platypus-generated-meta-data-accessing' }
 PltEnumerationType class >> schemaDefinition [
-  ^PltPlatypusDictionarySchemaSchemaDefinition singleton
+	^ PltPlatypusDictionarySchemaSchemaDefinition singleton
 
 
 ]
 
 { #category : #'platypus-generated-meta-data-accessing' }
 PltEnumerationType class >> schemaInstance [
-  ^PltPlatypusMetaSchemasSchemaInstance singleton
+	^ PltPlatypusMetaSchemasSchemaInstance singleton
 
 
 ]
 
 { #category : #'platypus-generated-platypus-signature' }
 PltEnumerationType class >> translatedFromISO10303P11 [
-  ^true
+	^ true
 
 
 ]
 
 { #category : #'platypus-generated-platypus-signature' }
 PltEnumerationType class >> vwNamespaceName [
-  ^#Platypus
+	^ #Platypus
 
 
 ]
 
 { #category : #'platypus-generated-visiting' }
 PltEnumerationType >> accept: aVisitor [
-  ^aVisitor acceptEnumerationType: self
+	^ aVisitor acceptEnumerationType: self
 
 
 ]
 
 { #category : #'platypus-generated-deriving' }
 PltEnumerationType >> accepted [
-  ^self acceptedUsingContext: self class context
+	^ self acceptedUsingContext: self class context
 
 
 ]
 
 { #category : #'platypus-generated-deriving' }
 PltEnumerationType >> acceptedUsingContext: aContext [
-  ^self acceptedUsingContext: aContext receiver: self
+	^ self acceptedUsingContext: aContext receiver: self
 
 
 ]
 
 { #category : #'platypus-generated-deriving' }
 PltEnumerationType >> acceptedUsingContext: aContext receiver: aReceiver [
-  ^aReceiver acceptEnumerationTypeUsingContext: aContext
+	^ aReceiver acceptEnumerationTypeUsingContext: aContext
 
 
 ]
 
 { #category : #'platypus-generated-accessing' }
 PltEnumerationType >> elements [
-  ^elements
+	^ elements
 
 
 ]
 
 { #category : #'platypus-generated-accessing' }
 PltEnumerationType >> elements: aListOfString [
-  elements := aListOfString ifNil: [ OrderedCollection new ] ifNotNil: [ aListOfString as: OrderedCollection ]
+	elements := aListOfString ifNil: [ OrderedCollection new ] ifNotNil: [ aListOfString as: OrderedCollection ]
 
 
 ]
@@ -115,150 +115,152 @@ PltEnumerationType >> elements: aListOfString owner: aPltDefinedType [ 	self set
 
 { #category : #'platypus-generated-with-context-accessing' }
 PltEnumerationType >> elementsUsingContext: aContext [
-  ^self elements
+	^ self elements
 
 
 ]
 
 { #category : #'platypus-generated-copying' }
 PltEnumerationType >> enumerationTypeCopyTo: another [
-  another fastSetElements: self elements.
-  another fastSetOwner: self owner
+	another fastSetElements: self elements.
+	another fastSetOwner: self owner
 
 
 ]
 
 { #category : #'platypus-generated-group-accessing' }
 PltEnumerationType >> enumerationTypeFromValues: values [
-  | valuesloc |
-  valuesloc := values asOrderedCollection.
-  self setElements: valuesloc removeFirst.
-  self setOwner: valuesloc removeFirst.
-  ^valuesloc
+	| valuesloc |
+	valuesloc := values asOrderedCollection.
+	self setElements: valuesloc removeFirst.
+	self setOwner: valuesloc removeFirst.
+	^ valuesloc
 
 
 ]
 
 { #category : #'platypus-generated-group-accessing' }
 PltEnumerationType >> enumerationTypeToValues: values [
-  values add: self elements.
-  values add: self owner.
-  ^values
+	values add: self elements.
+	values add: self owner.
+	^ values
 
 
 ]
 
 { #category : #'platypus-generated-fast-set-accessing' }
 PltEnumerationType >> fastSetElements: aListOfString [
-  elements := aListOfString
+	elements := aListOfString
 
 
 ]
 
 { #category : #'platypus-generated-fast-set-accessing' }
 PltEnumerationType >> fastSetOwner: aPltDefinedType [
-  owner := aPltDefinedType
+	owner := aPltDefinedType
 
 
 ]
 
 { #category : #'platypus-generated-group-accessing' }
 PltEnumerationType >> fromValues: values [
-  ^self enumerationTypeFromValues: (super fromValues: values)
+	^ self enumerationTypeFromValues: (super fromValues: values)
 
 
 ]
 
 { #category : #'platypus-generated-classifying' }
 PltEnumerationType >> isPltEnumerationType [
-  ^true
+	^ true
 
 
 ]
 
 { #category : #'platypus-generated-group-accessing' }
 PltEnumerationType >> localFromValues: values [
-  ^self enumerationTypeFromValues: values
+	^ self enumerationTypeFromValues: values
 
 
 ]
 
 { #category : #'platypus-generated-group-accessing' }
 PltEnumerationType >> localToValues: values [
-  ^self enumerationTypeToValues: values
+	^ self enumerationTypeToValues: values
 
 
 ]
 
 { #category : #'platypus-generated-accessing' }
 PltEnumerationType >> owner [
-  ^owner
+	^ owner
 
 
 ]
 
 { #category : #'platypus-generated-accessing' }
 PltEnumerationType >> owner: aPltDefinedType [
-  owner := aPltDefinedType
+	owner := aPltDefinedType
 
 
 ]
 
 { #category : #'platypus-generated-with-context-accessing' }
 PltEnumerationType >> ownerUsingContext: aContext [
-  ^self owner
+	^ self owner
 
 
 ]
 
 { #category : #'platypus-generated-copying' }
 PltEnumerationType >> pltCopyGroup: aClassSymbol to: anObject [
-  self class name == aClassSymbol ifTrue: [ self pltCopyTo: anObject ] ifFalse: [ super pltCopyGroup: aClassSymbol to: anObject ]
+	self class name == aClassSymbol
+		ifTrue: [ self pltCopyTo: anObject ]
+		ifFalse: [ super pltCopyGroup: aClassSymbol to: anObject ]
 
 
 ]
 
 { #category : #'platypus-generated-copying' }
 PltEnumerationType >> pltCopyTo: another [
-  super pltCopyTo: another.
-  self enumerationTypeCopyTo: another
+	super pltCopyTo: another.
+	self enumerationTypeCopyTo: another
 
 
 ]
 
 { #category : #'platypus-generated-copying' }
 PltEnumerationType >> pltLocalCopyTo: another [
-  self enumerationTypeCopyTo: another
+	self enumerationTypeCopyTo: another
 
 
 ]
 
 { #category : #'platypus-generated-set-accessing' }
 PltEnumerationType >> setElements: aListOfString [
-  self elements: aListOfString
+	self elements: aListOfString
 
 
 ]
 
 { #category : #'platypus-generated-set-accessing' }
 PltEnumerationType >> setOwner: aPltDefinedType [
-  self owner: aPltDefinedType
+	self owner: aPltDefinedType
 
 
 ]
 
 { #category : #'platypus-generated-initializing' }
 PltEnumerationType >> stepInitialize [
-  super stepInitialize.
-  elements := OrderedCollection new.
-  owner := nil
+	super stepInitialize.
+	elements := OrderedCollection new.
+	owner := nil
 
 
 ]
 
 { #category : #'platypus-generated-group-accessing' }
 PltEnumerationType >> toValues: values [
-  ^self enumerationTypeToValues: (super toValues: values)
+	^ self enumerationTypeToValues: (super toValues: values)
 
 
 ]

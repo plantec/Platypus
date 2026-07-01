@@ -27,7 +27,7 @@ PltBinaryType class >> context [ ^ self schemaDefinition context
 
 { #category : #'platypus-generated-platypus-signature' }
 PltBinaryType class >> iso10303P11Translater [
-  ^'Platypus (c) LISYC EA3883, Universite de Bretagne occidentale. Brest.'
+	^ 'Platypus (c) LISYC EA3883, Universite de Bretagne occidentale. Brest.'
 
 
 ]
@@ -40,213 +40,215 @@ PltBinaryType class >> platypusMetaData [ 	^ self schemaDefinition metaDataFor: 
 
 { #category : #'platypus-generated-meta-data-accessing' }
 PltBinaryType class >> schemaDefinition [
-  ^PltPlatypusDictionarySchemaSchemaDefinition singleton
+	^ PltPlatypusDictionarySchemaSchemaDefinition singleton
 
 
 ]
 
 { #category : #'platypus-generated-meta-data-accessing' }
 PltBinaryType class >> schemaInstance [
-  ^PltPlatypusMetaSchemasSchemaInstance singleton
+	^ PltPlatypusMetaSchemasSchemaInstance singleton
 
 
 ]
 
 { #category : #'platypus-generated-platypus-signature' }
 PltBinaryType class >> translatedFromISO10303P11 [
-  ^true
+	^ true
 
 
 ]
 
 { #category : #'platypus-generated-platypus-signature' }
 PltBinaryType class >> vwNamespaceName [
-  ^#Platypus
+	^ #Platypus
 
 
 ]
 
 { #category : #'platypus-generated-visiting' }
 PltBinaryType >> accept: aVisitor [
-  ^aVisitor acceptBinaryType: self
+	^ aVisitor acceptBinaryType: self
 
 
 ]
 
 { #category : #'platypus-generated-deriving' }
 PltBinaryType >> accepted [
-  ^self acceptedUsingContext: self class context
+	^ self acceptedUsingContext: self class context
 
 
 ]
 
 { #category : #'platypus-generated-deriving' }
 PltBinaryType >> acceptedUsingContext: aContext [
-  ^self acceptedUsingContext: aContext receiver: self
+	^ self acceptedUsingContext: aContext receiver: self
 
 
 ]
 
 { #category : #'platypus-generated-deriving' }
 PltBinaryType >> acceptedUsingContext: aContext receiver: aReceiver [
-  ^aReceiver acceptBinaryTypeUsingContext: aContext
+	^ aReceiver acceptBinaryTypeUsingContext: aContext
 
 
 ]
 
 { #category : #'platypus-generated-copying' }
 PltBinaryType >> binaryTypeCopyTo: another [
-  another fastSetWidth: self width.
-  another fastSetFixedWidth: self fixedWidth
+	another fastSetWidth: self width.
+	another fastSetFixedWidth: self fixedWidth
 
 
 ]
 
 { #category : #'platypus-generated-group-accessing' }
 PltBinaryType >> binaryTypeFromValues: values [
-  | valuesloc |
-  valuesloc := values asOrderedCollection.
-  self setWidth: valuesloc removeFirst.
-  self setFixedWidth: valuesloc removeFirst.
-  ^valuesloc
+	| valuesloc |
+	valuesloc := values asOrderedCollection.
+	self setWidth: valuesloc removeFirst.
+	self setFixedWidth: valuesloc removeFirst.
+	^ valuesloc
 
 
 ]
 
 { #category : #'platypus-generated-group-accessing' }
 PltBinaryType >> binaryTypeToValues: values [
-  values add: self width.
-  values add: self fixedWidth.
-  ^values
+	values add: self width.
+	values add: self fixedWidth.
+	^ values
 
 
 ]
 
 { #category : #'platypus-generated-fast-set-accessing' }
 PltBinaryType >> fastSetFixedWidth: aBoolean [
-  fixedWidth := aBoolean
+	fixedWidth := aBoolean
 
 
 ]
 
 { #category : #'platypus-generated-fast-set-accessing' }
 PltBinaryType >> fastSetWidth: aPltBound [
-  width := aPltBound
+	width := aPltBound
 
 
 ]
 
 { #category : #'platypus-generated-accessing' }
 PltBinaryType >> fixedWidth [
-  ^fixedWidth
+	^ fixedWidth
 
 
 ]
 
 { #category : #'platypus-generated-accessing' }
 PltBinaryType >> fixedWidth: aBoolean [
-  fixedWidth := aBoolean
+	fixedWidth := aBoolean
 
 
 ]
 
 { #category : #'platypus-generated-with-context-accessing' }
 PltBinaryType >> fixedWidthUsingContext: aContext [
-  ^self fixedWidth
+	^ self fixedWidth
 
 
 ]
 
 { #category : #'platypus-generated-group-accessing' }
 PltBinaryType >> fromValues: values [
-  ^self binaryTypeFromValues: (super fromValues: values)
+	^ self binaryTypeFromValues: (super fromValues: values)
 
 
 ]
 
 { #category : #'platypus-generated-classifying' }
 PltBinaryType >> isPltBinaryType [
-  ^true
+	^ true
 
 
 ]
 
 { #category : #'platypus-generated-group-accessing' }
 PltBinaryType >> localFromValues: values [
-  ^self binaryTypeFromValues: values
+	^ self binaryTypeFromValues: values
 
 
 ]
 
 { #category : #'platypus-generated-group-accessing' }
 PltBinaryType >> localToValues: values [
-  ^self binaryTypeToValues: values
+	^ self binaryTypeToValues: values
 
 
 ]
 
 { #category : #'platypus-generated-copying' }
 PltBinaryType >> pltCopyGroup: aClassSymbol to: anObject [
-  self class name == aClassSymbol ifTrue: [ self pltCopyTo: anObject ] ifFalse: [ super pltCopyGroup: aClassSymbol to: anObject ]
+	self class name == aClassSymbol
+		ifTrue: [ self pltCopyTo: anObject ]
+		ifFalse: [ super pltCopyGroup: aClassSymbol to: anObject ]
 
 
 ]
 
 { #category : #'platypus-generated-copying' }
 PltBinaryType >> pltCopyTo: another [
-  super pltCopyTo: another.
-  self binaryTypeCopyTo: another
+	super pltCopyTo: another.
+	self binaryTypeCopyTo: another
 
 
 ]
 
 { #category : #'platypus-generated-copying' }
 PltBinaryType >> pltLocalCopyTo: another [
-  self binaryTypeCopyTo: another
+	self binaryTypeCopyTo: another
 
 
 ]
 
 { #category : #'platypus-generated-set-accessing' }
 PltBinaryType >> setFixedWidth: aBoolean [
-  self fixedWidth: aBoolean
+	self fixedWidth: aBoolean
 
 
 ]
 
 { #category : #'platypus-generated-set-accessing' }
 PltBinaryType >> setWidth: aPltBound [
-  self width: aPltBound
+	self width: aPltBound
 
 
 ]
 
 { #category : #'platypus-generated-initializing' }
 PltBinaryType >> stepInitialize [
-  super stepInitialize.
-  width := nil.
-  fixedWidth := false
+	super stepInitialize.
+	width := nil.
+	fixedWidth := false
 
 
 ]
 
 { #category : #'platypus-generated-group-accessing' }
 PltBinaryType >> toValues: values [
-  ^self binaryTypeToValues: (super toValues: values)
+	^ self binaryTypeToValues: (super toValues: values)
 
 
 ]
 
 { #category : #'platypus-generated-accessing' }
 PltBinaryType >> width [
-  ^width
+	^ width
 
 
 ]
 
 { #category : #'platypus-generated-accessing' }
 PltBinaryType >> width: aPltBound [
-  width := aPltBound
+	width := aPltBound
 
 
 ]
@@ -259,7 +261,7 @@ PltBinaryType >> width: aPltBound fixedWidth: aBoolean [ 	self setWidth:aPltBoun
 
 { #category : #'platypus-generated-with-context-accessing' }
 PltBinaryType >> widthUsingContext: aContext [
-  ^self width
+	^ self width
 
 
 ]

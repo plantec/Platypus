@@ -1262,9 +1262,9 @@ PlatypusExpressParser >> registerNamedType: aData named: anIdentifier [
 PlatypusExpressParser >> remarkReference: aRemarkToken [ 
 	| remarkRef rem keys idents iref ctxt |
 	rem := aRemarkToken lexicalElement.
-	keys := rem findBetweenSubstrings: #($" $< $> ).
+	keys := rem findBetweenSubStrs: #($" $< $> ).
 	keys size > 1
-		ifTrue: [idents := keys first findBetweenSubstrings: #($. ).
+		ifTrue: [idents := keys first findBetweenSubStrs: #($. ).
 			idents notEmpty
 				ifTrue: [remarkRef := self new: PltRemarkReference.
 					remarkRef setRemark: aRemarkToken asPltRemark.

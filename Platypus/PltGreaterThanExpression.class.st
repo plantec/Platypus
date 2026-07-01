@@ -19,7 +19,7 @@ PltGreaterThanExpression class >> context [ ^ self schemaDefinition context
 
 { #category : #'platypus-generated-platypus-signature' }
 PltGreaterThanExpression class >> iso10303P11Translater [
-  ^'Platypus (c) LISYC EA3883, Universite de Bretagne occidentale. Brest.'
+	^ 'Platypus (c) LISYC EA3883, Universite de Bretagne occidentale. Brest.'
 
 
 ]
@@ -32,122 +32,124 @@ PltGreaterThanExpression class >> platypusMetaData [ 	^ self schemaDefinition me
 
 { #category : #'platypus-generated-meta-data-accessing' }
 PltGreaterThanExpression class >> schemaDefinition [
-  ^PltPlatypusExpressionsSchemaSchemaDefinition singleton
+	^ PltPlatypusExpressionsSchemaSchemaDefinition singleton
 
 
 ]
 
 { #category : #'platypus-generated-meta-data-accessing' }
 PltGreaterThanExpression class >> schemaInstance [
-  ^PltPlatypusMetaSchemasSchemaInstance singleton
+	^ PltPlatypusMetaSchemasSchemaInstance singleton
 
 
 ]
 
 { #category : #'platypus-generated-platypus-signature' }
 PltGreaterThanExpression class >> translatedFromISO10303P11 [
-  ^true
+	^ true
 
 
 ]
 
 { #category : #'platypus-generated-platypus-signature' }
 PltGreaterThanExpression class >> vwNamespaceName [
-  ^#Platypus
+	^ #Platypus
 
 
 ]
 
 { #category : #'platypus-generated-visiting' }
 PltGreaterThanExpression >> accept: aVisitor [
-  ^aVisitor acceptGreaterThanExpression: self
+	^ aVisitor acceptGreaterThanExpression: self
 
 
 ]
 
 { #category : #'platypus-generated-group-accessing' }
 PltGreaterThanExpression >> fromValues: values [
-  ^self greaterThanExpressionFromValues: (super fromValues: values)
+	^ self greaterThanExpressionFromValues: (super fromValues: values)
 
 
 ]
 
 { #category : #'platypus-generated-copying' }
 PltGreaterThanExpression >> greaterThanExpressionCopyTo: another [
-  
+	
 
 
 ]
 
 { #category : #'platypus-generated-group-accessing' }
 PltGreaterThanExpression >> greaterThanExpressionFromValues: values [
-  | valuesloc |
-  valuesloc := values asOrderedCollection.
-  ^valuesloc
+	| valuesloc |
+	valuesloc := values asOrderedCollection.
+	^ valuesloc
 
 
 ]
 
 { #category : #'platypus-generated-group-accessing' }
 PltGreaterThanExpression >> greaterThanExpressionToValues: values [
-  ^values
+	^ values
 
 
 ]
 
 { #category : #'platypus-generated-classifying' }
 PltGreaterThanExpression >> isPltGreaterThanExpression [
-  ^true
+	^ true
 
 
 ]
 
 { #category : #'platypus-generated-group-accessing' }
 PltGreaterThanExpression >> localFromValues: values [
-  ^self greaterThanExpressionFromValues: values
+	^ self greaterThanExpressionFromValues: values
 
 
 ]
 
 { #category : #'platypus-generated-group-accessing' }
 PltGreaterThanExpression >> localToValues: values [
-  ^self greaterThanExpressionToValues: values
+	^ self greaterThanExpressionToValues: values
 
 
 ]
 
 { #category : #'platypus-generated-copying' }
 PltGreaterThanExpression >> pltCopyGroup: aClassSymbol to: anObject [
-  self class name == aClassSymbol ifTrue: [ self pltCopyTo: anObject ] ifFalse: [ super pltCopyGroup: aClassSymbol to: anObject ]
+	self class name == aClassSymbol
+		ifTrue: [ self pltCopyTo: anObject ]
+		ifFalse: [ super pltCopyGroup: aClassSymbol to: anObject ]
 
 
 ]
 
 { #category : #'platypus-generated-copying' }
 PltGreaterThanExpression >> pltCopyTo: another [
-  super pltCopyTo: another.
-  self greaterThanExpressionCopyTo: another
+	super pltCopyTo: another.
+	self greaterThanExpressionCopyTo: another
 
 
 ]
 
 { #category : #'platypus-generated-copying' }
 PltGreaterThanExpression >> pltLocalCopyTo: another [
-  self greaterThanExpressionCopyTo: another
+	self greaterThanExpressionCopyTo: another
 
 
 ]
 
 { #category : #'platypus-generated-initializing' }
 PltGreaterThanExpression >> stepInitialize [
-  super stepInitialize
+	super stepInitialize
 
 
 ]
 
 { #category : #'platypus-generated-group-accessing' }
 PltGreaterThanExpression >> toValues: values [
-  ^self greaterThanExpressionToValues: (super toValues: values)
+	^ self greaterThanExpressionToValues: (super toValues: values)
 
 
 ]
