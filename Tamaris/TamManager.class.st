@@ -1,6 +1,6 @@
 Class {
-	#name : #TamManager,
-	#superclass : #Object,
+	#name : 'TamManager',
+	#superclass : 'Object',
 	#instVars : [
 		'mainWindow',
 		'selectedTaxonomy',
@@ -20,58 +20,60 @@ Class {
 		'LogSystemChanges',
 		'Taxonomies'
 	],
-	#category : #'Tamaris-UI'
+	#category : 'Tamaris-UI',
+	#package : 'Tamaris',
+	#tag : 'UI'
 }
 
-{ #category : #'copy/paste' }
+{ #category : 'copy/paste' }
 TamManager class >> addSelection: aCollection [ 
 	self copyPasteBuffer
 		addAll: (aCollection
 				select: [:item | item isReleased not])
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TamManager class >> allTaxonomiesNamed: anIdent [ 
 	^ self
 		allTaxonomiesSuchThat: [:c | c taxonomy listLabel = anIdent]
 
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TamManager class >> allTaxonomiesSuchThat: aBlock [ 
 	^ self taxonomies select: [ :c | (aBlock value: c)]
 
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TamManager class >> buttonExtent [ 
 	^ Tamaris buttonExtent
 ]
 
-{ #category : #'copy/paste' }
+{ #category : 'copy/paste' }
 TamManager class >> copyPasteBuffer [
 	^ CopyPasteBuffer
 		
 ]
 
-{ #category : #'copy/paste' }
+{ #category : 'copy/paste' }
 TamManager class >> copyPasteBuffer: aSet [ 
 	CopyPasteBuffer := aSet
 ]
 
-{ #category : #'copy/paste' }
+{ #category : 'copy/paste' }
 TamManager class >> copyPasteBufferList [
 	^ self copyPasteBuffer
 		select: [:item | item isReleased not]
 ]
 
-{ #category : #'copy/paste' }
+{ #category : 'copy/paste' }
 TamManager class >> copySelection: aCollection [ 
 	self copyPasteBuffer: WeakSet  new.
 	self addSelection: aCollection
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TamManager class >> droppringArea [
 	^ DroppingArea ifNil: [
 	DroppingArea := AlignmentMorph newVariableTransparentSpacer.
@@ -84,32 +86,31 @@ TamManager class >> droppringArea [
 
 ]
 
-{ #category : #'system changes handling' }
+{ #category : 'system changes handling' }
 TamManager class >> event: anEvent [ 
 	"Hook for SystemChangeNotifier"
 
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TamManager class >> fromFileListTaxonomy [
 	^ ((self taxonomyNamed: TamManagerItem fromFileListTaxonName)
 		ifNil: [self newTaxonomyNamed: TamManagerItem fromFileListTaxonName]) taxonomy
 ]
 
-{ #category : #preferences }
+{ #category : 'preferences' }
 TamManager class >> initialExtent [	^ InitialExtent	
 ]
 
-{ #category : #preferences }
+{ #category : 'preferences' }
 TamManager class >> initialExtent: aPoint [ 
 	InitialExtent := aPoint
 ]
 
-{ #category : #'class initialization' }
+{ #category : 'class initialization' }
 TamManager class >> initialize [
 	"self initialize"
 
-	self breakDependents.
 	Taxonomies := SortedCollection sortBlock: 
 					[:a :b | 
 					a asStringOrText first = $< or: [a asStringOrText < b asStringOrText]].
@@ -119,36 +120,36 @@ TamManager class >> initialize [
 
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TamManager class >> listWidth [
 	^ ListWidth ifNil: [ListWidth := 120]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TamManager class >> listWidth: anInteger [
 	ListWidth := anInteger
 ]
 
-{ #category : #'system changes handling' }
+{ #category : 'system changes handling' }
 TamManager class >> logChange: message [ 
 	LogSystemChanges  ifTrue: [Transcript show: '[TamManager: ' , message , ']' , String cr]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TamManager class >> mainButtonLabel [
 	^'Platypus'
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TamManager class >> managerOpenCommandName [	^ 'Tam taxonomies manager'
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TamManager class >> maxRecentsSize [
 	^ 40
 ]
 
-{ #category : #'taxonomies managing' }
+{ #category : 'taxonomies managing' }
 TamManager class >> newTaxonomy: aNewTaxonomy [ 
 	self taxonomies add: aNewTaxonomy.
 	self sort.
@@ -156,13 +157,13 @@ TamManager class >> newTaxonomy: aNewTaxonomy [
 	^ aNewTaxonomy
 ]
 
-{ #category : #'taxonomies managing' }
+{ #category : 'taxonomies managing' }
 TamManager class >> newTaxonomyNamed: anIdent [ 
 	^ self
 		newTaxonomy: (TamManagerItem rootNamed: anIdent)
 ]
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 TamManager class >> open [
 	"self open"
 
@@ -172,11 +173,11 @@ TamManager class >> open [
 	^newTaxonomiesManager buildMainWindow openInWorld
 ]
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 TamManager class >> openInWindow: aWindow [ 	^ self openInWindow: aWindow direction: #toRight
 ]
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 TamManager class >> openInWindow: aWindow direction: ToRightOrToLeft [ 
 	| newTaxonomiesManager |
 	newTaxonomiesManager := self new.
@@ -185,35 +186,35 @@ TamManager class >> openInWindow: aWindow direction: ToRightOrToLeft [
 	^newTaxonomiesManager buildWindow: aWindow direction: ToRightOrToLeft
 ]
 
-{ #category : #'fileIn/Out' }
+{ #category : 'fileIn/Out' }
 TamManager class >> saveAllSet [
 	^ ((self taxonomies
 		select: [:cls | cls isDefault not])
 		collect: [:cls | cls taxonomy linked]) asSet
 ]
 
-{ #category : #'taxonomies managing' }
+{ #category : 'taxonomies managing' }
 TamManager class >> sort [
 	self taxonomies reSort
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TamManager class >> taxonomies [	^ Taxonomies
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TamManager class >> taxonomyIndexSuchThat: aBlock [ 	1 to: self taxonomies size		do: [:idx | (aBlock					value: (self taxonomies at: idx))				ifTrue: [^ idx]].	^ 0
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TamManager class >> taxonomyNamed: anIdent [ 	^ self taxonomies		detect: [:c | c asStringOrText = anIdent]		ifNone: []
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TamManager class >> taxonomyOf: aListItemReference [ 	^ self taxonomies		detect: [:c | c taxonomy = aListItemReference]		ifNone: []
 ]
 
-{ #category : #'drag and drop' }
+{ #category : 'drag and drop' }
 TamManager class >> wantsDroppedMorph: transferMorph event: anEvent inMorph: destinationLM [ 
 	(transferMorph respondsTo:#passenger) ifFalse: [^ false].
 	(transferMorph passenger isKindOf: TamListItemReference) 
@@ -221,7 +222,7 @@ TamManager class >> wantsDroppedMorph: transferMorph event: anEvent inMorph: des
 	^ false
 ]
 
-{ #category : #'drag and drop' }
+{ #category : 'drag and drop' }
 TamManager >> acceptDroppingMorph: transferMorph event: evt inMorph: dstListMorph [ 
 	| destItem item itemName passenger |
 	(transferMorph respondsTo: #passenger) 
@@ -247,7 +248,7 @@ TamManager >> acceptDroppingMorph: transferMorph event: evt inMorph: dstListMorp
 	^ false
 ]
 
-{ #category : #'ui building' }
+{ #category : 'ui building' }
 TamManager >> addButtons [
 	| mainButton |
 	mainButton :=  (Smalltalk ui theme
@@ -265,30 +266,30 @@ TamManager >> addButtons [
 	listBtnRow addMorph: listButtons
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TamManager >> allTaxonomiesNamed: anIdent [ 	^ self class allTaxonomiesNamed: anIdent 
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TamManager >> allTaxonomiesSuchThat: aBlock [ 
 	^ self class allTaxonomiesSuchThat: aBlock 
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TamManager >> boldBlueSelection [
 	^ (listMorph respondsTo: #boldBlueEmphasisSet)
 		ifTrue: [listMorph boldBlueEmphasisSet asOrderedCollection]
 		ifFalse: [#() asOrderedCollection]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TamManager >> boldRedSelection [
 	^ (listMorph respondsTo: #boldRedEmphasisSet)
 		ifTrue: [listMorph boldRedEmphasisSet asOrderedCollection]
 		ifFalse: [#() asOrderedCollection]
 ]
 
-{ #category : #updating }
+{ #category : 'updating' }
 TamManager >> boundsOf: oneOfMyMorphs updatedWith: newBounds [ 
 	mainWindow
 		ifNotNil: [oneOfMyMorphs == listMorph
@@ -297,18 +298,18 @@ TamManager >> boundsOf: oneOfMyMorphs updatedWith: newBounds [
 							]]]
 ]
 
-{ #category : #'button actions' }
+{ #category : 'button actions' }
 TamManager >> browseTaxonomy [
 	self selectedTaxonomy notNil
 		ifTrue: [^ self browseTaxonomy: self selectedTaxonomy]
 		ifFalse: [^ (self buildMenuBrowseTaxonomy: MenuMorph new) popUpInWorld]
 ]
 
-{ #category : #'button actions' }
+{ #category : 'button actions' }
 TamManager >> browseTaxonomy: aTaxonomy [	^ aTaxonomy taxonomy menuBrowse
 ]
 
-{ #category : #'ui building' }
+{ #category : 'ui building' }
 TamManager >> buildMainWindow [
 	mainWindow := (StandardWindow labelled: self class managerOpenCommandName) model: self;
 				 yourself. 
@@ -317,28 +318,28 @@ TamManager >> buildMainWindow [
 	^ mainWindow
 ]
 
-{ #category : #menu }
+{ #category : 'menu' }
 TamManager >> buildMenuBrowseTaxonomy: aMenu [ 	^ self genericMenu: aMenu selector: #browseTaxonomy:
 ]
 
-{ #category : #menu }
+{ #category : 'menu' }
 TamManager >> buildMenuDeleteTaxonomy: aMenu [ 	^ self genericMenu: aMenu selector: #deleteTaxonomy:
 ]
 
-{ #category : #menu }
+{ #category : 'menu' }
 TamManager >> buildMenuEmptyTaxonomy: aMenu [ 	^ self genericMenu: aMenu selector: #emptyTaxonomy:
 ]
 
-{ #category : #menu }
+{ #category : 'menu' }
 TamManager >> buildMenuLinkTaxonomy: aMenu [ 	^ self genericMenu: aMenu selector: #linkTaxonomy:
 ]
 
-{ #category : #'ui building' }
+{ #category : 'ui building' }
 TamManager >> buildWindow: aWindow [ 	
 	^ self buildWindow: aWindow direction: #toRight
 ]
 
-{ #category : #'ui building' }
+{ #category : 'ui building' }
 TamManager >> buildWindow: aWindow direction: toRightOrToLeft [ 
 	| listBtnRowFrame listMorphFrame editorSubWindowFrame topRowHeight |
 	topRowHeight := listBtnRowHeight + 2.
@@ -390,18 +391,18 @@ TamManager >> buildWindow: aWindow direction: toRightOrToLeft [
 	^ aWindow
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TamManager >> buttonExtent [
 	^self class buttonExtent
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 TamManager >> canRemovePane [
 	^ self taxonomyPane notNil
 				and: [self taxonomyPane editorSubWindows size > 1]
 ]
 
-{ #category : #'taxonomies managing' }
+{ #category : 'taxonomies managing' }
 TamManager >> changeSelectedTaxonomy: aTaxonomy [ 
 	| selected oldSelected |
 	self taxonomyBrowser okToChange
@@ -420,7 +421,7 @@ TamManager >> changeSelectedTaxonomy: aTaxonomy [
 	^ false
 ]
 
-{ #category : #'taxonomies managing' }
+{ #category : 'taxonomies managing' }
 TamManager >> changeSelectedTaxonomyFromWrapper: aWrapper [ 
 	| rootRefIdx |
 	rootRefIdx := self taxonomyItemIndexFromWrapper: aWrapper.
@@ -428,7 +429,7 @@ TamManager >> changeSelectedTaxonomyFromWrapper: aWrapper [
 		ifTrue: [^ self taxonomyBrowser noteNewSelectionDeeply: aWrapper]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TamManager >> currentSelection [
 	| sel |
 	sel := (self boldRedSelection , self boldBlueSelection) copy.
@@ -436,7 +437,7 @@ TamManager >> currentSelection [
 	^ sel
 ]
 
-{ #category : #menu }
+{ #category : 'menu' }
 TamManager >> deleteTaxonomy: aTaxonomy [ 
 	| oldSelectedIndex |
 	aTaxonomy
@@ -450,9 +451,9 @@ TamManager >> deleteTaxonomy: aTaxonomy [
 
 ]
 
-{ #category : #'initialize/release' }
+{ #category : 'initialize/release' }
 TamManager >> destroy [
-	self breakDependents.
+
 	TamManager removeDependent: self.
 	self taxonomyBrowser
 		ifNotNil: [self taxonomyBrowser destroy].
@@ -477,15 +478,15 @@ TamManager >> destroy [
 	super destroy
 ]
 
-{ #category : #'drag and drop' }
+{ #category : 'drag and drop' }
 TamManager >> dragPassengerFor: item inMorph: dragSource [ 	^ (self taxonomyNamed: item contents) 
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TamManager >> editorSubWindow [	^ editorSubWindow
 ]
 
-{ #category : #'button actions' }
+{ #category : 'button actions' }
 TamManager >> emptyTaxonomy [
 	self selectedTaxonomy notNil
 		ifTrue: [^ self emptyTaxonomy: self selectedTaxonomy]
@@ -494,16 +495,16 @@ TamManager >> emptyTaxonomy [
 ]
 ]
 
-{ #category : #'button actions' }
+{ #category : 'button actions' }
 TamManager >> emptyTaxonomy: aTaxonomy [	
 	^ aTaxonomy taxonomy menuRemoveAl
 ]
 
-{ #category : #menu }
+{ #category : 'menu' }
 TamManager >> genericMenu: aMenu selector: aSelector [	|  |	self taxonomies		do: [:item | item genericMenu: aMenu selector: aSelector fromTaxonomyManager: self.].	^ aMenu
 ]
 
-{ #category : #'button actions' }
+{ #category : 'button actions' }
 TamManager >> globalSearchListItemByName [
 	| pattern |
 	pattern := UIManager default request: 'item name or fragment?' translated.
@@ -512,7 +513,7 @@ TamManager >> globalSearchListItemByName [
 	^ self globalSearchListItemFromFragment: pattern
 ]
 
-{ #category : #'button actions' }
+{ #category : 'button actions' }
 TamManager >> globalSearchListItemFromFragment: aFragment [ 
 	| toMatch founds parents |
 	toMatch := aFragment asLowercase.
@@ -539,22 +540,22 @@ TamManager >> globalSearchListItemFromFragment: aFragment [
 		client: self
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TamManager >> hierarchicalListMorphClass [
 	^TamPluggableListMorph
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TamManager >> initialExtent [	^ self class initialExtent
 ]
 
-{ #category : #'initialize/release' }
+{ #category : 'initialize/release' }
 TamManager >> initialize [
 	super initialize.
 	listBtnRowHeight := self buttonExtent y + 4
 ]
 
-{ #category : #menu }
+{ #category : 'menu' }
 TamManager >> keyStroke: aCharacter from: tamuggableListMorph [ 
 	aCharacter = $f
 		ifTrue: [^ self menuSearch].
@@ -571,14 +572,14 @@ TamManager >> keyStroke: aCharacter from: tamuggableListMorph [
 
 ]
 
-{ #category : #'button actions' }
+{ #category : 'button actions' }
 TamManager >> linkTaxonomy [
 	self selectedTaxonomy notNil
 		ifTrue: [^ self menuLinkTaxonomy]
 		ifFalse: [^ (self buildMenuLinkTaxonomy: MenuMorph new) popUpInWorld]
 ]
 
-{ #category : #'taxonomies managing' }
+{ #category : 'taxonomies managing' }
 TamManager >> linkTaxonomy: anotherItem [ 
 	| newItem id |
 	newItem := TamManagerItem linkTo: anotherItem.
@@ -590,35 +591,35 @@ TamManager >> linkTaxonomy: anotherItem [
 	self class changed: #taxonomies
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TamManager >> listBtnRow [	^ listBtnRow
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TamManager >> listButtons [	^ listButtons
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TamManager >> listWidth [
 	^self class listWidth
 
 	
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TamManager >> mainButtonLabel [
 	^self class mainButtonLabel
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TamManager >> mainWindow [	^ mainWindow
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TamManager >> mainWindow: aWindow [	mainWindow := aWindow
 ]
 
-{ #category : #menu }
+{ #category : 'menu' }
 TamManager >> menu: menu shifted: aBoolean [ 
 	#(#- #('new (n)' #menuNewTaxonomy ) )
 		do: [:item | item == #-
@@ -640,21 +641,21 @@ TamManager >> menu: menu shifted: aBoolean [
 	^ menu
 ]
 
-{ #category : #menu }
+{ #category : 'menu' }
 TamManager >> menuDeleteTaxonomy [	
 	self deleteTaxonomy: self selectedTaxonomy
 ]
 
-{ #category : #menu }
+{ #category : 'menu' }
 TamManager >> menuLinkTaxonomy [	self selectedTaxonomy		ifNotNil: [self linkTaxonomy: self selectedTaxonomy]
 ]
 
-{ #category : #menu }
+{ #category : 'menu' }
 TamManager >> menuNewManager [	
 	self taxonomyPane ifNotNil: [^self taxonomyPane class open].	^ self class open
 ]
 
-{ #category : #menu }
+{ #category : 'menu' }
 TamManager >> menuNewTaxonomy [
 	| newname old |
 	newname := UIManager default request: 'new taxonomy name ?' translated initialAnswer: ''.
@@ -665,7 +666,7 @@ TamManager >> menuNewTaxonomy [
 			self newTaxonomyNamed: newname]
 ]
 
-{ #category : #menu }
+{ #category : 'menu' }
 TamManager >> menuRelabelTaxonomy [
 	| label |
 	self selectedTaxonomy
@@ -675,7 +676,7 @@ TamManager >> menuRelabelTaxonomy [
 			self class changed: #taxonomies]
 ]
 
-{ #category : #menu }
+{ #category : 'menu' }
 TamManager >> menuRemoveTaxonomy [
 	| rep |
 	rep := false.
@@ -684,15 +685,15 @@ TamManager >> menuRemoveTaxonomy [
 				confirm: rep not]
 ]
 
-{ #category : #menu }
+{ #category : 'menu' }
 TamManager >> menuRenameTaxonomy [	self selectedTaxonomy		ifNotNil: [self selectedTaxonomy taxonomy menuRelabel].	self changed: self selectedTaxonomy taxonomy.	self sort.	self class changed: #taxonomies
 ]
 
-{ #category : #menu }
+{ #category : 'menu' }
 TamManager >> menuSearch [	^ self globalSearchListItemByName
 ]
 
-{ #category : #'ui opening/closing' }
+{ #category : 'ui opening/closing' }
 TamManager >> modelWakeUpIn: aMorph [ 
 	self taxonomyBrowser		
 		ifNotNil: [self taxonomyBrowser modelWakeUpIn: aMorph].	
@@ -701,7 +702,7 @@ TamManager >> modelWakeUpIn: aMorph [
 	super modelWakeUpIn: aMorph
 ]
 
-{ #category : #'button actions' }
+{ #category : 'button actions' }
 TamManager >> newReference [
 	| menu tamBrowser |
 	(tamBrowser := self taxonomyBrowser) ifNotNil: 
@@ -717,49 +718,49 @@ TamManager >> newReference [
 					menu invokeModal]]
 ]
 
-{ #category : #'button actions' }
+{ #category : 'button actions' }
 TamManager >> newTaxonomy [	
 	^ self menuNewTaxonomy
 ]
 
-{ #category : #'taxonomies managing' }
+{ #category : 'taxonomies managing' }
 TamManager >> newTaxonomy: aNewTaxonomy [ 
 	^ self class newTaxonomy: aNewTaxonomy 
 
 ]
 
-{ #category : #'taxonomies managing' }
+{ #category : 'taxonomies managing' }
 TamManager >> newTaxonomyNamed: anIdent [ 
 	^ self class newTaxonomyNamed: anIdent 
 	
 ]
 
-{ #category : #'taxonomies managing' }
+{ #category : 'taxonomies managing' }
 TamManager >> noteNewSelectionDeeply: aWrapper [	^ self changeSelectedTaxonomyFromWrapper: aWrapper 
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TamManager >> perform: selector orSendTo: otherTarget [ 	"Selector was just chosen from a menu by a user. If can respond, then  	perform it on myself. If not, send it to otherTarget, presumably the  	editPane from which the menu was invoked."	(self respondsTo: selector)		ifTrue: [^ self perform: selector]		ifFalse: [^ otherTarget perform: selector]
 ]
 
-{ #category : #'ui opening/closing' }
+{ #category : 'ui opening/closing' }
 TamManager >> rememberWindowSize [	
 	self class initialExtent: mainWindow bounds extent
 ]
 
-{ #category : #'button actions' }
+{ #category : 'button actions' }
 TamManager >> removePane [
 	self canRemovePane ifTrue: [self taxonomyPane menuRemovePane: self mainWindow]
 ]
 
-{ #category : #'button actions' }
+{ #category : 'button actions' }
 TamManager >> removeTaxonomy [
 	self selectedTaxonomy notNil
 		ifTrue: [^ self menuDeleteTaxonomy]
 		ifFalse: [^ (self buildMenuDeleteTaxonomy: MenuMorph new) popUpInWorld]
 ]
 
-{ #category : #'taxonomies managing' }
+{ #category : 'taxonomies managing' }
 TamManager >> removeTaxonomyAt: anIndex confirm: aBoolean [ 
 	| found doit ident oldName newList |
 	found := self taxonomies at: anIndex.
@@ -780,29 +781,29 @@ TamManager >> removeTaxonomyAt: anIndex confirm: aBoolean [
 	self class changed: found
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TamManager >> selectedTaxonomy [	^ selectedTaxonomy
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TamManager >> selectedTaxonomyIndex [	^ self taxonomies indexOf: self selectedTaxonomy ifAbsent: [0]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TamManager >> showBookmarks [
 	^true
 ]
 
-{ #category : #'taxonomies managing' }
+{ #category : 'taxonomies managing' }
 TamManager >> sort [
 	self class sort
 ]
 
-{ #category : #'button actions' }
+{ #category : 'button actions' }
 TamManager >> splitHorizontally [	self taxonomyPane menuSplitHorizontally: self mainWindow.
 ]
 
-{ #category : #menu }
+{ #category : 'menu' }
 TamManager >> splitMenu [
 | menu |
 menu := MenuMorph new.
@@ -813,7 +814,7 @@ menu := MenuMorph new.
 
 ]
 
-{ #category : #menu }
+{ #category : 'menu' }
 TamManager >> splitMenu: menu [ 
 	#(#- #('split horizontally' #splitHorizontally) #('split vertically' #splitVertically) #- #('browse separately' #browseTaxonomy) )
 		do: [:item | item == #-
@@ -830,23 +831,23 @@ TamManager >> splitMenu: menu [
 	^ menu
 ]
 
-{ #category : #'button actions' }
+{ #category : 'button actions' }
 TamManager >> splitVertically [	self taxonomyPane menuSplitVertically: self mainWindow.
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TamManager >> taxonomies [	^ self class taxonomies
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TamManager >> taxonomyBrowser [	^ self editorSubWindow ifNotNil: [self editorSubWindow model]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TamManager >> taxonomyIndexSuchThat: aBlock [	^ self class taxonomyIndexSuchThat: aBlock
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TamManager >> taxonomyItemIndexFromWrapper: aWrapper [ 
 	| parentsChain rootRefIdx rootRef |
 	parentsChain := aWrapper parentsChain.
@@ -860,34 +861,33 @@ TamManager >> taxonomyItemIndexFromWrapper: aWrapper [
 
 ]
 
-{ #category : #'button actions' }
+{ #category : 'button actions' }
 TamManager >> taxonomyMenuPopup [
 	| taxonomyMenu |
 	taxonomyMenu := MenuMorph new.
 	taxonomyMenu defaultTarget: self.
 	taxonomyMenu addTitle: self mainButtonLabel.
-	taxonomyMenu addStayUpItem.
 	self menu: taxonomyMenu shifted: false.
 	taxonomyMenu popUpInWorld
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TamManager >> taxonomyNamed: anIdent [ 	^ self class taxonomyNamed: anIdent 
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TamManager >> taxonomyOf: aListItemReference [ 	^ self class taxonomyOf: aListItemReference
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TamManager >> taxonomyPane [	^ taxonomyPane
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TamManager >> taxonomyPane: aTaxonomyPane [	 taxonomyPane := aTaxonomyPane
 ]
 
-{ #category : #updating }
+{ #category : 'updating' }
 TamManager >> update: anObject [ 
 
 	((anObject isKindOf: TamManagerItem)
@@ -903,17 +903,17 @@ TamManager >> update: anObject [
 	super update: anObject
 ]
 
-{ #category : #'drag and drop' }
+{ #category : 'drag and drop' }
 TamManager >> wantsDroppedMorph: transferMorph event: anEvent inMorph: destinationLM [ 
 	^ self class wantsDroppedMorph: transferMorph event: anEvent inMorph: destinationLM 
 ]
 
-{ #category : #updating }
+{ #category : 'updating' }
 TamManager >> wantsStepsIn: aWindow [ 
 	^ false
 ]
 
-{ #category : #'ui opening/closing' }
+{ #category : 'ui opening/closing' }
 TamManager >> windowIsClosing [
 	self destroy.
 	super windowIsClosing

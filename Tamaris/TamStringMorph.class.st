@@ -1,6 +1,6 @@
 Class {
-	#name : #TamStringMorph,
-	#superclass : #StringMorph,
+	#name : 'TamStringMorph',
+	#superclass : 'StringMorph',
 	#instVars : [
 		'model',
 		'getTextSelector',
@@ -8,20 +8,22 @@ Class {
 		'editor',
 		'cpt'
 	],
-	#category : #'Tamaris-UI'
+	#category : 'Tamaris-UI',
+	#package : 'Tamaris',
+	#tag : 'UI'
 }
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 TamStringMorph class >> on: anObject text: getTextSel accept: setTextSel [ 
 	^ self new on: anObject text: getTextSel accept: setTextSel 
 ]
 
-{ #category : #'event handling' }
+{ #category : 'event handling' }
 TamStringMorph >> acceptContents [
 	self acceptValue: contents
 ]
 
-{ #category : #'event handling' }
+{ #category : 'event handling' }
 TamStringMorph >> acceptValue: aValue [ 
 "	self currentHand releaseKeyboardFocus: self."
 	setTextSelector isNil or: 
@@ -34,12 +36,12 @@ TamStringMorph >> acceptValue: aValue [
 				ifFalse: [self model perform: setTextSelector with: aValue]]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TamStringMorph >> cpt [
 	^ cpt ifNil: [cpt := 0]
 ]
 
-{ #category : #'initialize-release' }
+{ #category : 'initialize-release' }
 TamStringMorph >> destroy [
 	model := nil.
 editor ifNotNil: 
@@ -48,7 +50,7 @@ editor ifNotNil:
 			editor := nil].
 ]
 
-{ #category : #editing }
+{ #category : 'editing' }
 TamStringMorph >> doneWithEdits [
 	editor
 		ifNotNil: [self removeMorph: editor.
@@ -59,7 +61,7 @@ TamStringMorph >> doneWithEdits [
 		ifTrue: [self halt]
 ]
 
-{ #category : #editing }
+{ #category : 'editing' }
 TamStringMorph >> getText [
 	"Retrieve the current model text"
 
@@ -70,22 +72,22 @@ TamStringMorph >> getText [
 	^newText shallowCopy
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TamStringMorph >> getTextSelector [
 	^getTextSelector
 ]
 
-{ #category : #'event handling' }
+{ #category : 'event handling' }
 TamStringMorph >> handlesMouseDown: evt [ 
 	^true	
 ]
 
-{ #category : #'event handling' }
+{ #category : 'event handling' }
 TamStringMorph >> handlesMouseOver: evt [ 
 	^true
 ]
 
-{ #category : #editing }
+{ #category : 'editing' }
 TamStringMorph >> launchMiniEditor: evt [ 
 	hasFocus := true.
 	"Really only means edit in progress for this morph"
@@ -101,34 +103,34 @@ TamStringMorph >> launchMiniEditor: evt [
 		ifTrue: [self halt]
 ]
 
-{ #category : #editing }
+{ #category : 'editing' }
 TamStringMorph >> lostFocusWithoutAccepting [
 	"self doneWithEdits"
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TamStringMorph >> model [
 	^ model
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TamStringMorph >> model: aModel [
 	model := aModel
 ]
 
-{ #category : #'event handling' }
+{ #category : 'event handling' }
 TamStringMorph >> mouseDown: evt [ 
 	self launchMiniEditor: evt
 ]
 
-{ #category : #'event handling' }
+{ #category : 'event handling' }
 TamStringMorph >> mouseLeave: evt [ 
 	super mouseLeave: evt.
 	evt hand releaseKeyboardFocus: self.
 	hasFocus := false
 ]
 
-{ #category : #'initialize-release' }
+{ #category : 'initialize-release' }
 TamStringMorph >> on: anObject text: getTextSel accept: setTextSel [ 
 	self model: anObject.
 	getTextSelector := getTextSel.
@@ -138,12 +140,12 @@ TamStringMorph >> on: anObject text: getTextSel accept: setTextSel [
 cpt := 0.
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TamStringMorph >> setTextSelector [
 	^setTextSelector
 ]
 
-{ #category : #updating }
+{ #category : 'updating' }
 TamStringMorph >> update: aSymbol [ 
 	hasFocus ifFalse: [
 	super update: aSymbol.

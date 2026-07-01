@@ -1,15 +1,17 @@
 Class {
-	#name : #TamListItemBoldRedEmphasisRule,
-	#superclass : #TamListItemEmphasisRule,
-	#category : #'Tamaris-Event-Rules'
+	#name : 'TamListItemBoldRedEmphasisRule',
+	#superclass : 'TamListItemEmphasisRule',
+	#category : 'Tamaris-Event-Rules',
+	#package : 'Tamaris',
+	#tag : 'Event-Rules'
 }
 
-{ #category : #emphasing }
+{ #category : 'emphasing' }
 TamListItemBoldRedEmphasisRule >> emphasisModel [
 	^ self list boldRedEmphasisModel
 ]
 
-{ #category : #emphasing }
+{ #category : 'emphasing' }
 TamListItemBoldRedEmphasisRule >> eventMatch: anEvent [ 
 	^ anEvent isKeyboard
 		and: [anEvent commandKeyPressed

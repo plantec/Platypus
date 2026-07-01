@@ -1,13 +1,15 @@
 Class {
-	#name : #TamListItemSoftLinkReference,
-	#superclass : #TamListItemAbstractLinkReference,
+	#name : 'TamListItemSoftLinkReference',
+	#superclass : 'TamListItemAbstractLinkReference',
 	#instVars : [
 		'linkedPath'
 	],
-	#category : #'Tamaris-Taxonomies'
+	#category : 'Tamaris-Taxonomies',
+	#package : 'Tamaris',
+	#tag : 'Taxonomies'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TamListItemSoftLinkReference class >> linkedFrom: aLinkReference [ 
 	| rootTaxonShortName managerItem |
 	rootTaxonShortName := aLinkReference linkedPath first.
@@ -17,39 +19,39 @@ TamListItemSoftLinkReference class >> linkedFrom: aLinkReference [
 	^ managerItem taxonomy findChildReferenceFromPath: aLinkReference linkedPath allButFirst forLink: aLinkReference
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TamListItemSoftLinkReference >> asStringOrText [
 	^ self linkPrefix , self linkedPath last
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TamListItemSoftLinkReference >> balloonText [
 	^self longName
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TamListItemSoftLinkReference >> linkPrefix [
 	^ '-> '
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TamListItemSoftLinkReference >> linked [
 	| |
 	^ self class linkedFrom: self
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TamListItemSoftLinkReference >> linked: anItem [ 
 	linkedPath := anItem fullPathStrings.
 	
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TamListItemSoftLinkReference >> linkedPath [
 	^ linkedPath
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TamListItemSoftLinkReference >> longNameOn: aStream [
 	| |
 	aStream nextPutAll: self linkedPath first.
@@ -60,7 +62,7 @@ TamListItemSoftLinkReference >> longNameOn: aStream [
 
 ]
 
-{ #category : #'tam taxonomy browser' }
+{ #category : 'tam taxonomy browser' }
 TamListItemSoftLinkReference >> selectingFrom: aTaxonomyBrowser [ 
 	| lnk |
 	^ (lnk := self linked)
@@ -68,7 +70,7 @@ TamListItemSoftLinkReference >> selectingFrom: aTaxonomyBrowser [
 
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TamListItemSoftLinkReference >> shortName [
 	^ self linkedPath last
 ]

@@ -1,25 +1,27 @@
 Class {
-	#name : #TamExploredObjectReference,
-	#superclass : #TamObjectReference,
-	#category : #'Tamaris-Taxonomies'
+	#name : 'TamExploredObjectReference',
+	#superclass : 'TamObjectReference',
+	#category : 'Tamaris-Taxonomies',
+	#package : 'Tamaris',
+	#tag : 'Taxonomies'
 }
 
-{ #category : #menus }
+{ #category : 'menus' }
 TamExploredObjectReference class >> canBeCreatedInteractively [
 	^ true
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TamExploredObjectReference class >> externalLabel [
 	^ 'an explored object'
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 TamExploredObjectReference class >> subMenuLabel [
 	^ 'an object'
 ]
 
-{ #category : #'morphic wrapper' }
+{ #category : 'morphic wrapper' }
 TamExploredObjectReference >> newEditor [
 	^ ObjectExplorer new explorerFor: self itemObject withoutListWrapper
 ]

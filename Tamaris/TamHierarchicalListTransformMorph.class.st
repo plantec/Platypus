@@ -1,10 +1,12 @@
 Class {
-	#name : #TamHierarchicalListTransformMorph,
-	#superclass : #TransformMorph,
-	#category : #'Tamaris-UI'
+	#name : 'TamHierarchicalListTransformMorph',
+	#superclass : 'TransformMorph',
+	#category : 'Tamaris-UI',
+	#package : 'Tamaris',
+	#tag : 'UI'
 }
 
-{ #category : #drawing }
+{ #category : 'drawing' }
 TamHierarchicalListTransformMorph >> bottomVisibleRowForCanvas: aCanvas [
      "return the bottom visible row in aCanvas's clip rectangle"
 	
@@ -12,7 +14,7 @@ TamHierarchicalListTransformMorph >> bottomVisibleRowForCanvas: aCanvas [
 
 ]
 
-{ #category : #drawing }
+{ #category : 'drawing' }
 TamHierarchicalListTransformMorph >> bottomVisibleRowForCanvas: aCanvas startingAt: aPos [
      "return the bottom visible row in aCanvas's clip rectangle"
 	
@@ -20,7 +22,7 @@ TamHierarchicalListTransformMorph >> bottomVisibleRowForCanvas: aCanvas starting
 
 ]
 
-{ #category : #drawing }
+{ #category : 'drawing' }
 TamHierarchicalListTransformMorph >> drawRawColorOn: aCanvas forSubmorph: aSubMorph [
 	| c frame emph emphasis |
 
@@ -43,7 +45,7 @@ TamHierarchicalListTransformMorph >> drawRawColorOn: aCanvas forSubmorph: aSubMo
 						aCanvas fillRectangle: frame basicFillStyle: c]]
 ]
 
-{ #category : #drawing }
+{ #category : 'drawing' }
 TamHierarchicalListTransformMorph >> drawSubmorphsOn: aCanvas [
 	submorphs ifEmpty: [^ self].
 	aCanvas transformBy: transform
@@ -61,7 +63,7 @@ TamHierarchicalListTransformMorph >> drawSubmorphsOn: aCanvas [
 		smoothing: smoothing.
 ]
 
-{ #category : #geometry }
+{ #category : 'geometry' }
 TamHierarchicalListTransformMorph >> fullBounds [
 	"Overridden to clip submorph hit detection to my bounds."
 	"It might be better to override doLayoutIn:, and remove this method"
@@ -71,13 +73,13 @@ TamHierarchicalListTransformMorph >> fullBounds [
 	^ fullBounds
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 TamHierarchicalListTransformMorph >> initialize [
 	super initialize.
 	self smoothingOn
 ]
 
-{ #category : #layout }
+{ #category : 'layout' }
 TamHierarchicalListTransformMorph >> localSubmorphBounds [
 	"Answer, in my coordinate system, the bounds of all my visible submorphs (or nil if no visible submorphs)"
 	localBounds ifNil: [ 
@@ -87,7 +89,7 @@ TamHierarchicalListTransformMorph >> localSubmorphBounds [
 
 ]
 
-{ #category : #drawing }
+{ #category : 'drawing' }
 TamHierarchicalListTransformMorph >> rowAtLocation: aPoint [
 	"return the number of the row at aPoint"
 	| y |
@@ -97,7 +99,7 @@ TamHierarchicalListTransformMorph >> rowAtLocation: aPoint [
 	^ submorphs size
 ]
 
-{ #category : #drawing }
+{ #category : 'drawing' }
 TamHierarchicalListTransformMorph >> rowAtLocation: aPoint startingAt: aPosition [
 	"return the number of the row at aPoint"
 	| y |
@@ -109,7 +111,7 @@ TamHierarchicalListTransformMorph >> rowAtLocation: aPoint startingAt: aPosition
 	^ submorphs size
 ]
 
-{ #category : #layout }
+{ #category : 'layout' }
 TamHierarchicalListTransformMorph >> submorphBounds [
 	"Private. Compute the actual full bounds of the receiver, optimized for speed"
 	self hasSubmorphs ifFalse: [^ nil].
@@ -117,7 +119,7 @@ TamHierarchicalListTransformMorph >> submorphBounds [
 
 ]
 
-{ #category : #drawing }
+{ #category : 'drawing' }
 TamHierarchicalListTransformMorph >> topVisibleRowForCanvas: aCanvas [
      "return the top visible row in aCanvas's clip rectangle"
 
@@ -125,7 +127,7 @@ TamHierarchicalListTransformMorph >> topVisibleRowForCanvas: aCanvas [
 
 ]
 
-{ #category : #drawing }
+{ #category : 'drawing' }
 TamHierarchicalListTransformMorph >> topVisibleRowForCanvas: aCanvas startingAt: aPos [
      "return the top visible row in aCanvas's clip rectangle"
 
@@ -133,7 +135,7 @@ TamHierarchicalListTransformMorph >> topVisibleRowForCanvas: aCanvas startingAt:
 
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 TamHierarchicalListTransformMorph >> wantsSteps [
 	^ false
 ]

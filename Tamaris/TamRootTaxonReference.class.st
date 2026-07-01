@@ -1,6 +1,6 @@
 Class {
-	#name : #TamRootTaxonReference,
-	#superclass : #TamTaxonReference,
+	#name : 'TamRootTaxonReference',
+	#superclass : 'TamTaxonReference',
 	#instVars : [
 		'managerItem',
 		'announcer'
@@ -8,34 +8,36 @@ Class {
 	#classInstVars : [
 		'repositoryName'
 	],
-	#category : #'Tamaris-Taxonomies'
+	#category : 'Tamaris-Taxonomies',
+	#package : 'Tamaris',
+	#tag : 'Taxonomies'
 }
 
-{ #category : #'filein/fileout' }
+{ #category : 'filein/fileout' }
 TamRootTaxonReference class >> tamarisFileNameSuffix [
 	^ 'tam'
 
 ]
 
-{ #category : #'filein/fileout' }
+{ #category : 'filein/fileout' }
 TamRootTaxonReference class >> tamarisRepositoryName [
 	^ repositoryName
 		ifNil: [repositoryName  :=  'Tamaris-DB']
 
 ]
 
-{ #category : #'filein/fileout' }
+{ #category : 'filein/fileout' }
 TamRootTaxonReference class >> tamarisRepositoryName: aDirName [
 	repositoryName := aDirName
 
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TamRootTaxonReference >> announcer [
 	^ announcer ifNil: [announcer := Announcer new]
 ]
 
-{ #category : #copying }
+{ #category : 'copying' }
 TamRootTaxonReference >> copy [
 	| copy |
 	copy := super copy.
@@ -44,29 +46,29 @@ TamRootTaxonReference >> copy [
 
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TamRootTaxonReference >> icon [
 	^TamIcons mimeIcon: '10x10/mimetypes/root_taxon'
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 TamRootTaxonReference >> isRootTaxon [
 	^ true
 
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TamRootTaxonReference >> longNameOn: aStream [ 
 	aStream nextPutAll: self shortName.
 	aStream nextPutAll: self longNameFirstSep
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TamRootTaxonReference >> managerItem [
 	^managerItem
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TamRootTaxonReference >> managerItem: anObject [
 	managerItem := anObject
 ]

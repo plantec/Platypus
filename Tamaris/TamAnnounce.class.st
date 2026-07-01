@@ -1,18 +1,20 @@
 Class {
-	#name : #TamAnnounce,
-	#superclass : #Announcement,
+	#name : 'TamAnnounce',
+	#superclass : 'Announcement',
 	#instVars : [
 		'sourceHandler'
 	],
-	#category : #'Tamaris-Announces'
+	#category : 'Tamaris-Announces',
+	#package : 'Tamaris',
+	#tag : 'Announces'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TamAnnounce >> sourceHandler [ 
 	^ sourceHandler
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TamAnnounce >> sourceHandler: aSourceHandler [
 	sourceHandler := aSourceHandler
 ]

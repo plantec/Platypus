@@ -24,8 +24,8 @@ end_entity;
 
 "
 Class {
-	#name : #AbstractHistoryList,
-	#superclass : #Object,
+	#name : 'AbstractHistoryList',
+	#superclass : 'Object',
 	#instVars : [
 		'items',
 		'currentIndex',
@@ -35,10 +35,12 @@ Class {
 	#classVars : [
 		'HistoryListsByOwnerIndex'
 	],
-	#category : #'Tamaris-Browser-History'
+	#category : 'Tamaris-Browser-History',
+	#package : 'Tamaris',
+	#tag : 'Browser-History'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 AbstractHistoryList class >> getOwnerOf: aHistoryList [ 
 	self historyListsByOwnerIndex
 		keysAndValuesDo: [:k :v | v = aHistoryList
@@ -46,7 +48,7 @@ AbstractHistoryList class >> getOwnerOf: aHistoryList [
 	^ nil
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 AbstractHistoryList class >> historyListFor: aBrowser [ 
 	^ self historyListsByOwnerIndex
 		at: aBrowser
@@ -54,18 +56,18 @@ AbstractHistoryList class >> historyListFor: aBrowser [
 			self owner: aBrowser historyMaxSize: 20]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 AbstractHistoryList class >> historyListsByOwnerIndex [
 	^ HistoryListsByOwnerIndex
 		ifNil: [HistoryListsByOwnerIndex := WeakIdentityKeyDictionary new]
 ]
 
-{ #category : #'class initialization' }
+{ #category : 'class initialization' }
 AbstractHistoryList class >> initialize [
 	HistoryListsByOwnerIndex  := nil
 ]
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 AbstractHistoryList class >> owner: anObject historyMaxSize: anInteger [ 
 	| newHistory |
 	newHistory := self new historyMaxSize: anInteger.
@@ -73,7 +75,7 @@ AbstractHistoryList class >> owner: anObject historyMaxSize: anInteger [
 	^ newHistory
 ]
 
-{ #category : #updating }
+{ #category : 'updating' }
 AbstractHistoryList >> addItem: anItem [ 
 	canAppendItem
 		ifTrue: [items notEmpty
@@ -88,25 +90,25 @@ AbstractHistoryList >> addItem: anItem [
 	^ true
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 AbstractHistoryList >> canSelectNext [
 	"is there an item after currentIndex pos"
 	^ self items size - currentIndex > 0
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 AbstractHistoryList >> canSelectPrev [
 	"is there an item before currentIndex pos"
 	^ currentIndex > 1
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 AbstractHistoryList >> canShowRecents [
 
 	^ self recents size > 1
 ]
 
-{ #category : #updating }
+{ #category : 'updating' }
 AbstractHistoryList >> checkAndClean [
 	"remove all 'invalid items"
 	| founds |
@@ -128,13 +130,13 @@ AbstractHistoryList >> checkAndClean [
 		ifFalse: [currentIndex := items size]
 ]
 
-{ #category : #updating }
+{ #category : 'updating' }
 AbstractHistoryList >> clearHistory [
 	items removeAllSuchThat: [:e | true].
 	currentIndex := 0
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 AbstractHistoryList >> currentItem [
 "return current item if available"
 	^ (currentIndex <= items size
@@ -142,13 +144,13 @@ AbstractHistoryList >> currentItem [
 		ifTrue: [items at: currentIndex]
 ]
 
-{ #category : #'private accessing' }
+{ #category : 'private accessing' }
 AbstractHistoryList >> historyMaxSize: anInteger [ 
 "maximum number of items in list"
 	historyMaxSize := anInteger
 ]
 
-{ #category : #'initialize/release' }
+{ #category : 'initialize/release' }
 AbstractHistoryList >> initialize [
 	super initialize.
 	items := OrderedCollection new.
@@ -157,27 +159,27 @@ AbstractHistoryList >> initialize [
 
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 AbstractHistoryList >> isEmpty [
 	^ self items isEmpty
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 AbstractHistoryList >> isFor: aBrowser [ 
 	^ self owner == aBrowser
 ]
 
-{ #category : #'private accessing' }
+{ #category : 'private accessing' }
 AbstractHistoryList >> items [
 	"return the collection of items"
 	^ items
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 AbstractHistoryList >> last [	^ items notEmpty ifTrue: [items last]
 ]
 
-{ #category : #'history selecting' }
+{ #category : 'history selecting' }
 AbstractHistoryList >> menuNextList: aMenu [ 
 	"build a menu for all next items selection or clear history"
 	| item nextList hidx |
@@ -200,7 +202,7 @@ AbstractHistoryList >> menuNextList: aMenu [
 	^ aMenu
 ]
 
-{ #category : #'history selecting' }
+{ #category : 'history selecting' }
 AbstractHistoryList >> menuPrevList: aMenu [
 " build a menu for all previous items selection or clear history" 
 	| item prevList |
@@ -223,42 +225,42 @@ AbstractHistoryList >> menuPrevList: aMenu [
 	^ aMenu
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 AbstractHistoryList >> nextList [
 	"return 'next' items sublist "
 	^ items copyFrom: currentIndex + 1 to: items size
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 AbstractHistoryList >> notEmpty [
 	^ self isEmpty not
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 AbstractHistoryList >> owner [
 	^ self class getOwnerOf: self
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 AbstractHistoryList >> prevList [
 	"return 'prev' items sublist"
 	^ items copyFrom: 1 to: currentIndex - 1
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 AbstractHistoryList >> recents [
 self checkAndClean.
 
 	^ items asSet asArray sort
 ]
 
-{ #category : #'initialize/release' }
+{ #category : 'initialize/release' }
 AbstractHistoryList >> release [
 	items := nil.
 	super release
 ]
 
-{ #category : #'history selecting' }
+{ #category : 'history selecting' }
 AbstractHistoryList >> selectFromRecentsList [
 	| sortedHistory historyItems index choice |
 	"open a menu with all items in it"
@@ -276,37 +278,37 @@ AbstractHistoryList >> selectFromRecentsList [
 					self updateOwnerWithItem: choice]]
 ]
 
-{ #category : #'history selecting' }
+{ #category : 'history selecting' }
 AbstractHistoryList >> selectNext [
 	"next item in history"
 	self canSelectNext
 		ifTrue: [self updateOwnerWithItemIndex: currentIndex + 1]
 ]
 
-{ #category : #'history selecting' }
+{ #category : 'history selecting' }
 AbstractHistoryList >> selectPrev [
 	"previous item in history"
 	self canSelectPrev
 		ifTrue: [self updateOwnerWithItemIndex: currentIndex - 1]
 ]
 
-{ #category : #'private accessing' }
+{ #category : 'private accessing' }
 AbstractHistoryList >> setOwner: aBrowserOrSomethingLikeThat [ 
 	
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 AbstractHistoryList >> size [
 ^ items size
 ]
 
-{ #category : #updating }
+{ #category : 'updating' }
 AbstractHistoryList >> update: aSymbol [ 
 	super update: aSymbol.
 	self checkAndClean
 ]
 
-{ #category : #'history selecting' }
+{ #category : 'history selecting' }
 AbstractHistoryList >> updateOwnerWithItem: anHistoryItem [ 
 	"ask owner to update itself with an item"
 	[canAppendItem := false.
@@ -314,7 +316,7 @@ AbstractHistoryList >> updateOwnerWithItem: anHistoryItem [
 		ensure: [canAppendItem := true]
 ]
 
-{ #category : #'history selecting' }
+{ #category : 'history selecting' }
 AbstractHistoryList >> updateOwnerWithItemIndex: anHistoryItemIndex [ 
 	"take item at an index and ask owner to update itself with fetched item"
 	currentIndex := anHistoryItemIndex.
