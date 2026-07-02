@@ -1,0 +1,8 @@
+"
+SmaCCCompilationNotification is a notification that is raised when we discover a problem with the parser. For example, a shift/reduce conflict will raise this notification.
+"
+Class {
+	#name : #SmaCCCompilationNotification,
+	#superclass : #Notification,
+	#category : #'SmaCCDev-ParserGenerator'
+}
