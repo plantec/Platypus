@@ -17,7 +17,7 @@ PlatypusCommandLineHandler class >> isResponsibleFor: aCommandLineArguments [
 { #category : #accessing }
 PlatypusCommandLineHandler >> baseDirectory [
 
-	^ (OSEnvironment default getEnv: 'PWD') asFileReference 
+	^ (OSEnvironment current at: 'PWD') asFileReference 
 ]
 
 { #category : #private }

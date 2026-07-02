@@ -54,7 +54,8 @@ Class {
 		'ads',
 		'result',
 		'code',
-		'tmp'
+		'tmp',
+		'contents'
 	],
 	#category : #'Express2Cheddar-PackageSchema'
 }
@@ -139,7 +140,7 @@ ExChdAdaPackageConceptsListCodeFunction >> contents [
 ]
 
 { #category : #'platypus-generated-accessing' }
-ExChdAdaPackageConceptsListCodeFunction >> contents: aListOfExChdDictionaryInstance [
+ExChdAdaPackageConceptsListCodeFunction >> contents: aListOfExChdDictionaryInstance [ 
 	contents := aListOfExChdDictionaryInstance
 		ifNil: [ OrderedCollection new ]
 		ifNotNil: [ aListOfExChdDictionaryInstance as: OrderedCollection ]

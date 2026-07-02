@@ -73,43 +73,6 @@ PlatypusExpressEditor >> evaluateAndExplore [
 	^ self sourceHandler evaluateAndExplore 
 ]
 
-{ #category : #'code accessing' }
-PlatypusExpressEditor >> highlight: aText [
-	| h |
-	aText size > 0
-		ifTrue: [ ^ aText ].
-	self sourceHandler ifNil: [ ^ aText ].
-	h := (Smalltalk at: #PPTextHighlighter ifAbsent: [ ^ aText ]) new
-		parser: (PPExpressGrammar new perform: self sourceHandler elementTag).
-	h
-		color: 'slotName' with: Color blue twiceDarker twiceDarker;
-		color: 'localKW' with: Color blue muchDarker;
-		color: 'endLocalKW' with: Color blue muchDarker;
-		color: 'schemaKW' with: Color blue muchDarker;
-		color: 'endSchemaKW' with: Color blue muchDarker;
-		color: 'constantKW' with: Color blue muchDarker;
-		color: 'endConstantKW' with: Color blue muchDarker;
-		color: 'typeKW' with: Color blue muchDarker;
-		color: 'endTypeKW' with: Color blue muchDarker;
-		color: 'entityKW' with: Color blue muchDarker;
-		color: 'endEntityKW' with: Color blue muchDarker;
-		color: 'functionKW' with: Color blue muchDarker;
-		color: 'endFunctionKW' with: Color blue muchDarker;
-		color: 'procedureKW' with: Color blue muchDarker;
-		color: 'endProcedureKW' with: Color blue muchDarker;
-		color: 'ruleKW' with: Color blue muchDarker;
-		color: 'endRuleKW' with: Color blue muchDarker;
-		color: 'literal' with: Color gray darker darker;
-		color: 'unresolvedIdentifier' with: Color magenta muchDarker;
-		color: 'toKW' with: Color blue muchDarker;
-		color: 'thenKW' with: Color blue muchDarker;
-		color: 'elseKW' with: Color blue muchDarker;
-		color: 'forKW' with: Color blue muchDarker.
-	^ [ h highlight: aText asText ]
-		on: Error
-		do: [ aText ]
-]
-
 { #category : #accessing }
 PlatypusExpressEditor >> possibleReplacementsFromPrefix: aPrefix [
 	"returns the value of labels from a selector prefix"

@@ -74,7 +74,6 @@ ExChdGenerateAllIntoProcedure >> invoke [
 
 	"---------- native statement ---------- "
 
-	MultiByteFileStream defaultToLF.
 	ExChdPrepareRootAdaClassesProcedure invoke.
 	ExChdAllPackagesCodeIntoFunction
 		invokeFromValues:

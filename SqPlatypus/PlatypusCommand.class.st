@@ -29,7 +29,7 @@ PlatypusCommand >> notify: aMessage [
 	self haveError:  true.
 	m := 'Platypus: Error: ' , aMessage , String cr.
 	Transcript show: m.
-	FileStream stdout nextPutAll: m
+	Stdio stdout nextPutAll: m
 ]
 
 { #category : #'error handling' }
@@ -38,7 +38,7 @@ PlatypusCommand >> notify: aMessage at: aPosition [
 	self haveError:  true.
 	m := 'Platypus: Error: at position ' , aPosition asString , ' :' , aMessage , String cr.
 	Transcript show: m.
-	FileStream stdout nextPutAll: m
+	Stdio stdout nextPutAll: m
 ]
 
 { #category : #commands }

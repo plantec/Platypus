@@ -63,26 +63,6 @@ PlatypusInstanceEditor >> evaluate [
 	^ self sourceHandler evaluate
 ]
 
-{ #category : #'code accessing' }
-PlatypusInstanceEditor >> highlight: aText [
-	| h hcls |
-	hcls := (Smalltalk at: #PPTextHighlighter ifAbsent: [ ^ aText ]).
-	h := hcls new parser: ((PPStepGrammar new) perform: self sourceHandler elementTag).
-	aText size < 100000
-		ifTrue: [
-			h
-				color: 'typeAnnotation' with: Color gray muchDarker;
-				color: 'entityName' with: Color magenta muchDarker;
-				color: 'string' with: Color blue twiceDarker;
-				color: 'boolean' with: Color blue muchDarker;
-				color: 'enum' with: Color blue muchDarker;
-				color: 'instRef' with: Color blue muchDarker;
-				color: 'null' with: Color blue muchDarker;
-				color: 'redefined' with: Color blue muchDarker].
-	^ [h highlight: aText asText] on: Error do: [aText]
-
-]
-
 { #category : #menu }
 PlatypusInstanceEditor >> menuStepWrite [
 	| stream result fullFilename |
@@ -122,7 +102,7 @@ PlatypusInstanceEditor >> openFile [
 			label: 'Choose a STEP file to read' translated.
 	result
 		ifNotNil: [ | strm |
-			[contents := (strm := StandardFileStream oldFileNamed: result) contentsOfEntireFile ]
+			[contents := (strm := result asFileReference readStream ) contentsOfEntireFile ]
 				ensure: [strm close].
 			self acceptContents: contents.
 			self changed: #contents.

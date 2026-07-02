@@ -165,7 +165,7 @@ PlatypusCodeHolder >> openFile [
 			label: 'Choose EXPRESS file to read' translated.
 	result
 		ifNotNil: [ | strm |
-			[contents := (strm := StandardFileStream oldFileNamed: result) contentsOfEntireFile ]
+			[contents := (strm := result asFileReference readStream) contentsOfEntireFile ]
 				ensure: [strm close].
 			self acceptContents: contents.
 			self changed: #contents.

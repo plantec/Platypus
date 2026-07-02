@@ -14,7 +14,7 @@ PlatypusSchemaInstanceReference class >> addReferenceFromFilenamed: aFilename in
 	| initial strm |
 	initial := aFilename asFileReference basenameWithoutExtension.
 	(UIManager default request: 'Model name: ' initialAnswer: initial)
-		ifNotEmpty: [:key | (strm := StandardFileStream readOnlyFileNamed: aFilename)
+		ifNotEmpty: [:key | (strm := aFilename asFileReference readStream)
 				ifNotNil: [[self
 						addReferenceFromStream: strm
 						intoOwner: aReference
@@ -234,27 +234,6 @@ PlatypusSchemaInstanceReference class >> schemaInstanceNamed: aString [
 	schemaInstance := self schemaInstanceClass new.
 	schemaInstance setName: aString.
 	^ self schemaInstance: schemaInstance
-]
-
-{ #category : #scripting }
-PlatypusSchemaInstanceReference class >> schemaInstanceReferenceNamed: anIdent acceptFromFileNamed: aFileName [ 
-	| candidats schi str |
-	candidats := PlatypusSchemaInstanceReference allSchemaInstanceReferencesNamed: anIdent.
-	candidats size ~= 1
-		ifTrue: [candidats size > 1
-				ifTrue: [self inform: 'More than one schema instance named <<' , anIdent , '>> are present. Sorry'.
-					^ nil]
-				ifFalse: [self inform: 'No schema instance named <<' , anIdent , '>> is present. Sorry'. ^ nil]].
-	schi := candidats anyOne.
-	[str := StandardFileStream readOnlyFileNamed: aFileName]
-		on: FileStreamException
-		do: [self inform: 'No file named <<' , aFileName , '>>. Sorry'. ^ nil].
-	[schi
-		accept: (PlatypusStepTokenPrettyPrinter prettyPrint: str contents)
-		notifying: nil]
-		ensure: [str close].
-	schi checksAll.
-	^ schi
 ]
 
 { #category : #accessing }

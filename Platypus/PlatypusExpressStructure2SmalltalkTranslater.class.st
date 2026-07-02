@@ -294,13 +294,6 @@ PlatypusExpressStructure2SmalltalkTranslater >> buildEntitiesMethodsFromSchema: 
 ]
 
 { #category : #'generating from schemaInstance' }
-PlatypusExpressStructure2SmalltalkTranslater >> buildExpressMetaSchemaCodeMethodFromSchemaInstance: e [ 
-	self
-		buildExpressMetaSchemaCodeMethodFromSchemaInstance: e
-		intoClassNamed: (e generatedClassName)
-]
-
-{ #category : #'generating from schemaInstance' }
 PlatypusExpressStructure2SmalltalkTranslater >> buildExpressSchemaCodeMethodFromSchemaInstance: e [ 
 	self
 		buildExpressSchemaCodeMethodFromSchemaInstance: e

@@ -162,61 +162,6 @@ PlatypusSchemaReference >> menuEvaluateAllRules [
 ]
 
 { #category : #menus }
-PlatypusSchemaReference >> menuExpress2SqlOracle [
-	| visiteur ws functionsVisitor |
-	visiteur := PlatypusExpress2SqlOracleVisitor
-				outStream: (WriteStream on: String new).
-	visiteur createTypeBoolean.
-	visiteur createTypeLogical.
-	"Execute la gÈeneration du code SQL"
-	self metaData acceptTry: visiteur.
-	"visiteur allSqlContainer inspect."
-	"visiteur allSqlContainer  
-	do: [:item | Transcript show: item contents].  
-	visiteur allSqlContainer keys inspect."
-	"ws := Workspace new.  
-	ws contents: visiteur outStream contents.  
-	ws openLabel: 'Fichier SQL (Oracle)'."
-	visiteur sortMsgSql.
-	"functionsVisitor := PlatypusAccesFunctionsVisitor
-				new: visiteur allSqlContainer
-				outStream: visiteur outStream
-				dict: visiteur dicoOfName.
-	self metaData acceptTry: functionsVisitor."
-	ws := Workspace new.
-	ws contents: visiteur outStream contents.
-	ws openLabel: self metaData name , '.SQL (Oracle)'.
-	Transcript show: 'Traitement termine';
-		 cr
-]
-
-{ #category : #menus }
-PlatypusSchemaReference >> menuExpress2SqlPostgres [
-	| visiteur ws functionsVisitor |
-	visiteur := PlatypusExpress2SqlPostgresVisitor
-				outStream: (WriteStream on: String new).
-	visiteur createTypeBoolean.
-	visiteur createTypeLogical.
-	"Execute la gÈeneration du code SQL"
-	self metaData acceptTry: visiteur.
-	"visiteur allSqlContainer inspect."
-	"ws := Workspace new.  
-	ws contents: visiteur outStream contents.  
-	ws openLabel: 'Fichier SQL (PostgreSQL)'."
-	visiteur sortMsgSql.
-	functionsVisitor := PlatypusAccesFunctionsPosgresVisitor
-				new: visiteur allSqlContainer
-				outStream: visiteur outStream
-				dict: visiteur dicoOfName.
-	self metaData acceptTry: functionsVisitor.
-	ws := Workspace new.
-	ws contents: visiteur outStream contents.
-	ws openLabel: self metaData name , '.SQL (PostgreSQL)'.
-	Transcript show: 'Traitement termine';
-		 cr
-]
-
-{ #category : #menus }
 PlatypusSchemaReference >> menuNewElement: elementKind [ 
 	| key startContents startingStateSelector parserResult |
 	(key := UIManager default request: 'new ' , elementKind , ' name' initialAnswer: '')

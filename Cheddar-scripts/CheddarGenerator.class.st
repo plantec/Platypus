@@ -20,7 +20,7 @@ CheddarGenerator class >> generateInto: aPathString [
 			exp2Chd promote: map.
 			Cursor wait
 				showWhile: [ 
-					ChdGenerateAllIntoProcedure 
+					ExChdGenerateAllIntoProcedure 
 						invokeOnContextStream: exp2Chd masterModelAsStepStream 
 						fromValues: {aPathString} ] ]
 ]

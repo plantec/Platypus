@@ -9,7 +9,7 @@ Class {
 	#instVars : [
 		'contents'
 	],
-	#category : 'Tamaris-UI'
+	#category : #'Tamaris-UI'
 }
 
 { #category : #'instance creation' }
@@ -48,7 +48,7 @@ StringHolderFromPharo4 >> acceptContents: aString [
 { #category : #'initialize-release' }
 StringHolderFromPharo4 >> buildTextMorph [
 
-	^PluggableTextMorph 
+	^RubPluggableTextMorph 
 			on: self 
 			text: #contents 
 			accept: #acceptContents:
@@ -75,17 +75,13 @@ StringHolderFromPharo4 >> codePaneMenu: aMenu shifted: shifted [
 	"Note that unless we override perform:orSendTo:, 
 	PluggableTextController will respond to all menu items in a 
 	text pane"
-	| donorMenu |
-	donorMenu := shifted
-		ifTrue: [SmalltalkEditor shiftedYellowButtonMenu]
-		ifFalse: [SmalltalkEditor yellowButtonMenu].
-	^ aMenu addAllFrom: donorMenu
+	^ aMenu 
 ]
 
 { #category : #accessing }
 StringHolderFromPharo4 >> codeTextMorph [
 	^ self dependents
-		detect: [:dep | (dep isKindOf: PluggableTextMorph)
+		detect: [:dep | (dep isKindOf: RubPluggableTextMorph)
 				and: [dep getTextSelector == #contents]]
 		ifNone: []
 ]

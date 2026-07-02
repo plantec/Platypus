@@ -1,11 +1,13 @@
 Class {
 	#name : #TamListItemAbstractLinkReference,
 	#superclass : #TamListItemReference,
-	#category : 'Tamaris-Taxonomies'
+	#category : #'Tamaris-Taxonomies'
 }
 
 { #category : #'instance creation' }
-TamListItemAbstractLinkReference class >> from: aListItemReference [	^ self new linked: aListItemReference
+TamListItemAbstractLinkReference class >> from: aListItemReference [
+
+	^ self new linked: aListItemReference
 ]
 
 { #category : #'drag and drop' }
@@ -15,11 +17,6 @@ TamListItemAbstractLinkReference >> acceptDroppingMorph: transferMorph copy: sho
 { #category : #accessing }
 TamListItemAbstractLinkReference >> asStringOrText [
  ^ self subclassResponsibility 
-]
-
-{ #category : #accessing }
-TamListItemAbstractLinkReference >> basicSmalltalkBrowser: aTaxonomyBrowser [ 
-	^ self linked basicSmalltalkBrowser: aTaxonomyBrowser 
 ]
 
 { #category : #accessing }

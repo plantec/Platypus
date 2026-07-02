@@ -19,6 +19,7 @@ PlatypusCompileSchemaCommandLineHandler >> activate [
 PlatypusCompileSchemaCommandLineHandler >> parseInputFiles [
 	| inputFile elemName command |
 	super activate.
+	self stdout << 'fetching ' << self arguments last.
 	inputFile := self baseDirectory resolve: self arguments last.
 	inputFile exists
 		ifFalse: [ self exitFailure: '"' , inputFile pathString , '" does not exist' ].

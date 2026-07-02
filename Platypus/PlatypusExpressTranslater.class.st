@@ -34,20 +34,8 @@ PlatypusExpressTranslater class >> expressionTranslaterClassName [
 
 { #category : #utilities }
 PlatypusExpressTranslater class >> fileIn: code [ 
-	| reader chunk st |
-	reader := ReadStream on: code.
-	[reader atEnd]
-		whileFalse: [reader skipSeparators.
-			[(reader peekFor: $!)
-				ifTrue: [(st := Compiler evaluate: reader nextChunk logged: false)
-						ifNotNil: [st scanFrom: reader]]
-				ifFalse: [chunk := reader nextChunk.
-					reader checkForPreamble: chunk.
-					Compiler evaluate: chunk logged: true]]
-				on: InMidstOfFileinNotification
-				do: [:ex | ex resume: true].
-			reader skipStyleChunk].
-	reader close
+
+	CodeImporter evaluateString: code
 ]
 
 { #category : #utilities }
@@ -127,8 +115,11 @@ PlatypusExpressTranslater >> nextPutAll: aString [
 ]
 
 { #category : #'stream utilities' }
-PlatypusExpressTranslater >> nextPutAllCr: aString [ 
-	self nextPutAll: aString , String cr
+PlatypusExpressTranslater >> nextPutAllCr: aString [
+
+	self
+		nextPutAll: aString;
+		nextPutAll: String cr
 ]
 
 { #category : #'stream utilities' }

@@ -24,11 +24,11 @@ Filename >> publicName: aName [
 
 { #category : #'stream creation' }
 Filename >> readStream [
-	^ FileStream fileNamed: self publicName
+	^ self publicName asFileReference readStream
 ]
 
 { #category : #'stream creation' }
 Filename >> writeStream [
 
-	^ FileStream forceNewFileNamed: self publicName
+	^ self publicName asFileReference writeStream
 ]

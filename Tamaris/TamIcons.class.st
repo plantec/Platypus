@@ -1630,21 +1630,6 @@ TamIcons class >> formExpandedform3 [
 	offset: 0@0)
 ]
 
-{ #category : #utilities }
-TamIcons class >> formFileNamesFromDirectory: path [ 
-	| fd result |
-	result := OrderedCollection new.
-	(fd := FileDirectory on: path) entries do: 
-			[:n | 
-			n isDirectory 
-				ifTrue: 
-					[result addAll: (self formFileNamesFromDirectory: path , FileDirectory slash , n name)]
-				ifFalse: 
-					[(#('png' 'gif' 'bmp' ) includes: (FileDirectory extensionFor: n name) asLowercase) 
-						ifTrue: [ result add: (fd pathName , fd slash , n name)]]].
-	^ result
-]
-
 { #category : #'icon accessing' }
 TamIcons class >> formFromRelativePath: aPathString [ 
 	| selector |
@@ -1734,22 +1719,6 @@ TamIcons class >> importForms [
 ]
 
 { #category : #utilities }
-TamIcons class >> importFormsFromDirectory: path [ 
-	| selectorPathPart selector |
-	(self formFileNamesFromDirectory: path) do: 
-			[:fn | 
-			selectorPathPart := fn copyFrom: path size + 1 to: fn size.
-			FileDirectory splitName: selectorPathPart
-				to: 
-					[:cat :n | 
-					selector := self selectorFromPath: selectorPathPart.
-					self 
-						importFormFromStream: (FileStream readOnlyFileNamed: fn)
-						category: cat
-						selector: selector]]
-]
-
-{ #category : #utilities }
 TamIcons class >> magnifiedForm: form extent: aPoint [ 
 	| scaleY scaleX scale |
 	(form height - aPoint y) abs < 4 ifTrue: [^ form].
@@ -1791,33 +1760,4 @@ TamIcons class >> selectorFromPath: path [
 
 { #category : #'public utilities' }
 TamIcons class >> showForms [	"self showForms"	| folder |	folder := FileList modalFolderSelector.	folder		ifNotNil: [self showFormsFromDirectory: folder pathName]
-]
-
-{ #category : #utilities }
-TamIcons class >> showFormsFromDirectory: path [ 
-	| fd window row sketchRow scrollBar |
-	window := StandardWindow labelled: 'Icons from: ''' , path , ''''.
-	scrollBar := TamBrowserScrollPane new.
-	row := scrollBar pastUp.
-	(fd := FileDirectory on: path) fileNames
-		do: [:n | (#('png' 'gif' 'bmp' )
-					anySatisfy: [:ext | (FileDirectory extensionFor: n) asLowercase = ext])
-				ifTrue: [sketchRow := AlignmentMorph newColumn hResizing: #shrinkWrap;
-								 vResizing: #shrinkWrap;
-								 layoutInset: 6;
-								 borderWidth: 1;
-								 color: Color transparent;
-								 yourself.
-					sketchRow addMorph: n asMorph.
-					sketchRow
-						addMorph: (ImageMorph fromFile: fd pathName , fd slash , n).
-					row addMorph: sketchRow]].
-	window
-		addMorph: scrollBar
-		fullFrame: (LayoutFrame
-				fractions: (0 @ 0 corner: 1 @ 1)).
-	window openInWorld.
-	scrollBar layoutChanged.
-	scrollBar setScrollDeltas.
-	^ window
 ]

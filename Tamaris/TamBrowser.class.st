@@ -20,7 +20,7 @@ Class {
 		'InitialExtent',
 		'TaxonomyListWidth'
 	],
-	#category : 'Tamaris-UI'
+	#category : #'Tamaris-UI'
 }
 
 { #category : #accessing }
@@ -275,7 +275,7 @@ TamBrowser >> addButtons [
 				ifFalse: [ 
 					| label |
 					label := ImageMorph withForm: (TamIcons icon: arr first).
-					btn := (Smalltalk ui theme
+					btn := (self theme
 						newButtonIn: World
 						for: arr second
 						getState: nil
@@ -754,11 +754,6 @@ TamBrowser >> expandedItems: aCollection [
 	(item := self rootTaxon managerItem) ifNotNil: 
 			[item currentlyExpanded: aCollection.
 			item currentSelection: self unwrappedSelection]]
-]
-
-{ #category : #'button actions' }
-TamBrowser >> findWindow [
-	^ World findWindow: ActiveEvent
 ]
 
 { #category : #updating }

@@ -272,10 +272,10 @@ PlatypusCodeMorph >> contentsMenu: aMenu shifted: shifted [
 	PluggableTextController  
 	will respond to all menu items in a text pane"
 	| donorMenu |
-	donorMenu := shifted
+	"donorMenu := shifted
 				ifTrue: [TextEditor shiftedYellowButtonMenu]
 				ifFalse: [TextEditor yellowButtonMenu].
-	aMenu   addAllFrom: donorMenu.
+	aMenu   addAllFrom: donorMenu."
 	^ aMenu
 
 ]

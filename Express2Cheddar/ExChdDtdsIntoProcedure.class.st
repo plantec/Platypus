@@ -87,7 +87,6 @@ ExChdDtdsIntoProcedure >> invoke [
 	" ---------- locals assignments ----------"
 
 	self roots: ExChdRootDtdsFunction invoke.	" ---------- statements ----------"	"---------- native statement ---------- "
-	MultiByteFileStream defaultToLF.
 	ExChdPrepareRootAdaClassesProcedure invoke.
 	(PltEXISTSFunction
 		invokeFromValues:

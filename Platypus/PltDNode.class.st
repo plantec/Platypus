@@ -17,7 +17,7 @@ PltDNode class >> data: data [
 
 { #category : #'instance creation' }
 PltDNode class >> new [
-	^ super new initialize
+	^ self basicNew initialize
 ]
 
 { #category : #'instance creation' }

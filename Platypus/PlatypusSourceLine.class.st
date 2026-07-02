@@ -34,7 +34,7 @@ PlatypusSourceLine class >> font: aFont maxWidth: aSize level: anInteger [
 
 { #category : #'instance creation' }
 PlatypusSourceLine class >> new [
-	^super new initialize
+	^self basicNew initialize
 ]
 
 { #category : #adding }

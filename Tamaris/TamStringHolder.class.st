@@ -25,7 +25,7 @@ Class {
 		'doItReceiver',
 		'textMorph'
 	],
-	#category : 'Tamaris-UI'
+	#category : #'Tamaris-UI'
 }
 
 { #category : #accessing }
@@ -55,14 +55,6 @@ TamStringHolder >> doItReceiver [	"Answer the object that should be informed of 
 
 { #category : #accessing }
 TamStringHolder >> doItReceiver: anObject [	doItReceiver := anObject
-]
-
-{ #category : #'initialize-release' }
-TamStringHolder >> embeddedInMorphicWindowLabeled: labelString [ 
-	| window |	
-	window  :=  super embeddedInMorphicWindowLabeled: labelString.	
-	textMorph := window findA: PluggableTextMorph.	 
-	^ window
 ]
 
 { #category : #accessing }

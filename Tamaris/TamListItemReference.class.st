@@ -43,7 +43,7 @@ Class {
 		'showSubLists',
 		'emphasisModel'
 	],
-	#category : 'Tamaris-Taxonomies'
+	#category : #'Tamaris-Taxonomies'
 }
 
 { #category : #menu }
@@ -66,13 +66,7 @@ TamListItemReference class >> externalLabel [
 ]
 
 { #category : #'instance creation' }
-TamListItemReference class >> from: anObject [ 
-	| ref |
-	ref := anObject withoutListWrapper.
-	(anObject isTamListItemReference)
-		ifTrue: [^ anObject copy].
-	^ TamExploredObjectReference new
-		itemObject: (ObjectExplorerWrapper with: ref)
+TamListItemReference class >> from: anObject [
 ]
 
 { #category : #'instance creation' }
@@ -188,15 +182,6 @@ TamListItemReference >> balloonText [
 	"^ (bt := self asStringOrText)
 		ifNotNil: [bt contractTo: 100]"
 	^ nil
-]
-
-{ #category : #accessing }
-TamListItemReference >> basicSmalltalkBrowser: aTaxonomyBrowser [ 
-	| editor browser |
-	editor := aTaxonomyBrowser editor
-		ifNotNil: [(editor model isKindOf: Browser)
-				ifTrue: [browser := editor model]].
-	^ browser
 ]
 
 { #category : #accessing }
@@ -753,7 +738,7 @@ TamListItemReference >> menuDelete [
 
 	| message |
 	message := ' really remove ? '.
-	(ConfirmationRequest signal: message) ifTrue: [
+	(UIManager default confirm: message) ifTrue: [
 			self remove.
 			^ true ].
 	^ false
@@ -806,6 +791,12 @@ TamListItemReference >> moveUp [
 
 { #category : #updating }
 TamListItemReference >> moveUpReference: aFirstLevelReference [ 	^ false
+]
+
+{ #category : #accessing }
+TamListItemReference >> name [ 
+
+	^ self printString
 ]
 
 { #category : #'morphic wrapper' }
