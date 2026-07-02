@@ -6,28 +6,29 @@ Class {
 		'requestor',
 		'source',
 		'preparsed',
-		'replacementPositions'
+		'replacementPositions',
+		'announcer'
 	],
 	#category : #'Platypus-HW-interpreter'
 }
 
 { #category : #private }
-PlatypusNativeCodeInterpretor class >> methodFrom: textOrStream class: aClass requestor: aRequestor ifFail: failBlock [ 
-	| methodNode method compiler |
-	compiler := self compilerClass new.
-	compiler
-		from: textOrStream
-		class: aClass
-		context: nil
-		notifying: aRequestor.
-	methodNode := compiler
-				translate: textOrStream
-				noPattern: true
-				ifFail: [^ failBlock value].
-	method := methodNode generate.
-	compiler interactive
-		ifTrue: [method := method copyWithTempNames: methodNode tempNames].
-	^ method
+PlatypusNativeCodeInterpretor class >> methodFrom: aString class: aClass requestor: aRequestor ifFail: failBlock [ 
+	| methodNode compiler |
+	(compiler := Smalltalk compilerClass new)
+		source: 'EvaluatePlatypusInterpreterNativeCode ', aString;
+		class: aClass;
+		requestor: aRequestor;
+		noPattern: false;
+		failBlock: [^ failBlock value].
+	methodNode := compiler compile.
+	^ methodNode
+]
+
+{ #category : #accessing }
+PlatypusNativeCodeInterpretor >> announcer [ 
+
+	^ announcer ifNil: [ announcer := Announcer new ]
 ]
 
 { #category : #'requestor error notification' }
@@ -65,7 +66,7 @@ PlatypusNativeCodeInterpretor >> evaluate: e interpretor: anInterpretor requesto
 			self requestor: aRequestor.
 			self preparse.
 			method := self class
-						methodFrom: preparsed
+						methodFrom: preparsed contents
 						class: receiver class
 						requestor: aRequestor
 						ifFail: [self halt].
@@ -80,6 +81,25 @@ PlatypusNativeCodeInterpretor >> evaluateMethod: aMethod [
 	receiver class addSelectorSilently: selector withMethod: aMethod.
 	self class organization classify: selector under: #'platypus interpreting'.
 	^ receiver EvaluatePlatypusInterpreterNativeCode
+]
+
+{ #category : #accessing }
+PlatypusNativeCodeInterpretor >> getText [ 
+
+	^ source copy
+]
+
+{ #category : #private }
+PlatypusNativeCodeInterpretor >> methodFrom: aString class: aClass requestor: aRequestor ifFail: failBlock [ 
+	| methodNode compiler |
+	(compiler := Smalltalk compilerClass new)
+		source: 'EvaluatePlatypusInterpreterNativeCode ', aString asString;
+		class: aClass;
+		requestor: aRequestor;
+		noPattern: false;
+		failBlock: [^ failBlock value].
+	methodNode := compiler compile.
+	^ methodNode
 ]
 
 { #category : #'requestor error notification' }
@@ -135,7 +155,7 @@ PlatypusNativeCodeInterpretor >> preparse [
 						ifFalse: [preparsed nextPut: $"]]].
 	preparsed nextPutAll: '] value'.
 	preparsed reset.
-	^ preparsed
+	^ preparsed contents
 ]
 
 { #category : #accessing }

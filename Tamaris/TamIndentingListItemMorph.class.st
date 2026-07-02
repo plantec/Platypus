@@ -1,34 +1,32 @@
 Class {
-	#name : 'TamIndentingListItemMorph',
-	#superclass : 'IndentingListItemMorph',
-	#category : 'Tamaris-UI',
-	#package : 'Tamaris',
-	#tag : 'UI'
+	#name : #TamIndentingListItemMorph,
+	#superclass : #IndentingListItemMorph,
+	#category : 'Tamaris-UI'
 }
 
-{ #category : 'preferences' }
+{ #category : #preferences }
 TamIndentingListItemMorph class >> showItemsIcon [
 	^ true
 ]
 
-{ #category : 'preferences' }
+{ #category : #preferences }
 TamIndentingListItemMorph class >> useStandardToggleIcons [
 	^ false
 ]
 
-{ #category : 'deleting' }
+{ #category : #deleting }
 TamIndentingListItemMorph >> delete [
 	super delete.
 	self destroy
 ]
 
-{ #category : 'deleting' }
+{ #category : #deleting }
 TamIndentingListItemMorph >> destroy [
 	super destroy.
 	complexContents := nil
 ]
 
-{ #category : 'initialization' }
+{ #category : #initialization }
 TamIndentingListItemMorph >> fontToUse [
 	(container emphasisOf: complexContents withoutListWrapper)
 		ifNotNil: [:emph | emphasis ~= emph emphasis emphasisCode
@@ -38,12 +36,12 @@ TamIndentingListItemMorph >> fontToUse [
 	^ super fontToUse
 ]
 
-{ #category : 'deleting' }
+{ #category : #deleting }
 TamIndentingListItemMorph >> hasToggle [
 	^ complexContents notNil and: [super hasToggle]
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 TamIndentingListItemMorph >> icon [
 	^ self class showItemsIcon 
 		ifTrue: 
@@ -52,7 +50,7 @@ TamIndentingListItemMorph >> icon [
 						ifNotNil: [complexContents withoutListWrapper icon]]]
 ]
 
-{ #category : 'initialization' }
+{ #category : #initialization }
 TamIndentingListItemMorph >> initWithContents: anObject prior: priorMorph forList: hostList indentLevel: newLevel [ 
 	| emph |
 	container := hostList.
@@ -74,20 +72,20 @@ TamIndentingListItemMorph >> initWithContents: anObject prior: priorMorph forLis
 	self extent: self minWidth @ self minHeight
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 TamIndentingListItemMorph >> isFirstItem [
 	^ owner  notNil
 		and: [super isFirstItem]
 ]
 
-{ #category : 'initialization' }
+{ #category : #initialization }
 TamIndentingListItemMorph >> measureContents [
 	"Round up in case fractional."
 	
 	^ super measureContents
 ]
 
-{ #category : 'drawing' }
+{ #category : #drawing }
 TamIndentingListItemMorph >> unhighlight [
 	complexContents ifNotNil: [super unhighlight]
 ]

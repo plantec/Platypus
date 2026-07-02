@@ -1,6 +1,6 @@
-Extension { #name : 'SystemWindow' }
+Extension { #name : #SystemWindow }
 
-{ #category : '*tamaris' }
+{ #category : #'*tamaris' }
 SystemWindow >> emptyLabelArea [
 	labelArea
 		ifNotNil: [labelArea delete. labelArea := nil]

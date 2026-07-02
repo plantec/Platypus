@@ -1,12 +1,10 @@
 Class {
-	#name : 'TamIcons',
-	#superclass : 'Object',
-	#category : 'Tamaris-UI',
-	#package : 'Tamaris',
-	#tag : 'UI'
+	#name : #TamIcons,
+	#superclass : #Object,
+	#category : 'Tamaris-UI'
 }
 
-{ #category : 'utilities' }
+{ #category : #utilities }
 TamIcons class >> capitalize: aString first: firstCapitalized [ 
 	| instr outstr resString curr |
 	instr := ReadStream on: aString.
@@ -23,7 +21,7 @@ TamIcons class >> capitalize: aString first: firstCapitalized [
 	^ resString
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 TamIcons class >> defaultExtent [
 	| prefSet |
 	prefSet := StandardFonts defaultFont height.
@@ -31,7 +29,7 @@ TamIcons class >> defaultExtent [
 		@ (prefSet - 12 max: 16)
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 TamIcons class >> defaultListExtent [
 	| prefSet |
 	prefSet := (StandardFonts listFont height - 10) max: 12.
@@ -39,7 +37,7 @@ TamIcons class >> defaultListExtent [
 
 ]
 
-{ #category : 'accessing forms from /10x10/apps' }
+{ #category : #'accessing forms from /10x10/apps' }
 TamIcons class >> form10x10AppsArchiveViewer [
 	^ (Form
 	extent: 10@10
@@ -48,7 +46,7 @@ TamIcons class >> form10x10AppsArchiveViewer [
 	offset: 0@0)
 ]
 
-{ #category : 'accessing forms from /10x10/apps' }
+{ #category : #'accessing forms from /10x10/apps' }
 TamIcons class >> form10x10AppsBrowser [
 	^ (Form
 	extent: 10@10
@@ -57,7 +55,7 @@ TamIcons class >> form10x10AppsBrowser [
 	offset: 0@0)
 ]
 
-{ #category : 'accessing forms from /10x10/apps' }
+{ #category : #'accessing forms from /10x10/apps' }
 TamIcons class >> form10x10AppsChangeSorter [
 	^ (Form
 	extent: 10@10
@@ -66,7 +64,7 @@ TamIcons class >> form10x10AppsChangeSorter [
 	offset: 0@0)
 ]
 
-{ #category : 'accessing forms from /10x10/apps' }
+{ #category : #'accessing forms from /10x10/apps' }
 TamIcons class >> form10x10AppsDualChangeSorter [
 	^ (Form
 	extent: 10@10
@@ -75,7 +73,7 @@ TamIcons class >> form10x10AppsDualChangeSorter [
 	offset: 0@0)
 ]
 
-{ #category : 'accessing forms from /10x10/apps' }
+{ #category : #'accessing forms from /10x10/apps' }
 TamIcons class >> form10x10AppsFileList [
 	^ (Form
 	extent: 10@10
@@ -84,7 +82,7 @@ TamIcons class >> form10x10AppsFileList [
 	offset: 0@0)
 ]
 
-{ #category : 'accessing forms from /10x10/apps' }
+{ #category : #'accessing forms from /10x10/apps' }
 TamIcons class >> form10x10AppsLint [
 	^ (Form
 	extent: 10@10
@@ -93,7 +91,7 @@ TamIcons class >> form10x10AppsLint [
 	offset: 0@0)
 ]
 
-{ #category : 'accessing forms from /10x10/apps' }
+{ #category : #'accessing forms from /10x10/apps' }
 TamIcons class >> form10x10AppsMessageNames [
 	^ (Form
 	extent: 10@10
@@ -102,7 +100,7 @@ TamIcons class >> form10x10AppsMessageNames [
 	offset: 0@0)
 ]
 
-{ #category : 'accessing forms from /10x10/apps' }
+{ #category : #'accessing forms from /10x10/apps' }
 TamIcons class >> form10x10AppsMonticello [
 	^ (Form
 	extent: 10@10
@@ -111,7 +109,7 @@ TamIcons class >> form10x10AppsMonticello [
 	offset: 0@0)
 ]
 
-{ #category : 'accessing forms from /10x10/apps' }
+{ #category : #'accessing forms from /10x10/apps' }
 TamIcons class >> form10x10AppsPackageLoader [
 	^ (Form
 	extent: 10@10
@@ -120,7 +118,7 @@ TamIcons class >> form10x10AppsPackageLoader [
 	offset: 0@0)
 ]
 
-{ #category : 'accessing forms from /10x10/apps' }
+{ #category : #'accessing forms from /10x10/apps' }
 TamIcons class >> form10x10AppsPackagePanel [
 	^ (Form
 	extent: 10@10
@@ -129,7 +127,7 @@ TamIcons class >> form10x10AppsPackagePanel [
 	offset: 0@0)
 ]
 
-{ #category : 'accessing forms from /10x10/apps' }
+{ #category : #'accessing forms from /10x10/apps' }
 TamIcons class >> form10x10AppsPda [
 	^ (Form
 	extent: 10@10
@@ -138,7 +136,7 @@ TamIcons class >> form10x10AppsPda [
 	offset: 0@0)
 ]
 
-{ #category : 'accessing forms from /10x10/apps' }
+{ #category : #'accessing forms from /10x10/apps' }
 TamIcons class >> form10x10AppsRecentSubmissions [
 	^ (Form
 	extent: 10@10
@@ -147,7 +145,7 @@ TamIcons class >> form10x10AppsRecentSubmissions [
 	offset: 0@0)
 ]
 
-{ #category : 'accessing forms from /10x10/apps' }
+{ #category : #'accessing forms from /10x10/apps' }
 TamIcons class >> form10x10AppsSmacc [
 	^ (Form
 	extent: 10@10
@@ -156,7 +154,7 @@ TamIcons class >> form10x10AppsSmacc [
 	offset: 0@0)
 ]
 
-{ #category : 'accessing forms from /10x10/apps' }
+{ #category : #'accessing forms from /10x10/apps' }
 TamIcons class >> form10x10AppsTranscript [
 	^ (Form
 	extent: 10@10
@@ -165,7 +163,7 @@ TamIcons class >> form10x10AppsTranscript [
 	offset: 0@0)
 ]
 
-{ #category : 'accessing forms from /10x10/apps' }
+{ #category : #'accessing forms from /10x10/apps' }
 TamIcons class >> form10x10AppsWorkspace [
 	^ (Form
 	extent: 10@10
@@ -174,7 +172,7 @@ TamIcons class >> form10x10AppsWorkspace [
 	offset: 0@0)
 ]
 
-{ #category : 'accessing forms from /10x10/filesystems' }
+{ #category : #'accessing forms from /10x10/filesystems' }
 TamIcons class >> form10x10FilesystemsBlueFolder [
 	^ (Form
 	extent: 10@10
@@ -183,7 +181,7 @@ TamIcons class >> form10x10FilesystemsBlueFolder [
 	offset: 0@0)
 ]
 
-{ #category : 'accessing forms from /10x10/filesystems' }
+{ #category : #'accessing forms from /10x10/filesystems' }
 TamIcons class >> form10x10FilesystemsGrayFolder [
 	^ (Form
 	extent: 10@10
@@ -192,7 +190,7 @@ TamIcons class >> form10x10FilesystemsGrayFolder [
 	offset: 0@0)
 ]
 
-{ #category : 'accessing forms from /10x10/filesystems' }
+{ #category : #'accessing forms from /10x10/filesystems' }
 TamIcons class >> form10x10FilesystemsGreenFolder [
 	^ (Form
 	extent: 10@10
@@ -201,7 +199,7 @@ TamIcons class >> form10x10FilesystemsGreenFolder [
 	offset: 0@0)
 ]
 
-{ #category : 'accessing forms from /10x10/filesystems' }
+{ #category : #'accessing forms from /10x10/filesystems' }
 TamIcons class >> form10x10FilesystemsWhiteFolder [
 	^ (Form
 	extent: 10@10
@@ -210,7 +208,7 @@ TamIcons class >> form10x10FilesystemsWhiteFolder [
 	offset: 0@0)
 ]
 
-{ #category : 'accessing forms from /10x10/filesystems' }
+{ #category : #'accessing forms from /10x10/filesystems' }
 TamIcons class >> form10x10FilesystemsYellowFolder [
 	^ (Form
 	extent: 10@10
@@ -219,7 +217,7 @@ TamIcons class >> form10x10FilesystemsYellowFolder [
 	offset: 0@0)
 ]
 
-{ #category : 'accessing forms from /10x10/mimetypes' }
+{ #category : #'accessing forms from /10x10/mimetypes' }
 TamIcons class >> form10x10MimetypesAggregateInstance [
 	^ (Form
 	extent: 10@10
@@ -228,7 +226,7 @@ TamIcons class >> form10x10MimetypesAggregateInstance [
 	offset: 0@0)
 ]
 
-{ #category : 'accessing forms from /10x10/mimetypes' }
+{ #category : #'accessing forms from /10x10/mimetypes' }
 TamIcons class >> form10x10MimetypesAutoTaxon [
 	^ (Form
 	extent: 10@10
@@ -237,7 +235,7 @@ TamIcons class >> form10x10MimetypesAutoTaxon [
 	offset: 0@0)
 ]
 
-{ #category : 'accessing forms from /10x10/mimetypes' }
+{ #category : #'accessing forms from /10x10/mimetypes' }
 TamIcons class >> form10x10MimetypesBlueC [
 	^ (Form
 	extent: 10@10
@@ -246,7 +244,7 @@ TamIcons class >> form10x10MimetypesBlueC [
 	offset: 0@0)
 ]
 
-{ #category : 'accessing forms from /10x10/mimetypes' }
+{ #category : #'accessing forms from /10x10/mimetypes' }
 TamIcons class >> form10x10MimetypesBlueE [
 	^ (Form
 	extent: 10@10
@@ -255,7 +253,7 @@ TamIcons class >> form10x10MimetypesBlueE [
 	offset: 0@0)
 ]
 
-{ #category : 'accessing forms from /10x10/mimetypes' }
+{ #category : #'accessing forms from /10x10/mimetypes' }
 TamIcons class >> form10x10MimetypesBlueF [
 	^ (Form
 	extent: 10@10
@@ -264,7 +262,7 @@ TamIcons class >> form10x10MimetypesBlueF [
 	offset: 0@0)
 ]
 
-{ #category : 'accessing forms from /10x10/mimetypes' }
+{ #category : #'accessing forms from /10x10/mimetypes' }
 TamIcons class >> form10x10MimetypesBlueFile [
 	^ (Form
 	extent: 10@10
@@ -273,7 +271,7 @@ TamIcons class >> form10x10MimetypesBlueFile [
 	offset: 0@0)
 ]
 
-{ #category : 'accessing forms from /10x10/mimetypes' }
+{ #category : #'accessing forms from /10x10/mimetypes' }
 TamIcons class >> form10x10MimetypesBlueG [
 	^ (Form
 	extent: 10@10
@@ -282,7 +280,7 @@ TamIcons class >> form10x10MimetypesBlueG [
 	offset: 0@0)
 ]
 
-{ #category : 'accessing forms from /10x10/mimetypes' }
+{ #category : #'accessing forms from /10x10/mimetypes' }
 TamIcons class >> form10x10MimetypesBlueP [
 	^ (Form
 	extent: 10@10
@@ -291,7 +289,7 @@ TamIcons class >> form10x10MimetypesBlueP [
 	offset: 0@0)
 ]
 
-{ #category : 'accessing forms from /10x10/mimetypes' }
+{ #category : #'accessing forms from /10x10/mimetypes' }
 TamIcons class >> form10x10MimetypesBlueR [
 	^ (Form
 	extent: 10@10
@@ -300,7 +298,7 @@ TamIcons class >> form10x10MimetypesBlueR [
 	offset: 0@0)
 ]
 
-{ #category : 'accessing forms from /10x10/mimetypes' }
+{ #category : #'accessing forms from /10x10/mimetypes' }
 TamIcons class >> form10x10MimetypesBlueSphere [
 	^ (Form
 	extent: 10@10
@@ -309,7 +307,7 @@ TamIcons class >> form10x10MimetypesBlueSphere [
 	offset: 0@0)
 ]
 
-{ #category : 'accessing forms from /10x10/mimetypes' }
+{ #category : #'accessing forms from /10x10/mimetypes' }
 TamIcons class >> form10x10MimetypesBlueT [
 	^ (Form
 	extent: 10@10
@@ -318,7 +316,7 @@ TamIcons class >> form10x10MimetypesBlueT [
 	offset: 0@0)
 ]
 
-{ #category : 'accessing forms from /10x10/mimetypes' }
+{ #category : #'accessing forms from /10x10/mimetypes' }
 TamIcons class >> form10x10MimetypesCable [
 	^ (Form
 	extent: 10@10
@@ -327,7 +325,7 @@ TamIcons class >> form10x10MimetypesCable [
 	offset: 0@0)
 ]
 
-{ #category : 'accessing forms from /10x10/mimetypes' }
+{ #category : #'accessing forms from /10x10/mimetypes' }
 TamIcons class >> form10x10MimetypesCarre [
 	^ (Form
 	extent: 10@10
@@ -336,7 +334,7 @@ TamIcons class >> form10x10MimetypesCarre [
 	offset: 0@0)
 ]
 
-{ #category : 'accessing forms from /10x10/mimetypes' }
+{ #category : #'accessing forms from /10x10/mimetypes' }
 TamIcons class >> form10x10MimetypesClass [
 	^ (Form
 	extent: 10@10
@@ -345,7 +343,7 @@ TamIcons class >> form10x10MimetypesClass [
 	offset: 0@0)
 ]
 
-{ #category : 'accessing forms from /10x10/mimetypes' }
+{ #category : #'accessing forms from /10x10/mimetypes' }
 TamIcons class >> form10x10MimetypesClassMethod [
 	^ (Form
 	extent: 10@10
@@ -354,7 +352,7 @@ TamIcons class >> form10x10MimetypesClassMethod [
 	offset: 0@0)
 ]
 
-{ #category : 'accessing forms from /10x10/mimetypes' }
+{ #category : #'accessing forms from /10x10/mimetypes' }
 TamIcons class >> form10x10MimetypesClassMethodCategory [
 	^ (Form
 	extent: 10@10
@@ -363,7 +361,7 @@ TamIcons class >> form10x10MimetypesClassMethodCategory [
 	offset: 0@0)
 ]
 
-{ #category : 'accessing forms from /10x10/mimetypes' }
+{ #category : #'accessing forms from /10x10/mimetypes' }
 TamIcons class >> form10x10MimetypesClassWithSelectors [
 	^ (Form
 	extent: 10@10
@@ -372,7 +370,7 @@ TamIcons class >> form10x10MimetypesClassWithSelectors [
 	offset: 0@0)
 ]
 
-{ #category : 'accessing forms from /10x10/mimetypes' }
+{ #category : #'accessing forms from /10x10/mimetypes' }
 TamIcons class >> form10x10MimetypesClassWithSupertype [
 	^ (Form
 	extent: 10@10
@@ -381,7 +379,7 @@ TamIcons class >> form10x10MimetypesClassWithSupertype [
 	offset: 0@0)
 ]
 
-{ #category : 'accessing forms from /10x10/mimetypes' }
+{ #category : #'accessing forms from /10x10/mimetypes' }
 TamIcons class >> form10x10MimetypesClassWithSupertypeAndSelectors [
 	^ (Form
 	extent: 10@10
@@ -390,7 +388,7 @@ TamIcons class >> form10x10MimetypesClassWithSupertypeAndSelectors [
 	offset: 0@0)
 ]
 
-{ #category : 'accessing forms from /10x10/mimetypes' }
+{ #category : #'accessing forms from /10x10/mimetypes' }
 TamIcons class >> form10x10MimetypesComponent [
 	^ (Form
 	extent: 10@10
@@ -399,7 +397,7 @@ TamIcons class >> form10x10MimetypesComponent [
 	offset: 0@0)
 ]
 
-{ #category : 'accessing forms from /10x10/mimetypes' }
+{ #category : #'accessing forms from /10x10/mimetypes' }
 TamIcons class >> form10x10MimetypesCoulisse [
 	^ (Form
 	extent: 10@10
@@ -408,7 +406,7 @@ TamIcons class >> form10x10MimetypesCoulisse [
 	offset: 0@0)
 ]
 
-{ #category : 'accessing forms from /10x10/mimetypes' }
+{ #category : #'accessing forms from /10x10/mimetypes' }
 TamIcons class >> form10x10MimetypesDerivedAttribute [
 	^ (Form
 	extent: 10@10
@@ -417,7 +415,7 @@ TamIcons class >> form10x10MimetypesDerivedAttribute [
 	offset: 0@0)
 ]
 
-{ #category : 'accessing forms from /10x10/mimetypes' }
+{ #category : #'accessing forms from /10x10/mimetypes' }
 TamIcons class >> form10x10MimetypesDiamond [
 	^ (Form
 	extent: 10@10
@@ -426,7 +424,7 @@ TamIcons class >> form10x10MimetypesDiamond [
 	offset: 0@0)
 ]
 
-{ #category : 'accessing forms from /10x10/mimetypes' }
+{ #category : #'accessing forms from /10x10/mimetypes' }
 TamIcons class >> form10x10MimetypesEntityInstance [
 	^ (Form
 	extent: 7@10
@@ -435,7 +433,7 @@ TamIcons class >> form10x10MimetypesEntityInstance [
 	offset: 0@0)
 ]
 
-{ #category : 'accessing forms from /10x10/mimetypes' }
+{ #category : #'accessing forms from /10x10/mimetypes' }
 TamIcons class >> form10x10MimetypesExplicitAttribute [
 	^ (Form
 	extent: 10@10
@@ -444,7 +442,7 @@ TamIcons class >> form10x10MimetypesExplicitAttribute [
 	offset: 0@0)
 ]
 
-{ #category : 'accessing forms from /10x10/mimetypes' }
+{ #category : #'accessing forms from /10x10/mimetypes' }
 TamIcons class >> form10x10MimetypesFile [
 	^ (Form
 	extent: 10@10
@@ -453,7 +451,7 @@ TamIcons class >> form10x10MimetypesFile [
 	offset: 0@0)
 ]
 
-{ #category : 'accessing forms from /10x10/mimetypes' }
+{ #category : #'accessing forms from /10x10/mimetypes' }
 TamIcons class >> form10x10MimetypesFishingNet [
 	^ (Form
 	extent: 10@10
@@ -462,7 +460,7 @@ TamIcons class >> form10x10MimetypesFishingNet [
 	offset: 0@0)
 ]
 
-{ #category : 'accessing forms from /10x10/mimetypes' }
+{ #category : #'accessing forms from /10x10/mimetypes' }
 TamIcons class >> form10x10MimetypesGraySphere [
 	^ (Form
 	extent: 10@10
@@ -471,7 +469,7 @@ TamIcons class >> form10x10MimetypesGraySphere [
 	offset: 0@0)
 ]
 
-{ #category : 'accessing forms from /10x10/mimetypes' }
+{ #category : #'accessing forms from /10x10/mimetypes' }
 TamIcons class >> form10x10MimetypesGreenSphere [
 	^ (Form
 	extent: 10@10
@@ -480,7 +478,7 @@ TamIcons class >> form10x10MimetypesGreenSphere [
 	offset: 0@0)
 ]
 
-{ #category : 'accessing forms from /10x10/mimetypes' }
+{ #category : #'accessing forms from /10x10/mimetypes' }
 TamIcons class >> form10x10MimetypesGroup [
 	^ (Form
 	extent: 10@10
@@ -489,7 +487,7 @@ TamIcons class >> form10x10MimetypesGroup [
 	offset: 0@0)
 ]
 
-{ #category : 'accessing forms from /10x10/mimetypes' }
+{ #category : #'accessing forms from /10x10/mimetypes' }
 TamIcons class >> form10x10MimetypesHexa [
 	^ (Form
 	extent: 10@10
@@ -498,7 +496,7 @@ TamIcons class >> form10x10MimetypesHexa [
 	offset: 0@0)
 ]
 
-{ #category : 'accessing forms from /10x10/mimetypes' }
+{ #category : #'accessing forms from /10x10/mimetypes' }
 TamIcons class >> form10x10MimetypesImplementor [
 	^ (Form
 	extent: 10@10
@@ -507,7 +505,7 @@ TamIcons class >> form10x10MimetypesImplementor [
 	offset: 0@0)
 ]
 
-{ #category : 'accessing forms from /10x10/mimetypes' }
+{ #category : #'accessing forms from /10x10/mimetypes' }
 TamIcons class >> form10x10MimetypesInstanceMethod [
 	^ (Form
 	extent: 10@10
@@ -516,7 +514,7 @@ TamIcons class >> form10x10MimetypesInstanceMethod [
 	offset: 0@0)
 ]
 
-{ #category : 'accessing forms from /10x10/mimetypes' }
+{ #category : #'accessing forms from /10x10/mimetypes' }
 TamIcons class >> form10x10MimetypesInverseAttribute [
 	^ (Form
 	extent: 10@10
@@ -525,7 +523,7 @@ TamIcons class >> form10x10MimetypesInverseAttribute [
 	offset: 0@0)
 ]
 
-{ #category : 'accessing forms from /10x10/mimetypes' }
+{ #category : #'accessing forms from /10x10/mimetypes' }
 TamIcons class >> form10x10MimetypesLinksTaxon [
 	^ (Form
 	extent: 10@10
@@ -534,7 +532,7 @@ TamIcons class >> form10x10MimetypesLinksTaxon [
 	offset: 0@0)
 ]
 
-{ #category : 'accessing forms from /10x10/mimetypes' }
+{ #category : #'accessing forms from /10x10/mimetypes' }
 TamIcons class >> form10x10MimetypesMetaSchema [
 	^ (Form
 	extent: 10@10
@@ -543,7 +541,7 @@ TamIcons class >> form10x10MimetypesMetaSchema [
 	offset: 0@0)
 ]
 
-{ #category : 'accessing forms from /10x10/mimetypes' }
+{ #category : #'accessing forms from /10x10/mimetypes' }
 TamIcons class >> form10x10MimetypesMetaSchemaInstancier [
 	^ (Form
 	extent: 10@10
@@ -552,7 +550,7 @@ TamIcons class >> form10x10MimetypesMetaSchemaInstancier [
 	offset: 0@0)
 ]
 
-{ #category : 'accessing forms from /10x10/mimetypes' }
+{ #category : #'accessing forms from /10x10/mimetypes' }
 TamIcons class >> form10x10MimetypesMethodCategory [
 	^ (Form
 	extent: 10@10
@@ -561,7 +559,7 @@ TamIcons class >> form10x10MimetypesMethodCategory [
 	offset: 0@0)
 ]
 
-{ #category : 'accessing forms from /10x10/mimetypes' }
+{ #category : #'accessing forms from /10x10/mimetypes' }
 TamIcons class >> form10x10MimetypesNet [
 	^ (Form
 	extent: 10@10
@@ -570,7 +568,7 @@ TamIcons class >> form10x10MimetypesNet [
 	offset: 0@0)
 ]
 
-{ #category : 'accessing forms from /10x10/mimetypes' }
+{ #category : #'accessing forms from /10x10/mimetypes' }
 TamIcons class >> form10x10MimetypesObject [
 	^ (Form
 	extent: 10@10
@@ -579,7 +577,7 @@ TamIcons class >> form10x10MimetypesObject [
 	offset: 0@0)
 ]
 
-{ #category : 'accessing forms from /10x10/mimetypes' }
+{ #category : #'accessing forms from /10x10/mimetypes' }
 TamIcons class >> form10x10MimetypesOdbcDatasource [
 	^ (Form
 	extent: 10@10
@@ -588,7 +586,7 @@ TamIcons class >> form10x10MimetypesOdbcDatasource [
 	offset: 0@0)
 ]
 
-{ #category : 'accessing forms from /10x10/mimetypes' }
+{ #category : #'accessing forms from /10x10/mimetypes' }
 TamIcons class >> form10x10MimetypesPackageBlue [
 	^ (Form
 	extent: 10@10
@@ -597,7 +595,7 @@ TamIcons class >> form10x10MimetypesPackageBlue [
 	offset: 0@0)
 ]
 
-{ #category : 'accessing forms from /10x10/mimetypes' }
+{ #category : #'accessing forms from /10x10/mimetypes' }
 TamIcons class >> form10x10MimetypesPackageGreen [
 	^ (Form
 	extent: 10@10
@@ -606,7 +604,7 @@ TamIcons class >> form10x10MimetypesPackageGreen [
 	offset: 0@0)
 ]
 
-{ #category : 'accessing forms from /10x10/mimetypes' }
+{ #category : #'accessing forms from /10x10/mimetypes' }
 TamIcons class >> form10x10MimetypesPackageMapping [
 	^ (Form
 	extent: 10@10
@@ -615,7 +613,7 @@ TamIcons class >> form10x10MimetypesPackageMapping [
 	offset: 0@0)
 ]
 
-{ #category : 'accessing forms from /10x10/mimetypes' }
+{ #category : #'accessing forms from /10x10/mimetypes' }
 TamIcons class >> form10x10MimetypesPackageWhite [
 	^ (Form
 	extent: 10@10
@@ -624,7 +622,7 @@ TamIcons class >> form10x10MimetypesPackageWhite [
 	offset: 0@0)
 ]
 
-{ #category : 'accessing forms from /10x10/mimetypes' }
+{ #category : #'accessing forms from /10x10/mimetypes' }
 TamIcons class >> form10x10MimetypesPackageYellow [
 	^ (Form
 	extent: 10@10
@@ -633,7 +631,7 @@ TamIcons class >> form10x10MimetypesPackageYellow [
 	offset: 0@0)
 ]
 
-{ #category : 'accessing forms from /10x10/mimetypes' }
+{ #category : #'accessing forms from /10x10/mimetypes' }
 TamIcons class >> form10x10MimetypesPhobos [
 	^ (Form
 	extent: 10@10
@@ -642,7 +640,7 @@ TamIcons class >> form10x10MimetypesPhobos [
 	offset: 0@0)
 ]
 
-{ #category : 'accessing forms from /10x10/mimetypes' }
+{ #category : #'accessing forms from /10x10/mimetypes' }
 TamIcons class >> form10x10MimetypesPinkSphere [
 	^ (Form
 	extent: 10@10
@@ -651,7 +649,7 @@ TamIcons class >> form10x10MimetypesPinkSphere [
 	offset: 0@0)
 ]
 
-{ #category : 'accessing forms from /10x10/mimetypes' }
+{ #category : #'accessing forms from /10x10/mimetypes' }
 TamIcons class >> form10x10MimetypesPrm [
 	^ (Form
 	extent: 10@10
@@ -660,7 +658,7 @@ TamIcons class >> form10x10MimetypesPrm [
 	offset: 0@0)
 ]
 
-{ #category : 'accessing forms from /10x10/mimetypes' }
+{ #category : #'accessing forms from /10x10/mimetypes' }
 TamIcons class >> form10x10MimetypesProperties [
 	^ (Form
 	extent: 10@10
@@ -669,7 +667,7 @@ TamIcons class >> form10x10MimetypesProperties [
 	offset: 0@0)
 ]
 
-{ #category : 'accessing forms from /10x10/mimetypes' }
+{ #category : #'accessing forms from /10x10/mimetypes' }
 TamIcons class >> form10x10MimetypesQuestion [
 	^ (Form
 	extent: 10@10
@@ -678,7 +676,7 @@ TamIcons class >> form10x10MimetypesQuestion [
 	offset: 0@0)
 ]
 
-{ #category : 'accessing forms from /10x10/mimetypes' }
+{ #category : #'accessing forms from /10x10/mimetypes' }
 TamIcons class >> form10x10MimetypesRdbsColumn [
 	^ (Form
 	extent: 10@10
@@ -687,7 +685,7 @@ TamIcons class >> form10x10MimetypesRdbsColumn [
 	offset: 0@0)
 ]
 
-{ #category : 'accessing forms from /10x10/mimetypes' }
+{ #category : #'accessing forms from /10x10/mimetypes' }
 TamIcons class >> form10x10MimetypesRdbsTable [
 	^ (Form
 	extent: 10@10
@@ -696,7 +694,7 @@ TamIcons class >> form10x10MimetypesRdbsTable [
 	offset: 0@0)
 ]
 
-{ #category : 'accessing forms from /10x10/mimetypes' }
+{ #category : #'accessing forms from /10x10/mimetypes' }
 TamIcons class >> form10x10MimetypesRedQuestion [
 	^ (Form
 	extent: 10@10
@@ -705,7 +703,7 @@ TamIcons class >> form10x10MimetypesRedQuestion [
 	offset: 0@0)
 ]
 
-{ #category : 'accessing forms from /10x10/mimetypes' }
+{ #category : #'accessing forms from /10x10/mimetypes' }
 TamIcons class >> form10x10MimetypesRootTaxon [
 	^ (Form
 	extent: 10@10
@@ -714,7 +712,7 @@ TamIcons class >> form10x10MimetypesRootTaxon [
 	offset: 0@0)
 ]
 
-{ #category : 'accessing forms from /10x10/mimetypes' }
+{ #category : #'accessing forms from /10x10/mimetypes' }
 TamIcons class >> form10x10MimetypesSchema [
 	^ (Form
 	extent: 10@10
@@ -723,7 +721,7 @@ TamIcons class >> form10x10MimetypesSchema [
 	offset: 0@0)
 ]
 
-{ #category : 'accessing forms from /10x10/mimetypes' }
+{ #category : #'accessing forms from /10x10/mimetypes' }
 TamIcons class >> form10x10MimetypesSender [
 	^ (Form
 	extent: 10@10
@@ -732,7 +730,7 @@ TamIcons class >> form10x10MimetypesSender [
 	offset: 0@0)
 ]
 
-{ #category : 'accessing forms from /10x10/mimetypes' }
+{ #category : #'accessing forms from /10x10/mimetypes' }
 TamIcons class >> form10x10MimetypesStepComputedValue [
 	^ (Form
 	extent: 10@10
@@ -741,7 +739,7 @@ TamIcons class >> form10x10MimetypesStepComputedValue [
 	offset: 0@0)
 ]
 
-{ #category : 'accessing forms from /10x10/mimetypes' }
+{ #category : #'accessing forms from /10x10/mimetypes' }
 TamIcons class >> form10x10MimetypesStepValue [
 	^ (Form
 	extent: 10@10
@@ -750,7 +748,7 @@ TamIcons class >> form10x10MimetypesStepValue [
 	offset: 0@0)
 ]
 
-{ #category : 'accessing forms from /10x10/mimetypes' }
+{ #category : #'accessing forms from /10x10/mimetypes' }
 TamIcons class >> form10x10MimetypesSuperClass [
 	^ (Form
 	extent: 10@10
@@ -759,7 +757,7 @@ TamIcons class >> form10x10MimetypesSuperClass [
 	offset: 0@0)
 ]
 
-{ #category : 'accessing forms from /10x10/mimetypes' }
+{ #category : #'accessing forms from /10x10/mimetypes' }
 TamIcons class >> form10x10MimetypesSuperClassWithSelectors [
 	^ (Form
 	extent: 10@10
@@ -768,7 +766,7 @@ TamIcons class >> form10x10MimetypesSuperClassWithSelectors [
 	offset: 0@0)
 ]
 
-{ #category : 'accessing forms from /10x10/mimetypes' }
+{ #category : #'accessing forms from /10x10/mimetypes' }
 TamIcons class >> form10x10MimetypesSystemCategory [
 	^ (Form
 	extent: 10@10
@@ -777,7 +775,7 @@ TamIcons class >> form10x10MimetypesSystemCategory [
 	offset: 0@0)
 ]
 
-{ #category : 'accessing forms from /10x10/mimetypes' }
+{ #category : #'accessing forms from /10x10/mimetypes' }
 TamIcons class >> form10x10MimetypesTaxon [
 	^ (Form
 	extent: 10@10
@@ -786,7 +784,7 @@ TamIcons class >> form10x10MimetypesTaxon [
 	offset: 0@0)
 ]
 
-{ #category : 'accessing forms from /10x10/mimetypes' }
+{ #category : #'accessing forms from /10x10/mimetypes' }
 TamIcons class >> form10x10MimetypesTriangle [
 	^ (Form
 	extent: 10@10
@@ -795,7 +793,7 @@ TamIcons class >> form10x10MimetypesTriangle [
 	offset: 0@0)
 ]
 
-{ #category : 'accessing forms from /10x10/mimetypes' }
+{ #category : #'accessing forms from /10x10/mimetypes' }
 TamIcons class >> form10x10MimetypesUnresolvedEntityInstance [
 	^ (Form
 	extent: 7@10
@@ -804,7 +802,7 @@ TamIcons class >> form10x10MimetypesUnresolvedEntityInstance [
 	offset: 0@0)
 ]
 
-{ #category : 'accessing forms from /10x10/mimetypes' }
+{ #category : #'accessing forms from /10x10/mimetypes' }
 TamIcons class >> form10x10MimetypesWhereRule [
 	^ (Form
 	extent: 10@10
@@ -813,7 +811,7 @@ TamIcons class >> form10x10MimetypesWhereRule [
 	offset: 0@0)
 ]
 
-{ #category : 'accessing forms from /10x10/mimetypes' }
+{ #category : #'accessing forms from /10x10/mimetypes' }
 TamIcons class >> form10x10MimetypesYellowSphere [
 	^ (Form
 	extent: 10@10
@@ -822,7 +820,7 @@ TamIcons class >> form10x10MimetypesYellowSphere [
 	offset: 0@0)
 ]
 
-{ #category : 'accessing forms from /16x16/actions' }
+{ #category : #'accessing forms from /16x16/actions' }
 TamIcons class >> form16x16ActionsAxes [
 	^ (Form
 	extent: 16@16
@@ -831,7 +829,7 @@ TamIcons class >> form16x16ActionsAxes [
 	offset: 0@0)
 ]
 
-{ #category : 'accessing forms from /16x16/actions' }
+{ #category : #'accessing forms from /16x16/actions' }
 TamIcons class >> form16x16ActionsBlueOk [
 	^ (Form
 	extent: 16@14
@@ -840,7 +838,7 @@ TamIcons class >> form16x16ActionsBlueOk [
 	offset: 0@0)
 ]
 
-{ #category : 'accessing forms from /16x16/actions' }
+{ #category : #'accessing forms from /16x16/actions' }
 TamIcons class >> form16x16ActionsBlueOkAll [
 	^ (Form
 	extent: 16@14
@@ -849,7 +847,7 @@ TamIcons class >> form16x16ActionsBlueOkAll [
 	offset: 0@0)
 ]
 
-{ #category : 'accessing forms from /16x16/actions' }
+{ #category : #'accessing forms from /16x16/actions' }
 TamIcons class >> form16x16ActionsBookmark [
 	^ (Form
 	extent: 16@16
@@ -858,7 +856,7 @@ TamIcons class >> form16x16ActionsBookmark [
 	offset: 0@0)
 ]
 
-{ #category : 'accessing forms from /16x16/actions' }
+{ #category : #'accessing forms from /16x16/actions' }
 TamIcons class >> form16x16ActionsCollapse [
 	^ (Form
 	extent: 16@16
@@ -867,7 +865,7 @@ TamIcons class >> form16x16ActionsCollapse [
 	offset: 0@0)
 ]
 
-{ #category : 'accessing forms from /16x16/actions' }
+{ #category : #'accessing forms from /16x16/actions' }
 TamIcons class >> form16x16ActionsCollapseAll [
 	^ (Form
 	extent: 16@16
@@ -876,7 +874,7 @@ TamIcons class >> form16x16ActionsCollapseAll [
 	offset: 0@0)
 ]
 
-{ #category : 'accessing forms from /16x16/actions' }
+{ #category : #'accessing forms from /16x16/actions' }
 TamIcons class >> form16x16ActionsCrossingOff [
 	^ (Form
 	extent: 16@16
@@ -885,7 +883,7 @@ TamIcons class >> form16x16ActionsCrossingOff [
 	offset: 0@0)
 ]
 
-{ #category : 'accessing forms from /16x16/actions' }
+{ #category : #'accessing forms from /16x16/actions' }
 TamIcons class >> form16x16ActionsCrossingOn [
 	^ (Form
 	extent: 16@16
@@ -894,7 +892,7 @@ TamIcons class >> form16x16ActionsCrossingOn [
 	offset: 0@0)
 ]
 
-{ #category : 'accessing forms from /16x16/actions' }
+{ #category : #'accessing forms from /16x16/actions' }
 TamIcons class >> form16x16ActionsDisplay2d [
 	^ (Form
 	extent: 16@16
@@ -903,7 +901,7 @@ TamIcons class >> form16x16ActionsDisplay2d [
 	offset: 0@0)
 ]
 
-{ #category : 'accessing forms from /16x16/actions' }
+{ #category : #'accessing forms from /16x16/actions' }
 TamIcons class >> form16x16ActionsDown [
 	^ (Form
 	extent: 16@16
@@ -912,7 +910,7 @@ TamIcons class >> form16x16ActionsDown [
 	offset: 0@0)
 ]
 
-{ #category : 'accessing forms from /16x16/actions' }
+{ #category : #'accessing forms from /16x16/actions' }
 TamIcons class >> form16x16ActionsErase [
 	^ (Form
 	extent: 16@16
@@ -921,7 +919,7 @@ TamIcons class >> form16x16ActionsErase [
 	offset: 0@0)
 ]
 
-{ #category : 'accessing forms from /16x16/actions' }
+{ #category : #'accessing forms from /16x16/actions' }
 TamIcons class >> form16x16ActionsFileBroken [
 	^ (Form
 	extent: 16@16
@@ -930,7 +928,7 @@ TamIcons class >> form16x16ActionsFileBroken [
 	offset: 0@0)
 ]
 
-{ #category : 'accessing forms from /16x16/actions' }
+{ #category : #'accessing forms from /16x16/actions' }
 TamIcons class >> form16x16ActionsFileRead [
 	^ (Form
 	extent: 16@16
@@ -939,7 +937,7 @@ TamIcons class >> form16x16ActionsFileRead [
 	offset: 0@0)
 ]
 
-{ #category : 'accessing forms from /16x16/actions' }
+{ #category : #'accessing forms from /16x16/actions' }
 TamIcons class >> form16x16ActionsFileSave [
 	^ (Form
 	extent: 16@16
@@ -948,7 +946,7 @@ TamIcons class >> form16x16ActionsFileSave [
 	offset: 0@0)
 ]
 
-{ #category : 'accessing forms from /16x16/actions' }
+{ #category : #'accessing forms from /16x16/actions' }
 TamIcons class >> form16x16ActionsFreezeTree [
 	^ (Form
 	extent: 16@16
@@ -957,7 +955,7 @@ TamIcons class >> form16x16ActionsFreezeTree [
 	offset: 0@0)
 ]
 
-{ #category : 'accessing forms from /16x16/actions' }
+{ #category : #'accessing forms from /16x16/actions' }
 TamIcons class >> form16x16ActionsFullText [
 	^ (Form
 	extent: 16@16
@@ -966,7 +964,7 @@ TamIcons class >> form16x16ActionsFullText [
 	offset: 0@0)
 ]
 
-{ #category : 'accessing forms from /16x16/actions' }
+{ #category : #'accessing forms from /16x16/actions' }
 TamIcons class >> form16x16ActionsGriddingOff [
 	^ (Form
 	extent: 16@16
@@ -975,7 +973,7 @@ TamIcons class >> form16x16ActionsGriddingOff [
 	offset: 0@0)
 ]
 
-{ #category : 'accessing forms from /16x16/actions' }
+{ #category : #'accessing forms from /16x16/actions' }
 TamIcons class >> form16x16ActionsGriddingOn [
 	^ (Form
 	extent: 16@16
@@ -984,7 +982,7 @@ TamIcons class >> form16x16ActionsGriddingOn [
 	offset: 0@0)
 ]
 
-{ #category : 'accessing forms from /16x16/actions' }
+{ #category : #'accessing forms from /16x16/actions' }
 TamIcons class >> form16x16ActionsLinks [
 	^ (Form
 	extent: 16@16
@@ -993,7 +991,7 @@ TamIcons class >> form16x16ActionsLinks [
 	offset: 0@0)
 ]
 
-{ #category : 'accessing forms from /16x16/actions' }
+{ #category : #'accessing forms from /16x16/actions' }
 TamIcons class >> form16x16ActionsLocalRecents [
 	^ (Form
 	extent: 16@16
@@ -1002,7 +1000,7 @@ TamIcons class >> form16x16ActionsLocalRecents [
 	offset: 0@0)
 ]
 
-{ #category : 'accessing forms from /16x16/actions' }
+{ #category : #'accessing forms from /16x16/actions' }
 TamIcons class >> form16x16ActionsLocalSearch [
 	^ (Form
 	extent: 16@16
@@ -1011,7 +1009,7 @@ TamIcons class >> form16x16ActionsLocalSearch [
 	offset: 0@0)
 ]
 
-{ #category : 'accessing forms from /16x16/actions' }
+{ #category : #'accessing forms from /16x16/actions' }
 TamIcons class >> form16x16ActionsNewElement [
 	^ (Form
 	extent: 16@16
@@ -1020,7 +1018,7 @@ TamIcons class >> form16x16ActionsNewElement [
 	offset: 0@0)
 ]
 
-{ #category : 'accessing forms from /16x16/actions' }
+{ #category : #'accessing forms from /16x16/actions' }
 TamIcons class >> form16x16ActionsNewRight [
 	^ (Form
 	extent: 16@16
@@ -1029,7 +1027,7 @@ TamIcons class >> form16x16ActionsNewRight [
 	offset: 0@0)
 ]
 
-{ #category : 'accessing forms from /16x16/actions' }
+{ #category : #'accessing forms from /16x16/actions' }
 TamIcons class >> form16x16ActionsNextGreen [
 	^ (Form
 	extent: 16@16
@@ -1038,7 +1036,7 @@ TamIcons class >> form16x16ActionsNextGreen [
 	offset: 0@0)
 ]
 
-{ #category : 'accessing forms from /16x16/actions' }
+{ #category : #'accessing forms from /16x16/actions' }
 TamIcons class >> form16x16ActionsOk [
 	^ (Form
 	extent: 16@14
@@ -1047,7 +1045,7 @@ TamIcons class >> form16x16ActionsOk [
 	offset: 0@0)
 ]
 
-{ #category : 'accessing forms from /16x16/actions' }
+{ #category : #'accessing forms from /16x16/actions' }
 TamIcons class >> form16x16ActionsP21Syntax [
 	^ (Form
 	extent: 16@16
@@ -1056,7 +1054,7 @@ TamIcons class >> form16x16ActionsP21Syntax [
 	offset: 0@0)
 ]
 
-{ #category : 'accessing forms from /16x16/actions' }
+{ #category : #'accessing forms from /16x16/actions' }
 TamIcons class >> form16x16ActionsPreviousGreen [
 	^ (Form
 	extent: 16@16
@@ -1065,7 +1063,7 @@ TamIcons class >> form16x16ActionsPreviousGreen [
 	offset: 0@0)
 ]
 
-{ #category : 'accessing forms from /16x16/actions' }
+{ #category : #'accessing forms from /16x16/actions' }
 TamIcons class >> form16x16ActionsRecents [
 	^ (Form
 	extent: 16@16
@@ -1074,7 +1072,7 @@ TamIcons class >> form16x16ActionsRecents [
 	offset: 0@0)
 ]
 
-{ #category : 'accessing forms from /16x16/actions' }
+{ #category : #'accessing forms from /16x16/actions' }
 TamIcons class >> form16x16ActionsReload [
 	^ (Form
 	extent: 16@16
@@ -1083,7 +1081,7 @@ TamIcons class >> form16x16ActionsReload [
 	offset: 0@0)
 ]
 
-{ #category : 'accessing forms from /16x16/actions' }
+{ #category : #'accessing forms from /16x16/actions' }
 TamIcons class >> form16x16ActionsRemove [
 	^ (Form
 	extent: 16@16
@@ -1092,7 +1090,7 @@ TamIcons class >> form16x16ActionsRemove [
 	offset: 0@0)
 ]
 
-{ #category : 'accessing forms from /16x16/actions' }
+{ #category : #'accessing forms from /16x16/actions' }
 TamIcons class >> form16x16ActionsRemovePane [
 	^ (Form
 	extent: 16@16
@@ -1101,7 +1099,7 @@ TamIcons class >> form16x16ActionsRemovePane [
 	offset: 0@0)
 ]
 
-{ #category : 'accessing forms from /16x16/actions' }
+{ #category : #'accessing forms from /16x16/actions' }
 TamIcons class >> form16x16ActionsRemoveRight [
 	^ (Form
 	extent: 16@16
@@ -1110,7 +1108,7 @@ TamIcons class >> form16x16ActionsRemoveRight [
 	offset: 0@0)
 ]
 
-{ #category : 'accessing forms from /16x16/actions' }
+{ #category : #'accessing forms from /16x16/actions' }
 TamIcons class >> form16x16ActionsRun [
 	^ (Form
 	extent: 16@16
@@ -1119,7 +1117,7 @@ TamIcons class >> form16x16ActionsRun [
 	offset: 0@0)
 ]
 
-{ #category : 'accessing forms from /16x16/actions' }
+{ #category : #'accessing forms from /16x16/actions' }
 TamIcons class >> form16x16ActionsRunAndSee [
 	^ (Form
 	extent: 16@16
@@ -1128,7 +1126,7 @@ TamIcons class >> form16x16ActionsRunAndSee [
 	offset: 0@0)
 ]
 
-{ #category : 'accessing forms from /16x16/actions' }
+{ #category : #'accessing forms from /16x16/actions' }
 TamIcons class >> form16x16ActionsSearch [
 	^ (Form
 	extent: 16@16
@@ -1137,7 +1135,7 @@ TamIcons class >> form16x16ActionsSearch [
 	offset: 0@0)
 ]
 
-{ #category : 'accessing forms from /16x16/actions' }
+{ #category : #'accessing forms from /16x16/actions' }
 TamIcons class >> form16x16ActionsSearchMethod [
 	^ (Form
 	extent: 16@16
@@ -1146,7 +1144,7 @@ TamIcons class >> form16x16ActionsSearchMethod [
 	offset: 0@0)
 ]
 
-{ #category : 'accessing forms from /16x16/actions' }
+{ #category : #'accessing forms from /16x16/actions' }
 TamIcons class >> form16x16ActionsSearchSender [
 	^ (Form
 	extent: 16@16
@@ -1155,7 +1153,7 @@ TamIcons class >> form16x16ActionsSearchSender [
 	offset: 0@0)
 ]
 
-{ #category : 'accessing forms from /16x16/actions' }
+{ #category : #'accessing forms from /16x16/actions' }
 TamIcons class >> form16x16ActionsSearchsender [
 	^ Form
 		extent: 16 @ 16
@@ -1164,7 +1162,7 @@ TamIcons class >> form16x16ActionsSearchsender [
 		offset: 0 @ 0
 ]
 
-{ #category : 'accessing forms from /16x16/actions' }
+{ #category : #'accessing forms from /16x16/actions' }
 TamIcons class >> form16x16ActionsSeveralWindows [
 	^ (Form
 	extent: 16@16
@@ -1173,7 +1171,7 @@ TamIcons class >> form16x16ActionsSeveralWindows [
 	offset: 0@0)
 ]
 
-{ #category : 'accessing forms from /16x16/actions' }
+{ #category : #'accessing forms from /16x16/actions' }
 TamIcons class >> form16x16ActionsSmiley [
 	^ (Form
 	extent: 16@16
@@ -1182,7 +1180,7 @@ TamIcons class >> form16x16ActionsSmiley [
 	offset: 0@0)
 ]
 
-{ #category : 'accessing forms from /16x16/actions' }
+{ #category : #'accessing forms from /16x16/actions' }
 TamIcons class >> form16x16ActionsTamBrowserOpen [
 	^ (Form
 	extent: 16@16
@@ -1191,7 +1189,7 @@ TamIcons class >> form16x16ActionsTamBrowserOpen [
 	offset: 0@0)
 ]
 
-{ #category : 'accessing forms from /16x16/actions' }
+{ #category : #'accessing forms from /16x16/actions' }
 TamIcons class >> form16x16ActionsTwoHorizontalPanes [
 	^ (Form
 	extent: 16@16
@@ -1200,7 +1198,7 @@ TamIcons class >> form16x16ActionsTwoHorizontalPanes [
 	offset: 0@0)
 ]
 
-{ #category : 'accessing forms from /16x16/actions' }
+{ #category : #'accessing forms from /16x16/actions' }
 TamIcons class >> form16x16ActionsTwoVerticalPanes [
 	^ (Form
 	extent: 16@16
@@ -1209,7 +1207,7 @@ TamIcons class >> form16x16ActionsTwoVerticalPanes [
 	offset: 0@0)
 ]
 
-{ #category : 'accessing forms from /16x16/actions' }
+{ #category : #'accessing forms from /16x16/actions' }
 TamIcons class >> form16x16ActionsUnaccepted [
 	^ (Form
 	extent: 16@16
@@ -1218,7 +1216,7 @@ TamIcons class >> form16x16ActionsUnaccepted [
 	offset: 0@0)
 ]
 
-{ #category : 'accessing forms from /16x16/actions' }
+{ #category : #'accessing forms from /16x16/actions' }
 TamIcons class >> form16x16ActionsUp [
 	^ (Form
 	extent: 16@16
@@ -1227,7 +1225,7 @@ TamIcons class >> form16x16ActionsUp [
 	offset: 0@0)
 ]
 
-{ #category : 'accessing forms from /16x16/actions' }
+{ #category : #'accessing forms from /16x16/actions' }
 TamIcons class >> form16x16ActionsUpLevelGreen [
 	^ (Form
 	extent: 16@16
@@ -1236,7 +1234,7 @@ TamIcons class >> form16x16ActionsUpLevelGreen [
 	offset: 0@0)
 ]
 
-{ #category : 'accessing forms from /16x16/actions' }
+{ #category : #'accessing forms from /16x16/actions' }
 TamIcons class >> form16x16ActionsUpLevelRed [
 	^ (Form
 	extent: 16@16
@@ -1245,7 +1243,7 @@ TamIcons class >> form16x16ActionsUpLevelRed [
 	offset: 0@0)
 ]
 
-{ #category : 'accessing forms from /16x16/actions' }
+{ #category : #'accessing forms from /16x16/actions' }
 TamIcons class >> form16x16ActionsWhiteOk [
 	^ (Form
 	extent: 16@14
@@ -1254,7 +1252,7 @@ TamIcons class >> form16x16ActionsWhiteOk [
 	offset: 0@0)
 ]
 
-{ #category : 'accessing forms from /16x16/actions' }
+{ #category : #'accessing forms from /16x16/actions' }
 TamIcons class >> form16x16ActionsWithHandles [
 	^ (Form
 	extent: 16@16
@@ -1263,7 +1261,7 @@ TamIcons class >> form16x16ActionsWithHandles [
 	offset: 0@0)
 ]
 
-{ #category : 'accessing forms from /16x16/actions' }
+{ #category : #'accessing forms from /16x16/actions' }
 TamIcons class >> form16x16ActionsWithNames [
 	^ (Form
 	extent: 16@16
@@ -1272,7 +1270,7 @@ TamIcons class >> form16x16ActionsWithNames [
 	offset: 0@0)
 ]
 
-{ #category : 'accessing forms from /16x16/actions' }
+{ #category : #'accessing forms from /16x16/actions' }
 TamIcons class >> form16x16ActionsWithTriangles [
 	^ (Form
 	extent: 16@16
@@ -1281,7 +1279,7 @@ TamIcons class >> form16x16ActionsWithTriangles [
 	offset: 0@0)
 ]
 
-{ #category : 'accessing forms from /16x16/actions' }
+{ #category : #'accessing forms from /16x16/actions' }
 TamIcons class >> form16x16ActionsWithoutHandles [
 	^ (Form
 	extent: 16@16
@@ -1290,7 +1288,7 @@ TamIcons class >> form16x16ActionsWithoutHandles [
 	offset: 0@0)
 ]
 
-{ #category : 'accessing forms from /16x16/actions' }
+{ #category : #'accessing forms from /16x16/actions' }
 TamIcons class >> form16x16ActionsWithoutNames [
 	^ (Form
 	extent: 16@16
@@ -1299,7 +1297,7 @@ TamIcons class >> form16x16ActionsWithoutNames [
 	offset: 0@0)
 ]
 
-{ #category : 'accessing forms from /16x16/actions' }
+{ #category : #'accessing forms from /16x16/actions' }
 TamIcons class >> form16x16ActionsWithoutTriangles [
 	^ (Form
 	extent: 16@16
@@ -1308,7 +1306,7 @@ TamIcons class >> form16x16ActionsWithoutTriangles [
 	offset: 0@0)
 ]
 
-{ #category : 'accessing forms from /16x16/actions' }
+{ #category : #'accessing forms from /16x16/actions' }
 TamIcons class >> form16x16ActionsZoomIn [
 	^ (Form
 	extent: 16@16
@@ -1317,7 +1315,7 @@ TamIcons class >> form16x16ActionsZoomIn [
 	offset: 0@0)
 ]
 
-{ #category : 'accessing forms from /16x16/actions' }
+{ #category : #'accessing forms from /16x16/actions' }
 TamIcons class >> form16x16ActionsZoomOut [
 	^ (Form
 	extent: 16@16
@@ -1326,7 +1324,7 @@ TamIcons class >> form16x16ActionsZoomOut [
 	offset: 0@0)
 ]
 
-{ #category : 'accessing forms from /16x16/apps' }
+{ #category : #'accessing forms from /16x16/apps' }
 TamIcons class >> form16x16AppsBrowser [
 	^ (Form
 	extent: 16@16
@@ -1335,7 +1333,7 @@ TamIcons class >> form16x16AppsBrowser [
 	offset: 0@0)
 ]
 
-{ #category : 'accessing forms from /16x16/apps' }
+{ #category : #'accessing forms from /16x16/apps' }
 TamIcons class >> form16x16AppsChangeSorter [
 	^ (Form
 	extent: 16@16
@@ -1344,7 +1342,7 @@ TamIcons class >> form16x16AppsChangeSorter [
 	offset: 0@0)
 ]
 
-{ #category : 'accessing forms from /16x16/apps' }
+{ #category : #'accessing forms from /16x16/apps' }
 TamIcons class >> form16x16AppsDualChangeSorter [
 	^ (Form
 	extent: 16@16
@@ -1353,7 +1351,7 @@ TamIcons class >> form16x16AppsDualChangeSorter [
 	offset: 0@0)
 ]
 
-{ #category : 'accessing forms from /16x16/apps' }
+{ #category : #'accessing forms from /16x16/apps' }
 TamIcons class >> form16x16AppsFileList [
 	^ (Form
 	extent: 16@16
@@ -1362,7 +1360,7 @@ TamIcons class >> form16x16AppsFileList [
 	offset: 0@0)
 ]
 
-{ #category : 'accessing forms from /16x16/apps' }
+{ #category : #'accessing forms from /16x16/apps' }
 TamIcons class >> form16x16AppsLint [
 	^ (Form
 	extent: 16@16
@@ -1371,7 +1369,7 @@ TamIcons class >> form16x16AppsLint [
 	offset: 0@0)
 ]
 
-{ #category : 'accessing forms from /16x16/apps' }
+{ #category : #'accessing forms from /16x16/apps' }
 TamIcons class >> form16x16AppsMessageNames [
 	^ (Form
 	extent: 16@16
@@ -1380,7 +1378,7 @@ TamIcons class >> form16x16AppsMessageNames [
 	offset: 0@0)
 ]
 
-{ #category : 'accessing forms from /16x16/apps' }
+{ #category : #'accessing forms from /16x16/apps' }
 TamIcons class >> form16x16AppsPackagePanel [
 	^ (Form
 	extent: 16@16
@@ -1389,7 +1387,7 @@ TamIcons class >> form16x16AppsPackagePanel [
 	offset: 0@0)
 ]
 
-{ #category : 'accessing forms from /16x16/apps' }
+{ #category : #'accessing forms from /16x16/apps' }
 TamIcons class >> form16x16AppsRecentsSubmissions [
 	^ (Form
 	extent: 16@16
@@ -1398,7 +1396,7 @@ TamIcons class >> form16x16AppsRecentsSubmissions [
 	offset: 0@0)
 ]
 
-{ #category : 'accessing forms from /16x16/apps' }
+{ #category : #'accessing forms from /16x16/apps' }
 TamIcons class >> form16x16AppsSmacc [
 	^ (Form
 	extent: 16@16
@@ -1407,7 +1405,7 @@ TamIcons class >> form16x16AppsSmacc [
 	offset: 0@0)
 ]
 
-{ #category : 'accessing forms from /16x16/apps' }
+{ #category : #'accessing forms from /16x16/apps' }
 TamIcons class >> form16x16AppsSqueak [
 	^ (Form
 	extent: 16@16
@@ -1416,7 +1414,7 @@ TamIcons class >> form16x16AppsSqueak [
 	offset: 0@0)
 ]
 
-{ #category : 'accessing forms from /16x16/apps' }
+{ #category : #'accessing forms from /16x16/apps' }
 TamIcons class >> form16x16AppsTranscript [
 	^ (Form
 	extent: 16@16
@@ -1425,7 +1423,7 @@ TamIcons class >> form16x16AppsTranscript [
 	offset: 0@0)
 ]
 
-{ #category : 'accessing forms from /16x16/apps' }
+{ #category : #'accessing forms from /16x16/apps' }
 TamIcons class >> form16x16AppsWeb [
 	^ (Form
 	extent: 16@16
@@ -1434,7 +1432,7 @@ TamIcons class >> form16x16AppsWeb [
 	offset: 0@0)
 ]
 
-{ #category : 'accessing forms from /16x16/apps' }
+{ #category : #'accessing forms from /16x16/apps' }
 TamIcons class >> form16x16AppsWorkspace [
 	^ (Form
 	extent: 16@16
@@ -1443,7 +1441,7 @@ TamIcons class >> form16x16AppsWorkspace [
 	offset: 0@0)
 ]
 
-{ #category : 'accessing forms from /16x16/mimetypes' }
+{ #category : #'accessing forms from /16x16/mimetypes' }
 TamIcons class >> form16x16MimetypesClass [
 	^ (Form
 	extent: 16@16
@@ -1452,7 +1450,7 @@ TamIcons class >> form16x16MimetypesClass [
 	offset: 0@0)
 ]
 
-{ #category : 'accessing forms from /16x16/mimetypes' }
+{ #category : #'accessing forms from /16x16/mimetypes' }
 TamIcons class >> form16x16MimetypesGroup [
 	^ (Form
 	extent: 16@16
@@ -1461,7 +1459,7 @@ TamIcons class >> form16x16MimetypesGroup [
 	offset: 0@0)
 ]
 
-{ #category : 'accessing forms from /16x16/mimetypes' }
+{ #category : #'accessing forms from /16x16/mimetypes' }
 TamIcons class >> form16x16MimetypesPackageBlue [
 	^ (Form
 	extent: 16@16
@@ -1470,7 +1468,7 @@ TamIcons class >> form16x16MimetypesPackageBlue [
 	offset: 0@0)
 ]
 
-{ #category : 'accessing forms from /16x16/mimetypes' }
+{ #category : #'accessing forms from /16x16/mimetypes' }
 TamIcons class >> form16x16MimetypesSuperClass [
 	^ (Form
 	extent: 16@16
@@ -1479,7 +1477,7 @@ TamIcons class >> form16x16MimetypesSuperClass [
 	offset: 0@0)
 ]
 
-{ #category : 'accessing forms from /22x22/actions' }
+{ #category : #'accessing forms from /22x22/actions' }
 TamIcons class >> form22x22ActionsBack [
 	^ (Form
 	extent: 24@24
@@ -1488,7 +1486,7 @@ TamIcons class >> form22x22ActionsBack [
 	offset: 0@0)
 ]
 
-{ #category : 'accessing forms from /22x22/actions' }
+{ #category : #'accessing forms from /22x22/actions' }
 TamIcons class >> form22x22ActionsBookmarkAdd [
 	^ (Form
 	extent: 22@22
@@ -1497,7 +1495,7 @@ TamIcons class >> form22x22ActionsBookmarkAdd [
 	offset: 0@0)
 ]
 
-{ #category : 'accessing forms from /22x22/actions' }
+{ #category : #'accessing forms from /22x22/actions' }
 TamIcons class >> form22x22ActionsDeletecell [
 	^ (Form
 	extent: 22@22
@@ -1506,7 +1504,7 @@ TamIcons class >> form22x22ActionsDeletecell [
 	offset: 0@0)
 ]
 
-{ #category : 'accessing forms from /22x22/actions' }
+{ #category : #'accessing forms from /22x22/actions' }
 TamIcons class >> form22x22ActionsExec [
 	^ (Form
 	extent: 22@22
@@ -1515,7 +1513,7 @@ TamIcons class >> form22x22ActionsExec [
 	offset: 0@0)
 ]
 
-{ #category : 'accessing forms from /22x22/actions' }
+{ #category : #'accessing forms from /22x22/actions' }
 TamIcons class >> form22x22ActionsForward [
 	^ (Form
 	extent: 24@24
@@ -1524,7 +1522,7 @@ TamIcons class >> form22x22ActionsForward [
 	offset: 0@0)
 ]
 
-{ #category : 'accessing forms from /22x22/actions' }
+{ #category : #'accessing forms from /22x22/actions' }
 TamIcons class >> form22x22ActionsRun [
 	^ (Form
 	extent: 22@22
@@ -1533,7 +1531,7 @@ TamIcons class >> form22x22ActionsRun [
 	offset: 0@0)
 ]
 
-{ #category : 'accessing forms from /22x22/actions' }
+{ #category : #'accessing forms from /22x22/actions' }
 TamIcons class >> form22x22ActionsToolDock [
 	^ (Form
 	extent: 15@15
@@ -1542,7 +1540,7 @@ TamIcons class >> form22x22ActionsToolDock [
 	offset: 0@0)
 ]
 
-{ #category : 'accessing forms from /22x22/actions' }
+{ #category : #'accessing forms from /22x22/actions' }
 TamIcons class >> form22x22ActionsViewBottom [
 	^ (Form
 	extent: 22@22
@@ -1551,7 +1549,7 @@ TamIcons class >> form22x22ActionsViewBottom [
 	offset: 0@0)
 ]
 
-{ #category : 'accessing forms from /22x22/actions' }
+{ #category : #'accessing forms from /22x22/actions' }
 TamIcons class >> form22x22ActionsViewTopBottom [
 	^ (Form
 	extent: 22@22
@@ -1560,7 +1558,7 @@ TamIcons class >> form22x22ActionsViewTopBottom [
 	offset: 0@0)
 ]
 
-{ #category : 'accessing forms from /32x32/actions' }
+{ #category : #'accessing forms from /32x32/actions' }
 TamIcons class >> form32x32ActionsReload [
 	^ (Form
 	extent: 32@32
@@ -1569,7 +1567,7 @@ TamIcons class >> form32x32ActionsReload [
 	offset: 0@0)
 ]
 
-{ #category : 'accessing forms from /32x32/actions' }
+{ #category : #'accessing forms from /32x32/actions' }
 TamIcons class >> form32x32ActionsRun [
 	^ (Form
 	extent: 32@32
@@ -1578,7 +1576,7 @@ TamIcons class >> form32x32ActionsRun [
 	offset: 0@0)
 ]
 
-{ #category : 'accessing forms from /' }
+{ #category : #'accessing forms from /' }
 TamIcons class >> formCross1 [
 	^ (Form
 	extent: 21@21
@@ -1587,7 +1585,7 @@ TamIcons class >> formCross1 [
 	offset: 0@0)
 ]
 
-{ #category : 'accessing forms from /' }
+{ #category : #'accessing forms from /' }
 TamIcons class >> formCross2 [
 	^ (Form
 	extent: 21@21
@@ -1596,7 +1594,7 @@ TamIcons class >> formCross2 [
 	offset: 0@0)
 ]
 
-{ #category : 'accessing forms from /' }
+{ #category : #'accessing forms from /' }
 TamIcons class >> formCross3 [
 	^ (Form
 	extent: 21@21
@@ -1605,7 +1603,7 @@ TamIcons class >> formCross3 [
 	offset: 0@0)
 ]
 
-{ #category : 'accessing forms from /' }
+{ #category : #'accessing forms from /' }
 TamIcons class >> formExpandedform [
 	^ (Form
 	extent: 10@9
@@ -1614,7 +1612,7 @@ TamIcons class >> formExpandedform [
 	offset: 0@0)
 ]
 
-{ #category : 'accessing forms from /' }
+{ #category : #'accessing forms from /' }
 TamIcons class >> formExpandedform2 [
 	^ (Form
 	extent: 21@21
@@ -1623,7 +1621,7 @@ TamIcons class >> formExpandedform2 [
 	offset: 0@0)
 ]
 
-{ #category : 'accessing forms from /' }
+{ #category : #'accessing forms from /' }
 TamIcons class >> formExpandedform3 [
 	^ (Form
 	extent: 21@21
@@ -1632,7 +1630,7 @@ TamIcons class >> formExpandedform3 [
 	offset: 0@0)
 ]
 
-{ #category : 'utilities' }
+{ #category : #utilities }
 TamIcons class >> formFileNamesFromDirectory: path [ 
 	| fd result |
 	result := OrderedCollection new.
@@ -1647,14 +1645,14 @@ TamIcons class >> formFileNamesFromDirectory: path [
 	^ result
 ]
 
-{ #category : 'icon accessing' }
+{ #category : #'icon accessing' }
 TamIcons class >> formFromRelativePath: aPathString [ 
 	| selector |
 	selector := self selectorFromPath: aPathString.
 	^ self perform: selector
 ]
 
-{ #category : 'accessing forms from /' }
+{ #category : #'accessing forms from /' }
 TamIcons class >> formNotexpandedform [
 	^ (Form
 	extent: 10@9
@@ -1663,7 +1661,7 @@ TamIcons class >> formNotexpandedform [
 	offset: 0@0)
 ]
 
-{ #category : 'accessing forms from /' }
+{ #category : #'accessing forms from /' }
 TamIcons class >> formNotexpandedform2 [
 	^ (Form
 	extent: 21@21
@@ -1672,7 +1670,7 @@ TamIcons class >> formNotexpandedform2 [
 	offset: 0@0)
 ]
 
-{ #category : 'accessing forms from /' }
+{ #category : #'accessing forms from /' }
 TamIcons class >> formNotexpandedform3 [
 	^ (Form
 	extent: 21@21
@@ -1681,7 +1679,7 @@ TamIcons class >> formNotexpandedform3 [
 	offset: 0@0)
 ]
 
-{ #category : 'accessing forms from /' }
+{ #category : #'accessing forms from /' }
 TamIcons class >> formTamaris [
 	^ (Form
 	extent: 16@16
@@ -1690,7 +1688,7 @@ TamIcons class >> formTamaris [
 	offset: 0@0)
 ]
 
-{ #category : 'accessing forms from /' }
+{ #category : #'accessing forms from /' }
 TamIcons class >> formTamarix [
 	^ (Form
 	extent: 592@394
@@ -1699,17 +1697,17 @@ TamIcons class >> formTamarix [
 	offset: 0@0)
 ]
 
-{ #category : 'icon accessing' }
+{ #category : #'icon accessing' }
 TamIcons class >> icon: aName [ 
 	^self magnifiedForm: (self originalIcon: aName) extent: self defaultExtent
 ]
 
-{ #category : 'icon accessing' }
+{ #category : #'icon accessing' }
 TamIcons class >> iconDefault [
 	^ self magnifiedForm: (self formTamaris) extent: self defaultExtent
 ]
 
-{ #category : 'utilities' }
+{ #category : #utilities }
 TamIcons class >> importFormFromStream: aStream category: aCat selector: aSel [ 
 	| sketch s |
 	sketch := ImageMorph fromStream: aStream.
@@ -1726,7 +1724,7 @@ TamIcons class >> importFormFromStream: aStream category: aCat selector: aSel [
 
 ]
 
-{ #category : 'public utilities' }
+{ #category : #'public utilities' }
 TamIcons class >> importForms [
 	"self importForms"
 
@@ -1735,7 +1733,7 @@ TamIcons class >> importForms [
 		ifNotNil: [self importFormsFromDirectory: folder pathName]
 ]
 
-{ #category : 'utilities' }
+{ #category : #utilities }
 TamIcons class >> importFormsFromDirectory: path [ 
 	| selectorPathPart selector |
 	(self formFileNamesFromDirectory: path) do: 
@@ -1751,7 +1749,7 @@ TamIcons class >> importFormsFromDirectory: path [
 						selector: selector]]
 ]
 
-{ #category : 'utilities' }
+{ #category : #utilities }
 TamIcons class >> magnifiedForm: form extent: aPoint [ 
 	| scaleY scaleX scale |
 	(form height - aPoint y) abs < 4 ifTrue: [^ form].
@@ -1766,36 +1764,36 @@ TamIcons class >> magnifiedForm: form extent: aPoint [
 
 ]
 
-{ #category : 'icon accessing' }
+{ #category : #'icon accessing' }
 TamIcons class >> mimeDefault [
 	^ self magnifiedForm: (self formTamaris)
 		extent: self defaultListExtent
 ]
 
-{ #category : 'icon accessing' }
+{ #category : #'icon accessing' }
 TamIcons class >> mimeIcon: aName [ 
 	^ self magnifiedForm: (self originalIcon: aName)
 		extent: self defaultListExtent
 ]
 
-{ #category : 'icon accessing' }
+{ #category : #'icon accessing' }
 TamIcons class >> originalIcon: aName [ 
 	^(self formFromRelativePath: aName) 
 				ifNil: [self iconDefault]
 ]
 
-{ #category : 'utilities' }
+{ #category : #utilities }
 TamIcons class >> selectorFromPath: path [ 
 	^ ((self capitalize: 'form_' 
 				, (path copyReplaceAll: '/' with: '_')
 		first: false) asIdentifier: false) asSymbol
 ]
 
-{ #category : 'public utilities' }
+{ #category : #'public utilities' }
 TamIcons class >> showForms [	"self showForms"	| folder |	folder := FileList modalFolderSelector.	folder		ifNotNil: [self showFormsFromDirectory: folder pathName]
 ]
 
-{ #category : 'utilities' }
+{ #category : #utilities }
 TamIcons class >> showFormsFromDirectory: path [ 
 	| fd window row sketchRow scrollBar |
 	window := StandardWindow labelled: 'Icons from: ''' , path , ''''.

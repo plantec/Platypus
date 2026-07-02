@@ -1,17 +1,15 @@
 Class {
-	#name : 'TamListItemBoldBlueEmphasisRule',
-	#superclass : 'TamListItemEmphasisRule',
-	#category : 'Tamaris-Event-Rules',
-	#package : 'Tamaris',
-	#tag : 'Event-Rules'
+	#name : #TamListItemBoldBlueEmphasisRule,
+	#superclass : #TamListItemEmphasisRule,
+	#category : 'Tamaris-Event-Rules'
 }
 
-{ #category : 'emphasing' }
+{ #category : #emphasing }
 TamListItemBoldBlueEmphasisRule >> emphasisModel [
 	^ self list boldBlueEmphasisModel
 ]
 
-{ #category : 'emphasing' }
+{ #category : #emphasing }
 TamListItemBoldBlueEmphasisRule >> eventMatch: anEvent [ 
 	^ anEvent isMouse and: [anEvent isMouseUp and: [anEvent shiftPressed]]
 ]

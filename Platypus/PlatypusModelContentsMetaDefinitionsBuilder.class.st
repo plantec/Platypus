@@ -17,31 +17,16 @@ PlatypusModelContentsMetaDefinitionsBuilder >> acceptModelContents: e [
 	modelContents := e.
 	interpreter modelContents: e.
 	checkingPass := #recording.
-	'Storing rules'
-		displayProgressAt: Sensor cursorPoint
-		from: 1
-		to: e dataInstances size
-		during: [:bar | e dataInstances
+	e dataInstances
 				withIndexDo: [:d :idx | 
-					bar value: idx.
-					self storeRule: d]].
+					self storeRule: d].
 	checkingPass := #resolving.
-	'Building mapping'
-		displayProgressAt: Sensor cursorPoint
-		from: 1
-		to: e dataInstances size
-		during: [:bar | e dataInstances
+	e dataInstances
 				withIndexDo: [:d :idx | 
-					bar value: idx.
-					self buildMappingFor: d]].
-	'Computing mapping'
-		displayProgressAt: Sensor cursorPoint
-		from: 1
-		to: e dataInstances size
-		during: [:bar | e dataInstances
+					self buildMappingFor: d].
+	e dataInstances
 				withIndexDo: [:d :idx | 
-					bar value: idx.
-					self computeMappingFor: d]].
+					self computeMappingFor: d].
 	(PlatypusModelContentsRecorder modelContents: modelContents)
 		checksAll: toBeRecorded.
 	modelContents replaceIndex: replaceIndex.

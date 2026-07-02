@@ -1,12 +1,10 @@
 Class {
-	#name : 'TamButtonsAlignmentMorph',
-	#superclass : 'AlignmentMorph',
-	#category : 'Tamaris-UI',
-	#package : 'Tamaris',
-	#tag : 'UI'
+	#name : #TamButtonsAlignmentMorph,
+	#superclass : #AlignmentMorph,
+	#category : 'Tamaris-UI'
 }
 
-{ #category : 'instance creation' }
+{ #category : #'instance creation' }
 TamButtonsAlignmentMorph class >> newColumn [
 	| bl |
 	bl := super newColumn.
@@ -19,7 +17,7 @@ TamButtonsAlignmentMorph class >> newColumn [
 	^bl
 ]
 
-{ #category : 'instance creation' }
+{ #category : #'instance creation' }
 TamButtonsAlignmentMorph class >> newRow [
 	| bl |
 	bl := super newRow.
@@ -31,7 +29,7 @@ TamButtonsAlignmentMorph class >> newRow [
 	^ bl
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 TamButtonsAlignmentMorph class >> newSpacer: aColor [
 	"Answer a space-filling instance of me of the given color."
 
@@ -44,7 +42,7 @@ TamButtonsAlignmentMorph class >> newSpacer: aColor [
 		color: aColor.
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 TamButtonsAlignmentMorph class >> typicalColumnOwner [
 	^(AlignmentMorph newColumn)
 		layoutInset: 0;
@@ -54,7 +52,7 @@ TamButtonsAlignmentMorph class >> typicalColumnOwner [
 
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 TamButtonsAlignmentMorph class >> typicalRowOwner [
 	^(AlignmentMorph newRow)
 		layoutInset: 0;
@@ -65,20 +63,20 @@ TamButtonsAlignmentMorph class >> typicalRowOwner [
 		yourself
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 TamButtonsAlignmentMorph >> addExtensibleSpacer [
 	self
 		addMorphFront: (AlignmentMorph newSpacer: Color transparent)
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 TamButtonsAlignmentMorph >> addSpacer [
 	| spacer |
 	spacer := self addSpacerOfColor: self color darker.
 	^ spacer
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 TamButtonsAlignmentMorph >> addSpacerOfColor: aColor [ 
 	| spacer container |
 	container := AlignmentMorph new.
@@ -92,7 +90,7 @@ TamButtonsAlignmentMorph >> addSpacerOfColor: aColor [
 ^ spacer
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 TamButtonsAlignmentMorph >> addTransparentFixSpacer [
 	| spacer |
 	spacer := Morph new.
@@ -105,18 +103,18 @@ TamButtonsAlignmentMorph >> addTransparentFixSpacer [
 	^ spacer
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 TamButtonsAlignmentMorph >> addTransparentSpacer [
 	self addSpacerOfColor: Color transparent
 ]
 
-{ #category : 'initialize/release' }
+{ #category : #'initialize/release' }
 TamButtonsAlignmentMorph >> destroy [
 	owner := nil.
 	super destroy
 ]
 
-{ #category : 'initialize/release' }
+{ #category : #'initialize/release' }
 TamButtonsAlignmentMorph >> initialize [
 	super initialize.
 	self borderColor: Color transparent.
@@ -125,42 +123,42 @@ TamButtonsAlignmentMorph >> initialize [
 
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 TamButtonsAlignmentMorph >> isColumn [
 	^self rowOrColumn = #column
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 TamButtonsAlignmentMorph >> isRow [
 	^ self rowOrColumn = #row
 
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 TamButtonsAlignmentMorph >> rowOrColumn [
 	(#(#leftToRight #rightToLeft) includes: self listDirection) ifTrue: [^#row].
 	^ #column
 
 ]
 
-{ #category : 'updating' }
+{ #category : #updating }
 TamButtonsAlignmentMorph >> step [
 	self updateIfNeeded
 ]
 
-{ #category : 'updating' }
+{ #category : #updating }
 TamButtonsAlignmentMorph >> stepTime [
 	^ 600
 ]
 
-{ #category : 'updating' }
+{ #category : #updating }
 TamButtonsAlignmentMorph >> updateIfNeeded [
 	self submorphsDo: [:sm | 
 		(sm respondsTo: #getEnabledSelector) 
 			ifTrue: [sm update: sm getEnabledSelector]]
 ]
 
-{ #category : 'updating' }
+{ #category : #updating }
 TamButtonsAlignmentMorph >> wantsSteps [
 	^ true
 ]

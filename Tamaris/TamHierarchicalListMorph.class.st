@@ -1,36 +1,34 @@
 Class {
-	#name : 'TamHierarchicalListMorph',
-	#superclass : 'SimpleHierarchicalListMorph',
+	#name : #TamHierarchicalListMorph,
+	#superclass : #SimpleHierarchicalListMorph,
 	#instVars : [
 		'eventRulesHandler',
 		'emphasisIndex',
 		'maxNodeWidth'
 	],
-	#category : 'Tamaris-UI',
-	#package : 'Tamaris',
-	#tag : 'UI'
+	#category : 'Tamaris-UI'
 }
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 TamHierarchicalListMorph class >> expandedForm [
 	self indentingItemClass useStandardToggleIcons 
 		ifTrue: [^super expandedForm].
 	^TamIcons originalIcon: 'expandedForm'
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 TamHierarchicalListMorph class >> indentingItemClass [
 	^ TamIndentingListItemMorph
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 TamHierarchicalListMorph class >> notExpandedForm [
 	self indentingItemClass useStandardToggleIcons 
 		ifTrue: [^super notExpandedForm].
 	^TamIcons originalIcon: 'notExpandedForm'
 ]
 
-{ #category : 'private' }
+{ #category : #private }
 TamHierarchicalListMorph >> adjustSubmorphPositions [
 	"Fixed to not require setting item widths to 9999."
 	
@@ -50,126 +48,126 @@ TamHierarchicalListMorph >> adjustSubmorphPositions [
 
 ]
 
-{ #category : 'emphasis-handling' }
+{ #category : #'emphasis-handling' }
 TamHierarchicalListMorph >> boldBlueEmphasisModel [
 	^ TamListItemMorphEmphasisModel boldBlueOnLightBlueStandard
 ]
 
-{ #category : 'emphasis-handling' }
+{ #category : #'emphasis-handling' }
 TamHierarchicalListMorph >> boldBlueEmphasisSet [
 	^ self emphasisSet: self boldBlueEmphasisModel
 ]
 
-{ #category : 'emphasis-handling' }
+{ #category : #'emphasis-handling' }
 TamHierarchicalListMorph >> boldBlueEmphasisSetRemoveAll [
 	self emphasisIndex emptyEmphasisSet: self boldBlueEmphasisModel
 ]
 
-{ #category : 'emphasis-handling' }
+{ #category : #'emphasis-handling' }
 TamHierarchicalListMorph >> boldRedEmphasisModel [
 	^ TamListItemMorphEmphasisModel boldRedStandard
 ]
 
-{ #category : 'emphasis-handling' }
+{ #category : #'emphasis-handling' }
 TamHierarchicalListMorph >> boldRedEmphasisSet [
 	^ self emphasisSet: self boldRedEmphasisModel
 ]
 
-{ #category : 'emphasis-handling' }
+{ #category : #'emphasis-handling' }
 TamHierarchicalListMorph >> boldRedEmphasisSetRemoveAll [
 	self emphasisIndex emptyEmphasisSet: self boldRedEmphasisModel
 ]
 
-{ #category : 'updating' }
+{ #category : #updating }
 TamHierarchicalListMorph >> bounds: newBounds [ 
 	super bounds: newBounds.
 	(model respondsTo: #boundsOf:updatedWith:) ifTrue: [model boundsOf: self updatedWith: newBounds]
 ]
 
-{ #category : 'emphasis-handling' }
+{ #category : #'emphasis-handling' }
 TamHierarchicalListMorph >> clearAllEmphasis [
 	self emphasisIndex clear.
 	self changed
 ]
 
-{ #category : 'updating' }
+{ #category : #updating }
 TamHierarchicalListMorph >> collapseAll [
 	self scroller submorphsDo: [:sm | sm isExpanded ifTrue: [self toggleExpandedState: sm]].
 	self adjustSubmorphPositions
 ]
 
-{ #category : 'initialize-release' }
+{ #category : #'initialize-release' }
 TamHierarchicalListMorph >> destroy [	
 	super destroy.
 	owner := nil.
 ]
 
-{ #category : 'emphasis-handling' }
+{ #category : #'emphasis-handling' }
 TamHierarchicalListMorph >> emphasisIndex [
 	^ emphasisIndex ifNil: [emphasisIndex := TamListItemMorphEmphasisIndex new]
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 TamHierarchicalListMorph >> emphasisOf: anObject [ 
 	^ (self emphasisIndex emphasisOf: anObject) 
 		ifNil: [anObject emphasisModel ifNil: [TamListItemMorphEmphasisModel standard]]
 ]
 
-{ #category : 'emphasis-handling' }
+{ #category : #'emphasis-handling' }
 TamHierarchicalListMorph >> emphasisSet: anListEmphasisModel [ 
 	^ self emphasisIndex emphasisSet: anListEmphasisModel
 ]
 
-{ #category : 'emphasis-handling' }
+{ #category : #'emphasis-handling' }
 TamHierarchicalListMorph >> emphasisSet: anListEmphasisModel collect: aBlock [ 
 	^ self emphasisIndex emphasisSet: anListEmphasisModel collect: aBlock
 ]
 
-{ #category : 'emphasis-handling' }
+{ #category : #'emphasis-handling' }
 TamHierarchicalListMorph >> emphasisSet: anListEmphasisModel detect: aBlock [ 
 	^ self emphasisIndex emphasisSet: anListEmphasisModel detect: aBlock
 ]
 
-{ #category : 'emphasis-handling' }
+{ #category : #'emphasis-handling' }
 TamHierarchicalListMorph >> emphasisSet: anListEmphasisModel do: aBlock [ 
 	^ self emphasisIndex emphasisSet: anListEmphasisModel do: aBlock
 ]
 
-{ #category : 'emphasis-handling' }
+{ #category : #'emphasis-handling' }
 TamHierarchicalListMorph >> emphasisSet: anListEmphasisModel select: aBlock [ 
 	^ self emphasisIndex emphasisSet: anListEmphasisModel select: aBlock
 ]
 
-{ #category : 'events' }
+{ #category : #events }
 TamHierarchicalListMorph >> eventRulesHandleEvent: anEvent [ 
 	^ self eventRulesHandler notNil 
 		and: [self eventRulesHandler handleEvent: anEvent]
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 TamHierarchicalListMorph >> eventRulesHandler [
 	^ eventRulesHandler
 ]
 
-{ #category : 'updating' }
+{ #category : #updating }
 TamHierarchicalListMorph >> expandAll [
 	self scroller
 		submorphsDo: [:sm | self expandAll: sm].
 	self adjustSubmorphPositions
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 TamHierarchicalListMorph >> indentingItemClass [
 	^ self class indentingItemClass
 ]
 
-{ #category : 'initialize-release' }
+{ #category : #'initialize-release' }
 TamHierarchicalListMorph >> initialize [
 	super initialize.
 	 self initializeEventRulesHandler
 ]
 
-{ #category : 'initialize-release' }
+{ #category : #'initialize-release' }
 TamHierarchicalListMorph >> initializeEventRulesHandler [
 	eventRulesHandler := TamSimpleHierarchicalListMorphEventRulesHandler 
 				list: self.
@@ -178,34 +176,34 @@ TamHierarchicalListMorph >> initializeEventRulesHandler [
 	eventRulesHandler add: TamHierarchicalListItemMenuRule new
 ]
 
-{ #category : 'private' }
+{ #category : #private }
 TamHierarchicalListMorph >> maxNodeWidth [
 	^ maxNodeWidth ifNil: [maxNodeWidth := 0]
 ]
 
-{ #category : 'events' }
+{ #category : #events }
 TamHierarchicalListMorph >> mouseUp: event [ 
 	(self eventRulesHandleEvent: event) ifTrue: [^ self changed].
 	self clearAllEmphasis.	super mouseUp: event
 ]
 
-{ #category : 'initialize-release' }
+{ #category : #'initialize-release' }
 TamHierarchicalListMorph >> newTransformMorph [
 	^TamHierarchicalListTransformMorph new 
 
 ]
 
-{ #category : 'emphasis-handling' }
+{ #category : #'emphasis-handling' }
 TamHierarchicalListMorph >> removeEmphasisOf: anObject [ 
 	^ self emphasisIndex remove: anObject
 ]
 
-{ #category : 'emphasis-handling' }
+{ #category : #'emphasis-handling' }
 TamHierarchicalListMorph >> show: anUnwrappedItem asEmphasedWith: anEmphasisModel [
 	self emphasisIndex switch: anUnwrappedItem emphasis: anEmphasisModel
 ]
 
-{ #category : 'dropping/grabbing' }
+{ #category : #'dropping/grabbing' }
 TamHierarchicalListMorph >> startDrag: evt [ 
 	| ddm itemMorph passenger trans tm subPassenger |
 	self dragEnabled 

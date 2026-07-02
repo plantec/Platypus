@@ -1,15 +1,13 @@
 Class {
-	#name : 'TamBrowserScrollPane',
-	#superclass : 'ScrollPane',
+	#name : #TamBrowserScrollPane,
+	#superclass : #ScrollPane,
 	#instVars : [
 		'pastUp'
 	],
-	#category : 'Tamaris-UI',
-	#package : 'Tamaris',
-	#tag : 'UI'
+	#category : 'Tamaris-UI'
 }
 
-{ #category : 'geometry' }
+{ #category : #geometry }
 TamBrowserScrollPane >> extent: newExtent [ 
 	super
 		extent: (newExtent max: 36 @ 16).
@@ -20,7 +18,7 @@ TamBrowserScrollPane >> extent: newExtent [
 	self setScrollDeltas
 ]
 
-{ #category : 'initialize/release' }
+{ #category : #'initialize/release' }
 TamBrowserScrollPane >> initialize [
 	super initialize.
 	pastUp := AlignmentMorph newRow.
@@ -34,22 +32,22 @@ TamBrowserScrollPane >> initialize [
 	pastUp color: Color transparent
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 TamBrowserScrollPane >> pastUp [
 	^pastUp
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 TamBrowserScrollPane >> pastUp: anObject [
 	pastUp := anObject
 ]
 
-{ #category : 'geometry' }
+{ #category : #geometry }
 TamBrowserScrollPane >> resetExtent [
 	self extent: self extent.
 ]
 
-{ #category : 'geometry' }
+{ #category : #geometry }
 TamBrowserScrollPane >> vUnadjustedScrollRange [
 	"Return the width of the widest item in the list"
 

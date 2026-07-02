@@ -1,6 +1,6 @@
-Extension { #name : 'BorderedMorph' }
+Extension { #name : #BorderedMorph }
 
-{ #category : '*tamaris-overwrite' }
+{ #category : #'*tamaris-overwrite' }
 BorderedMorph >> addPaneHSplitterBetween: topMorph and: bottomMorphs [
 
 	| targetY minX maxX splitter |

@@ -13,8 +13,16 @@ PlatypusExpressInterpretorWrapper class >> interpreter: anExpressInterpreter [
 ]
 
 { #category : #'platypus interpreting' }
-PlatypusExpressInterpretorWrapper >> EvaluatePlatypusInterpreterNativeCode [
-	self methodHasNoSourceCode
+PlatypusExpressInterpretorWrapper >> EvaluatePlatypusInterpreterNativeCode [ [	| fref |
+	fref := self filename val asFileReference.
+	fref parent parent ensureCreateDirectory.
+	fref parent ensureCreateDirectory.
+	fref ensureDelete.
+	fref ensureCreateFile.
+	fref writeStreamDo: [:fileStream | 
+		fileStream nextPutAll: self contents asClearText. 
+		fileStream flush].
+	] value
 ]
 
 { #category : #'error handling' }

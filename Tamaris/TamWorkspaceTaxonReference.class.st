@@ -1,39 +1,37 @@
 Class {
-	#name : 'TamWorkspaceTaxonReference',
-	#superclass : 'TamTaxonReference',
+	#name : #TamWorkspaceTaxonReference,
+	#superclass : #TamTaxonReference,
 	#instVars : [
 		'workspace'
 	],
-	#category : 'Tamaris-Taxonomies',
-	#package : 'Tamaris',
-	#tag : 'Taxonomies'
+	#category : 'Tamaris-Taxonomies'
 }
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 TamWorkspaceTaxonReference class >> canBeCreatedInteractively [
 	^ true
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 TamWorkspaceTaxonReference class >> externalLabel [
 	^ 'a workspace taxon'
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 TamWorkspaceTaxonReference >> contents: textOrString [ 
 self workspace contents: textOrString 
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 TamWorkspaceTaxonReference >> newEditor [
 	^ self workspace embeddedInMorphicWindowLabeled: ''
 ]
 
-{ #category : 'updating' }
+{ #category : #updating }
 TamWorkspaceTaxonReference >> reinitializeEditor [
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 TamWorkspaceTaxonReference >> workspace [
 	^ workspace
 		ifNil: [workspace := TamStringHolder new]

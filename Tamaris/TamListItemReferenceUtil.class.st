@@ -1,22 +1,20 @@
 Class {
-	#name : 'TamListItemReferenceUtil',
-	#superclass : 'Object',
-	#category : 'Tamaris-Taxonomies',
-	#package : 'Tamaris',
-	#tag : 'Taxonomies'
+	#name : #TamListItemReferenceUtil,
+	#superclass : #Object,
+	#category : 'Tamaris-Taxonomies'
 }
 
-{ #category : 'subwindow' }
+{ #category : #subwindow }
 TamListItemReferenceUtil class >> subFrameBorderDelta [
 	^ 4
 ]
 
-{ #category : 'subwindow' }
+{ #category : #subwindow }
 TamListItemReferenceUtil class >> subWindowClass [
 	^ TamPaneMorph
 ]
 
-{ #category : 'subwindow' }
+{ #category : #subwindow }
 TamListItemReferenceUtil class >> windowWrapperClass [
 	^ TamPaneMorphWrapper
 ]

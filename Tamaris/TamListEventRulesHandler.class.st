@@ -21,31 +21,29 @@ END_ENTITY;
 
 "
 Class {
-	#name : 'TamListEventRulesHandler',
-	#superclass : 'Object',
+	#name : #TamListEventRulesHandler,
+	#superclass : #Object,
 	#instVars : [
 		'list',
 		'rules'
 	],
-	#category : 'Tamaris-Event-Rules',
-	#package : 'Tamaris',
-	#tag : 'Event-Rules'
+	#category : 'Tamaris-Event-Rules'
 }
 
-{ #category : 'instance creation' }
+{ #category : #'instance creation' }
 TamListEventRulesHandler class >> list: aList [
 	^ self new
 		list: aList
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 TamListEventRulesHandler >> add: aListItemRule [ 
 "add a new rule (a ListItemRule)"
 	rules add: aListItemRule.
 	aListItemRule handler: self
 ]
 
-{ #category : 'public events handling' }
+{ #category : #'public events handling' }
 TamListEventRulesHandler >> handleEvent: anEvent [ 
 	^ self rules
 		anySatisfy: [:rule | rule
@@ -53,34 +51,34 @@ TamListEventRulesHandler >> handleEvent: anEvent [
 				item: (self itemAtPoint: anEvent position)]
 ]
 
-{ #category : 'initialize-release' }
+{ #category : #'initialize-release' }
 TamListEventRulesHandler >> initialize [
 	super initialize.
 	rules := OrderedCollection new.
 ]
 
-{ #category : 'list item accessing' }
+{ #category : #'list item accessing' }
 TamListEventRulesHandler >> itemAtPoint: aPoint [ 
 "asks list to return item  at a given position (aPoint)"
 	^self subclassResponsibility
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 TamListEventRulesHandler >> list [
 	^list
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 TamListEventRulesHandler >> list: anObject [
 	list := anObject
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 TamListEventRulesHandler >> rules [
 	^ rules
 ]
 
-{ #category : 'list item accessing' }
+{ #category : #'list item accessing' }
 TamListEventRulesHandler >> unwrappedFromItem: aListItem [ 
 "returns the data stored and accessible from aListItem"
 	^aListItem

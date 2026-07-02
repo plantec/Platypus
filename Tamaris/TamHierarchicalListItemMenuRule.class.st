@@ -1,12 +1,10 @@
 Class {
-	#name : 'TamHierarchicalListItemMenuRule',
-	#superclass : 'TamListEventRule',
-	#category : 'Tamaris-Event-Rules',
-	#package : 'Tamaris',
-	#tag : 'Event-Rules'
+	#name : #TamHierarchicalListItemMenuRule,
+	#superclass : #TamListEventRule,
+	#category : 'Tamaris-Event-Rules'
 }
 
-{ #category : 'events' }
+{ #category : #events }
 TamHierarchicalListItemMenuRule >> doActionOn: anItem [ 
 	| cplxcts menu |
 	anItem ~= self list selectedMorph 
@@ -18,7 +16,7 @@ TamHierarchicalListItemMenuRule >> doActionOn: anItem [
 					menu popUpEvent: self list activeHand lastEvent in: self list world]]
 ]
 
-{ #category : 'events' }
+{ #category : #events }
 TamHierarchicalListItemMenuRule >> eventMatch: anEvent [ 
 	^ anEvent isMouse
 		and: [anEvent yellowButtonPressed

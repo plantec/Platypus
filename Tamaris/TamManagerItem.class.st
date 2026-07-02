@@ -1,6 +1,6 @@
 Class {
-	#name : 'TamManagerItem',
-	#superclass : 'ListItemWrapper',
+	#name : #TamManagerItem,
+	#superclass : #ListItemWrapper,
 	#instVars : [
 		'listId',
 		'currentSelection',
@@ -10,19 +10,17 @@ Class {
 	#classVars : [
 		'Default'
 	],
-	#category : 'Tamaris-UI',
-	#package : 'Tamaris',
-	#tag : 'UI'
+	#category : 'Tamaris-UI'
 }
 
-{ #category : 'instance creation' }
+{ #category : #'instance creation' }
 TamManagerItem class >> default [
 	^ Default
 		ifNil: [Default := self rootNamed: self platypusMetaModelsItemName]
 
 ]
 
-{ #category : 'instance creation' }
+{ #category : #'instance creation' }
 TamManagerItem class >> defaultTaxonNamed: aName taxonClass: aTaxonSubClass [
 	| taxon |
 	taxon := self default taxonomy children
@@ -34,12 +32,12 @@ TamManagerItem class >> defaultTaxonNamed: aName taxonClass: aTaxonSubClass [
 	^ taxon
 ]
 
-{ #category : 'instance creation' }
+{ #category : #'instance creation' }
 TamManagerItem class >> fromFileListTaxonName [
 	^ ' *** from file fist *** '
 ]
 
-{ #category : 'instance creation' }
+{ #category : #'instance creation' }
 TamManagerItem class >> linkTo: anotherItem [ 
 	| newTaxonomy rootLink |
 	newTaxonomy := self new .
@@ -50,19 +48,19 @@ TamManagerItem class >> linkTo: anotherItem [
 	^newTaxonomy
 ]
 
-{ #category : 'instance creation' }
+{ #category : #'instance creation' }
 TamManagerItem class >> platypusMetaModelsItemName [
 	^ 'platypus-meta-models'
 ]
 
-{ #category : 'instance creation' }
+{ #category : #'instance creation' }
 TamManagerItem class >> resetDefault [
 	 Default := nil
 		
 
 ]
 
-{ #category : 'instance creation' }
+{ #category : #'instance creation' }
 TamManagerItem class >> rootNamed: anIdent [ 
 	| newTaxonomy rootTaxon |
 	newTaxonomy := self new.
@@ -73,7 +71,7 @@ TamManagerItem class >> rootNamed: anIdent [
 	^newTaxonomy
 ]
 
-{ #category : 'drag and drop' }
+{ #category : #'drag and drop' }
 TamManagerItem >> acceptDroppingMorph: transferMorph event: evt inMorph: dstListMorph [ 
 	"Here we are fetching informations from the dropped transferMorph	and 
 	performing the correct action for this drop."
@@ -84,7 +82,7 @@ TamManagerItem >> acceptDroppingMorph: transferMorph event: evt inMorph: dstList
 	^ self taxonomy acceptDroppingMorph: transferMorph copy: shouldCopy
 ]
 
-{ #category : 'converting' }
+{ #category : #converting }
 TamManagerItem >> asStringOrText [
 	^ String streamContents: [:strm |
 		strm nextPutAll: self taxonomy listLabel.
@@ -93,27 +91,27 @@ TamManagerItem >> asStringOrText [
 			strm nextPutAll: id]]
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 TamManagerItem >> currentSelection [	
 	^currentSelection
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 TamManagerItem >> currentSelection: anObject [ 
 	currentSelection := anObject
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 TamManagerItem >> currentlyExpanded [	
 	^currentlyExpanded
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 TamManagerItem >> currentlyExpanded: anObject [
 	currentlyExpanded := anObject
 ]
 
-{ #category : 'initialize/release' }
+{ #category : #'initialize/release' }
 TamManagerItem >> destroy [
 	currentSelection := nil.
 	currentlyExpanded := nil.
@@ -124,68 +122,68 @@ TamManagerItem >> destroy [
 	super destroy
 ]
 
-{ #category : 'menu' }
+{ #category : #menu }
 TamManagerItem >> genericMenu: aMenu selector: aSelector fromTaxonomyManager: aManager [		aMenu				add: self asString				target: aManager				selector: aSelector				argumentList: {self}.		^ aMenu
 ]
 
-{ #category : 'initialize/release' }
+{ #category : #'initialize/release' }
 TamManagerItem >> initialize [
 	super initialize.
 	currentlyExpanded := #().
 
 ]
 
-{ #category : 'testing' }
+{ #category : #testing }
 TamManagerItem >> isDefault [
 	^ self == self class default
 
 ]
 
-{ #category : 'testing' }
+{ #category : #testing }
 TamManagerItem >> isMoveable [
 	^ false
 ]
 
-{ #category : 'testing' }
+{ #category : #testing }
 TamManagerItem >> isReleased [
 	^ item isNil
 ]
 
-{ #category : 'testing' }
+{ #category : #testing }
 TamManagerItem >> isRootTaxonLink [
 	^item isRootTaxonLink
 ]
 
-{ #category : 'menu' }
+{ #category : #menu }
 TamManagerItem >> keyStroke: aCharacter from: tamuggableListMorph [ 		^ self taxonomy keyStroke: aCharacter from: tamuggableListMorph 
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 TamManagerItem >> listId [
 	^listId
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 TamManagerItem >> listId: aString [ 
 	listId := aString
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 TamManagerItem >> listLabel [	
 	^ listLabel
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 TamManagerItem >> listLabel: aString [	
 	listLabel := aString
 ]
 
-{ #category : 'menu' }
+{ #category : #menu }
 TamManagerItem >> menu: menu shifted: aBoolean [ 
 		^self taxonomy menu: menu shifted: aBoolean
 ]
 
-{ #category : 'ui building' }
+{ #category : #'ui building' }
 TamManagerItem >> selectingFrom: aTaxonomiesManager [ 
 	| brw |
 	(brw := aTaxonomiesManager taxonomyBrowser)
@@ -197,22 +195,22 @@ TamManagerItem >> selectingFrom: aTaxonomiesManager [
 
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 TamManagerItem >> taxonomy [	
 	^ item
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 TamManagerItem >> taxonomy: anObject [ 
 	item := anObject
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 TamManagerItem >> taxonomyWrapper [	
 	^ item ifNotNil: [item wrapperClass with: item model: nil]
 ]
 
-{ #category : 'ui building' }
+{ #category : #'ui building' }
 TamManagerItem >> unSelectingFrom: aTaxonomiesManager [ 
 	| brw |
 	(brw := aTaxonomiesManager taxonomyBrowser) rootWrapper ifNotNil: 
@@ -223,7 +221,7 @@ TamManagerItem >> unSelectingFrom: aTaxonomiesManager [
 			brw rootWrapper: nil]
 ]
 
-{ #category : 'system changes handling' }
+{ #category : #'system changes handling' }
 TamManagerItem >> updateBrowsers: aBlockOrASelector [ 
 	TamBrowser allSubInstances copy
 		do: [:brw | brw isReleased

@@ -71,7 +71,8 @@ PltStatementsContainer >> evaluateAndExplore [
 
 { #category : #'*xtra-platypus-evaluating' }
 PltStatementsContainer >> evaluateAndExplore: args [
-	^ (self evaluate: args) explore
+
+	^ (self evaluate: args) inspect
 ]
 
 { #category : #'*xtra-platypus-evaluating' }

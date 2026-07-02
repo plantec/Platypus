@@ -1,23 +1,21 @@
 Class {
-	#name : 'TamPaneMorph',
-	#superclass : 'PanelMorph',
+	#name : #TamPaneMorph,
+	#superclass : #PanelMorph,
 	#instVars : [
 		'model',
 		'updatablePanes',
 		'getChildrenSelector'
 	],
-	#category : 'Tamaris-UI',
-	#package : 'Tamaris',
-	#tag : 'UI'
+	#category : 'Tamaris-UI'
 }
 
-{ #category : 'instance creation' }
+{ #category : #'instance creation' }
 TamPaneMorph class >> model: aModel [ 
 	^ self new model: aModel
 
 ]
 
-{ #category : 'LookEnhancements- compatibilty' }
+{ #category : #'LookEnhancements- compatibilty' }
 TamPaneMorph >> addPaneHSplitterBetween: topMorph and: bottomBorphs [ 
 	| splitter |
 	super addPaneHSplitterBetween: topMorph and: bottomBorphs.
@@ -28,7 +26,7 @@ TamPaneMorph >> addPaneHSplitterBetween: topMorph and: bottomBorphs [
 	splitter comeToFront
 ]
 
-{ #category : 'LookEnhancements- compatibilty' }
+{ #category : #'LookEnhancements- compatibilty' }
 TamPaneMorph >> addPaneVSplitterBetween: leftMorph and: rightMorphs [ 
 	| splitter |
 	super addPaneVSplitterBetween: leftMorph and: rightMorphs.
@@ -39,11 +37,11 @@ TamPaneMorph >> addPaneVSplitterBetween: leftMorph and: rightMorphs [
 	splitter comeToFront
 ]
 
-{ #category : 'panes- compatibility' }
+{ #category : #'panes- compatibility' }
 TamPaneMorph >> announce: x [
 ]
 
-{ #category : 'initialize/release' }
+{ #category : #'initialize/release' }
 TamPaneMorph >> eat: aPane [ 
 	| grips |
 	aPane isSystemWindow
@@ -59,17 +57,17 @@ TamPaneMorph >> eat: aPane [
 		ifNotNil: [aPane model removeDependent: aPane]
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 TamPaneMorph >> getChildrenSelector [
 	^ getChildrenSelector
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 TamPaneMorph >> getChildrenSelector: anObject [
 	getChildrenSelector := anObject
 ]
 
-{ #category : 'initialize/release' }
+{ #category : #'initialize/release' }
 TamPaneMorph >> initialize [
 	super initialize.
 	self useSquareCorners.
@@ -80,22 +78,22 @@ TamPaneMorph >> initialize [
 	self layoutInset: 0
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 TamPaneMorph >> minExtent [
 	^ 2 @ 60
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 TamPaneMorph >> model [
 	^ model
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 TamPaneMorph >> model: anObject [
 	model := anObject
 ]
 
-{ #category : 'panes- compatibility' }
+{ #category : #'panes- compatibility' }
 TamPaneMorph >> setUpdatablePanesFrom: getSelectors [ 
 	"Set my updatablePanes inst var to the list of
 	panes which are list panes with the given get-list
@@ -120,7 +118,7 @@ TamPaneMorph >> setUpdatablePanesFrom: getSelectors [
 	updatablePanes := aList asArray
 ]
 
-{ #category : 'initialize/release' }
+{ #category : #'initialize/release' }
 TamPaneMorph >> splitHorizontally [
 	| myFrame leftFrame rightFrame newRight newLeft |
 	myFrame := self layoutFrame.
@@ -136,7 +134,7 @@ TamPaneMorph >> splitHorizontally [
 	^ newLeft
 ]
 
-{ #category : 'initialize/release' }
+{ #category : #'initialize/release' }
 TamPaneMorph >> splitVertically [
 	| myFrame topFrame bottomFrame newTop newBottom |
 	myFrame := self layoutFrame.
@@ -153,13 +151,13 @@ TamPaneMorph >> splitVertically [
 	^ newBottom
 ]
 
-{ #category : 'updating' }
+{ #category : #updating }
 TamPaneMorph >> treeUpdated: anAnnounce [
 	^ (self model respondsTo: #treeUpdated:) 
 		ifTrue: [self model treeUpdated: anAnnounce]
 ]
 
-{ #category : 'panes- compatibility' }
+{ #category : #'panes- compatibility' }
 TamPaneMorph >> updatablePanes [
 	"Answer the list of panes, in order, which should
 	be sent the
@@ -168,12 +166,12 @@ TamPaneMorph >> updatablePanes [
 		ifNil: [updatablePanes := #()]
 ]
 
-{ #category : 'panes- compatibility' }
+{ #category : #'panes- compatibility' }
 TamPaneMorph >> updatablePanes: aCollection [ 
 	updatablePanes := aCollection
 ]
 
-{ #category : 'panes- compatibility' }
+{ #category : #'panes- compatibility' }
 TamPaneMorph >> updatePanesFromSubmorphs [
 	
 ]

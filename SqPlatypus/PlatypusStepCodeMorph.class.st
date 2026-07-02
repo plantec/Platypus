@@ -10,14 +10,14 @@ PlatypusStepCodeMorph >> accessibleSchemata [
 
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : #'error handling' }
 PlatypusStepCodeMorph >> notify: aString [
 	Transcript show: aString, String cr
 ]
 
 { #category : #private }
 PlatypusStepCodeMorph >> querySymbol [
-	| ed caret |
+	| ed |
 	ed := self textMorph editor.
 	ed editingState forceReplaceAtEnd.
 	ed querySymbol: nil 
@@ -41,11 +41,4 @@ PlatypusStepCodeMorph >> schemata [
 { #category : #accessing }
 PlatypusStepCodeMorph >> sourceHandler [
 	^ self model sourceHandler
-]
-
-{ #category : #private }
-PlatypusStepCodeMorph >> textMorphClass [
-	"Answer the class used to create the receiver's textMorph"
-	
-	^PlatypusTextMorphForEditView 
 ]

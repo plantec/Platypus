@@ -18,48 +18,46 @@ textMorph
 
 "
 Class {
-	#name : 'TamStringHolder',
-	#superclass : 'StringHolderFromPharo4',
+	#name : #TamStringHolder,
+	#superclass : #StringHolderFromPharo4,
 	#instVars : [
 		'doItContext',
 		'doItReceiver',
 		'textMorph'
 	],
-	#category : 'Tamaris-UI',
-	#package : 'Tamaris',
-	#tag : 'UI'
+	#category : 'Tamaris-UI'
 }
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 TamStringHolder >> contents: textOrString [ 
 	super contents: textOrString .
 	self changed: #contents
 
 ]
 
-{ #category : 'initialize-release' }
+{ #category : #'initialize-release' }
 TamStringHolder >> destroy [
 	self doItReceiver: nil.
 	super destroy
 ]
 
-{ #category : 'evaluation' }
+{ #category : #evaluation }
 TamStringHolder >> doItContext [	"Answer the context in which a text selection can be evaluated."	^ doItContext
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 TamStringHolder >> doItContext: anObject [	doItContext := anObject
 ]
 
-{ #category : 'evaluation' }
+{ #category : #evaluation }
 TamStringHolder >> doItReceiver [	"Answer the object that should be informed of the result of  	evaluating a  	text selection."	^ doItReceiver
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 TamStringHolder >> doItReceiver: anObject [	doItReceiver := anObject
 ]
 
-{ #category : 'initialize-release' }
+{ #category : #'initialize-release' }
 TamStringHolder >> embeddedInMorphicWindowLabeled: labelString [ 
 	| window |	
 	window  :=  super embeddedInMorphicWindowLabeled: labelString.	
@@ -67,7 +65,7 @@ TamStringHolder >> embeddedInMorphicWindowLabeled: labelString [
 	^ window
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 TamStringHolder >> textMorph [	
 	^ textMorph
 ]

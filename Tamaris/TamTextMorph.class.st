@@ -1,19 +1,17 @@
 Class {
-	#name : 'TamTextMorph',
-	#superclass : 'RubPluggableTextMorph',
-	#category : 'Tamaris-Tools',
-	#package : 'Tamaris',
-	#tag : 'Tools'
+	#name : #TamTextMorph,
+	#superclass : #RubPluggableTextMorph,
+	#category : 'Tamaris-Tools'
 }
 
-{ #category : 'model access' }
+{ #category : #'model access' }
 TamTextMorph >> getText [
 	"Retrieve the current model text"
 	self model ifNotNil: [^ super getText].
 	^ '' asText
 ]
 
-{ #category : 'updating' }
+{ #category : #updating }
 TamTextMorph >> hasUnacceptedEdits: aBoolean [ 
 	| oldHasUnacceptedEdits |
 	oldHasUnacceptedEdits := hasUnacceptedEdits.
@@ -22,13 +20,13 @@ TamTextMorph >> hasUnacceptedEdits: aBoolean [
 		ifFalse: [self changed: #hasUnacceptedEdits:]
 ]
 
-{ #category : 'initialization' }
+{ #category : #initialization }
 TamTextMorph >> initialize [
 	super initialize.
 	self color: Color white
 ]
 
-{ #category : 'error handling' }
+{ #category : #'error handling' }
 TamTextMorph >> notify: errorMessage at: location [ 
 	| repl |
 	self selectFrom: location to: location - 1.

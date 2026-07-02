@@ -4,42 +4,40 @@ I am a kind of Model that includes a piece of text.  In some cases, the text can
 Categories 'code pane menu' and 'message list menu' are messages that may be called by my menus when the text is a method, and when some pane is a list of methods.  Other of my subclasses may ignore these two catagories altogether.
 "
 Class {
-	#name : 'StringHolderFromPharo4',
-	#superclass : 'Model',
+	#name : #StringHolderFromPharo4,
+	#superclass : #Model,
 	#instVars : [
 		'contents'
 	],
-	#category : 'Tamaris-UI',
-	#package : 'Tamaris',
-	#tag : 'UI'
+	#category : 'Tamaris-UI'
 }
 
-{ #category : 'instance creation' }
+{ #category : #'instance creation' }
 StringHolderFromPharo4 class >> open [
 	^self new openLabel: 'Edit'
 ]
 
-{ #category : 'instance creation' }
+{ #category : #'instance creation' }
 StringHolderFromPharo4 class >> openLabel: aString [
 
 	^self new openLabel: aString
 ]
 
-{ #category : 'window color' }
+{ #category : #'window color' }
 StringHolderFromPharo4 class >> patchworkUIThemeColor [
 	"Answer a default color for UI themes that make use of different colors for Browser, MessageList etc..."
 
 	^ Color lightYellow 
 ]
 
-{ #category : 'themes' }
+{ #category : #themes }
 StringHolderFromPharo4 class >> theme [
 	"Answer the ui theme that provides controls."
 
 	^ Smalltalk ui theme
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 StringHolderFromPharo4 >> acceptContents: aString [ 
 	"Set aString to be the contents of the receiver.  Return true cuz happy"
 
@@ -47,7 +45,7 @@ StringHolderFromPharo4 >> acceptContents: aString [
 	^ true
 ]
 
-{ #category : 'initialize-release' }
+{ #category : #'initialize-release' }
 StringHolderFromPharo4 >> buildTextMorph [
 
 	^PluggableTextMorph 
@@ -59,20 +57,20 @@ StringHolderFromPharo4 >> buildTextMorph [
 			
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 StringHolderFromPharo4 >> classCommentIndicated [
 	"Answer true iff we're viewing the class comment."
 	^false
 ]
 
-{ #category : 'user edits' }
+{ #category : #'user edits' }
 StringHolderFromPharo4 >> clearUserEditFlag [
 	"Clear the hasUnacceptedEdits flag in all my dependent views."
 
 	self changed: #clearUserEdits
 ]
 
-{ #category : 'code pane menu' }
+{ #category : #'code pane menu' }
 StringHolderFromPharo4 >> codePaneMenu: aMenu shifted: shifted [ 
 	"Note that unless we override perform:orSendTo:, 
 	PluggableTextController will respond to all menu items in a 
@@ -84,7 +82,7 @@ StringHolderFromPharo4 >> codePaneMenu: aMenu shifted: shifted [
 	^ aMenu addAllFrom: donorMenu
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 StringHolderFromPharo4 >> codeTextMorph [
 	^ self dependents
 		detect: [:dep | (dep isKindOf: PluggableTextMorph)
@@ -92,41 +90,41 @@ StringHolderFromPharo4 >> codeTextMorph [
 		ifNone: []
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 StringHolderFromPharo4 >> contents [
 	"Answer the contents that the receiver is holding--presumably a string."
 
 	^contents
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 StringHolderFromPharo4 >> contents: textOrString [ 
 	"Set textOrString to be the contents of the receiver."
 
 	contents := textOrString "asString"
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 StringHolderFromPharo4 >> contentsSelection [
 	"Return the interval of text in the code pane to select when I set the pane's contents"
 
 	^ 1 to: 0  "null selection"
 ]
 
-{ #category : 'initialization' }
+{ #category : #initialization }
 StringHolderFromPharo4 >> defaultContents [
 
 	^''
 ]
 
-{ #category : 'evaluation' }
+{ #category : #evaluation }
 StringHolderFromPharo4 >> doItContext [
 	"Answer the context in which a text selection can be evaluated."
 
 	^nil
 ]
 
-{ #category : 'evaluation' }
+{ #category : #evaluation }
 StringHolderFromPharo4 >> doItReceiver [
 	"Answer the object that should be informed of the result of evaluating a 
 	text selection."
@@ -134,13 +132,13 @@ StringHolderFromPharo4 >> doItReceiver [
 	^nil
 ]
 
-{ #category : 'initialize-release' }
+{ #category : #'initialize-release' }
 StringHolderFromPharo4 >> embeddedInMorphicWindowLabeled: labelString [
 
 	^self embeddedInMorphicWindowLabeled: labelString wrap: true
 ]
 
-{ #category : 'initialize-release' }
+{ #category : #'initialize-release' }
 StringHolderFromPharo4 >> embeddedInMorphicWindowLabeled: labelString wrap: aBoolean [
 	| window |
 	window :=  (SystemWindow labelled: labelString) model: self.
@@ -150,7 +148,7 @@ StringHolderFromPharo4 >> embeddedInMorphicWindowLabeled: labelString wrap: aBoo
 	^ window
 ]
 
-{ #category : 'initialization' }
+{ #category : #initialization }
 StringHolderFromPharo4 >> initialize [
 	"Initialize the state of the receiver with its default contents."
 
@@ -159,7 +157,7 @@ StringHolderFromPharo4 >> initialize [
 
 ]
 
-{ #category : 'user edits' }
+{ #category : #'user edits' }
 StringHolderFromPharo4 >> okToChange [
 
 	self canDiscardEdits ifTrue: [^ true].
@@ -168,25 +166,25 @@ StringHolderFromPharo4 >> okToChange [
 
 ]
 
-{ #category : 'initialize-release' }
+{ #category : #'initialize-release' }
 StringHolderFromPharo4 >> openLabel: labelString [ 
 	"Create a standard system view of the model, me, a StringHolder and open it.  If in mvc, terminate the active controller so that the new window will immediately be activated."
 	^(self embeddedInMorphicWindowLabeled: labelString) openInWorld
 ]
 
-{ #category : 'initialize-release' }
+{ #category : #'initialize-release' }
 StringHolderFromPharo4 >> openLabel: aString wrap: aBoolean [
 
 	"Create a standard system view of the model, me, a StringHolder and open it."
 	(self embeddedInMorphicWindowLabeled: aString wrap: aBoolean) openInWorld
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 StringHolderFromPharo4 >> reformulateList [
 	"If the receiver has a way of reformulating its message list, here is a chance for it to do so"
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 StringHolderFromPharo4 >> selectedClassName [
 	"I may know what class is currently selected"
 
@@ -194,19 +192,19 @@ StringHolderFromPharo4 >> selectedClassName [
 	^ nil
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 StringHolderFromPharo4 >> selectedClassOrMetaClass [
 
 	^ self selectedClass	"I don't know any better"
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 StringHolderFromPharo4 >> selectedMessageName [
 
 	^ nil
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 StringHolderFromPharo4 >> textContents: aStringOrText [ 
 	"Set aStringOrText to be the contents of the receiver."
 

@@ -50,12 +50,9 @@ String >> unformattedString [
 				ifFalse: [(#($n $t ) includes: curr)
 						ifTrue: [nbAntiSlash = 1
 								ifTrue: [
-									resStream nextPut: (curr = $n 
-										ifTrue: [
-											MultiByteFileStream lineEndDefault asLowercase = 'lf' 
-												ifTrue: [Character lf] 
-												ifFalse: [Character cr]] 
-										ifFalse: [Character tab]).
+									resStream nextPutAll: (curr = $n 
+										ifTrue: [String crlf] 
+										ifFalse: [String tab]).
 									nbAntiSlash := 0]
 								ifFalse: [resStream nextPut: curr]]
 						ifFalse: [resStream nextPut: curr]]].

@@ -2,7 +2,8 @@ Extension { #name : #PltFunctionDeclaration }
 
 { #category : #'*xtra-platypus-evaluating' }
 PltFunctionDeclaration >> evaluateAndExplore [
-	^ self evaluate explore
+
+	^ self evaluate inspect
 ]
 
 { #category : #'*xtra-platypus-evaluating' }

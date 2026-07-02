@@ -57,18 +57,10 @@ PlatypusCoreRepositoryStepFileWriter >> doFolder [
 	stream nextPutAll: 'DATA;'.
 	stream nextPut: Character cr.
 	instances := folder instances.
-	'Populating...'
-		displayProgressAt: Sensor cursorPoint
-		from: 1
-		to: instances size
-		during: [:bar | 1
-				to: instances size
-				do: [:p | 
-					bar value: p.
-					(instances at: p) 
-						ifNotNil: [:i | 
-							self doInstance: i.
-							stream nextPut: Character cr]]].
+	instances do: [ :i | 
+		i ifNotNil: [ 
+			self doInstance: i.
+			stream nextPut: Character cr ] ].
 	stream nextPutAll: 'ENDSEC;'.
 	stream nextPut: Character cr.
 	stream nextPutAll: 'END-ISO-10303-21;'.

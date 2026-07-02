@@ -1,57 +1,55 @@
 Class {
-	#name : 'TamBrowserHistoryItem',
-	#superclass : 'AbstractHistoryItem',
+	#name : #TamBrowserHistoryItem,
+	#superclass : #AbstractHistoryItem,
 	#instVars : [
 		'listItemReference'
 	],
-	#category : 'Tamaris-Browser-History',
-	#package : 'Tamaris',
-	#tag : 'Browser-History'
+	#category : 'Tamaris-Browser-History'
 }
 
-{ #category : 'instance creation' }
+{ #category : #'instance creation' }
 TamBrowserHistoryItem class >> listItemReference: aListItemReference [ 
 	^ self new listItemReference: aListItemReference
 ]
 
-{ #category : 'comparing' }
+{ #category : #comparing }
 TamBrowserHistoryItem >> <= other [ 
 	^ listItemReference <= other listItemReference
 ]
 
-{ #category : 'comparing' }
+{ #category : #comparing }
 TamBrowserHistoryItem >> = another [ 
 	another class == self class
 		ifFalse: [^ false].
 	^ listItemReference = another listItemReference
 ]
 
-{ #category : 'converting' }
+{ #category : #converting }
 TamBrowserHistoryItem >> asString [
 	^listItemReference asStringOrText
 ]
 
-{ #category : 'comparing' }
+{ #category : #comparing }
 TamBrowserHistoryItem >> hash [
 	^listItemReference hash
 ]
 
-{ #category : 'testing' }
+{ #category : #testing }
 TamBrowserHistoryItem >> isValidFromModel: aModel [ 
 	^ aModel isBrowserHistoryItemValid: self 
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 TamBrowserHistoryItem >> listItemReference [
 	^listItemReference
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 TamBrowserHistoryItem >> listItemReference: anObject [
 	listItemReference := anObject
 ]
 
-{ #category : 'model updating' }
+{ #category : #'model updating' }
 TamBrowserHistoryItem >> updateModel: aModel [ 
 	aModel setFromBrowserHistoryItem: self
 ]
