@@ -313,7 +313,7 @@ PlatypusCodeMorph >> destroy [
 		ifNotNil: [codeRow delete.
 			codeRow := nil].
 	contentsMorph
-		ifNotNil: [contentsMorph model: nil.
+		ifNotNil: [
 			contentsMorph delete.
 			contentsMorph := nil].
 	contents := nil.

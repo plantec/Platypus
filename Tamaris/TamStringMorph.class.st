@@ -8,7 +8,7 @@ Class {
 		'editor',
 		'cpt'
 	],
-	#category : 'Tamaris-UI'
+	#category : #'Tamaris-UI'
 }
 
 { #category : #'instance creation' }
@@ -41,11 +41,12 @@ TamStringMorph >> cpt [
 
 { #category : #'initialize-release' }
 TamStringMorph >> destroy [
+
 	model := nil.
-editor ifNotNil: 
-			[self removeMorph: editor.
-			editor delete.
-			editor := nil].
+	editor ifNotNil: [ 
+		self removeMorph: editor.
+		editor delete.
+		editor := nil ]
 ]
 
 { #category : #editing }
