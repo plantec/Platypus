@@ -27,6 +27,7 @@ Class {
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdCheddarDefinedTypeInterfacesListFunction class >> iso10303P11Translater [
+
 	^ 'Platypus (c) LISYC EA3883, Universite de Bretagne occidentale. Brest.'
 
 
@@ -34,6 +35,7 @@ ExChdCheddarDefinedTypeInterfacesListFunction class >> iso10303P11Translater [
 
 { #category : 'platypus-generated-meta-data-accessing' }
 ExChdCheddarDefinedTypeInterfacesListFunction class >> schemaDefinition [
+
 	^ ExChdCheddarDomainsSchemaDefinition singleton
 
 
@@ -41,6 +43,7 @@ ExChdCheddarDefinedTypeInterfacesListFunction class >> schemaDefinition [
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdCheddarDefinedTypeInterfacesListFunction class >> translatedFromISO10303P11 [
+
 	^ true
 
 
@@ -48,6 +51,7 @@ ExChdCheddarDefinedTypeInterfacesListFunction class >> translatedFromISO10303P11
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdCheddarDefinedTypeInterfacesListFunction class >> vwNamespaceName [
+
 	^ #Express2Cheddar
 
 
@@ -55,6 +59,7 @@ ExChdCheddarDefinedTypeInterfacesListFunction class >> vwNamespaceName [
 
 { #category : 'platypus-generated-accessing' }
 ExChdCheddarDefinedTypeInterfacesListFunction >> ads [
+
 	^ ads
 
 
@@ -62,6 +67,7 @@ ExChdCheddarDefinedTypeInterfacesListFunction >> ads [
 
 { #category : 'platypus-generated-accessing' }
 ExChdCheddarDefinedTypeInterfacesListFunction >> ads: aBoolean [
+
 	ads := aBoolean
 
 
@@ -69,6 +75,7 @@ ExChdCheddarDefinedTypeInterfacesListFunction >> ads: aBoolean [
 
 { #category : 'platypus-generated-accessing' }
 ExChdCheddarDefinedTypeInterfacesListFunction >> fromValues: values [
+
 	self r: (values at: 1).
 	self ads: (values at: 2)
 
@@ -79,22 +86,18 @@ ExChdCheddarDefinedTypeInterfacesListFunction >> fromValues: values [
 ExChdCheddarDefinedTypeInterfacesListFunction >> invoke [
 	" ---------- locals assignments ----------"
 
-	self result: Array new.	" ---------- statements ----------"
-	self ads
-		ifTrue: [ 
-			self
-				result:
-					(self result
-						pltPlus:
-							(ExChdAdaInterface new
-								adaInterfaceFromValues:
-										(OrderedCollection new
-												add: ((self r ownerUsingContext: self class context) nameUsingContext: self class context);
-												add: nil;
-												add: true;
-												add: true;
-												yourself);
-								yourself)) ].
+	self result: Array new. " ---------- statements ----------"
+	self ads ifTrue: [
+			self result: (self result pltPlus: (ExChdAdaInterface new
+						  adaInterfaceFromValues: (OrderedCollection new
+								   add:
+									   ((self r ownerUsingContext: self class context)
+										    nameUsingContext: self class context);
+								   add: nil;
+								   add: true;
+								   add: true;
+								   yourself);
+						  yourself)) ].
 	^ self return: self result
 
 
@@ -102,6 +105,7 @@ ExChdCheddarDefinedTypeInterfacesListFunction >> invoke [
 
 { #category : 'platypus-generated-accessing' }
 ExChdCheddarDefinedTypeInterfacesListFunction >> r [
+
 	^ r
 
 
@@ -109,6 +113,7 @@ ExChdCheddarDefinedTypeInterfacesListFunction >> r [
 
 { #category : 'platypus-generated-accessing' }
 ExChdCheddarDefinedTypeInterfacesListFunction >> r: aExChdCheddarDefinedType [
+
 	r := aExChdCheddarDefinedType
 
 
@@ -116,6 +121,7 @@ ExChdCheddarDefinedTypeInterfacesListFunction >> r: aExChdCheddarDefinedType [
 
 { #category : 'platypus-generated-accessing' }
 ExChdCheddarDefinedTypeInterfacesListFunction >> r: aExChdCheddarDefinedType ads: aBoolean [
+
 	self r: aExChdCheddarDefinedType.
 	self ads: aBoolean
 
@@ -124,6 +130,7 @@ ExChdCheddarDefinedTypeInterfacesListFunction >> r: aExChdCheddarDefinedType ads
 
 { #category : 'platypus-generated-accessing' }
 ExChdCheddarDefinedTypeInterfacesListFunction >> result [
+
 	^ result
 
 
@@ -131,9 +138,11 @@ ExChdCheddarDefinedTypeInterfacesListFunction >> result [
 
 { #category : 'platypus-generated-accessing' }
 ExChdCheddarDefinedTypeInterfacesListFunction >> result: aListOfExChdAdaInterface [
+
 	result := aListOfExChdAdaInterface
-		ifNil: [ OrderedCollection new ]
-		ifNotNil: [ aListOfExChdAdaInterface as: OrderedCollection ]
+		          ifNil: [ OrderedCollection new ]
+		          ifNotNil: [
+		          aListOfExChdAdaInterface as: OrderedCollection ]
 
 
 ]

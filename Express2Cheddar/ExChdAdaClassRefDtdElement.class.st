@@ -21,6 +21,7 @@ Class {
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdAdaClassRefDtdElement class >> iso10303P11Translater [
+
 	^ 'Platypus (c) LISYC EA3883, Universite de Bretagne occidentale. Brest.'
 
 
@@ -28,6 +29,7 @@ ExChdAdaClassRefDtdElement class >> iso10303P11Translater [
 
 { #category : 'platypus-generated-meta-data-accessing' }
 ExChdAdaClassRefDtdElement class >> schemaDefinition [
+
 	^ ExChdCheddarDtdSchemaDefinition singleton
 
 
@@ -35,6 +37,7 @@ ExChdAdaClassRefDtdElement class >> schemaDefinition [
 
 { #category : 'platypus-generated-meta-data-accessing' }
 ExChdAdaClassRefDtdElement class >> schemaInstance [
+
 	^ ExChdExpress2cheddarSchemaInstance singleton
 
 
@@ -42,6 +45,7 @@ ExChdAdaClassRefDtdElement class >> schemaInstance [
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdAdaClassRefDtdElement class >> translatedFromISO10303P11 [
+
 	^ true
 
 
@@ -49,6 +53,7 @@ ExChdAdaClassRefDtdElement class >> translatedFromISO10303P11 [
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdAdaClassRefDtdElement class >> vwNamespaceName [
+
 	^ #Express2Cheddar
 
 
@@ -56,6 +61,7 @@ ExChdAdaClassRefDtdElement class >> vwNamespaceName [
 
 { #category : 'platypus-generated-visiting' }
 ExChdAdaClassRefDtdElement >> accept: aVisitor [
+
 	^ aVisitor acceptAdaClassRefDtdElement: self
 
 
@@ -63,6 +69,7 @@ ExChdAdaClassRefDtdElement >> accept: aVisitor [
 
 { #category : 'platypus-generated-copying' }
 ExChdAdaClassRefDtdElement >> adaClassRefDtdElementCopyTo: another [
+
 	
 
 
@@ -70,6 +77,7 @@ ExChdAdaClassRefDtdElement >> adaClassRefDtdElementCopyTo: another [
 
 { #category : 'platypus-generated-group-accessing' }
 ExChdAdaClassRefDtdElement >> adaClassRefDtdElementFromValues: values [
+
 	| valuesloc |
 	valuesloc := values asOrderedCollection.
 	^ valuesloc
@@ -79,6 +87,7 @@ ExChdAdaClassRefDtdElement >> adaClassRefDtdElementFromValues: values [
 
 { #category : 'platypus-generated-group-accessing' }
 ExChdAdaClassRefDtdElement >> adaClassRefDtdElementToValues: values [
+
 	^ values
 
 
@@ -86,6 +95,7 @@ ExChdAdaClassRefDtdElement >> adaClassRefDtdElementToValues: values [
 
 { #category : 'platypus-generated-deriving' }
 ExChdAdaClassRefDtdElement >> asCollectionElementDtdCodeTail [
+
 	^ self asCollectionElementDtdCodeTailUsingContext: self class context
 
 
@@ -93,22 +103,27 @@ ExChdAdaClassRefDtdElement >> asCollectionElementDtdCodeTail [
 
 { #category : 'platypus-generated-deriving' }
 ExChdAdaClassRefDtdElement >> asCollectionElementDtdCodeTailUsingContext: aContext [
-	^ self asCollectionElementDtdCodeTailUsingContext: aContext receiver: self
+
+	^ self
+		  asCollectionElementDtdCodeTailUsingContext: aContext
+		  receiver: self
 
 
 ]
 
 { #category : 'platypus-generated-deriving' }
 ExChdAdaClassRefDtdElement >> asCollectionElementDtdCodeTailUsingContext: aContext receiver: aReceiver [
-	^ ((' EMPTY>\n' pltPlus: '<!ATTLIST ')
-		pltPlus: ((aReceiver owner ownerUsingContext: aContext) tagUsingContext: aContext))
-		pltPlus: ' refs IDREFS #REQUIRED>\n'
+
+	^ ((' EMPTY>\n' pltPlus: '<!ATTLIST ') pltPlus:
+		   ((aReceiver owner ownerUsingContext: aContext) tagUsingContext:
+			    aContext)) pltPlus: ' refs IDREFS #REQUIRED>\n'
 
 
 ]
 
 { #category : 'platypus-generated-deriving' }
 ExChdAdaClassRefDtdElement >> dtdCode [
+
 	^ self dtdCodeUsingContext: self class context
 
 
@@ -116,6 +131,7 @@ ExChdAdaClassRefDtdElement >> dtdCode [
 
 { #category : 'platypus-generated-deriving' }
 ExChdAdaClassRefDtdElement >> dtdCodeUsingContext: aContext [
+
 	^ self dtdCodeUsingContext: aContext receiver: self
 
 
@@ -123,14 +139,19 @@ ExChdAdaClassRefDtdElement >> dtdCodeUsingContext: aContext [
 
 { #category : 'platypus-generated-deriving' }
 ExChdAdaClassRefDtdElement >> dtdCodeUsingContext: aContext receiver: aReceiver [
-	^ (((('<!ELEMENT ' pltPlus: (aReceiver owner tagUsingContext: aContext)) pltPlus: ' EMPTY>\n') pltPlus: '<!ATTLIST ')
-		pltPlus: (aReceiver owner tagUsingContext: aContext)) pltPlus: ' ref IDREF #REQUIRED>\n'
+
+	^ (((('<!ELEMENT ' pltPlus:
+		      (aReceiver owner tagUsingContext: aContext)) pltPlus:
+		     ' EMPTY>\n') pltPlus: '<!ATTLIST ') pltPlus:
+		   (aReceiver owner tagUsingContext: aContext)) pltPlus:
+		  ' ref IDREF #REQUIRED>\n'
 
 
 ]
 
 { #category : 'platypus-generated-group-accessing' }
 ExChdAdaClassRefDtdElement >> fromValues: values [
+
 	^ self adaClassRefDtdElementFromValues: (super fromValues: values)
 
 
@@ -138,6 +159,7 @@ ExChdAdaClassRefDtdElement >> fromValues: values [
 
 { #category : 'platypus-generated-deriving' }
 ExChdAdaClassRefDtdElement >> inferedElement [
+
 	^ self inferedElementUsingContext: self class context
 
 
@@ -145,6 +167,7 @@ ExChdAdaClassRefDtdElement >> inferedElement [
 
 { #category : 'platypus-generated-deriving' }
 ExChdAdaClassRefDtdElement >> inferedElementUsingContext: aContext [
+
 	^ self inferedElementUsingContext: aContext receiver: self
 
 
@@ -152,43 +175,36 @@ ExChdAdaClassRefDtdElement >> inferedElementUsingContext: aContext [
 
 { #category : 'platypus-generated-deriving' }
 ExChdAdaClassRefDtdElement >> inferedElementUsingContext: aContext receiver: aReceiver [
-	^ (PlatypusComplexInstance
-		fromRecords:
-			(OrderedCollection new
-				add:
-						(PlatypusComplexInstance
-								fromRecords:
-									(OrderedCollection new
-										add:
-												(PlatypusComplexInstance
-														fromRecords:
-															(OrderedCollection new
-																add:
-																		(ExChdDtdElement new
-																				dtdElementFromValues:
-																						(OrderedCollection new
-																								add: nil;
-																								add: nil;
-																								yourself);
-																				yourself);
-																add: ExChdCompositeDtdElement new;
-																yourself)) pltAsObject;
-										add:
-												(ExChdEntityDtdElement new
-														entityDtdElementFromValues:
-																(OrderedCollection new
-																		add: aReceiver domain;
-																		yourself);
-														yourself);
-										yourself)) pltAsObject;
-				add: ExChdAdaClassDtdElement new;
-				yourself)) pltAsObject
+
+	^ (PlatypusComplexInstance fromRecords: (OrderedCollection new
+			    add:
+				    (PlatypusComplexInstance fromRecords: (OrderedCollection new
+							      add:
+								      (PlatypusComplexInstance fromRecords:
+										       (OrderedCollection new
+											        add: (ExChdDtdElement new
+													         dtdElementFromValues: (OrderedCollection new
+															          add: nil;
+															          add: nil;
+															          yourself);
+													         yourself);
+											        add: ExChdCompositeDtdElement new;
+											        yourself)) pltAsObject;
+							      add: (ExChdEntityDtdElement new
+									       entityDtdElementFromValues: (OrderedCollection new
+											        add: aReceiver domain;
+											        yourself);
+									       yourself);
+							      yourself)) pltAsObject;
+			    add: ExChdAdaClassDtdElement new;
+			    yourself)) pltAsObject
 
 
 ]
 
 { #category : 'platypus-generated-classifying' }
 ExChdAdaClassRefDtdElement >> isExChdAdaClassRefDtdElement [
+
 	^ true
 
 
@@ -196,6 +212,7 @@ ExChdAdaClassRefDtdElement >> isExChdAdaClassRefDtdElement [
 
 { #category : 'platypus-generated-group-accessing' }
 ExChdAdaClassRefDtdElement >> localFromValues: values [
+
 	^ self adaClassRefDtdElementFromValues: values
 
 
@@ -203,6 +220,7 @@ ExChdAdaClassRefDtdElement >> localFromValues: values [
 
 { #category : 'platypus-generated-group-accessing' }
 ExChdAdaClassRefDtdElement >> localToValues: values [
+
 	^ self adaClassRefDtdElementToValues: values
 
 
@@ -210,6 +228,7 @@ ExChdAdaClassRefDtdElement >> localToValues: values [
 
 { #category : 'platypus-generated-copying' }
 ExChdAdaClassRefDtdElement >> pltCopyGroup: aClassSymbol to: anObject [
+
 	self class name == aClassSymbol
 		ifTrue: [ self pltCopyTo: anObject ]
 		ifFalse: [ super pltCopyGroup: aClassSymbol to: anObject ]
@@ -219,6 +238,7 @@ ExChdAdaClassRefDtdElement >> pltCopyGroup: aClassSymbol to: anObject [
 
 { #category : 'platypus-generated-copying' }
 ExChdAdaClassRefDtdElement >> pltCopyTo: another [
+
 	super pltCopyTo: another.
 	self adaClassRefDtdElementCopyTo: another
 
@@ -227,6 +247,7 @@ ExChdAdaClassRefDtdElement >> pltCopyTo: another [
 
 { #category : 'platypus-generated-copying' }
 ExChdAdaClassRefDtdElement >> pltLocalCopyTo: another [
+
 	self adaClassRefDtdElementCopyTo: another
 
 
@@ -234,6 +255,7 @@ ExChdAdaClassRefDtdElement >> pltLocalCopyTo: another [
 
 { #category : 'platypus-generated-initializing' }
 ExChdAdaClassRefDtdElement >> stepInitialize [
+
 	super stepInitialize
 
 
@@ -241,6 +263,7 @@ ExChdAdaClassRefDtdElement >> stepInitialize [
 
 { #category : 'platypus-generated-group-accessing' }
 ExChdAdaClassRefDtdElement >> toValues: values [
+
 	^ self adaClassRefDtdElementToValues: (super toValues: values)
 
 

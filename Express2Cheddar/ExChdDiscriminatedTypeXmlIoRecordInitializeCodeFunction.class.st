@@ -18,6 +18,7 @@ Class {
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdDiscriminatedTypeXmlIoRecordInitializeCodeFunction class >> iso10303P11Translater [
+
 	^ 'Platypus (c) LISYC EA3883, Universite de Bretagne occidentale. Brest.'
 
 
@@ -25,6 +26,7 @@ ExChdDiscriminatedTypeXmlIoRecordInitializeCodeFunction class >> iso10303P11Tran
 
 { #category : 'platypus-generated-meta-data-accessing' }
 ExChdDiscriminatedTypeXmlIoRecordInitializeCodeFunction class >> schemaDefinition [
+
 	^ ExChdDiscriminatedTypeSchemaDefinition singleton
 
 
@@ -32,6 +34,7 @@ ExChdDiscriminatedTypeXmlIoRecordInitializeCodeFunction class >> schemaDefinitio
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdDiscriminatedTypeXmlIoRecordInitializeCodeFunction class >> translatedFromISO10303P11 [
+
 	^ true
 
 
@@ -39,6 +42,7 @@ ExChdDiscriminatedTypeXmlIoRecordInitializeCodeFunction class >> translatedFromI
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdDiscriminatedTypeXmlIoRecordInitializeCodeFunction class >> vwNamespaceName [
+
 	^ #Express2Cheddar
 
 
@@ -46,6 +50,7 @@ ExChdDiscriminatedTypeXmlIoRecordInitializeCodeFunction class >> vwNamespaceName
 
 { #category : 'platypus-generated-accessing' }
 ExChdDiscriminatedTypeXmlIoRecordInitializeCodeFunction >> fromValues: values [
+
 	self typ: (values at: 1)
 
 
@@ -53,26 +58,22 @@ ExChdDiscriminatedTypeXmlIoRecordInitializeCodeFunction >> fromValues: values [
 
 { #category : 'platypus-generated-invoking' }
 ExChdDiscriminatedTypeXmlIoRecordInitializeCodeFunction >> invoke [
-	" ---------- locals assignments ----------"
+	" ---------- locals assignments ----------"" ---------- statements ----------"
 
-	" ---------- statements ----------"
-
-	^ self
-		return:
-			(((('\nprocedure Initialize(obj : out ' pltPlus: (self typ nameUsingContext: self class context))
-				pltPlus: '_io) is \nbegin ')
-				pltPlus:
-					(ExChdDiscriminatedTypeAttributesXmlIoRecordInitializeCodeFunction
-						invokeFromValues:
-							(OrderedCollection new
-								add: self typ;
-								yourself))) pltPlus: '\nend Initialize;\n')
+	^ self return: (((('\nprocedure Initialize(obj : out ' pltPlus:
+			      (self typ nameUsingContext: self class context)) pltPlus:
+			     '_io) is \nbegin ') pltPlus:
+			    (ExChdDiscriminatedTypeAttributesXmlIoRecordInitializeCodeFunction
+				     invokeFromValues: (OrderedCollection new
+						      add: self typ;
+						      yourself))) pltPlus: '\nend Initialize;\n')
 
 
 ]
 
 { #category : 'platypus-generated-accessing' }
 ExChdDiscriminatedTypeXmlIoRecordInitializeCodeFunction >> typ [
+
 	^ typ
 
 
@@ -80,6 +81,7 @@ ExChdDiscriminatedTypeXmlIoRecordInitializeCodeFunction >> typ [
 
 { #category : 'platypus-generated-accessing' }
 ExChdDiscriminatedTypeXmlIoRecordInitializeCodeFunction >> typ: aExChdDiscriminatedType [
+
 	typ := aExChdDiscriminatedType
 
 

@@ -31,6 +31,7 @@ Class {
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdPackageAdaClassesFunction class >> iso10303P11Translater [
+
 	^ 'Platypus (c) LISYC EA3883, Universite de Bretagne occidentale. Brest.'
 
 
@@ -38,6 +39,7 @@ ExChdPackageAdaClassesFunction class >> iso10303P11Translater [
 
 { #category : 'platypus-generated-meta-data-accessing' }
 ExChdPackageAdaClassesFunction class >> schemaDefinition [
+
 	^ ExChdExpress2cheddarFacadeSchemaDefinition singleton
 
 
@@ -45,6 +47,7 @@ ExChdPackageAdaClassesFunction class >> schemaDefinition [
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdPackageAdaClassesFunction class >> translatedFromISO10303P11 [
+
 	^ true
 
 
@@ -52,6 +55,7 @@ ExChdPackageAdaClassesFunction class >> translatedFromISO10303P11 [
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdPackageAdaClassesFunction class >> vwNamespaceName [
+
 	^ #Express2Cheddar
 
 
@@ -59,6 +63,7 @@ ExChdPackageAdaClassesFunction class >> vwNamespaceName [
 
 { #category : 'platypus-generated-accessing' }
 ExChdPackageAdaClassesFunction >> clsList [
+
 	^ clsList
 
 
@@ -66,15 +71,17 @@ ExChdPackageAdaClassesFunction >> clsList [
 
 { #category : 'platypus-generated-accessing' }
 ExChdPackageAdaClassesFunction >> clsList: aListOfExChdAdaClass [
+
 	clsList := aListOfExChdAdaClass
-		ifNil: [ OrderedCollection new ]
-		ifNotNil: [ aListOfExChdAdaClass as: OrderedCollection ]
+		           ifNil: [ OrderedCollection new ]
+		           ifNotNil: [ aListOfExChdAdaClass as: OrderedCollection ]
 
 
 ]
 
 { #category : 'platypus-generated-accessing' }
 ExChdPackageAdaClassesFunction >> fromValues: values [
+
 	self pkg: (values at: 1)
 
 
@@ -84,30 +91,25 @@ ExChdPackageAdaClassesFunction >> fromValues: values [
 ExChdPackageAdaClassesFunction >> invoke [
 	" ---------- locals assignments ----------"
 
-	self clsList: Array new.	" ---------- statements ----------"
+	self clsList: Array new. " ---------- statements ----------"
 	PlatypusCoreAliasStatement
 		alias: (self pkg entitiesUsingContext: self class context)
-		statementsBlock: [ :entities2552 | 
-			PlatypusCoreRepeatStatement
-				repeat: [ :noi2680 | 
-					((PltTYPEOFFunction
-						invokeFromValues:
-							(OrderedCollection new
-								add: (entities2552 pltAt: noi2680);
-								yourself)) includes: 'RECORD_AND_CLASS.ADA_CLASS')
-						ifTrue: [ self clsList: (self clsList pltPlus: (entities2552 pltAt: noi2680)) ] ]
-				from:
-					(PltLOINDEXFunction
-						invokeFromValues:
-							(OrderedCollection new
-								add: entities2552;
-								yourself))
-				to:
-					(PltHIINDEXFunction
-						invokeFromValues:
-							(OrderedCollection new
-								add: entities2552;
-								yourself)) ].
+		statementsBlock: [ :entities2075901 |
+				PlatypusCoreRepeatStatement
+					repeat: [ :noi463107 |
+							((PltTYPEOFFunction invokeFromValues: (OrderedCollection new
+									   add: (entities2075901 pltAt: noi463107);
+									   yourself)) includes: 'RECORD_AND_CLASS.ADA_CLASS')
+								ifTrue: [
+										self clsList:
+											(self clsList pltPlus: (entities2075901 pltAt: noi463107)) ] ]
+					from:
+						(PltLOINDEXFunction invokeFromValues: (OrderedCollection new
+								  add: entities2075901;
+								  yourself))
+					to: (PltHIINDEXFunction invokeFromValues: (OrderedCollection new
+								  add: entities2075901;
+								  yourself)) ].
 	^ self return: self clsList
 
 
@@ -115,6 +117,7 @@ ExChdPackageAdaClassesFunction >> invoke [
 
 { #category : 'platypus-generated-accessing' }
 ExChdPackageAdaClassesFunction >> pkg [
+
 	^ pkg
 
 
@@ -122,6 +125,7 @@ ExChdPackageAdaClassesFunction >> pkg [
 
 { #category : 'platypus-generated-accessing' }
 ExChdPackageAdaClassesFunction >> pkg: aExChdAdaPackage [
+
 	pkg := aExChdAdaPackage
 
 

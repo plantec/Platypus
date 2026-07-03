@@ -27,6 +27,7 @@ Class {
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdAllAdaClassesFunction class >> iso10303P11Translater [
+
 	^ 'Platypus (c) LISYC EA3883, Universite de Bretagne occidentale. Brest.'
 
 
@@ -34,6 +35,7 @@ ExChdAllAdaClassesFunction class >> iso10303P11Translater [
 
 { #category : 'platypus-generated-meta-data-accessing' }
 ExChdAllAdaClassesFunction class >> schemaDefinition [
+
 	^ ExChdExpress2cheddarFacadeSchemaDefinition singleton
 
 
@@ -41,6 +43,7 @@ ExChdAllAdaClassesFunction class >> schemaDefinition [
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdAllAdaClassesFunction class >> translatedFromISO10303P11 [
+
 	^ true
 
 
@@ -48,6 +51,7 @@ ExChdAllAdaClassesFunction class >> translatedFromISO10303P11 [
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdAllAdaClassesFunction class >> vwNamespaceName [
+
 	^ #Express2Cheddar
 
 
@@ -55,6 +59,7 @@ ExChdAllAdaClassesFunction class >> vwNamespaceName [
 
 { #category : 'platypus-generated-accessing' }
 ExChdAllAdaClassesFunction >> allPkgs [
+
 	^ allPkgs
 
 
@@ -62,15 +67,17 @@ ExChdAllAdaClassesFunction >> allPkgs [
 
 { #category : 'platypus-generated-accessing' }
 ExChdAllAdaClassesFunction >> allPkgs: aListOfExChdAdaPackage [
+
 	allPkgs := aListOfExChdAdaPackage
-		ifNil: [ OrderedCollection new ]
-		ifNotNil: [ aListOfExChdAdaPackage as: OrderedCollection ]
+		           ifNil: [ OrderedCollection new ]
+		           ifNotNil: [ aListOfExChdAdaPackage as: OrderedCollection ]
 
 
 ]
 
 { #category : 'platypus-generated-accessing' }
 ExChdAllAdaClassesFunction >> clsList [
+
 	^ clsList
 
 
@@ -78,9 +85,10 @@ ExChdAllAdaClassesFunction >> clsList [
 
 { #category : 'platypus-generated-accessing' }
 ExChdAllAdaClassesFunction >> clsList: aListOfExChdAdaClass [
+
 	clsList := aListOfExChdAdaClass
-		ifNil: [ OrderedCollection new ]
-		ifNotNil: [ aListOfExChdAdaClass as: OrderedCollection ]
+		           ifNil: [ OrderedCollection new ]
+		           ifNotNil: [ aListOfExChdAdaClass as: OrderedCollection ]
 
 
 ]
@@ -90,36 +98,23 @@ ExChdAllAdaClassesFunction >> invoke [
 	" ---------- locals assignments ----------"
 
 	self clsList: Array new.
-	self
-		allPkgs:
-			(PTsSetToListFunction
-				invokeFromValues:
-					(OrderedCollection new
-						add: ExChdAllAdaPackagesFunction invoke;
-						yourself)).	" ---------- statements ----------"
+	self allPkgs:
+		(PTsSetToListFunction invokeFromValues: (OrderedCollection new
+				  add: ExChdAllAdaPackagesFunction invoke;
+				  yourself)). " ---------- statements ----------"
 	PlatypusCoreRepeatStatement
-		repeat: [ :no1203 | 
-			self
-				clsList:
-					(self clsList
-						pltPlus:
-							(ExChdPackageAdaClassesFunction
-								invokeFromValues:
-									(OrderedCollection new
-										add: (self allPkgs pltAt: no1203);
-										yourself))) ]
-		from:
-			(PltLOINDEXFunction
-				invokeFromValues:
-					(OrderedCollection new
-						add: self allPkgs;
-						yourself))
-		to:
-			(PltHIINDEXFunction
-				invokeFromValues:
-					(OrderedCollection new
-						add: self allPkgs;
-						yourself)).
+		repeat: [ :no1883861 |
+				self clsList: (self clsList pltPlus:
+						 (ExChdPackageAdaClassesFunction invokeFromValues:
+							  (OrderedCollection new
+								   add: (self allPkgs pltAt: no1883861);
+								   yourself))) ]
+		from: (PltLOINDEXFunction invokeFromValues: (OrderedCollection new
+					  add: self allPkgs;
+					  yourself))
+		to: (PltHIINDEXFunction invokeFromValues: (OrderedCollection new
+					  add: self allPkgs;
+					  yourself)).
 	^ self return: self clsList
 
 

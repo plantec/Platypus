@@ -15,6 +15,7 @@ Class {
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdCheddarPrimitiveType class >> iso10303P11Translater [
+
 	^ 'Platypus (c) LISYC EA3883, Universite de Bretagne occidentale. Brest.'
 
 
@@ -22,6 +23,7 @@ ExChdCheddarPrimitiveType class >> iso10303P11Translater [
 
 { #category : 'platypus-generated-meta-data-accessing' }
 ExChdCheddarPrimitiveType class >> schemaDefinition [
+
 	^ ExChdCheddarDomainsSchemaDefinition singleton
 
 
@@ -29,6 +31,7 @@ ExChdCheddarPrimitiveType class >> schemaDefinition [
 
 { #category : 'platypus-generated-meta-data-accessing' }
 ExChdCheddarPrimitiveType class >> schemaInstance [
+
 	^ ExChdExpress2cheddarSchemaInstance singleton
 
 
@@ -36,6 +39,7 @@ ExChdCheddarPrimitiveType class >> schemaInstance [
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdCheddarPrimitiveType class >> translatedFromISO10303P11 [
+
 	^ true
 
 
@@ -43,6 +47,7 @@ ExChdCheddarPrimitiveType class >> translatedFromISO10303P11 [
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdCheddarPrimitiveType class >> vwNamespaceName [
+
 	^ #Express2Cheddar
 
 
@@ -50,6 +55,7 @@ ExChdCheddarPrimitiveType class >> vwNamespaceName [
 
 { #category : 'platypus-generated-visiting' }
 ExChdCheddarPrimitiveType >> accept: aVisitor [
+
 	^ aVisitor acceptCheddarPrimitiveType: self
 
 
@@ -57,6 +63,7 @@ ExChdCheddarPrimitiveType >> accept: aVisitor [
 
 { #category : 'platypus-generated-copying' }
 ExChdCheddarPrimitiveType >> cheddarPrimitiveTypeCopyTo: another [
+
 	
 
 
@@ -64,6 +71,7 @@ ExChdCheddarPrimitiveType >> cheddarPrimitiveTypeCopyTo: another [
 
 { #category : 'platypus-generated-group-accessing' }
 ExChdCheddarPrimitiveType >> cheddarPrimitiveTypeFromValues: values [
+
 	| valuesloc |
 	valuesloc := values asOrderedCollection.
 	^ valuesloc
@@ -73,6 +81,7 @@ ExChdCheddarPrimitiveType >> cheddarPrimitiveTypeFromValues: values [
 
 { #category : 'platypus-generated-group-accessing' }
 ExChdCheddarPrimitiveType >> cheddarPrimitiveTypeToValues: values [
+
 	^ values
 
 
@@ -80,6 +89,7 @@ ExChdCheddarPrimitiveType >> cheddarPrimitiveTypeToValues: values [
 
 { #category : 'platypus-generated-group-accessing' }
 ExChdCheddarPrimitiveType >> fromValues: values [
+
 	^ self cheddarPrimitiveTypeFromValues: (super fromValues: values)
 
 
@@ -87,6 +97,7 @@ ExChdCheddarPrimitiveType >> fromValues: values [
 
 { #category : 'platypus-generated-classifying' }
 ExChdCheddarPrimitiveType >> isExChdCheddarPrimitiveType [
+
 	^ true
 
 
@@ -94,6 +105,7 @@ ExChdCheddarPrimitiveType >> isExChdCheddarPrimitiveType [
 
 { #category : 'platypus-generated-group-accessing' }
 ExChdCheddarPrimitiveType >> localFromValues: values [
+
 	^ self cheddarPrimitiveTypeFromValues: values
 
 
@@ -101,6 +113,7 @@ ExChdCheddarPrimitiveType >> localFromValues: values [
 
 { #category : 'platypus-generated-group-accessing' }
 ExChdCheddarPrimitiveType >> localToValues: values [
+
 	^ self cheddarPrimitiveTypeToValues: values
 
 
@@ -108,6 +121,7 @@ ExChdCheddarPrimitiveType >> localToValues: values [
 
 { #category : 'platypus-generated-copying' }
 ExChdCheddarPrimitiveType >> pltCopyGroup: aClassSymbol to: anObject [
+
 	self class name == aClassSymbol
 		ifTrue: [ self pltCopyTo: anObject ]
 		ifFalse: [ super pltCopyGroup: aClassSymbol to: anObject ]
@@ -117,6 +131,7 @@ ExChdCheddarPrimitiveType >> pltCopyGroup: aClassSymbol to: anObject [
 
 { #category : 'platypus-generated-copying' }
 ExChdCheddarPrimitiveType >> pltCopyTo: another [
+
 	super pltCopyTo: another.
 	self cheddarPrimitiveTypeCopyTo: another
 
@@ -125,6 +140,7 @@ ExChdCheddarPrimitiveType >> pltCopyTo: another [
 
 { #category : 'platypus-generated-copying' }
 ExChdCheddarPrimitiveType >> pltLocalCopyTo: another [
+
 	self cheddarPrimitiveTypeCopyTo: another
 
 
@@ -132,6 +148,7 @@ ExChdCheddarPrimitiveType >> pltLocalCopyTo: another [
 
 { #category : 'platypus-generated-initializing' }
 ExChdCheddarPrimitiveType >> stepInitialize [
+
 	super stepInitialize
 
 
@@ -139,6 +156,7 @@ ExChdCheddarPrimitiveType >> stepInitialize [
 
 { #category : 'platypus-generated-group-accessing' }
 ExChdCheddarPrimitiveType >> toValues: values [
+
 	^ self cheddarPrimitiveTypeToValues: (super toValues: values)
 
 

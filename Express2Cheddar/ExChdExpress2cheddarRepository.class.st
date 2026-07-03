@@ -8,6 +8,7 @@ Class {
 
 { #category : 'platypus-generated-accessing' }
 ExChdExpress2cheddarRepository class >> generatedMetaDataSchemaInstanceName [
+
 	^ #ExChdExpress2cheddarSchemaInstance
 
 
@@ -15,6 +16,7 @@ ExChdExpress2cheddarRepository class >> generatedMetaDataSchemaInstanceName [
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdExpress2cheddarRepository class >> iso10303P11Translater [
+
 	^ 'Platypus (c) LISYC EA3883, Universite de Bretagne occidentale. Brest.'
 
 
@@ -22,6 +24,7 @@ ExChdExpress2cheddarRepository class >> iso10303P11Translater [
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdExpress2cheddarRepository class >> translatedFromISO10303P11 [
+
 	^ true
 
 
@@ -29,6 +32,7 @@ ExChdExpress2cheddarRepository class >> translatedFromISO10303P11 [
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdExpress2cheddarRepository class >> vwNamespaceName [
+
 	^ #Express2Cheddar
 
 

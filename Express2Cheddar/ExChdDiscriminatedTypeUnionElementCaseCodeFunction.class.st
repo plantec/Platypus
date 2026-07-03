@@ -38,6 +38,7 @@ Class {
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdDiscriminatedTypeUnionElementCaseCodeFunction class >> iso10303P11Translater [
+
 	^ 'Platypus (c) LISYC EA3883, Universite de Bretagne occidentale. Brest.'
 
 
@@ -45,6 +46,7 @@ ExChdDiscriminatedTypeUnionElementCaseCodeFunction class >> iso10303P11Translate
 
 { #category : 'platypus-generated-meta-data-accessing' }
 ExChdDiscriminatedTypeUnionElementCaseCodeFunction class >> schemaDefinition [
+
 	^ ExChdDiscriminatedTypeSchemaDefinition singleton
 
 
@@ -52,6 +54,7 @@ ExChdDiscriminatedTypeUnionElementCaseCodeFunction class >> schemaDefinition [
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdDiscriminatedTypeUnionElementCaseCodeFunction class >> translatedFromISO10303P11 [
+
 	^ true
 
 
@@ -59,6 +62,7 @@ ExChdDiscriminatedTypeUnionElementCaseCodeFunction class >> translatedFromISO103
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdDiscriminatedTypeUnionElementCaseCodeFunction class >> vwNamespaceName [
+
 	^ #Express2Cheddar
 
 
@@ -66,6 +70,7 @@ ExChdDiscriminatedTypeUnionElementCaseCodeFunction class >> vwNamespaceName [
 
 { #category : 'platypus-generated-accessing' }
 ExChdDiscriminatedTypeUnionElementCaseCodeFunction >> allAttributes [
+
 	^ allAttributes
 
 
@@ -73,15 +78,18 @@ ExChdDiscriminatedTypeUnionElementCaseCodeFunction >> allAttributes [
 
 { #category : 'platypus-generated-accessing' }
 ExChdDiscriminatedTypeUnionElementCaseCodeFunction >> allAttributes: aListOfExChdAttribute [
+
 	allAttributes := aListOfExChdAttribute
-		ifNil: [ OrderedCollection new ]
-		ifNotNil: [ aListOfExChdAttribute as: OrderedCollection ]
+		                 ifNil: [ OrderedCollection new ]
+		                 ifNotNil: [
+		                 aListOfExChdAttribute as: OrderedCollection ]
 
 
 ]
 
 { #category : 'platypus-generated-accessing' }
 ExChdDiscriminatedTypeUnionElementCaseCodeFunction >> code [
+
 	^ code
 
 
@@ -89,6 +97,7 @@ ExChdDiscriminatedTypeUnionElementCaseCodeFunction >> code [
 
 { #category : 'platypus-generated-accessing' }
 ExChdDiscriminatedTypeUnionElementCaseCodeFunction >> code: aString [
+
 	code := aString
 
 
@@ -96,6 +105,7 @@ ExChdDiscriminatedTypeUnionElementCaseCodeFunction >> code: aString [
 
 { #category : 'platypus-generated-accessing' }
 ExChdDiscriminatedTypeUnionElementCaseCodeFunction >> domain [
+
 	^ domain
 
 
@@ -103,6 +113,7 @@ ExChdDiscriminatedTypeUnionElementCaseCodeFunction >> domain [
 
 { #category : 'platypus-generated-accessing' }
 ExChdDiscriminatedTypeUnionElementCaseCodeFunction >> domain: aExChdEntityInstance [
+
 	domain := aExChdEntityInstance
 
 
@@ -110,6 +121,7 @@ ExChdDiscriminatedTypeUnionElementCaseCodeFunction >> domain: aExChdEntityInstan
 
 { #category : 'platypus-generated-accessing' }
 ExChdDiscriminatedTypeUnionElementCaseCodeFunction >> fromValues: values [
+
 	self u: (values at: 1)
 
 
@@ -120,53 +132,43 @@ ExChdDiscriminatedTypeUnionElementCaseCodeFunction >> invoke [
 	" ---------- locals assignments ----------"
 
 	self code: ''.
-	self
-		allAttributes:
-			(PTsInheritedExplicitAttributesFunction
-				invokeFromValues:
-					(OrderedCollection new
-						add: self u;
-						yourself)).	" ---------- statements ----------"
+	self allAttributes:
+		(PTsInheritedExplicitAttributesFunction invokeFromValues:
+			 (OrderedCollection new
+				  add: self u;
+				  yourself)). " ---------- statements ----------"
 	PlatypusCoreRepeatStatement
-		repeat: [ :no375 | 
-			PlatypusCoreAliasStatement
-				alias: (self allAttributes pltAt: no375)
-				statementsBlock: [ :attr1493 | 
-					self
-						domain:
-							(ExChdBasicAdaDomainFunction
-								invokeFromValues:
-									(OrderedCollection new
-										add: (attr1493 domainUsingContext: self class context);
-										yourself)).
-					((PltTYPEOFFunction
-						invokeFromValues:
-							(OrderedCollection new
-								add: (self domain handledUsingContext: self class context);
-								yourself)) includes: 'RECORD_AND_CLASS.ADA_CLASS')
-						ifTrue: [ 
-							self
-								code:
-									(((((self code pltPlus: '\t\t\t') pltPlus: (attr1493 nameUsingContext: self class context)) pltPlus: ' : ')
-										pltPlus: ((self domain handledUsingContext: self class context) ptrTypeUsingContext: self class context))
-										pltPlus: ';\n') ]
-						ifFalse: [ 
-							self
-								code:
-									(((((self code pltPlus: '\t\t\t') pltPlus: (attr1493 nameUsingContext: self class context)) pltPlus: ' : ')
-										pltPlus: (self domain adaRefIdentUsingContext: self class context)) pltPlus: ';\n') ] ] ]
-		from:
-			(PltLOINDEXFunction
-				invokeFromValues:
-					(OrderedCollection new
-						add: self allAttributes;
-						yourself))
-		to:
-			(PltHIINDEXFunction
-				invokeFromValues:
-					(OrderedCollection new
-						add: self allAttributes;
-						yourself)).
+		repeat: [ :no1615875 |
+				PlatypusCoreAliasStatement
+					alias: (self allAttributes pltAt: no1615875)
+					statementsBlock: [ :attr4097533 |
+							self domain:
+								(ExChdBasicAdaDomainFunction invokeFromValues:
+									 (OrderedCollection new
+										  add: (attr4097533 domainUsingContext: self class context);
+										  yourself)).
+							((PltTYPEOFFunction invokeFromValues: (OrderedCollection new
+									   add: (self domain handledUsingContext: self class context);
+									   yourself)) includes: 'RECORD_AND_CLASS.ADA_CLASS')
+								ifTrue: [
+										self code: (((((self code pltPlus: '\t\t\t') pltPlus:
+												    (attr4097533 nameUsingContext: self class context))
+												   pltPlus: ' : ') pltPlus:
+												  ((self domain handledUsingContext: self class context)
+													   ptrTypeUsingContext: self class context)) pltPlus:
+												 ';\n') ]
+								ifFalse: [
+										self code: (((((self code pltPlus: '\t\t\t') pltPlus:
+												    (attr4097533 nameUsingContext: self class context))
+												   pltPlus: ' : ') pltPlus:
+												  (self domain adaRefIdentUsingContext: self class context))
+												 pltPlus: ';\n') ] ] ]
+		from: (PltLOINDEXFunction invokeFromValues: (OrderedCollection new
+					  add: self allAttributes;
+					  yourself))
+		to: (PltHIINDEXFunction invokeFromValues: (OrderedCollection new
+					  add: self allAttributes;
+					  yourself)).
 	^ self return: self code
 
 
@@ -174,6 +176,7 @@ ExChdDiscriminatedTypeUnionElementCaseCodeFunction >> invoke [
 
 { #category : 'platypus-generated-accessing' }
 ExChdDiscriminatedTypeUnionElementCaseCodeFunction >> u [
+
 	^ u
 
 
@@ -181,6 +184,7 @@ ExChdDiscriminatedTypeUnionElementCaseCodeFunction >> u [
 
 { #category : 'platypus-generated-accessing' }
 ExChdDiscriminatedTypeUnionElementCaseCodeFunction >> u: aExChdDiscriminatedTypeUnionElementType [
+
 	u := aExChdDiscriminatedTypeUnionElementType
 
 

@@ -23,6 +23,7 @@ Class {
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdAdaPackageAdbCodeFunction class >> iso10303P11Translater [
+
 	^ 'Platypus (c) LISYC EA3883, Universite de Bretagne occidentale. Brest.'
 
 
@@ -30,6 +31,7 @@ ExChdAdaPackageAdbCodeFunction class >> iso10303P11Translater [
 
 { #category : 'platypus-generated-meta-data-accessing' }
 ExChdAdaPackageAdbCodeFunction class >> schemaDefinition [
+
 	^ ExChdPackageSchemaDefinition singleton
 
 
@@ -37,6 +39,7 @@ ExChdAdaPackageAdbCodeFunction class >> schemaDefinition [
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdAdaPackageAdbCodeFunction class >> translatedFromISO10303P11 [
+
 	^ true
 
 
@@ -44,6 +47,7 @@ ExChdAdaPackageAdbCodeFunction class >> translatedFromISO10303P11 [
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdAdaPackageAdbCodeFunction class >> vwNamespaceName [
+
 	^ #Express2Cheddar
 
 
@@ -51,6 +55,7 @@ ExChdAdaPackageAdbCodeFunction class >> vwNamespaceName [
 
 { #category : 'platypus-generated-accessing' }
 ExChdAdaPackageAdbCodeFunction >> fromValues: values [
+
 	self pkg: (values at: 1)
 
 
@@ -58,27 +63,21 @@ ExChdAdaPackageAdbCodeFunction >> fromValues: values [
 
 { #category : 'platypus-generated-invoking' }
 ExChdAdaPackageAdbCodeFunction >> invoke [
-	" ---------- locals assignments ----------"
+	" ---------- locals assignments ----------"" ---------- statements ----------"
 
-	" ---------- statements ----------"
-
-	self
-		result:
-			((ExChdAdaPackageConceptsListCodeFunction
-				invokeFromValues:
-					(OrderedCollection new
-						add: self pkg;
-						add: (self pkg typesUsingContext: self class context);
-						add: false;
-						yourself))
-				pltPlus:
-					(ExChdAdaPackageConceptsListCodeFunction
-						invokeFromValues:
-							(OrderedCollection new
-								add: self pkg;
-								add: (self pkg entitiesUsingContext: self class context);
-								add: false;
-								yourself))).
+	self result:
+		((ExChdAdaPackageConceptsListCodeFunction invokeFromValues:
+			  (OrderedCollection new
+				   add: self pkg;
+				   add: (self pkg typesUsingContext: self class context);
+				   add: false;
+				   yourself)) pltPlus:
+			 (ExChdAdaPackageConceptsListCodeFunction invokeFromValues:
+				  (OrderedCollection new
+					   add: self pkg;
+					   add: (self pkg entitiesUsingContext: self class context);
+					   add: false;
+					   yourself))).
 	^ self return: self result
 
 
@@ -86,6 +85,7 @@ ExChdAdaPackageAdbCodeFunction >> invoke [
 
 { #category : 'platypus-generated-accessing' }
 ExChdAdaPackageAdbCodeFunction >> pkg [
+
 	^ pkg
 
 
@@ -93,6 +93,7 @@ ExChdAdaPackageAdbCodeFunction >> pkg [
 
 { #category : 'platypus-generated-accessing' }
 ExChdAdaPackageAdbCodeFunction >> pkg: aExChdAdaPackage [
+
 	pkg := aExChdAdaPackage
 
 
@@ -100,6 +101,7 @@ ExChdAdaPackageAdbCodeFunction >> pkg: aExChdAdaPackage [
 
 { #category : 'platypus-generated-accessing' }
 ExChdAdaPackageAdbCodeFunction >> result [
+
 	^ result
 
 
@@ -107,6 +109,7 @@ ExChdAdaPackageAdbCodeFunction >> result [
 
 { #category : 'platypus-generated-accessing' }
 ExChdAdaPackageAdbCodeFunction >> result: aString [
+
 	result := aString
 
 

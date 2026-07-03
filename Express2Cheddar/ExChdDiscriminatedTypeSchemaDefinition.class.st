@@ -441,6 +441,7 @@ Class {
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdDiscriminatedTypeSchemaDefinition class >> iso10303P11Translater [
+
 	^ 'Platypus (c) LISYC EA3883, Universite de Bretagne occidentale. Brest.'
 
 
@@ -448,6 +449,7 @@ ExChdDiscriminatedTypeSchemaDefinition class >> iso10303P11Translater [
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdDiscriminatedTypeSchemaDefinition class >> translatedFromISO10303P11 [
+
 	^ true
 
 
@@ -455,6 +457,7 @@ ExChdDiscriminatedTypeSchemaDefinition class >> translatedFromISO10303P11 [
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdDiscriminatedTypeSchemaDefinition class >> vwNamespaceName [
+
 	^ #Express2Cheddar
 
 
@@ -462,6 +465,7 @@ ExChdDiscriminatedTypeSchemaDefinition class >> vwNamespaceName [
 
 { #category : 'platypus-generated-context-accessing' }
 ExChdDiscriminatedTypeSchemaDefinition >> context [
+
 	^ self schemaInstance context
 
 
@@ -469,41 +473,49 @@ ExChdDiscriminatedTypeSchemaDefinition >> context [
 
 { #category : 'platypus-generated-entities' }
 ExChdDiscriminatedTypeSchemaDefinition >> entityDefinition1 [
-	^ #(#discriminated_type #ExChdDiscriminatedType)
+
+	^ #( #discriminated_type #ExChdDiscriminatedType )
 
 
 ]
 
 { #category : 'platypus-generated-entities' }
 ExChdDiscriminatedTypeSchemaDefinition >> entityDefinition2 [
-	^ #(#discriminated_type_discriminant #ExChdDiscriminatedTypeDiscriminant)
+
+	^ #( #discriminated_type_discriminant
+	     #ExChdDiscriminatedTypeDiscriminant )
 
 
 ]
 
 { #category : 'platypus-generated-entities' }
 ExChdDiscriminatedTypeSchemaDefinition >> entityDefinition3 [
-	^ #(#discriminated_type_union #ExChdDiscriminatedTypeUnion)
+
+	^ #( #discriminated_type_union #ExChdDiscriminatedTypeUnion )
 
 
 ]
 
 { #category : 'platypus-generated-entities' }
 ExChdDiscriminatedTypeSchemaDefinition >> entityDefinition4 [
-	^ #(#discriminated_type_union_element_type #ExChdDiscriminatedTypeUnionElementType)
+
+	^ #( #discriminated_type_union_element_type
+	     #ExChdDiscriminatedTypeUnionElementType )
 
 
 ]
 
 { #category : 'platypus-generated-entities' }
 ExChdDiscriminatedTypeSchemaDefinition >> entityDefinition5 [
-	^ #(#discriminated_type_union_type #ExChdDiscriminatedTypeUnionType)
+
+	^ #( #discriminated_type_union_type #ExChdDiscriminatedTypeUnionType )
 
 
 ]
 
 { #category : 'platypus-generated-entities' }
 ExChdDiscriminatedTypeSchemaDefinition >> entityDefinitionCount [
+
 	^ 5
 
 
@@ -511,111 +523,139 @@ ExChdDiscriminatedTypeSchemaDefinition >> entityDefinitionCount [
 
 { #category : 'platypus-generated-functions' }
 ExChdDiscriminatedTypeSchemaDefinition >> functionDeclaration1 [
-	^ #(#discriminated_type_attributes #ExChdDiscriminatedTypeAttributesFunction)
+
+	^ #( #discriminated_type_attributes #ExChdDiscriminatedTypeAttributesFunction )
 
 
 ]
 
 { #category : 'platypus-generated-functions' }
 ExChdDiscriminatedTypeSchemaDefinition >> functionDeclaration10 [
-	^ #(#discriminated_type_xml_end_element_code #ExChdDiscriminatedTypeXmlEndElementCodeFunction)
+
+	^ #( #discriminated_type_xml_end_element_code
+	     #ExChdDiscriminatedTypeXmlEndElementCodeFunction )
 
 
 ]
 
 { #category : 'platypus-generated-functions' }
 ExChdDiscriminatedTypeSchemaDefinition >> functionDeclaration11 [
-	^ #(#discriminated_type_xml_start_element_code #ExChdDiscriminatedTypeXmlStartElementCodeFunction)
+
+	^ #( #discriminated_type_xml_start_element_code
+	     #ExChdDiscriminatedTypeXmlStartElementCodeFunction )
 
 
 ]
 
 { #category : 'platypus-generated-functions' }
 ExChdDiscriminatedTypeSchemaDefinition >> functionDeclaration12 [
-	^ #(#discriminated_type_attributes_xml_end_element_code #ExChdDiscriminatedTypeAttributesXmlEndElementCodeFunction)
+
+	^ #( #discriminated_type_attributes_xml_end_element_code
+	     #ExChdDiscriminatedTypeAttributesXmlEndElementCodeFunction )
 
 
 ]
 
 { #category : 'platypus-generated-functions' }
 ExChdDiscriminatedTypeSchemaDefinition >> functionDeclaration13 [
-	^ #(#discriminated_type_attributes_xml_start_element_code #ExChdDiscriminatedTypeAttributesXmlStartElementCodeFunction)
+
+	^ #( #discriminated_type_attributes_xml_start_element_code
+	     #ExChdDiscriminatedTypeAttributesXmlStartElementCodeFunction )
 
 
 ]
 
 { #category : 'platypus-generated-functions' }
 ExChdDiscriminatedTypeSchemaDefinition >> functionDeclaration14 [
-	^ #(#discriminated_type_attributes_xml_io_record_initialize_code #ExChdDiscriminatedTypeAttributesXmlIoRecordInitializeCodeFunction)
+
+	^ #( #discriminated_type_attributes_xml_io_record_initialize_code
+	     #ExChdDiscriminatedTypeAttributesXmlIoRecordInitializeCodeFunction )
 
 
 ]
 
 { #category : 'platypus-generated-functions' }
 ExChdDiscriminatedTypeSchemaDefinition >> functionDeclaration15 [
-	^ #(#discriminated_type_xml_io_record_initialize_code #ExChdDiscriminatedTypeXmlIoRecordInitializeCodeFunction)
+
+	^ #( #discriminated_type_xml_io_record_initialize_code
+	     #ExChdDiscriminatedTypeXmlIoRecordInitializeCodeFunction )
 
 
 ]
 
 { #category : 'platypus-generated-functions' }
 ExChdDiscriminatedTypeSchemaDefinition >> functionDeclaration2 [
-	^ #(#discriminated_type_interfaces_list #ExChdDiscriminatedTypeInterfacesListFunction)
+
+	^ #( #discriminated_type_interfaces_list
+	     #ExChdDiscriminatedTypeInterfacesListFunction )
 
 
 ]
 
 { #category : 'platypus-generated-functions' }
 ExChdDiscriminatedTypeSchemaDefinition >> functionDeclaration3 [
-	^ #(#discriminated_type_union_type_interfaces_list #ExChdDiscriminatedTypeUnionTypeInterfacesListFunction)
+
+	^ #( #discriminated_type_union_type_interfaces_list
+	     #ExChdDiscriminatedTypeUnionTypeInterfacesListFunction )
 
 
 ]
 
 { #category : 'platypus-generated-functions' }
 ExChdDiscriminatedTypeSchemaDefinition >> functionDeclaration4 [
-	^ #(#discriminated_type_adb_code #ExChdDiscriminatedTypeAdbCodeFunction)
+
+	^ #( #discriminated_type_adb_code #ExChdDiscriminatedTypeAdbCodeFunction )
 
 
 ]
 
 { #category : 'platypus-generated-functions' }
 ExChdDiscriminatedTypeSchemaDefinition >> functionDeclaration5 [
-	^ #(#discriminated_type_ads_code #ExChdDiscriminatedTypeAdsCodeFunction)
+
+	^ #( #discriminated_type_ads_code #ExChdDiscriminatedTypeAdsCodeFunction )
 
 
 ]
 
 { #category : 'platypus-generated-functions' }
 ExChdDiscriminatedTypeSchemaDefinition >> functionDeclaration6 [
-	^ #(#discriminated_type_union_case_code #ExChdDiscriminatedTypeUnionCaseCodeFunction)
+
+	^ #( #discriminated_type_union_case_code
+	     #ExChdDiscriminatedTypeUnionCaseCodeFunction )
 
 
 ]
 
 { #category : 'platypus-generated-functions' }
 ExChdDiscriminatedTypeSchemaDefinition >> functionDeclaration7 [
-	^ #(#discriminated_type_union_element_case_code #ExChdDiscriminatedTypeUnionElementCaseCodeFunction)
+
+	^ #( #discriminated_type_union_element_case_code
+	     #ExChdDiscriminatedTypeUnionElementCaseCodeFunction )
 
 
 ]
 
 { #category : 'platypus-generated-functions' }
 ExChdDiscriminatedTypeSchemaDefinition >> functionDeclaration8 [
-	^ #(#discriminated_type_xml_io_record_code #ExChdDiscriminatedTypeXmlIoRecordCodeFunction)
+
+	^ #( #discriminated_type_xml_io_record_code
+	     #ExChdDiscriminatedTypeXmlIoRecordCodeFunction )
 
 
 ]
 
 { #category : 'platypus-generated-functions' }
 ExChdDiscriminatedTypeSchemaDefinition >> functionDeclaration9 [
-	^ #(#discriminated_type_tails_attributes #ExChdDiscriminatedTypeTailsAttributesFunction)
+
+	^ #( #discriminated_type_tails_attributes
+	     #ExChdDiscriminatedTypeTailsAttributesFunction )
 
 
 ]
 
 { #category : 'platypus-generated-functions' }
 ExChdDiscriminatedTypeSchemaDefinition >> functionDeclarationCount [
+
 	^ 15
 
 
@@ -623,6 +663,7 @@ ExChdDiscriminatedTypeSchemaDefinition >> functionDeclarationCount [
 
 { #category : 'platypus-generated-meta-data-accessing' }
 ExChdDiscriminatedTypeSchemaDefinition >> schemaInstanceClassName [
+
 	^ #ExChdExpress2cheddarSchemaInstance
 
 

@@ -54,8 +54,7 @@ Class {
 		'ads',
 		'result',
 		'code',
-		'tmp',
-		'contents'
+		'tmp'
 	],
 	#category : 'Express2Cheddar-PackageSchema',
 	#package : 'Express2Cheddar',
@@ -64,6 +63,7 @@ Class {
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdAdaPackageConceptsListCodeFunction class >> iso10303P11Translater [
+
 	^ 'Platypus (c) LISYC EA3883, Universite de Bretagne occidentale. Brest.'
 
 
@@ -71,6 +71,7 @@ ExChdAdaPackageConceptsListCodeFunction class >> iso10303P11Translater [
 
 { #category : 'platypus-generated-meta-data-accessing' }
 ExChdAdaPackageConceptsListCodeFunction class >> schemaDefinition [
+
 	^ ExChdPackageSchemaDefinition singleton
 
 
@@ -78,6 +79,7 @@ ExChdAdaPackageConceptsListCodeFunction class >> schemaDefinition [
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdAdaPackageConceptsListCodeFunction class >> translatedFromISO10303P11 [
+
 	^ true
 
 
@@ -85,6 +87,7 @@ ExChdAdaPackageConceptsListCodeFunction class >> translatedFromISO10303P11 [
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdAdaPackageConceptsListCodeFunction class >> vwNamespaceName [
+
 	^ #Express2Cheddar
 
 
@@ -92,6 +95,7 @@ ExChdAdaPackageConceptsListCodeFunction class >> vwNamespaceName [
 
 { #category : 'platypus-generated-accessing' }
 ExChdAdaPackageConceptsListCodeFunction >> ads [
+
 	^ ads
 
 
@@ -99,6 +103,7 @@ ExChdAdaPackageConceptsListCodeFunction >> ads [
 
 { #category : 'platypus-generated-accessing' }
 ExChdAdaPackageConceptsListCodeFunction >> ads: aBoolean [
+
 	ads := aBoolean
 
 
@@ -106,6 +111,7 @@ ExChdAdaPackageConceptsListCodeFunction >> ads: aBoolean [
 
 { #category : 'platypus-generated-accessing' }
 ExChdAdaPackageConceptsListCodeFunction >> code [
+
 	^ code
 
 
@@ -113,6 +119,7 @@ ExChdAdaPackageConceptsListCodeFunction >> code [
 
 { #category : 'platypus-generated-accessing' }
 ExChdAdaPackageConceptsListCodeFunction >> code: aString1 [
+
 	code := aString1
 
 
@@ -120,6 +127,7 @@ ExChdAdaPackageConceptsListCodeFunction >> code: aString1 [
 
 { #category : 'platypus-generated-accessing' }
 ExChdAdaPackageConceptsListCodeFunction >> concepts [
+
 	^ concepts
 
 
@@ -127,9 +135,11 @@ ExChdAdaPackageConceptsListCodeFunction >> concepts [
 
 { #category : 'platypus-generated-accessing' }
 ExChdAdaPackageConceptsListCodeFunction >> concepts: aListOfExChdDictionaryInstance [
+
 	concepts := aListOfExChdDictionaryInstance
-		ifNil: [ OrderedCollection new ]
-		ifNotNil: [ aListOfExChdDictionaryInstance as: OrderedCollection ]
+		            ifNil: [ OrderedCollection new ]
+		            ifNotNil: [
+		            aListOfExChdDictionaryInstance as: OrderedCollection ]
 
 
 ]
@@ -152,6 +162,7 @@ ExChdAdaPackageConceptsListCodeFunction >> contents: aListOfExChdDictionaryInsta
 
 { #category : 'platypus-generated-accessing' }
 ExChdAdaPackageConceptsListCodeFunction >> fromValues: values [
+
 	self p: (values at: 1).
 	self concepts: (values at: 2).
 	self ads: (values at: 3)
@@ -164,66 +175,54 @@ ExChdAdaPackageConceptsListCodeFunction >> invoke [
 	" ---------- locals assignments ----------"
 
 	self result: ''.
-	self code: ''.	" ---------- statements ----------"
-	self ads
-		ifTrue: [ 
+	self code: ''. " ---------- statements ----------"
+	self ads ifTrue: [
 			PlatypusCoreRepeatStatement
-				repeat: [ :no507 | 
-					PlatypusCoreAliasStatement
-						alias: (self concepts pltAt: no507)
-						statementsBlock: [ :c1747 | 
-							(ExChdIsOfGeneratedConceptKindFunction
-								invokeFromValues:
-									(OrderedCollection new
-										add: c1747;
-										yourself))
-								ifTrue: [ 
-									self tmp: (c1747 adsPreDefUsingContext: self class context).
-									self tmp > ''
-										ifTrue: [ self code: ((self code pltPlus: self tmp) pltPlus: '\n') ] ] ] ]
+				repeat: [ :no4080471 |
+						PlatypusCoreAliasStatement
+							alias: (self concepts pltAt: no4080471)
+							statementsBlock: [ :c3616201 |
+									(ExChdIsOfGeneratedConceptKindFunction invokeFromValues:
+										 (OrderedCollection new
+											  add: c3616201;
+											  yourself)) ifTrue: [
+											self tmp:
+												(c3616201 adsPreDefUsingContext: self class context).
+											self tmp > '' ifTrue: [
+												self code: ((self code pltPlus: self tmp) pltPlus: '\n') ] ] ] ]
 				from:
-					(PltLOINDEXFunction
-						invokeFromValues:
-							(OrderedCollection new
-								add: self concepts;
-								yourself))
-				to:
-					(PltHIINDEXFunction
-						invokeFromValues:
-							(OrderedCollection new
-								add: self concepts;
-								yourself)) ].
-	self code > ''
-		ifTrue: [ self result: (self code pltPlus: '\n\n') ].
+					(PltLOINDEXFunction invokeFromValues: (OrderedCollection new
+							  add: self concepts;
+							  yourself))
+				to: (PltHIINDEXFunction invokeFromValues: (OrderedCollection new
+							  add: self concepts;
+							  yourself)) ].
+	self code > '' ifTrue: [ self result: (self code pltPlus: '\n\n') ].
 	PlatypusCoreRepeatStatement
-		repeat: [ :no4020 | 
-			PlatypusCoreAliasStatement
-				alias: (self concepts pltAt: no4020)
-				statementsBlock: [ :c1034 | 
-					(ExChdIsOfGeneratedConceptKindFunction
-						invokeFromValues:
-							(OrderedCollection new
-								add: c1034;
-								yourself))
-						ifTrue: [ 
-							self ads
-								ifTrue: [ self code: (c1034 adsCodeUsingContext: self class context) ]
-								ifFalse: [ self code: (c1034 adbCodeUsingContext: self class context) ].
-							self result: (self result pltPlus: self code).
-							self code > ''
-								ifTrue: [ self result: (self result pltPlus: '\n') ] ] ] ]
-		from:
-			(PltLOINDEXFunction
-				invokeFromValues:
-					(OrderedCollection new
-						add: self concepts;
-						yourself))
-		to:
-			(PltHIINDEXFunction
-				invokeFromValues:
-					(OrderedCollection new
-						add: self concepts;
-						yourself)).
+		repeat: [ :no2619987 |
+				PlatypusCoreAliasStatement
+					alias: (self concepts pltAt: no2619987)
+					statementsBlock: [ :c2324419 |
+							(ExChdIsOfGeneratedConceptKindFunction invokeFromValues:
+								 (OrderedCollection new
+									  add: c2324419;
+									  yourself)) ifTrue: [
+									self ads
+										ifTrue: [
+										self code:
+											(c2324419 adsCodeUsingContext: self class context) ]
+										ifFalse: [
+										self code:
+											(c2324419 adbCodeUsingContext: self class context) ].
+									self result: (self result pltPlus: self code).
+									self code > '' ifTrue: [
+										self result: (self result pltPlus: '\n') ] ] ] ]
+		from: (PltLOINDEXFunction invokeFromValues: (OrderedCollection new
+					  add: self concepts;
+					  yourself))
+		to: (PltHIINDEXFunction invokeFromValues: (OrderedCollection new
+					  add: self concepts;
+					  yourself)).
 	^ self return: self result
 
 
@@ -231,6 +230,7 @@ ExChdAdaPackageConceptsListCodeFunction >> invoke [
 
 { #category : 'platypus-generated-accessing' }
 ExChdAdaPackageConceptsListCodeFunction >> p [
+
 	^ p
 
 
@@ -238,6 +238,7 @@ ExChdAdaPackageConceptsListCodeFunction >> p [
 
 { #category : 'platypus-generated-accessing' }
 ExChdAdaPackageConceptsListCodeFunction >> p: aExChdAdaPackage [
+
 	p := aExChdAdaPackage
 
 
@@ -245,6 +246,7 @@ ExChdAdaPackageConceptsListCodeFunction >> p: aExChdAdaPackage [
 
 { #category : 'platypus-generated-accessing' }
 ExChdAdaPackageConceptsListCodeFunction >> p: aExChdAdaPackage concepts: aListOfExChdDictionaryInstance ads: aBoolean [
+
 	self p: aExChdAdaPackage.
 	self concepts: aListOfExChdDictionaryInstance.
 	self ads: aBoolean
@@ -254,6 +256,7 @@ ExChdAdaPackageConceptsListCodeFunction >> p: aExChdAdaPackage concepts: aListOf
 
 { #category : 'platypus-generated-accessing' }
 ExChdAdaPackageConceptsListCodeFunction >> result [
+
 	^ result
 
 
@@ -261,6 +264,7 @@ ExChdAdaPackageConceptsListCodeFunction >> result [
 
 { #category : 'platypus-generated-accessing' }
 ExChdAdaPackageConceptsListCodeFunction >> result: aString [
+
 	result := aString
 
 
@@ -268,6 +272,7 @@ ExChdAdaPackageConceptsListCodeFunction >> result: aString [
 
 { #category : 'platypus-generated-accessing' }
 ExChdAdaPackageConceptsListCodeFunction >> tmp [
+
 	^ tmp
 
 
@@ -275,6 +280,7 @@ ExChdAdaPackageConceptsListCodeFunction >> tmp [
 
 { #category : 'platypus-generated-accessing' }
 ExChdAdaPackageConceptsListCodeFunction >> tmp: aString2 [
+
 	tmp := aString2
 
 

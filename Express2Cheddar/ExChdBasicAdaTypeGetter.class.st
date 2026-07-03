@@ -35,6 +35,7 @@ Class {
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdBasicAdaTypeGetter class >> iso10303P11Translater [
+
 	^ 'Platypus (c) LISYC EA3883, Universite de Bretagne occidentale. Brest.'
 
 
@@ -42,6 +43,7 @@ ExChdBasicAdaTypeGetter class >> iso10303P11Translater [
 
 { #category : 'platypus-generated-meta-data-accessing' }
 ExChdBasicAdaTypeGetter class >> schemaDefinition [
+
 	^ ExChdCheddarDomainsSchemaDefinition singleton
 
 
@@ -49,6 +51,7 @@ ExChdBasicAdaTypeGetter class >> schemaDefinition [
 
 { #category : 'platypus-generated-meta-data-accessing' }
 ExChdBasicAdaTypeGetter class >> schemaInstance [
+
 	^ ExChdExpress2cheddarSchemaInstance singleton
 
 
@@ -56,6 +59,7 @@ ExChdBasicAdaTypeGetter class >> schemaInstance [
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdBasicAdaTypeGetter class >> translatedFromISO10303P11 [
+
 	^ true
 
 
@@ -63,6 +67,7 @@ ExChdBasicAdaTypeGetter class >> translatedFromISO10303P11 [
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdBasicAdaTypeGetter class >> vwNamespaceName [
+
 	^ #Express2Cheddar
 
 
@@ -70,6 +75,7 @@ ExChdBasicAdaTypeGetter class >> vwNamespaceName [
 
 { #category : 'platypus-generated-visiting' }
 ExChdBasicAdaTypeGetter >> accept: aVisitor [
+
 	^ aVisitor acceptBasicAdaTypeGetter: self
 
 
@@ -77,6 +83,7 @@ ExChdBasicAdaTypeGetter >> accept: aVisitor [
 
 { #category : 'platypus-generated-deriving' }
 ExChdBasicAdaTypeGetter >> acceptAdaClassReference [
+
 	^ self acceptAdaClassReferenceUsingContext: self class context
 
 
@@ -84,6 +91,7 @@ ExChdBasicAdaTypeGetter >> acceptAdaClassReference [
 
 { #category : 'platypus-generated-deriving' }
 ExChdBasicAdaTypeGetter >> acceptAdaClassReferenceUsingContext: aContext [
+
 	^ self acceptAdaClassReferenceUsingContext: aContext receiver: self
 
 
@@ -91,6 +99,7 @@ ExChdBasicAdaTypeGetter >> acceptAdaClassReferenceUsingContext: aContext [
 
 { #category : 'platypus-generated-deriving' }
 ExChdBasicAdaTypeGetter >> acceptAdaClassReferenceUsingContext: aContext receiver: aReceiver [
+
 	^ aReceiver
 
 
@@ -98,6 +107,7 @@ ExChdBasicAdaTypeGetter >> acceptAdaClassReferenceUsingContext: aContext receive
 
 { #category : 'platypus-generated-deriving' }
 ExChdBasicAdaTypeGetter >> acceptAdaEnumeration [
+
 	^ self acceptAdaEnumerationUsingContext: self class context
 
 
@@ -105,6 +115,7 @@ ExChdBasicAdaTypeGetter >> acceptAdaEnumeration [
 
 { #category : 'platypus-generated-deriving' }
 ExChdBasicAdaTypeGetter >> acceptAdaEnumerationUsingContext: aContext [
+
 	^ self acceptAdaEnumerationUsingContext: aContext receiver: self
 
 
@@ -112,6 +123,7 @@ ExChdBasicAdaTypeGetter >> acceptAdaEnumerationUsingContext: aContext [
 
 { #category : 'platypus-generated-deriving' }
 ExChdBasicAdaTypeGetter >> acceptAdaEnumerationUsingContext: aContext receiver: aReceiver [
+
 	^ aReceiver
 
 
@@ -119,6 +131,7 @@ ExChdBasicAdaTypeGetter >> acceptAdaEnumerationUsingContext: aContext receiver: 
 
 { #category : 'platypus-generated-deriving' }
 ExChdBasicAdaTypeGetter >> acceptAdaRange [
+
 	^ self acceptAdaRangeUsingContext: self class context
 
 
@@ -126,6 +139,7 @@ ExChdBasicAdaTypeGetter >> acceptAdaRange [
 
 { #category : 'platypus-generated-deriving' }
 ExChdBasicAdaTypeGetter >> acceptAdaRangeUsingContext: aContext [
+
 	^ self acceptAdaRangeUsingContext: aContext receiver: self
 
 
@@ -133,6 +147,7 @@ ExChdBasicAdaTypeGetter >> acceptAdaRangeUsingContext: aContext [
 
 { #category : 'platypus-generated-deriving' }
 ExChdBasicAdaTypeGetter >> acceptAdaRangeUsingContext: aContext receiver: aReceiver [
+
 	^ aReceiver
 
 
@@ -140,6 +155,7 @@ ExChdBasicAdaTypeGetter >> acceptAdaRangeUsingContext: aContext receiver: aRecei
 
 { #category : 'platypus-generated-deriving' }
 ExChdBasicAdaTypeGetter >> acceptAdaRecordReference [
+
 	^ self acceptAdaRecordReferenceUsingContext: self class context
 
 
@@ -147,6 +163,7 @@ ExChdBasicAdaTypeGetter >> acceptAdaRecordReference [
 
 { #category : 'platypus-generated-deriving' }
 ExChdBasicAdaTypeGetter >> acceptAdaRecordReferenceUsingContext: aContext [
+
 	^ self acceptAdaRecordReferenceUsingContext: aContext receiver: self
 
 
@@ -154,6 +171,7 @@ ExChdBasicAdaTypeGetter >> acceptAdaRecordReferenceUsingContext: aContext [
 
 { #category : 'platypus-generated-deriving' }
 ExChdBasicAdaTypeGetter >> acceptAdaRecordReferenceUsingContext: aContext receiver: aReceiver [
+
 	^ aReceiver
 
 
@@ -161,6 +179,7 @@ ExChdBasicAdaTypeGetter >> acceptAdaRecordReferenceUsingContext: aContext receiv
 
 { #category : 'platypus-generated-deriving' }
 ExChdBasicAdaTypeGetter >> acceptArrayType [
+
 	^ self acceptArrayTypeUsingContext: self class context
 
 
@@ -168,6 +187,7 @@ ExChdBasicAdaTypeGetter >> acceptArrayType [
 
 { #category : 'platypus-generated-deriving' }
 ExChdBasicAdaTypeGetter >> acceptArrayTypeUsingContext: aContext [
+
 	^ self acceptArrayTypeUsingContext: aContext receiver: self
 
 
@@ -175,18 +195,20 @@ ExChdBasicAdaTypeGetter >> acceptArrayTypeUsingContext: aContext [
 
 { #category : 'platypus-generated-deriving' }
 ExChdBasicAdaTypeGetter >> acceptArrayTypeUsingContext: aContext receiver: aReceiver [
-	^ (PlatypusComplexInstance
-		fromRecords:
-			(OrderedCollection new
-				add: ExChdAdaArrayType new;
-				add: (aReceiver asPlatypusComplexInstance \ #PltArrayType) pltAsObject;
-				yourself)) pltAsObject
+
+	^ (PlatypusComplexInstance fromRecords: (OrderedCollection new
+			    add: ExChdAdaArrayType new;
+			    add:
+				    (aReceiver asPlatypusComplexInstance \ #PltArrayType)
+					    pltAsObject;
+			    yourself)) pltAsObject
 
 
 ]
 
 { #category : 'platypus-generated-deriving' }
 ExChdBasicAdaTypeGetter >> acceptAttributeReference [
+
 	^ self acceptAttributeReferenceUsingContext: self class context
 
 
@@ -194,6 +216,7 @@ ExChdBasicAdaTypeGetter >> acceptAttributeReference [
 
 { #category : 'platypus-generated-deriving' }
 ExChdBasicAdaTypeGetter >> acceptAttributeReferenceUsingContext: aContext [
+
 	^ self acceptAttributeReferenceUsingContext: aContext receiver: self
 
 
@@ -201,24 +224,24 @@ ExChdBasicAdaTypeGetter >> acceptAttributeReferenceUsingContext: aContext [
 
 { #category : 'platypus-generated-deriving' }
 ExChdBasicAdaTypeGetter >> acceptAttributeReferenceUsingContext: aContext receiver: aReceiver [
-	^ (PlatypusComplexInstance
-		fromRecords:
-			(OrderedCollection new
-				add:
-						(PlatypusComplexInstance
-								fromRecords:
-									(OrderedCollection new
-										add: ExChdAdaAttributeReference new;
-										add: ExChdAdaNamedTypeReference new;
-										yourself)) pltAsObject;
-				add: (aReceiver asPlatypusComplexInstance \ #PltAttributeReference) pltAsObject;
-				yourself)) pltAsObject
+
+	^ (PlatypusComplexInstance fromRecords: (OrderedCollection new
+			    add:
+				    (PlatypusComplexInstance fromRecords: (OrderedCollection new
+							      add: ExChdAdaAttributeReference new;
+							      add: ExChdAdaNamedTypeReference new;
+							      yourself)) pltAsObject;
+			    add:
+				    (aReceiver asPlatypusComplexInstance \ #PltAttributeReference)
+					    pltAsObject;
+			    yourself)) pltAsObject
 
 
 ]
 
 { #category : 'platypus-generated-deriving' }
 ExChdBasicAdaTypeGetter >> acceptBagType [
+
 	^ self acceptBagTypeUsingContext: self class context
 
 
@@ -226,6 +249,7 @@ ExChdBasicAdaTypeGetter >> acceptBagType [
 
 { #category : 'platypus-generated-deriving' }
 ExChdBasicAdaTypeGetter >> acceptBagTypeUsingContext: aContext [
+
 	^ self acceptBagTypeUsingContext: aContext receiver: self
 
 
@@ -233,18 +257,20 @@ ExChdBasicAdaTypeGetter >> acceptBagTypeUsingContext: aContext [
 
 { #category : 'platypus-generated-deriving' }
 ExChdBasicAdaTypeGetter >> acceptBagTypeUsingContext: aContext receiver: aReceiver [
-	^ (PlatypusComplexInstance
-		fromRecords:
-			(OrderedCollection new
-				add: ExChdAdaBagType new;
-				add: (aReceiver asPlatypusComplexInstance \ #PltBagType) pltAsObject;
-				yourself)) pltAsObject
+
+	^ (PlatypusComplexInstance fromRecords: (OrderedCollection new
+			    add: ExChdAdaBagType new;
+			    add:
+				    (aReceiver asPlatypusComplexInstance \ #PltBagType)
+					    pltAsObject;
+			    yourself)) pltAsObject
 
 
 ]
 
 { #category : 'platypus-generated-deriving' }
 ExChdBasicAdaTypeGetter >> acceptBooleanType [
+
 	^ self acceptBooleanTypeUsingContext: self class context
 
 
@@ -252,6 +278,7 @@ ExChdBasicAdaTypeGetter >> acceptBooleanType [
 
 { #category : 'platypus-generated-deriving' }
 ExChdBasicAdaTypeGetter >> acceptBooleanTypeUsingContext: aContext [
+
 	^ self acceptBooleanTypeUsingContext: aContext receiver: self
 
 
@@ -259,24 +286,22 @@ ExChdBasicAdaTypeGetter >> acceptBooleanTypeUsingContext: aContext [
 
 { #category : 'platypus-generated-deriving' }
 ExChdBasicAdaTypeGetter >> acceptBooleanTypeUsingContext: aContext receiver: aReceiver [
-	^ (PlatypusComplexInstance
-		fromRecords:
-			(OrderedCollection new
-				add:
-						(PlatypusComplexInstance
-								fromRecords:
-									(OrderedCollection new
-										add: ExChdAdaBooleanType new;
-										add: ExChdAdaPrimitiveType new;
-										yourself)) pltAsObject;
-				add: PltDictionaryInstance new;
-				yourself)) pltAsObject
+
+	^ (PlatypusComplexInstance fromRecords: (OrderedCollection new
+			    add:
+				    (PlatypusComplexInstance fromRecords: (OrderedCollection new
+							      add: ExChdAdaBooleanType new;
+							      add: ExChdAdaPrimitiveType new;
+							      yourself)) pltAsObject;
+			    add: PltDictionaryInstance new;
+			    yourself)) pltAsObject
 
 
 ]
 
 { #category : 'platypus-generated-deriving' }
 ExChdBasicAdaTypeGetter >> acceptCheddarDefinedType [
+
 	^ self acceptCheddarDefinedTypeUsingContext: self class context
 
 
@@ -284,6 +309,7 @@ ExChdBasicAdaTypeGetter >> acceptCheddarDefinedType [
 
 { #category : 'platypus-generated-deriving' }
 ExChdBasicAdaTypeGetter >> acceptCheddarDefinedTypeUsingContext: aContext [
+
 	^ self acceptCheddarDefinedTypeUsingContext: aContext receiver: self
 
 
@@ -291,6 +317,7 @@ ExChdBasicAdaTypeGetter >> acceptCheddarDefinedTypeUsingContext: aContext [
 
 { #category : 'platypus-generated-deriving' }
 ExChdBasicAdaTypeGetter >> acceptCheddarDefinedTypeUsingContext: aContext receiver: aReceiver [
+
 	^ aReceiver
 
 
@@ -298,6 +325,7 @@ ExChdBasicAdaTypeGetter >> acceptCheddarDefinedTypeUsingContext: aContext receiv
 
 { #category : 'platypus-generated-deriving' }
 ExChdBasicAdaTypeGetter >> acceptDefinedType [
+
 	^ self acceptDefinedTypeUsingContext: self class context
 
 
@@ -305,6 +333,7 @@ ExChdBasicAdaTypeGetter >> acceptDefinedType [
 
 { #category : 'platypus-generated-deriving' }
 ExChdBasicAdaTypeGetter >> acceptDefinedTypeReference [
+
 	^ self acceptDefinedTypeReferenceUsingContext: self class context
 
 
@@ -312,25 +341,31 @@ ExChdBasicAdaTypeGetter >> acceptDefinedTypeReference [
 
 { #category : 'platypus-generated-deriving' }
 ExChdBasicAdaTypeGetter >> acceptDefinedTypeReferenceUsingContext: aContext [
-	^ self acceptDefinedTypeReferenceUsingContext: aContext receiver: self
+
+	^ self
+		  acceptDefinedTypeReferenceUsingContext: aContext
+		  receiver: self
 
 
 ]
 
 { #category : 'platypus-generated-deriving' }
 ExChdBasicAdaTypeGetter >> acceptDefinedTypeReferenceUsingContext: aContext receiver: aReceiver [
-	^ ExChdBasicAdaDomainFunction
-		invokeFromValues:
-			(OrderedCollection new
-				add:
-						((aReceiver asPlatypusComplexInstance \ #PltDefinedTypeReference) pltAsObject refUsingContext: self class context);
-				yourself)
+
+	^ ExChdBasicAdaDomainFunction invokeFromValues:
+		  (OrderedCollection new
+			   add:
+				   ((aReceiver asPlatypusComplexInstance
+				     \ #PltDefinedTypeReference) pltAsObject refUsingContext:
+						    self class context);
+			   yourself)
 
 
 ]
 
 { #category : 'platypus-generated-deriving' }
 ExChdBasicAdaTypeGetter >> acceptDefinedTypeUsingContext: aContext [
+
 	^ self acceptDefinedTypeUsingContext: aContext receiver: self
 
 
@@ -338,24 +373,22 @@ ExChdBasicAdaTypeGetter >> acceptDefinedTypeUsingContext: aContext [
 
 { #category : 'platypus-generated-deriving' }
 ExChdBasicAdaTypeGetter >> acceptDefinedTypeUsingContext: aContext receiver: aReceiver [
-	^ (PlatypusComplexInstance
-		fromRecords:
-			(OrderedCollection new
-				add:
-						(ExChdUnmappedTypeReference new
-								unmappedTypeReferenceFromValues:
-										(OrderedCollection new
-												add: (aReceiver domainUsingContext: self class context);
-												yourself);
-								yourself);
-				add: aReceiver;
-				yourself)) pltAsObject
+
+	^ (PlatypusComplexInstance fromRecords: (OrderedCollection new
+			    add: (ExChdUnmappedTypeReference new
+					     unmappedTypeReferenceFromValues: (OrderedCollection new
+							      add: (aReceiver domainUsingContext: self class context);
+							      yourself);
+					     yourself);
+			    add: aReceiver;
+			    yourself)) pltAsObject
 
 
 ]
 
 { #category : 'platypus-generated-deriving' }
 ExChdBasicAdaTypeGetter >> acceptEntityDefinition [
+
 	^ self acceptEntityDefinitionUsingContext: self class context
 
 
@@ -363,38 +396,43 @@ ExChdBasicAdaTypeGetter >> acceptEntityDefinition [
 
 { #category : 'platypus-generated-deriving' }
 ExChdBasicAdaTypeGetter >> acceptEntityDefinitionReference [
-	^ self acceptEntityDefinitionReferenceUsingContext: self class context
+
+	^ self acceptEntityDefinitionReferenceUsingContext:
+		  self class context
 
 
 ]
 
 { #category : 'platypus-generated-deriving' }
 ExChdBasicAdaTypeGetter >> acceptEntityDefinitionReferenceUsingContext: aContext [
-	^ self acceptEntityDefinitionReferenceUsingContext: aContext receiver: self
+
+	^ self
+		  acceptEntityDefinitionReferenceUsingContext: aContext
+		  receiver: self
 
 
 ]
 
 { #category : 'platypus-generated-deriving' }
 ExChdBasicAdaTypeGetter >> acceptEntityDefinitionReferenceUsingContext: aContext receiver: aReceiver [
-	^ (PlatypusComplexInstance
-		fromRecords:
-			(OrderedCollection new
-				add:
-						(ExChdUnmappedTypeReference new
-								unmappedTypeReferenceFromValues:
-										(OrderedCollection new
-												add: (aReceiver refUsingContext: self class context);
-												yourself);
-								yourself);
-				add: (aReceiver asPlatypusComplexInstance \ #PltEntityDefinitionReference) pltAsObject;
-				yourself)) pltAsObject
+
+	^ (PlatypusComplexInstance fromRecords: (OrderedCollection new
+			    add: (ExChdUnmappedTypeReference new
+					     unmappedTypeReferenceFromValues: (OrderedCollection new
+							      add: (aReceiver refUsingContext: self class context);
+							      yourself);
+					     yourself);
+			    add:
+				    (aReceiver asPlatypusComplexInstance
+				     \ #PltEntityDefinitionReference) pltAsObject;
+			    yourself)) pltAsObject
 
 
 ]
 
 { #category : 'platypus-generated-deriving' }
 ExChdBasicAdaTypeGetter >> acceptEntityDefinitionUsingContext: aContext [
+
 	^ self acceptEntityDefinitionUsingContext: aContext receiver: self
 
 
@@ -402,18 +440,20 @@ ExChdBasicAdaTypeGetter >> acceptEntityDefinitionUsingContext: aContext [
 
 { #category : 'platypus-generated-deriving' }
 ExChdBasicAdaTypeGetter >> acceptEntityDefinitionUsingContext: aContext receiver: aReceiver [
-	^ (PlatypusComplexInstance
-		fromRecords:
-			(OrderedCollection new
-				add: ExChdUnmappedEntityDefinition new;
-				add: (aReceiver asPlatypusComplexInstance \ #PltEntityDefinition) pltAsObject;
-				yourself)) pltAsObject
+
+	^ (PlatypusComplexInstance fromRecords: (OrderedCollection new
+			    add: ExChdUnmappedEntityDefinition new;
+			    add:
+				    (aReceiver asPlatypusComplexInstance \ #PltEntityDefinition)
+					    pltAsObject;
+			    yourself)) pltAsObject
 
 
 ]
 
 { #category : 'platypus-generated-deriving' }
 ExChdBasicAdaTypeGetter >> acceptEnumerationType [
+
 	^ self acceptEnumerationTypeUsingContext: self class context
 
 
@@ -421,6 +461,7 @@ ExChdBasicAdaTypeGetter >> acceptEnumerationType [
 
 { #category : 'platypus-generated-deriving' }
 ExChdBasicAdaTypeGetter >> acceptEnumerationTypeUsingContext: aContext [
+
 	^ self acceptEnumerationTypeUsingContext: aContext receiver: self
 
 
@@ -428,13 +469,16 @@ ExChdBasicAdaTypeGetter >> acceptEnumerationTypeUsingContext: aContext [
 
 { #category : 'platypus-generated-deriving' }
 ExChdBasicAdaTypeGetter >> acceptEnumerationTypeUsingContext: aContext receiver: aReceiver [
-	^ (aReceiver asPlatypusComplexInstance \ #PltEnumerationType) pltAsObject
+
+	^ (aReceiver asPlatypusComplexInstance \ #PltEnumerationType)
+		  pltAsObject
 
 
 ]
 
 { #category : 'platypus-generated-deriving' }
 ExChdBasicAdaTypeGetter >> acceptExplicitTypeReference [
+
 	^ self acceptExplicitTypeReferenceUsingContext: self class context
 
 
@@ -442,13 +486,17 @@ ExChdBasicAdaTypeGetter >> acceptExplicitTypeReference [
 
 { #category : 'platypus-generated-deriving' }
 ExChdBasicAdaTypeGetter >> acceptExplicitTypeReferenceUsingContext: aContext [
-	^ self acceptExplicitTypeReferenceUsingContext: aContext receiver: self
+
+	^ self
+		  acceptExplicitTypeReferenceUsingContext: aContext
+		  receiver: self
 
 
 ]
 
 { #category : 'platypus-generated-deriving' }
 ExChdBasicAdaTypeGetter >> acceptExplicitTypeReferenceUsingContext: aContext receiver: aReceiver [
+
 	^ aReceiver
 
 
@@ -456,6 +504,7 @@ ExChdBasicAdaTypeGetter >> acceptExplicitTypeReferenceUsingContext: aContext rec
 
 { #category : 'platypus-generated-deriving' }
 ExChdBasicAdaTypeGetter >> acceptIntegerType [
+
 	^ self acceptIntegerTypeUsingContext: self class context
 
 
@@ -463,6 +512,7 @@ ExChdBasicAdaTypeGetter >> acceptIntegerType [
 
 { #category : 'platypus-generated-deriving' }
 ExChdBasicAdaTypeGetter >> acceptIntegerTypeUsingContext: aContext [
+
 	^ self acceptIntegerTypeUsingContext: aContext receiver: self
 
 
@@ -470,24 +520,22 @@ ExChdBasicAdaTypeGetter >> acceptIntegerTypeUsingContext: aContext [
 
 { #category : 'platypus-generated-deriving' }
 ExChdBasicAdaTypeGetter >> acceptIntegerTypeUsingContext: aContext receiver: aReceiver [
-	^ (PlatypusComplexInstance
-		fromRecords:
-			(OrderedCollection new
-				add:
-						(PlatypusComplexInstance
-								fromRecords:
-									(OrderedCollection new
-										add: ExChdAdaNaturalType new;
-										add: ExChdAdaPrimitiveType new;
-										yourself)) pltAsObject;
-				add: PltDictionaryInstance new;
-				yourself)) pltAsObject
+
+	^ (PlatypusComplexInstance fromRecords: (OrderedCollection new
+			    add:
+				    (PlatypusComplexInstance fromRecords: (OrderedCollection new
+							      add: ExChdAdaNaturalType new;
+							      add: ExChdAdaPrimitiveType new;
+							      yourself)) pltAsObject;
+			    add: PltDictionaryInstance new;
+			    yourself)) pltAsObject
 
 
 ]
 
 { #category : 'platypus-generated-deriving' }
 ExChdBasicAdaTypeGetter >> acceptListType [
+
 	^ self acceptListTypeUsingContext: self class context
 
 
@@ -495,6 +543,7 @@ ExChdBasicAdaTypeGetter >> acceptListType [
 
 { #category : 'platypus-generated-deriving' }
 ExChdBasicAdaTypeGetter >> acceptListTypeUsingContext: aContext [
+
 	^ self acceptListTypeUsingContext: aContext receiver: self
 
 
@@ -502,18 +551,20 @@ ExChdBasicAdaTypeGetter >> acceptListTypeUsingContext: aContext [
 
 { #category : 'platypus-generated-deriving' }
 ExChdBasicAdaTypeGetter >> acceptListTypeUsingContext: aContext receiver: aReceiver [
-	^ (PlatypusComplexInstance
-		fromRecords:
-			(OrderedCollection new
-				add: ExChdAdaListType new;
-				add: (aReceiver asPlatypusComplexInstance \ #PltListType) pltAsObject;
-				yourself)) pltAsObject
+
+	^ (PlatypusComplexInstance fromRecords: (OrderedCollection new
+			    add: ExChdAdaListType new;
+			    add:
+				    (aReceiver asPlatypusComplexInstance \ #PltListType)
+					    pltAsObject;
+			    yourself)) pltAsObject
 
 
 ]
 
 { #category : 'platypus-generated-deriving' }
 ExChdBasicAdaTypeGetter >> acceptRealType [
+
 	^ self acceptRealTypeUsingContext: self class context
 
 
@@ -521,6 +572,7 @@ ExChdBasicAdaTypeGetter >> acceptRealType [
 
 { #category : 'platypus-generated-deriving' }
 ExChdBasicAdaTypeGetter >> acceptRealTypeUsingContext: aContext [
+
 	^ self acceptRealTypeUsingContext: aContext receiver: self
 
 
@@ -528,24 +580,22 @@ ExChdBasicAdaTypeGetter >> acceptRealTypeUsingContext: aContext [
 
 { #category : 'platypus-generated-deriving' }
 ExChdBasicAdaTypeGetter >> acceptRealTypeUsingContext: aContext receiver: aReceiver [
-	^ (PlatypusComplexInstance
-		fromRecords:
-			(OrderedCollection new
-				add:
-						(PlatypusComplexInstance
-								fromRecords:
-									(OrderedCollection new
-										add: ExChdAdaDoubleType new;
-										add: ExChdAdaPrimitiveType new;
-										yourself)) pltAsObject;
-				add: PltDictionaryInstance new;
-				yourself)) pltAsObject
+
+	^ (PlatypusComplexInstance fromRecords: (OrderedCollection new
+			    add:
+				    (PlatypusComplexInstance fromRecords: (OrderedCollection new
+							      add: ExChdAdaDoubleType new;
+							      add: ExChdAdaPrimitiveType new;
+							      yourself)) pltAsObject;
+			    add: PltDictionaryInstance new;
+			    yourself)) pltAsObject
 
 
 ]
 
 { #category : 'platypus-generated-deriving' }
 ExChdBasicAdaTypeGetter >> acceptSetType [
+
 	^ self acceptSetTypeUsingContext: self class context
 
 
@@ -553,6 +603,7 @@ ExChdBasicAdaTypeGetter >> acceptSetType [
 
 { #category : 'platypus-generated-deriving' }
 ExChdBasicAdaTypeGetter >> acceptSetTypeUsingContext: aContext [
+
 	^ self acceptSetTypeUsingContext: aContext receiver: self
 
 
@@ -560,18 +611,20 @@ ExChdBasicAdaTypeGetter >> acceptSetTypeUsingContext: aContext [
 
 { #category : 'platypus-generated-deriving' }
 ExChdBasicAdaTypeGetter >> acceptSetTypeUsingContext: aContext receiver: aReceiver [
-	^ (PlatypusComplexInstance
-		fromRecords:
-			(OrderedCollection new
-				add: ExChdAdaSetType new;
-				add: (aReceiver asPlatypusComplexInstance \ #PltSetType) pltAsObject;
-				yourself)) pltAsObject
+
+	^ (PlatypusComplexInstance fromRecords: (OrderedCollection new
+			    add: ExChdAdaSetType new;
+			    add:
+				    (aReceiver asPlatypusComplexInstance \ #PltSetType)
+					    pltAsObject;
+			    yourself)) pltAsObject
 
 
 ]
 
 { #category : 'platypus-generated-deriving' }
 ExChdBasicAdaTypeGetter >> acceptStringType [
+
 	^ self acceptStringTypeUsingContext: self class context
 
 
@@ -579,6 +632,7 @@ ExChdBasicAdaTypeGetter >> acceptStringType [
 
 { #category : 'platypus-generated-deriving' }
 ExChdBasicAdaTypeGetter >> acceptStringTypeUsingContext: aContext [
+
 	^ self acceptStringTypeUsingContext: aContext receiver: self
 
 
@@ -586,24 +640,22 @@ ExChdBasicAdaTypeGetter >> acceptStringTypeUsingContext: aContext [
 
 { #category : 'platypus-generated-deriving' }
 ExChdBasicAdaTypeGetter >> acceptStringTypeUsingContext: aContext receiver: aReceiver [
-	^ (PlatypusComplexInstance
-		fromRecords:
-			(OrderedCollection new
-				add:
-						(PlatypusComplexInstance
-								fromRecords:
-									(OrderedCollection new
-										add: ExChdAdaUnboundedStringType new;
-										add: ExChdAdaPrimitiveType new;
-										yourself)) pltAsObject;
-				add: PltDictionaryInstance new;
-				yourself)) pltAsObject
+
+	^ (PlatypusComplexInstance fromRecords: (OrderedCollection new
+			    add:
+				    (PlatypusComplexInstance fromRecords: (OrderedCollection new
+							      add: ExChdAdaUnboundedStringType new;
+							      add: ExChdAdaPrimitiveType new;
+							      yourself)) pltAsObject;
+			    add: PltDictionaryInstance new;
+			    yourself)) pltAsObject
 
 
 ]
 
 { #category : 'platypus-generated-copying' }
 ExChdBasicAdaTypeGetter >> basicAdaTypeGetterCopyTo: another [
+
 	
 
 
@@ -611,6 +663,7 @@ ExChdBasicAdaTypeGetter >> basicAdaTypeGetterCopyTo: another [
 
 { #category : 'platypus-generated-group-accessing' }
 ExChdBasicAdaTypeGetter >> basicAdaTypeGetterFromValues: values [
+
 	| valuesloc |
 	valuesloc := values asOrderedCollection.
 	^ valuesloc
@@ -620,6 +673,7 @@ ExChdBasicAdaTypeGetter >> basicAdaTypeGetterFromValues: values [
 
 { #category : 'platypus-generated-group-accessing' }
 ExChdBasicAdaTypeGetter >> basicAdaTypeGetterToValues: values [
+
 	^ values
 
 
@@ -627,6 +681,7 @@ ExChdBasicAdaTypeGetter >> basicAdaTypeGetterToValues: values [
 
 { #category : 'platypus-generated-group-accessing' }
 ExChdBasicAdaTypeGetter >> fromValues: values [
+
 	^ self basicAdaTypeGetterFromValues: (super fromValues: values)
 
 
@@ -634,6 +689,7 @@ ExChdBasicAdaTypeGetter >> fromValues: values [
 
 { #category : 'platypus-generated-classifying' }
 ExChdBasicAdaTypeGetter >> isExChdBasicAdaTypeGetter [
+
 	^ true
 
 
@@ -641,6 +697,7 @@ ExChdBasicAdaTypeGetter >> isExChdBasicAdaTypeGetter [
 
 { #category : 'platypus-generated-group-accessing' }
 ExChdBasicAdaTypeGetter >> localFromValues: values [
+
 	^ self basicAdaTypeGetterFromValues: values
 
 
@@ -648,6 +705,7 @@ ExChdBasicAdaTypeGetter >> localFromValues: values [
 
 { #category : 'platypus-generated-group-accessing' }
 ExChdBasicAdaTypeGetter >> localToValues: values [
+
 	^ self basicAdaTypeGetterToValues: values
 
 
@@ -655,6 +713,7 @@ ExChdBasicAdaTypeGetter >> localToValues: values [
 
 { #category : 'platypus-generated-copying' }
 ExChdBasicAdaTypeGetter >> pltCopyGroup: aClassSymbol to: anObject [
+
 	self class name == aClassSymbol
 		ifTrue: [ self pltCopyTo: anObject ]
 		ifFalse: [ super pltCopyGroup: aClassSymbol to: anObject ]
@@ -664,6 +723,7 @@ ExChdBasicAdaTypeGetter >> pltCopyGroup: aClassSymbol to: anObject [
 
 { #category : 'platypus-generated-copying' }
 ExChdBasicAdaTypeGetter >> pltCopyTo: another [
+
 	super pltCopyTo: another.
 	self basicAdaTypeGetterCopyTo: another
 
@@ -672,6 +732,7 @@ ExChdBasicAdaTypeGetter >> pltCopyTo: another [
 
 { #category : 'platypus-generated-copying' }
 ExChdBasicAdaTypeGetter >> pltLocalCopyTo: another [
+
 	self basicAdaTypeGetterCopyTo: another
 
 
@@ -679,6 +740,7 @@ ExChdBasicAdaTypeGetter >> pltLocalCopyTo: another [
 
 { #category : 'platypus-generated-initializing' }
 ExChdBasicAdaTypeGetter >> stepInitialize [
+
 	super stepInitialize
 
 
@@ -686,6 +748,7 @@ ExChdBasicAdaTypeGetter >> stepInitialize [
 
 { #category : 'platypus-generated-group-accessing' }
 ExChdBasicAdaTypeGetter >> toValues: values [
+
 	^ self basicAdaTypeGetterToValues: (super toValues: values)
 
 

@@ -67,6 +67,7 @@ Class {
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdComputeDomainDtdElementFunction class >> iso10303P11Translater [
+
 	^ 'Platypus (c) LISYC EA3883, Universite de Bretagne occidentale. Brest.'
 
 
@@ -74,6 +75,7 @@ ExChdComputeDomainDtdElementFunction class >> iso10303P11Translater [
 
 { #category : 'platypus-generated-meta-data-accessing' }
 ExChdComputeDomainDtdElementFunction class >> schemaDefinition [
+
 	^ ExChdCheddarDtdSchemaDefinition singleton
 
 
@@ -81,6 +83,7 @@ ExChdComputeDomainDtdElementFunction class >> schemaDefinition [
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdComputeDomainDtdElementFunction class >> translatedFromISO10303P11 [
+
 	^ true
 
 
@@ -88,6 +91,7 @@ ExChdComputeDomainDtdElementFunction class >> translatedFromISO10303P11 [
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdComputeDomainDtdElementFunction class >> vwNamespaceName [
+
 	^ #Express2Cheddar
 
 
@@ -95,6 +99,7 @@ ExChdComputeDomainDtdElementFunction class >> vwNamespaceName [
 
 { #category : 'platypus-generated-accessing' }
 ExChdComputeDomainDtdElementFunction >> domain [
+
 	^ domain
 
 
@@ -102,6 +107,7 @@ ExChdComputeDomainDtdElementFunction >> domain [
 
 { #category : 'platypus-generated-accessing' }
 ExChdComputeDomainDtdElementFunction >> domain: aExChdEntityInstance [
+
 	domain := aExChdEntityInstance
 
 
@@ -109,6 +115,7 @@ ExChdComputeDomainDtdElementFunction >> domain: aExChdEntityInstance [
 
 { #category : 'platypus-generated-accessing' }
 ExChdComputeDomainDtdElementFunction >> elementDomain [
+
 	^ elementDomain
 
 
@@ -116,6 +123,7 @@ ExChdComputeDomainDtdElementFunction >> elementDomain [
 
 { #category : 'platypus-generated-accessing' }
 ExChdComputeDomainDtdElementFunction >> elementDomain: aExChdEntityInstance1 [
+
 	elementDomain := aExChdEntityInstance1
 
 
@@ -123,6 +131,7 @@ ExChdComputeDomainDtdElementFunction >> elementDomain: aExChdEntityInstance1 [
 
 { #category : 'platypus-generated-accessing' }
 ExChdComputeDomainDtdElementFunction >> fromValues: values [
+
 	self owner: (values at: 1).
 	self domain: (values at: 2)
 
@@ -131,353 +140,304 @@ ExChdComputeDomainDtdElementFunction >> fromValues: values [
 
 { #category : 'platypus-generated-invoking' }
 ExChdComputeDomainDtdElementFunction >> invoke [
-	" ---------- locals assignments ----------"
+	" ---------- locals assignments ----------"" ---------- statements ----------"
 
-	" ---------- statements ----------"
-
-	((PltTYPEOFFunction
-		invokeFromValues:
-			(OrderedCollection new
-				add: self domain;
-				yourself)) includes: 'PLATYPUS_DICTIONARY_SCHEMA.DICTIONARY_INSTANCE_REFERENCE')
-		ifTrue: [ 
-			^ self
-				return:
-					(ExChdComputeDomainDtdElementFunction
-						invokeFromValues:
-							(OrderedCollection new
-								add: self owner;
-								add: (self domain refUsingContext: self class context);
-								yourself)) ]
-		ifFalse: [ 
-			((PltTYPEOFFunction
-				invokeFromValues:
-					(OrderedCollection new
-						add: self domain;
-						yourself)) includes: 'CHEDDAR_DOMAINS.ADA_PRIMITIVE_TYPE')
-				ifTrue: [ 
-					^ self
-						return:
-							(PlatypusComplexInstance
-								fromRecords:
-									(OrderedCollection new
-										add:
-												(PlatypusComplexInstance
-														fromRecords:
-															(OrderedCollection new
-																add: ExChdSimpleDomainDtdElement new;
-																add:
-																		(ExChdDtdElement new
-																				dtdElementFromValues:
-																						(OrderedCollection new
-																								add: self owner;
-																								add: nil;
-																								yourself);
-																				yourself);
-																yourself)) pltAsObject;
-										add:
-												(ExChdDomainDtdElement new
-														domainDtdElementFromValues:
-																(OrderedCollection new
-																		add: self domain;
-																		yourself);
-														yourself);
-										yourself)) pltAsObject ]
-				ifFalse: [ 
-					((PltTYPEOFFunction
-						invokeFromValues:
-							(OrderedCollection new
-								add: self domain;
-								yourself)) includes: 'CHEDDAR_DOMAINS.ADA_ENUMERATION')
-						ifTrue: [ 
-							^ self
-								return:
-									(PlatypusComplexInstance
-										fromRecords:
-											(OrderedCollection new
-												add:
-														(PlatypusComplexInstance
-																fromRecords:
-																	(OrderedCollection new
-																		add: ExChdSimpleDomainDtdElement new;
-																		add:
-																				(ExChdDtdElement new
-																						dtdElementFromValues:
-																								(OrderedCollection new
-																										add: self owner;
-																										add: nil;
-																										yourself);
-																						yourself);
-																		yourself)) pltAsObject;
-												add:
-														(ExChdDomainDtdElement new
-																domainDtdElementFromValues:
-																		(OrderedCollection new
-																				add: self domain;
-																				yourself);
-																yourself);
-												yourself)) pltAsObject ]
-						ifFalse: [ 
-							((PltTYPEOFFunction
-								invokeFromValues:
-									(OrderedCollection new
-										add: self domain;
-										yourself)) includes: 'CHEDDAR_DOMAINS.CHEDDAR_PRIORITY_RANGE')
-								ifTrue: [ 
-									^ self
-										return:
-											(PlatypusComplexInstance
-												fromRecords:
-													(OrderedCollection new
-														add:
-																(PlatypusComplexInstance
-																		fromRecords:
-																			(OrderedCollection new
-																				add: ExChdSimpleDomainDtdElement new;
-																				add:
-																						(ExChdDtdElement new
-																								dtdElementFromValues:
-																										(OrderedCollection new
-																												add: self owner;
-																												add: nil;
-																												yourself);
-																								yourself);
-																				yourself)) pltAsObject;
-														add:
-																(ExChdDomainDtdElement new
-																		domainDtdElementFromValues:
-																				(OrderedCollection new
-																						add: self domain;
-																						yourself);
-																		yourself);
-														yourself)) pltAsObject ]
-								ifFalse: [ 
-									((PltTYPEOFFunction
-										invokeFromValues:
-											(OrderedCollection new
-												add: self domain;
-												yourself)) includes: 'RECORD_AND_CLASS.RECORD')
-										ifTrue: [ 
-											^ self
-												return:
-													(PlatypusComplexInstance
-														fromRecords:
-															(OrderedCollection new
-																add:
-																		(PlatypusComplexInstance
-																				fromRecords:
-																					(OrderedCollection new
-																						add:
-																								(PlatypusComplexInstance
-																										fromRecords:
-																											(OrderedCollection new
-																												add: ExChdRecordRefDtdElement new;
-																												add: ExChdEntityRefDtdElement new;
-																												yourself)) pltAsObject;
-																						add:
-																								(ExChdDtdElement new
-																										dtdElementFromValues:
-																												(OrderedCollection new
-																														add: self owner;
-																														add: nil;
-																														yourself);
-																										yourself);
-																						yourself)) pltAsObject;
-																add:
-																		(ExChdDomainDtdElement new
-																				domainDtdElementFromValues:
-																						(OrderedCollection new
-																								add: self domain;
-																								yourself);
-																				yourself);
-																yourself)) pltAsObject ]
-										ifFalse: [ 
-											((PltTYPEOFFunction
-												invokeFromValues:
-													(OrderedCollection new
-														add: self domain;
-														yourself)) includes: 'DISCRIMINATED_TYPE.DISCRIMINATED_TYPE')
-												ifTrue: [ 
-													^ self
-														return:
-															(PlatypusComplexInstance
-																fromRecords:
-																	(OrderedCollection new
-																		add:
-																				(PlatypusComplexInstance
-																						fromRecords:
-																							(OrderedCollection new
-																								add:
-																										(PlatypusComplexInstance
-																												fromRecords:
-																													(OrderedCollection new
-																														add: ExChdDiscriminatedTypeRefDtdElement new;
-																														add: ExChdEntityRefDtdElement new;
-																														yourself)) pltAsObject;
-																								add:
-																										(ExChdDtdElement new
-																												dtdElementFromValues:
-																														(OrderedCollection new
-																																add: self owner;
-																																add: nil;
-																																yourself);
-																												yourself);
-																								yourself)) pltAsObject;
-																		add:
-																				(ExChdDomainDtdElement new
-																						domainDtdElementFromValues:
-																								(OrderedCollection new
-																										add: self domain;
-																										yourself);
-																						yourself);
-																		yourself)) pltAsObject ]
-												ifFalse: [ 
-													((PltTYPEOFFunction
-														invokeFromValues:
-															(OrderedCollection new
-																add: self domain;
-																yourself)) includes: 'RECORD_AND_CLASS.ADA_CLASS')
-														ifTrue: [ 
-															^ self
-																return:
-																	(PlatypusComplexInstance
-																		fromRecords:
-																			(OrderedCollection new
-																				add:
-																						(PlatypusComplexInstance
-																								fromRecords:
-																									(OrderedCollection new
-																										add:
-																												(PlatypusComplexInstance
-																														fromRecords:
-																															(OrderedCollection new
-																																add: ExChdAdaClassRefDtdElement new;
-																																add: ExChdEntityRefDtdElement new;
-																																yourself)) pltAsObject;
-																										add:
-																												(ExChdDtdElement new
-																														dtdElementFromValues:
-																																(OrderedCollection new
-																																		add: self owner;
-																																		add: nil;
-																																		yourself);
-																														yourself);
-																										yourself)) pltAsObject;
-																				add:
-																						(ExChdDomainDtdElement new
-																								domainDtdElementFromValues:
-																										(OrderedCollection new
-																												add: self domain;
-																												yourself);
-																								yourself);
-																				yourself)) pltAsObject ]
-														ifFalse: [ 
-															((PltTYPEOFFunction
-																invokeFromValues:
-																	(OrderedCollection new
-																		add: self domain;
-																		yourself)) includes: 'PLATYPUS_DICTIONARY_SCHEMA.DEFINED_TYPE')
-																ifTrue: [ 
-																	self
-																		subDomain:
-																			(ExChdBasicAdaDomainFunction
-																				invokeFromValues:
-																					(OrderedCollection new
-																						add: (self domain domainUsingContext: self class context);
-																						yourself)).
-																	((PltTYPEOFFunction
-																		invokeFromValues:
-																			(OrderedCollection new
-																				add: self subDomain;
-																				yourself)) includes: 'PLATYPUS_DICTIONARY_SCHEMA.AGGREGATION_TYPE')
-																		ifTrue: [ 
-																			self
-																				elementDomain:
-																					(ExChdBasicAdaDomainFunction
-																						invokeFromValues:
-																							(OrderedCollection new
-																								add: (self subDomain elementTypeUsingContext: self class context);
-																								yourself)).
-																			self
-																				result:
-																					(PlatypusComplexInstance
-																						fromRecords:
-																							(OrderedCollection new
-																								add:
-																										(PlatypusComplexInstance
-																												fromRecords:
-																													(OrderedCollection new
-																														add:
-																																(ExChdCollectionDtdElement new
-																																		collectionDtdElementFromValues:
-																																				(OrderedCollection new
-																																						add: nil;
-																																						yourself);
-																																		yourself);
-																														add:
-																																(ExChdDtdElement new
-																																		dtdElementFromValues:
-																																				(OrderedCollection new
-																																						add: self owner;
-																																						add: nil;
-																																						yourself);
-																																		yourself);
-																														yourself)) pltAsObject;
-																								add:
-																										(ExChdDomainDtdElement new
-																												domainDtdElementFromValues:
-																														(OrderedCollection new
-																																add: self domain;
-																																yourself);
-																												yourself);
-																								yourself)) pltAsObject.
-																			self result
-																				elementDomain:
-																					(ExChdComputeDomainDtdElementFunction
-																						invokeFromValues:
-																							(OrderedCollection new
-																								add: self result;
-																								add: self elementDomain;
-																								yourself)).
-																			^ self return: self result ] ] ] ] ] ] ] ] ].
-	PTsPrintLnProcedure
-		invokeFromValues:
-			(OrderedCollection new
-				add: self domain;
-				yourself).
-	^ self
-		return:
-			(PlatypusComplexInstance
-				fromRecords:
-					(OrderedCollection new
-						add:
-								(PlatypusComplexInstance
-										fromRecords:
-											(OrderedCollection new
-												add: ExChdUnknownDomainDtdElement new;
-												add:
-														(ExChdDtdElement new
-																dtdElementFromValues:
-																		(OrderedCollection new
-																				add: self owner;
-																				add: nil;
-																				yourself);
-																yourself);
-												yourself)) pltAsObject;
-						add:
-								(ExChdDomainDtdElement new
-										domainDtdElementFromValues:
-												(OrderedCollection new
-														add: self domain;
-														yourself);
-										yourself);
-						yourself)) pltAsObject
+	((PltTYPEOFFunction invokeFromValues: (OrderedCollection new
+			   add: self domain;
+			   yourself)) includes:
+		 'PLATYPUS_DICTIONARY_SCHEMA.DICTIONARY_INSTANCE_REFERENCE')
+		ifTrue: [
+				^ self return:
+					  (ExChdComputeDomainDtdElementFunction invokeFromValues:
+						   (OrderedCollection new
+							    add: self owner;
+							    add: (self domain refUsingContext: self class context);
+							    yourself)) ]
+		ifFalse: [
+				((PltTYPEOFFunction invokeFromValues: (OrderedCollection new
+						   add: self domain;
+						   yourself)) includes: 'CHEDDAR_DOMAINS.ADA_PRIMITIVE_TYPE')
+					ifTrue: [
+							^ self return:
+								  (PlatypusComplexInstance fromRecords:
+									   (OrderedCollection new
+										    add:
+											    (PlatypusComplexInstance fromRecords:
+													     (OrderedCollection new
+														      add: ExChdSimpleDomainDtdElement new;
+														      add: (ExChdDtdElement new
+																       dtdElementFromValues: (OrderedCollection new
+																		        add: self owner;
+																		        add: nil;
+																		        yourself);
+																       yourself);
+														      yourself)) pltAsObject;
+										    add: (ExChdDomainDtdElement new
+												     domainDtdElementFromValues: (OrderedCollection new
+														      add: self domain;
+														      yourself);
+												     yourself);
+										    yourself)) pltAsObject ]
+					ifFalse: [
+							((PltTYPEOFFunction invokeFromValues: (OrderedCollection new
+									   add: self domain;
+									   yourself)) includes: 'CHEDDAR_DOMAINS.ADA_ENUMERATION')
+								ifTrue: [
+										^ self return:
+											  (PlatypusComplexInstance fromRecords:
+												   (OrderedCollection new
+													    add:
+														    (PlatypusComplexInstance fromRecords:
+																     (OrderedCollection new
+																	      add: ExChdSimpleDomainDtdElement new;
+																	      add: (ExChdDtdElement new
+																			       dtdElementFromValues:
+																				       (OrderedCollection new
+																					        add: self owner;
+																					        add: nil;
+																					        yourself);
+																			       yourself);
+																	      yourself)) pltAsObject;
+													    add: (ExChdDomainDtdElement new
+															     domainDtdElementFromValues:
+																     (OrderedCollection new
+																	      add: self domain;
+																	      yourself);
+															     yourself);
+													    yourself)) pltAsObject ]
+								ifFalse: [
+										((PltTYPEOFFunction invokeFromValues:
+											  (OrderedCollection new
+												   add: self domain;
+												   yourself)) includes:
+											 'CHEDDAR_DOMAINS.CHEDDAR_PRIORITY_RANGE')
+											ifTrue: [
+													^ self return:
+														  (PlatypusComplexInstance fromRecords:
+															   (OrderedCollection new
+																    add:
+																	    (PlatypusComplexInstance fromRecords:
+																			     (OrderedCollection new
+																				      add: ExChdSimpleDomainDtdElement new;
+																				      add: (ExChdDtdElement new
+																						       dtdElementFromValues:
+																							       (OrderedCollection new
+																								        add: self owner;
+																								        add: nil;
+																								        yourself);
+																						       yourself);
+																				      yourself)) pltAsObject;
+																    add: (ExChdDomainDtdElement new
+																		     domainDtdElementFromValues:
+																			     (OrderedCollection new
+																				      add: self domain;
+																				      yourself);
+																		     yourself);
+																    yourself)) pltAsObject ]
+											ifFalse: [
+													((PltTYPEOFFunction invokeFromValues:
+														  (OrderedCollection new
+															   add: self domain;
+															   yourself)) includes: 'RECORD_AND_CLASS.RECORD')
+														ifTrue: [
+																^ self return:
+																	  (PlatypusComplexInstance fromRecords:
+																		   (OrderedCollection new
+																			    add:
+																				    (PlatypusComplexInstance fromRecords:
+																						     (OrderedCollection new
+																							      add:
+																								      (PlatypusComplexInstance fromRecords:
+																										       (OrderedCollection new
+																											        add: ExChdRecordRefDtdElement new;
+																											        add: ExChdEntityRefDtdElement new;
+																											        yourself)) pltAsObject;
+																							      add: (ExChdDtdElement new
+																									       dtdElementFromValues:
+																										       (OrderedCollection new
+																											        add: self owner;
+																											        add: nil;
+																											        yourself);
+																									       yourself);
+																							      yourself)) pltAsObject;
+																			    add: (ExChdDomainDtdElement new
+																					     domainDtdElementFromValues:
+																						     (OrderedCollection new
+																							      add: self domain;
+																							      yourself);
+																					     yourself);
+																			    yourself)) pltAsObject ]
+														ifFalse: [
+																((PltTYPEOFFunction invokeFromValues:
+																	  (OrderedCollection new
+																		   add: self domain;
+																		   yourself)) includes:
+																	 'DISCRIMINATED_TYPE.DISCRIMINATED_TYPE')
+																	ifTrue: [
+																			^ self return:
+																				  (PlatypusComplexInstance fromRecords:
+																					   (OrderedCollection new
+																						    add:
+																							    (PlatypusComplexInstance fromRecords:
+																									     (OrderedCollection new
+																										      add:
+																											      (PlatypusComplexInstance
+																												       fromRecords:
+																													       (OrderedCollection new
+																														        add:
+																															        ExChdDiscriminatedTypeRefDtdElement
+																																        new;
+																														        add:
+																															        ExChdEntityRefDtdElement new;
+																														        yourself)) pltAsObject;
+																										      add: (ExChdDtdElement new
+																												       dtdElementFromValues:
+																													       (OrderedCollection new
+																														        add: self owner;
+																														        add: nil;
+																														        yourself);
+																												       yourself);
+																										      yourself)) pltAsObject;
+																						    add: (ExChdDomainDtdElement new
+																								     domainDtdElementFromValues:
+																									     (OrderedCollection new
+																										      add: self domain;
+																										      yourself);
+																								     yourself);
+																						    yourself)) pltAsObject ]
+																	ifFalse: [
+																			((PltTYPEOFFunction invokeFromValues:
+																				  (OrderedCollection new
+																					   add: self domain;
+																					   yourself)) includes:
+																				 'RECORD_AND_CLASS.ADA_CLASS')
+																				ifTrue: [
+																						^ self return:
+																							  (PlatypusComplexInstance fromRecords:
+																								   (OrderedCollection new
+																									    add:
+																										    (PlatypusComplexInstance fromRecords:
+																												     (OrderedCollection new
+																													      add:
+																														      (PlatypusComplexInstance
+																															       fromRecords:
+																																       (OrderedCollection new
+																																	        add:
+																																		        ExChdAdaClassRefDtdElement
+																																			        new;
+																																	        add:
+																																		        ExChdEntityRefDtdElement new;
+																																	        yourself)) pltAsObject;
+																													      add: (ExChdDtdElement new
+																															       dtdElementFromValues:
+																																       (OrderedCollection new
+																																	        add: self owner;
+																																	        add: nil;
+																																	        yourself);
+																															       yourself);
+																													      yourself)) pltAsObject;
+																									    add: (ExChdDomainDtdElement new
+																											     domainDtdElementFromValues:
+																												     (OrderedCollection new
+																													      add: self domain;
+																													      yourself);
+																											     yourself);
+																									    yourself)) pltAsObject ]
+																				ifFalse: [
+																						((PltTYPEOFFunction invokeFromValues:
+																							  (OrderedCollection new
+																								   add: self domain;
+																								   yourself)) includes:
+																							 'PLATYPUS_DICTIONARY_SCHEMA.DEFINED_TYPE')
+																							ifTrue: [
+																									self subDomain:
+																										(ExChdBasicAdaDomainFunction
+																											 invokeFromValues: (OrderedCollection new
+																													  add:
+																														  (self domain domainUsingContext:
+																																   self class context);
+																													  yourself)).
+																									((PltTYPEOFFunction invokeFromValues:
+																										  (OrderedCollection new
+																											   add: self subDomain;
+																											   yourself)) includes:
+																										 'PLATYPUS_DICTIONARY_SCHEMA.AGGREGATION_TYPE')
+																										ifTrue: [
+																												self elementDomain:
+																													(ExChdBasicAdaDomainFunction
+																														 invokeFromValues:
+																															 (OrderedCollection new
+																																  add:
+																																	  (self subDomain
+																																		   elementTypeUsingContext:
+																																			   self class context);
+																																  yourself)).
+																												self result:
+																													(PlatypusComplexInstance fromRecords:
+																														 (OrderedCollection new
+																															  add:
+																																  (PlatypusComplexInstance
+																																	   fromRecords:
+																																		   (OrderedCollection new
+																																			    add:
+																																				    (ExChdCollectionDtdElement new
+																																					
+																																					     collectionDtdElementFromValues:
+																																						     (OrderedCollection new
+																																							      add: nil;
+																																							      yourself);
+																																					     yourself);
+																																			    add: (ExChdDtdElement new
+																																					     dtdElementFromValues:
+																																						     (OrderedCollection new
+																																							      add: self owner;
+																																							      add: nil;
+																																							      yourself);
+																																					     yourself);
+																																			    yourself)) pltAsObject;
+																															  add: (ExChdDomainDtdElement new
+																																	   domainDtdElementFromValues:
+																																		   (OrderedCollection new
+																																			    add: self domain;
+																																			    yourself);
+																																	   yourself);
+																															  yourself)) pltAsObject.
+																												self result elementDomain:
+																													(ExChdComputeDomainDtdElementFunction
+																														 invokeFromValues:
+																															 (OrderedCollection new
+																																  add: self result;
+																																  add: self elementDomain;
+																																  yourself)).
+																												^ self return: self result ] ] ] ] ] ] ] ] ].
+	PTsPrintLnProcedure invokeFromValues: (OrderedCollection new
+			 add: self domain;
+			 yourself).
+	^ self return:
+		  (PlatypusComplexInstance fromRecords: (OrderedCollection new
+				    add:
+					    (PlatypusComplexInstance fromRecords: (OrderedCollection new
+								      add: ExChdUnknownDomainDtdElement new;
+								      add: (ExChdDtdElement new
+										       dtdElementFromValues: (OrderedCollection new
+												        add: self owner;
+												        add: nil;
+												        yourself);
+										       yourself);
+								      yourself)) pltAsObject;
+				    add: (ExChdDomainDtdElement new
+						     domainDtdElementFromValues: (OrderedCollection new
+								      add: self domain;
+								      yourself);
+						     yourself);
+				    yourself)) pltAsObject
 
 
 ]
 
 { #category : 'platypus-generated-accessing' }
 ExChdComputeDomainDtdElementFunction >> owner [
+
 	^ owner
 
 
@@ -485,6 +445,7 @@ ExChdComputeDomainDtdElementFunction >> owner [
 
 { #category : 'platypus-generated-accessing' }
 ExChdComputeDomainDtdElementFunction >> owner: aExChdDtdElement [
+
 	owner := aExChdDtdElement
 
 
@@ -492,6 +453,7 @@ ExChdComputeDomainDtdElementFunction >> owner: aExChdDtdElement [
 
 { #category : 'platypus-generated-accessing' }
 ExChdComputeDomainDtdElementFunction >> owner: aExChdDtdElement domain: aExChdEntityInstance [
+
 	self owner: aExChdDtdElement.
 	self domain: aExChdEntityInstance
 
@@ -500,6 +462,7 @@ ExChdComputeDomainDtdElementFunction >> owner: aExChdDtdElement domain: aExChdEn
 
 { #category : 'platypus-generated-accessing' }
 ExChdComputeDomainDtdElementFunction >> result [
+
 	^ result
 
 
@@ -507,6 +470,7 @@ ExChdComputeDomainDtdElementFunction >> result [
 
 { #category : 'platypus-generated-accessing' }
 ExChdComputeDomainDtdElementFunction >> result: aExChdDomainDtdElement [
+
 	result := aExChdDomainDtdElement
 
 
@@ -514,6 +478,7 @@ ExChdComputeDomainDtdElementFunction >> result: aExChdDomainDtdElement [
 
 { #category : 'platypus-generated-accessing' }
 ExChdComputeDomainDtdElementFunction >> subDomain [
+
 	^ subDomain
 
 
@@ -521,6 +486,7 @@ ExChdComputeDomainDtdElementFunction >> subDomain [
 
 { #category : 'platypus-generated-accessing' }
 ExChdComputeDomainDtdElementFunction >> subDomain: aExChdEntityInstance [
+
 	subDomain := aExChdEntityInstance
 
 

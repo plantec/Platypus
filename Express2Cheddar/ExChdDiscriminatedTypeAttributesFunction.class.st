@@ -26,6 +26,7 @@ Class {
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdDiscriminatedTypeAttributesFunction class >> iso10303P11Translater [
+
 	^ 'Platypus (c) LISYC EA3883, Universite de Bretagne occidentale. Brest.'
 
 
@@ -33,6 +34,7 @@ ExChdDiscriminatedTypeAttributesFunction class >> iso10303P11Translater [
 
 { #category : 'platypus-generated-meta-data-accessing' }
 ExChdDiscriminatedTypeAttributesFunction class >> schemaDefinition [
+
 	^ ExChdDiscriminatedTypeSchemaDefinition singleton
 
 
@@ -40,6 +42,7 @@ ExChdDiscriminatedTypeAttributesFunction class >> schemaDefinition [
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdDiscriminatedTypeAttributesFunction class >> translatedFromISO10303P11 [
+
 	^ true
 
 
@@ -47,6 +50,7 @@ ExChdDiscriminatedTypeAttributesFunction class >> translatedFromISO10303P11 [
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdDiscriminatedTypeAttributesFunction class >> vwNamespaceName [
+
 	^ #Express2Cheddar
 
 
@@ -54,6 +58,7 @@ ExChdDiscriminatedTypeAttributesFunction class >> vwNamespaceName [
 
 { #category : 'platypus-generated-accessing' }
 ExChdDiscriminatedTypeAttributesFunction >> attrs [
+
 	^ attrs
 
 
@@ -61,15 +66,17 @@ ExChdDiscriminatedTypeAttributesFunction >> attrs [
 
 { #category : 'platypus-generated-accessing' }
 ExChdDiscriminatedTypeAttributesFunction >> attrs: aListOfExChdAttribute1 [
+
 	attrs := aListOfExChdAttribute1
-		ifNil: [ OrderedCollection new ]
-		ifNotNil: [ aListOfExChdAttribute1 as: OrderedCollection ]
+		         ifNil: [ OrderedCollection new ]
+		         ifNotNil: [ aListOfExChdAttribute1 as: OrderedCollection ]
 
 
 ]
 
 { #category : 'platypus-generated-accessing' }
 ExChdDiscriminatedTypeAttributesFunction >> d [
+
 	^ d
 
 
@@ -77,6 +84,7 @@ ExChdDiscriminatedTypeAttributesFunction >> d [
 
 { #category : 'platypus-generated-accessing' }
 ExChdDiscriminatedTypeAttributesFunction >> d: aExChdDiscriminatedType [
+
 	d := aExChdDiscriminatedType
 
 
@@ -84,6 +92,7 @@ ExChdDiscriminatedTypeAttributesFunction >> d: aExChdDiscriminatedType [
 
 { #category : 'platypus-generated-accessing' }
 ExChdDiscriminatedTypeAttributesFunction >> fromValues: values [
+
 	self d: (values at: 1)
 
 
@@ -93,21 +102,17 @@ ExChdDiscriminatedTypeAttributesFunction >> fromValues: values [
 ExChdDiscriminatedTypeAttributesFunction >> invoke [
 	" ---------- locals assignments ----------"
 
-	self
-		otherAttrs:
-			((PlatypusCoreAggregateInitializer
-				collectionFrom:
-					(OrderedCollection new
-						add: (self d discriminantUsingContext: self class context);
-						yourself)) pltPlus: (self d translatedAttributesUsingContext: self class context)).
-	self
-		tailAttrs:
-			(ExChdDiscriminatedTypeTailsAttributesFunction
-				invokeFromValues:
-					(OrderedCollection new
-						add: self d;
-						yourself)).
-	self attrs: (self otherAttrs pltPlus: self tailAttrs).	" ---------- statements ----------"
+	self otherAttrs: ((PlatypusCoreAggregateInitializer collectionFrom:
+			  (OrderedCollection new
+				   add: (self d discriminantUsingContext: self class context);
+				   yourself)) pltPlus:
+			 (self d translatedAttributesUsingContext: self class context)).
+	self tailAttrs:
+		(ExChdDiscriminatedTypeTailsAttributesFunction invokeFromValues:
+			 (OrderedCollection new
+				  add: self d;
+				  yourself)).
+	self attrs: (self otherAttrs pltPlus: self tailAttrs). " ---------- statements ----------"
 	^ self return: self attrs
 
 
@@ -115,6 +120,7 @@ ExChdDiscriminatedTypeAttributesFunction >> invoke [
 
 { #category : 'platypus-generated-accessing' }
 ExChdDiscriminatedTypeAttributesFunction >> otherAttrs [
+
 	^ otherAttrs
 
 
@@ -122,15 +128,18 @@ ExChdDiscriminatedTypeAttributesFunction >> otherAttrs [
 
 { #category : 'platypus-generated-accessing' }
 ExChdDiscriminatedTypeAttributesFunction >> otherAttrs: aListOfExChdAttribute [
+
 	otherAttrs := aListOfExChdAttribute
-		ifNil: [ OrderedCollection new ]
-		ifNotNil: [ aListOfExChdAttribute as: OrderedCollection ]
+		              ifNil: [ OrderedCollection new ]
+		              ifNotNil: [
+		              aListOfExChdAttribute as: OrderedCollection ]
 
 
 ]
 
 { #category : 'platypus-generated-accessing' }
 ExChdDiscriminatedTypeAttributesFunction >> tailAttrs [
+
 	^ tailAttrs
 
 
@@ -138,9 +147,11 @@ ExChdDiscriminatedTypeAttributesFunction >> tailAttrs [
 
 { #category : 'platypus-generated-accessing' }
 ExChdDiscriminatedTypeAttributesFunction >> tailAttrs: aListOfExChdExplicitAttribute [
+
 	tailAttrs := aListOfExChdExplicitAttribute
-		ifNil: [ OrderedCollection new ]
-		ifNotNil: [ aListOfExChdExplicitAttribute as: OrderedCollection ]
+		             ifNil: [ OrderedCollection new ]
+		             ifNotNil: [
+		             aListOfExChdExplicitAttribute as: OrderedCollection ]
 
 
 ]

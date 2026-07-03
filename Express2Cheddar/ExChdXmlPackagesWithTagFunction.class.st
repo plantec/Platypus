@@ -18,6 +18,7 @@ Class {
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdXmlPackagesWithTagFunction class >> iso10303P11Translater [
+
 	^ 'Platypus (c) LISYC EA3883, Universite de Bretagne occidentale. Brest.'
 
 
@@ -25,6 +26,7 @@ ExChdXmlPackagesWithTagFunction class >> iso10303P11Translater [
 
 { #category : 'platypus-generated-meta-data-accessing' }
 ExChdXmlPackagesWithTagFunction class >> schemaDefinition [
+
 	^ ExChdCheddarDtdSchemaDefinition singleton
 
 
@@ -32,6 +34,7 @@ ExChdXmlPackagesWithTagFunction class >> schemaDefinition [
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdXmlPackagesWithTagFunction class >> translatedFromISO10303P11 [
+
 	^ true
 
 
@@ -39,6 +42,7 @@ ExChdXmlPackagesWithTagFunction class >> translatedFromISO10303P11 [
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdXmlPackagesWithTagFunction class >> vwNamespaceName [
+
 	^ #Express2Cheddar
 
 
@@ -46,6 +50,7 @@ ExChdXmlPackagesWithTagFunction class >> vwNamespaceName [
 
 { #category : 'platypus-generated-accessing' }
 ExChdXmlPackagesWithTagFunction >> fromValues: values [
+
 	self tag: (values at: 1)
 
 
@@ -53,20 +58,19 @@ ExChdXmlPackagesWithTagFunction >> fromValues: values [
 
 { #category : 'platypus-generated-invoking' }
 ExChdXmlPackagesWithTagFunction >> invoke [
-	" ---------- locals assignments ----------"
+	" ---------- locals assignments ----------"" ---------- statements ----------"
 
-	" ---------- statements ----------"
-
-	^ self
-		return:
-			(ExChdXmlPackagesFunction invoke
-				select: [ :p136 | (p136 xmlRootTagsUsingContext: self class context) includes: self tag ])
+	^ self return:
+		  (ExChdXmlPackagesFunction invoke select: [ :p3402589 |
+				   (p3402589 xmlRootTagsUsingContext: self class context)
+					   includes: self tag ])
 
 
 ]
 
 { #category : 'platypus-generated-accessing' }
 ExChdXmlPackagesWithTagFunction >> tag [
+
 	^ tag
 
 
@@ -74,6 +78,7 @@ ExChdXmlPackagesWithTagFunction >> tag [
 
 { #category : 'platypus-generated-accessing' }
 ExChdXmlPackagesWithTagFunction >> tag: aString [
+
 	tag := aString
 
 

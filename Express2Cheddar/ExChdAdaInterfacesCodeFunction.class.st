@@ -87,6 +87,7 @@ Class {
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdAdaInterfacesCodeFunction class >> iso10303P11Translater [
+
 	^ 'Platypus (c) LISYC EA3883, Universite de Bretagne occidentale. Brest.'
 
 
@@ -94,6 +95,7 @@ ExChdAdaInterfacesCodeFunction class >> iso10303P11Translater [
 
 { #category : 'platypus-generated-meta-data-accessing' }
 ExChdAdaInterfacesCodeFunction class >> schemaDefinition [
+
 	^ ExChdAdaInterfaceSchemaDefinition singleton
 
 
@@ -101,6 +103,7 @@ ExChdAdaInterfacesCodeFunction class >> schemaDefinition [
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdAdaInterfacesCodeFunction class >> translatedFromISO10303P11 [
+
 	^ true
 
 
@@ -108,6 +111,7 @@ ExChdAdaInterfacesCodeFunction class >> translatedFromISO10303P11 [
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdAdaInterfacesCodeFunction class >> vwNamespaceName [
+
 	^ #Express2Cheddar
 
 
@@ -115,6 +119,7 @@ ExChdAdaInterfacesCodeFunction class >> vwNamespaceName [
 
 { #category : 'platypus-generated-accessing' }
 ExChdAdaInterfacesCodeFunction >> cleaned [
+
 	^ cleaned
 
 
@@ -122,15 +127,18 @@ ExChdAdaInterfacesCodeFunction >> cleaned [
 
 { #category : 'platypus-generated-accessing' }
 ExChdAdaInterfacesCodeFunction >> cleaned: aListOfExChdAdaInterface2 [
+
 	cleaned := aListOfExChdAdaInterface2
-		ifNil: [ OrderedCollection new ]
-		ifNotNil: [ aListOfExChdAdaInterface2 as: OrderedCollection ]
+		           ifNil: [ OrderedCollection new ]
+		           ifNotNil: [
+		           aListOfExChdAdaInterface2 as: OrderedCollection ]
 
 
 ]
 
 { #category : 'platypus-generated-accessing' }
 ExChdAdaInterfacesCodeFunction >> found [
+
 	^ found
 
 
@@ -138,13 +146,17 @@ ExChdAdaInterfacesCodeFunction >> found [
 
 { #category : 'platypus-generated-accessing' }
 ExChdAdaInterfacesCodeFunction >> found: aSetOfString [
-	found := aSetOfString ifNil: [ Set new ] ifNotNil: [ aSetOfString as: Set ]
+
+	found := aSetOfString
+		         ifNil: [ Set new ]
+		         ifNotNil: [ aSetOfString as: Set ]
 
 
 ]
 
 { #category : 'platypus-generated-accessing' }
 ExChdAdaInterfacesCodeFunction >> fromPkg [
+
 	^ fromPkg
 
 
@@ -152,6 +164,7 @@ ExChdAdaInterfacesCodeFunction >> fromPkg [
 
 { #category : 'platypus-generated-accessing' }
 ExChdAdaInterfacesCodeFunction >> fromPkg: aExChdAdaPackage [
+
 	fromPkg := aExChdAdaPackage
 
 
@@ -159,6 +172,7 @@ ExChdAdaInterfacesCodeFunction >> fromPkg: aExChdAdaPackage [
 
 { #category : 'platypus-generated-accessing' }
 ExChdAdaInterfacesCodeFunction >> fromPkg: aExChdAdaPackage l: aListOfExChdAdaInterface [
+
 	self fromPkg: aExChdAdaPackage.
 	self l: aListOfExChdAdaInterface
 
@@ -167,6 +181,7 @@ ExChdAdaInterfacesCodeFunction >> fromPkg: aExChdAdaPackage l: aListOfExChdAdaIn
 
 { #category : 'platypus-generated-accessing' }
 ExChdAdaInterfacesCodeFunction >> fromValues: values [
+
 	self fromPkg: (values at: 1).
 	self l: (values at: 2)
 
@@ -175,6 +190,7 @@ ExChdAdaInterfacesCodeFunction >> fromValues: values [
 
 { #category : 'platypus-generated-accessing' }
 ExChdAdaInterfacesCodeFunction >> inserted [
+
 	^ inserted
 
 
@@ -182,6 +198,7 @@ ExChdAdaInterfacesCodeFunction >> inserted [
 
 { #category : 'platypus-generated-accessing' }
 ExChdAdaInterfacesCodeFunction >> inserted: aBoolean [
+
 	inserted := aBoolean
 
 
@@ -195,174 +212,135 @@ ExChdAdaInterfacesCodeFunction >> invoke [
 	self withSuffix: Array new.
 	self withPrefixOnly: Array new.
 	self cleaned: Array new.
-	self s: ''.	" ---------- statements ----------"
+	self s: ''. " ---------- statements ----------"
 	PlatypusCoreRepeatStatement
-		repeat: [ :no99 | 
-			PlatypusCoreAliasStatement
-				alias: (self l pltAt: no99)
-				statementsBlock: [ :curr1205 | 
-					((PltEXISTSFunction
-						invokeFromValues:
-							(OrderedCollection new
-								add: self fromPkg;
-								yourself)) not
-						or: [ 
-							(PTsUpperizeFunction
-								invokeFromValues:
-									(OrderedCollection new
-										add: (self fromPkg nameUsingContext: self class context);
-										yourself))
-								~=
-									(PTsUpperizeFunction
-										invokeFromValues:
-											(OrderedCollection new
-												add: (curr1205 prefixUsingContext: self class context);
-												yourself)) ])
-						ifTrue: [ 
-							(self found
-								includes:
-									(PTsUpperizeFunction
-										invokeFromValues:
-											(OrderedCollection new
-												add: (curr1205 fullNameUsingContext: self class context);
-												yourself))) not
-								ifTrue: [ 
-									self
-										found:
-											(self found
-												pltPlus:
-													(PTsUpperizeFunction
-														invokeFromValues:
-															(OrderedCollection new
-																add: (curr1205 fullNameUsingContext: self class context);
-																yourself))).
-									self cleaned: (self cleaned pltPlus: curr1205) ] ] ] ]
-		from:
-			(PltLOINDEXFunction
-				invokeFromValues:
-					(OrderedCollection new
-						add: self l;
-						yourself))
-		to:
-			(PltHIINDEXFunction
-				invokeFromValues:
-					(OrderedCollection new
-						add: self l;
-						yourself)).
+		repeat: [ :no877143 |
+				PlatypusCoreAliasStatement
+					alias: (self l pltAt: no877143)
+					statementsBlock: [ :curr3368649 |
+							((PltEXISTSFunction invokeFromValues: (OrderedCollection new
+									   add: self fromPkg;
+									   yourself)) not or: [
+									 (PTsUpperizeFunction invokeFromValues:
+										  (OrderedCollection new
+											   add: (self fromPkg nameUsingContext: self class context);
+											   yourself))
+									 ~=
+										 (PTsUpperizeFunction invokeFromValues:
+											  (OrderedCollection new
+												   add:
+													   (curr3368649 prefixUsingContext: self class context);
+												   yourself)) ]) ifTrue: [
+									(self found includes:
+										 (PTsUpperizeFunction invokeFromValues:
+											  (OrderedCollection new
+												   add:
+													   (curr3368649 fullNameUsingContext: self class context);
+												   yourself))) not ifTrue: [
+											self found: (self found pltPlus:
+													 (PTsUpperizeFunction invokeFromValues:
+														  (OrderedCollection new
+															   add:
+																   (curr3368649 fullNameUsingContext:
+																		    self class context);
+															   yourself))).
+											self cleaned: (self cleaned pltPlus: curr3368649) ] ] ] ]
+		from: (PltLOINDEXFunction invokeFromValues: (OrderedCollection new
+					  add: self l;
+					  yourself))
+		to: (PltHIINDEXFunction invokeFromValues: (OrderedCollection new
+					  add: self l;
+					  yourself)).
 	PlatypusCoreRepeatStatement
-		repeat: [ :no2174 | 
-			PlatypusCoreAliasStatement
-				alias: (self cleaned pltAt: no2174)
-				statementsBlock: [ :curr3284 | 
-					(PltEXISTSFunction
-						invokeFromValues:
-							(OrderedCollection new
-								add: (curr3284 suffixUsingContext: self class context);
-								yourself))
-						ifTrue: [ self withSuffix: (self withSuffix pltPlus: curr3284) ]
-						ifFalse: [ self withPrefixOnly: (self withPrefixOnly pltPlus: curr3284) ] ] ]
-		from:
-			(PltLOINDEXFunction
-				invokeFromValues:
-					(OrderedCollection new
-						add: self cleaned;
-						yourself))
-		to:
-			(PltHIINDEXFunction
-				invokeFromValues:
-					(OrderedCollection new
-						add: self cleaned;
-						yourself)).
+		repeat: [ :no2174653 |
+				PlatypusCoreAliasStatement
+					alias: (self cleaned pltAt: no2174653)
+					statementsBlock: [ :curr238419 |
+							(PltEXISTSFunction invokeFromValues: (OrderedCollection new
+									  add: (curr238419 suffixUsingContext: self class context);
+									  yourself))
+								ifTrue: [
+								self withSuffix: (self withSuffix pltPlus: curr238419) ]
+								ifFalse: [
+								self withPrefixOnly: (self withPrefixOnly pltPlus: curr238419) ] ] ]
+		from: (PltLOINDEXFunction invokeFromValues: (OrderedCollection new
+					  add: self cleaned;
+					  yourself))
+		to: (PltHIINDEXFunction invokeFromValues: (OrderedCollection new
+					  add: self cleaned;
+					  yourself)).
 	self cleaned: Array new.
 	PlatypusCoreRepeatStatement
-		repeat: [ :no2992 | self cleaned: (self cleaned pltPlus: (self withPrefixOnly pltAt: no2992)) ]
-		from:
-			(PltLOINDEXFunction
-				invokeFromValues:
-					(OrderedCollection new
-						add: self withPrefixOnly;
-						yourself))
-		to:
-			(PltHIINDEXFunction
-				invokeFromValues:
-					(OrderedCollection new
-						add: self withPrefixOnly;
-						yourself)).
+		repeat: [ :no1554115 |
+				self cleaned:
+					(self cleaned pltPlus: (self withPrefixOnly pltAt: no1554115)) ]
+		from: (PltLOINDEXFunction invokeFromValues: (OrderedCollection new
+					  add: self withPrefixOnly;
+					  yourself))
+		to: (PltHIINDEXFunction invokeFromValues: (OrderedCollection new
+					  add: self withPrefixOnly;
+					  yourself)).
 	PlatypusCoreRepeatStatement
-		repeat: [ :no2372 | 
-			PlatypusCoreAliasStatement
-				alias: (self withSuffix pltAt: no2372)
-				statementsBlock: [ :curr3486 | 
-					self inserted: false.
-					PlatypusCoreRepeatStatement
-						repeat: [ :noi2655 | 
-							PlatypusCoreAliasStatement
-								alias: (self cleaned pltAt: noi2655)
-								statementsBlock: [ :curri4030 | 
-									(PTsUpperizeFunction
-										invokeFromValues:
-											(OrderedCollection new
-												add: (curr3486 prefixUsingContext: self class context);
-												yourself))
-										=
-											(PTsUpperizeFunction
-												invokeFromValues:
-													(OrderedCollection new
-														add: (curri4030 prefixUsingContext: self class context);
-														yourself))
-										ifTrue: [ 
-											PltINSERTProcedure
-												invokeFromValues:
-													(OrderedCollection new
-														add: self cleaned;
-														add: curr3486;
-														add: noi2655;
-														yourself).
-											self inserted: true.
-											PlatypusExpressEscapeStatementException signal ] ] ]
-						from:
-							(PltLOINDEXFunction
-								invokeFromValues:
-									(OrderedCollection new
-										add: self cleaned;
-										yourself))
-						to:
-							(PltHIINDEXFunction
-								invokeFromValues:
-									(OrderedCollection new
-										add: self cleaned;
-										yourself)).
-					self inserted = false
-						ifTrue: [ self cleaned: (self cleaned pltPlus: curr3486) ] ] ]
-		from:
-			(PltLOINDEXFunction
-				invokeFromValues:
-					(OrderedCollection new
-						add: self withSuffix;
-						yourself))
-		to:
-			(PltHIINDEXFunction
-				invokeFromValues:
-					(OrderedCollection new
-						add: self withSuffix;
-						yourself)).
+		repeat: [ :no2090301 |
+				PlatypusCoreAliasStatement
+					alias: (self withSuffix pltAt: no2090301)
+					statementsBlock: [ :curr204905 |
+							self inserted: false.
+							PlatypusCoreRepeatStatement
+								repeat: [ :noi325255 |
+										PlatypusCoreAliasStatement
+											alias: (self cleaned pltAt: noi325255)
+											statementsBlock: [ :curri3211569 |
+													(PTsUpperizeFunction invokeFromValues:
+														 (OrderedCollection new
+															  add:
+																  (curr204905 prefixUsingContext: self class context);
+															  yourself))
+													=
+														(PTsUpperizeFunction invokeFromValues:
+															 (OrderedCollection new
+																  add:
+																	  (curri3211569 prefixUsingContext:
+																			   self class context);
+																  yourself)) ifTrue: [
+															PltINSERTProcedure invokeFromValues:
+																(OrderedCollection new
+																	 add: self cleaned;
+																	 add: curr204905;
+																	 add: noi325255;
+																	 yourself).
+															self inserted: true.
+															PlatypusExpressEscapeStatementException signal ] ] ]
+								from:
+									(PltLOINDEXFunction invokeFromValues: (OrderedCollection new
+											  add: self cleaned;
+											  yourself))
+								to:
+									(PltHIINDEXFunction invokeFromValues: (OrderedCollection new
+											  add: self cleaned;
+											  yourself)).
+							self inserted = false ifTrue: [
+								self cleaned: (self cleaned pltPlus: curr204905) ] ] ]
+		from: (PltLOINDEXFunction invokeFromValues: (OrderedCollection new
+					  add: self withSuffix;
+					  yourself))
+		to: (PltHIINDEXFunction invokeFromValues: (OrderedCollection new
+					  add: self withSuffix;
+					  yourself)).
 	PlatypusCoreRepeatStatement
-		repeat: [ :no4049 | 
-			PlatypusCoreAliasStatement
-				alias: (self cleaned pltAt: no4049)
-				statementsBlock: [ :curr1063 | self s: ((self s pltPlus: (curr1063 declarationUsingContext: self class context)) pltPlus: '\n') ] ]
-		from:
-			(PltLOINDEXFunction
-				invokeFromValues:
-					(OrderedCollection new
-						add: self cleaned;
-						yourself))
-		to:
-			(PltHIINDEXFunction
-				invokeFromValues:
-					(OrderedCollection new
-						add: self cleaned;
-						yourself)).
+		repeat: [ :no348309 |
+				PlatypusCoreAliasStatement
+					alias: (self cleaned pltAt: no348309)
+					statementsBlock: [ :curr2985787 |
+							self s: ((self s pltPlus:
+									  (curr2985787 declarationUsingContext: self class context))
+									 pltPlus: '\n') ] ]
+		from: (PltLOINDEXFunction invokeFromValues: (OrderedCollection new
+					  add: self cleaned;
+					  yourself))
+		to: (PltHIINDEXFunction invokeFromValues: (OrderedCollection new
+					  add: self cleaned;
+					  yourself)).
 	^ self return: self s
 
 
@@ -370,6 +348,7 @@ ExChdAdaInterfacesCodeFunction >> invoke [
 
 { #category : 'platypus-generated-accessing' }
 ExChdAdaInterfacesCodeFunction >> l [
+
 	^ l
 
 
@@ -377,15 +356,17 @@ ExChdAdaInterfacesCodeFunction >> l [
 
 { #category : 'platypus-generated-accessing' }
 ExChdAdaInterfacesCodeFunction >> l: aListOfExChdAdaInterface [
+
 	l := aListOfExChdAdaInterface
-		ifNil: [ OrderedCollection new ]
-		ifNotNil: [ aListOfExChdAdaInterface as: OrderedCollection ]
+		     ifNil: [ OrderedCollection new ]
+		     ifNotNil: [ aListOfExChdAdaInterface as: OrderedCollection ]
 
 
 ]
 
 { #category : 'platypus-generated-accessing' }
 ExChdAdaInterfacesCodeFunction >> s [
+
 	^ s
 
 
@@ -393,6 +374,7 @@ ExChdAdaInterfacesCodeFunction >> s [
 
 { #category : 'platypus-generated-accessing' }
 ExChdAdaInterfacesCodeFunction >> s: aString [
+
 	s := aString
 
 
@@ -400,6 +382,7 @@ ExChdAdaInterfacesCodeFunction >> s: aString [
 
 { #category : 'platypus-generated-accessing' }
 ExChdAdaInterfacesCodeFunction >> withPrefixOnly [
+
 	^ withPrefixOnly
 
 
@@ -407,15 +390,18 @@ ExChdAdaInterfacesCodeFunction >> withPrefixOnly [
 
 { #category : 'platypus-generated-accessing' }
 ExChdAdaInterfacesCodeFunction >> withPrefixOnly: aListOfExChdAdaInterface1 [
+
 	withPrefixOnly := aListOfExChdAdaInterface1
-		ifNil: [ OrderedCollection new ]
-		ifNotNil: [ aListOfExChdAdaInterface1 as: OrderedCollection ]
+		                  ifNil: [ OrderedCollection new ]
+		                  ifNotNil: [
+		                  aListOfExChdAdaInterface1 as: OrderedCollection ]
 
 
 ]
 
 { #category : 'platypus-generated-accessing' }
 ExChdAdaInterfacesCodeFunction >> withSuffix [
+
 	^ withSuffix
 
 
@@ -423,9 +409,11 @@ ExChdAdaInterfacesCodeFunction >> withSuffix [
 
 { #category : 'platypus-generated-accessing' }
 ExChdAdaInterfacesCodeFunction >> withSuffix: aListOfExChdAdaInterface [
+
 	withSuffix := aListOfExChdAdaInterface
-		ifNil: [ OrderedCollection new ]
-		ifNotNil: [ aListOfExChdAdaInterface as: OrderedCollection ]
+		              ifNil: [ OrderedCollection new ]
+		              ifNotNil: [
+		              aListOfExChdAdaInterface as: OrderedCollection ]
 
 
 ]

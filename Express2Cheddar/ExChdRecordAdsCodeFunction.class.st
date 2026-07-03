@@ -51,6 +51,7 @@ Class {
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdRecordAdsCodeFunction class >> iso10303P11Translater [
+
 	^ 'Platypus (c) LISYC EA3883, Universite de Bretagne occidentale. Brest.'
 
 
@@ -58,6 +59,7 @@ ExChdRecordAdsCodeFunction class >> iso10303P11Translater [
 
 { #category : 'platypus-generated-meta-data-accessing' }
 ExChdRecordAdsCodeFunction class >> schemaDefinition [
+
 	^ ExChdRecordAndClassSchemaDefinition singleton
 
 
@@ -65,6 +67,7 @@ ExChdRecordAdsCodeFunction class >> schemaDefinition [
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdRecordAdsCodeFunction class >> translatedFromISO10303P11 [
+
 	^ true
 
 
@@ -72,6 +75,7 @@ ExChdRecordAdsCodeFunction class >> translatedFromISO10303P11 [
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdRecordAdsCodeFunction class >> vwNamespaceName [
+
 	^ #Express2Cheddar
 
 
@@ -79,6 +83,7 @@ ExChdRecordAdsCodeFunction class >> vwNamespaceName [
 
 { #category : 'platypus-generated-accessing' }
 ExChdRecordAdsCodeFunction >> domain [
+
 	^ domain
 
 
@@ -86,6 +91,7 @@ ExChdRecordAdsCodeFunction >> domain [
 
 { #category : 'platypus-generated-accessing' }
 ExChdRecordAdsCodeFunction >> domain: aExChdEntityInstance [
+
 	domain := aExChdEntityInstance
 
 
@@ -93,6 +99,7 @@ ExChdRecordAdsCodeFunction >> domain: aExChdEntityInstance [
 
 { #category : 'platypus-generated-accessing' }
 ExChdRecordAdsCodeFunction >> fromValues: values [
+
 	self rec: (values at: 1)
 
 
@@ -100,67 +107,87 @@ ExChdRecordAdsCodeFunction >> fromValues: values [
 
 { #category : 'platypus-generated-invoking' }
 ExChdRecordAdsCodeFunction >> invoke [
-	" ---------- locals assignments ----------"
+	" ---------- locals assignments ----------"" ---------- statements ----------"
 
-	" ---------- statements ----------"
-
-	self
-		result:
-			(((((('\n' pltPlus: '-- --------= ') pltPlus: (self rec nameUsingContext: self class context)) pltPlus: ' =--------\n\n')
-				pltPlus: 'type ') pltPlus: (self rec nameUsingContext: self class context)) pltPlus: ' is\nrecord\n').
+	self result: (((((('\n' pltPlus: '-- --------= ') pltPlus:
+			     (self rec nameUsingContext: self class context)) pltPlus:
+			    ' =--------\n\n') pltPlus: 'type ') pltPlus:
+			  (self rec nameUsingContext: self class context)) pltPlus:
+			 ' is\nrecord\n').
 	PlatypusCoreRepeatStatement
-		repeat: [ :no1816 | 
-			self
-				result:
-					(((self result pltPlus: ' ')
-						pltPlus:
-							(((self rec attributesUsingContext: self class context) pltAt: no1816) nameUsingContext: self class context))
-						pltPlus: ' : ').
-			self
-				domain:
-					(ExChdBasicAdaDomainFunction
-						invokeFromValues:
-							(OrderedCollection new
-								add:
-										(((self rec attributesUsingContext: self class context) pltAt: no1816) domainUsingContext: self class context);
-								yourself)).
-			((self domain handledUsingContext: self class context) refedByPointerUsingContext: self class context)
-				ifTrue: [ 
-					self
-						result:
-							((self result pltPlus: ((self domain handledUsingContext: self class context) ptrTypeUsingContext: self class context))
-								pltPlus: ';\n') ]
-				ifFalse: [ self result: ((self result pltPlus: (self domain adaRefIdentUsingContext: self class context)) pltPlus: ';\n') ] ]
-		from:
-			(PltLOINDEXFunction
-				invokeFromValues:
-					(OrderedCollection new
-						add: (self rec attributesUsingContext: self class context);
-						yourself))
-		to:
-			(PltHIINDEXFunction
-				invokeFromValues:
-					(OrderedCollection new
-						add: (self rec attributesUsingContext: self class context);
-						yourself)).
-	self
-		result:
-			(((((((((((((((((((((((((((((((((((((self result pltPlus: 'end record;\n\n') pltPlus: 'procedure Initialize(obj : out ')
-				pltPlus: (self rec nameUsingContext: self class context)) pltPlus: ');\n') pltPlus: 'procedure Put(obj : in ')
-				pltPlus: (self rec nameUsingContext: self class context)) pltPlus: ');\n') pltPlus: 'procedure Put(obj : in ')
-				pltPlus: (self rec ptrTypeUsingContext: self class context)) pltPlus: ');\n') pltPlus: 'function Copy(obj : in ')
-				pltPlus: (self rec ptrTypeUsingContext: self class context)) pltPlus: ') return ')
-				pltPlus: (self rec ptrTypeUsingContext: self class context)) pltPlus: ';\n') pltPlus: 'function Copy(obj : in ')
-				pltPlus: (self rec nameUsingContext: self class context)) pltPlus: ') return ')
-				pltPlus: (self rec ptrTypeUsingContext: self class context)) pltPlus: ';\n')
-				pltPlus: 'procedure Build_Attributes_XML_String(obj : in ') pltPlus: (self rec nameUsingContext: self class context))
-				pltPlus: '; result : in out Unbounded_String);\n') pltPlus: 'function XML_String(obj : in ')
-				pltPlus: (self rec nameUsingContext: self class context)) pltPlus: ') return Unbounded_String;\n')
-				pltPlus: 'function XML_String(obj : in ') pltPlus: (self rec ptrTypeUsingContext: self class context))
-				pltPlus: ') return Unbounded_String;\n') pltPlus: 'function XML_Ref_String(obj : in ')
-				pltPlus: (self rec nameUsingContext: self class context)) pltPlus: ') return Unbounded_String;\n')
-				pltPlus: 'procedure Free  is new Unchecked_Deallocation (') pltPlus: (self rec nameUsingContext: self class context))
-				pltPlus: ', ') pltPlus: (self rec ptrTypeUsingContext: self class context)) pltPlus: ');\n').
+		repeat: [ :no4163897 |
+				self result: (((self result pltPlus: ' ') pltPlus:
+						  (((self rec attributesUsingContext: self class context)
+							    pltAt: no4163897) nameUsingContext: self class context))
+						 pltPlus: ' : ').
+				self domain:
+					(ExChdBasicAdaDomainFunction invokeFromValues:
+						 (OrderedCollection new
+							  add:
+								  (((self rec attributesUsingContext: self class context)
+									    pltAt: no4163897) domainUsingContext: self class context);
+							  yourself)).
+				((self domain handledUsingContext: self class context)
+					 refedByPointerUsingContext: self class context)
+					ifTrue: [
+							self result: ((self result pltPlus:
+									  ((self domain handledUsingContext: self class context)
+										   ptrTypeUsingContext: self class context)) pltPlus: ';\n') ]
+					ifFalse: [
+							self result: ((self result pltPlus:
+									  (self domain adaRefIdentUsingContext: self class context))
+									 pltPlus: ';\n') ] ]
+		from: (PltLOINDEXFunction invokeFromValues: (OrderedCollection new
+					  add: (self rec attributesUsingContext: self class context);
+					  yourself))
+		to: (PltHIINDEXFunction invokeFromValues: (OrderedCollection new
+					  add: (self rec attributesUsingContext: self class context);
+					  yourself)).
+	self result:
+		(((((((((((((((((((((((((((((((((((((self result pltPlus:
+			                                     'end record;\n\n') pltPlus:
+			                                    'procedure Initialize(obj : out ')
+			                                   pltPlus:
+			                                   (self rec nameUsingContext:
+				                                    self class context)) pltPlus:
+			                                  ');\n') pltPlus:
+			                                 'procedure Put(obj : in ')
+			                                pltPlus:
+			                                (self rec nameUsingContext:
+				                                 self class context)) pltPlus:
+			                               ');\n') pltPlus:
+			                              'procedure Put(obj : in ') pltPlus:
+			                             (self rec ptrTypeUsingContext:
+				                              self class context)) pltPlus: ');\n')
+			                           pltPlus: 'function Copy(obj : in ')
+			                          pltPlus:
+			                          (self rec ptrTypeUsingContext:
+				                           self class context)) pltPlus:
+			                         ') return ') pltPlus:
+			                        (self rec ptrTypeUsingContext:
+				                         self class context)) pltPlus: ';\n')
+			                      pltPlus: 'function Copy(obj : in ') pltPlus:
+			                     (self rec nameUsingContext: self class context))
+			                    pltPlus: ') return ') pltPlus:
+			                   (self rec ptrTypeUsingContext:
+				                    self class context)) pltPlus: ';\n') pltPlus:
+			                 'procedure Build_Attributes_XML_String(obj : in ')
+			                pltPlus:
+			                (self rec nameUsingContext: self class context))
+			               pltPlus: '; result : in out Unbounded_String);\n')
+			              pltPlus: 'function XML_String(obj : in ') pltPlus:
+			             (self rec nameUsingContext: self class context))
+			            pltPlus: ') return Unbounded_String;\n') pltPlus:
+			           'function XML_String(obj : in ') pltPlus:
+			          (self rec ptrTypeUsingContext: self class context))
+			         pltPlus: ') return Unbounded_String;\n') pltPlus:
+			        'function XML_Ref_String(obj : in ') pltPlus:
+			       (self rec nameUsingContext: self class context)) pltPlus:
+			      ') return Unbounded_String;\n') pltPlus:
+			     'procedure Free  is new Unchecked_Deallocation (') pltPlus:
+			    (self rec nameUsingContext: self class context)) pltPlus: ', ')
+			  pltPlus: (self rec ptrTypeUsingContext: self class context))
+			 pltPlus: ');\n').
 	^ self return: self result
 
 
@@ -168,6 +195,7 @@ ExChdRecordAdsCodeFunction >> invoke [
 
 { #category : 'platypus-generated-accessing' }
 ExChdRecordAdsCodeFunction >> rec [
+
 	^ rec
 
 
@@ -175,6 +203,7 @@ ExChdRecordAdsCodeFunction >> rec [
 
 { #category : 'platypus-generated-accessing' }
 ExChdRecordAdsCodeFunction >> rec: aExChdRecord [
+
 	rec := aExChdRecord
 
 
@@ -182,6 +211,7 @@ ExChdRecordAdsCodeFunction >> rec: aExChdRecord [
 
 { #category : 'platypus-generated-accessing' }
 ExChdRecordAdsCodeFunction >> result [
+
 	^ result
 
 
@@ -189,6 +219,7 @@ ExChdRecordAdsCodeFunction >> result [
 
 { #category : 'platypus-generated-accessing' }
 ExChdRecordAdsCodeFunction >> result: aString [
+
 	result := aString
 
 

@@ -27,6 +27,7 @@ Class {
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdComputeAttributeDtdElementFunction class >> iso10303P11Translater [
+
 	^ 'Platypus (c) LISYC EA3883, Universite de Bretagne occidentale. Brest.'
 
 
@@ -34,6 +35,7 @@ ExChdComputeAttributeDtdElementFunction class >> iso10303P11Translater [
 
 { #category : 'platypus-generated-meta-data-accessing' }
 ExChdComputeAttributeDtdElementFunction class >> schemaDefinition [
+
 	^ ExChdCheddarDtdSchemaDefinition singleton
 
 
@@ -41,6 +43,7 @@ ExChdComputeAttributeDtdElementFunction class >> schemaDefinition [
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdComputeAttributeDtdElementFunction class >> translatedFromISO10303P11 [
+
 	^ true
 
 
@@ -48,6 +51,7 @@ ExChdComputeAttributeDtdElementFunction class >> translatedFromISO10303P11 [
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdComputeAttributeDtdElementFunction class >> vwNamespaceName [
+
 	^ #Express2Cheddar
 
 
@@ -55,6 +59,7 @@ ExChdComputeAttributeDtdElementFunction class >> vwNamespaceName [
 
 { #category : 'platypus-generated-accessing' }
 ExChdComputeAttributeDtdElementFunction >> a [
+
 	^ a
 
 
@@ -62,6 +67,7 @@ ExChdComputeAttributeDtdElementFunction >> a [
 
 { #category : 'platypus-generated-accessing' }
 ExChdComputeAttributeDtdElementFunction >> a: aExChdAttribute [
+
 	a := aExChdAttribute
 
 
@@ -69,6 +75,7 @@ ExChdComputeAttributeDtdElementFunction >> a: aExChdAttribute [
 
 { #category : 'platypus-generated-accessing' }
 ExChdComputeAttributeDtdElementFunction >> domain [
+
 	^ domain
 
 
@@ -76,6 +83,7 @@ ExChdComputeAttributeDtdElementFunction >> domain [
 
 { #category : 'platypus-generated-accessing' }
 ExChdComputeAttributeDtdElementFunction >> domain: aExChdEntityInstance [
+
 	domain := aExChdEntityInstance
 
 
@@ -83,6 +91,7 @@ ExChdComputeAttributeDtdElementFunction >> domain: aExChdEntityInstance [
 
 { #category : 'platypus-generated-accessing' }
 ExChdComputeAttributeDtdElementFunction >> fromValues: values [
+
 	self owner: (values at: 1).
 	self a: (values at: 2)
 
@@ -93,43 +102,31 @@ ExChdComputeAttributeDtdElementFunction >> fromValues: values [
 ExChdComputeAttributeDtdElementFunction >> invoke [
 	" ---------- locals assignments ----------"
 
-	self
-		domain:
-			((ExChdBasicAdaDomainFunction
-				invokeFromValues:
-					(OrderedCollection new
-						add: (self a domainUsingContext: self class context);
-						yourself)) handledUsingContext: self class context).	" ---------- statements ----------"
-	self
-		result:
-			(PlatypusComplexInstance
-				fromRecords:
-					(OrderedCollection new
-						add:
-								(ExChdDtdElement new
-										dtdElementFromValues:
-												(OrderedCollection new
-														add: self owner;
-														add: nil;
-														yourself);
-										yourself);
-						add:
-								(ExChdAttributeDtdElement new
-										attributeDtdElementFromValues:
-												(OrderedCollection new
-														add: self a;
-														add: nil;
-														yourself);
-										yourself);
-						yourself)) pltAsObject.
-	self result
-		domain:
-			(ExChdComputeDomainDtdElementFunction
-				invokeFromValues:
-					(OrderedCollection new
-						add: self result;
-						add: self domain;
-						yourself)).
+	self domain: ((ExChdBasicAdaDomainFunction invokeFromValues:
+			  (OrderedCollection new
+				   add: (self a domainUsingContext: self class context);
+				   yourself)) handledUsingContext: self class context). " ---------- statements ----------"
+	self result:
+		(PlatypusComplexInstance fromRecords: (OrderedCollection new
+				  add: (ExChdDtdElement new
+						   dtdElementFromValues: (OrderedCollection new
+								    add: self owner;
+								    add: nil;
+								    yourself);
+						   yourself);
+				  add: (ExChdAttributeDtdElement new
+						   attributeDtdElementFromValues: (OrderedCollection new
+								    add: self a;
+								    add: nil;
+								    yourself);
+						   yourself);
+				  yourself)) pltAsObject.
+	self result domain:
+		(ExChdComputeDomainDtdElementFunction invokeFromValues:
+			 (OrderedCollection new
+				  add: self result;
+				  add: self domain;
+				  yourself)).
 	^ self return: self result
 
 
@@ -137,6 +134,7 @@ ExChdComputeAttributeDtdElementFunction >> invoke [
 
 { #category : 'platypus-generated-accessing' }
 ExChdComputeAttributeDtdElementFunction >> owner [
+
 	^ owner
 
 
@@ -144,6 +142,7 @@ ExChdComputeAttributeDtdElementFunction >> owner [
 
 { #category : 'platypus-generated-accessing' }
 ExChdComputeAttributeDtdElementFunction >> owner: aExChdDtdElement [
+
 	owner := aExChdDtdElement
 
 
@@ -151,6 +150,7 @@ ExChdComputeAttributeDtdElementFunction >> owner: aExChdDtdElement [
 
 { #category : 'platypus-generated-accessing' }
 ExChdComputeAttributeDtdElementFunction >> owner: aExChdDtdElement a: aExChdAttribute [
+
 	self owner: aExChdDtdElement.
 	self a: aExChdAttribute
 
@@ -159,6 +159,7 @@ ExChdComputeAttributeDtdElementFunction >> owner: aExChdDtdElement a: aExChdAttr
 
 { #category : 'platypus-generated-accessing' }
 ExChdComputeAttributeDtdElementFunction >> result [
+
 	^ result
 
 
@@ -166,6 +167,7 @@ ExChdComputeAttributeDtdElementFunction >> result [
 
 { #category : 'platypus-generated-accessing' }
 ExChdComputeAttributeDtdElementFunction >> result: aExChdAttributeDtdElement [
+
 	result := aExChdAttributeDtdElement
 
 

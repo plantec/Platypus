@@ -42,6 +42,7 @@ Class {
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdAdaEntityAttributesXmlIoRecordInitializeCodeFunction class >> iso10303P11Translater [
+
 	^ 'Platypus (c) LISYC EA3883, Universite de Bretagne occidentale. Brest.'
 
 
@@ -49,6 +50,7 @@ ExChdAdaEntityAttributesXmlIoRecordInitializeCodeFunction class >> iso10303P11Tr
 
 { #category : 'platypus-generated-meta-data-accessing' }
 ExChdAdaEntityAttributesXmlIoRecordInitializeCodeFunction class >> schemaDefinition [
+
 	^ ExChdRecordAndClassSchemaDefinition singleton
 
 
@@ -56,6 +58,7 @@ ExChdAdaEntityAttributesXmlIoRecordInitializeCodeFunction class >> schemaDefinit
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdAdaEntityAttributesXmlIoRecordInitializeCodeFunction class >> translatedFromISO10303P11 [
+
 	^ true
 
 
@@ -63,6 +66,7 @@ ExChdAdaEntityAttributesXmlIoRecordInitializeCodeFunction class >> translatedFro
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdAdaEntityAttributesXmlIoRecordInitializeCodeFunction class >> vwNamespaceName [
+
 	^ #Express2Cheddar
 
 
@@ -70,6 +74,7 @@ ExChdAdaEntityAttributesXmlIoRecordInitializeCodeFunction class >> vwNamespaceNa
 
 { #category : 'platypus-generated-accessing' }
 ExChdAdaEntityAttributesXmlIoRecordInitializeCodeFunction >> cip [
+
 	^ cip
 
 
@@ -77,6 +82,7 @@ ExChdAdaEntityAttributesXmlIoRecordInitializeCodeFunction >> cip [
 
 { #category : 'platypus-generated-accessing' }
 ExChdAdaEntityAttributesXmlIoRecordInitializeCodeFunction >> cip: aExChdAdaClass [
+
 	cip := aExChdAdaClass
 
 
@@ -84,6 +90,7 @@ ExChdAdaEntityAttributesXmlIoRecordInitializeCodeFunction >> cip: aExChdAdaClass
 
 { #category : 'platypus-generated-accessing' }
 ExChdAdaEntityAttributesXmlIoRecordInitializeCodeFunction >> code [
+
 	^ code
 
 
@@ -91,6 +98,7 @@ ExChdAdaEntityAttributesXmlIoRecordInitializeCodeFunction >> code [
 
 { #category : 'platypus-generated-accessing' }
 ExChdAdaEntityAttributesXmlIoRecordInitializeCodeFunction >> code: aString [
+
 	code := aString
 
 
@@ -98,6 +106,7 @@ ExChdAdaEntityAttributesXmlIoRecordInitializeCodeFunction >> code: aString [
 
 { #category : 'platypus-generated-accessing' }
 ExChdAdaEntityAttributesXmlIoRecordInitializeCodeFunction >> fromValues: values [
+
 	self cip: (values at: 1)
 
 
@@ -107,58 +116,44 @@ ExChdAdaEntityAttributesXmlIoRecordInitializeCodeFunction >> fromValues: values 
 ExChdAdaEntityAttributesXmlIoRecordInitializeCodeFunction >> invoke [
 	" ---------- locals assignments ----------"
 
-	self code: ''.	" ---------- statements ----------"
-	(PltSIZEOFFunction
-		invokeFromValues:
-			(OrderedCollection new
-				add: (self cip supertypesUsingContext: self class context);
-				yourself)) > 0
-		ifTrue: [ 
+	self code: ''. " ---------- statements ----------"
+	(PltSIZEOFFunction invokeFromValues: (OrderedCollection new
+			  add: (self cip supertypesUsingContext: self class context);
+			  yourself)) > 0 ifTrue: [
 			PlatypusCoreAliasStatement
 				alias:
-					(((self cip supertypesUsingContext: self class context)
-						pltAt:
-							(PltLOINDEXFunction
-								invokeFromValues:
-									(OrderedCollection new
-										add: (self cip supertypesUsingContext: self class context);
-										yourself))) handledUsingContext: self class context)
-				statementsBlock: [ :sup3215 | 
-					self
-						code:
-							(self code
-								pltPlus:
-									(ExChdAdaEntityAttributesXmlIoRecordInitializeCodeFunction
-										invokeFromValues:
-											(OrderedCollection new
-												add: sup3215;
-												yourself))) ] ].
+					(((self cip supertypesUsingContext: self class context) pltAt:
+						  (PltLOINDEXFunction invokeFromValues: (OrderedCollection new
+								    add: (self cip supertypesUsingContext: self class context);
+								    yourself))) handledUsingContext: self class context)
+				statementsBlock: [ :sup1326865 |
+						self code: (self code pltPlus:
+								 (ExChdAdaEntityAttributesXmlIoRecordInitializeCodeFunction
+									  invokeFromValues: (OrderedCollection new
+											   add: sup1326865;
+											   yourself))) ] ].
 	PlatypusCoreRepeatStatement
-		repeat: [ :no2129 | 
-			PlatypusCoreAliasStatement
-				alias: ((self cip explicitAttributesUsingContext: self class context) pltAt: no2129)
-				statementsBlock: [ :attr4085 | 
-					self
-						s:
-							(ExChdExplicitAttributeXmlIoRecordInitializeCodeFunction
-								invokeFromValues:
-									(OrderedCollection new
-										add: attr4085;
-										yourself)).
-					self s > ''
-						ifTrue: [ self code: ((self code pltPlus: '\n') pltPlus: self s) ] ] ]
-		from:
-			(PltLOINDEXFunction
-				invokeFromValues:
-					(OrderedCollection new
-						add: (self cip explicitAttributesUsingContext: self class context);
-						yourself))
-		to:
-			(PltHIINDEXFunction
-				invokeFromValues:
-					(OrderedCollection new
-						add: (self cip explicitAttributesUsingContext: self class context);
-						yourself)).
+		repeat: [ :no3710495 |
+				PlatypusCoreAliasStatement
+					alias:
+						((self cip explicitAttributesUsingContext: self class context)
+							 pltAt: no3710495)
+					statementsBlock: [ :attr1383895 |
+							self s:
+								(ExChdExplicitAttributeXmlIoRecordInitializeCodeFunction
+									 invokeFromValues: (OrderedCollection new
+											  add: attr1383895;
+											  yourself)).
+							self s > '' ifTrue: [
+								self code: ((self code pltPlus: '\n') pltPlus: self s) ] ] ]
+		from: (PltLOINDEXFunction invokeFromValues: (OrderedCollection new
+					  add:
+						  (self cip explicitAttributesUsingContext: self class context);
+					  yourself))
+		to: (PltHIINDEXFunction invokeFromValues: (OrderedCollection new
+					  add:
+						  (self cip explicitAttributesUsingContext: self class context);
+					  yourself)).
 	^ self return: self code
 
 
@@ -166,6 +161,7 @@ ExChdAdaEntityAttributesXmlIoRecordInitializeCodeFunction >> invoke [
 
 { #category : 'platypus-generated-accessing' }
 ExChdAdaEntityAttributesXmlIoRecordInitializeCodeFunction >> s [
+
 	^ s
 
 
@@ -173,6 +169,7 @@ ExChdAdaEntityAttributesXmlIoRecordInitializeCodeFunction >> s [
 
 { #category : 'platypus-generated-accessing' }
 ExChdAdaEntityAttributesXmlIoRecordInitializeCodeFunction >> s: aString1 [
+
 	s := aString1
 
 

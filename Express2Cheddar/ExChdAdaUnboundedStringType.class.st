@@ -21,6 +21,7 @@ Class {
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdAdaUnboundedStringType class >> iso10303P11Translater [
+
 	^ 'Platypus (c) LISYC EA3883, Universite de Bretagne occidentale. Brest.'
 
 
@@ -28,6 +29,7 @@ ExChdAdaUnboundedStringType class >> iso10303P11Translater [
 
 { #category : 'platypus-generated-meta-data-accessing' }
 ExChdAdaUnboundedStringType class >> schemaDefinition [
+
 	^ ExChdCheddarDomainsSchemaDefinition singleton
 
 
@@ -35,6 +37,7 @@ ExChdAdaUnboundedStringType class >> schemaDefinition [
 
 { #category : 'platypus-generated-meta-data-accessing' }
 ExChdAdaUnboundedStringType class >> schemaInstance [
+
 	^ ExChdExpress2cheddarSchemaInstance singleton
 
 
@@ -42,6 +45,7 @@ ExChdAdaUnboundedStringType class >> schemaInstance [
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdAdaUnboundedStringType class >> translatedFromISO10303P11 [
+
 	^ true
 
 
@@ -49,6 +53,7 @@ ExChdAdaUnboundedStringType class >> translatedFromISO10303P11 [
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdAdaUnboundedStringType class >> vwNamespaceName [
+
 	^ #Express2Cheddar
 
 
@@ -56,6 +61,7 @@ ExChdAdaUnboundedStringType class >> vwNamespaceName [
 
 { #category : 'platypus-generated-visiting' }
 ExChdAdaUnboundedStringType >> accept: aVisitor [
+
 	^ aVisitor acceptAdaUnboundedStringType: self
 
 
@@ -63,6 +69,7 @@ ExChdAdaUnboundedStringType >> accept: aVisitor [
 
 { #category : 'platypus-generated-deriving' }
 ExChdAdaUnboundedStringType >> adaIdent [
+
 	^ self adaIdentUsingContext: self class context
 
 
@@ -70,6 +77,7 @@ ExChdAdaUnboundedStringType >> adaIdent [
 
 { #category : 'platypus-generated-deriving' }
 ExChdAdaUnboundedStringType >> adaIdentUsingContext: aContext [
+
 	^ self adaIdentUsingContext: aContext receiver: self
 
 
@@ -77,6 +85,7 @@ ExChdAdaUnboundedStringType >> adaIdentUsingContext: aContext [
 
 { #category : 'platypus-generated-deriving' }
 ExChdAdaUnboundedStringType >> adaIdentUsingContext: aContext receiver: aReceiver [
+
 	^ 'Unbounded_String'
 
 
@@ -84,6 +93,7 @@ ExChdAdaUnboundedStringType >> adaIdentUsingContext: aContext receiver: aReceive
 
 { #category : 'platypus-generated-deriving' }
 ExChdAdaUnboundedStringType >> adaRefIdent [
+
 	^ self adaRefIdentUsingContext: self class context
 
 
@@ -91,6 +101,7 @@ ExChdAdaUnboundedStringType >> adaRefIdent [
 
 { #category : 'platypus-generated-deriving' }
 ExChdAdaUnboundedStringType >> adaRefIdentUsingContext: aContext [
+
 	^ self adaRefIdentUsingContext: aContext receiver: self
 
 
@@ -98,6 +109,7 @@ ExChdAdaUnboundedStringType >> adaRefIdentUsingContext: aContext [
 
 { #category : 'platypus-generated-deriving' }
 ExChdAdaUnboundedStringType >> adaRefIdentUsingContext: aContext receiver: aReceiver [
+
 	^ aReceiver adaIdentUsingContext: aContext
 
 
@@ -105,6 +117,7 @@ ExChdAdaUnboundedStringType >> adaRefIdentUsingContext: aContext receiver: aRece
 
 { #category : 'platypus-generated-copying' }
 ExChdAdaUnboundedStringType >> adaUnboundedStringTypeCopyTo: another [
+
 	
 
 
@@ -112,6 +125,7 @@ ExChdAdaUnboundedStringType >> adaUnboundedStringTypeCopyTo: another [
 
 { #category : 'platypus-generated-group-accessing' }
 ExChdAdaUnboundedStringType >> adaUnboundedStringTypeFromValues: values [
+
 	| valuesloc |
 	valuesloc := values asOrderedCollection.
 	^ valuesloc
@@ -121,6 +135,7 @@ ExChdAdaUnboundedStringType >> adaUnboundedStringTypeFromValues: values [
 
 { #category : 'platypus-generated-group-accessing' }
 ExChdAdaUnboundedStringType >> adaUnboundedStringTypeToValues: values [
+
 	^ values
 
 
@@ -128,6 +143,7 @@ ExChdAdaUnboundedStringType >> adaUnboundedStringTypeToValues: values [
 
 { #category : 'platypus-generated-deriving' }
 ExChdAdaUnboundedStringType >> adbInterfacesList [
+
 	^ self adbInterfacesListUsingContext: self class context
 
 
@@ -135,6 +151,7 @@ ExChdAdaUnboundedStringType >> adbInterfacesList [
 
 { #category : 'platypus-generated-deriving' }
 ExChdAdaUnboundedStringType >> adbInterfacesListUsingContext: aContext [
+
 	^ self adbInterfacesListUsingContext: aContext receiver: self
 
 
@@ -142,36 +159,33 @@ ExChdAdaUnboundedStringType >> adbInterfacesListUsingContext: aContext [
 
 { #category : 'platypus-generated-deriving' }
 ExChdAdaUnboundedStringType >> adbInterfacesListUsingContext: aContext receiver: aReceiver [
-	^ PlatypusCoreAggregateInitializer
-		collectionFrom:
-			(OrderedCollection new
-				add:
-						(ExChdAdaInterface new
-								adaInterfaceFromValues:
-										(OrderedCollection new
-												add: 'Text_io';
-												add: nil;
-												add: true;
-												add: true;
-												yourself);
-								yourself);
-				add:
-						(ExChdAdaInterface new
-								adaInterfaceFromValues:
-										(OrderedCollection new
-												add: 'primitive_xml_strings';
-												add: nil;
-												add: true;
-												add: true;
-												yourself);
-								yourself);
-				yourself)
+
+	^ PlatypusCoreAggregateInitializer collectionFrom:
+		  (OrderedCollection new
+			   add: (ExChdAdaInterface new
+					    adaInterfaceFromValues: (OrderedCollection new
+							     add: 'Text_io';
+							     add: nil;
+							     add: true;
+							     add: true;
+							     yourself);
+					    yourself);
+			   add: (ExChdAdaInterface new
+					    adaInterfaceFromValues: (OrderedCollection new
+							     add: 'primitive_xml_strings';
+							     add: nil;
+							     add: true;
+							     add: true;
+							     yourself);
+					    yourself);
+			   yourself)
 
 
 ]
 
 { #category : 'platypus-generated-deriving' }
 ExChdAdaUnboundedStringType >> adsInterfacesList [
+
 	^ self adsInterfacesListUsingContext: self class context
 
 
@@ -179,6 +193,7 @@ ExChdAdaUnboundedStringType >> adsInterfacesList [
 
 { #category : 'platypus-generated-deriving' }
 ExChdAdaUnboundedStringType >> adsInterfacesListUsingContext: aContext [
+
 	^ self adsInterfacesListUsingContext: aContext receiver: self
 
 
@@ -186,66 +201,57 @@ ExChdAdaUnboundedStringType >> adsInterfacesListUsingContext: aContext [
 
 { #category : 'platypus-generated-deriving' }
 ExChdAdaUnboundedStringType >> adsInterfacesListUsingContext: aContext receiver: aReceiver [
-	^ PlatypusCoreAggregateInitializer
-		collectionFrom:
-			(OrderedCollection new
-				add:
-						(ExChdAdaInterface new
-								adaInterfaceFromValues:
-										(OrderedCollection new
-												add: 'ada.strings';
-												add: 'unbounded.text_io';
-												add: true;
-												add: true;
-												yourself);
-								yourself);
-				add:
-						(ExChdAdaInterface new
-								adaInterfaceFromValues:
-										(OrderedCollection new
-												add: 'Text_io';
-												add: nil;
-												add: true;
-												add: true;
-												yourself);
-								yourself);
-				add:
-						(ExChdAdaInterface new
-								adaInterfaceFromValues:
-										(OrderedCollection new
-												add: 'Unbounded_Strings';
-												add: nil;
-												add: true;
-												add: true;
-												yourself);
-								yourself);
-				add:
-						(ExChdAdaInterface new
-								adaInterfaceFromValues:
-										(OrderedCollection new
-												add: 'Convert_Strings';
-												add: nil;
-												add: true;
-												add: false;
-												yourself);
-								yourself);
-				add:
-						(ExChdAdaInterface new
-								adaInterfaceFromValues:
-										(OrderedCollection new
-												add: 'Convert_Unbounded_Strings';
-												add: nil;
-												add: true;
-												add: false;
-												yourself);
-								yourself);
-				yourself)
+
+	^ PlatypusCoreAggregateInitializer collectionFrom:
+		  (OrderedCollection new
+			   add: (ExChdAdaInterface new
+					    adaInterfaceFromValues: (OrderedCollection new
+							     add: 'ada.strings';
+							     add: 'unbounded.text_io';
+							     add: true;
+							     add: true;
+							     yourself);
+					    yourself);
+			   add: (ExChdAdaInterface new
+					    adaInterfaceFromValues: (OrderedCollection new
+							     add: 'Text_io';
+							     add: nil;
+							     add: true;
+							     add: true;
+							     yourself);
+					    yourself);
+			   add: (ExChdAdaInterface new
+					    adaInterfaceFromValues: (OrderedCollection new
+							     add: 'Unbounded_Strings';
+							     add: nil;
+							     add: true;
+							     add: true;
+							     yourself);
+					    yourself);
+			   add: (ExChdAdaInterface new
+					    adaInterfaceFromValues: (OrderedCollection new
+							     add: 'Convert_Strings';
+							     add: nil;
+							     add: true;
+							     add: false;
+							     yourself);
+					    yourself);
+			   add: (ExChdAdaInterface new
+					    adaInterfaceFromValues: (OrderedCollection new
+							     add: 'Convert_Unbounded_Strings';
+							     add: nil;
+							     add: true;
+							     add: false;
+							     yourself);
+					    yourself);
+			   yourself)
 
 
 ]
 
 { #category : 'platypus-generated-group-accessing' }
 ExChdAdaUnboundedStringType >> fromValues: values [
+
 	^ self adaUnboundedStringTypeFromValues: (super fromValues: values)
 
 
@@ -253,6 +259,7 @@ ExChdAdaUnboundedStringType >> fromValues: values [
 
 { #category : 'platypus-generated-deriving' }
 ExChdAdaUnboundedStringType >> initValue [
+
 	^ self initValueUsingContext: self class context
 
 
@@ -260,6 +267,7 @@ ExChdAdaUnboundedStringType >> initValue [
 
 { #category : 'platypus-generated-deriving' }
 ExChdAdaUnboundedStringType >> initValueUsingContext: aContext [
+
 	^ self initValueUsingContext: aContext receiver: self
 
 
@@ -267,6 +275,7 @@ ExChdAdaUnboundedStringType >> initValueUsingContext: aContext [
 
 { #category : 'platypus-generated-deriving' }
 ExChdAdaUnboundedStringType >> initValueUsingContext: aContext receiver: aReceiver [
+
 	^ 'empty_string'
 
 
@@ -274,6 +283,7 @@ ExChdAdaUnboundedStringType >> initValueUsingContext: aContext receiver: aReceiv
 
 { #category : 'platypus-generated-classifying' }
 ExChdAdaUnboundedStringType >> isExChdAdaUnboundedStringType [
+
 	^ true
 
 
@@ -281,6 +291,7 @@ ExChdAdaUnboundedStringType >> isExChdAdaUnboundedStringType [
 
 { #category : 'platypus-generated-group-accessing' }
 ExChdAdaUnboundedStringType >> localFromValues: values [
+
 	^ self adaUnboundedStringTypeFromValues: values
 
 
@@ -288,6 +299,7 @@ ExChdAdaUnboundedStringType >> localFromValues: values [
 
 { #category : 'platypus-generated-group-accessing' }
 ExChdAdaUnboundedStringType >> localToValues: values [
+
 	^ self adaUnboundedStringTypeToValues: values
 
 
@@ -295,6 +307,7 @@ ExChdAdaUnboundedStringType >> localToValues: values [
 
 { #category : 'platypus-generated-copying' }
 ExChdAdaUnboundedStringType >> pltCopyGroup: aClassSymbol to: anObject [
+
 	self class name == aClassSymbol
 		ifTrue: [ self pltCopyTo: anObject ]
 		ifFalse: [ super pltCopyGroup: aClassSymbol to: anObject ]
@@ -304,6 +317,7 @@ ExChdAdaUnboundedStringType >> pltCopyGroup: aClassSymbol to: anObject [
 
 { #category : 'platypus-generated-copying' }
 ExChdAdaUnboundedStringType >> pltCopyTo: another [
+
 	super pltCopyTo: another.
 	self adaUnboundedStringTypeCopyTo: another
 
@@ -312,6 +326,7 @@ ExChdAdaUnboundedStringType >> pltCopyTo: another [
 
 { #category : 'platypus-generated-copying' }
 ExChdAdaUnboundedStringType >> pltLocalCopyTo: another [
+
 	self adaUnboundedStringTypeCopyTo: another
 
 
@@ -319,6 +334,7 @@ ExChdAdaUnboundedStringType >> pltLocalCopyTo: another [
 
 { #category : 'platypus-generated-initializing' }
 ExChdAdaUnboundedStringType >> stepInitialize [
+
 	super stepInitialize
 
 
@@ -326,6 +342,7 @@ ExChdAdaUnboundedStringType >> stepInitialize [
 
 { #category : 'platypus-generated-group-accessing' }
 ExChdAdaUnboundedStringType >> toValues: values [
+
 	^ self adaUnboundedStringTypeToValues: (super toValues: values)
 
 

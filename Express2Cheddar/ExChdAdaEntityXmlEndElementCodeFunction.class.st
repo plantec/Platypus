@@ -24,6 +24,7 @@ Class {
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdAdaEntityXmlEndElementCodeFunction class >> iso10303P11Translater [
+
 	^ 'Platypus (c) LISYC EA3883, Universite de Bretagne occidentale. Brest.'
 
 
@@ -31,6 +32,7 @@ ExChdAdaEntityXmlEndElementCodeFunction class >> iso10303P11Translater [
 
 { #category : 'platypus-generated-meta-data-accessing' }
 ExChdAdaEntityXmlEndElementCodeFunction class >> schemaDefinition [
+
 	^ ExChdRecordAndClassSchemaDefinition singleton
 
 
@@ -38,6 +40,7 @@ ExChdAdaEntityXmlEndElementCodeFunction class >> schemaDefinition [
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdAdaEntityXmlEndElementCodeFunction class >> translatedFromISO10303P11 [
+
 	^ true
 
 
@@ -45,6 +48,7 @@ ExChdAdaEntityXmlEndElementCodeFunction class >> translatedFromISO10303P11 [
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdAdaEntityXmlEndElementCodeFunction class >> vwNamespaceName [
+
 	^ #Express2Cheddar
 
 
@@ -52,6 +56,7 @@ ExChdAdaEntityXmlEndElementCodeFunction class >> vwNamespaceName [
 
 { #category : 'platypus-generated-accessing' }
 ExChdAdaEntityXmlEndElementCodeFunction >> cip [
+
 	^ cip
 
 
@@ -59,6 +64,7 @@ ExChdAdaEntityXmlEndElementCodeFunction >> cip [
 
 { #category : 'platypus-generated-accessing' }
 ExChdAdaEntityXmlEndElementCodeFunction >> cip: aExChdAdaEntity [
+
 	cip := aExChdAdaEntity
 
 
@@ -66,6 +72,7 @@ ExChdAdaEntityXmlEndElementCodeFunction >> cip: aExChdAdaEntity [
 
 { #category : 'platypus-generated-accessing' }
 ExChdAdaEntityXmlEndElementCodeFunction >> fromValues: values [
+
 	self cip: (values at: 1)
 
 
@@ -73,23 +80,23 @@ ExChdAdaEntityXmlEndElementCodeFunction >> fromValues: values [
 
 { #category : 'platypus-generated-invoking' }
 ExChdAdaEntityXmlEndElementCodeFunction >> invoke [
-	" ---------- locals assignments ----------"
+	" ---------- locals assignments ----------"" ---------- statements ----------"
 
-	" ---------- statements ----------"
-
-	^ self
-		return:
-			((((((((('\nprocedure End_Element(\n' pltPlus: '\tHandler : in out Xml_generic_parser;\n') pltPlus: '\tobj : in out ')
-				pltPlus: (self cip nameUsingContext: self class context)) pltPlus: '_io;\n')
-				pltPlus: '\tNamespace_Uri : Unicode.CES.Byte_Sequence := "";\n')
-				pltPlus: '\tLocal_Name    : Unicode.CES.Byte_Sequence := "";\n')
-				pltPlus: '\tQname : Unicode.CES.Byte_Sequence := "") is \nbegin\n')
-				pltPlus:
-					(ExChdAdaEntityAttributesXmlEndElementCodeFunction
-						invokeFromValues:
-							(OrderedCollection new
-								add: self cip;
-								yourself))) pltPlus: '\nend End_Element;\n')
+	^ self return: ((((((((('\nprocedure End_Element(\n' pltPlus:
+			           '\tHandler : in out Xml_generic_parser;\n') pltPlus:
+			          '\tobj : in out ') pltPlus:
+			         (self cip nameUsingContext: self class context)) pltPlus:
+			        '_io;\n') pltPlus:
+			       '\tNamespace_Uri : Unicode.CES.Byte_Sequence := "";\n')
+			      pltPlus:
+			      '\tLocal_Name    : Unicode.CES.Byte_Sequence := "";\n')
+			     pltPlus:
+			     '\tQname : Unicode.CES.Byte_Sequence := "") is \nbegin\n')
+			    pltPlus:
+				    (ExChdAdaEntityAttributesXmlEndElementCodeFunction
+					     invokeFromValues: (OrderedCollection new
+							      add: self cip;
+							      yourself))) pltPlus: '\nend End_Element;\n')
 
 
 ]

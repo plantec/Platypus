@@ -31,6 +31,7 @@ Class {
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdGenericPackageInstanciationAttributesAdsCodeFunction class >> iso10303P11Translater [
+
 	^ 'Platypus (c) LISYC EA3883, Universite de Bretagne occidentale. Brest.'
 
 
@@ -38,6 +39,7 @@ ExChdGenericPackageInstanciationAttributesAdsCodeFunction class >> iso10303P11Tr
 
 { #category : 'platypus-generated-meta-data-accessing' }
 ExChdGenericPackageInstanciationAttributesAdsCodeFunction class >> schemaDefinition [
+
 	^ ExChdPackageSchemaDefinition singleton
 
 
@@ -45,6 +47,7 @@ ExChdGenericPackageInstanciationAttributesAdsCodeFunction class >> schemaDefinit
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdGenericPackageInstanciationAttributesAdsCodeFunction class >> translatedFromISO10303P11 [
+
 	^ true
 
 
@@ -52,6 +55,7 @@ ExChdGenericPackageInstanciationAttributesAdsCodeFunction class >> translatedFro
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdGenericPackageInstanciationAttributesAdsCodeFunction class >> vwNamespaceName [
+
 	^ #Express2Cheddar
 
 
@@ -59,6 +63,7 @@ ExChdGenericPackageInstanciationAttributesAdsCodeFunction class >> vwNamespaceNa
 
 { #category : 'platypus-generated-accessing' }
 ExChdGenericPackageInstanciationAttributesAdsCodeFunction >> aliases [
+
 	^ aliases
 
 
@@ -66,15 +71,18 @@ ExChdGenericPackageInstanciationAttributesAdsCodeFunction >> aliases [
 
 { #category : 'platypus-generated-accessing' }
 ExChdGenericPackageInstanciationAttributesAdsCodeFunction >> aliases: aListOfExChdCheddarDefinedType [
+
 	aliases := aListOfExChdCheddarDefinedType
-		ifNil: [ OrderedCollection new ]
-		ifNotNil: [ aListOfExChdCheddarDefinedType as: OrderedCollection ]
+		           ifNil: [ OrderedCollection new ]
+		           ifNotNil: [
+		           aListOfExChdCheddarDefinedType as: OrderedCollection ]
 
 
 ]
 
 { #category : 'platypus-generated-accessing' }
 ExChdGenericPackageInstanciationAttributesAdsCodeFunction >> e [
+
 	^ e
 
 
@@ -82,6 +90,7 @@ ExChdGenericPackageInstanciationAttributesAdsCodeFunction >> e [
 
 { #category : 'platypus-generated-accessing' }
 ExChdGenericPackageInstanciationAttributesAdsCodeFunction >> e: aExChdGenericPackageInstanciation [
+
 	e := aExChdGenericPackageInstanciation
 
 
@@ -89,6 +98,7 @@ ExChdGenericPackageInstanciationAttributesAdsCodeFunction >> e: aExChdGenericPac
 
 { #category : 'platypus-generated-accessing' }
 ExChdGenericPackageInstanciationAttributesAdsCodeFunction >> fromValues: values [
+
 	self e: (values at: 1)
 
 
@@ -99,24 +109,22 @@ ExChdGenericPackageInstanciationAttributesAdsCodeFunction >> invoke [
 	" ---------- locals assignments ----------"
 
 	self result: ''.
-	self aliases: (self e aliasesUsingContext: self class context).	" ---------- statements ----------"
+	self aliases: (self e aliasesUsingContext: self class context). " ---------- statements ----------"
 	PlatypusCoreRepeatStatement
-		repeat: [ :no1862 | 
-			PlatypusCoreAliasStatement
-				alias: ((self e aliasesUsingContext: self class context) pltAt: no1862)
-				statementsBlock: [ :attr3809 | self result: (self result pltPlus: (attr3809 adsCodeUsingContext: self class context)) ] ]
-		from:
-			(PltLOINDEXFunction
-				invokeFromValues:
-					(OrderedCollection new
-						add: self aliases;
-						yourself))
-		to:
-			(PltHIINDEXFunction
-				invokeFromValues:
-					(OrderedCollection new
-						add: self aliases;
-						yourself)).
+		repeat: [ :no2669393 |
+				PlatypusCoreAliasStatement
+					alias:
+					((self e aliasesUsingContext: self class context) pltAt:
+						 no2669393)
+					statementsBlock: [ :attr2223071 |
+							self result: (self result pltPlus:
+									 (attr2223071 adsCodeUsingContext: self class context)) ] ]
+		from: (PltLOINDEXFunction invokeFromValues: (OrderedCollection new
+					  add: self aliases;
+					  yourself))
+		to: (PltHIINDEXFunction invokeFromValues: (OrderedCollection new
+					  add: self aliases;
+					  yourself)).
 	^ self return: self result
 
 
@@ -124,6 +132,7 @@ ExChdGenericPackageInstanciationAttributesAdsCodeFunction >> invoke [
 
 { #category : 'platypus-generated-accessing' }
 ExChdGenericPackageInstanciationAttributesAdsCodeFunction >> result [
+
 	^ result
 
 
@@ -131,6 +140,7 @@ ExChdGenericPackageInstanciationAttributesAdsCodeFunction >> result [
 
 { #category : 'platypus-generated-accessing' }
 ExChdGenericPackageInstanciationAttributesAdsCodeFunction >> result: aString [
+
 	result := aString
 
 

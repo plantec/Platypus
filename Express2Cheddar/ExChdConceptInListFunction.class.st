@@ -30,6 +30,7 @@ Class {
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdConceptInListFunction class >> iso10303P11Translater [
+
 	^ 'Platypus (c) LISYC EA3883, Universite de Bretagne occidentale. Brest.'
 
 
@@ -37,6 +38,7 @@ ExChdConceptInListFunction class >> iso10303P11Translater [
 
 { #category : 'platypus-generated-meta-data-accessing' }
 ExChdConceptInListFunction class >> schemaDefinition [
+
 	^ ExChdPackageSchemaDefinition singleton
 
 
@@ -44,6 +46,7 @@ ExChdConceptInListFunction class >> schemaDefinition [
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdConceptInListFunction class >> translatedFromISO10303P11 [
+
 	^ true
 
 
@@ -51,6 +54,7 @@ ExChdConceptInListFunction class >> translatedFromISO10303P11 [
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdConceptInListFunction class >> vwNamespaceName [
+
 	^ #Express2Cheddar
 
 
@@ -58,6 +62,7 @@ ExChdConceptInListFunction class >> vwNamespaceName [
 
 { #category : 'platypus-generated-accessing' }
 ExChdConceptInListFunction >> c [
+
 	^ c
 
 
@@ -65,6 +70,7 @@ ExChdConceptInListFunction >> c [
 
 { #category : 'platypus-generated-accessing' }
 ExChdConceptInListFunction >> c: aExChdDictionaryInstance [
+
 	c := aExChdDictionaryInstance
 
 
@@ -72,6 +78,7 @@ ExChdConceptInListFunction >> c: aExChdDictionaryInstance [
 
 { #category : 'platypus-generated-accessing' }
 ExChdConceptInListFunction >> c: aExChdDictionaryInstance l: aListOfExChdDictionaryInstance [
+
 	self c: aExChdDictionaryInstance.
 	self l: aListOfExChdDictionaryInstance
 
@@ -80,6 +87,7 @@ ExChdConceptInListFunction >> c: aExChdDictionaryInstance l: aListOfExChdDiction
 
 { #category : 'platypus-generated-accessing' }
 ExChdConceptInListFunction >> fromValues: values [
+
 	self c: (values at: 1).
 	self l: (values at: 2)
 
@@ -90,33 +98,23 @@ ExChdConceptInListFunction >> fromValues: values [
 ExChdConceptInListFunction >> invoke [
 	" ---------- locals assignments ----------"
 
-	self
-		key:
-			(PTsUpperizeFunction
-				invokeFromValues:
-					(OrderedCollection new
-						add: (self c nameUsingContext: self class context);
-						yourself)).	" ---------- statements ----------"
+	self key:
+		(PTsUpperizeFunction invokeFromValues: (OrderedCollection new
+				  add: (self c nameUsingContext: self class context);
+				  yourself)). " ---------- statements ----------"
 	PlatypusCoreRepeatStatement
-		repeat: [ :no1795 | 
-			(PTsUpperizeFunction
-				invokeFromValues:
-					(OrderedCollection new
-						add: ((self l pltAt: no1795) nameUsingContext: self class context);
-						yourself)) = self key
-				ifTrue: [ ^ self return: true ] ]
-		from:
-			(PltLOINDEXFunction
-				invokeFromValues:
-					(OrderedCollection new
-						add: self l;
-						yourself))
-		to:
-			(PltHIINDEXFunction
-				invokeFromValues:
-					(OrderedCollection new
-						add: self l;
-						yourself)).
+		repeat: [ :no3955919 |
+				(PTsUpperizeFunction invokeFromValues: (OrderedCollection new
+						  add:
+							  ((self l pltAt: no3955919) nameUsingContext:
+									   self class context);
+						  yourself)) = self key ifTrue: [ ^ self return: true ] ]
+		from: (PltLOINDEXFunction invokeFromValues: (OrderedCollection new
+					  add: self l;
+					  yourself))
+		to: (PltHIINDEXFunction invokeFromValues: (OrderedCollection new
+					  add: self l;
+					  yourself)).
 	^ self return: false
 
 
@@ -124,6 +122,7 @@ ExChdConceptInListFunction >> invoke [
 
 { #category : 'platypus-generated-accessing' }
 ExChdConceptInListFunction >> key [
+
 	^ key
 
 
@@ -131,6 +130,7 @@ ExChdConceptInListFunction >> key [
 
 { #category : 'platypus-generated-accessing' }
 ExChdConceptInListFunction >> key: aString [
+
 	key := aString
 
 
@@ -138,6 +138,7 @@ ExChdConceptInListFunction >> key: aString [
 
 { #category : 'platypus-generated-accessing' }
 ExChdConceptInListFunction >> l [
+
 	^ l
 
 
@@ -145,9 +146,11 @@ ExChdConceptInListFunction >> l [
 
 { #category : 'platypus-generated-accessing' }
 ExChdConceptInListFunction >> l: aListOfExChdDictionaryInstance [
+
 	l := aListOfExChdDictionaryInstance
-		ifNil: [ OrderedCollection new ]
-		ifNotNil: [ aListOfExChdDictionaryInstance as: OrderedCollection ]
+		     ifNil: [ OrderedCollection new ]
+		     ifNotNil: [
+		     aListOfExChdDictionaryInstance as: OrderedCollection ]
 
 
 ]

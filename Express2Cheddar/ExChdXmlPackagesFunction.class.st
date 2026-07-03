@@ -15,6 +15,7 @@ Class {
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdXmlPackagesFunction class >> iso10303P11Translater [
+
 	^ 'Platypus (c) LISYC EA3883, Universite de Bretagne occidentale. Brest.'
 
 
@@ -22,6 +23,7 @@ ExChdXmlPackagesFunction class >> iso10303P11Translater [
 
 { #category : 'platypus-generated-meta-data-accessing' }
 ExChdXmlPackagesFunction class >> schemaDefinition [
+
 	^ ExChdCheddarDtdSchemaDefinition singleton
 
 
@@ -29,6 +31,7 @@ ExChdXmlPackagesFunction class >> schemaDefinition [
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdXmlPackagesFunction class >> translatedFromISO10303P11 [
+
 	^ true
 
 
@@ -36,6 +39,7 @@ ExChdXmlPackagesFunction class >> translatedFromISO10303P11 [
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdXmlPackagesFunction class >> vwNamespaceName [
+
 	^ #Express2Cheddar
 
 
@@ -43,23 +47,15 @@ ExChdXmlPackagesFunction class >> vwNamespaceName [
 
 { #category : 'platypus-generated-invoking' }
 ExChdXmlPackagesFunction >> invoke [
-	" ---------- locals assignments ----------"
+	" ---------- locals assignments ----------"" ---------- statements ----------"
 
-	" ---------- statements ----------"
-
-	^ self
-		return:
-			((PTsSetToListFunction
-				invokeFromValues:
-					(OrderedCollection new
-						add: ExChdAllAdaPackagesFunction invoke;
-						yourself))
-				select: [ :p2927 | 
-					(PltSIZEOFFunction
-						invokeFromValues:
-							(OrderedCollection new
-								add: (p2927 xmlRootTagsUsingContext: self class context);
-								yourself)) > 0 ])
+	^ self return:
+		  ((PTsSetToListFunction invokeFromValues: (OrderedCollection new
+				     add: ExChdAllAdaPackagesFunction invoke;
+				     yourself)) select: [ :p3864107 |
+				   (PltSIZEOFFunction invokeFromValues: (OrderedCollection new
+						     add: (p3864107 xmlRootTagsUsingContext: self class context);
+						     yourself)) > 0 ])
 
 
 ]

@@ -15,6 +15,7 @@ Class {
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdAdaClassDtdElement class >> iso10303P11Translater [
+
 	^ 'Platypus (c) LISYC EA3883, Universite de Bretagne occidentale. Brest.'
 
 
@@ -22,6 +23,7 @@ ExChdAdaClassDtdElement class >> iso10303P11Translater [
 
 { #category : 'platypus-generated-meta-data-accessing' }
 ExChdAdaClassDtdElement class >> schemaDefinition [
+
 	^ ExChdCheddarDtdSchemaDefinition singleton
 
 
@@ -29,6 +31,7 @@ ExChdAdaClassDtdElement class >> schemaDefinition [
 
 { #category : 'platypus-generated-meta-data-accessing' }
 ExChdAdaClassDtdElement class >> schemaInstance [
+
 	^ ExChdExpress2cheddarSchemaInstance singleton
 
 
@@ -36,6 +39,7 @@ ExChdAdaClassDtdElement class >> schemaInstance [
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdAdaClassDtdElement class >> translatedFromISO10303P11 [
+
 	^ true
 
 
@@ -43,6 +47,7 @@ ExChdAdaClassDtdElement class >> translatedFromISO10303P11 [
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdAdaClassDtdElement class >> vwNamespaceName [
+
 	^ #Express2Cheddar
 
 
@@ -50,6 +55,7 @@ ExChdAdaClassDtdElement class >> vwNamespaceName [
 
 { #category : 'platypus-generated-visiting' }
 ExChdAdaClassDtdElement >> accept: aVisitor [
+
 	^ aVisitor acceptAdaClassDtdElement: self
 
 
@@ -57,6 +63,7 @@ ExChdAdaClassDtdElement >> accept: aVisitor [
 
 { #category : 'platypus-generated-copying' }
 ExChdAdaClassDtdElement >> adaClassDtdElementCopyTo: another [
+
 	
 
 
@@ -64,6 +71,7 @@ ExChdAdaClassDtdElement >> adaClassDtdElementCopyTo: another [
 
 { #category : 'platypus-generated-group-accessing' }
 ExChdAdaClassDtdElement >> adaClassDtdElementFromValues: values [
+
 	| valuesloc |
 	valuesloc := values asOrderedCollection.
 	^ valuesloc
@@ -73,6 +81,7 @@ ExChdAdaClassDtdElement >> adaClassDtdElementFromValues: values [
 
 { #category : 'platypus-generated-group-accessing' }
 ExChdAdaClassDtdElement >> adaClassDtdElementToValues: values [
+
 	^ values
 
 
@@ -80,6 +89,7 @@ ExChdAdaClassDtdElement >> adaClassDtdElementToValues: values [
 
 { #category : 'platypus-generated-group-accessing' }
 ExChdAdaClassDtdElement >> fromValues: values [
+
 	^ self adaClassDtdElementFromValues: (super fromValues: values)
 
 
@@ -87,6 +97,7 @@ ExChdAdaClassDtdElement >> fromValues: values [
 
 { #category : 'platypus-generated-classifying' }
 ExChdAdaClassDtdElement >> isExChdAdaClassDtdElement [
+
 	^ true
 
 
@@ -94,6 +105,7 @@ ExChdAdaClassDtdElement >> isExChdAdaClassDtdElement [
 
 { #category : 'platypus-generated-group-accessing' }
 ExChdAdaClassDtdElement >> localFromValues: values [
+
 	^ self adaClassDtdElementFromValues: values
 
 
@@ -101,6 +113,7 @@ ExChdAdaClassDtdElement >> localFromValues: values [
 
 { #category : 'platypus-generated-group-accessing' }
 ExChdAdaClassDtdElement >> localToValues: values [
+
 	^ self adaClassDtdElementToValues: values
 
 
@@ -108,6 +121,7 @@ ExChdAdaClassDtdElement >> localToValues: values [
 
 { #category : 'platypus-generated-copying' }
 ExChdAdaClassDtdElement >> pltCopyGroup: aClassSymbol to: anObject [
+
 	self class name == aClassSymbol
 		ifTrue: [ self pltCopyTo: anObject ]
 		ifFalse: [ super pltCopyGroup: aClassSymbol to: anObject ]
@@ -117,6 +131,7 @@ ExChdAdaClassDtdElement >> pltCopyGroup: aClassSymbol to: anObject [
 
 { #category : 'platypus-generated-copying' }
 ExChdAdaClassDtdElement >> pltCopyTo: another [
+
 	super pltCopyTo: another.
 	self adaClassDtdElementCopyTo: another
 
@@ -125,6 +140,7 @@ ExChdAdaClassDtdElement >> pltCopyTo: another [
 
 { #category : 'platypus-generated-copying' }
 ExChdAdaClassDtdElement >> pltLocalCopyTo: another [
+
 	self adaClassDtdElementCopyTo: another
 
 
@@ -132,6 +148,7 @@ ExChdAdaClassDtdElement >> pltLocalCopyTo: another [
 
 { #category : 'platypus-generated-initializing' }
 ExChdAdaClassDtdElement >> stepInitialize [
+
 	super stepInitialize
 
 
@@ -139,6 +156,7 @@ ExChdAdaClassDtdElement >> stepInitialize [
 
 { #category : 'platypus-generated-group-accessing' }
 ExChdAdaClassDtdElement >> toValues: values [
+
 	^ self adaClassDtdElementToValues: (super toValues: values)
 
 

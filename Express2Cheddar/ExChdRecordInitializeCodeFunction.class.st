@@ -44,6 +44,7 @@ Class {
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdRecordInitializeCodeFunction class >> iso10303P11Translater [
+
 	^ 'Platypus (c) LISYC EA3883, Universite de Bretagne occidentale. Brest.'
 
 
@@ -51,6 +52,7 @@ ExChdRecordInitializeCodeFunction class >> iso10303P11Translater [
 
 { #category : 'platypus-generated-meta-data-accessing' }
 ExChdRecordInitializeCodeFunction class >> schemaDefinition [
+
 	^ ExChdRecordAndClassSchemaDefinition singleton
 
 
@@ -58,6 +60,7 @@ ExChdRecordInitializeCodeFunction class >> schemaDefinition [
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdRecordInitializeCodeFunction class >> translatedFromISO10303P11 [
+
 	^ true
 
 
@@ -65,6 +68,7 @@ ExChdRecordInitializeCodeFunction class >> translatedFromISO10303P11 [
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdRecordInitializeCodeFunction class >> vwNamespaceName [
+
 	^ #Express2Cheddar
 
 
@@ -72,6 +76,7 @@ ExChdRecordInitializeCodeFunction class >> vwNamespaceName [
 
 { #category : 'platypus-generated-accessing' }
 ExChdRecordInitializeCodeFunction >> attrs [
+
 	^ attrs
 
 
@@ -79,15 +84,17 @@ ExChdRecordInitializeCodeFunction >> attrs [
 
 { #category : 'platypus-generated-accessing' }
 ExChdRecordInitializeCodeFunction >> attrs: aListOfExChdAttribute [
+
 	attrs := aListOfExChdAttribute
-		ifNil: [ OrderedCollection new ]
-		ifNotNil: [ aListOfExChdAttribute as: OrderedCollection ]
+		         ifNil: [ OrderedCollection new ]
+		         ifNotNil: [ aListOfExChdAttribute as: OrderedCollection ]
 
 
 ]
 
 { #category : 'platypus-generated-accessing' }
 ExChdRecordInitializeCodeFunction >> code [
+
 	^ code
 
 
@@ -95,6 +102,7 @@ ExChdRecordInitializeCodeFunction >> code [
 
 { #category : 'platypus-generated-accessing' }
 ExChdRecordInitializeCodeFunction >> code: aString [
+
 	code := aString
 
 
@@ -102,6 +110,7 @@ ExChdRecordInitializeCodeFunction >> code: aString [
 
 { #category : 'platypus-generated-accessing' }
 ExChdRecordInitializeCodeFunction >> fromValues: values [
+
 	self rec: (values at: 1)
 
 
@@ -109,6 +118,7 @@ ExChdRecordInitializeCodeFunction >> fromValues: values [
 
 { #category : 'platypus-generated-accessing' }
 ExChdRecordInitializeCodeFunction >> init [
+
 	^ init
 
 
@@ -116,6 +126,7 @@ ExChdRecordInitializeCodeFunction >> init [
 
 { #category : 'platypus-generated-accessing' }
 ExChdRecordInitializeCodeFunction >> init: aString2 [
+
 	init := aString2
 
 
@@ -123,6 +134,7 @@ ExChdRecordInitializeCodeFunction >> init: aString2 [
 
 { #category : 'platypus-generated-accessing' }
 ExChdRecordInitializeCodeFunction >> innerCode [
+
 	^ innerCode
 
 
@@ -130,6 +142,7 @@ ExChdRecordInitializeCodeFunction >> innerCode [
 
 { #category : 'platypus-generated-accessing' }
 ExChdRecordInitializeCodeFunction >> innerCode: aString1 [
+
 	innerCode := aString1
 
 
@@ -139,44 +152,39 @@ ExChdRecordInitializeCodeFunction >> innerCode: aString1 [
 ExChdRecordInitializeCodeFunction >> invoke [
 	" ---------- locals assignments ----------"
 
-	self innerCode: ''.	" ---------- statements ----------"
-	self
-		code:
-			(('\nprocedure Initialize(obj : out ' pltPlus: (self rec nameUsingContext: self class context))
-				pltPlus: ') is \nbegin\n').
+	self innerCode: ''. " ---------- statements ----------"
+	self code: (('\nprocedure Initialize(obj : out ' pltPlus:
+			  (self rec nameUsingContext: self class context)) pltPlus:
+			 ') is \nbegin\n').
 	PlatypusCoreRepeatStatement
-		repeat: [ :no1681 | 
-			PlatypusCoreAliasStatement
-				alias: ((self rec explicitAttributesUsingContext: self class context) pltAt: no1681)
-				statementsBlock: [ :attr3637 | 
-					self
-						init:
-							(ExChdExplicitAttributeInitializeFunction
-								invokeFromValues:
-									(OrderedCollection new
-										add: attr3637;
-										yourself)).
-					((PltEXISTSFunction
-						invokeFromValues:
-							(OrderedCollection new
-								add: self init;
-								yourself)) and: [ self init > '' ])
-						ifTrue: [ self innerCode: (((self innerCode pltPlus: '\t') pltPlus: self init) pltPlus: '\n') ] ] ]
-		from:
-			(PltLOINDEXFunction
-				invokeFromValues:
-					(OrderedCollection new
-						add: (self rec explicitAttributesUsingContext: self class context);
-						yourself))
-		to:
-			(PltHIINDEXFunction
-				invokeFromValues:
-					(OrderedCollection new
-						add: (self rec explicitAttributesUsingContext: self class context);
-						yourself)).
-	self innerCode = ''
-		ifTrue: [ self innerCode: '\tnull;\n' ].
-	self code: ((self code pltPlus: self innerCode) pltPlus: 'end Initialize;\n').
+		repeat: [ :no3605951 |
+				PlatypusCoreAliasStatement
+					alias:
+						((self rec explicitAttributesUsingContext: self class context)
+							 pltAt: no3605951)
+					statementsBlock: [ :attr1730465 |
+							self init:
+								(ExChdExplicitAttributeInitializeFunction invokeFromValues:
+									 (OrderedCollection new
+										  add: attr1730465;
+										  yourself)).
+							((PltEXISTSFunction invokeFromValues: (OrderedCollection new
+									   add: self init;
+									   yourself)) and: [ self init > '' ]) ifTrue: [
+									self innerCode:
+										(((self innerCode pltPlus: '\t') pltPlus: self init)
+											 pltPlus: '\n') ] ] ]
+		from: (PltLOINDEXFunction invokeFromValues: (OrderedCollection new
+					  add:
+						  (self rec explicitAttributesUsingContext: self class context);
+					  yourself))
+		to: (PltHIINDEXFunction invokeFromValues: (OrderedCollection new
+					  add:
+						  (self rec explicitAttributesUsingContext: self class context);
+					  yourself)).
+	self innerCode = '' ifTrue: [ self innerCode: '\tnull;\n' ].
+	self code:
+		((self code pltPlus: self innerCode) pltPlus: 'end Initialize;\n').
 	^ self return: self code
 
 
@@ -184,6 +192,7 @@ ExChdRecordInitializeCodeFunction >> invoke [
 
 { #category : 'platypus-generated-accessing' }
 ExChdRecordInitializeCodeFunction >> rec [
+
 	^ rec
 
 
@@ -191,6 +200,7 @@ ExChdRecordInitializeCodeFunction >> rec [
 
 { #category : 'platypus-generated-accessing' }
 ExChdRecordInitializeCodeFunction >> rec: aExChdRecord [
+
 	rec := aExChdRecord
 
 

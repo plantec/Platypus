@@ -23,6 +23,7 @@ Class {
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdEntityDtdElement class >> iso10303P11Translater [
+
 	^ 'Platypus (c) LISYC EA3883, Universite de Bretagne occidentale. Brest.'
 
 
@@ -30,6 +31,7 @@ ExChdEntityDtdElement class >> iso10303P11Translater [
 
 { #category : 'platypus-generated-meta-data-accessing' }
 ExChdEntityDtdElement class >> schemaDefinition [
+
 	^ ExChdCheddarDtdSchemaDefinition singleton
 
 
@@ -37,6 +39,7 @@ ExChdEntityDtdElement class >> schemaDefinition [
 
 { #category : 'platypus-generated-meta-data-accessing' }
 ExChdEntityDtdElement class >> schemaInstance [
+
 	^ ExChdExpress2cheddarSchemaInstance singleton
 
 
@@ -44,6 +47,7 @@ ExChdEntityDtdElement class >> schemaInstance [
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdEntityDtdElement class >> translatedFromISO10303P11 [
+
 	^ true
 
 
@@ -51,6 +55,7 @@ ExChdEntityDtdElement class >> translatedFromISO10303P11 [
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdEntityDtdElement class >> vwNamespaceName [
+
 	^ #Express2Cheddar
 
 
@@ -58,6 +63,7 @@ ExChdEntityDtdElement class >> vwNamespaceName [
 
 { #category : 'platypus-generated-visiting' }
 ExChdEntityDtdElement >> accept: aVisitor [
+
 	^ aVisitor acceptEntityDtdElement: self
 
 
@@ -65,6 +71,7 @@ ExChdEntityDtdElement >> accept: aVisitor [
 
 { #category : 'platypus-generated-accessing' }
 ExChdEntityDtdElement >> domain [
+
 	^ domain
 
 
@@ -72,6 +79,7 @@ ExChdEntityDtdElement >> domain [
 
 { #category : 'platypus-generated-accessing' }
 ExChdEntityDtdElement >> domain: aExChdAdaEntity [
+
 	domain := aExChdAdaEntity
 
 
@@ -79,6 +87,7 @@ ExChdEntityDtdElement >> domain: aExChdAdaEntity [
 
 { #category : 'platypus-generated-with-context-accessing' }
 ExChdEntityDtdElement >> domainUsingContext: aContext [
+
 	^ self domain
 
 
@@ -86,6 +95,7 @@ ExChdEntityDtdElement >> domainUsingContext: aContext [
 
 { #category : 'platypus-generated-deriving' }
 ExChdEntityDtdElement >> dtdCode [
+
 	^ self dtdCodeUsingContext: self class context
 
 
@@ -93,6 +103,7 @@ ExChdEntityDtdElement >> dtdCode [
 
 { #category : 'platypus-generated-deriving' }
 ExChdEntityDtdElement >> dtdCodeUsingContext: aContext [
+
 	^ self dtdCodeUsingContext: aContext receiver: self
 
 
@@ -100,17 +111,18 @@ ExChdEntityDtdElement >> dtdCodeUsingContext: aContext [
 
 { #category : 'platypus-generated-deriving' }
 ExChdEntityDtdElement >> dtdCodeUsingContext: aContext receiver: aReceiver [
-	^ ExChdComputeEntityDtdCodeFunction
-		invokeFromValues:
-			(OrderedCollection new
-				add: aReceiver;
-				yourself)
+
+	^ ExChdComputeEntityDtdCodeFunction invokeFromValues:
+		  (OrderedCollection new
+			   add: aReceiver;
+			   yourself)
 
 
 ]
 
 { #category : 'platypus-generated-copying' }
 ExChdEntityDtdElement >> entityDtdElementCopyTo: another [
+
 	another fastSetDomain: self domain
 
 
@@ -118,6 +130,7 @@ ExChdEntityDtdElement >> entityDtdElementCopyTo: another [
 
 { #category : 'platypus-generated-group-accessing' }
 ExChdEntityDtdElement >> entityDtdElementFromValues: values [
+
 	| valuesloc |
 	valuesloc := values asOrderedCollection.
 	self setDomain: valuesloc removeFirst.
@@ -128,6 +141,7 @@ ExChdEntityDtdElement >> entityDtdElementFromValues: values [
 
 { #category : 'platypus-generated-group-accessing' }
 ExChdEntityDtdElement >> entityDtdElementToValues: values [
+
 	values add: self domain.
 	^ values
 
@@ -136,6 +150,7 @@ ExChdEntityDtdElement >> entityDtdElementToValues: values [
 
 { #category : 'platypus-generated-fast-set-accessing' }
 ExChdEntityDtdElement >> fastSetDomain: aExChdAdaEntity [
+
 	domain := aExChdAdaEntity
 
 
@@ -143,6 +158,7 @@ ExChdEntityDtdElement >> fastSetDomain: aExChdAdaEntity [
 
 { #category : 'platypus-generated-group-accessing' }
 ExChdEntityDtdElement >> fromValues: values [
+
 	^ self entityDtdElementFromValues: (super fromValues: values)
 
 
@@ -150,6 +166,7 @@ ExChdEntityDtdElement >> fromValues: values [
 
 { #category : 'platypus-generated-classifying' }
 ExChdEntityDtdElement >> isExChdEntityDtdElement [
+
 	^ true
 
 
@@ -157,6 +174,7 @@ ExChdEntityDtdElement >> isExChdEntityDtdElement [
 
 { #category : 'platypus-generated-group-accessing' }
 ExChdEntityDtdElement >> localFromValues: values [
+
 	^ self entityDtdElementFromValues: values
 
 
@@ -164,6 +182,7 @@ ExChdEntityDtdElement >> localFromValues: values [
 
 { #category : 'platypus-generated-group-accessing' }
 ExChdEntityDtdElement >> localToValues: values [
+
 	^ self entityDtdElementToValues: values
 
 
@@ -171,6 +190,7 @@ ExChdEntityDtdElement >> localToValues: values [
 
 { #category : 'platypus-generated-copying' }
 ExChdEntityDtdElement >> pltCopyGroup: aClassSymbol to: anObject [
+
 	self class name == aClassSymbol
 		ifTrue: [ self pltCopyTo: anObject ]
 		ifFalse: [ super pltCopyGroup: aClassSymbol to: anObject ]
@@ -180,6 +200,7 @@ ExChdEntityDtdElement >> pltCopyGroup: aClassSymbol to: anObject [
 
 { #category : 'platypus-generated-copying' }
 ExChdEntityDtdElement >> pltCopyTo: another [
+
 	super pltCopyTo: another.
 	self entityDtdElementCopyTo: another
 
@@ -188,6 +209,7 @@ ExChdEntityDtdElement >> pltCopyTo: another [
 
 { #category : 'platypus-generated-copying' }
 ExChdEntityDtdElement >> pltLocalCopyTo: another [
+
 	self entityDtdElementCopyTo: another
 
 
@@ -195,6 +217,7 @@ ExChdEntityDtdElement >> pltLocalCopyTo: another [
 
 { #category : 'platypus-generated-set-accessing' }
 ExChdEntityDtdElement >> setDomain: aExChdAdaEntity [
+
 	self domain: aExChdAdaEntity
 
 
@@ -202,6 +225,7 @@ ExChdEntityDtdElement >> setDomain: aExChdAdaEntity [
 
 { #category : 'platypus-generated-initializing' }
 ExChdEntityDtdElement >> stepInitialize [
+
 	super stepInitialize.
 	domain := nil
 
@@ -210,6 +234,7 @@ ExChdEntityDtdElement >> stepInitialize [
 
 { #category : 'platypus-generated-deriving' }
 ExChdEntityDtdElement >> subs [
+
 	^ self subsUsingContext: self class context
 
 
@@ -217,6 +242,7 @@ ExChdEntityDtdElement >> subs [
 
 { #category : 'platypus-generated-deriving' }
 ExChdEntityDtdElement >> subsUsingContext: aContext [
+
 	^ self subsUsingContext: aContext receiver: self
 
 
@@ -224,17 +250,18 @@ ExChdEntityDtdElement >> subsUsingContext: aContext [
 
 { #category : 'platypus-generated-deriving' }
 ExChdEntityDtdElement >> subsUsingContext: aContext receiver: aReceiver [
-	^ ExChdComputeEntitySubElementsFunction
-		invokeFromValues:
-			(OrderedCollection new
-				add: aReceiver;
-				yourself)
+
+	^ ExChdComputeEntitySubElementsFunction invokeFromValues:
+		  (OrderedCollection new
+			   add: aReceiver;
+			   yourself)
 
 
 ]
 
 { #category : 'platypus-generated-deriving' }
 ExChdEntityDtdElement >> tag [
+
 	^ self tagUsingContext: self class context
 
 
@@ -242,6 +269,7 @@ ExChdEntityDtdElement >> tag [
 
 { #category : 'platypus-generated-deriving' }
 ExChdEntityDtdElement >> tagUsingContext: aContext [
+
 	^ self tagUsingContext: aContext receiver: self
 
 
@@ -249,17 +277,17 @@ ExChdEntityDtdElement >> tagUsingContext: aContext [
 
 { #category : 'platypus-generated-deriving' }
 ExChdEntityDtdElement >> tagUsingContext: aContext receiver: aReceiver [
-	^ PTsLowerizeFunction
-		invokeFromValues:
-			(OrderedCollection new
-				add: (aReceiver domain nameUsingContext: self class context);
-				yourself)
+
+	^ PTsLowerizeFunction invokeFromValues: (OrderedCollection new
+			   add: (aReceiver domain nameUsingContext: self class context);
+			   yourself)
 
 
 ]
 
 { #category : 'platypus-generated-group-accessing' }
 ExChdEntityDtdElement >> toValues: values [
+
 	^ self entityDtdElementToValues: (super toValues: values)
 
 

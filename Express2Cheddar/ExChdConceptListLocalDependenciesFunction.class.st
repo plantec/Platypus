@@ -39,6 +39,7 @@ Class {
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdConceptListLocalDependenciesFunction class >> iso10303P11Translater [
+
 	^ 'Platypus (c) LISYC EA3883, Universite de Bretagne occidentale. Brest.'
 
 
@@ -46,6 +47,7 @@ ExChdConceptListLocalDependenciesFunction class >> iso10303P11Translater [
 
 { #category : 'platypus-generated-meta-data-accessing' }
 ExChdConceptListLocalDependenciesFunction class >> schemaDefinition [
+
 	^ ExChdPackageSchemaDefinition singleton
 
 
@@ -53,6 +55,7 @@ ExChdConceptListLocalDependenciesFunction class >> schemaDefinition [
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdConceptListLocalDependenciesFunction class >> translatedFromISO10303P11 [
+
 	^ true
 
 
@@ -60,6 +63,7 @@ ExChdConceptListLocalDependenciesFunction class >> translatedFromISO10303P11 [
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdConceptListLocalDependenciesFunction class >> vwNamespaceName [
+
 	^ #Express2Cheddar
 
 
@@ -67,6 +71,7 @@ ExChdConceptListLocalDependenciesFunction class >> vwNamespaceName [
 
 { #category : 'platypus-generated-accessing' }
 ExChdConceptListLocalDependenciesFunction >> fromValues: values [
+
 	self sch: (values at: 1).
 	self l: (values at: 2)
 
@@ -78,52 +83,42 @@ ExChdConceptListLocalDependenciesFunction >> invoke [
 	" ---------- locals assignments ----------"
 
 	self wl: Array new.
-	self r: Array new.	" ---------- statements ----------"
+	self r: Array new. " ---------- statements ----------"
 	PlatypusCoreRepeatStatement
-		repeat: [ :no2038 | 
-			PlatypusCoreAliasStatement
-				alias: (self l pltAt: no2038)
-				statementsBlock: [ :c3144 | 
-					(ExChdIsOfGeneratedConceptKindFunction
-						invokeFromValues:
-							(OrderedCollection new
-								add: c3144;
-								yourself))
-						ifTrue: [ 
-							self wl: (c3144 dependenciesUsingContext: self class context).
-							PlatypusCoreRepeatStatement
-								repeat: [ :noi717 | 
-									(ExChdConceptInListFunction
-										invokeFromValues:
-											(OrderedCollection new
-												add: (self wl pltAt: noi717);
-												add: self r;
-												yourself)) not
-										ifTrue: [ self r: (self r pltPlus: (self wl pltAt: noi717)) ] ]
-								from:
-									(PltLOINDEXFunction
-										invokeFromValues:
-											(OrderedCollection new
-												add: self wl;
-												yourself))
-								to:
-									(PltHIINDEXFunction
-										invokeFromValues:
-											(OrderedCollection new
-												add: self wl;
-												yourself)) ] ] ]
-		from:
-			(PltLOINDEXFunction
-				invokeFromValues:
-					(OrderedCollection new
-						add: self l;
-						yourself))
-		to:
-			(PltHIINDEXFunction
-				invokeFromValues:
-					(OrderedCollection new
-						add: self l;
-						yourself)).
+		repeat: [ :no713581 |
+				PlatypusCoreAliasStatement
+					alias: (self l pltAt: no713581)
+					statementsBlock: [ :c1647033 |
+							(ExChdIsOfGeneratedConceptKindFunction invokeFromValues:
+								 (OrderedCollection new
+									  add: c1647033;
+									  yourself)) ifTrue: [
+									self wl:
+										(c1647033 dependenciesUsingContext: self class context).
+									PlatypusCoreRepeatStatement
+										repeat: [ :noi3706367 |
+												(ExChdConceptInListFunction invokeFromValues:
+													 (OrderedCollection new
+														  add: (self wl pltAt: noi3706367);
+														  add: self r;
+														  yourself)) not ifTrue: [
+													self r: (self r pltPlus: (self wl pltAt: noi3706367)) ] ]
+										from:
+											(PltLOINDEXFunction invokeFromValues:
+												 (OrderedCollection new
+													  add: self wl;
+													  yourself))
+										to:
+											(PltHIINDEXFunction invokeFromValues:
+												 (OrderedCollection new
+													  add: self wl;
+													  yourself)) ] ] ]
+		from: (PltLOINDEXFunction invokeFromValues: (OrderedCollection new
+					  add: self l;
+					  yourself))
+		to: (PltHIINDEXFunction invokeFromValues: (OrderedCollection new
+					  add: self l;
+					  yourself)).
 	^ self return: self r
 
 
@@ -131,6 +126,7 @@ ExChdConceptListLocalDependenciesFunction >> invoke [
 
 { #category : 'platypus-generated-accessing' }
 ExChdConceptListLocalDependenciesFunction >> l [
+
 	^ l
 
 
@@ -138,15 +134,18 @@ ExChdConceptListLocalDependenciesFunction >> l [
 
 { #category : 'platypus-generated-accessing' }
 ExChdConceptListLocalDependenciesFunction >> l: aListOfExChdDictionaryInstance [
+
 	l := aListOfExChdDictionaryInstance
-		ifNil: [ OrderedCollection new ]
-		ifNotNil: [ aListOfExChdDictionaryInstance as: OrderedCollection ]
+		     ifNil: [ OrderedCollection new ]
+		     ifNotNil: [
+		     aListOfExChdDictionaryInstance as: OrderedCollection ]
 
 
 ]
 
 { #category : 'platypus-generated-accessing' }
 ExChdConceptListLocalDependenciesFunction >> r [
+
 	^ r
 
 
@@ -154,15 +153,18 @@ ExChdConceptListLocalDependenciesFunction >> r [
 
 { #category : 'platypus-generated-accessing' }
 ExChdConceptListLocalDependenciesFunction >> r: aListOfExChdDictionaryInstance1 [
+
 	r := aListOfExChdDictionaryInstance1
-		ifNil: [ OrderedCollection new ]
-		ifNotNil: [ aListOfExChdDictionaryInstance1 as: OrderedCollection ]
+		     ifNil: [ OrderedCollection new ]
+		     ifNotNil: [
+		     aListOfExChdDictionaryInstance1 as: OrderedCollection ]
 
 
 ]
 
 { #category : 'platypus-generated-accessing' }
 ExChdConceptListLocalDependenciesFunction >> sch [
+
 	^ sch
 
 
@@ -170,6 +172,7 @@ ExChdConceptListLocalDependenciesFunction >> sch [
 
 { #category : 'platypus-generated-accessing' }
 ExChdConceptListLocalDependenciesFunction >> sch: aExChdSchemaDefinition [
+
 	sch := aExChdSchemaDefinition
 
 
@@ -177,6 +180,7 @@ ExChdConceptListLocalDependenciesFunction >> sch: aExChdSchemaDefinition [
 
 { #category : 'platypus-generated-accessing' }
 ExChdConceptListLocalDependenciesFunction >> sch: aExChdSchemaDefinition l: aListOfExChdDictionaryInstance [
+
 	self sch: aExChdSchemaDefinition.
 	self l: aListOfExChdDictionaryInstance
 
@@ -185,6 +189,7 @@ ExChdConceptListLocalDependenciesFunction >> sch: aExChdSchemaDefinition l: aLis
 
 { #category : 'platypus-generated-accessing' }
 ExChdConceptListLocalDependenciesFunction >> wl [
+
 	^ wl
 
 
@@ -192,9 +197,11 @@ ExChdConceptListLocalDependenciesFunction >> wl [
 
 { #category : 'platypus-generated-accessing' }
 ExChdConceptListLocalDependenciesFunction >> wl: aListOfExChdDictionaryInstance [
+
 	wl := aListOfExChdDictionaryInstance
-		ifNil: [ OrderedCollection new ]
-		ifNotNil: [ aListOfExChdDictionaryInstance as: OrderedCollection ]
+		      ifNil: [ OrderedCollection new ]
+		      ifNotNil: [
+		      aListOfExChdDictionaryInstance as: OrderedCollection ]
 
 
 ]

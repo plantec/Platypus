@@ -32,6 +32,7 @@ Class {
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdComputeAttributeDtdListFromAttributeListFunction class >> iso10303P11Translater [
+
 	^ 'Platypus (c) LISYC EA3883, Universite de Bretagne occidentale. Brest.'
 
 
@@ -39,6 +40,7 @@ ExChdComputeAttributeDtdListFromAttributeListFunction class >> iso10303P11Transl
 
 { #category : 'platypus-generated-meta-data-accessing' }
 ExChdComputeAttributeDtdListFromAttributeListFunction class >> schemaDefinition [
+
 	^ ExChdCheddarDtdSchemaDefinition singleton
 
 
@@ -46,6 +48,7 @@ ExChdComputeAttributeDtdListFromAttributeListFunction class >> schemaDefinition 
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdComputeAttributeDtdListFromAttributeListFunction class >> translatedFromISO10303P11 [
+
 	^ true
 
 
@@ -53,6 +56,7 @@ ExChdComputeAttributeDtdListFromAttributeListFunction class >> translatedFromISO
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdComputeAttributeDtdListFromAttributeListFunction class >> vwNamespaceName [
+
 	^ #Express2Cheddar
 
 
@@ -60,6 +64,7 @@ ExChdComputeAttributeDtdListFromAttributeListFunction class >> vwNamespaceName [
 
 { #category : 'platypus-generated-accessing' }
 ExChdComputeAttributeDtdListFromAttributeListFunction >> attrs [
+
 	^ attrs
 
 
@@ -67,15 +72,18 @@ ExChdComputeAttributeDtdListFromAttributeListFunction >> attrs [
 
 { #category : 'platypus-generated-accessing' }
 ExChdComputeAttributeDtdListFromAttributeListFunction >> attrs: aListOfExChdExplicitAttribute [
+
 	attrs := aListOfExChdExplicitAttribute
-		ifNil: [ OrderedCollection new ]
-		ifNotNil: [ aListOfExChdExplicitAttribute as: OrderedCollection ]
+		         ifNil: [ OrderedCollection new ]
+		         ifNotNil: [
+		         aListOfExChdExplicitAttribute as: OrderedCollection ]
 
 
 ]
 
 { #category : 'platypus-generated-accessing' }
 ExChdComputeAttributeDtdListFromAttributeListFunction >> fromValues: values [
+
 	self owner: (values at: 1).
 	self attrs: (values at: 2)
 
@@ -86,46 +94,31 @@ ExChdComputeAttributeDtdListFromAttributeListFunction >> fromValues: values [
 ExChdComputeAttributeDtdListFromAttributeListFunction >> invoke [
 	" ---------- locals assignments ----------"
 
-	self result: Array new.	" ---------- statements ----------"
+	self result: Array new. " ---------- statements ----------"
 	PlatypusCoreRepeatStatement
-		repeat: [ :no2577 | 
-			PlatypusCoreAliasStatement
-				alias: (self attrs pltAt: no2577)
-				statementsBlock: [ :curr3687 | 
-					(PTsLowerizeFunction
-						invokeFromValues:
-							(OrderedCollection new
-								add: (curr3687 nameUsingContext: self class context);
-								yourself))
-						~=
-							(PTsLowerizeFunction
-								invokeFromValues:
-									(OrderedCollection new
-										add: 'cheddar_private_id';
-										yourself))
-						ifTrue: [ 
-							self
-								result:
-									(self result
-										pltPlus:
-											(ExChdComputeAttributeDtdElementFunction
-												invokeFromValues:
-													(OrderedCollection new
-														add: self owner;
-														add: curr3687;
-														yourself))) ] ] ]
-		from:
-			(PltLOINDEXFunction
-				invokeFromValues:
-					(OrderedCollection new
-						add: self attrs;
-						yourself))
-		to:
-			(PltHIINDEXFunction
-				invokeFromValues:
-					(OrderedCollection new
-						add: self attrs;
-						yourself)).
+		repeat: [ :no4112769 |
+				PlatypusCoreAliasStatement
+					alias: (self attrs pltAt: no4112769)
+					statementsBlock: [ :curr1184965 |
+							(PTsLowerizeFunction invokeFromValues: (OrderedCollection new
+									  add: (curr1184965 nameUsingContext: self class context);
+									  yourself))
+							~=
+								(PTsLowerizeFunction invokeFromValues: (OrderedCollection new
+										  add: 'cheddar_private_id';
+										  yourself)) ifTrue: [
+									self result: (self result pltPlus:
+											 (ExChdComputeAttributeDtdElementFunction
+												  invokeFromValues: (OrderedCollection new
+														   add: self owner;
+														   add: curr1184965;
+														   yourself))) ] ] ]
+		from: (PltLOINDEXFunction invokeFromValues: (OrderedCollection new
+					  add: self attrs;
+					  yourself))
+		to: (PltHIINDEXFunction invokeFromValues: (OrderedCollection new
+					  add: self attrs;
+					  yourself)).
 	^ self return: self result
 
 
@@ -133,6 +126,7 @@ ExChdComputeAttributeDtdListFromAttributeListFunction >> invoke [
 
 { #category : 'platypus-generated-accessing' }
 ExChdComputeAttributeDtdListFromAttributeListFunction >> owner [
+
 	^ owner
 
 
@@ -140,6 +134,7 @@ ExChdComputeAttributeDtdListFromAttributeListFunction >> owner [
 
 { #category : 'platypus-generated-accessing' }
 ExChdComputeAttributeDtdListFromAttributeListFunction >> owner: aExChdDtdElement [
+
 	owner := aExChdDtdElement
 
 
@@ -147,6 +142,7 @@ ExChdComputeAttributeDtdListFromAttributeListFunction >> owner: aExChdDtdElement
 
 { #category : 'platypus-generated-accessing' }
 ExChdComputeAttributeDtdListFromAttributeListFunction >> owner: aExChdDtdElement attrs: aListOfExChdExplicitAttribute [
+
 	self owner: aExChdDtdElement.
 	self attrs: aListOfExChdExplicitAttribute
 
@@ -155,6 +151,7 @@ ExChdComputeAttributeDtdListFromAttributeListFunction >> owner: aExChdDtdElement
 
 { #category : 'platypus-generated-accessing' }
 ExChdComputeAttributeDtdListFromAttributeListFunction >> result [
+
 	^ result
 
 
@@ -162,9 +159,10 @@ ExChdComputeAttributeDtdListFromAttributeListFunction >> result [
 
 { #category : 'platypus-generated-accessing' }
 ExChdComputeAttributeDtdListFromAttributeListFunction >> result: aListOfExChdDtdElement [
+
 	result := aListOfExChdDtdElement
-		ifNil: [ OrderedCollection new ]
-		ifNotNil: [ aListOfExChdDtdElement as: OrderedCollection ]
+		          ifNil: [ OrderedCollection new ]
+		          ifNotNil: [ aListOfExChdDtdElement as: OrderedCollection ]
 
 
 ]

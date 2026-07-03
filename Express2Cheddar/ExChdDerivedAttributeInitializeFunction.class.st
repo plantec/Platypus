@@ -34,6 +34,7 @@ Class {
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdDerivedAttributeInitializeFunction class >> iso10303P11Translater [
+
 	^ 'Platypus (c) LISYC EA3883, Universite de Bretagne occidentale. Brest.'
 
 
@@ -41,6 +42,7 @@ ExChdDerivedAttributeInitializeFunction class >> iso10303P11Translater [
 
 { #category : 'platypus-generated-meta-data-accessing' }
 ExChdDerivedAttributeInitializeFunction class >> schemaDefinition [
+
 	^ ExChdRecordAndClassSchemaDefinition singleton
 
 
@@ -48,6 +50,7 @@ ExChdDerivedAttributeInitializeFunction class >> schemaDefinition [
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdDerivedAttributeInitializeFunction class >> translatedFromISO10303P11 [
+
 	^ true
 
 
@@ -55,6 +58,7 @@ ExChdDerivedAttributeInitializeFunction class >> translatedFromISO10303P11 [
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdDerivedAttributeInitializeFunction class >> vwNamespaceName [
+
 	^ #Express2Cheddar
 
 
@@ -62,6 +66,7 @@ ExChdDerivedAttributeInitializeFunction class >> vwNamespaceName [
 
 { #category : 'platypus-generated-accessing' }
 ExChdDerivedAttributeInitializeFunction >> attr [
+
 	^ attr
 
 
@@ -69,6 +74,7 @@ ExChdDerivedAttributeInitializeFunction >> attr [
 
 { #category : 'platypus-generated-accessing' }
 ExChdDerivedAttributeInitializeFunction >> attr: aExChdExplicitAttribute [
+
 	attr := aExChdExplicitAttribute
 
 
@@ -76,6 +82,7 @@ ExChdDerivedAttributeInitializeFunction >> attr: aExChdExplicitAttribute [
 
 { #category : 'platypus-generated-accessing' }
 ExChdDerivedAttributeInitializeFunction >> code [
+
 	^ code
 
 
@@ -83,6 +90,7 @@ ExChdDerivedAttributeInitializeFunction >> code [
 
 { #category : 'platypus-generated-accessing' }
 ExChdDerivedAttributeInitializeFunction >> code: aString [
+
 	code := aString
 
 
@@ -90,6 +98,7 @@ ExChdDerivedAttributeInitializeFunction >> code: aString [
 
 { #category : 'platypus-generated-accessing' }
 ExChdDerivedAttributeInitializeFunction >> fromValues: values [
+
 	self attr: (values at: 1)
 
 
@@ -99,48 +108,34 @@ ExChdDerivedAttributeInitializeFunction >> fromValues: values [
 ExChdDerivedAttributeInitializeFunction >> invoke [
 	" ---------- locals assignments ----------"
 
-	self
-		key:
-			(PTsUpperizeFunction
-				invokeFromValues:
-					(OrderedCollection new
-						add: (self attr nameUsingContext: self class context);
-						yourself)).	" ---------- statements ----------"
-	(PltEXISTSFunction
-		invokeFromValues:
-			(OrderedCollection new
-				add: (self attr redeclaringUsingContext: self class context);
-				yourself))
-		ifTrue: [ 
-			(PltSIZEOFFunction
-				invokeFromValues:
-					(OrderedCollection new
-						add:
-								((PTsInheritedExplicitAttributesFunction
-										invokeFromValues:
-											(OrderedCollection new
-												add: (self attr ownerUsingContext: self class context);
-												yourself))
-										select: [ :a3178 | 
-											(PTsUpperizeFunction
-												invokeFromValues:
-													(OrderedCollection new
-														add: (a3178 nameUsingContext: self class context);
-														yourself)) = self key ]);
-						yourself)) > 0
-				ifTrue: [ 
-					self
-						val:
-							((ExChdBasicAdaTypeValueFormat new
-								basicAdaTypeValueFormatFromValues:
-										(OrderedCollection new
-												add: (self attr assignUsingContext: self class context);
-												add: nil;
-												yourself);
-								yourself) formatedUsingContext: self class context).
-					self
-						code:
-							(((('obj.' pltPlus: (self attr nameUsingContext: self class context)) pltPlus: ' := ') pltPlus: self val) pltPlus: ';') ] ].
+	self key:
+		(PTsUpperizeFunction invokeFromValues: (OrderedCollection new
+				  add: (self attr nameUsingContext: self class context);
+				  yourself)). " ---------- statements ----------"
+	(PltEXISTSFunction invokeFromValues: (OrderedCollection new
+			  add: (self attr redeclaringUsingContext: self class context);
+			  yourself)) ifTrue: [
+			(PltSIZEOFFunction invokeFromValues: (OrderedCollection new
+					  add:
+						  ((PTsInheritedExplicitAttributesFunction invokeFromValues:
+								    (OrderedCollection new
+									     add: (self attr ownerUsingContext: self class context);
+									     yourself)) select: [ :a3358921 |
+								   (PTsUpperizeFunction invokeFromValues:
+									    (OrderedCollection new
+										     add: (a3358921 nameUsingContext: self class context);
+										     yourself)) = self key ]);
+					  yourself)) > 0 ifTrue: [
+					self val: ((ExChdBasicAdaTypeValueFormat new
+							  basicAdaTypeValueFormatFromValues: (OrderedCollection new
+									   add: (self attr assignUsingContext: self class context);
+									   add: nil;
+									   yourself);
+							  yourself) formatedUsingContext: self class context).
+					self code:
+						(((('obj.' pltPlus:
+							    (self attr nameUsingContext: self class context)) pltPlus:
+							   ' := ') pltPlus: self val) pltPlus: ';') ] ].
 	^ self return: self code
 
 
@@ -148,6 +143,7 @@ ExChdDerivedAttributeInitializeFunction >> invoke [
 
 { #category : 'platypus-generated-accessing' }
 ExChdDerivedAttributeInitializeFunction >> key [
+
 	^ key
 
 
@@ -155,6 +151,7 @@ ExChdDerivedAttributeInitializeFunction >> key [
 
 { #category : 'platypus-generated-accessing' }
 ExChdDerivedAttributeInitializeFunction >> key: aString2 [
+
 	key := aString2
 
 
@@ -162,6 +159,7 @@ ExChdDerivedAttributeInitializeFunction >> key: aString2 [
 
 { #category : 'platypus-generated-accessing' }
 ExChdDerivedAttributeInitializeFunction >> val [
+
 	^ val
 
 
@@ -169,6 +167,7 @@ ExChdDerivedAttributeInitializeFunction >> val [
 
 { #category : 'platypus-generated-accessing' }
 ExChdDerivedAttributeInitializeFunction >> val: aString1 [
+
 	val := aString1
 
 

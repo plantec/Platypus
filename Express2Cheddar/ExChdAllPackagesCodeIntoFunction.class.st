@@ -67,6 +67,7 @@ Class {
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdAllPackagesCodeIntoFunction class >> iso10303P11Translater [
+
 	^ 'Platypus (c) LISYC EA3883, Universite de Bretagne occidentale. Brest.'
 
 
@@ -74,6 +75,7 @@ ExChdAllPackagesCodeIntoFunction class >> iso10303P11Translater [
 
 { #category : 'platypus-generated-meta-data-accessing' }
 ExChdAllPackagesCodeIntoFunction class >> schemaDefinition [
+
 	^ ExChdPackageSchemaDefinition singleton
 
 
@@ -81,6 +83,7 @@ ExChdAllPackagesCodeIntoFunction class >> schemaDefinition [
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdAllPackagesCodeIntoFunction class >> translatedFromISO10303P11 [
+
 	^ true
 
 
@@ -88,6 +91,7 @@ ExChdAllPackagesCodeIntoFunction class >> translatedFromISO10303P11 [
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdAllPackagesCodeIntoFunction class >> vwNamespaceName [
+
 	^ #Express2Cheddar
 
 
@@ -95,6 +99,7 @@ ExChdAllPackagesCodeIntoFunction class >> vwNamespaceName [
 
 { #category : 'platypus-generated-accessing' }
 ExChdAllPackagesCodeIntoFunction >> ads [
+
 	^ ads
 
 
@@ -102,6 +107,7 @@ ExChdAllPackagesCodeIntoFunction >> ads [
 
 { #category : 'platypus-generated-accessing' }
 ExChdAllPackagesCodeIntoFunction >> ads: aBoolean [
+
 	ads := aBoolean
 
 
@@ -109,6 +115,7 @@ ExChdAllPackagesCodeIntoFunction >> ads: aBoolean [
 
 { #category : 'platypus-generated-accessing' }
 ExChdAllPackagesCodeIntoFunction >> ads: aBoolean dir: aString targetName: aString1 [
+
 	self ads: aBoolean.
 	self dir: aString.
 	self targetName: aString1
@@ -118,6 +125,7 @@ ExChdAllPackagesCodeIntoFunction >> ads: aBoolean dir: aString targetName: aStri
 
 { #category : 'platypus-generated-accessing' }
 ExChdAllPackagesCodeIntoFunction >> body [
+
 	^ body
 
 
@@ -125,6 +133,7 @@ ExChdAllPackagesCodeIntoFunction >> body [
 
 { #category : 'platypus-generated-accessing' }
 ExChdAllPackagesCodeIntoFunction >> body: aString1 [
+
 	body := aString1
 
 
@@ -132,6 +141,7 @@ ExChdAllPackagesCodeIntoFunction >> body: aString1 [
 
 { #category : 'platypus-generated-accessing' }
 ExChdAllPackagesCodeIntoFunction >> code [
+
 	^ code
 
 
@@ -139,6 +149,7 @@ ExChdAllPackagesCodeIntoFunction >> code [
 
 { #category : 'platypus-generated-accessing' }
 ExChdAllPackagesCodeIntoFunction >> code: aString [
+
 	code := aString
 
 
@@ -146,6 +157,7 @@ ExChdAllPackagesCodeIntoFunction >> code: aString [
 
 { #category : 'platypus-generated-accessing' }
 ExChdAllPackagesCodeIntoFunction >> dir [
+
 	^ dir
 
 
@@ -153,6 +165,7 @@ ExChdAllPackagesCodeIntoFunction >> dir [
 
 { #category : 'platypus-generated-accessing' }
 ExChdAllPackagesCodeIntoFunction >> dir: aString [
+
 	dir := aString
 
 
@@ -160,6 +173,7 @@ ExChdAllPackagesCodeIntoFunction >> dir: aString [
 
 { #category : 'platypus-generated-accessing' }
 ExChdAllPackagesCodeIntoFunction >> fromValues: values [
+
 	self ads: (values at: 1).
 	self dir: (values at: 2).
 	self targetName: (values at: 3)
@@ -172,64 +186,61 @@ ExChdAllPackagesCodeIntoFunction >> invoke [
 	" ---------- locals assignments ----------"
 
 	self code: ''.
-	self
-		pkgs:
-			(PTsSetToListFunction
-				invokeFromValues:
-					(OrderedCollection new
-						add: ExChdAllAdaPackagesFunction invoke;
-						yourself)).	" ---------- statements ----------"
+	self pkgs:
+		(PTsSetToListFunction invokeFromValues: (OrderedCollection new
+				  add: ExChdAllAdaPackagesFunction invoke;
+				  yourself)). " ---------- statements ----------"
 	PlatypusCoreRepeatStatement
-		repeat: [ :no1700 | 
-			self ads
-				ifTrue: [ self body: ((self pkgs pltAt: no1700) adsCodeUsingContext: self class context) ]
-				ifFalse: [ self body: ((self pkgs pltAt: no1700) adbCodeUsingContext: self class context) ].
-			self body > ''
-				ifTrue: [ self code: ((self code pltPlus: self body) pltPlus: '\n\n') ] ]
-		from:
-			(PltLOINDEXFunction
-				invokeFromValues:
-					(OrderedCollection new
-						add: self pkgs;
-						yourself))
-		to:
-			(PltHIINDEXFunction
-				invokeFromValues:
-					(OrderedCollection new
-						add: self pkgs;
-						yourself)).
+		repeat: [ :no2203003 |
+				self ads
+					ifTrue: [
+							self body:
+								((self pkgs pltAt: no2203003) adsCodeUsingContext:
+									 self class context) ]
+					ifFalse: [
+							self body:
+								((self pkgs pltAt: no2203003) adbCodeUsingContext:
+									 self class context) ].
+				self body > '' ifTrue: [
+					self code: ((self code pltPlus: self body) pltPlus: '\n\n') ] ]
+		from: (PltLOINDEXFunction invokeFromValues: (OrderedCollection new
+					  add: self pkgs;
+					  yourself))
+		to: (PltHIINDEXFunction invokeFromValues: (OrderedCollection new
+					  add: self pkgs;
+					  yourself)).
 	self ads
-		ifTrue: [ self code: (self code pltPlus: ExChdXmlArchitectureIoAdsPackageCodeFunction invoke) ]
-		ifFalse: [ self code: (self code pltPlus: ExChdXmlArchitectureIoAdbPackageCodeFunction invoke) ].
-	(PltEXISTSFunction
-		invokeFromValues:
-			(OrderedCollection new
-				add: self dir;
-				yourself))
+		ifTrue: [
+				self code: (self code pltPlus:
+						 ExChdXmlArchitectureIoAdsPackageCodeFunction invoke) ]
+		ifFalse: [
+				self code: (self code pltPlus:
+						 ExChdXmlArchitectureIoAdbPackageCodeFunction invoke) ].
+	(PltEXISTSFunction invokeFromValues: (OrderedCollection new
+			  add: self dir;
+			  yourself))
 		ifTrue: [ self targetPath: self dir ]
 		ifFalse: [ self targetPath: '.' ].
-	(PltEXISTSFunction
-		invokeFromValues:
-			(OrderedCollection new
-				add: self targetName;
-				yourself))
-		ifTrue: [ self targetPath: ((self targetPath pltPlus: '/') pltPlus: self targetName) ]
-		ifFalse: [ self targetPath: ((self targetPath pltPlus: '/') pltPlus: 'Platypus2Cheddar') ].
+	(PltEXISTSFunction invokeFromValues: (OrderedCollection new
+			  add: self targetName;
+			  yourself))
+		ifTrue: [
+				self targetPath:
+					((self targetPath pltPlus: '/') pltPlus: self targetName) ]
+		ifFalse: [
+				self targetPath:
+					((self targetPath pltPlus: '/') pltPlus: 'Platypus2Cheddar') ].
 	self ads
-		ifTrue: [ 
-			PTsWriteFileProcedure
-				invokeFromValues:
-					(OrderedCollection new
-						add: (self targetPath pltPlus: '.ads');
-						add: self code;
-						yourself) ]
-		ifFalse: [ 
-			PTsWriteFileProcedure
-				invokeFromValues:
-					(OrderedCollection new
-						add: (self targetPath pltPlus: '.adb');
-						add: self code;
-						yourself) ].
+		ifTrue: [
+				PTsWriteFileProcedure invokeFromValues: (OrderedCollection new
+						 add: (self targetPath pltPlus: '.ads');
+						 add: self code;
+						 yourself) ]
+		ifFalse: [
+				PTsWriteFileProcedure invokeFromValues: (OrderedCollection new
+						 add: (self targetPath pltPlus: '.adb');
+						 add: self code;
+						 yourself) ].
 	^ self return: self code
 
 
@@ -237,6 +248,7 @@ ExChdAllPackagesCodeIntoFunction >> invoke [
 
 { #category : 'platypus-generated-accessing' }
 ExChdAllPackagesCodeIntoFunction >> pkgs [
+
 	^ pkgs
 
 
@@ -244,15 +256,17 @@ ExChdAllPackagesCodeIntoFunction >> pkgs [
 
 { #category : 'platypus-generated-accessing' }
 ExChdAllPackagesCodeIntoFunction >> pkgs: aListOfExChdAdaPackage [
+
 	pkgs := aListOfExChdAdaPackage
-		ifNil: [ OrderedCollection new ]
-		ifNotNil: [ aListOfExChdAdaPackage as: OrderedCollection ]
+		        ifNil: [ OrderedCollection new ]
+		        ifNotNil: [ aListOfExChdAdaPackage as: OrderedCollection ]
 
 
 ]
 
 { #category : 'platypus-generated-accessing' }
 ExChdAllPackagesCodeIntoFunction >> targetName [
+
 	^ targetName
 
 
@@ -260,6 +274,7 @@ ExChdAllPackagesCodeIntoFunction >> targetName [
 
 { #category : 'platypus-generated-accessing' }
 ExChdAllPackagesCodeIntoFunction >> targetName: aString1 [
+
 	targetName := aString1
 
 
@@ -267,6 +282,7 @@ ExChdAllPackagesCodeIntoFunction >> targetName: aString1 [
 
 { #category : 'platypus-generated-accessing' }
 ExChdAllPackagesCodeIntoFunction >> targetPath [
+
 	^ targetPath
 
 
@@ -274,6 +290,7 @@ ExChdAllPackagesCodeIntoFunction >> targetPath [
 
 { #category : 'platypus-generated-accessing' }
 ExChdAllPackagesCodeIntoFunction >> targetPath: aString2 [
+
 	targetPath := aString2
 
 

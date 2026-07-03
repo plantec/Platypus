@@ -40,6 +40,7 @@ Class {
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdRecordPutCodeFunction class >> iso10303P11Translater [
+
 	^ 'Platypus (c) LISYC EA3883, Universite de Bretagne occidentale. Brest.'
 
 
@@ -47,6 +48,7 @@ ExChdRecordPutCodeFunction class >> iso10303P11Translater [
 
 { #category : 'platypus-generated-meta-data-accessing' }
 ExChdRecordPutCodeFunction class >> schemaDefinition [
+
 	^ ExChdRecordAndClassSchemaDefinition singleton
 
 
@@ -54,6 +56,7 @@ ExChdRecordPutCodeFunction class >> schemaDefinition [
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdRecordPutCodeFunction class >> translatedFromISO10303P11 [
+
 	^ true
 
 
@@ -61,6 +64,7 @@ ExChdRecordPutCodeFunction class >> translatedFromISO10303P11 [
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdRecordPutCodeFunction class >> vwNamespaceName [
+
 	^ #Express2Cheddar
 
 
@@ -68,6 +72,7 @@ ExChdRecordPutCodeFunction class >> vwNamespaceName [
 
 { #category : 'platypus-generated-accessing' }
 ExChdRecordPutCodeFunction >> acode [
+
 	^ acode
 
 
@@ -75,6 +80,7 @@ ExChdRecordPutCodeFunction >> acode [
 
 { #category : 'platypus-generated-accessing' }
 ExChdRecordPutCodeFunction >> acode: aString1 [
+
 	acode := aString1
 
 
@@ -82,6 +88,7 @@ ExChdRecordPutCodeFunction >> acode: aString1 [
 
 { #category : 'platypus-generated-accessing' }
 ExChdRecordPutCodeFunction >> code [
+
 	^ code
 
 
@@ -89,6 +96,7 @@ ExChdRecordPutCodeFunction >> code [
 
 { #category : 'platypus-generated-accessing' }
 ExChdRecordPutCodeFunction >> code: aString [
+
 	code := aString
 
 
@@ -96,6 +104,7 @@ ExChdRecordPutCodeFunction >> code: aString [
 
 { #category : 'platypus-generated-accessing' }
 ExChdRecordPutCodeFunction >> fromValues: values [
+
 	self rec: (values at: 1)
 
 
@@ -103,43 +112,40 @@ ExChdRecordPutCodeFunction >> fromValues: values [
 
 { #category : 'platypus-generated-invoking' }
 ExChdRecordPutCodeFunction >> invoke [
-	" ---------- locals assignments ----------"
+	" ---------- locals assignments ----------"" ---------- statements ----------"
 
-	" ---------- statements ----------"
-
-	self
-		code: (('procedure Put(obj : in ' pltPlus: (self rec nameUsingContext: self class context)) pltPlus: ') is \nbegin\n').
+	self code: (('procedure Put(obj : in ' pltPlus:
+			  (self rec nameUsingContext: self class context)) pltPlus:
+			 ') is \nbegin\n').
 	PlatypusCoreRepeatStatement
-		repeat: [ :no2022 | 
-			PlatypusCoreAliasStatement
-				alias: ((self rec explicitAttributesUsingContext: self class context) pltAt: no2022)
-				statementsBlock: [ :attr3978 | 
-					self
-						acode:
-							(ExChdExplicitAttributePutFunction
-								invokeFromValues:
-									(OrderedCollection new
-										add: attr3978;
-										yourself)).
-					self acode > ''
-						ifTrue: [ self code: (((self code pltPlus: '\t') pltPlus: self acode) pltPlus: '\n') ] ] ]
-		from:
-			(PltLOINDEXFunction
-				invokeFromValues:
-					(OrderedCollection new
-						add: (self rec explicitAttributesUsingContext: self class context);
-						yourself))
-		to:
-			(PltHIINDEXFunction
-				invokeFromValues:
-					(OrderedCollection new
-						add: (self rec explicitAttributesUsingContext: self class context);
-						yourself)).
-	self
-		code:
-			(((((((self code pltPlus: 'end Put;\n \n') pltPlus: 'procedure Put(obj : in ')
-				pltPlus: (self rec ptrTypeUsingContext: self class context)) pltPlus: ') is\n') pltPlus: 'begin\n')
-				pltPlus: '\tPut(Obj.All);\n') pltPlus: 'end Put;\n').
+		repeat: [ :no2096137 |
+				PlatypusCoreAliasStatement
+					alias:
+						((self rec explicitAttributesUsingContext: self class context)
+							 pltAt: no2096137)
+					statementsBlock: [ :attr1821565 |
+							self acode:
+								(ExChdExplicitAttributePutFunction invokeFromValues:
+									 (OrderedCollection new
+										  add: attr1821565;
+										  yourself)).
+							self acode > '' ifTrue: [
+									self code:
+										(((self code pltPlus: '\t') pltPlus: self acode) pltPlus:
+											 '\n') ] ] ]
+		from: (PltLOINDEXFunction invokeFromValues: (OrderedCollection new
+					  add:
+						  (self rec explicitAttributesUsingContext: self class context);
+					  yourself))
+		to: (PltHIINDEXFunction invokeFromValues: (OrderedCollection new
+					  add:
+						  (self rec explicitAttributesUsingContext: self class context);
+					  yourself)).
+	self code: (((((((self code pltPlus: 'end Put;\n \n') pltPlus:
+			      'procedure Put(obj : in ') pltPlus:
+			     (self rec ptrTypeUsingContext: self class context)) pltPlus:
+			    ') is\n') pltPlus: 'begin\n') pltPlus: '\tPut(Obj.All);\n')
+			 pltPlus: 'end Put;\n').
 	^ self return: self code
 
 
@@ -147,6 +153,7 @@ ExChdRecordPutCodeFunction >> invoke [
 
 { #category : 'platypus-generated-accessing' }
 ExChdRecordPutCodeFunction >> rec [
+
 	^ rec
 
 
@@ -154,6 +161,7 @@ ExChdRecordPutCodeFunction >> rec [
 
 { #category : 'platypus-generated-accessing' }
 ExChdRecordPutCodeFunction >> rec: aExChdRecord [
+
 	rec := aExChdRecord
 
 

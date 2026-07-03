@@ -34,6 +34,7 @@ Class {
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdAllAdaDiscriminatedTypesFunction class >> iso10303P11Translater [
+
 	^ 'Platypus (c) LISYC EA3883, Universite de Bretagne occidentale. Brest.'
 
 
@@ -41,6 +42,7 @@ ExChdAllAdaDiscriminatedTypesFunction class >> iso10303P11Translater [
 
 { #category : 'platypus-generated-meta-data-accessing' }
 ExChdAllAdaDiscriminatedTypesFunction class >> schemaDefinition [
+
 	^ ExChdExpress2cheddarFacadeSchemaDefinition singleton
 
 
@@ -48,6 +50,7 @@ ExChdAllAdaDiscriminatedTypesFunction class >> schemaDefinition [
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdAllAdaDiscriminatedTypesFunction class >> translatedFromISO10303P11 [
+
 	^ true
 
 
@@ -55,6 +58,7 @@ ExChdAllAdaDiscriminatedTypesFunction class >> translatedFromISO10303P11 [
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdAllAdaDiscriminatedTypesFunction class >> vwNamespaceName [
+
 	^ #Express2Cheddar
 
 
@@ -62,6 +66,7 @@ ExChdAllAdaDiscriminatedTypesFunction class >> vwNamespaceName [
 
 { #category : 'platypus-generated-accessing' }
 ExChdAllAdaDiscriminatedTypesFunction >> allPkgs [
+
 	^ allPkgs
 
 
@@ -69,15 +74,17 @@ ExChdAllAdaDiscriminatedTypesFunction >> allPkgs [
 
 { #category : 'platypus-generated-accessing' }
 ExChdAllAdaDiscriminatedTypesFunction >> allPkgs: aListOfExChdAdaPackage [
+
 	allPkgs := aListOfExChdAdaPackage
-		ifNil: [ OrderedCollection new ]
-		ifNotNil: [ aListOfExChdAdaPackage as: OrderedCollection ]
+		           ifNil: [ OrderedCollection new ]
+		           ifNotNil: [ aListOfExChdAdaPackage as: OrderedCollection ]
 
 
 ]
 
 { #category : 'platypus-generated-accessing' }
 ExChdAllAdaDiscriminatedTypesFunction >> dtList [
+
 	^ dtList
 
 
@@ -85,9 +92,11 @@ ExChdAllAdaDiscriminatedTypesFunction >> dtList [
 
 { #category : 'platypus-generated-accessing' }
 ExChdAllAdaDiscriminatedTypesFunction >> dtList: aListOfExChdDiscriminatedType [
+
 	dtList := aListOfExChdDiscriminatedType
-		ifNil: [ OrderedCollection new ]
-		ifNotNil: [ aListOfExChdDiscriminatedType as: OrderedCollection ]
+		          ifNil: [ OrderedCollection new ]
+		          ifNotNil: [
+		          aListOfExChdDiscriminatedType as: OrderedCollection ]
 
 
 ]
@@ -97,50 +106,39 @@ ExChdAllAdaDiscriminatedTypesFunction >> invoke [
 	" ---------- locals assignments ----------"
 
 	self dtList: Array new.
-	self
-		allPkgs:
-			(PTsSetToListFunction
-				invokeFromValues:
-					(OrderedCollection new
-						add: ExChdAllAdaPackagesFunction invoke;
-						yourself)).	" ---------- statements ----------"
+	self allPkgs:
+		(PTsSetToListFunction invokeFromValues: (OrderedCollection new
+				  add: ExChdAllAdaPackagesFunction invoke;
+				  yourself)). " ---------- statements ----------"
 	PlatypusCoreRepeatStatement
-		repeat: [ :no180 | 
-			PlatypusCoreAliasStatement
-				alias: ((self allPkgs pltAt: no180) entitiesUsingContext: self class context)
-				statementsBlock: [ :entities2134 | 
-					PlatypusCoreRepeatStatement
-						repeat: [ :noi2389 | 
-							((PltTYPEOFFunction
-								invokeFromValues:
-									(OrderedCollection new
-										add: (entities2134 pltAt: noi2389);
-										yourself)) includes: 'DISCRIMINATED_TYPE.DISCRIMINATED_TYPE')
-								ifTrue: [ self dtList: (self dtList pltPlus: (entities2134 pltAt: noi2389)) ] ]
-						from:
-							(PltLOINDEXFunction
-								invokeFromValues:
-									(OrderedCollection new
-										add: entities2134;
-										yourself))
-						to:
-							(PltHIINDEXFunction
-								invokeFromValues:
-									(OrderedCollection new
-										add: entities2134;
-										yourself)) ] ]
-		from:
-			(PltLOINDEXFunction
-				invokeFromValues:
-					(OrderedCollection new
-						add: self allPkgs;
-						yourself))
-		to:
-			(PltHIINDEXFunction
-				invokeFromValues:
-					(OrderedCollection new
-						add: self allPkgs;
-						yourself)).
+		repeat: [ :no2042921 |
+				PlatypusCoreAliasStatement
+					alias: ((self allPkgs pltAt: no2042921) entitiesUsingContext:
+							 self class context)
+					statementsBlock: [ :entities807005 |
+							PlatypusCoreRepeatStatement
+								repeat: [ :noi3158707 |
+										((PltTYPEOFFunction invokeFromValues:
+											  (OrderedCollection new
+												   add: (entities807005 pltAt: noi3158707);
+												   yourself)) includes:
+											 'DISCRIMINATED_TYPE.DISCRIMINATED_TYPE') ifTrue: [
+											self dtList:
+												(self dtList pltPlus: (entities807005 pltAt: noi3158707)) ] ]
+								from:
+									(PltLOINDEXFunction invokeFromValues: (OrderedCollection new
+											  add: entities807005;
+											  yourself))
+								to:
+									(PltHIINDEXFunction invokeFromValues: (OrderedCollection new
+											  add: entities807005;
+											  yourself)) ] ]
+		from: (PltLOINDEXFunction invokeFromValues: (OrderedCollection new
+					  add: self allPkgs;
+					  yourself))
+		to: (PltHIINDEXFunction invokeFromValues: (OrderedCollection new
+					  add: self allPkgs;
+					  yourself)).
 	^ self return: self dtList
 
 

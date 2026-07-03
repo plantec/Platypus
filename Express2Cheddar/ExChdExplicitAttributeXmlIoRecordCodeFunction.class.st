@@ -60,6 +60,7 @@ Class {
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdExplicitAttributeXmlIoRecordCodeFunction class >> iso10303P11Translater [
+
 	^ 'Platypus (c) LISYC EA3883, Universite de Bretagne occidentale. Brest.'
 
 
@@ -67,6 +68,7 @@ ExChdExplicitAttributeXmlIoRecordCodeFunction class >> iso10303P11Translater [
 
 { #category : 'platypus-generated-meta-data-accessing' }
 ExChdExplicitAttributeXmlIoRecordCodeFunction class >> schemaDefinition [
+
 	^ ExChdRecordAndClassSchemaDefinition singleton
 
 
@@ -74,6 +76,7 @@ ExChdExplicitAttributeXmlIoRecordCodeFunction class >> schemaDefinition [
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdExplicitAttributeXmlIoRecordCodeFunction class >> translatedFromISO10303P11 [
+
 	^ true
 
 
@@ -81,6 +84,7 @@ ExChdExplicitAttributeXmlIoRecordCodeFunction class >> translatedFromISO10303P11
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdExplicitAttributeXmlIoRecordCodeFunction class >> vwNamespaceName [
+
 	^ #Express2Cheddar
 
 
@@ -88,6 +92,7 @@ ExChdExplicitAttributeXmlIoRecordCodeFunction class >> vwNamespaceName [
 
 { #category : 'platypus-generated-accessing' }
 ExChdExplicitAttributeXmlIoRecordCodeFunction >> attr [
+
 	^ attr
 
 
@@ -95,6 +100,7 @@ ExChdExplicitAttributeXmlIoRecordCodeFunction >> attr [
 
 { #category : 'platypus-generated-accessing' }
 ExChdExplicitAttributeXmlIoRecordCodeFunction >> attr: aExChdExplicitAttribute [
+
 	attr := aExChdExplicitAttribute
 
 
@@ -102,6 +108,7 @@ ExChdExplicitAttributeXmlIoRecordCodeFunction >> attr: aExChdExplicitAttribute [
 
 { #category : 'platypus-generated-accessing' }
 ExChdExplicitAttributeXmlIoRecordCodeFunction >> code [
+
 	^ code
 
 
@@ -109,6 +116,7 @@ ExChdExplicitAttributeXmlIoRecordCodeFunction >> code [
 
 { #category : 'platypus-generated-accessing' }
 ExChdExplicitAttributeXmlIoRecordCodeFunction >> code: aString [
+
 	code := aString
 
 
@@ -116,6 +124,7 @@ ExChdExplicitAttributeXmlIoRecordCodeFunction >> code: aString [
 
 { #category : 'platypus-generated-accessing' }
 ExChdExplicitAttributeXmlIoRecordCodeFunction >> domain [
+
 	^ domain
 
 
@@ -123,6 +132,7 @@ ExChdExplicitAttributeXmlIoRecordCodeFunction >> domain [
 
 { #category : 'platypus-generated-accessing' }
 ExChdExplicitAttributeXmlIoRecordCodeFunction >> domain: aExChdEntityInstance [
+
 	domain := aExChdEntityInstance
 
 
@@ -130,6 +140,7 @@ ExChdExplicitAttributeXmlIoRecordCodeFunction >> domain: aExChdEntityInstance [
 
 { #category : 'platypus-generated-accessing' }
 ExChdExplicitAttributeXmlIoRecordCodeFunction >> fromValues: values [
+
 	self attr: (values at: 1)
 
 
@@ -137,6 +148,7 @@ ExChdExplicitAttributeXmlIoRecordCodeFunction >> fromValues: values [
 
 { #category : 'platypus-generated-accessing' }
 ExChdExplicitAttributeXmlIoRecordCodeFunction >> init [
+
 	^ init
 
 
@@ -144,6 +156,7 @@ ExChdExplicitAttributeXmlIoRecordCodeFunction >> init [
 
 { #category : 'platypus-generated-accessing' }
 ExChdExplicitAttributeXmlIoRecordCodeFunction >> init: aString1 [
+
 	init := aString1
 
 
@@ -154,72 +167,75 @@ ExChdExplicitAttributeXmlIoRecordCodeFunction >> invoke [
 	" ---------- locals assignments ----------"
 
 	self code: ''.
-	self
-		domain:
-			(ExChdBasicAdaDomainFunction
-				invokeFromValues:
-					(OrderedCollection new
-						add: (self attr domainUsingContext: self class context);
-						yourself)).
-	self init: (self domain initValueUsingContext: self class context).	" ---------- statements ----------"
-	((PltTYPEOFFunction
-		invokeFromValues:
-			(OrderedCollection new
-				add: (self domain handledUsingContext: self class context);
-				yourself)) includes: 'RECORD_AND_CLASS.RECORD')
-		ifTrue: [ 
-			^ self
-				return:
-					(ExChdAdaEntityAttributesXmlIoRecordCodeFunction
-						invokeFromValues:
-							(OrderedCollection new
-								add: (self domain handledUsingContext: self class context);
-								yourself)) ].
-	(ExChdIsGenericObjectFunction
-		invokeFromValues:
-			(OrderedCollection new
-				add: (self domain handledUsingContext: self class context);
-				yourself)) not
-		ifTrue: [ 
-			(((PltTYPEOFFunction
-				invokeFromValues:
-					(OrderedCollection new
-						add: (self domain handledUsingContext: self class context);
-						yourself)) includes: 'CHEDDAR_DOMAINS.ADA_ENUMERATION')
-				or: [ 
-					PltEXISTSFunction
-						invokeFromValues:
-							(OrderedCollection new
-								add: self init;
-								yourself) ])
-				ifTrue: [ 
-					((PltTYPEOFFunction
-						invokeFromValues:
-							(OrderedCollection new
-								add: (self domain handledUsingContext: self class context);
-								yourself)) includes: 'CHEDDAR_DOMAINS.ADA_ENUMERATION')
-						ifTrue: [ 
-							self
-								code:
-									(((('\t' pltPlus: (self attr nameUsingContext: self class context)) pltPlus: ' : ')
-										pltPlus: (self domain adaRefIdentUsingContext: self class context)) pltPlus: ';') ]
-						ifFalse: [ 
-							self init = 'empty_string'
-								ifTrue: [ self code: (('\t' pltPlus: (self attr nameUsingContext: self class context)) pltPlus: ' : Unbounded_String;') ]
-								ifFalse: [ 
-									(PTsLowerizeFunction
-										invokeFromValues:
-											(OrderedCollection new
-												add: self init;
-												yourself)) = 'false'
-										ifTrue: [ self code: (('\t' pltPlus: (self attr nameUsingContext: self class context)) pltPlus: ' : Boolean;') ]
-										ifFalse: [ 
-											self init = '0'
-												ifTrue: [ self code: (('\t' pltPlus: (self attr nameUsingContext: self class context)) pltPlus: ' : Integer;') ]
-												ifFalse: [ self code: (('\t' pltPlus: (self attr nameUsingContext: self class context)) pltPlus: ' : Double;') ] ] ] ] ] ]
-		ifFalse: [ self code: (('\t' pltPlus: (self attr nameUsingContext: self class context)) pltPlus: ' : Unbounded_String;') ].
-	self code > ''
-		ifTrue: [ self code: ('\n' pltPlus: self code) ].
+	self domain:
+		(ExChdBasicAdaDomainFunction invokeFromValues:
+			 (OrderedCollection new
+				  add: (self attr domainUsingContext: self class context);
+				  yourself)).
+	self init: (self domain initValueUsingContext: self class context). " ---------- statements ----------"
+	((PltTYPEOFFunction invokeFromValues: (OrderedCollection new
+			   add: (self domain handledUsingContext: self class context);
+			   yourself)) includes: 'RECORD_AND_CLASS.RECORD') ifTrue: [
+			^ self return:
+				  (ExChdAdaEntityAttributesXmlIoRecordCodeFunction
+					   invokeFromValues: (OrderedCollection new
+							    add: (self domain handledUsingContext: self class context);
+							    yourself)) ].
+	(ExChdIsGenericObjectFunction invokeFromValues:
+		 (OrderedCollection new
+			  add: (self domain handledUsingContext: self class context);
+			  yourself)) not
+		ifTrue: [
+				(((PltTYPEOFFunction invokeFromValues: (OrderedCollection new
+						    add: (self domain handledUsingContext: self class context);
+						    yourself)) includes: 'CHEDDAR_DOMAINS.ADA_ENUMERATION') or: [
+						 PltEXISTSFunction invokeFromValues: (OrderedCollection new
+								  add: self init;
+								  yourself) ]) ifTrue: [
+						((PltTYPEOFFunction invokeFromValues: (OrderedCollection new
+								   add: (self domain handledUsingContext: self class context);
+								   yourself)) includes: 'CHEDDAR_DOMAINS.ADA_ENUMERATION')
+							ifTrue: [
+									self code:
+										(((('\t' pltPlus:
+											    (self attr nameUsingContext: self class context))
+											   pltPlus: ' : ') pltPlus:
+											  (self domain adaRefIdentUsingContext: self class context))
+											 pltPlus: ';') ]
+							ifFalse: [
+									self init = 'empty_string'
+										ifTrue: [
+												self code:
+													(('\t' pltPlus:
+														  (self attr nameUsingContext: self class context))
+														 pltPlus: ' : Unbounded_String;') ]
+										ifFalse: [
+												(PTsLowerizeFunction invokeFromValues:
+													 (OrderedCollection new
+														  add: self init;
+														  yourself)) = 'false'
+													ifTrue: [
+															self code:
+																(('\t' pltPlus:
+																	  (self attr nameUsingContext: self class context))
+																	 pltPlus: ' : Boolean;') ]
+													ifFalse: [
+															self init = '0'
+																ifTrue: [
+																		self code:
+																			(('\t' pltPlus:
+																				  (self attr nameUsingContext: self class context))
+																				 pltPlus: ' : Integer;') ]
+																ifFalse: [
+																		self code:
+																			(('\t' pltPlus:
+																				  (self attr nameUsingContext: self class context))
+																				 pltPlus: ' : Double;') ] ] ] ] ] ]
+		ifFalse: [
+				self code:
+					(('\t' pltPlus: (self attr nameUsingContext: self class context))
+						 pltPlus: ' : Unbounded_String;') ].
+	self code > '' ifTrue: [ self code: ('\n' pltPlus: self code) ].
 	^ self return: self code
 
 

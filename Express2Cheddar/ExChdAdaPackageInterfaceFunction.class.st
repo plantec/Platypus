@@ -91,6 +91,7 @@ Class {
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdAdaPackageInterfaceFunction class >> iso10303P11Translater [
+
 	^ 'Platypus (c) LISYC EA3883, Universite de Bretagne occidentale. Brest.'
 
 
@@ -98,6 +99,7 @@ ExChdAdaPackageInterfaceFunction class >> iso10303P11Translater [
 
 { #category : 'platypus-generated-meta-data-accessing' }
 ExChdAdaPackageInterfaceFunction class >> schemaDefinition [
+
 	^ ExChdPackageSchemaDefinition singleton
 
 
@@ -105,6 +107,7 @@ ExChdAdaPackageInterfaceFunction class >> schemaDefinition [
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdAdaPackageInterfaceFunction class >> translatedFromISO10303P11 [
+
 	^ true
 
 
@@ -112,6 +115,7 @@ ExChdAdaPackageInterfaceFunction class >> translatedFromISO10303P11 [
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdAdaPackageInterfaceFunction class >> vwNamespaceName [
+
 	^ #Express2Cheddar
 
 
@@ -119,6 +123,7 @@ ExChdAdaPackageInterfaceFunction class >> vwNamespaceName [
 
 { #category : 'platypus-generated-accessing' }
 ExChdAdaPackageInterfaceFunction >> adbList [
+
 	^ adbList
 
 
@@ -126,15 +131,18 @@ ExChdAdaPackageInterfaceFunction >> adbList [
 
 { #category : 'platypus-generated-accessing' }
 ExChdAdaPackageInterfaceFunction >> adbList: aListOfExChdAdaInterface1 [
+
 	adbList := aListOfExChdAdaInterface1
-		ifNil: [ OrderedCollection new ]
-		ifNotNil: [ aListOfExChdAdaInterface1 as: OrderedCollection ]
+		           ifNil: [ OrderedCollection new ]
+		           ifNotNil: [
+		           aListOfExChdAdaInterface1 as: OrderedCollection ]
 
 
 ]
 
 { #category : 'platypus-generated-accessing' }
 ExChdAdaPackageInterfaceFunction >> ads [
+
 	^ ads
 
 
@@ -142,6 +150,7 @@ ExChdAdaPackageInterfaceFunction >> ads [
 
 { #category : 'platypus-generated-accessing' }
 ExChdAdaPackageInterfaceFunction >> ads: aBoolean [
+
 	ads := aBoolean
 
 
@@ -149,6 +158,7 @@ ExChdAdaPackageInterfaceFunction >> ads: aBoolean [
 
 { #category : 'platypus-generated-accessing' }
 ExChdAdaPackageInterfaceFunction >> adsList [
+
 	^ adsList
 
 
@@ -156,15 +166,18 @@ ExChdAdaPackageInterfaceFunction >> adsList [
 
 { #category : 'platypus-generated-accessing' }
 ExChdAdaPackageInterfaceFunction >> adsList: aListOfExChdAdaInterface [
+
 	adsList := aListOfExChdAdaInterface
-		ifNil: [ OrderedCollection new ]
-		ifNotNil: [ aListOfExChdAdaInterface as: OrderedCollection ]
+		           ifNil: [ OrderedCollection new ]
+		           ifNotNil: [
+		           aListOfExChdAdaInterface as: OrderedCollection ]
 
 
 ]
 
 { #category : 'platypus-generated-accessing' }
 ExChdAdaPackageInterfaceFunction >> defs [
+
 	^ defs
 
 
@@ -172,15 +185,18 @@ ExChdAdaPackageInterfaceFunction >> defs [
 
 { #category : 'platypus-generated-accessing' }
 ExChdAdaPackageInterfaceFunction >> defs: aListOfExChdDictionaryInstance [
+
 	defs := aListOfExChdDictionaryInstance
-		ifNil: [ OrderedCollection new ]
-		ifNotNil: [ aListOfExChdDictionaryInstance as: OrderedCollection ]
+		        ifNil: [ OrderedCollection new ]
+		        ifNotNil: [
+		        aListOfExChdDictionaryInstance as: OrderedCollection ]
 
 
 ]
 
 { #category : 'platypus-generated-accessing' }
 ExChdAdaPackageInterfaceFunction >> fromValues: values [
+
 	self pkg: (values at: 1).
 	self ads: (values at: 2)
 
@@ -191,215 +207,192 @@ ExChdAdaPackageInterfaceFunction >> fromValues: values [
 ExChdAdaPackageInterfaceFunction >> invoke [
 	" ---------- locals assignments ----------"
 
-	self
-		adsList:
-			(PlatypusCoreAggregateInitializer
-				collectionFrom:
-					(OrderedCollection new
-						add:
-								(ExChdAdaInterface new
-										adaInterfaceFromValues:
-												(OrderedCollection new
-														add: 'Ada.Strings.Unbounded';
-														add: nil;
-														add: true;
-														add: true;
-														yourself);
-										yourself);
-						add:
-								(ExChdAdaInterface new
-										adaInterfaceFromValues:
-												(OrderedCollection new
-														add: 'Framework_Config';
-														add: nil;
-														add: true;
-														add: true;
-														yourself);
-										yourself);
-						add:
-								(ExChdAdaInterface new
-										adaInterfaceFromValues:
-												(OrderedCollection new
-														add: 'id_generators';
-														add: nil;
-														add: true;
-														add: true;
-														yourself);
-										yourself);
-						yourself)).
-	self
-		adbList:
-			(PlatypusCoreAggregateInitializer
-				collectionFrom:
-					(OrderedCollection new
-						add:
-								(ExChdAdaInterface new
-										adaInterfaceFromValues:
-												(OrderedCollection new
-														add: 'Text_io';
-														add: nil;
-														add: true;
-														add: true;
-														yourself);
-										yourself);
-						add:
-								(ExChdAdaInterface new
-										adaInterfaceFromValues:
-												(OrderedCollection new
-														add: 'unbounded_strings';
-														add: nil;
-														add: true;
-														add: true;
-														yourself);
-										yourself);
-						yourself)).
+	self adsList: (PlatypusCoreAggregateInitializer collectionFrom:
+			 (OrderedCollection new
+				  add: (ExChdAdaInterface new
+						   adaInterfaceFromValues: (OrderedCollection new
+								    add: 'Ada.Strings.Unbounded';
+								    add: nil;
+								    add: true;
+								    add: true;
+								    yourself);
+						   yourself);
+				  add: (ExChdAdaInterface new
+						   adaInterfaceFromValues: (OrderedCollection new
+								    add: 'Framework_Config';
+								    add: nil;
+								    add: true;
+								    add: true;
+								    yourself);
+						   yourself);
+				  add: (ExChdAdaInterface new
+						   adaInterfaceFromValues: (OrderedCollection new
+								    add: 'id_generators';
+								    add: nil;
+								    add: true;
+								    add: true;
+								    yourself);
+						   yourself);
+				  yourself)).
+	self adbList: (PlatypusCoreAggregateInitializer collectionFrom:
+			 (OrderedCollection new
+				  add: (ExChdAdaInterface new
+						   adaInterfaceFromValues: (OrderedCollection new
+								    add: 'Text_io';
+								    add: nil;
+								    add: true;
+								    add: true;
+								    yourself);
+						   yourself);
+				  add: (ExChdAdaInterface new
+						   adaInterfaceFromValues: (OrderedCollection new
+								    add: 'unbounded_strings';
+								    add: nil;
+								    add: true;
+								    add: true;
+								    yourself);
+						   yourself);
+				  yourself)).
 	self result: Array new.
-	self
-		defs:
-			(((self pkg entitiesUsingContext: self class context) pltPlus: (self pkg typesUsingContext: self class context))
-				pltPlus: (self pkg constantsUsingContext: self class context)).
-	self
-		pkgKey:
-			(PTsUpperizeFunction
-				invokeFromValues:
-					(OrderedCollection new
-						add: (self pkg nameUsingContext: self class context);
-						yourself)).	" ---------- statements ----------"
+	self defs:
+		(((self pkg entitiesUsingContext: self class context) pltPlus:
+			  (self pkg typesUsingContext: self class context)) pltPlus:
+			 (self pkg constantsUsingContext: self class context)).
+	self pkgKey:
+		(PTsUpperizeFunction invokeFromValues: (OrderedCollection new
+				  add: (self pkg nameUsingContext: self class context);
+				  yourself)). " ---------- statements ----------"
 	PlatypusCoreRepeatStatement
-		repeat: [ :no1085 | 
-			PlatypusCoreAliasStatement
-				alias: ((self pkg interfaceUsingContext: self class context) pltAt: no1085)
-				statementsBlock: [ :curr3035 | 
-					((PltTYPEOFFunction
-						invokeFromValues:
-							(OrderedCollection new
-								add: (curr3035 nativeSchemaUsingContext: self class context);
-								yourself)) includes: 'PACKAGE.ADA_PACKAGE')
-						ifTrue: [ 
-							self
-								adsList:
-									(self adsList
-										pltPlus:
-											(ExChdAdaInterface new
-												adaInterfaceFromValues:
-														(OrderedCollection new
-																add: ((curr3035 nativeSchemaUsingContext: self class context) nameUsingContext: self class context);
-																add: nil;
-																add: true;
-																add: true;
-																yourself);
-												yourself)) ] ] ]
-		from:
-			(PltLOINDEXFunction
-				invokeFromValues:
-					(OrderedCollection new
-						add: (self pkg interfaceUsingContext: self class context);
-						yourself))
-		to:
-			(PltHIINDEXFunction
-				invokeFromValues:
-					(OrderedCollection new
-						add: (self pkg interfaceUsingContext: self class context);
-						yourself)).
+		repeat: [ :no494071 |
+				PlatypusCoreAliasStatement
+					alias:
+					((self pkg interfaceUsingContext: self class context) pltAt:
+						 no494071)
+					statementsBlock: [ :curr3334185 |
+							((PltTYPEOFFunction invokeFromValues: (OrderedCollection new
+									   add:
+										   (curr3334185 nativeSchemaUsingContext: self class context);
+									   yourself)) includes: 'PACKAGE.ADA_PACKAGE') ifTrue: [
+									self adsList: (self adsList pltPlus: (ExChdAdaInterface new
+												  adaInterfaceFromValues: (OrderedCollection new
+														   add:
+															   ((curr3334185 nativeSchemaUsingContext:
+																	     self class context) nameUsingContext:
+																	    self class context);
+														   add: nil;
+														   add: true;
+														   add: true;
+														   yourself);
+												  yourself)) ] ] ]
+		from: (PltLOINDEXFunction invokeFromValues: (OrderedCollection new
+					  add: (self pkg interfaceUsingContext: self class context);
+					  yourself))
+		to: (PltHIINDEXFunction invokeFromValues: (OrderedCollection new
+					  add: (self pkg interfaceUsingContext: self class context);
+					  yourself)).
 	PlatypusCoreRepeatStatement
-		repeat: [ :no1438 | 
-			PlatypusCoreAliasStatement
-				alias: (self defs pltAt: no1438)
-				statementsBlock: [ :e2544 | 
-					((PltTYPEOFFunction
-						invokeFromValues:
-							(OrderedCollection new
-								add: e2544;
-								yourself)) includes: 'CHEDDAR_DOMAINS.CHEDDAR_DEFINED_TYPE')
-						ifTrue: [ 
-							self adsList: (self adsList pltPlus: (e2544 adsInterfacesListUsingContext: self class context)).
-							self adbList: (self adbList pltPlus: (e2544 adbInterfacesListUsingContext: self class context)) ].
-					((PltTYPEOFFunction
-						invokeFromValues:
-							(OrderedCollection new
-								add: e2544;
-								yourself)) includes: 'CHEDDAR_DOMAINS.EXPLICIT_TYPE_REFERENCE')
-						ifTrue: [ 
-							self adsList: (self adsList pltPlus: (e2544 adsInterfacesListUsingContext: self class context)).
-							self adbList: (self adbList pltPlus: (e2544 adbInterfacesListUsingContext: self class context)) ].
-					((PltTYPEOFFunction
-						invokeFromValues:
-							(OrderedCollection new
-								add: e2544;
-								yourself)) includes: 'CHEDDAR_CONSTANTS.ADA_CONSTANT')
-						ifTrue: [ 
-							self adsList: (self adsList pltPlus: (e2544 adsInterfacesListUsingContext: self class context)).
-							self adbList: (self adbList pltPlus: (e2544 adbInterfacesListUsingContext: self class context)) ].
-					((PltTYPEOFFunction
-						invokeFromValues:
-							(OrderedCollection new
-								add: e2544;
-								yourself)) includes: 'RECORD_AND_CLASS.ADA_ENTITY')
-						ifTrue: [ 
-							self adsList: (self adsList pltPlus: (e2544 adsInterfacesListUsingContext: self class context)).
-							self adbList: (self adbList pltPlus: (e2544 adbInterfacesListUsingContext: self class context)) ].
-					((PltTYPEOFFunction
-						invokeFromValues:
-							(OrderedCollection new
-								add: e2544;
-								yourself)) includes: 'CHEDDAR_DOMAINS.ADA_ENUMERATION')
-						ifTrue: [ 
-							self adsList: (self adsList pltPlus: (e2544 adsInterfacesListUsingContext: self class context)).
-							self adbList: (self adbList pltPlus: (e2544 adbInterfacesListUsingContext: self class context)) ].
-					((PltTYPEOFFunction
-						invokeFromValues:
-							(OrderedCollection new
-								add: e2544;
-								yourself)) includes: 'CHEDDAR_DOMAINS.CONSTRAINED_ARRAY_TYPE')
-						ifTrue: [ 
-							self adsList: (self adsList pltPlus: (e2544 adsInterfacesListUsingContext: self class context)).
-							self adbList: (self adbList pltPlus: (e2544 adbInterfacesListUsingContext: self class context)) ].
-					((PltTYPEOFFunction
-						invokeFromValues:
-							(OrderedCollection new
-								add: e2544;
-								yourself)) includes: 'PACKAGE.GENERIC_PACKAGE_INSTANCIATION')
-						ifTrue: [ 
-							self adsList: (self adsList pltPlus: (e2544 adsInterfacesListUsingContext: self class context)).
-							self adbList: (self adbList pltPlus: (e2544 adbInterfacesListUsingContext: self class context)) ] ] ]
-		from:
-			(PltLOINDEXFunction
-				invokeFromValues:
-					(OrderedCollection new
-						add: self defs;
-						yourself))
-		to:
-			(PltHIINDEXFunction
-				invokeFromValues:
-					(OrderedCollection new
-						add: self defs;
-						yourself)).
+		repeat: [ :no304819 |
+				PlatypusCoreAliasStatement
+					alias: (self defs pltAt: no304819)
+					statementsBlock: [ :e1854051 |
+							((PltTYPEOFFunction invokeFromValues: (OrderedCollection new
+									   add: e1854051;
+									   yourself)) includes:
+								 'CHEDDAR_DOMAINS.CHEDDAR_DEFINED_TYPE') ifTrue: [
+									self adsList: (self adsList pltPlus:
+											 (e1854051 adsInterfacesListUsingContext:
+												  self class context)).
+									self adbList: (self adbList pltPlus:
+											 (e1854051 adbInterfacesListUsingContext:
+												  self class context)) ].
+							((PltTYPEOFFunction invokeFromValues: (OrderedCollection new
+									   add: e1854051;
+									   yourself)) includes:
+								 'CHEDDAR_DOMAINS.EXPLICIT_TYPE_REFERENCE') ifTrue: [
+									self adsList: (self adsList pltPlus:
+											 (e1854051 adsInterfacesListUsingContext:
+												  self class context)).
+									self adbList: (self adbList pltPlus:
+											 (e1854051 adbInterfacesListUsingContext:
+												  self class context)) ].
+							((PltTYPEOFFunction invokeFromValues: (OrderedCollection new
+									   add: e1854051;
+									   yourself)) includes: 'CHEDDAR_CONSTANTS.ADA_CONSTANT')
+								ifTrue: [
+										self adsList: (self adsList pltPlus:
+												 (e1854051 adsInterfacesListUsingContext:
+													  self class context)).
+										self adbList: (self adbList pltPlus:
+												 (e1854051 adbInterfacesListUsingContext:
+													  self class context)) ].
+							((PltTYPEOFFunction invokeFromValues: (OrderedCollection new
+									   add: e1854051;
+									   yourself)) includes: 'RECORD_AND_CLASS.ADA_ENTITY')
+								ifTrue: [
+										self adsList: (self adsList pltPlus:
+												 (e1854051 adsInterfacesListUsingContext:
+													  self class context)).
+										self adbList: (self adbList pltPlus:
+												 (e1854051 adbInterfacesListUsingContext:
+													  self class context)) ].
+							((PltTYPEOFFunction invokeFromValues: (OrderedCollection new
+									   add: e1854051;
+									   yourself)) includes: 'CHEDDAR_DOMAINS.ADA_ENUMERATION')
+								ifTrue: [
+										self adsList: (self adsList pltPlus:
+												 (e1854051 adsInterfacesListUsingContext:
+													  self class context)).
+										self adbList: (self adbList pltPlus:
+												 (e1854051 adbInterfacesListUsingContext:
+													  self class context)) ].
+							((PltTYPEOFFunction invokeFromValues: (OrderedCollection new
+									   add: e1854051;
+									   yourself)) includes:
+								 'CHEDDAR_DOMAINS.CONSTRAINED_ARRAY_TYPE') ifTrue: [
+									self adsList: (self adsList pltPlus:
+											 (e1854051 adsInterfacesListUsingContext:
+												  self class context)).
+									self adbList: (self adbList pltPlus:
+											 (e1854051 adbInterfacesListUsingContext:
+												  self class context)) ].
+							((PltTYPEOFFunction invokeFromValues: (OrderedCollection new
+									   add: e1854051;
+									   yourself)) includes:
+								 'PACKAGE.GENERIC_PACKAGE_INSTANCIATION') ifTrue: [
+									self adsList: (self adsList pltPlus:
+											 (e1854051 adsInterfacesListUsingContext:
+												  self class context)).
+									self adbList: (self adbList pltPlus:
+											 (e1854051 adbInterfacesListUsingContext:
+												  self class context)) ] ] ]
+		from: (PltLOINDEXFunction invokeFromValues: (OrderedCollection new
+					  add: self defs;
+					  yourself))
+		to: (PltHIINDEXFunction invokeFromValues: (OrderedCollection new
+					  add: self defs;
+					  yourself)).
 	self ads
-		ifTrue: [ self wul: (self adsList pltPlus: (self pkg adsInterfaceUsingContext: self class context)) ]
-		ifFalse: [ self wul: (self adbList pltPlus: (self pkg adbInterfaceUsingContext: self class context)) ].
+		ifTrue: [
+				self wul: (self adsList pltPlus:
+						 (self pkg adsInterfaceUsingContext: self class context)) ]
+		ifFalse: [
+				self wul: (self adbList pltPlus:
+						 (self pkg adbInterfaceUsingContext: self class context)) ].
 	PlatypusCoreRepeatStatement
-		repeat: [ :no2145 | 
-			PlatypusCoreAliasStatement
-				alias: (self wul pltAt: no2145)
-				statementsBlock: [ :curr3251 | 
-					(PTsUpperizeFunction
-						invokeFromValues:
-							(OrderedCollection new
-								add: (curr3251 prefixUsingContext: self class context);
-								yourself)) ~= self pkgKey
-						ifTrue: [ self result: (self result pltPlus: curr3251) ] ] ]
-		from:
-			(PltLOINDEXFunction
-				invokeFromValues:
-					(OrderedCollection new
-						add: self wul;
-						yourself))
-		to:
-			(PltHIINDEXFunction
-				invokeFromValues:
-					(OrderedCollection new
-						add: self wul;
-						yourself)).
+		repeat: [ :no3354087 |
+				PlatypusCoreAliasStatement
+					alias: (self wul pltAt: no3354087)
+					statementsBlock: [ :curr700751 |
+							(PTsUpperizeFunction invokeFromValues: (OrderedCollection new
+									  add: (curr700751 prefixUsingContext: self class context);
+									  yourself)) ~= self pkgKey ifTrue: [
+								self result: (self result pltPlus: curr700751) ] ] ]
+		from: (PltLOINDEXFunction invokeFromValues: (OrderedCollection new
+					  add: self wul;
+					  yourself))
+		to: (PltHIINDEXFunction invokeFromValues: (OrderedCollection new
+					  add: self wul;
+					  yourself)).
 	^ self return: self result
 
 
@@ -407,6 +400,7 @@ ExChdAdaPackageInterfaceFunction >> invoke [
 
 { #category : 'platypus-generated-accessing' }
 ExChdAdaPackageInterfaceFunction >> pkg [
+
 	^ pkg
 
 
@@ -414,6 +408,7 @@ ExChdAdaPackageInterfaceFunction >> pkg [
 
 { #category : 'platypus-generated-accessing' }
 ExChdAdaPackageInterfaceFunction >> pkg: aExChdAdaPackage [
+
 	pkg := aExChdAdaPackage
 
 
@@ -421,6 +416,7 @@ ExChdAdaPackageInterfaceFunction >> pkg: aExChdAdaPackage [
 
 { #category : 'platypus-generated-accessing' }
 ExChdAdaPackageInterfaceFunction >> pkg: aExChdAdaPackage ads: aBoolean [
+
 	self pkg: aExChdAdaPackage.
 	self ads: aBoolean
 
@@ -429,6 +425,7 @@ ExChdAdaPackageInterfaceFunction >> pkg: aExChdAdaPackage ads: aBoolean [
 
 { #category : 'platypus-generated-accessing' }
 ExChdAdaPackageInterfaceFunction >> pkgKey [
+
 	^ pkgKey
 
 
@@ -436,6 +433,7 @@ ExChdAdaPackageInterfaceFunction >> pkgKey [
 
 { #category : 'platypus-generated-accessing' }
 ExChdAdaPackageInterfaceFunction >> pkgKey: aString [
+
 	pkgKey := aString
 
 
@@ -443,6 +441,7 @@ ExChdAdaPackageInterfaceFunction >> pkgKey: aString [
 
 { #category : 'platypus-generated-accessing' }
 ExChdAdaPackageInterfaceFunction >> result [
+
 	^ result
 
 
@@ -450,15 +449,18 @@ ExChdAdaPackageInterfaceFunction >> result [
 
 { #category : 'platypus-generated-accessing' }
 ExChdAdaPackageInterfaceFunction >> result: aListOfExChdAdaInterface3 [
+
 	result := aListOfExChdAdaInterface3
-		ifNil: [ OrderedCollection new ]
-		ifNotNil: [ aListOfExChdAdaInterface3 as: OrderedCollection ]
+		          ifNil: [ OrderedCollection new ]
+		          ifNotNil: [
+		          aListOfExChdAdaInterface3 as: OrderedCollection ]
 
 
 ]
 
 { #category : 'platypus-generated-accessing' }
 ExChdAdaPackageInterfaceFunction >> wul [
+
 	^ wul
 
 
@@ -466,9 +468,10 @@ ExChdAdaPackageInterfaceFunction >> wul [
 
 { #category : 'platypus-generated-accessing' }
 ExChdAdaPackageInterfaceFunction >> wul: aListOfExChdAdaInterface2 [
+
 	wul := aListOfExChdAdaInterface2
-		ifNil: [ OrderedCollection new ]
-		ifNotNil: [ aListOfExChdAdaInterface2 as: OrderedCollection ]
+		       ifNil: [ OrderedCollection new ]
+		       ifNotNil: [ aListOfExChdAdaInterface2 as: OrderedCollection ]
 
 
 ]

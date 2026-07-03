@@ -28,6 +28,7 @@ Class {
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdRecordAdbCodeFunction class >> iso10303P11Translater [
+
 	^ 'Platypus (c) LISYC EA3883, Universite de Bretagne occidentale. Brest.'
 
 
@@ -35,6 +36,7 @@ ExChdRecordAdbCodeFunction class >> iso10303P11Translater [
 
 { #category : 'platypus-generated-meta-data-accessing' }
 ExChdRecordAdbCodeFunction class >> schemaDefinition [
+
 	^ ExChdRecordAndClassSchemaDefinition singleton
 
 
@@ -42,6 +44,7 @@ ExChdRecordAdbCodeFunction class >> schemaDefinition [
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdRecordAdbCodeFunction class >> translatedFromISO10303P11 [
+
 	^ true
 
 
@@ -49,6 +52,7 @@ ExChdRecordAdbCodeFunction class >> translatedFromISO10303P11 [
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdRecordAdbCodeFunction class >> vwNamespaceName [
+
 	^ #Express2Cheddar
 
 
@@ -56,6 +60,7 @@ ExChdRecordAdbCodeFunction class >> vwNamespaceName [
 
 { #category : 'platypus-generated-accessing' }
 ExChdRecordAdbCodeFunction >> code [
+
 	^ code
 
 
@@ -63,6 +68,7 @@ ExChdRecordAdbCodeFunction >> code [
 
 { #category : 'platypus-generated-accessing' }
 ExChdRecordAdbCodeFunction >> code: aString [
+
 	code := aString
 
 
@@ -70,6 +76,7 @@ ExChdRecordAdbCodeFunction >> code: aString [
 
 { #category : 'platypus-generated-accessing' }
 ExChdRecordAdbCodeFunction >> fromValues: values [
+
 	self rec: (values at: 1)
 
 
@@ -77,38 +84,27 @@ ExChdRecordAdbCodeFunction >> fromValues: values [
 
 { #category : 'platypus-generated-invoking' }
 ExChdRecordAdbCodeFunction >> invoke [
-	" ---------- locals assignments ----------"
+	" ---------- locals assignments ----------"" ---------- statements ----------"
 
-	" ---------- statements ----------"
-
-	self
-		code:
-			((((((((((('\n' pltPlus: '-- --------= ') pltPlus: (self rec nameUsingContext: self class context))
-				pltPlus: ' =--------\n')
-				pltPlus:
-					(ExChdRecordInitializeCodeFunction
-						invokeFromValues:
-							(OrderedCollection new
-								add: self rec;
-								yourself))) pltPlus: '\n')
-				pltPlus:
-					(ExChdRecordPutCodeFunction
-						invokeFromValues:
-							(OrderedCollection new
-								add: self rec;
-								yourself))) pltPlus: '\n')
-				pltPlus:
-					(ExChdRecordXmlWriterCodeFunction
-						invokeFromValues:
-							(OrderedCollection new
-								add: self rec;
-								yourself))) pltPlus: '\n')
-				pltPlus:
-					(ExChdRecordCopyCodeFunction
-						invokeFromValues:
-							(OrderedCollection new
-								add: self rec;
-								yourself))) pltPlus: '\n').
+	self code: ((((((((((('\n' pltPlus: '-- --------= ') pltPlus:
+			          (self rec nameUsingContext: self class context))
+			         pltPlus: ' =--------\n') pltPlus:
+			        (ExChdRecordInitializeCodeFunction invokeFromValues:
+				         (OrderedCollection new
+					          add: self rec;
+					          yourself))) pltPlus: '\n') pltPlus:
+			      (ExChdRecordPutCodeFunction invokeFromValues:
+				       (OrderedCollection new
+					        add: self rec;
+					        yourself))) pltPlus: '\n') pltPlus:
+			    (ExChdRecordXmlWriterCodeFunction invokeFromValues:
+				     (OrderedCollection new
+					      add: self rec;
+					      yourself))) pltPlus: '\n') pltPlus:
+			  (ExChdRecordCopyCodeFunction invokeFromValues:
+				   (OrderedCollection new
+					    add: self rec;
+					    yourself))) pltPlus: '\n').
 	^ self return: self code
 
 
@@ -116,6 +112,7 @@ ExChdRecordAdbCodeFunction >> invoke [
 
 { #category : 'platypus-generated-accessing' }
 ExChdRecordAdbCodeFunction >> rec [
+
 	^ rec
 
 
@@ -123,6 +120,7 @@ ExChdRecordAdbCodeFunction >> rec [
 
 { #category : 'platypus-generated-accessing' }
 ExChdRecordAdbCodeFunction >> rec: aExChdRecord [
+
 	rec := aExChdRecord
 
 

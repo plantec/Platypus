@@ -26,6 +26,7 @@ Class {
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdAdaInterfacePathFunction class >> iso10303P11Translater [
+
 	^ 'Platypus (c) LISYC EA3883, Universite de Bretagne occidentale. Brest.'
 
 
@@ -33,6 +34,7 @@ ExChdAdaInterfacePathFunction class >> iso10303P11Translater [
 
 { #category : 'platypus-generated-meta-data-accessing' }
 ExChdAdaInterfacePathFunction class >> schemaDefinition [
+
 	^ ExChdAdaInterfaceSchemaDefinition singleton
 
 
@@ -40,6 +42,7 @@ ExChdAdaInterfacePathFunction class >> schemaDefinition [
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdAdaInterfacePathFunction class >> translatedFromISO10303P11 [
+
 	^ true
 
 
@@ -47,6 +50,7 @@ ExChdAdaInterfacePathFunction class >> translatedFromISO10303P11 [
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdAdaInterfacePathFunction class >> vwNamespaceName [
+
 	^ #Express2Cheddar
 
 
@@ -54,6 +58,7 @@ ExChdAdaInterfacePathFunction class >> vwNamespaceName [
 
 { #category : 'platypus-generated-accessing' }
 ExChdAdaInterfacePathFunction >> fromValues: values [
+
 	self i: (values at: 1)
 
 
@@ -61,6 +66,7 @@ ExChdAdaInterfacePathFunction >> fromValues: values [
 
 { #category : 'platypus-generated-accessing' }
 ExChdAdaInterfacePathFunction >> i [
+
 	^ i
 
 
@@ -68,6 +74,7 @@ ExChdAdaInterfacePathFunction >> i [
 
 { #category : 'platypus-generated-accessing' }
 ExChdAdaInterfacePathFunction >> i: aExChdAdaInterface [
+
 	i := aExChdAdaInterface
 
 
@@ -77,13 +84,12 @@ ExChdAdaInterfacePathFunction >> i: aExChdAdaInterface [
 ExChdAdaInterfacePathFunction >> invoke [
 	" ---------- locals assignments ----------"
 
-	self name: (self i prefixUsingContext: self class context).	" ---------- statements ----------"
-	(PltEXISTSFunction
-		invokeFromValues:
-			(OrderedCollection new
-				add: (self i suffixUsingContext: self class context);
-				yourself))
-		ifTrue: [ self name: ((self name pltPlus: '.') pltPlus: (self i suffixUsingContext: self class context)) ].
+	self name: (self i prefixUsingContext: self class context). " ---------- statements ----------"
+	(PltEXISTSFunction invokeFromValues: (OrderedCollection new
+			  add: (self i suffixUsingContext: self class context);
+			  yourself)) ifTrue: [
+			self name: ((self name pltPlus: '.') pltPlus:
+					 (self i suffixUsingContext: self class context)) ].
 	^ self return: self name
 
 
@@ -91,6 +97,7 @@ ExChdAdaInterfacePathFunction >> invoke [
 
 { #category : 'platypus-generated-accessing' }
 ExChdAdaInterfacePathFunction >> name [
+
 	^ name
 
 
@@ -98,6 +105,7 @@ ExChdAdaInterfacePathFunction >> name [
 
 { #category : 'platypus-generated-accessing' }
 ExChdAdaInterfacePathFunction >> name: aString [
+
 	name := aString
 
 

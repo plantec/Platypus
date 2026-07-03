@@ -32,6 +32,7 @@ Class {
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdAdaInterfaceDeclarationFunction class >> iso10303P11Translater [
+
 	^ 'Platypus (c) LISYC EA3883, Universite de Bretagne occidentale. Brest.'
 
 
@@ -39,6 +40,7 @@ ExChdAdaInterfaceDeclarationFunction class >> iso10303P11Translater [
 
 { #category : 'platypus-generated-meta-data-accessing' }
 ExChdAdaInterfaceDeclarationFunction class >> schemaDefinition [
+
 	^ ExChdAdaInterfaceSchemaDefinition singleton
 
 
@@ -46,6 +48,7 @@ ExChdAdaInterfaceDeclarationFunction class >> schemaDefinition [
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdAdaInterfaceDeclarationFunction class >> translatedFromISO10303P11 [
+
 	^ true
 
 
@@ -53,6 +56,7 @@ ExChdAdaInterfaceDeclarationFunction class >> translatedFromISO10303P11 [
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdAdaInterfaceDeclarationFunction class >> vwNamespaceName [
+
 	^ #Express2Cheddar
 
 
@@ -60,6 +64,7 @@ ExChdAdaInterfaceDeclarationFunction class >> vwNamespaceName [
 
 { #category : 'platypus-generated-accessing' }
 ExChdAdaInterfaceDeclarationFunction >> fromValues: values [
+
 	self int: (values at: 1)
 
 
@@ -67,6 +72,7 @@ ExChdAdaInterfaceDeclarationFunction >> fromValues: values [
 
 { #category : 'platypus-generated-accessing' }
 ExChdAdaInterfaceDeclarationFunction >> int [
+
 	^ int
 
 
@@ -74,6 +80,7 @@ ExChdAdaInterfaceDeclarationFunction >> int [
 
 { #category : 'platypus-generated-accessing' }
 ExChdAdaInterfaceDeclarationFunction >> int: aExChdAdaInterface [
+
 	int := aExChdAdaInterface
 
 
@@ -84,17 +91,16 @@ ExChdAdaInterfaceDeclarationFunction >> invoke [
 	" ---------- locals assignments ----------"
 
 	self s: ''.
-	self
-		name:
-			(ExChdAdaInterfacePathFunction
-				invokeFromValues:
-					(OrderedCollection new
-						add: self int;
-						yourself)).	" ---------- statements ----------"
-	(self int withItUsingContext: self class context)
-		ifTrue: [ self s: (((self s pltPlus: 'with ') pltPlus: self name) pltPlus: ';\n') ].
-	(self int useItUsingContext: self class context)
-		ifTrue: [ self s: (((self s pltPlus: 'use ') pltPlus: self name) pltPlus: ';\n') ].
+	self name: (ExChdAdaInterfacePathFunction invokeFromValues:
+			 (OrderedCollection new
+				  add: self int;
+				  yourself)). " ---------- statements ----------"
+	(self int withItUsingContext: self class context) ifTrue: [
+			self s:
+				(((self s pltPlus: 'with ') pltPlus: self name) pltPlus: ';\n') ].
+	(self int useItUsingContext: self class context) ifTrue: [
+		self s:
+			(((self s pltPlus: 'use ') pltPlus: self name) pltPlus: ';\n') ].
 	^ self return: self s
 
 
@@ -102,6 +108,7 @@ ExChdAdaInterfaceDeclarationFunction >> invoke [
 
 { #category : 'platypus-generated-accessing' }
 ExChdAdaInterfaceDeclarationFunction >> name [
+
 	^ name
 
 
@@ -109,6 +116,7 @@ ExChdAdaInterfaceDeclarationFunction >> name [
 
 { #category : 'platypus-generated-accessing' }
 ExChdAdaInterfaceDeclarationFunction >> name: aString1 [
+
 	name := aString1
 
 
@@ -116,6 +124,7 @@ ExChdAdaInterfaceDeclarationFunction >> name: aString1 [
 
 { #category : 'platypus-generated-accessing' }
 ExChdAdaInterfaceDeclarationFunction >> s [
+
 	^ s
 
 
@@ -123,6 +132,7 @@ ExChdAdaInterfaceDeclarationFunction >> s [
 
 { #category : 'platypus-generated-accessing' }
 ExChdAdaInterfaceDeclarationFunction >> s: aString [
+
 	s := aString
 
 

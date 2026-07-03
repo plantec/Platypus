@@ -27,6 +27,7 @@ Class {
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdUnmappedTypeReference class >> iso10303P11Translater [
+
 	^ 'Platypus (c) LISYC EA3883, Universite de Bretagne occidentale. Brest.'
 
 
@@ -34,6 +35,7 @@ ExChdUnmappedTypeReference class >> iso10303P11Translater [
 
 { #category : 'platypus-generated-meta-data-accessing' }
 ExChdUnmappedTypeReference class >> schemaDefinition [
+
 	^ ExChdCheddarDomainsSchemaDefinition singleton
 
 
@@ -41,6 +43,7 @@ ExChdUnmappedTypeReference class >> schemaDefinition [
 
 { #category : 'platypus-generated-meta-data-accessing' }
 ExChdUnmappedTypeReference class >> schemaInstance [
+
 	^ ExChdExpress2cheddarSchemaInstance singleton
 
 
@@ -48,6 +51,7 @@ ExChdUnmappedTypeReference class >> schemaInstance [
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdUnmappedTypeReference class >> translatedFromISO10303P11 [
+
 	^ true
 
 
@@ -55,6 +59,7 @@ ExChdUnmappedTypeReference class >> translatedFromISO10303P11 [
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdUnmappedTypeReference class >> vwNamespaceName [
+
 	^ #Express2Cheddar
 
 
@@ -62,6 +67,7 @@ ExChdUnmappedTypeReference class >> vwNamespaceName [
 
 { #category : 'platypus-generated-visiting' }
 ExChdUnmappedTypeReference >> accept: aVisitor [
+
 	^ aVisitor acceptUnmappedTypeReference: self
 
 
@@ -69,6 +75,7 @@ ExChdUnmappedTypeReference >> accept: aVisitor [
 
 { #category : 'platypus-generated-deriving' }
 ExChdUnmappedTypeReference >> adaIdent [
+
 	^ self adaIdentUsingContext: self class context
 
 
@@ -76,6 +83,7 @@ ExChdUnmappedTypeReference >> adaIdent [
 
 { #category : 'platypus-generated-deriving' }
 ExChdUnmappedTypeReference >> adaIdentUsingContext: aContext [
+
 	^ self adaIdentUsingContext: aContext receiver: self
 
 
@@ -83,6 +91,7 @@ ExChdUnmappedTypeReference >> adaIdentUsingContext: aContext [
 
 { #category : 'platypus-generated-deriving' }
 ExChdUnmappedTypeReference >> adaIdentUsingContext: aContext receiver: aReceiver [
+
 	^ aReceiver nameUsingContext: aContext
 
 
@@ -90,6 +99,7 @@ ExChdUnmappedTypeReference >> adaIdentUsingContext: aContext receiver: aReceiver
 
 { #category : 'platypus-generated-deriving' }
 ExChdUnmappedTypeReference >> adaRefIdent [
+
 	^ self adaRefIdentUsingContext: self class context
 
 
@@ -97,6 +107,7 @@ ExChdUnmappedTypeReference >> adaRefIdent [
 
 { #category : 'platypus-generated-deriving' }
 ExChdUnmappedTypeReference >> adaRefIdentUsingContext: aContext [
+
 	^ self adaRefIdentUsingContext: aContext receiver: self
 
 
@@ -104,6 +115,7 @@ ExChdUnmappedTypeReference >> adaRefIdentUsingContext: aContext [
 
 { #category : 'platypus-generated-deriving' }
 ExChdUnmappedTypeReference >> adaRefIdentUsingContext: aContext receiver: aReceiver [
+
 	^ aReceiver nameUsingContext: aContext
 
 
@@ -111,6 +123,7 @@ ExChdUnmappedTypeReference >> adaRefIdentUsingContext: aContext receiver: aRecei
 
 { #category : 'platypus-generated-deriving' }
 ExChdUnmappedTypeReference >> adbCode [
+
 	^ self adbCodeUsingContext: self class context
 
 
@@ -118,6 +131,7 @@ ExChdUnmappedTypeReference >> adbCode [
 
 { #category : 'platypus-generated-deriving' }
 ExChdUnmappedTypeReference >> adbCodeUsingContext: aContext [
+
 	^ self adbCodeUsingContext: aContext receiver: self
 
 
@@ -125,6 +139,7 @@ ExChdUnmappedTypeReference >> adbCodeUsingContext: aContext [
 
 { #category : 'platypus-generated-deriving' }
 ExChdUnmappedTypeReference >> adbCodeUsingContext: aContext receiver: aReceiver [
+
 	^ ''
 
 
@@ -132,6 +147,7 @@ ExChdUnmappedTypeReference >> adbCodeUsingContext: aContext receiver: aReceiver 
 
 { #category : 'platypus-generated-deriving' }
 ExChdUnmappedTypeReference >> adbInterfacesList [
+
 	^ self adbInterfacesListUsingContext: self class context
 
 
@@ -139,6 +155,7 @@ ExChdUnmappedTypeReference >> adbInterfacesList [
 
 { #category : 'platypus-generated-deriving' }
 ExChdUnmappedTypeReference >> adbInterfacesListUsingContext: aContext [
+
 	^ self adbInterfacesListUsingContext: aContext receiver: self
 
 
@@ -146,17 +163,18 @@ ExChdUnmappedTypeReference >> adbInterfacesListUsingContext: aContext [
 
 { #category : 'platypus-generated-deriving' }
 ExChdUnmappedTypeReference >> adbInterfacesListUsingContext: aContext receiver: aReceiver [
-	^ (ExChdBasicAdaDomainFunction
-		invokeFromValues:
-			(OrderedCollection new
-				add: (aReceiver refUsingContext: self class context);
-				yourself)) adbInterfacesListUsingContext: aContext
+
+	^ (ExChdBasicAdaDomainFunction invokeFromValues:
+		   (OrderedCollection new
+			    add: (aReceiver refUsingContext: self class context);
+			    yourself)) adbInterfacesListUsingContext: aContext
 
 
 ]
 
 { #category : 'platypus-generated-deriving' }
 ExChdUnmappedTypeReference >> adsCode [
+
 	^ self adsCodeUsingContext: self class context
 
 
@@ -164,6 +182,7 @@ ExChdUnmappedTypeReference >> adsCode [
 
 { #category : 'platypus-generated-deriving' }
 ExChdUnmappedTypeReference >> adsCodeUsingContext: aContext [
+
 	^ self adsCodeUsingContext: aContext receiver: self
 
 
@@ -171,6 +190,7 @@ ExChdUnmappedTypeReference >> adsCodeUsingContext: aContext [
 
 { #category : 'platypus-generated-deriving' }
 ExChdUnmappedTypeReference >> adsCodeUsingContext: aContext receiver: aReceiver [
+
 	^ ''
 
 
@@ -178,6 +198,7 @@ ExChdUnmappedTypeReference >> adsCodeUsingContext: aContext receiver: aReceiver 
 
 { #category : 'platypus-generated-deriving' }
 ExChdUnmappedTypeReference >> adsInterfacesList [
+
 	^ self adsInterfacesListUsingContext: self class context
 
 
@@ -185,6 +206,7 @@ ExChdUnmappedTypeReference >> adsInterfacesList [
 
 { #category : 'platypus-generated-deriving' }
 ExChdUnmappedTypeReference >> adsInterfacesListUsingContext: aContext [
+
 	^ self adsInterfacesListUsingContext: aContext receiver: self
 
 
@@ -192,17 +214,18 @@ ExChdUnmappedTypeReference >> adsInterfacesListUsingContext: aContext [
 
 { #category : 'platypus-generated-deriving' }
 ExChdUnmappedTypeReference >> adsInterfacesListUsingContext: aContext receiver: aReceiver [
-	^ (ExChdBasicAdaDomainFunction
-		invokeFromValues:
-			(OrderedCollection new
-				add: (aReceiver refUsingContext: self class context);
-				yourself)) adsInterfacesListUsingContext: aContext
+
+	^ (ExChdBasicAdaDomainFunction invokeFromValues:
+		   (OrderedCollection new
+			    add: (aReceiver refUsingContext: self class context);
+			    yourself)) adsInterfacesListUsingContext: aContext
 
 
 ]
 
 { #category : 'platypus-generated-fast-set-accessing' }
 ExChdUnmappedTypeReference >> fastSetRef: aExChdEntityInstance [
+
 	ref := aExChdEntityInstance
 
 
@@ -210,6 +233,7 @@ ExChdUnmappedTypeReference >> fastSetRef: aExChdEntityInstance [
 
 { #category : 'platypus-generated-group-accessing' }
 ExChdUnmappedTypeReference >> fromValues: values [
+
 	^ self unmappedTypeReferenceFromValues: (super fromValues: values)
 
 
@@ -217,6 +241,7 @@ ExChdUnmappedTypeReference >> fromValues: values [
 
 { #category : 'platypus-generated-deriving' }
 ExChdUnmappedTypeReference >> initValue [
+
 	^ self initValueUsingContext: self class context
 
 
@@ -224,6 +249,7 @@ ExChdUnmappedTypeReference >> initValue [
 
 { #category : 'platypus-generated-deriving' }
 ExChdUnmappedTypeReference >> initValueUsingContext: aContext [
+
 	^ self initValueUsingContext: aContext receiver: self
 
 
@@ -231,17 +257,18 @@ ExChdUnmappedTypeReference >> initValueUsingContext: aContext [
 
 { #category : 'platypus-generated-deriving' }
 ExChdUnmappedTypeReference >> initValueUsingContext: aContext receiver: aReceiver [
-	^ (ExChdBasicAdaDomainFunction
-		invokeFromValues:
-			(OrderedCollection new
-				add: (aReceiver refUsingContext: self class context);
-				yourself)) initValueUsingContext: aContext
+
+	^ (ExChdBasicAdaDomainFunction invokeFromValues:
+		   (OrderedCollection new
+			    add: (aReceiver refUsingContext: self class context);
+			    yourself)) initValueUsingContext: aContext
 
 
 ]
 
 { #category : 'platypus-generated-classifying' }
 ExChdUnmappedTypeReference >> isExChdUnmappedTypeReference [
+
 	^ true
 
 
@@ -249,6 +276,7 @@ ExChdUnmappedTypeReference >> isExChdUnmappedTypeReference [
 
 { #category : 'platypus-generated-group-accessing' }
 ExChdUnmappedTypeReference >> localFromValues: values [
+
 	^ self unmappedTypeReferenceFromValues: values
 
 
@@ -256,6 +284,7 @@ ExChdUnmappedTypeReference >> localFromValues: values [
 
 { #category : 'platypus-generated-group-accessing' }
 ExChdUnmappedTypeReference >> localToValues: values [
+
 	^ self unmappedTypeReferenceToValues: values
 
 
@@ -263,6 +292,7 @@ ExChdUnmappedTypeReference >> localToValues: values [
 
 { #category : 'platypus-generated-copying' }
 ExChdUnmappedTypeReference >> pltCopyGroup: aClassSymbol to: anObject [
+
 	self class name == aClassSymbol
 		ifTrue: [ self pltCopyTo: anObject ]
 		ifFalse: [ super pltCopyGroup: aClassSymbol to: anObject ]
@@ -272,6 +302,7 @@ ExChdUnmappedTypeReference >> pltCopyGroup: aClassSymbol to: anObject [
 
 { #category : 'platypus-generated-copying' }
 ExChdUnmappedTypeReference >> pltCopyTo: another [
+
 	super pltCopyTo: another.
 	self unmappedTypeReferenceCopyTo: another
 
@@ -280,6 +311,7 @@ ExChdUnmappedTypeReference >> pltCopyTo: another [
 
 { #category : 'platypus-generated-copying' }
 ExChdUnmappedTypeReference >> pltLocalCopyTo: another [
+
 	self unmappedTypeReferenceCopyTo: another
 
 
@@ -287,6 +319,7 @@ ExChdUnmappedTypeReference >> pltLocalCopyTo: another [
 
 { #category : 'platypus-generated-accessing' }
 ExChdUnmappedTypeReference >> ref [
+
 	^ ref
 
 
@@ -294,6 +327,7 @@ ExChdUnmappedTypeReference >> ref [
 
 { #category : 'platypus-generated-accessing' }
 ExChdUnmappedTypeReference >> ref: aExChdEntityInstance [
+
 	ref := aExChdEntityInstance
 
 
@@ -301,6 +335,7 @@ ExChdUnmappedTypeReference >> ref: aExChdEntityInstance [
 
 { #category : 'platypus-generated-with-context-accessing' }
 ExChdUnmappedTypeReference >> refUsingContext: aContext [
+
 	^ self ref
 
 
@@ -308,6 +343,7 @@ ExChdUnmappedTypeReference >> refUsingContext: aContext [
 
 { #category : 'platypus-generated-deriving' }
 ExChdUnmappedTypeReference >> refedByPointer [
+
 	^ self refedByPointerUsingContext: self class context
 
 
@@ -315,6 +351,7 @@ ExChdUnmappedTypeReference >> refedByPointer [
 
 { #category : 'platypus-generated-deriving' }
 ExChdUnmappedTypeReference >> refedByPointerUsingContext: aContext [
+
 	^ self refedByPointerUsingContext: aContext receiver: self
 
 
@@ -322,6 +359,7 @@ ExChdUnmappedTypeReference >> refedByPointerUsingContext: aContext [
 
 { #category : 'platypus-generated-deriving' }
 ExChdUnmappedTypeReference >> refedByPointerUsingContext: aContext receiver: aReceiver [
+
 	^ false
 
 
@@ -329,6 +367,7 @@ ExChdUnmappedTypeReference >> refedByPointerUsingContext: aContext receiver: aRe
 
 { #category : 'platypus-generated-set-accessing' }
 ExChdUnmappedTypeReference >> setRef: aExChdEntityInstance [
+
 	self ref: aExChdEntityInstance
 
 
@@ -336,6 +375,7 @@ ExChdUnmappedTypeReference >> setRef: aExChdEntityInstance [
 
 { #category : 'platypus-generated-initializing' }
 ExChdUnmappedTypeReference >> stepInitialize [
+
 	super stepInitialize.
 	ref := nil
 
@@ -344,6 +384,7 @@ ExChdUnmappedTypeReference >> stepInitialize [
 
 { #category : 'platypus-generated-group-accessing' }
 ExChdUnmappedTypeReference >> toValues: values [
+
 	^ self unmappedTypeReferenceToValues: (super toValues: values)
 
 
@@ -351,6 +392,7 @@ ExChdUnmappedTypeReference >> toValues: values [
 
 { #category : 'platypus-generated-copying' }
 ExChdUnmappedTypeReference >> unmappedTypeReferenceCopyTo: another [
+
 	another fastSetRef: self ref
 
 
@@ -358,6 +400,7 @@ ExChdUnmappedTypeReference >> unmappedTypeReferenceCopyTo: another [
 
 { #category : 'platypus-generated-group-accessing' }
 ExChdUnmappedTypeReference >> unmappedTypeReferenceFromValues: values [
+
 	| valuesloc |
 	valuesloc := values asOrderedCollection.
 	self setRef: valuesloc removeFirst.
@@ -368,6 +411,7 @@ ExChdUnmappedTypeReference >> unmappedTypeReferenceFromValues: values [
 
 { #category : 'platypus-generated-group-accessing' }
 ExChdUnmappedTypeReference >> unmappedTypeReferenceToValues: values [
+
 	values add: self ref.
 	^ values
 

@@ -56,6 +56,7 @@ Class {
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdAdaClassPutCodeFunction class >> iso10303P11Translater [
+
 	^ 'Platypus (c) LISYC EA3883, Universite de Bretagne occidentale. Brest.'
 
 
@@ -63,6 +64,7 @@ ExChdAdaClassPutCodeFunction class >> iso10303P11Translater [
 
 { #category : 'platypus-generated-meta-data-accessing' }
 ExChdAdaClassPutCodeFunction class >> schemaDefinition [
+
 	^ ExChdRecordAndClassSchemaDefinition singleton
 
 
@@ -70,6 +72,7 @@ ExChdAdaClassPutCodeFunction class >> schemaDefinition [
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdAdaClassPutCodeFunction class >> translatedFromISO10303P11 [
+
 	^ true
 
 
@@ -77,6 +80,7 @@ ExChdAdaClassPutCodeFunction class >> translatedFromISO10303P11 [
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdAdaClassPutCodeFunction class >> vwNamespaceName [
+
 	^ #Express2Cheddar
 
 
@@ -84,6 +88,7 @@ ExChdAdaClassPutCodeFunction class >> vwNamespaceName [
 
 { #category : 'platypus-generated-accessing' }
 ExChdAdaClassPutCodeFunction >> acode [
+
 	^ acode
 
 
@@ -91,6 +96,7 @@ ExChdAdaClassPutCodeFunction >> acode [
 
 { #category : 'platypus-generated-accessing' }
 ExChdAdaClassPutCodeFunction >> acode: aString1 [
+
 	acode := aString1
 
 
@@ -98,6 +104,7 @@ ExChdAdaClassPutCodeFunction >> acode: aString1 [
 
 { #category : 'platypus-generated-accessing' }
 ExChdAdaClassPutCodeFunction >> cip [
+
 	^ cip
 
 
@@ -105,6 +112,7 @@ ExChdAdaClassPutCodeFunction >> cip [
 
 { #category : 'platypus-generated-accessing' }
 ExChdAdaClassPutCodeFunction >> cip: aExChdAdaClass [
+
 	cip := aExChdAdaClass
 
 
@@ -112,6 +120,7 @@ ExChdAdaClassPutCodeFunction >> cip: aExChdAdaClass [
 
 { #category : 'platypus-generated-accessing' }
 ExChdAdaClassPutCodeFunction >> code [
+
 	^ code
 
 
@@ -119,6 +128,7 @@ ExChdAdaClassPutCodeFunction >> code [
 
 { #category : 'platypus-generated-accessing' }
 ExChdAdaClassPutCodeFunction >> code: aString [
+
 	code := aString
 
 
@@ -126,6 +136,7 @@ ExChdAdaClassPutCodeFunction >> code: aString [
 
 { #category : 'platypus-generated-accessing' }
 ExChdAdaClassPutCodeFunction >> fromValues: values [
+
 	self cip: (values at: 1)
 
 
@@ -133,74 +144,69 @@ ExChdAdaClassPutCodeFunction >> fromValues: values [
 
 { #category : 'platypus-generated-invoking' }
 ExChdAdaClassPutCodeFunction >> invoke [
-	" ---------- locals assignments ----------"
+	" ---------- locals assignments ----------"" ---------- statements ----------"
 
-	" ---------- statements ----------"
-
-	self
-		code: (('procedure Put(obj : in ' pltPlus: (self cip nameUsingContext: self class context)) pltPlus: ') is \nbegin\n').
-	(PltSIZEOFFunction
-		invokeFromValues:
-			(OrderedCollection new
-				add: (self cip supertypesUsingContext: self class context);
-				yourself)) > 0
-		ifTrue: [ 
+	self code: (('procedure Put(obj : in ' pltPlus:
+			  (self cip nameUsingContext: self class context)) pltPlus:
+			 ') is \nbegin\n').
+	(PltSIZEOFFunction invokeFromValues: (OrderedCollection new
+			  add: (self cip supertypesUsingContext: self class context);
+			  yourself)) > 0 ifTrue: [
 			PlatypusCoreAliasStatement
 				alias:
-					(((self cip supertypesUsingContext: self class context)
-						pltAt:
-							(PltLOINDEXFunction
-								invokeFromValues:
-									(OrderedCollection new
-										add: (self cip supertypesUsingContext: self class context);
-										yourself))) handledUsingContext: self class context)
-				statementsBlock: [ :sup1737 | 
-					self
-						code:
-							(((self code pltPlus: '\tput(') pltPlus: (sup1737 nameUsingContext: self class context)) pltPlus: '(obj));\n') ] ].
+					(((self cip supertypesUsingContext: self class context) pltAt:
+						  (PltLOINDEXFunction invokeFromValues: (OrderedCollection new
+								    add: (self cip supertypesUsingContext: self class context);
+								    yourself))) handledUsingContext: self class context)
+				statementsBlock: [ :sup3760749 |
+						self code: (((self code pltPlus: '\tput(') pltPlus:
+								  (sup3760749 nameUsingContext: self class context)) pltPlus:
+								 '(obj));\n') ] ].
 	PlatypusCoreRepeatStatement
-		repeat: [ :no2092 | 
-			PlatypusCoreAliasStatement
-				alias: ((self cip explicitAttributesUsingContext: self class context) pltAt: no2092)
-				statementsBlock: [ :attr4048 | 
-					self
-						acode:
-							(ExChdExplicitAttributePutFunction
-								invokeFromValues:
-									(OrderedCollection new
-										add: attr4048;
-										yourself)).
-					self acode > ''
-						ifTrue: [ self code: (((self code pltPlus: '\t') pltPlus: self acode) pltPlus: '\n') ] ] ]
-		from:
-			(PltLOINDEXFunction
-				invokeFromValues:
-					(OrderedCollection new
-						add: (self cip explicitAttributesUsingContext: self class context);
-						yourself))
-		to:
-			(PltHIINDEXFunction
-				invokeFromValues:
-					(OrderedCollection new
-						add: (self cip explicitAttributesUsingContext: self class context);
-						yourself)).
-	self
-		code:
-			(((((((self code pltPlus: 'end Put;\n \n') pltPlus: 'procedure Put(obj : in ')
-				pltPlus: (self cip ptrTypeUsingContext: self class context)) pltPlus: ') is\n') pltPlus: 'begin\n')
-				pltPlus: '\tPut(Obj.All);\n') pltPlus: 'end Put;\n \n').
-	self
-		code:
-			((((self code pltPlus: 'procedure Put_Name ( obj : in ') pltPlus: (self cip ptrTypeUsingContext: self class context))
-				pltPlus: ') is\n') pltPlus: 'begin\n').
-	(PTsHasInheritedAttributeNamedFunction
-		invokeFromValues:
-			(OrderedCollection new
-				add: self cip;
-				add: 'name';
-				yourself))
-		ifTrue: [ self code: (self code pltPlus: '\tPut ( To_String ( Obj.Name ) );\n') ]
-		ifFalse: [ self code: (((self code pltPlus: '\tPut ( To_String ( Obj.') pltPlus: 'cheddar_private_id') pltPlus: ' ) );\n') ].
+		repeat: [ :no2951971 |
+				PlatypusCoreAliasStatement
+					alias:
+						((self cip explicitAttributesUsingContext: self class context)
+							 pltAt: no2951971)
+					statementsBlock: [ :attr3555187 |
+							self acode:
+								(ExChdExplicitAttributePutFunction invokeFromValues:
+									 (OrderedCollection new
+										  add: attr3555187;
+										  yourself)).
+							self acode > '' ifTrue: [
+									self code:
+										(((self code pltPlus: '\t') pltPlus: self acode) pltPlus:
+											 '\n') ] ] ]
+		from: (PltLOINDEXFunction invokeFromValues: (OrderedCollection new
+					  add:
+						  (self cip explicitAttributesUsingContext: self class context);
+					  yourself))
+		to: (PltHIINDEXFunction invokeFromValues: (OrderedCollection new
+					  add:
+						  (self cip explicitAttributesUsingContext: self class context);
+					  yourself)).
+	self code: (((((((self code pltPlus: 'end Put;\n \n') pltPlus:
+			      'procedure Put(obj : in ') pltPlus:
+			     (self cip ptrTypeUsingContext: self class context)) pltPlus:
+			    ') is\n') pltPlus: 'begin\n') pltPlus: '\tPut(Obj.All);\n')
+			 pltPlus: 'end Put;\n \n').
+	self code:
+		((((self code pltPlus: 'procedure Put_Name ( obj : in ') pltPlus:
+			   (self cip ptrTypeUsingContext: self class context)) pltPlus:
+			  ') is\n') pltPlus: 'begin\n').
+	(PTsHasInheritedAttributeNamedFunction invokeFromValues:
+		 (OrderedCollection new
+			  add: self cip;
+			  add: 'name';
+			  yourself))
+		ifTrue: [
+			self code:
+				(self code pltPlus: '\tPut ( To_String ( Obj.Name ) );\n') ]
+		ifFalse: [
+				self code:
+					(((self code pltPlus: '\tPut ( To_String ( Obj.') pltPlus:
+						  'cheddar_private_id') pltPlus: ' ) );\n') ].
 	self code: (self code pltPlus: 'end Put_Name;\n').
 	^ self return: self code
 

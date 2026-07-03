@@ -42,6 +42,7 @@ Class {
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdAdaClassAttributesAdsCodeFunction class >> iso10303P11Translater [
+
 	^ 'Platypus (c) LISYC EA3883, Universite de Bretagne occidentale. Brest.'
 
 
@@ -49,6 +50,7 @@ ExChdAdaClassAttributesAdsCodeFunction class >> iso10303P11Translater [
 
 { #category : 'platypus-generated-meta-data-accessing' }
 ExChdAdaClassAttributesAdsCodeFunction class >> schemaDefinition [
+
 	^ ExChdRecordAndClassSchemaDefinition singleton
 
 
@@ -56,6 +58,7 @@ ExChdAdaClassAttributesAdsCodeFunction class >> schemaDefinition [
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdAdaClassAttributesAdsCodeFunction class >> translatedFromISO10303P11 [
+
 	^ true
 
 
@@ -63,6 +66,7 @@ ExChdAdaClassAttributesAdsCodeFunction class >> translatedFromISO10303P11 [
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdAdaClassAttributesAdsCodeFunction class >> vwNamespaceName [
+
 	^ #Express2Cheddar
 
 
@@ -70,6 +74,7 @@ ExChdAdaClassAttributesAdsCodeFunction class >> vwNamespaceName [
 
 { #category : 'platypus-generated-accessing' }
 ExChdAdaClassAttributesAdsCodeFunction >> cip [
+
 	^ cip
 
 
@@ -77,6 +82,7 @@ ExChdAdaClassAttributesAdsCodeFunction >> cip [
 
 { #category : 'platypus-generated-accessing' }
 ExChdAdaClassAttributesAdsCodeFunction >> cip: aExChdAdaClass [
+
 	cip := aExChdAdaClass
 
 
@@ -84,6 +90,7 @@ ExChdAdaClassAttributesAdsCodeFunction >> cip: aExChdAdaClass [
 
 { #category : 'platypus-generated-accessing' }
 ExChdAdaClassAttributesAdsCodeFunction >> domain [
+
 	^ domain
 
 
@@ -91,6 +98,7 @@ ExChdAdaClassAttributesAdsCodeFunction >> domain [
 
 { #category : 'platypus-generated-accessing' }
 ExChdAdaClassAttributesAdsCodeFunction >> domain: aExChdEntityInstance [
+
 	domain := aExChdEntityInstance
 
 
@@ -98,6 +106,7 @@ ExChdAdaClassAttributesAdsCodeFunction >> domain: aExChdEntityInstance [
 
 { #category : 'platypus-generated-accessing' }
 ExChdAdaClassAttributesAdsCodeFunction >> fromValues: values [
+
 	self cip: (values at: 1)
 
 
@@ -105,65 +114,66 @@ ExChdAdaClassAttributesAdsCodeFunction >> fromValues: values [
 
 { #category : 'platypus-generated-invoking' }
 ExChdAdaClassAttributesAdsCodeFunction >> invoke [
-	" ---------- locals assignments ----------"
+	" ---------- locals assignments ----------"" ---------- statements ----------"
 
-	" ---------- statements ----------"
-
-	(PltSIZEOFFunction
-		invokeFromValues:
-			(OrderedCollection new
-				add: (self cip explicitAttributesUsingContext: self class context);
-				yourself)) = 0
+	(PltSIZEOFFunction invokeFromValues: (OrderedCollection new
+			  add:
+				  (self cip explicitAttributesUsingContext: self class context);
+			  yourself)) = 0
 		ifTrue: [ self result: 'null record;\n' ]
-		ifFalse: [ 
-			self result: '\nrecord\n'.
-			PlatypusCoreRepeatStatement
-				repeat: [ :no3151 | 
-					PlatypusCoreAliasStatement
-						alias: ((self cip explicitAttributesUsingContext: self class context) pltAt: no3151)
-						statementsBlock: [ :attr1141 | 
-							self
-								domain:
-									(ExChdBasicAdaDomainFunction
-										invokeFromValues:
-											(OrderedCollection new
-												add: (attr1141 domainUsingContext: self class context);
-												yourself)).
-							(((PltTYPEOFFunction
-								invokeFromValues:
-									(OrderedCollection new
-										add: (self domain handledUsingContext: self class context);
-										yourself)) includes: 'RECORD_AND_CLASS.ADA_CLASS')
-								or: [ 
-									(PltTYPEOFFunction
-										invokeFromValues:
-											(OrderedCollection new
-												add: (self domain handledUsingContext: self class context);
-												yourself)) includes: 'DISCRIMINATED_TYPE.DISCRIMINATED_TYPE' ])
-								ifTrue: [ 
-									self
-										result:
-											(((((self result pltPlus: ' ') pltPlus: (attr1141 nameUsingContext: self class context)) pltPlus: ' : ')
-												pltPlus: ((self domain handledUsingContext: self class context) ptrTypeUsingContext: self class context))
-												pltPlus: ';\n') ]
-								ifFalse: [ 
-									self
-										result:
-											(((((self result pltPlus: ' ') pltPlus: (attr1141 nameUsingContext: self class context)) pltPlus: ' : ')
-												pltPlus: (self domain adaRefIdentUsingContext: self class context)) pltPlus: ';\n') ] ] ]
-				from:
-					(PltLOINDEXFunction
-						invokeFromValues:
-							(OrderedCollection new
-								add: (self cip explicitAttributesUsingContext: self class context);
-								yourself))
-				to:
-					(PltHIINDEXFunction
-						invokeFromValues:
-							(OrderedCollection new
-								add: (self cip explicitAttributesUsingContext: self class context);
-								yourself)).
-			self result: (self result pltPlus: 'end record;\n') ].
+		ifFalse: [
+				self result: '\nrecord\n'.
+				PlatypusCoreRepeatStatement
+					repeat: [ :no81867 |
+							PlatypusCoreAliasStatement
+								alias:
+									((self cip explicitAttributesUsingContext: self class context)
+										 pltAt: no81867)
+								statementsBlock: [ :attr217461 |
+										self domain:
+											(ExChdBasicAdaDomainFunction invokeFromValues:
+												 (OrderedCollection new
+													  add:
+														  (attr217461 domainUsingContext: self class context);
+													  yourself)).
+										(((PltTYPEOFFunction invokeFromValues:
+											   (OrderedCollection new
+												    add:
+													    (self domain handledUsingContext: self class context);
+												    yourself)) includes: 'RECORD_AND_CLASS.ADA_CLASS')
+											 or: [
+													 (PltTYPEOFFunction invokeFromValues:
+														  (OrderedCollection new
+															   add:
+																   (self domain handledUsingContext:
+																		    self class context);
+															   yourself)) includes:
+														 'DISCRIMINATED_TYPE.DISCRIMINATED_TYPE' ])
+											ifTrue: [
+													self result: (((((self result pltPlus: ' ') pltPlus:
+															    (attr217461 nameUsingContext: self class context))
+															   pltPlus: ' : ') pltPlus:
+															  ((self domain handledUsingContext: self class context)
+																   ptrTypeUsingContext: self class context)) pltPlus:
+															 ';\n') ]
+											ifFalse: [
+													self result: (((((self result pltPlus: ' ') pltPlus:
+															    (attr217461 nameUsingContext: self class context))
+															   pltPlus: ' : ') pltPlus:
+															  (self domain adaRefIdentUsingContext:
+																   self class context)) pltPlus: ';\n') ] ] ]
+					from:
+						(PltLOINDEXFunction invokeFromValues: (OrderedCollection new
+								  add:
+									  (self cip explicitAttributesUsingContext:
+											   self class context);
+								  yourself))
+					to: (PltHIINDEXFunction invokeFromValues: (OrderedCollection new
+								  add:
+									  (self cip explicitAttributesUsingContext:
+											   self class context);
+								  yourself)).
+				self result: (self result pltPlus: 'end record;\n') ].
 	^ self return: self result
 
 
@@ -171,6 +181,7 @@ ExChdAdaClassAttributesAdsCodeFunction >> invoke [
 
 { #category : 'platypus-generated-accessing' }
 ExChdAdaClassAttributesAdsCodeFunction >> result [
+
 	^ result
 
 
@@ -178,6 +189,7 @@ ExChdAdaClassAttributesAdsCodeFunction >> result [
 
 { #category : 'platypus-generated-accessing' }
 ExChdAdaClassAttributesAdsCodeFunction >> result: aString [
+
 	result := aString
 
 

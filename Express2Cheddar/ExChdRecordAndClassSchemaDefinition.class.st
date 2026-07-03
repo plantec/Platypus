@@ -1011,6 +1011,7 @@ Class {
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdRecordAndClassSchemaDefinition class >> iso10303P11Translater [
+
 	^ 'Platypus (c) LISYC EA3883, Universite de Bretagne occidentale. Brest.'
 
 
@@ -1018,6 +1019,7 @@ ExChdRecordAndClassSchemaDefinition class >> iso10303P11Translater [
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdRecordAndClassSchemaDefinition class >> translatedFromISO10303P11 [
+
 	^ true
 
 
@@ -1025,6 +1027,7 @@ ExChdRecordAndClassSchemaDefinition class >> translatedFromISO10303P11 [
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdRecordAndClassSchemaDefinition class >> vwNamespaceName [
+
 	^ #Express2Cheddar
 
 
@@ -1032,6 +1035,7 @@ ExChdRecordAndClassSchemaDefinition class >> vwNamespaceName [
 
 { #category : 'platypus-generated-context-accessing' }
 ExChdRecordAndClassSchemaDefinition >> context [
+
 	^ self schemaInstance context
 
 
@@ -1039,34 +1043,39 @@ ExChdRecordAndClassSchemaDefinition >> context [
 
 { #category : 'platypus-generated-entities' }
 ExChdRecordAndClassSchemaDefinition >> entityDefinition1 [
-	^ #(#ada_entity #ExChdAdaEntity)
+
+	^ #( #ada_entity #ExChdAdaEntity )
 
 
 ]
 
 { #category : 'platypus-generated-entities' }
 ExChdRecordAndClassSchemaDefinition >> entityDefinition2 [
-	^ #(#ada_class #ExChdAdaClass)
+
+	^ #( #ada_class #ExChdAdaClass )
 
 
 ]
 
 { #category : 'platypus-generated-entities' }
 ExChdRecordAndClassSchemaDefinition >> entityDefinition3 [
-	^ #(#record #ExChdRecord)
+
+	^ #( #record #ExChdRecord )
 
 
 ]
 
 { #category : 'platypus-generated-entities' }
 ExChdRecordAndClassSchemaDefinition >> entityDefinition4 [
-	^ #(#cheddar_function_ptr #ExChdCheddarFunctionPtr)
+
+	^ #( #cheddar_function_ptr #ExChdCheddarFunctionPtr )
 
 
 ]
 
 { #category : 'platypus-generated-entities' }
 ExChdRecordAndClassSchemaDefinition >> entityDefinitionCount [
+
 	^ 4
 
 
@@ -1074,265 +1083,316 @@ ExChdRecordAndClassSchemaDefinition >> entityDefinitionCount [
 
 { #category : 'platypus-generated-functions' }
 ExChdRecordAndClassSchemaDefinition >> functionDeclaration1 [
-	^ #(#is_generic_object #ExChdIsGenericObjectFunction)
+
+	^ #( #is_generic_object #ExChdIsGenericObjectFunction )
 
 
 ]
 
 { #category : 'platypus-generated-functions' }
 ExChdRecordAndClassSchemaDefinition >> functionDeclaration10 [
-	^ #(#derived_attribute_initialize #ExChdDerivedAttributeInitializeFunction)
+
+	^ #( #derived_attribute_initialize #ExChdDerivedAttributeInitializeFunction )
 
 
 ]
 
 { #category : 'platypus-generated-functions' }
 ExChdRecordAndClassSchemaDefinition >> functionDeclaration11 [
-	^ #(#ada_class_typeof_code #ExChdAdaClassTypeofCodeFunction)
+
+	^ #( #ada_class_typeof_code #ExChdAdaClassTypeofCodeFunction )
 
 
 ]
 
 { #category : 'platypus-generated-functions' }
 ExChdRecordAndClassSchemaDefinition >> functionDeclaration12 [
-	^ #(#ada_class_copy_code #ExChdAdaClassCopyCodeFunction)
+
+	^ #( #ada_class_copy_code #ExChdAdaClassCopyCodeFunction )
 
 
 ]
 
 { #category : 'platypus-generated-functions' }
 ExChdRecordAndClassSchemaDefinition >> functionDeclaration13 [
-	^ #(#ada_class_put_code #ExChdAdaClassPutCodeFunction)
+
+	^ #( #ada_class_put_code #ExChdAdaClassPutCodeFunction )
 
 
 ]
 
 { #category : 'platypus-generated-functions' }
 ExChdRecordAndClassSchemaDefinition >> functionDeclaration14 [
-	^ #(#ada_class_get_name_code #ExChdAdaClassGetNameCodeFunction)
+
+	^ #( #ada_class_get_name_code #ExChdAdaClassGetNameCodeFunction )
 
 
 ]
 
 { #category : 'platypus-generated-functions' }
 ExChdRecordAndClassSchemaDefinition >> functionDeclaration15 [
-	^ #(#ada_class_attributes_ads_code #ExChdAdaClassAttributesAdsCodeFunction)
+
+	^ #( #ada_class_attributes_ads_code #ExChdAdaClassAttributesAdsCodeFunction )
 
 
 ]
 
 { #category : 'platypus-generated-functions' }
 ExChdRecordAndClassSchemaDefinition >> functionDeclaration16 [
-	^ #(#ada_entity_interfaces_list #ExChdAdaEntityInterfacesListFunction)
+
+	^ #( #ada_entity_interfaces_list #ExChdAdaEntityInterfacesListFunction )
 
 
 ]
 
 { #category : 'platypus-generated-functions' }
 ExChdRecordAndClassSchemaDefinition >> functionDeclaration17 [
-	^ #(#entity_definition_interfaces_list #ExChdEntityDefinitionInterfacesListFunction)
+
+	^ #( #entity_definition_interfaces_list
+	     #ExChdEntityDefinitionInterfacesListFunction )
 
 
 ]
 
 { #category : 'platypus-generated-functions' }
 ExChdRecordAndClassSchemaDefinition >> functionDeclaration18 [
-	^ #(#record_ads_code #ExChdRecordAdsCodeFunction)
+
+	^ #( #record_ads_code #ExChdRecordAdsCodeFunction )
 
 
 ]
 
 { #category : 'platypus-generated-functions' }
 ExChdRecordAndClassSchemaDefinition >> functionDeclaration19 [
-	^ #(#record_initialize_code #ExChdRecordInitializeCodeFunction)
+
+	^ #( #record_initialize_code #ExChdRecordInitializeCodeFunction )
 
 
 ]
 
 { #category : 'platypus-generated-functions' }
 ExChdRecordAndClassSchemaDefinition >> functionDeclaration2 [
-	^ #(#is_named_object #ExChdIsNamedObjectFunction)
+
+	^ #( #is_named_object #ExChdIsNamedObjectFunction )
 
 
 ]
 
 { #category : 'platypus-generated-functions' }
 ExChdRecordAndClassSchemaDefinition >> functionDeclaration20 [
-	^ #(#record_adb_code #ExChdRecordAdbCodeFunction)
+
+	^ #( #record_adb_code #ExChdRecordAdbCodeFunction )
 
 
 ]
 
 { #category : 'platypus-generated-functions' }
 ExChdRecordAndClassSchemaDefinition >> functionDeclaration21 [
-	^ #(#record_put_code #ExChdRecordPutCodeFunction)
+
+	^ #( #record_put_code #ExChdRecordPutCodeFunction )
 
 
 ]
 
 { #category : 'platypus-generated-functions' }
 ExChdRecordAndClassSchemaDefinition >> functionDeclaration22 [
-	^ #(#explicit_attribute_put #ExChdExplicitAttributePutFunction)
+
+	^ #( #explicit_attribute_put #ExChdExplicitAttributePutFunction )
 
 
 ]
 
 { #category : 'platypus-generated-functions' }
 ExChdRecordAndClassSchemaDefinition >> functionDeclaration23 [
-	^ #(#explicit_attribute_xml_writer_code #ExChdExplicitAttributeXmlWriterCodeFunction)
+
+	^ #( #explicit_attribute_xml_writer_code
+	     #ExChdExplicitAttributeXmlWriterCodeFunction )
 
 
 ]
 
 { #category : 'platypus-generated-functions' }
 ExChdRecordAndClassSchemaDefinition >> functionDeclaration24 [
-	^ #(#record_copy_code #ExChdRecordCopyCodeFunction)
+
+	^ #( #record_copy_code #ExChdRecordCopyCodeFunction )
 
 
 ]
 
 { #category : 'platypus-generated-functions' }
 ExChdRecordAndClassSchemaDefinition >> functionDeclaration25 [
-	^ #(#ada_class_xml_io_record_code #ExChdAdaClassXmlIoRecordCodeFunction)
+
+	^ #( #ada_class_xml_io_record_code #ExChdAdaClassXmlIoRecordCodeFunction )
 
 
 ]
 
 { #category : 'platypus-generated-functions' }
 ExChdRecordAndClassSchemaDefinition >> functionDeclaration26 [
-	^ #(#ada_entity_attributes_xml_io_record_code #ExChdAdaEntityAttributesXmlIoRecordCodeFunction)
+
+	^ #( #ada_entity_attributes_xml_io_record_code
+	     #ExChdAdaEntityAttributesXmlIoRecordCodeFunction )
 
 
 ]
 
 { #category : 'platypus-generated-functions' }
 ExChdRecordAndClassSchemaDefinition >> functionDeclaration27 [
-	^ #(#explicit_attribute_xml_io_record_code #ExChdExplicitAttributeXmlIoRecordCodeFunction)
+
+	^ #( #explicit_attribute_xml_io_record_code
+	     #ExChdExplicitAttributeXmlIoRecordCodeFunction )
 
 
 ]
 
 { #category : 'platypus-generated-functions' }
 ExChdRecordAndClassSchemaDefinition >> functionDeclaration28 [
-	^ #(#record_xml_io_record_code #ExChdRecordXmlIoRecordCodeFunction)
+
+	^ #( #record_xml_io_record_code #ExChdRecordXmlIoRecordCodeFunction )
 
 
 ]
 
 { #category : 'platypus-generated-functions' }
 ExChdRecordAndClassSchemaDefinition >> functionDeclaration29 [
-	^ #(#ada_entity_xml_io_record_initialize_code #ExChdAdaEntityXmlIoRecordInitializeCodeFunction)
+
+	^ #( #ada_entity_xml_io_record_initialize_code
+	     #ExChdAdaEntityXmlIoRecordInitializeCodeFunction )
 
 
 ]
 
 { #category : 'platypus-generated-functions' }
 ExChdRecordAndClassSchemaDefinition >> functionDeclaration3 [
-	^ #(#dependencies_of_ada_entity #ExChdDependenciesOfAdaEntityFunction)
+
+	^ #( #dependencies_of_ada_entity #ExChdDependenciesOfAdaEntityFunction )
 
 
 ]
 
 { #category : 'platypus-generated-functions' }
 ExChdRecordAndClassSchemaDefinition >> functionDeclaration30 [
-	^ #(#ada_entity_attributes_xml_io_record_initialize_code #ExChdAdaEntityAttributesXmlIoRecordInitializeCodeFunction)
+
+	^ #( #ada_entity_attributes_xml_io_record_initialize_code
+	     #ExChdAdaEntityAttributesXmlIoRecordInitializeCodeFunction )
 
 
 ]
 
 { #category : 'platypus-generated-functions' }
 ExChdRecordAndClassSchemaDefinition >> functionDeclaration31 [
-	^ #(#explicit_attribute_xml_io_record_initialize_code #ExChdExplicitAttributeXmlIoRecordInitializeCodeFunction)
+
+	^ #( #explicit_attribute_xml_io_record_initialize_code
+	     #ExChdExplicitAttributeXmlIoRecordInitializeCodeFunction )
 
 
 ]
 
 { #category : 'platypus-generated-functions' }
 ExChdRecordAndClassSchemaDefinition >> functionDeclaration32 [
-	^ #(#ada_entity_xml_start_element_code #ExChdAdaEntityXmlStartElementCodeFunction)
+
+	^ #( #ada_entity_xml_start_element_code
+	     #ExChdAdaEntityXmlStartElementCodeFunction )
 
 
 ]
 
 { #category : 'platypus-generated-functions' }
 ExChdRecordAndClassSchemaDefinition >> functionDeclaration33 [
-	^ #(#ada_entity_attributes_xml_start_element_code #ExChdAdaEntityAttributesXmlStartElementCodeFunction)
+
+	^ #( #ada_entity_attributes_xml_start_element_code
+	     #ExChdAdaEntityAttributesXmlStartElementCodeFunction )
 
 
 ]
 
 { #category : 'platypus-generated-functions' }
 ExChdRecordAndClassSchemaDefinition >> functionDeclaration34 [
-	^ #(#explicit_attribute_xml_end_element_code #ExChdExplicitAttributeXmlEndElementCodeFunction)
+
+	^ #( #explicit_attribute_xml_end_element_code
+	     #ExChdExplicitAttributeXmlEndElementCodeFunction )
 
 
 ]
 
 { #category : 'platypus-generated-functions' }
 ExChdRecordAndClassSchemaDefinition >> functionDeclaration35 [
-	^ #(#explicit_attribute_xml_start_element_code #ExChdExplicitAttributeXmlStartElementCodeFunction)
+
+	^ #( #explicit_attribute_xml_start_element_code
+	     #ExChdExplicitAttributeXmlStartElementCodeFunction )
 
 
 ]
 
 { #category : 'platypus-generated-functions' }
 ExChdRecordAndClassSchemaDefinition >> functionDeclaration36 [
-	^ #(#ada_entity_xml_end_element_code #ExChdAdaEntityXmlEndElementCodeFunction)
+
+	^ #( #ada_entity_xml_end_element_code
+	     #ExChdAdaEntityXmlEndElementCodeFunction )
 
 
 ]
 
 { #category : 'platypus-generated-functions' }
 ExChdRecordAndClassSchemaDefinition >> functionDeclaration37 [
-	^ #(#ada_entity_attributes_xml_end_element_code #ExChdAdaEntityAttributesXmlEndElementCodeFunction)
+
+	^ #( #ada_entity_attributes_xml_end_element_code
+	     #ExChdAdaEntityAttributesXmlEndElementCodeFunction )
 
 
 ]
 
 { #category : 'platypus-generated-functions' }
 ExChdRecordAndClassSchemaDefinition >> functionDeclaration4 [
-	^ #(#ada_class_ads_code #ExChdAdaClassAdsCodeFunction)
+
+	^ #( #ada_class_ads_code #ExChdAdaClassAdsCodeFunction )
 
 
 ]
 
 { #category : 'platypus-generated-functions' }
 ExChdRecordAndClassSchemaDefinition >> functionDeclaration5 [
-	^ #(#ada_class_adb_code #ExChdAdaClassAdbCodeFunction)
+
+	^ #( #ada_class_adb_code #ExChdAdaClassAdbCodeFunction )
 
 
 ]
 
 { #category : 'platypus-generated-functions' }
 ExChdRecordAndClassSchemaDefinition >> functionDeclaration6 [
-	^ #(#ada_class_xml_writer_code #ExChdAdaClassXmlWriterCodeFunction)
+
+	^ #( #ada_class_xml_writer_code #ExChdAdaClassXmlWriterCodeFunction )
 
 
 ]
 
 { #category : 'platypus-generated-functions' }
 ExChdRecordAndClassSchemaDefinition >> functionDeclaration7 [
-	^ #(#record_xml_writer_code #ExChdRecordXmlWriterCodeFunction)
+
+	^ #( #record_xml_writer_code #ExChdRecordXmlWriterCodeFunction )
 
 
 ]
 
 { #category : 'platypus-generated-functions' }
 ExChdRecordAndClassSchemaDefinition >> functionDeclaration8 [
-	^ #(#ada_class_initialize_code #ExChdAdaClassInitializeCodeFunction)
+
+	^ #( #ada_class_initialize_code #ExChdAdaClassInitializeCodeFunction )
 
 
 ]
 
 { #category : 'platypus-generated-functions' }
 ExChdRecordAndClassSchemaDefinition >> functionDeclaration9 [
-	^ #(#explicit_attribute_initialize #ExChdExplicitAttributeInitializeFunction)
+
+	^ #( #explicit_attribute_initialize #ExChdExplicitAttributeInitializeFunction )
 
 
 ]
 
 { #category : 'platypus-generated-functions' }
 ExChdRecordAndClassSchemaDefinition >> functionDeclarationCount [
+
 	^ 37
 
 
@@ -1340,6 +1400,7 @@ ExChdRecordAndClassSchemaDefinition >> functionDeclarationCount [
 
 { #category : 'platypus-generated-meta-data-accessing' }
 ExChdRecordAndClassSchemaDefinition >> schemaInstanceClassName [
+
 	^ #ExChdExpress2cheddarSchemaInstance
 
 

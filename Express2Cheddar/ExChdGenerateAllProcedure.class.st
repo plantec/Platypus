@@ -1,7 +1,7 @@
 "
 <ISO10303-11-EXPRESS>
 PROCEDURE generate_all;
-	generate_all_into ( '' );
+	generate_all_into ( './' );
 END_PROCEDURE;
 </ISO10303-11-EXPRESS>
 "
@@ -15,6 +15,7 @@ Class {
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdGenerateAllProcedure class >> iso10303P11Translater [
+
 	^ 'Platypus (c) LISYC EA3883, Universite de Bretagne occidentale. Brest.'
 
 
@@ -22,6 +23,7 @@ ExChdGenerateAllProcedure class >> iso10303P11Translater [
 
 { #category : 'platypus-generated-meta-data-accessing' }
 ExChdGenerateAllProcedure class >> schemaDefinition [
+
 	^ ExChdExpress2cheddarFacadeSchemaDefinition singleton
 
 
@@ -29,6 +31,7 @@ ExChdGenerateAllProcedure class >> schemaDefinition [
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdGenerateAllProcedure class >> translatedFromISO10303P11 [
+
 	^ true
 
 
@@ -36,6 +39,7 @@ ExChdGenerateAllProcedure class >> translatedFromISO10303P11 [
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdGenerateAllProcedure class >> vwNamespaceName [
+
 	^ #Express2Cheddar
 
 
@@ -43,15 +47,12 @@ ExChdGenerateAllProcedure class >> vwNamespaceName [
 
 { #category : 'platypus-generated-invoking' }
 ExChdGenerateAllProcedure >> invoke [
-	" ---------- locals assignments ----------"
+	" ---------- locals assignments ----------"" ---------- statements ----------"
 
-	" ---------- statements ----------"
-
-	ExChdGenerateAllIntoProcedure
-		invokeFromValues:
-			(OrderedCollection new
-				add: '';
-				yourself)
+	ExChdGenerateAllIntoProcedure invokeFromValues:
+		(OrderedCollection new
+			 add: './';
+			 yourself)
 
 
 ]

@@ -46,6 +46,7 @@ Class {
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdAdaEntityAttributesXmlEndElementCodeFunction class >> iso10303P11Translater [
+
 	^ 'Platypus (c) LISYC EA3883, Universite de Bretagne occidentale. Brest.'
 
 
@@ -53,6 +54,7 @@ ExChdAdaEntityAttributesXmlEndElementCodeFunction class >> iso10303P11Translater
 
 { #category : 'platypus-generated-meta-data-accessing' }
 ExChdAdaEntityAttributesXmlEndElementCodeFunction class >> schemaDefinition [
+
 	^ ExChdRecordAndClassSchemaDefinition singleton
 
 
@@ -60,6 +62,7 @@ ExChdAdaEntityAttributesXmlEndElementCodeFunction class >> schemaDefinition [
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdAdaEntityAttributesXmlEndElementCodeFunction class >> translatedFromISO10303P11 [
+
 	^ true
 
 
@@ -67,6 +70,7 @@ ExChdAdaEntityAttributesXmlEndElementCodeFunction class >> translatedFromISO1030
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdAdaEntityAttributesXmlEndElementCodeFunction class >> vwNamespaceName [
+
 	^ #Express2Cheddar
 
 
@@ -74,6 +78,7 @@ ExChdAdaEntityAttributesXmlEndElementCodeFunction class >> vwNamespaceName [
 
 { #category : 'platypus-generated-accessing' }
 ExChdAdaEntityAttributesXmlEndElementCodeFunction >> cip [
+
 	^ cip
 
 
@@ -81,6 +86,7 @@ ExChdAdaEntityAttributesXmlEndElementCodeFunction >> cip [
 
 { #category : 'platypus-generated-accessing' }
 ExChdAdaEntityAttributesXmlEndElementCodeFunction >> cip: aExChdAdaClass [
+
 	cip := aExChdAdaClass
 
 
@@ -88,6 +94,7 @@ ExChdAdaEntityAttributesXmlEndElementCodeFunction >> cip: aExChdAdaClass [
 
 { #category : 'platypus-generated-accessing' }
 ExChdAdaEntityAttributesXmlEndElementCodeFunction >> code [
+
 	^ code
 
 
@@ -95,6 +102,7 @@ ExChdAdaEntityAttributesXmlEndElementCodeFunction >> code [
 
 { #category : 'platypus-generated-accessing' }
 ExChdAdaEntityAttributesXmlEndElementCodeFunction >> code: aString [
+
 	code := aString
 
 
@@ -102,6 +110,7 @@ ExChdAdaEntityAttributesXmlEndElementCodeFunction >> code: aString [
 
 { #category : 'platypus-generated-accessing' }
 ExChdAdaEntityAttributesXmlEndElementCodeFunction >> fromValues: values [
+
 	self cip: (values at: 1)
 
 
@@ -111,60 +120,45 @@ ExChdAdaEntityAttributesXmlEndElementCodeFunction >> fromValues: values [
 ExChdAdaEntityAttributesXmlEndElementCodeFunction >> invoke [
 	" ---------- locals assignments ----------"
 
-	self code: ''.	" ---------- statements ----------"
-	(PltSIZEOFFunction
-		invokeFromValues:
-			(OrderedCollection new
-				add: (self cip supertypesUsingContext: self class context);
-				yourself)) > 0
-		ifTrue: [ 
+	self code: ''. " ---------- statements ----------"
+	(PltSIZEOFFunction invokeFromValues: (OrderedCollection new
+			  add: (self cip supertypesUsingContext: self class context);
+			  yourself)) > 0 ifTrue: [
 			PlatypusCoreAliasStatement
 				alias:
-					(((self cip supertypesUsingContext: self class context)
-						pltAt:
-							(PltLOINDEXFunction
-								invokeFromValues:
-									(OrderedCollection new
-										add: (self cip supertypesUsingContext: self class context);
-										yourself))) handledUsingContext: self class context)
-				statementsBlock: [ :sup2241 | 
-					self
-						code:
-							(self code
-								pltPlus:
-									(ExChdAdaEntityAttributesXmlEndElementCodeFunction
-										invokeFromValues:
-											(OrderedCollection new
-												add: sup2241;
-												yourself))) ] ].
+					(((self cip supertypesUsingContext: self class context) pltAt:
+						  (PltLOINDEXFunction invokeFromValues: (OrderedCollection new
+								    add: (self cip supertypesUsingContext: self class context);
+								    yourself))) handledUsingContext: self class context)
+				statementsBlock: [ :sup970407 |
+						self code: (self code pltPlus:
+								 (ExChdAdaEntityAttributesXmlEndElementCodeFunction
+									  invokeFromValues: (OrderedCollection new
+											   add: sup970407;
+											   yourself))) ] ].
 	PlatypusCoreRepeatStatement
-		repeat: [ :no1147 | 
-			PlatypusCoreAliasStatement
-				alias: ((self cip explicitAttributesUsingContext: self class context) pltAt: no1147)
-				statementsBlock: [ :attr3103 | 
-					self
-						s:
-							(ExChdExplicitAttributeXmlEndElementCodeFunction
-								invokeFromValues:
-									(OrderedCollection new
-										add: attr3103;
-										yourself)).
-					self s > ''
-						ifTrue: [ self code: ((self code pltPlus: '\n') pltPlus: self s) ] ] ]
-		from:
-			(PltLOINDEXFunction
-				invokeFromValues:
-					(OrderedCollection new
-						add: (self cip explicitAttributesUsingContext: self class context);
-						yourself))
-		to:
-			(PltHIINDEXFunction
-				invokeFromValues:
-					(OrderedCollection new
-						add: (self cip explicitAttributesUsingContext: self class context);
-						yourself)).
-	self code = ''
-		ifTrue: [ self code: '\tnull;\n' ].
+		repeat: [ :no2182799 |
+				PlatypusCoreAliasStatement
+					alias:
+						((self cip explicitAttributesUsingContext: self class context)
+							 pltAt: no2182799)
+					statementsBlock: [ :attr2930513 |
+							self s:
+								(ExChdExplicitAttributeXmlEndElementCodeFunction
+									 invokeFromValues: (OrderedCollection new
+											  add: attr2930513;
+											  yourself)).
+							self s > '' ifTrue: [
+								self code: ((self code pltPlus: '\n') pltPlus: self s) ] ] ]
+		from: (PltLOINDEXFunction invokeFromValues: (OrderedCollection new
+					  add:
+						  (self cip explicitAttributesUsingContext: self class context);
+					  yourself))
+		to: (PltHIINDEXFunction invokeFromValues: (OrderedCollection new
+					  add:
+						  (self cip explicitAttributesUsingContext: self class context);
+					  yourself)).
+	self code = '' ifTrue: [ self code: '\tnull;\n' ].
 	^ self return: self code
 
 
@@ -172,6 +166,7 @@ ExChdAdaEntityAttributesXmlEndElementCodeFunction >> invoke [
 
 { #category : 'platypus-generated-accessing' }
 ExChdAdaEntityAttributesXmlEndElementCodeFunction >> s [
+
 	^ s
 
 
@@ -179,6 +174,7 @@ ExChdAdaEntityAttributesXmlEndElementCodeFunction >> s [
 
 { #category : 'platypus-generated-accessing' }
 ExChdAdaEntityAttributesXmlEndElementCodeFunction >> s: aString1 [
+
 	s := aString1
 
 

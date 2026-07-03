@@ -20,10 +20,10 @@ Class {
 	#name : 'ExChdRangeType',
 	#superclass : 'PltDefinedType',
 	#instVars : [
-		'lower',
-		'lowerConstant',
+		'upperConstant',
 		'upper',
-		'upperConstant'
+		'lowerConstant',
+		'lower'
 	],
 	#category : 'Express2Cheddar-CheddarDomainsSchema',
 	#package : 'Express2Cheddar',
@@ -32,6 +32,7 @@ Class {
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdRangeType class >> iso10303P11Translater [
+
 	^ 'Platypus (c) LISYC EA3883, Universite de Bretagne occidentale. Brest.'
 
 
@@ -39,6 +40,7 @@ ExChdRangeType class >> iso10303P11Translater [
 
 { #category : 'platypus-generated-meta-data-accessing' }
 ExChdRangeType class >> schemaDefinition [
+
 	^ ExChdCheddarDomainsSchemaDefinition singleton
 
 
@@ -46,6 +48,7 @@ ExChdRangeType class >> schemaDefinition [
 
 { #category : 'platypus-generated-meta-data-accessing' }
 ExChdRangeType class >> schemaInstance [
+
 	^ ExChdExpress2cheddarSchemaInstance singleton
 
 
@@ -53,6 +56,7 @@ ExChdRangeType class >> schemaInstance [
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdRangeType class >> translatedFromISO10303P11 [
+
 	^ true
 
 
@@ -60,6 +64,7 @@ ExChdRangeType class >> translatedFromISO10303P11 [
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdRangeType class >> vwNamespaceName [
+
 	^ #Express2Cheddar
 
 
@@ -67,6 +72,7 @@ ExChdRangeType class >> vwNamespaceName [
 
 { #category : 'platypus-generated-visiting' }
 ExChdRangeType >> accept: aVisitor [
+
 	^ aVisitor acceptRangeType: self
 
 
@@ -74,6 +80,7 @@ ExChdRangeType >> accept: aVisitor [
 
 { #category : 'platypus-generated-deriving' }
 ExChdRangeType >> adaIdent [
+
 	^ self adaIdentUsingContext: self class context
 
 
@@ -81,6 +88,7 @@ ExChdRangeType >> adaIdent [
 
 { #category : 'platypus-generated-deriving' }
 ExChdRangeType >> adaIdentUsingContext: aContext [
+
 	^ self adaIdentUsingContext: aContext receiver: self
 
 
@@ -88,6 +96,7 @@ ExChdRangeType >> adaIdentUsingContext: aContext [
 
 { #category : 'platypus-generated-deriving' }
 ExChdRangeType >> adaIdentUsingContext: aContext receiver: aReceiver [
+
 	^ aReceiver name
 
 
@@ -95,6 +104,7 @@ ExChdRangeType >> adaIdentUsingContext: aContext receiver: aReceiver [
 
 { #category : 'platypus-generated-deriving' }
 ExChdRangeType >> adaRefIdent [
+
 	^ self adaRefIdentUsingContext: self class context
 
 
@@ -102,6 +112,7 @@ ExChdRangeType >> adaRefIdent [
 
 { #category : 'platypus-generated-deriving' }
 ExChdRangeType >> adaRefIdentUsingContext: aContext [
+
 	^ self adaRefIdentUsingContext: aContext receiver: self
 
 
@@ -109,6 +120,7 @@ ExChdRangeType >> adaRefIdentUsingContext: aContext [
 
 { #category : 'platypus-generated-deriving' }
 ExChdRangeType >> adaRefIdentUsingContext: aContext receiver: aReceiver [
+
 	^ aReceiver adaIdentUsingContext: aContext
 
 
@@ -116,6 +128,7 @@ ExChdRangeType >> adaRefIdentUsingContext: aContext receiver: aReceiver [
 
 { #category : 'platypus-generated-deriving' }
 ExChdRangeType >> adbCode [
+
 	^ self adbCodeUsingContext: self class context
 
 
@@ -123,6 +136,7 @@ ExChdRangeType >> adbCode [
 
 { #category : 'platypus-generated-deriving' }
 ExChdRangeType >> adbCodeUsingContext: aContext [
+
 	^ self adbCodeUsingContext: aContext receiver: self
 
 
@@ -130,6 +144,7 @@ ExChdRangeType >> adbCodeUsingContext: aContext [
 
 { #category : 'platypus-generated-deriving' }
 ExChdRangeType >> adbCodeUsingContext: aContext receiver: aReceiver [
+
 	^ ''
 
 
@@ -137,6 +152,7 @@ ExChdRangeType >> adbCodeUsingContext: aContext receiver: aReceiver [
 
 { #category : 'platypus-generated-deriving' }
 ExChdRangeType >> adbInterfacesList [
+
 	^ self adbInterfacesListUsingContext: self class context
 
 
@@ -144,6 +160,7 @@ ExChdRangeType >> adbInterfacesList [
 
 { #category : 'platypus-generated-deriving' }
 ExChdRangeType >> adbInterfacesListUsingContext: aContext [
+
 	^ self adbInterfacesListUsingContext: aContext receiver: self
 
 
@@ -151,6 +168,7 @@ ExChdRangeType >> adbInterfacesListUsingContext: aContext [
 
 { #category : 'platypus-generated-deriving' }
 ExChdRangeType >> adbInterfacesListUsingContext: aContext receiver: aReceiver [
+
 	^ Array new
 
 
@@ -158,6 +176,7 @@ ExChdRangeType >> adbInterfacesListUsingContext: aContext receiver: aReceiver [
 
 { #category : 'platypus-generated-deriving' }
 ExChdRangeType >> adsCode [
+
 	^ self adsCodeUsingContext: self class context
 
 
@@ -165,6 +184,7 @@ ExChdRangeType >> adsCode [
 
 { #category : 'platypus-generated-deriving' }
 ExChdRangeType >> adsCodeUsingContext: aContext [
+
 	^ self adsCodeUsingContext: aContext receiver: self
 
 
@@ -172,17 +192,18 @@ ExChdRangeType >> adsCodeUsingContext: aContext [
 
 { #category : 'platypus-generated-deriving' }
 ExChdRangeType >> adsCodeUsingContext: aContext receiver: aReceiver [
-	^ ExChdRangeTypeAdsCodeFunction
-		invokeFromValues:
-			(OrderedCollection new
-				add: aReceiver;
-				yourself)
+
+	^ ExChdRangeTypeAdsCodeFunction invokeFromValues:
+		  (OrderedCollection new
+			   add: aReceiver;
+			   yourself)
 
 
 ]
 
 { #category : 'platypus-generated-deriving' }
 ExChdRangeType >> adsInterfacesList [
+
 	^ self adsInterfacesListUsingContext: self class context
 
 
@@ -190,6 +211,7 @@ ExChdRangeType >> adsInterfacesList [
 
 { #category : 'platypus-generated-deriving' }
 ExChdRangeType >> adsInterfacesListUsingContext: aContext [
+
 	^ self adsInterfacesListUsingContext: aContext receiver: self
 
 
@@ -197,6 +219,7 @@ ExChdRangeType >> adsInterfacesListUsingContext: aContext [
 
 { #category : 'platypus-generated-deriving' }
 ExChdRangeType >> adsInterfacesListUsingContext: aContext receiver: aReceiver [
+
 	^ Array new
 
 
@@ -204,6 +227,7 @@ ExChdRangeType >> adsInterfacesListUsingContext: aContext receiver: aReceiver [
 
 { #category : 'platypus-generated-fast-set-accessing' }
 ExChdRangeType >> fastSetLower: aString [
+
 	lower := aString
 
 
@@ -211,6 +235,7 @@ ExChdRangeType >> fastSetLower: aString [
 
 { #category : 'platypus-generated-fast-set-accessing' }
 ExChdRangeType >> fastSetLowerConstant: aString [
+
 	lowerConstant := aString
 
 
@@ -218,6 +243,7 @@ ExChdRangeType >> fastSetLowerConstant: aString [
 
 { #category : 'platypus-generated-fast-set-accessing' }
 ExChdRangeType >> fastSetUpper: aString [
+
 	upper := aString
 
 
@@ -225,6 +251,7 @@ ExChdRangeType >> fastSetUpper: aString [
 
 { #category : 'platypus-generated-fast-set-accessing' }
 ExChdRangeType >> fastSetUpperConstant: aString [
+
 	upperConstant := aString
 
 
@@ -232,6 +259,7 @@ ExChdRangeType >> fastSetUpperConstant: aString [
 
 { #category : 'platypus-generated-group-accessing' }
 ExChdRangeType >> fromValues: values [
+
 	^ self rangeTypeFromValues: (super fromValues: values)
 
 
@@ -239,6 +267,7 @@ ExChdRangeType >> fromValues: values [
 
 { #category : 'platypus-generated-classifying' }
 ExChdRangeType >> isExChdRangeType [
+
 	^ true
 
 
@@ -246,6 +275,7 @@ ExChdRangeType >> isExChdRangeType [
 
 { #category : 'platypus-generated-group-accessing' }
 ExChdRangeType >> localFromValues: values [
+
 	^ self rangeTypeFromValues: values
 
 
@@ -253,6 +283,7 @@ ExChdRangeType >> localFromValues: values [
 
 { #category : 'platypus-generated-group-accessing' }
 ExChdRangeType >> localToValues: values [
+
 	^ self rangeTypeToValues: values
 
 
@@ -260,6 +291,7 @@ ExChdRangeType >> localToValues: values [
 
 { #category : 'platypus-generated-accessing' }
 ExChdRangeType >> lower [
+
 	^ lower
 
 
@@ -267,6 +299,7 @@ ExChdRangeType >> lower [
 
 { #category : 'platypus-generated-accessing' }
 ExChdRangeType >> lower: aString [
+
 	lower := aString
 
 
@@ -274,6 +307,7 @@ ExChdRangeType >> lower: aString [
 
 { #category : 'platypus-generated-accessing' }
 ExChdRangeType >> lowerConstant [
+
 	^ lowerConstant
 
 
@@ -281,6 +315,7 @@ ExChdRangeType >> lowerConstant [
 
 { #category : 'platypus-generated-accessing' }
 ExChdRangeType >> lowerConstant: aString [
+
 	lowerConstant := aString
 
 
@@ -288,6 +323,7 @@ ExChdRangeType >> lowerConstant: aString [
 
 { #category : 'platypus-generated-with-context-accessing' }
 ExChdRangeType >> lowerConstantUsingContext: aContext [
+
 	^ self lowerConstant
 
 
@@ -295,6 +331,7 @@ ExChdRangeType >> lowerConstantUsingContext: aContext [
 
 { #category : 'platypus-generated-with-context-accessing' }
 ExChdRangeType >> lowerUsingContext: aContext [
+
 	^ self lower
 
 
@@ -302,6 +339,7 @@ ExChdRangeType >> lowerUsingContext: aContext [
 
 { #category : 'platypus-generated-copying' }
 ExChdRangeType >> pltCopyGroup: aClassSymbol to: anObject [
+
 	self class name == aClassSymbol
 		ifTrue: [ self pltCopyTo: anObject ]
 		ifFalse: [ super pltCopyGroup: aClassSymbol to: anObject ]
@@ -311,6 +349,7 @@ ExChdRangeType >> pltCopyGroup: aClassSymbol to: anObject [
 
 { #category : 'platypus-generated-copying' }
 ExChdRangeType >> pltCopyTo: another [
+
 	super pltCopyTo: another.
 	self rangeTypeCopyTo: another
 
@@ -319,6 +358,7 @@ ExChdRangeType >> pltCopyTo: another [
 
 { #category : 'platypus-generated-copying' }
 ExChdRangeType >> pltLocalCopyTo: another [
+
 	self rangeTypeCopyTo: another
 
 
@@ -326,6 +366,7 @@ ExChdRangeType >> pltLocalCopyTo: another [
 
 { #category : 'platypus-generated-copying' }
 ExChdRangeType >> rangeTypeCopyTo: another [
+
 	another fastSetLower: self lower.
 	another fastSetUpper: self upper.
 	another fastSetLowerConstant: self lowerConstant.
@@ -336,6 +377,7 @@ ExChdRangeType >> rangeTypeCopyTo: another [
 
 { #category : 'platypus-generated-group-accessing' }
 ExChdRangeType >> rangeTypeFromValues: values [
+
 	| valuesloc |
 	valuesloc := values asOrderedCollection.
 	self setLower: valuesloc removeFirst.
@@ -349,6 +391,7 @@ ExChdRangeType >> rangeTypeFromValues: values [
 
 { #category : 'platypus-generated-group-accessing' }
 ExChdRangeType >> rangeTypeToValues: values [
+
 	values add: self lower.
 	values add: self upper.
 	values add: self lowerConstant.
@@ -360,6 +403,7 @@ ExChdRangeType >> rangeTypeToValues: values [
 
 { #category : 'platypus-generated-set-accessing' }
 ExChdRangeType >> setLower: aString [
+
 	self lower: aString
 
 
@@ -367,6 +411,7 @@ ExChdRangeType >> setLower: aString [
 
 { #category : 'platypus-generated-set-accessing' }
 ExChdRangeType >> setLowerConstant: aString [
+
 	self lowerConstant: aString
 
 
@@ -374,6 +419,7 @@ ExChdRangeType >> setLowerConstant: aString [
 
 { #category : 'platypus-generated-set-accessing' }
 ExChdRangeType >> setUpper: aString [
+
 	self upper: aString
 
 
@@ -381,6 +427,7 @@ ExChdRangeType >> setUpper: aString [
 
 { #category : 'platypus-generated-set-accessing' }
 ExChdRangeType >> setUpperConstant: aString [
+
 	self upperConstant: aString
 
 
@@ -388,6 +435,7 @@ ExChdRangeType >> setUpperConstant: aString [
 
 { #category : 'platypus-generated-initializing' }
 ExChdRangeType >> stepInitialize [
+
 	super stepInitialize.
 	lower := ''.
 	upper := ''.
@@ -399,6 +447,7 @@ ExChdRangeType >> stepInitialize [
 
 { #category : 'platypus-generated-group-accessing' }
 ExChdRangeType >> toValues: values [
+
 	^ self rangeTypeToValues: (super toValues: values)
 
 
@@ -406,6 +455,7 @@ ExChdRangeType >> toValues: values [
 
 { #category : 'platypus-generated-accessing' }
 ExChdRangeType >> upper [
+
 	^ upper
 
 
@@ -413,6 +463,7 @@ ExChdRangeType >> upper [
 
 { #category : 'platypus-generated-accessing' }
 ExChdRangeType >> upper: aString [
+
 	upper := aString
 
 
@@ -420,6 +471,7 @@ ExChdRangeType >> upper: aString [
 
 { #category : 'platypus-generated-accessing' }
 ExChdRangeType >> upperConstant [
+
 	^ upperConstant
 
 
@@ -427,6 +479,7 @@ ExChdRangeType >> upperConstant [
 
 { #category : 'platypus-generated-accessing' }
 ExChdRangeType >> upperConstant: aString [
+
 	upperConstant := aString
 
 
@@ -434,6 +487,7 @@ ExChdRangeType >> upperConstant: aString [
 
 { #category : 'platypus-generated-with-context-accessing' }
 ExChdRangeType >> upperConstantUsingContext: aContext [
+
 	^ self upperConstant
 
 
@@ -441,6 +495,7 @@ ExChdRangeType >> upperConstantUsingContext: aContext [
 
 { #category : 'platypus-generated-with-context-accessing' }
 ExChdRangeType >> upperUsingContext: aContext [
+
 	^ self upper
 
 

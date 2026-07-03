@@ -61,6 +61,7 @@ Class {
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdAdaClassInitializeCodeFunction class >> iso10303P11Translater [
+
 	^ 'Platypus (c) LISYC EA3883, Universite de Bretagne occidentale. Brest.'
 
 
@@ -68,6 +69,7 @@ ExChdAdaClassInitializeCodeFunction class >> iso10303P11Translater [
 
 { #category : 'platypus-generated-meta-data-accessing' }
 ExChdAdaClassInitializeCodeFunction class >> schemaDefinition [
+
 	^ ExChdRecordAndClassSchemaDefinition singleton
 
 
@@ -75,6 +77,7 @@ ExChdAdaClassInitializeCodeFunction class >> schemaDefinition [
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdAdaClassInitializeCodeFunction class >> translatedFromISO10303P11 [
+
 	^ true
 
 
@@ -82,6 +85,7 @@ ExChdAdaClassInitializeCodeFunction class >> translatedFromISO10303P11 [
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdAdaClassInitializeCodeFunction class >> vwNamespaceName [
+
 	^ #Express2Cheddar
 
 
@@ -89,6 +93,7 @@ ExChdAdaClassInitializeCodeFunction class >> vwNamespaceName [
 
 { #category : 'platypus-generated-accessing' }
 ExChdAdaClassInitializeCodeFunction >> attrs [
+
 	^ attrs
 
 
@@ -96,15 +101,17 @@ ExChdAdaClassInitializeCodeFunction >> attrs [
 
 { #category : 'platypus-generated-accessing' }
 ExChdAdaClassInitializeCodeFunction >> attrs: aListOfExChdAttribute [
+
 	attrs := aListOfExChdAttribute
-		ifNil: [ OrderedCollection new ]
-		ifNotNil: [ aListOfExChdAttribute as: OrderedCollection ]
+		         ifNil: [ OrderedCollection new ]
+		         ifNotNil: [ aListOfExChdAttribute as: OrderedCollection ]
 
 
 ]
 
 { #category : 'platypus-generated-accessing' }
 ExChdAdaClassInitializeCodeFunction >> cip [
+
 	^ cip
 
 
@@ -112,6 +119,7 @@ ExChdAdaClassInitializeCodeFunction >> cip [
 
 { #category : 'platypus-generated-accessing' }
 ExChdAdaClassInitializeCodeFunction >> cip: aExChdAdaClass [
+
 	cip := aExChdAdaClass
 
 
@@ -119,6 +127,7 @@ ExChdAdaClassInitializeCodeFunction >> cip: aExChdAdaClass [
 
 { #category : 'platypus-generated-accessing' }
 ExChdAdaClassInitializeCodeFunction >> code [
+
 	^ code
 
 
@@ -126,6 +135,7 @@ ExChdAdaClassInitializeCodeFunction >> code [
 
 { #category : 'platypus-generated-accessing' }
 ExChdAdaClassInitializeCodeFunction >> code: aString [
+
 	code := aString
 
 
@@ -133,6 +143,7 @@ ExChdAdaClassInitializeCodeFunction >> code: aString [
 
 { #category : 'platypus-generated-accessing' }
 ExChdAdaClassInitializeCodeFunction >> fromValues: values [
+
 	self cip: (values at: 1)
 
 
@@ -140,6 +151,7 @@ ExChdAdaClassInitializeCodeFunction >> fromValues: values [
 
 { #category : 'platypus-generated-accessing' }
 ExChdAdaClassInitializeCodeFunction >> init [
+
 	^ init
 
 
@@ -147,6 +159,7 @@ ExChdAdaClassInitializeCodeFunction >> init [
 
 { #category : 'platypus-generated-accessing' }
 ExChdAdaClassInitializeCodeFunction >> init: aString2 [
+
 	init := aString2
 
 
@@ -154,6 +167,7 @@ ExChdAdaClassInitializeCodeFunction >> init: aString2 [
 
 { #category : 'platypus-generated-accessing' }
 ExChdAdaClassInitializeCodeFunction >> innerCode [
+
 	^ innerCode
 
 
@@ -161,6 +175,7 @@ ExChdAdaClassInitializeCodeFunction >> innerCode [
 
 { #category : 'platypus-generated-accessing' }
 ExChdAdaClassInitializeCodeFunction >> innerCode: aString1 [
+
 	innerCode := aString1
 
 
@@ -170,93 +185,79 @@ ExChdAdaClassInitializeCodeFunction >> innerCode: aString1 [
 ExChdAdaClassInitializeCodeFunction >> invoke [
 	" ---------- locals assignments ----------"
 
-	self innerCode: ''.	" ---------- statements ----------"
-	self
-		code:
-			(('\nprocedure Initialize(obj : in out ' pltPlus: (self cip nameUsingContext: self class context))
-				pltPlus: ') is \nbegin\n').
-	(PltSIZEOFFunction
-		invokeFromValues:
-			(OrderedCollection new
-				add: (self cip supertypesUsingContext: self class context);
-				yourself)) > 0
-		ifTrue: [ 
+	self innerCode: ''. " ---------- statements ----------"
+	self code: (('\nprocedure Initialize(obj : in out ' pltPlus:
+			  (self cip nameUsingContext: self class context)) pltPlus:
+			 ') is \nbegin\n').
+	(PltSIZEOFFunction invokeFromValues: (OrderedCollection new
+			  add: (self cip supertypesUsingContext: self class context);
+			  yourself)) > 0 ifTrue: [
 			PlatypusCoreAliasStatement
 				alias:
-					(((self cip supertypesUsingContext: self class context)
-						pltAt:
-							(PltLOINDEXFunction
-								invokeFromValues:
-									(OrderedCollection new
-										add: (self cip supertypesUsingContext: self class context);
-										yourself))) handledUsingContext: self class context)
-				statementsBlock: [ :sup643 | 
-					self
-						innerCode:
-							(((self innerCode pltPlus: '\tinitialize(') pltPlus: (sup643 nameUsingContext: self class context)) pltPlus: '(obj));\n') ] ].
+					(((self cip supertypesUsingContext: self class context) pltAt:
+						  (PltLOINDEXFunction invokeFromValues: (OrderedCollection new
+								    add: (self cip supertypesUsingContext: self class context);
+								    yourself))) handledUsingContext: self class context)
+				statementsBlock: [ :sup2688481 |
+						self innerCode:
+							(((self innerCode pltPlus: '\tinitialize(') pltPlus:
+								  (sup2688481 nameUsingContext: self class context)) pltPlus:
+								 '(obj));\n') ] ].
 	PlatypusCoreRepeatStatement
-		repeat: [ :no1011 | 
-			PlatypusCoreAliasStatement
-				alias: ((self cip explicitAttributesUsingContext: self class context) pltAt: no1011)
-				statementsBlock: [ :attr2967 | 
-					self
-						init:
-							(ExChdExplicitAttributeInitializeFunction
-								invokeFromValues:
-									(OrderedCollection new
-										add: attr2967;
-										yourself)).
-					((PltEXISTSFunction
-						invokeFromValues:
-							(OrderedCollection new
-								add: self init;
-								yourself)) and: [ self init > '' ])
-						ifTrue: [ self innerCode: (((self innerCode pltPlus: '\t') pltPlus: self init) pltPlus: '\n') ] ] ]
-		from:
-			(PltLOINDEXFunction
-				invokeFromValues:
-					(OrderedCollection new
-						add: (self cip explicitAttributesUsingContext: self class context);
-						yourself))
-		to:
-			(PltHIINDEXFunction
-				invokeFromValues:
-					(OrderedCollection new
-						add: (self cip explicitAttributesUsingContext: self class context);
-						yourself)).
+		repeat: [ :no73679 |
+				PlatypusCoreAliasStatement
+					alias:
+						((self cip explicitAttributesUsingContext: self class context)
+							 pltAt: no73679)
+					statementsBlock: [ :attr1009575 |
+							self init:
+								(ExChdExplicitAttributeInitializeFunction invokeFromValues:
+									 (OrderedCollection new
+										  add: attr1009575;
+										  yourself)).
+							((PltEXISTSFunction invokeFromValues: (OrderedCollection new
+									   add: self init;
+									   yourself)) and: [ self init > '' ]) ifTrue: [
+									self innerCode:
+										(((self innerCode pltPlus: '\t') pltPlus: self init)
+											 pltPlus: '\n') ] ] ]
+		from: (PltLOINDEXFunction invokeFromValues: (OrderedCollection new
+					  add:
+						  (self cip explicitAttributesUsingContext: self class context);
+					  yourself))
+		to: (PltHIINDEXFunction invokeFromValues: (OrderedCollection new
+					  add:
+						  (self cip explicitAttributesUsingContext: self class context);
+					  yourself)).
 	PlatypusCoreRepeatStatement
-		repeat: [ :no1677 | 
-			PlatypusCoreAliasStatement
-				alias: ((self cip derivedAttributesUsingContext: self class context) pltAt: no1677)
-				statementsBlock: [ :attr3633 | 
-					self
-						init:
-							(ExChdDerivedAttributeInitializeFunction
-								invokeFromValues:
-									(OrderedCollection new
-										add: attr3633;
-										yourself)).
-					((PltEXISTSFunction
-						invokeFromValues:
-							(OrderedCollection new
-								add: self init;
-								yourself)) and: [ self init > '' ])
-						ifTrue: [ self innerCode: (((self innerCode pltPlus: '\t') pltPlus: self init) pltPlus: '\n') ] ] ]
-		from:
-			(PltLOINDEXFunction
-				invokeFromValues:
-					(OrderedCollection new
-						add: (self cip derivedAttributesUsingContext: self class context);
-						yourself))
-		to:
-			(PltHIINDEXFunction
-				invokeFromValues:
-					(OrderedCollection new
-						add: (self cip derivedAttributesUsingContext: self class context);
-						yourself)).
-	self innerCode = ''
-		ifTrue: [ self innerCode: '\tnull;\n' ].
-	self code: ((self code pltPlus: self innerCode) pltPlus: 'end Initialize;\n').
+		repeat: [ :no1855245 |
+				PlatypusCoreAliasStatement
+					alias:
+						((self cip derivedAttributesUsingContext: self class context)
+							 pltAt: no1855245)
+					statementsBlock: [ :attr657283 |
+							self init:
+								(ExChdDerivedAttributeInitializeFunction invokeFromValues:
+									 (OrderedCollection new
+										  add: attr657283;
+										  yourself)).
+							((PltEXISTSFunction invokeFromValues: (OrderedCollection new
+									   add: self init;
+									   yourself)) and: [ self init > '' ]) ifTrue: [
+									self innerCode:
+										(((self innerCode pltPlus: '\t') pltPlus: self init)
+											 pltPlus: '\n') ] ] ]
+		from: (PltLOINDEXFunction invokeFromValues: (OrderedCollection new
+					  add:
+						  (self cip derivedAttributesUsingContext: self class context);
+					  yourself))
+		to: (PltHIINDEXFunction invokeFromValues: (OrderedCollection new
+					  add:
+						  (self cip derivedAttributesUsingContext: self class context);
+					  yourself)).
+	self innerCode = '' ifTrue: [ self innerCode: '\tnull;\n' ].
+	self code:
+		((self code pltPlus: self innerCode) pltPlus: 'end Initialize;\n').
 	^ self return: self code
 
 

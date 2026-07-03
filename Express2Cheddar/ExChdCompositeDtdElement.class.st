@@ -18,6 +18,7 @@ Class {
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdCompositeDtdElement class >> iso10303P11Translater [
+
 	^ 'Platypus (c) LISYC EA3883, Universite de Bretagne occidentale. Brest.'
 
 
@@ -25,6 +26,7 @@ ExChdCompositeDtdElement class >> iso10303P11Translater [
 
 { #category : 'platypus-generated-meta-data-accessing' }
 ExChdCompositeDtdElement class >> schemaDefinition [
+
 	^ ExChdCheddarDtdSchemaDefinition singleton
 
 
@@ -32,6 +34,7 @@ ExChdCompositeDtdElement class >> schemaDefinition [
 
 { #category : 'platypus-generated-meta-data-accessing' }
 ExChdCompositeDtdElement class >> schemaInstance [
+
 	^ ExChdExpress2cheddarSchemaInstance singleton
 
 
@@ -39,6 +42,7 @@ ExChdCompositeDtdElement class >> schemaInstance [
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdCompositeDtdElement class >> translatedFromISO10303P11 [
+
 	^ true
 
 
@@ -46,6 +50,7 @@ ExChdCompositeDtdElement class >> translatedFromISO10303P11 [
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdCompositeDtdElement class >> vwNamespaceName [
+
 	^ #Express2Cheddar
 
 
@@ -53,6 +58,7 @@ ExChdCompositeDtdElement class >> vwNamespaceName [
 
 { #category : 'platypus-generated-visiting' }
 ExChdCompositeDtdElement >> accept: aVisitor [
+
 	^ aVisitor acceptCompositeDtdElement: self
 
 
@@ -60,6 +66,7 @@ ExChdCompositeDtdElement >> accept: aVisitor [
 
 { #category : 'platypus-generated-copying' }
 ExChdCompositeDtdElement >> compositeDtdElementCopyTo: another [
+
 	
 
 
@@ -67,6 +74,7 @@ ExChdCompositeDtdElement >> compositeDtdElementCopyTo: another [
 
 { #category : 'platypus-generated-group-accessing' }
 ExChdCompositeDtdElement >> compositeDtdElementFromValues: values [
+
 	| valuesloc |
 	valuesloc := values asOrderedCollection.
 	^ valuesloc
@@ -76,6 +84,7 @@ ExChdCompositeDtdElement >> compositeDtdElementFromValues: values [
 
 { #category : 'platypus-generated-group-accessing' }
 ExChdCompositeDtdElement >> compositeDtdElementToValues: values [
+
 	^ values
 
 
@@ -83,6 +92,7 @@ ExChdCompositeDtdElement >> compositeDtdElementToValues: values [
 
 { #category : 'platypus-generated-group-accessing' }
 ExChdCompositeDtdElement >> fromValues: values [
+
 	^ self compositeDtdElementFromValues: (super fromValues: values)
 
 
@@ -90,6 +100,7 @@ ExChdCompositeDtdElement >> fromValues: values [
 
 { #category : 'platypus-generated-classifying' }
 ExChdCompositeDtdElement >> isExChdCompositeDtdElement [
+
 	^ true
 
 
@@ -97,6 +108,7 @@ ExChdCompositeDtdElement >> isExChdCompositeDtdElement [
 
 { #category : 'platypus-generated-group-accessing' }
 ExChdCompositeDtdElement >> localFromValues: values [
+
 	^ self compositeDtdElementFromValues: values
 
 
@@ -104,6 +116,7 @@ ExChdCompositeDtdElement >> localFromValues: values [
 
 { #category : 'platypus-generated-group-accessing' }
 ExChdCompositeDtdElement >> localToValues: values [
+
 	^ self compositeDtdElementToValues: values
 
 
@@ -111,6 +124,7 @@ ExChdCompositeDtdElement >> localToValues: values [
 
 { #category : 'platypus-generated-copying' }
 ExChdCompositeDtdElement >> pltCopyGroup: aClassSymbol to: anObject [
+
 	self class name == aClassSymbol
 		ifTrue: [ self pltCopyTo: anObject ]
 		ifFalse: [ super pltCopyGroup: aClassSymbol to: anObject ]
@@ -120,6 +134,7 @@ ExChdCompositeDtdElement >> pltCopyGroup: aClassSymbol to: anObject [
 
 { #category : 'platypus-generated-copying' }
 ExChdCompositeDtdElement >> pltCopyTo: another [
+
 	super pltCopyTo: another.
 	self compositeDtdElementCopyTo: another
 
@@ -128,6 +143,7 @@ ExChdCompositeDtdElement >> pltCopyTo: another [
 
 { #category : 'platypus-generated-copying' }
 ExChdCompositeDtdElement >> pltLocalCopyTo: another [
+
 	self compositeDtdElementCopyTo: another
 
 
@@ -135,6 +151,7 @@ ExChdCompositeDtdElement >> pltLocalCopyTo: another [
 
 { #category : 'platypus-generated-initializing' }
 ExChdCompositeDtdElement >> stepInitialize [
+
 	super stepInitialize
 
 
@@ -142,6 +159,7 @@ ExChdCompositeDtdElement >> stepInitialize [
 
 { #category : 'platypus-generated-deriving' }
 ExChdCompositeDtdElement >> subs [
+
 	^ self subsUsingContext: self class context
 
 
@@ -149,6 +167,7 @@ ExChdCompositeDtdElement >> subs [
 
 { #category : 'platypus-generated-deriving' }
 ExChdCompositeDtdElement >> subsUsingContext: aContext [
+
 	^ self subsUsingContext: aContext receiver: self
 
 
@@ -156,6 +175,7 @@ ExChdCompositeDtdElement >> subsUsingContext: aContext [
 
 { #category : 'platypus-generated-deriving' }
 ExChdCompositeDtdElement >> subsUsingContext: aContext receiver: aReceiver [
+
 	^ Array new
 
 
@@ -163,6 +183,7 @@ ExChdCompositeDtdElement >> subsUsingContext: aContext receiver: aReceiver [
 
 { #category : 'platypus-generated-group-accessing' }
 ExChdCompositeDtdElement >> toValues: values [
+
 	^ self compositeDtdElementToValues: (super toValues: values)
 
 

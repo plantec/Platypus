@@ -50,6 +50,7 @@ Class {
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdExplicitAttributeInitializeFunction class >> iso10303P11Translater [
+
 	^ 'Platypus (c) LISYC EA3883, Universite de Bretagne occidentale. Brest.'
 
 
@@ -57,6 +58,7 @@ ExChdExplicitAttributeInitializeFunction class >> iso10303P11Translater [
 
 { #category : 'platypus-generated-meta-data-accessing' }
 ExChdExplicitAttributeInitializeFunction class >> schemaDefinition [
+
 	^ ExChdRecordAndClassSchemaDefinition singleton
 
 
@@ -64,6 +66,7 @@ ExChdExplicitAttributeInitializeFunction class >> schemaDefinition [
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdExplicitAttributeInitializeFunction class >> translatedFromISO10303P11 [
+
 	^ true
 
 
@@ -71,6 +74,7 @@ ExChdExplicitAttributeInitializeFunction class >> translatedFromISO10303P11 [
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdExplicitAttributeInitializeFunction class >> vwNamespaceName [
+
 	^ #Express2Cheddar
 
 
@@ -78,6 +82,7 @@ ExChdExplicitAttributeInitializeFunction class >> vwNamespaceName [
 
 { #category : 'platypus-generated-accessing' }
 ExChdExplicitAttributeInitializeFunction >> attr [
+
 	^ attr
 
 
@@ -85,6 +90,7 @@ ExChdExplicitAttributeInitializeFunction >> attr [
 
 { #category : 'platypus-generated-accessing' }
 ExChdExplicitAttributeInitializeFunction >> attr: aExChdExplicitAttribute [
+
 	attr := aExChdExplicitAttribute
 
 
@@ -92,6 +98,7 @@ ExChdExplicitAttributeInitializeFunction >> attr: aExChdExplicitAttribute [
 
 { #category : 'platypus-generated-accessing' }
 ExChdExplicitAttributeInitializeFunction >> domain [
+
 	^ domain
 
 
@@ -99,6 +106,7 @@ ExChdExplicitAttributeInitializeFunction >> domain [
 
 { #category : 'platypus-generated-accessing' }
 ExChdExplicitAttributeInitializeFunction >> domain: aExChdDictionaryInstance [
+
 	domain := aExChdDictionaryInstance
 
 
@@ -106,6 +114,7 @@ ExChdExplicitAttributeInitializeFunction >> domain: aExChdDictionaryInstance [
 
 { #category : 'platypus-generated-accessing' }
 ExChdExplicitAttributeInitializeFunction >> fromValues: values [
+
 	self attr: (values at: 1)
 
 
@@ -113,6 +122,7 @@ ExChdExplicitAttributeInitializeFunction >> fromValues: values [
 
 { #category : 'platypus-generated-accessing' }
 ExChdExplicitAttributeInitializeFunction >> init [
+
 	^ init
 
 
@@ -120,6 +130,7 @@ ExChdExplicitAttributeInitializeFunction >> init [
 
 { #category : 'platypus-generated-accessing' }
 ExChdExplicitAttributeInitializeFunction >> init: aString [
+
 	init := aString
 
 
@@ -129,47 +140,50 @@ ExChdExplicitAttributeInitializeFunction >> init: aString [
 ExChdExplicitAttributeInitializeFunction >> invoke [
 	" ---------- locals assignments ----------"
 
-	self
-		domain:
-			(ExChdBasicAdaDomainFunction
-				invokeFromValues:
-					(OrderedCollection new
-						add: (self attr domainUsingContext: self class context);
-						yourself)).
-	self init: (self domain initValueUsingContext: self class context).	" ---------- statements ----------"
-	(self attr nameUsingContext: self class context) = 'cheddar_private_id'
-		ifTrue: [ 
-			^ self
-				return:
-					(('generate_id( framework_id, obj.' pltPlus: (self attr nameUsingContext: self class context)) pltPlus: ' );') ].
-	((PltTYPEOFFunction
-		invokeFromValues:
-			(OrderedCollection new
-				add: self attr;
-				yourself)) includes: 'CHEDDAR_DOMAINS.IN_SCOPE_ATTRIBUTE')
-		ifTrue: [ ^ self return: (self attr initCodeUsingContext: self class context) ].
-	((PltTYPEOFFunction
-		invokeFromValues:
-			(OrderedCollection new
-				add: (self domain handledUsingContext: self class context);
-				yourself)) includes: 'CHEDDAR_DOMAINS.CHEDDAR_PRIMITIVE_TYPE')
-		ifTrue: [ self init: ((self domain handledUsingContext: self class context) initValueUsingContext: self class context) ].
-	(PltEXISTSFunction
-		invokeFromValues:
-			(OrderedCollection new
-				add: self init;
-				yourself)) not
+	self domain:
+		(ExChdBasicAdaDomainFunction invokeFromValues:
+			 (OrderedCollection new
+				  add: (self attr domainUsingContext: self class context);
+				  yourself)).
+	self init: (self domain initValueUsingContext: self class context). " ---------- statements ----------"
+	(self attr nameUsingContext: self class context)
+	= 'cheddar_private_id' ifTrue: [
+			^ self return: (('generate_id( framework_id, obj.' pltPlus:
+					    (self attr nameUsingContext: self class context)) pltPlus:
+					   ' );') ].
+	((PltTYPEOFFunction invokeFromValues: (OrderedCollection new
+			   add: self attr;
+			   yourself)) includes: 'CHEDDAR_DOMAINS.IN_SCOPE_ATTRIBUTE')
+		ifTrue: [
+		^ self return: (self attr initCodeUsingContext: self class context) ].
+	((PltTYPEOFFunction invokeFromValues: (OrderedCollection new
+			   add: (self domain handledUsingContext: self class context);
+			   yourself)) includes: 'CHEDDAR_DOMAINS.CHEDDAR_PRIMITIVE_TYPE')
+		ifTrue: [
+				self init: ((self domain handledUsingContext: self class context)
+						 initValueUsingContext: self class context) ].
+	(PltEXISTSFunction invokeFromValues: (OrderedCollection new
+			  add: self init;
+			  yourself)) not
 		ifTrue: [ ^ self return: nil ]
-		ifFalse: [ 
-			self init ~= 'initialize'
-				ifTrue: [ 
-					^ self
-						return:
-							(((('obj.' pltPlus: (self attr nameUsingContext: self class context)) pltPlus: ' := ') pltPlus: self init) pltPlus: ';') ]
-				ifFalse: [ 
-					((self domain handledUsingContext: self class context) refedByPointerUsingContext: self class context)
-						ifTrue: [ ^ self return: (('initialize( obj.' pltPlus: (self attr nameUsingContext: self class context)) pltPlus: '.all);') ]
-						ifFalse: [ ^ self return: (('initialize( obj.' pltPlus: (self attr nameUsingContext: self class context)) pltPlus: ');') ] ] ]
+		ifFalse: [
+				self init ~= 'initialize'
+					ifTrue: [
+							^ self return:
+								  (((('obj.' pltPlus:
+									      (self attr nameUsingContext: self class context))
+									     pltPlus: ' := ') pltPlus: self init) pltPlus: ';') ]
+					ifFalse: [
+							((self domain handledUsingContext: self class context)
+								 refedByPointerUsingContext: self class context)
+								ifTrue: [
+										^ self return: (('initialize( obj.' pltPlus:
+												    (self attr nameUsingContext: self class context))
+												   pltPlus: '.all);') ]
+								ifFalse: [
+										^ self return: (('initialize( obj.' pltPlus:
+												    (self attr nameUsingContext: self class context))
+												   pltPlus: ');') ] ] ]
 
 
 ]

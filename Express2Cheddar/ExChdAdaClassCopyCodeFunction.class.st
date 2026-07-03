@@ -42,6 +42,7 @@ Class {
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdAdaClassCopyCodeFunction class >> iso10303P11Translater [
+
 	^ 'Platypus (c) LISYC EA3883, Universite de Bretagne occidentale. Brest.'
 
 
@@ -49,6 +50,7 @@ ExChdAdaClassCopyCodeFunction class >> iso10303P11Translater [
 
 { #category : 'platypus-generated-meta-data-accessing' }
 ExChdAdaClassCopyCodeFunction class >> schemaDefinition [
+
 	^ ExChdRecordAndClassSchemaDefinition singleton
 
 
@@ -56,6 +58,7 @@ ExChdAdaClassCopyCodeFunction class >> schemaDefinition [
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdAdaClassCopyCodeFunction class >> translatedFromISO10303P11 [
+
 	^ true
 
 
@@ -63,6 +66,7 @@ ExChdAdaClassCopyCodeFunction class >> translatedFromISO10303P11 [
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdAdaClassCopyCodeFunction class >> vwNamespaceName [
+
 	^ #Express2Cheddar
 
 
@@ -70,6 +74,7 @@ ExChdAdaClassCopyCodeFunction class >> vwNamespaceName [
 
 { #category : 'platypus-generated-accessing' }
 ExChdAdaClassCopyCodeFunction >> cip [
+
 	^ cip
 
 
@@ -77,6 +82,7 @@ ExChdAdaClassCopyCodeFunction >> cip [
 
 { #category : 'platypus-generated-accessing' }
 ExChdAdaClassCopyCodeFunction >> cip: aExChdAdaClass [
+
 	cip := aExChdAdaClass
 
 
@@ -84,6 +90,7 @@ ExChdAdaClassCopyCodeFunction >> cip: aExChdAdaClass [
 
 { #category : 'platypus-generated-accessing' }
 ExChdAdaClassCopyCodeFunction >> code [
+
 	^ code
 
 
@@ -91,6 +98,7 @@ ExChdAdaClassCopyCodeFunction >> code [
 
 { #category : 'platypus-generated-accessing' }
 ExChdAdaClassCopyCodeFunction >> code: aString [
+
 	code := aString
 
 
@@ -98,6 +106,7 @@ ExChdAdaClassCopyCodeFunction >> code: aString [
 
 { #category : 'platypus-generated-accessing' }
 ExChdAdaClassCopyCodeFunction >> fromValues: values [
+
 	self cip: (values at: 1)
 
 
@@ -107,34 +116,40 @@ ExChdAdaClassCopyCodeFunction >> fromValues: values [
 ExChdAdaClassCopyCodeFunction >> invoke [
 	" ---------- locals assignments ----------"
 
-	self v: ('New_' pltPlus: (self cip nameUsingContext: self class context)).
-	self
-		localSup:
-			(PTsLocalRootSupertypeOfFunction
-				invokeFromValues:
-					(OrderedCollection new
-						add: self cip;
-						yourself)).	" ---------- statements ----------"
-	self
-		code:
-			((((((((((((((('function Copy ( obj : in ' pltPlus: (self cip nameUsingContext: self class context))
-				pltPlus: ' ) return ') pltPlus: (self localSup ptrTypeUsingContext: self class context)) pltPlus: ' is\n')
-				pltPlus: '\t') pltPlus: self v) pltPlus: ' : ') pltPlus: (self cip ptrTypeUsingContext: self class context))
-				pltPlus: ';\n') pltPlus: 'begin\n') pltPlus: '\t') pltPlus: self v) pltPlus: ' := new ')
-				pltPlus: (self cip nameUsingContext: self class context)) pltPlus: '''(obj);\n').
-	(self localSup ptrTypeUsingContext: self class context) ~= (self cip ptrTypeUsingContext: self class context)
-		ifTrue: [ 
-			self
-				code:
-					(((((self code pltPlus: '\treturn ') pltPlus: (self localSup ptrTypeUsingContext: self class context)) pltPlus: '(')
-						pltPlus: self v) pltPlus: ');\n') ]
-		ifFalse: [ self code: (((self code pltPlus: '\treturn (') pltPlus: self v) pltPlus: ');\n') ].
-	self
-		code:
-			(((((((((self code pltPlus: 'end Copy;\n\n') pltPlus: 'function Copy ( obj : in ')
-				pltPlus: (self cip ptrTypeUsingContext: self class context)) pltPlus: ' ) return ')
-				pltPlus: (self localSup ptrTypeUsingContext: self class context)) pltPlus: ' is\n') pltPlus: 'begin\n')
-				pltPlus: '\treturn copy(obj.all);\n') pltPlus: 'end Copy;\n').
+	self v:
+		('New_' pltPlus: (self cip nameUsingContext: self class context)).
+	self localSup: (PTsLocalRootSupertypeOfFunction invokeFromValues:
+			 (OrderedCollection new
+				  add: self cip;
+				  yourself)). " ---------- statements ----------"
+	self code: ((((((((((((((('function Copy ( obj : in ' pltPlus:
+			               (self cip nameUsingContext: self class context))
+			              pltPlus: ' ) return ') pltPlus:
+			             (self localSup ptrTypeUsingContext: self class context))
+			            pltPlus: ' is\n') pltPlus: '\t') pltPlus: self v)
+			         pltPlus: ' : ') pltPlus:
+			        (self cip ptrTypeUsingContext: self class context))
+			       pltPlus: ';\n') pltPlus: 'begin\n') pltPlus: '\t') pltPlus:
+			    self v) pltPlus: ' := new ') pltPlus:
+			  (self cip nameUsingContext: self class context)) pltPlus:
+			 '''(obj);\n').
+	(self localSup ptrTypeUsingContext: self class context)
+	~= (self cip ptrTypeUsingContext: self class context)
+		ifTrue: [
+				self code: (((((self code pltPlus: '\treturn ') pltPlus:
+						    (self localSup ptrTypeUsingContext: self class context))
+						   pltPlus: '(') pltPlus: self v) pltPlus: ');\n') ]
+		ifFalse: [
+				self code:
+					(((self code pltPlus: '\treturn (') pltPlus: self v) pltPlus:
+						 ');\n') ].
+	self code: (((((((((self code pltPlus: 'end Copy;\n\n') pltPlus:
+			        'function Copy ( obj : in ') pltPlus:
+			       (self cip ptrTypeUsingContext: self class context))
+			      pltPlus: ' ) return ') pltPlus:
+			     (self localSup ptrTypeUsingContext: self class context))
+			    pltPlus: ' is\n') pltPlus: 'begin\n') pltPlus:
+			  '\treturn copy(obj.all);\n') pltPlus: 'end Copy;\n').
 	^ self return: self code
 
 
@@ -142,6 +157,7 @@ ExChdAdaClassCopyCodeFunction >> invoke [
 
 { #category : 'platypus-generated-accessing' }
 ExChdAdaClassCopyCodeFunction >> localSup [
+
 	^ localSup
 
 
@@ -149,6 +165,7 @@ ExChdAdaClassCopyCodeFunction >> localSup [
 
 { #category : 'platypus-generated-accessing' }
 ExChdAdaClassCopyCodeFunction >> localSup: aExChdEntityDefinition [
+
 	localSup := aExChdEntityDefinition
 
 
@@ -156,6 +173,7 @@ ExChdAdaClassCopyCodeFunction >> localSup: aExChdEntityDefinition [
 
 { #category : 'platypus-generated-accessing' }
 ExChdAdaClassCopyCodeFunction >> v [
+
 	^ v
 
 
@@ -163,6 +181,7 @@ ExChdAdaClassCopyCodeFunction >> v [
 
 { #category : 'platypus-generated-accessing' }
 ExChdAdaClassCopyCodeFunction >> v: aString1 [
+
 	v := aString1
 
 

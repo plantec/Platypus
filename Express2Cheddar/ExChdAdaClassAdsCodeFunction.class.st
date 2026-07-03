@@ -63,6 +63,7 @@ Class {
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdAdaClassAdsCodeFunction class >> iso10303P11Translater [
+
 	^ 'Platypus (c) LISYC EA3883, Universite de Bretagne occidentale. Brest.'
 
 
@@ -70,6 +71,7 @@ ExChdAdaClassAdsCodeFunction class >> iso10303P11Translater [
 
 { #category : 'platypus-generated-meta-data-accessing' }
 ExChdAdaClassAdsCodeFunction class >> schemaDefinition [
+
 	^ ExChdRecordAndClassSchemaDefinition singleton
 
 
@@ -77,6 +79,7 @@ ExChdAdaClassAdsCodeFunction class >> schemaDefinition [
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdAdaClassAdsCodeFunction class >> translatedFromISO10303P11 [
+
 	^ true
 
 
@@ -84,6 +87,7 @@ ExChdAdaClassAdsCodeFunction class >> translatedFromISO10303P11 [
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdAdaClassAdsCodeFunction class >> vwNamespaceName [
+
 	^ #Express2Cheddar
 
 
@@ -91,6 +95,7 @@ ExChdAdaClassAdsCodeFunction class >> vwNamespaceName [
 
 { #category : 'platypus-generated-accessing' }
 ExChdAdaClassAdsCodeFunction >> abstr [
+
 	^ abstr
 
 
@@ -98,6 +103,7 @@ ExChdAdaClassAdsCodeFunction >> abstr [
 
 { #category : 'platypus-generated-accessing' }
 ExChdAdaClassAdsCodeFunction >> abstr: aString1 [
+
 	abstr := aString1
 
 
@@ -105,6 +111,7 @@ ExChdAdaClassAdsCodeFunction >> abstr: aString1 [
 
 { #category : 'platypus-generated-accessing' }
 ExChdAdaClassAdsCodeFunction >> cip [
+
 	^ cip
 
 
@@ -112,6 +119,7 @@ ExChdAdaClassAdsCodeFunction >> cip [
 
 { #category : 'platypus-generated-accessing' }
 ExChdAdaClassAdsCodeFunction >> cip: aExChdAdaClass [
+
 	cip := aExChdAdaClass
 
 
@@ -119,6 +127,7 @@ ExChdAdaClassAdsCodeFunction >> cip: aExChdAdaClass [
 
 { #category : 'platypus-generated-accessing' }
 ExChdAdaClassAdsCodeFunction >> cip: aExChdAdaClass withPrivate: aBoolean [
+
 	self cip: aExChdAdaClass.
 	self withPrivate: aBoolean
 
@@ -127,6 +136,7 @@ ExChdAdaClassAdsCodeFunction >> cip: aExChdAdaClass withPrivate: aBoolean [
 
 { #category : 'platypus-generated-accessing' }
 ExChdAdaClassAdsCodeFunction >> fromValues: values [
+
 	self cip: (values at: 1).
 	self withPrivate: (values at: 2)
 
@@ -138,90 +148,103 @@ ExChdAdaClassAdsCodeFunction >> invoke [
 	" ---------- locals assignments ----------"
 
 	self abstr: ''.
-	self
-		localSup:
-			(PTsLocalRootSupertypeOfFunction
-				invokeFromValues:
-					(OrderedCollection new
-						add: self cip;
-						yourself)).	" ---------- statements ----------"
-	self
-		result:
-			((('\n' pltPlus: '-- --------= ') pltPlus: (self cip nameUsingContext: self class context)) pltPlus: ' =--------\n\n').
-	(PltSIZEOFFunction
-		invokeFromValues:
-			(OrderedCollection new
-				add: (self cip supertypesUsingContext: self class context);
-				yourself)) > 0
-		ifTrue: [ 
-			PlatypusCoreAliasStatement
-				alias: (((self cip supertypesUsingContext: self class context) pltAt: 1) refUsingContext: self class context)
-				statementsBlock: [ :supref3067 | 
-					self
-						result:
-							(((((((self result pltPlus: 'type ') pltPlus: (self cip nameUsingContext: self class context)) pltPlus: ' is ')
-								pltPlus: self abstr) pltPlus: 'new ') pltPlus: (supref3067 adaIdentUsingContext: self class context))
-								pltPlus: ' with ') ] ]
-		ifFalse: [ 
-			self
-				result:
-					(((((self result pltPlus: 'type ') pltPlus: (self cip nameUsingContext: self class context)) pltPlus: ' is ')
-						pltPlus: self abstr) pltPlus: 'new Ada.Finalization.Controlled with ') ].
+	self localSup: (PTsLocalRootSupertypeOfFunction invokeFromValues:
+			 (OrderedCollection new
+				  add: self cip;
+				  yourself)). " ---------- statements ----------"
+	self result: ((('\n' pltPlus: '-- --------= ') pltPlus:
+			  (self cip nameUsingContext: self class context)) pltPlus:
+			 ' =--------\n\n').
+	(PltSIZEOFFunction invokeFromValues: (OrderedCollection new
+			  add: (self cip supertypesUsingContext: self class context);
+			  yourself)) > 0
+		ifTrue: [
+				PlatypusCoreAliasStatement
+					alias:
+						(((self cip supertypesUsingContext: self class context) pltAt: 1)
+							 refUsingContext: self class context)
+					statementsBlock: [ :supref2353199 |
+							self result: (((((((self result pltPlus: 'type ') pltPlus:
+									      (self cip nameUsingContext: self class context))
+									     pltPlus: ' is ') pltPlus: self abstr) pltPlus: 'new ')
+									  pltPlus:
+									  (supref2353199 adaIdentUsingContext: self class context))
+									 pltPlus: ' with ') ] ]
+		ifFalse: [
+				self result: (((((self result pltPlus: 'type ') pltPlus:
+						    (self cip nameUsingContext: self class context)) pltPlus:
+						   ' is ') pltPlus: self abstr) pltPlus:
+						 'new Ada.Finalization.Controlled with ') ].
 	self withPrivate
 		ifTrue: [ self result: (self result pltPlus: 'private;\n') ]
-		ifFalse: [ 
-			self
-				result:
-					(self result
-						pltPlus:
-							(ExChdAdaClassAttributesAdsCodeFunction
-								invokeFromValues:
-									(OrderedCollection new
-										add: self cip;
-										yourself))) ].
-	self
-		result:
-			(((((((((self result pltPlus: '\nprocedure Initialize(obj : in out ')
-				pltPlus: (self cip nameUsingContext: self class context)) pltPlus: ');\n') pltPlus: 'procedure Put(obj : in ')
-				pltPlus: (self cip nameUsingContext: self class context)) pltPlus: ');\n') pltPlus: 'procedure Put(obj : in ')
-				pltPlus: (self cip ptrTypeUsingContext: self class context)) pltPlus: ');\n').
-	self
-		result:
-			(((self result pltPlus: 'procedure Put_Name(obj : in ') pltPlus: (self cip ptrTypeUsingContext: self class context))
-				pltPlus: ');\n').
-	self
-		result:
-			(((((((((((((((self result pltPlus: 'procedure Build_Attributes_XML_String(obj : in ')
-				pltPlus: (self cip nameUsingContext: self class context)) pltPlus: '; result : in out Unbounded_String);\n')
-				pltPlus: 'function XML_String(obj : in ') pltPlus: (self cip nameUsingContext: self class context))
-				pltPlus: ') return Unbounded_String;\n') pltPlus: 'function XML_String(obj : in ')
-				pltPlus: (self cip ptrTypeUsingContext: self class context)) pltPlus: ') return Unbounded_String;\n')
-				pltPlus: 'function XML_Ref_String(obj : in ') pltPlus: (self cip nameUsingContext: self class context))
-				pltPlus: ') return Unbounded_String;\n') pltPlus: 'function XML_Ref_String(obj : in ')
-				pltPlus: (self cip ptrTypeUsingContext: self class context)) pltPlus: ') return Unbounded_String;\n').
-	(ExChdIsNamedObjectFunction
-		invokeFromValues:
-			(OrderedCollection new
-				add: self cip;
-				yourself))
-		ifTrue: [ 
-			self
-				result:
-					((((((self result pltPlus: 'function Get_Name (obj : in ') pltPlus: (self cip nameUsingContext: self class context))
-						pltPlus: ') return Unbounded_String;\n') pltPlus: 'function Get_Name (obj : in ')
-						pltPlus: (self cip ptrTypeUsingContext: self class context)) pltPlus: ') return Unbounded_String;\n') ].
-	self
-		result:
-			(((((((((((((((((((((self result pltPlus: 'function Copy(obj : in ')
-				pltPlus: (self cip ptrTypeUsingContext: self class context)) pltPlus: ') return ')
-				pltPlus: (self localSup ptrTypeUsingContext: self class context)) pltPlus: ';\n') pltPlus: 'function Copy(obj : in ')
-				pltPlus: (self cip nameUsingContext: self class context)) pltPlus: ') return ')
-				pltPlus: (self localSup ptrTypeUsingContext: self class context)) pltPlus: ';\n')
-				pltPlus: 'function type_of(obj : in ') pltPlus: (self cip nameUsingContext: self class context))
-				pltPlus: ') return unbounded_string_list;\n') pltPlus: 'function type_of(obj : in ')
-				pltPlus: (self cip ptrTypeUsingContext: self class context)) pltPlus: ') return unbounded_string_list;\n')
-				pltPlus: 'procedure Free  is new Unchecked_Deallocation (') pltPlus: (self cip nameUsingContext: self class context))
-				pltPlus: '''Class, ') pltPlus: (self cip ptrTypeUsingContext: self class context)) pltPlus: ');\n').
+		ifFalse: [
+				self result: (self result pltPlus:
+						 (ExChdAdaClassAttributesAdsCodeFunction invokeFromValues:
+							  (OrderedCollection new
+								   add: self cip;
+								   yourself))) ].
+	self result:
+		(((((((((self result pltPlus: '\nprocedure Initialize(obj : in out ')
+			        pltPlus: (self cip nameUsingContext: self class context))
+			       pltPlus: ');\n') pltPlus: 'procedure Put(obj : in ')
+			     pltPlus: (self cip nameUsingContext: self class context))
+			    pltPlus: ');\n') pltPlus: 'procedure Put(obj : in ') pltPlus:
+			  (self cip ptrTypeUsingContext: self class context)) pltPlus:
+			 ');\n').
+	self result:
+		(((self result pltPlus: 'procedure Put_Name(obj : in ') pltPlus:
+			  (self cip ptrTypeUsingContext: self class context)) pltPlus:
+			 ');\n').
+	self result: (((((((((((((((self result pltPlus:
+			               'procedure Build_Attributes_XML_String(obj : in ')
+			              pltPlus:
+			              (self cip nameUsingContext: self class context))
+			             pltPlus: '; result : in out Unbounded_String);\n')
+			            pltPlus: 'function XML_String(obj : in ') pltPlus:
+			           (self cip nameUsingContext: self class context))
+			          pltPlus: ') return Unbounded_String;\n') pltPlus:
+			         'function XML_String(obj : in ') pltPlus:
+			        (self cip ptrTypeUsingContext: self class context))
+			       pltPlus: ') return Unbounded_String;\n') pltPlus:
+			      'function XML_Ref_String(obj : in ') pltPlus:
+			     (self cip nameUsingContext: self class context)) pltPlus:
+			    ') return Unbounded_String;\n') pltPlus:
+			   'function XML_Ref_String(obj : in ') pltPlus:
+			  (self cip ptrTypeUsingContext: self class context)) pltPlus:
+			 ') return Unbounded_String;\n').
+	(ExChdIsNamedObjectFunction invokeFromValues: (OrderedCollection new
+			  add: self cip;
+			  yourself)) ifTrue: [
+			self result:
+				((((((self result pltPlus: 'function Get_Name (obj : in ')
+					     pltPlus: (self cip nameUsingContext: self class context))
+					    pltPlus: ') return Unbounded_String;\n') pltPlus:
+					   'function Get_Name (obj : in ') pltPlus:
+					  (self cip ptrTypeUsingContext: self class context)) pltPlus:
+					 ') return Unbounded_String;\n') ].
+	self result:
+		(((((((((((((((((((((self result pltPlus: 'function Copy(obj : in ')
+			                    pltPlus:
+			                    (self cip ptrTypeUsingContext:
+				                     self class context)) pltPlus: ') return ')
+			                  pltPlus:
+			                  (self localSup ptrTypeUsingContext:
+				                   self class context)) pltPlus: ';\n') pltPlus:
+			                'function Copy(obj : in ') pltPlus:
+			               (self cip nameUsingContext: self class context))
+			              pltPlus: ') return ') pltPlus:
+			             (self localSup ptrTypeUsingContext: self class context))
+			            pltPlus: ';\n') pltPlus: 'function type_of(obj : in ')
+			          pltPlus: (self cip nameUsingContext: self class context))
+			         pltPlus: ') return unbounded_string_list;\n') pltPlus:
+			        'function type_of(obj : in ') pltPlus:
+			       (self cip ptrTypeUsingContext: self class context))
+			      pltPlus: ') return unbounded_string_list;\n') pltPlus:
+			     'procedure Free  is new Unchecked_Deallocation (') pltPlus:
+			    (self cip nameUsingContext: self class context)) pltPlus:
+			   '''Class, ') pltPlus:
+			  (self cip ptrTypeUsingContext: self class context)) pltPlus:
+			 ');\n').
 	^ self return: self result
 
 
@@ -229,6 +252,7 @@ ExChdAdaClassAdsCodeFunction >> invoke [
 
 { #category : 'platypus-generated-accessing' }
 ExChdAdaClassAdsCodeFunction >> localSup [
+
 	^ localSup
 
 
@@ -236,6 +260,7 @@ ExChdAdaClassAdsCodeFunction >> localSup [
 
 { #category : 'platypus-generated-accessing' }
 ExChdAdaClassAdsCodeFunction >> localSup: aExChdEntityDefinition [
+
 	localSup := aExChdEntityDefinition
 
 
@@ -243,6 +268,7 @@ ExChdAdaClassAdsCodeFunction >> localSup: aExChdEntityDefinition [
 
 { #category : 'platypus-generated-accessing' }
 ExChdAdaClassAdsCodeFunction >> result [
+
 	^ result
 
 
@@ -250,6 +276,7 @@ ExChdAdaClassAdsCodeFunction >> result [
 
 { #category : 'platypus-generated-accessing' }
 ExChdAdaClassAdsCodeFunction >> result: aString [
+
 	result := aString
 
 
@@ -257,6 +284,7 @@ ExChdAdaClassAdsCodeFunction >> result: aString [
 
 { #category : 'platypus-generated-accessing' }
 ExChdAdaClassAdsCodeFunction >> withPrivate [
+
 	^ withPrivate
 
 
@@ -264,6 +292,7 @@ ExChdAdaClassAdsCodeFunction >> withPrivate [
 
 { #category : 'platypus-generated-accessing' }
 ExChdAdaClassAdsCodeFunction >> withPrivate: aBoolean [
+
 	withPrivate := aBoolean
 
 

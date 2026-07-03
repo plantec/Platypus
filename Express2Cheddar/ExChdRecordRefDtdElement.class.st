@@ -18,6 +18,7 @@ Class {
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdRecordRefDtdElement class >> iso10303P11Translater [
+
 	^ 'Platypus (c) LISYC EA3883, Universite de Bretagne occidentale. Brest.'
 
 
@@ -25,6 +26,7 @@ ExChdRecordRefDtdElement class >> iso10303P11Translater [
 
 { #category : 'platypus-generated-meta-data-accessing' }
 ExChdRecordRefDtdElement class >> schemaDefinition [
+
 	^ ExChdCheddarDtdSchemaDefinition singleton
 
 
@@ -32,6 +34,7 @@ ExChdRecordRefDtdElement class >> schemaDefinition [
 
 { #category : 'platypus-generated-meta-data-accessing' }
 ExChdRecordRefDtdElement class >> schemaInstance [
+
 	^ ExChdExpress2cheddarSchemaInstance singleton
 
 
@@ -39,6 +42,7 @@ ExChdRecordRefDtdElement class >> schemaInstance [
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdRecordRefDtdElement class >> translatedFromISO10303P11 [
+
 	^ true
 
 
@@ -46,6 +50,7 @@ ExChdRecordRefDtdElement class >> translatedFromISO10303P11 [
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdRecordRefDtdElement class >> vwNamespaceName [
+
 	^ #Express2Cheddar
 
 
@@ -53,6 +58,7 @@ ExChdRecordRefDtdElement class >> vwNamespaceName [
 
 { #category : 'platypus-generated-visiting' }
 ExChdRecordRefDtdElement >> accept: aVisitor [
+
 	^ aVisitor acceptRecordRefDtdElement: self
 
 
@@ -60,6 +66,7 @@ ExChdRecordRefDtdElement >> accept: aVisitor [
 
 { #category : 'platypus-generated-deriving' }
 ExChdRecordRefDtdElement >> asCollectionElementDtdCodeTail [
+
 	^ self asCollectionElementDtdCodeTailUsingContext: self class context
 
 
@@ -67,26 +74,30 @@ ExChdRecordRefDtdElement >> asCollectionElementDtdCodeTail [
 
 { #category : 'platypus-generated-deriving' }
 ExChdRecordRefDtdElement >> asCollectionElementDtdCodeTailUsingContext: aContext [
-	^ self asCollectionElementDtdCodeTailUsingContext: aContext receiver: self
+
+	^ self
+		  asCollectionElementDtdCodeTailUsingContext: aContext
+		  receiver: self
 
 
 ]
 
 { #category : 'platypus-generated-deriving' }
 ExChdRecordRefDtdElement >> asCollectionElementDtdCodeTailUsingContext: aContext receiver: aReceiver [
-	^ ('('
-		pltPlus:
-			(PTsLowerizeFunction
-				invokeFromValues:
-					(OrderedCollection new
-						add: ((aReceiver domain handledUsingContext: self class context) nameUsingContext: self class context);
-						yourself))) pltPlus: ')*>\n'
+
+	^ ('(' pltPlus:
+		   (PTsLowerizeFunction invokeFromValues: (OrderedCollection new
+				     add:
+					     ((aReceiver domain handledUsingContext: self class context)
+						      nameUsingContext: self class context);
+				     yourself))) pltPlus: ')*>\n'
 
 
 ]
 
 { #category : 'platypus-generated-group-accessing' }
 ExChdRecordRefDtdElement >> fromValues: values [
+
 	^ self recordRefDtdElementFromValues: (super fromValues: values)
 
 
@@ -94,6 +105,7 @@ ExChdRecordRefDtdElement >> fromValues: values [
 
 { #category : 'platypus-generated-deriving' }
 ExChdRecordRefDtdElement >> inferedElement [
+
 	^ self inferedElementUsingContext: self class context
 
 
@@ -101,6 +113,7 @@ ExChdRecordRefDtdElement >> inferedElement [
 
 { #category : 'platypus-generated-deriving' }
 ExChdRecordRefDtdElement >> inferedElementUsingContext: aContext [
+
 	^ self inferedElementUsingContext: aContext receiver: self
 
 
@@ -108,43 +121,36 @@ ExChdRecordRefDtdElement >> inferedElementUsingContext: aContext [
 
 { #category : 'platypus-generated-deriving' }
 ExChdRecordRefDtdElement >> inferedElementUsingContext: aContext receiver: aReceiver [
-	^ (PlatypusComplexInstance
-		fromRecords:
-			(OrderedCollection new
-				add:
-						(PlatypusComplexInstance
-								fromRecords:
-									(OrderedCollection new
-										add:
-												(PlatypusComplexInstance
-														fromRecords:
-															(OrderedCollection new
-																add:
-																		(ExChdDtdElement new
-																				dtdElementFromValues:
-																						(OrderedCollection new
-																								add: nil;
-																								add: nil;
-																								yourself);
-																				yourself);
-																add: ExChdCompositeDtdElement new;
-																yourself)) pltAsObject;
-										add:
-												(ExChdEntityDtdElement new
-														entityDtdElementFromValues:
-																(OrderedCollection new
-																		add: aReceiver domain;
-																		yourself);
-														yourself);
-										yourself)) pltAsObject;
-				add: ExChdRecordDtdElement new;
-				yourself)) pltAsObject
+
+	^ (PlatypusComplexInstance fromRecords: (OrderedCollection new
+			    add:
+				    (PlatypusComplexInstance fromRecords: (OrderedCollection new
+							      add:
+								      (PlatypusComplexInstance fromRecords:
+										       (OrderedCollection new
+											        add: (ExChdDtdElement new
+													         dtdElementFromValues: (OrderedCollection new
+															          add: nil;
+															          add: nil;
+															          yourself);
+													         yourself);
+											        add: ExChdCompositeDtdElement new;
+											        yourself)) pltAsObject;
+							      add: (ExChdEntityDtdElement new
+									       entityDtdElementFromValues: (OrderedCollection new
+											        add: aReceiver domain;
+											        yourself);
+									       yourself);
+							      yourself)) pltAsObject;
+			    add: ExChdRecordDtdElement new;
+			    yourself)) pltAsObject
 
 
 ]
 
 { #category : 'platypus-generated-classifying' }
 ExChdRecordRefDtdElement >> isExChdRecordRefDtdElement [
+
 	^ true
 
 
@@ -152,6 +158,7 @@ ExChdRecordRefDtdElement >> isExChdRecordRefDtdElement [
 
 { #category : 'platypus-generated-group-accessing' }
 ExChdRecordRefDtdElement >> localFromValues: values [
+
 	^ self recordRefDtdElementFromValues: values
 
 
@@ -159,6 +166,7 @@ ExChdRecordRefDtdElement >> localFromValues: values [
 
 { #category : 'platypus-generated-group-accessing' }
 ExChdRecordRefDtdElement >> localToValues: values [
+
 	^ self recordRefDtdElementToValues: values
 
 
@@ -166,6 +174,7 @@ ExChdRecordRefDtdElement >> localToValues: values [
 
 { #category : 'platypus-generated-copying' }
 ExChdRecordRefDtdElement >> pltCopyGroup: aClassSymbol to: anObject [
+
 	self class name == aClassSymbol
 		ifTrue: [ self pltCopyTo: anObject ]
 		ifFalse: [ super pltCopyGroup: aClassSymbol to: anObject ]
@@ -175,6 +184,7 @@ ExChdRecordRefDtdElement >> pltCopyGroup: aClassSymbol to: anObject [
 
 { #category : 'platypus-generated-copying' }
 ExChdRecordRefDtdElement >> pltCopyTo: another [
+
 	super pltCopyTo: another.
 	self recordRefDtdElementCopyTo: another
 
@@ -183,6 +193,7 @@ ExChdRecordRefDtdElement >> pltCopyTo: another [
 
 { #category : 'platypus-generated-copying' }
 ExChdRecordRefDtdElement >> pltLocalCopyTo: another [
+
 	self recordRefDtdElementCopyTo: another
 
 
@@ -190,6 +201,7 @@ ExChdRecordRefDtdElement >> pltLocalCopyTo: another [
 
 { #category : 'platypus-generated-copying' }
 ExChdRecordRefDtdElement >> recordRefDtdElementCopyTo: another [
+
 	
 
 
@@ -197,6 +209,7 @@ ExChdRecordRefDtdElement >> recordRefDtdElementCopyTo: another [
 
 { #category : 'platypus-generated-group-accessing' }
 ExChdRecordRefDtdElement >> recordRefDtdElementFromValues: values [
+
 	| valuesloc |
 	valuesloc := values asOrderedCollection.
 	^ valuesloc
@@ -206,6 +219,7 @@ ExChdRecordRefDtdElement >> recordRefDtdElementFromValues: values [
 
 { #category : 'platypus-generated-group-accessing' }
 ExChdRecordRefDtdElement >> recordRefDtdElementToValues: values [
+
 	^ values
 
 
@@ -213,6 +227,7 @@ ExChdRecordRefDtdElement >> recordRefDtdElementToValues: values [
 
 { #category : 'platypus-generated-initializing' }
 ExChdRecordRefDtdElement >> stepInitialize [
+
 	super stepInitialize
 
 
@@ -220,6 +235,7 @@ ExChdRecordRefDtdElement >> stepInitialize [
 
 { #category : 'platypus-generated-group-accessing' }
 ExChdRecordRefDtdElement >> toValues: values [
+
 	^ self recordRefDtdElementToValues: (super toValues: values)
 
 

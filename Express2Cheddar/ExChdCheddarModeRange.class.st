@@ -1,27 +1,24 @@
 "
 <ISO10303-11-EXPRESS>
-ENTITY cheddar_priority_range 
+ENTITY cheddar_mode_range 
 	SUBTYPE OF ( cheddar_defined_type );
 DERIVE
 	ads_code : STRING := '
--- Definition of priority range. We choose the most current value :
--- 256 priority levels (from 0 to 255)
--- Zero is the lowest priority level
-Type Priority_Range is new Natural range 0 .. 255;
-package Priority_Io is new Text_IO.Integer_IO (Priority_Range);
-use Priority_Io;
+Type Mode_Range is new Natural range 0 .. 2;
+package Mode_Range_Io is new Text_IO.Integer_IO (Mode_Range);
+use Mode_Range_Io;
 ';
 	adb_code : STRING := '';
-	ads_interfaces_list : LIST OF ada_interface := [ ada_interface ( 'Framework_Config', ?, true, true ), ada_interface ( 'Framework_Config', 'Priority_Io', false, true ) ];
+	ads_interfaces_list : LIST OF ada_interface := [ ada_interface ( 'Framework_Config', ?, true, true ), ada_interface ( 'Framework_Config', 'Mode_Range_Io', false, true ) ];
 	adb_interfaces_list : LIST OF ada_interface := [ ];
-	SELF\ada_type.ada_ident : STRING := 'Priority_Range';
+	SELF\ada_type.ada_ident : STRING := 'Mode_Range';
 	SELF\ada_type.ada_ref_ident : STRING := SELF.ada_ident;
 	SELF\ada_type.init_value : STRING := '0';
 END_ENTITY;
 </ISO10303-11-EXPRESS>
 "
 Class {
-	#name : 'ExChdCheddarPriorityRange',
+	#name : 'ExChdCheddarModeRange',
 	#superclass : 'ExChdCheddarDefinedType',
 	#category : 'Express2Cheddar-CheddarDomainsSchema',
 	#package : 'Express2Cheddar',
@@ -29,7 +26,7 @@ Class {
 }
 
 { #category : 'platypus-generated-platypus-signature' }
-ExChdCheddarPriorityRange class >> iso10303P11Translater [
+ExChdCheddarModeRange class >> iso10303P11Translater [
 
 	^ 'Platypus (c) LISYC EA3883, Universite de Bretagne occidentale. Brest.'
 
@@ -37,7 +34,7 @@ ExChdCheddarPriorityRange class >> iso10303P11Translater [
 ]
 
 { #category : 'platypus-generated-meta-data-accessing' }
-ExChdCheddarPriorityRange class >> schemaDefinition [
+ExChdCheddarModeRange class >> schemaDefinition [
 
 	^ ExChdCheddarDomainsSchemaDefinition singleton
 
@@ -45,7 +42,7 @@ ExChdCheddarPriorityRange class >> schemaDefinition [
 ]
 
 { #category : 'platypus-generated-meta-data-accessing' }
-ExChdCheddarPriorityRange class >> schemaInstance [
+ExChdCheddarModeRange class >> schemaInstance [
 
 	^ ExChdExpress2cheddarSchemaInstance singleton
 
@@ -53,7 +50,7 @@ ExChdCheddarPriorityRange class >> schemaInstance [
 ]
 
 { #category : 'platypus-generated-platypus-signature' }
-ExChdCheddarPriorityRange class >> translatedFromISO10303P11 [
+ExChdCheddarModeRange class >> translatedFromISO10303P11 [
 
 	^ true
 
@@ -61,7 +58,7 @@ ExChdCheddarPriorityRange class >> translatedFromISO10303P11 [
 ]
 
 { #category : 'platypus-generated-platypus-signature' }
-ExChdCheddarPriorityRange class >> vwNamespaceName [
+ExChdCheddarModeRange class >> vwNamespaceName [
 
 	^ #Express2Cheddar
 
@@ -69,15 +66,15 @@ ExChdCheddarPriorityRange class >> vwNamespaceName [
 ]
 
 { #category : 'platypus-generated-visiting' }
-ExChdCheddarPriorityRange >> accept: aVisitor [
+ExChdCheddarModeRange >> accept: aVisitor [
 
-	^ aVisitor acceptCheddarPriorityRange: self
+	^ aVisitor acceptCheddarModeRange: self
 
 
 ]
 
 { #category : 'platypus-generated-deriving' }
-ExChdCheddarPriorityRange >> adaIdent [
+ExChdCheddarModeRange >> adaIdent [
 
 	^ self adaIdentUsingContext: self class context
 
@@ -85,7 +82,7 @@ ExChdCheddarPriorityRange >> adaIdent [
 ]
 
 { #category : 'platypus-generated-deriving' }
-ExChdCheddarPriorityRange >> adaIdentUsingContext: aContext [
+ExChdCheddarModeRange >> adaIdentUsingContext: aContext [
 
 	^ self adaIdentUsingContext: aContext receiver: self
 
@@ -93,15 +90,15 @@ ExChdCheddarPriorityRange >> adaIdentUsingContext: aContext [
 ]
 
 { #category : 'platypus-generated-deriving' }
-ExChdCheddarPriorityRange >> adaIdentUsingContext: aContext receiver: aReceiver [
+ExChdCheddarModeRange >> adaIdentUsingContext: aContext receiver: aReceiver [
 
-	^ 'Priority_Range'
+	^ 'Mode_Range'
 
 
 ]
 
 { #category : 'platypus-generated-deriving' }
-ExChdCheddarPriorityRange >> adaRefIdent [
+ExChdCheddarModeRange >> adaRefIdent [
 
 	^ self adaRefIdentUsingContext: self class context
 
@@ -109,7 +106,7 @@ ExChdCheddarPriorityRange >> adaRefIdent [
 ]
 
 { #category : 'platypus-generated-deriving' }
-ExChdCheddarPriorityRange >> adaRefIdentUsingContext: aContext [
+ExChdCheddarModeRange >> adaRefIdentUsingContext: aContext [
 
 	^ self adaRefIdentUsingContext: aContext receiver: self
 
@@ -117,7 +114,7 @@ ExChdCheddarPriorityRange >> adaRefIdentUsingContext: aContext [
 ]
 
 { #category : 'platypus-generated-deriving' }
-ExChdCheddarPriorityRange >> adaRefIdentUsingContext: aContext receiver: aReceiver [
+ExChdCheddarModeRange >> adaRefIdentUsingContext: aContext receiver: aReceiver [
 
 	^ aReceiver adaIdentUsingContext: aContext
 
@@ -125,7 +122,7 @@ ExChdCheddarPriorityRange >> adaRefIdentUsingContext: aContext receiver: aReceiv
 ]
 
 { #category : 'platypus-generated-deriving' }
-ExChdCheddarPriorityRange >> adbCode [
+ExChdCheddarModeRange >> adbCode [
 
 	^ self adbCodeUsingContext: self class context
 
@@ -133,7 +130,7 @@ ExChdCheddarPriorityRange >> adbCode [
 ]
 
 { #category : 'platypus-generated-deriving' }
-ExChdCheddarPriorityRange >> adbCodeUsingContext: aContext [
+ExChdCheddarModeRange >> adbCodeUsingContext: aContext [
 
 	^ self adbCodeUsingContext: aContext receiver: self
 
@@ -141,7 +138,7 @@ ExChdCheddarPriorityRange >> adbCodeUsingContext: aContext [
 ]
 
 { #category : 'platypus-generated-deriving' }
-ExChdCheddarPriorityRange >> adbCodeUsingContext: aContext receiver: aReceiver [
+ExChdCheddarModeRange >> adbCodeUsingContext: aContext receiver: aReceiver [
 
 	^ ''
 
@@ -149,7 +146,7 @@ ExChdCheddarPriorityRange >> adbCodeUsingContext: aContext receiver: aReceiver [
 ]
 
 { #category : 'platypus-generated-deriving' }
-ExChdCheddarPriorityRange >> adbInterfacesList [
+ExChdCheddarModeRange >> adbInterfacesList [
 
 	^ self adbInterfacesListUsingContext: self class context
 
@@ -157,7 +154,7 @@ ExChdCheddarPriorityRange >> adbInterfacesList [
 ]
 
 { #category : 'platypus-generated-deriving' }
-ExChdCheddarPriorityRange >> adbInterfacesListUsingContext: aContext [
+ExChdCheddarModeRange >> adbInterfacesListUsingContext: aContext [
 
 	^ self adbInterfacesListUsingContext: aContext receiver: self
 
@@ -165,7 +162,7 @@ ExChdCheddarPriorityRange >> adbInterfacesListUsingContext: aContext [
 ]
 
 { #category : 'platypus-generated-deriving' }
-ExChdCheddarPriorityRange >> adbInterfacesListUsingContext: aContext receiver: aReceiver [
+ExChdCheddarModeRange >> adbInterfacesListUsingContext: aContext receiver: aReceiver [
 
 	^ Array new
 
@@ -173,7 +170,7 @@ ExChdCheddarPriorityRange >> adbInterfacesListUsingContext: aContext receiver: a
 ]
 
 { #category : 'platypus-generated-deriving' }
-ExChdCheddarPriorityRange >> adsCode [
+ExChdCheddarModeRange >> adsCode [
 
 	^ self adsCodeUsingContext: self class context
 
@@ -181,7 +178,7 @@ ExChdCheddarPriorityRange >> adsCode [
 ]
 
 { #category : 'platypus-generated-deriving' }
-ExChdCheddarPriorityRange >> adsCodeUsingContext: aContext [
+ExChdCheddarModeRange >> adsCodeUsingContext: aContext [
 
 	^ self adsCodeUsingContext: aContext receiver: self
 
@@ -189,22 +186,19 @@ ExChdCheddarPriorityRange >> adsCodeUsingContext: aContext [
 ]
 
 { #category : 'platypus-generated-deriving' }
-ExChdCheddarPriorityRange >> adsCodeUsingContext: aContext receiver: aReceiver [
+ExChdCheddarModeRange >> adsCodeUsingContext: aContext receiver: aReceiver [
 
 	^ '
--- Definition of priority range. We choose the most current value :
--- 256 priority levels (from 0 to 255)
--- Zero is the lowest priority level
-Type Priority_Range is new Natural range 0 .. 255;
-package Priority_Io is new Text_IO.Integer_IO (Priority_Range);
-use Priority_Io;
+Type Mode_Range is new Natural range 0 .. 2;
+package Mode_Range_Io is new Text_IO.Integer_IO (Mode_Range);
+use Mode_Range_Io;
 '
 
 
 ]
 
 { #category : 'platypus-generated-deriving' }
-ExChdCheddarPriorityRange >> adsInterfacesList [
+ExChdCheddarModeRange >> adsInterfacesList [
 
 	^ self adsInterfacesListUsingContext: self class context
 
@@ -212,7 +206,7 @@ ExChdCheddarPriorityRange >> adsInterfacesList [
 ]
 
 { #category : 'platypus-generated-deriving' }
-ExChdCheddarPriorityRange >> adsInterfacesListUsingContext: aContext [
+ExChdCheddarModeRange >> adsInterfacesListUsingContext: aContext [
 
 	^ self adsInterfacesListUsingContext: aContext receiver: self
 
@@ -220,7 +214,7 @@ ExChdCheddarPriorityRange >> adsInterfacesListUsingContext: aContext [
 ]
 
 { #category : 'platypus-generated-deriving' }
-ExChdCheddarPriorityRange >> adsInterfacesListUsingContext: aContext receiver: aReceiver [
+ExChdCheddarModeRange >> adsInterfacesListUsingContext: aContext receiver: aReceiver [
 
 	^ PlatypusCoreAggregateInitializer collectionFrom:
 		  (OrderedCollection new
@@ -235,7 +229,7 @@ ExChdCheddarPriorityRange >> adsInterfacesListUsingContext: aContext receiver: a
 			   add: (ExChdAdaInterface new
 					    adaInterfaceFromValues: (OrderedCollection new
 							     add: 'Framework_Config';
-							     add: 'Priority_Io';
+							     add: 'Mode_Range_Io';
 							     add: false;
 							     add: true;
 							     yourself);
@@ -246,7 +240,7 @@ ExChdCheddarPriorityRange >> adsInterfacesListUsingContext: aContext receiver: a
 ]
 
 { #category : 'platypus-generated-copying' }
-ExChdCheddarPriorityRange >> cheddarPriorityRangeCopyTo: another [
+ExChdCheddarModeRange >> cheddarModeRangeCopyTo: another [
 
 	
 
@@ -254,7 +248,7 @@ ExChdCheddarPriorityRange >> cheddarPriorityRangeCopyTo: another [
 ]
 
 { #category : 'platypus-generated-group-accessing' }
-ExChdCheddarPriorityRange >> cheddarPriorityRangeFromValues: values [
+ExChdCheddarModeRange >> cheddarModeRangeFromValues: values [
 
 	| valuesloc |
 	valuesloc := values asOrderedCollection.
@@ -264,7 +258,7 @@ ExChdCheddarPriorityRange >> cheddarPriorityRangeFromValues: values [
 ]
 
 { #category : 'platypus-generated-group-accessing' }
-ExChdCheddarPriorityRange >> cheddarPriorityRangeToValues: values [
+ExChdCheddarModeRange >> cheddarModeRangeToValues: values [
 
 	^ values
 
@@ -272,15 +266,15 @@ ExChdCheddarPriorityRange >> cheddarPriorityRangeToValues: values [
 ]
 
 { #category : 'platypus-generated-group-accessing' }
-ExChdCheddarPriorityRange >> fromValues: values [
+ExChdCheddarModeRange >> fromValues: values [
 
-	^ self cheddarPriorityRangeFromValues: (super fromValues: values)
+	^ self cheddarModeRangeFromValues: (super fromValues: values)
 
 
 ]
 
 { #category : 'platypus-generated-deriving' }
-ExChdCheddarPriorityRange >> initValue [
+ExChdCheddarModeRange >> initValue [
 
 	^ self initValueUsingContext: self class context
 
@@ -288,7 +282,7 @@ ExChdCheddarPriorityRange >> initValue [
 ]
 
 { #category : 'platypus-generated-deriving' }
-ExChdCheddarPriorityRange >> initValueUsingContext: aContext [
+ExChdCheddarModeRange >> initValueUsingContext: aContext [
 
 	^ self initValueUsingContext: aContext receiver: self
 
@@ -296,7 +290,7 @@ ExChdCheddarPriorityRange >> initValueUsingContext: aContext [
 ]
 
 { #category : 'platypus-generated-deriving' }
-ExChdCheddarPriorityRange >> initValueUsingContext: aContext receiver: aReceiver [
+ExChdCheddarModeRange >> initValueUsingContext: aContext receiver: aReceiver [
 
 	^ '0'
 
@@ -304,7 +298,7 @@ ExChdCheddarPriorityRange >> initValueUsingContext: aContext receiver: aReceiver
 ]
 
 { #category : 'platypus-generated-classifying' }
-ExChdCheddarPriorityRange >> isExChdCheddarPriorityRange [
+ExChdCheddarModeRange >> isExChdCheddarModeRange [
 
 	^ true
 
@@ -312,23 +306,23 @@ ExChdCheddarPriorityRange >> isExChdCheddarPriorityRange [
 ]
 
 { #category : 'platypus-generated-group-accessing' }
-ExChdCheddarPriorityRange >> localFromValues: values [
+ExChdCheddarModeRange >> localFromValues: values [
 
-	^ self cheddarPriorityRangeFromValues: values
+	^ self cheddarModeRangeFromValues: values
 
 
 ]
 
 { #category : 'platypus-generated-group-accessing' }
-ExChdCheddarPriorityRange >> localToValues: values [
+ExChdCheddarModeRange >> localToValues: values [
 
-	^ self cheddarPriorityRangeToValues: values
+	^ self cheddarModeRangeToValues: values
 
 
 ]
 
 { #category : 'platypus-generated-copying' }
-ExChdCheddarPriorityRange >> pltCopyGroup: aClassSymbol to: anObject [
+ExChdCheddarModeRange >> pltCopyGroup: aClassSymbol to: anObject [
 
 	self class name == aClassSymbol
 		ifTrue: [ self pltCopyTo: anObject ]
@@ -338,24 +332,24 @@ ExChdCheddarPriorityRange >> pltCopyGroup: aClassSymbol to: anObject [
 ]
 
 { #category : 'platypus-generated-copying' }
-ExChdCheddarPriorityRange >> pltCopyTo: another [
+ExChdCheddarModeRange >> pltCopyTo: another [
 
 	super pltCopyTo: another.
-	self cheddarPriorityRangeCopyTo: another
+	self cheddarModeRangeCopyTo: another
 
 
 ]
 
 { #category : 'platypus-generated-copying' }
-ExChdCheddarPriorityRange >> pltLocalCopyTo: another [
+ExChdCheddarModeRange >> pltLocalCopyTo: another [
 
-	self cheddarPriorityRangeCopyTo: another
+	self cheddarModeRangeCopyTo: another
 
 
 ]
 
 { #category : 'platypus-generated-initializing' }
-ExChdCheddarPriorityRange >> stepInitialize [
+ExChdCheddarModeRange >> stepInitialize [
 
 	super stepInitialize
 
@@ -363,9 +357,9 @@ ExChdCheddarPriorityRange >> stepInitialize [
 ]
 
 { #category : 'platypus-generated-group-accessing' }
-ExChdCheddarPriorityRange >> toValues: values [
+ExChdCheddarModeRange >> toValues: values [
 
-	^ self cheddarPriorityRangeToValues: (super toValues: values)
+	^ self cheddarModeRangeToValues: (super toValues: values)
 
 
 ]

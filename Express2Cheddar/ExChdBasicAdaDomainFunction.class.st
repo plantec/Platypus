@@ -18,6 +18,7 @@ Class {
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdBasicAdaDomainFunction class >> iso10303P11Translater [
+
 	^ 'Platypus (c) LISYC EA3883, Universite de Bretagne occidentale. Brest.'
 
 
@@ -25,6 +26,7 @@ ExChdBasicAdaDomainFunction class >> iso10303P11Translater [
 
 { #category : 'platypus-generated-meta-data-accessing' }
 ExChdBasicAdaDomainFunction class >> schemaDefinition [
+
 	^ ExChdCheddarDomainsSchemaDefinition singleton
 
 
@@ -32,6 +34,7 @@ ExChdBasicAdaDomainFunction class >> schemaDefinition [
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdBasicAdaDomainFunction class >> translatedFromISO10303P11 [
+
 	^ true
 
 
@@ -39,6 +42,7 @@ ExChdBasicAdaDomainFunction class >> translatedFromISO10303P11 [
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdBasicAdaDomainFunction class >> vwNamespaceName [
+
 	^ #Express2Cheddar
 
 
@@ -46,6 +50,7 @@ ExChdBasicAdaDomainFunction class >> vwNamespaceName [
 
 { #category : 'platypus-generated-accessing' }
 ExChdBasicAdaDomainFunction >> d [
+
 	^ d
 
 
@@ -53,6 +58,7 @@ ExChdBasicAdaDomainFunction >> d [
 
 { #category : 'platypus-generated-accessing' }
 ExChdBasicAdaDomainFunction >> d: aExChdDictionaryInstance [
+
 	d := aExChdDictionaryInstance
 
 
@@ -60,6 +66,7 @@ ExChdBasicAdaDomainFunction >> d: aExChdDictionaryInstance [
 
 { #category : 'platypus-generated-accessing' }
 ExChdBasicAdaDomainFunction >> fromValues: values [
+
 	self d: (values at: 1)
 
 
@@ -67,18 +74,14 @@ ExChdBasicAdaDomainFunction >> fromValues: values [
 
 { #category : 'platypus-generated-invoking' }
 ExChdBasicAdaDomainFunction >> invoke [
-	" ---------- locals assignments ----------"
+	" ---------- locals assignments ----------"" ---------- statements ----------"
 
-	" ---------- statements ----------"
-
-	^ self
-		return:
-			((PlatypusComplexInstance
-				fromRecords:
-					(OrderedCollection new
-						add: self d;
-						add: ExChdBasicAdaTypeGetter new;
-						yourself)) pltAsObject acceptedUsingContext: self class context)
+	^ self return:
+		  ((PlatypusComplexInstance fromRecords: (OrderedCollection new
+				     add: self d;
+				     add: ExChdBasicAdaTypeGetter new;
+				     yourself)) pltAsObject acceptedUsingContext:
+			   self class context)
 
 
 ]

@@ -18,6 +18,7 @@ Class {
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdRecordXmlIoRecordCodeFunction class >> iso10303P11Translater [
+
 	^ 'Platypus (c) LISYC EA3883, Universite de Bretagne occidentale. Brest.'
 
 
@@ -25,6 +26,7 @@ ExChdRecordXmlIoRecordCodeFunction class >> iso10303P11Translater [
 
 { #category : 'platypus-generated-meta-data-accessing' }
 ExChdRecordXmlIoRecordCodeFunction class >> schemaDefinition [
+
 	^ ExChdRecordAndClassSchemaDefinition singleton
 
 
@@ -32,6 +34,7 @@ ExChdRecordXmlIoRecordCodeFunction class >> schemaDefinition [
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdRecordXmlIoRecordCodeFunction class >> translatedFromISO10303P11 [
+
 	^ true
 
 
@@ -39,6 +42,7 @@ ExChdRecordXmlIoRecordCodeFunction class >> translatedFromISO10303P11 [
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdRecordXmlIoRecordCodeFunction class >> vwNamespaceName [
+
 	^ #Express2Cheddar
 
 
@@ -46,6 +50,7 @@ ExChdRecordXmlIoRecordCodeFunction class >> vwNamespaceName [
 
 { #category : 'platypus-generated-accessing' }
 ExChdRecordXmlIoRecordCodeFunction >> fromValues: values [
+
 	self rec: (values at: 1)
 
 
@@ -53,25 +58,23 @@ ExChdRecordXmlIoRecordCodeFunction >> fromValues: values [
 
 { #category : 'platypus-generated-invoking' }
 ExChdRecordXmlIoRecordCodeFunction >> invoke [
-	" ---------- locals assignments ----------"
+	" ---------- locals assignments ----------"" ---------- statements ----------"
 
-	" ---------- statements ----------"
-
-	^ self
-		return:
-			(((('\ntype ' pltPlus: (self rec nameUsingContext: self class context)) pltPlus: '_io is record')
-				pltPlus:
-					(ExChdAdaEntityAttributesXmlIoRecordCodeFunction
-						invokeFromValues:
-							(OrderedCollection new
-								add: self rec;
-								yourself))) pltPlus: '\nend record;\n')
+	^ self return:
+		  (((('\ntype ' pltPlus:
+			      (self rec nameUsingContext: self class context)) pltPlus:
+			     '_io is record') pltPlus:
+			    (ExChdAdaEntityAttributesXmlIoRecordCodeFunction
+				     invokeFromValues: (OrderedCollection new
+						      add: self rec;
+						      yourself))) pltPlus: '\nend record;\n')
 
 
 ]
 
 { #category : 'platypus-generated-accessing' }
 ExChdRecordXmlIoRecordCodeFunction >> rec [
+
 	^ rec
 
 
@@ -79,6 +82,7 @@ ExChdRecordXmlIoRecordCodeFunction >> rec [
 
 { #category : 'platypus-generated-accessing' }
 ExChdRecordXmlIoRecordCodeFunction >> rec: aExChdRecord [
+
 	rec := aExChdRecord
 
 

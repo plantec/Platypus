@@ -38,6 +38,7 @@ Class {
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdEnumerationAdsCodeFunction class >> iso10303P11Translater [
+
 	^ 'Platypus (c) LISYC EA3883, Universite de Bretagne occidentale. Brest.'
 
 
@@ -45,6 +46,7 @@ ExChdEnumerationAdsCodeFunction class >> iso10303P11Translater [
 
 { #category : 'platypus-generated-meta-data-accessing' }
 ExChdEnumerationAdsCodeFunction class >> schemaDefinition [
+
 	^ ExChdCheddarDomainsSchemaDefinition singleton
 
 
@@ -52,6 +54,7 @@ ExChdEnumerationAdsCodeFunction class >> schemaDefinition [
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdEnumerationAdsCodeFunction class >> translatedFromISO10303P11 [
+
 	^ true
 
 
@@ -59,6 +62,7 @@ ExChdEnumerationAdsCodeFunction class >> translatedFromISO10303P11 [
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdEnumerationAdsCodeFunction class >> vwNamespaceName [
+
 	^ #Express2Cheddar
 
 
@@ -66,6 +70,7 @@ ExChdEnumerationAdsCodeFunction class >> vwNamespaceName [
 
 { #category : 'platypus-generated-accessing' }
 ExChdEnumerationAdsCodeFunction >> code [
+
 	^ code
 
 
@@ -73,6 +78,7 @@ ExChdEnumerationAdsCodeFunction >> code [
 
 { #category : 'platypus-generated-accessing' }
 ExChdEnumerationAdsCodeFunction >> code: aString [
+
 	code := aString
 
 
@@ -80,6 +86,7 @@ ExChdEnumerationAdsCodeFunction >> code: aString [
 
 { #category : 'platypus-generated-accessing' }
 ExChdEnumerationAdsCodeFunction >> convertType [
+
 	^ convertType
 
 
@@ -87,6 +94,7 @@ ExChdEnumerationAdsCodeFunction >> convertType [
 
 { #category : 'platypus-generated-accessing' }
 ExChdEnumerationAdsCodeFunction >> convertType: aString1 [
+
 	convertType := aString1
 
 
@@ -94,6 +102,7 @@ ExChdEnumerationAdsCodeFunction >> convertType: aString1 [
 
 { #category : 'platypus-generated-accessing' }
 ExChdEnumerationAdsCodeFunction >> e [
+
 	^ e
 
 
@@ -101,6 +110,7 @@ ExChdEnumerationAdsCodeFunction >> e [
 
 { #category : 'platypus-generated-accessing' }
 ExChdEnumerationAdsCodeFunction >> e: aExChdAdaEnumeration [
+
 	e := aExChdAdaEnumeration
 
 
@@ -108,6 +118,7 @@ ExChdEnumerationAdsCodeFunction >> e: aExChdAdaEnumeration [
 
 { #category : 'platypus-generated-accessing' }
 ExChdEnumerationAdsCodeFunction >> fromValues: values [
+
 	self e: (values at: 1)
 
 
@@ -117,54 +128,64 @@ ExChdEnumerationAdsCodeFunction >> fromValues: values [
 ExChdEnumerationAdsCodeFunction >> invoke [
 	" ---------- locals assignments ----------"
 
-	self
-		convertType:
-			(PltNVLFunction
-				invokeFromValues:
-					(OrderedCollection new
-						add: (self e convertionUsingContext: self class context);
-						add:
-								(((self e domainUsingContext: self class context) elementsUsingContext: self class context)
-										pltAt:
-											(PltLOINDEXFunction
-												invokeFromValues:
-													(OrderedCollection new
-														add: ((self e domainUsingContext: self class context) elementsUsingContext: self class context);
-														yourself)));
-						yourself)).	" ---------- statements ----------"
-	self
-		code:
-			(((('type ' pltPlus: (self e nameUsingContext: self class context)) pltPlus: ' is (\n\t')
-				pltPlus:
-					(PTsStringAggregateConcatSeparatedByFunction
-						invokeFromValues:
-							(OrderedCollection new
-								add: ((self e domainUsingContext: self class context) elementsUsingContext: self class context);
-								add: ',\n\t';
-								yourself))) pltPlus: ');\n').
-	((PltTYPEOFFunction
-		invokeFromValues:
-			(OrderedCollection new
-				add: self e;
-				yourself)) includes: 'CHEDDAR_DOMAINS.PRAGMA_CONVENTION')
-		ifTrue: [ 
-			self
-				code:
-					(((((self code pltPlus: 'pragma convention (') pltPlus: (self e conventionUsingContext: self class context))
-						pltPlus: ', ') pltPlus: (self e nameUsingContext: self class context)) pltPlus: ');\n') ].
-	self
-		code:
-			(((((((((((((((((((((((((((((((self code pltPlus: '\n') pltPlus: 'procedure To_')
-				pltPlus: (self e nameUsingContext: self class context)) pltPlus: ' is\n') pltPlus: 'new Convert_Strings(')
-				pltPlus: (self e nameUsingContext: self class context)) pltPlus: ', ') pltPlus: self convertType) pltPlus: ');\n')
-				pltPlus: 'procedure To_') pltPlus: (self e nameUsingContext: self class context)) pltPlus: ' is\n')
-				pltPlus: 'new Convert_Unbounded_Strings(') pltPlus: (self e nameUsingContext: self class context)) pltPlus: ', ')
-				pltPlus: self convertType) pltPlus: ');\n') pltPlus: 'function XML_String (obj : in ')
-				pltPlus: (self e nameUsingContext: self class context)) pltPlus: ') return Unbounded_String;\n')
-				pltPlus: 'function XML_Ref_String (obj : in ') pltPlus: (self e nameUsingContext: self class context))
-				pltPlus: ') return Unbounded_String;\n') pltPlus: 'package ') pltPlus: (self e nameUsingContext: self class context))
-				pltPlus: '_io is new text_io.enumeration_io(') pltPlus: (self e nameUsingContext: self class context))
-				pltPlus: ');\n') pltPlus: 'use ') pltPlus: (self e nameUsingContext: self class context)) pltPlus: '_io;\n\n').
+	self convertType:
+		(PltNVLFunction invokeFromValues: (OrderedCollection new
+				  add: (self e convertionUsingContext: self class context);
+				  add: (((self e domainUsingContext: self class context)
+						    elementsUsingContext: self class context) pltAt:
+							   (PltLOINDEXFunction invokeFromValues:
+									    (OrderedCollection new
+										     add: ((self e domainUsingContext: self class context)
+												      elementsUsingContext: self class context);
+										     yourself)));
+				  yourself)). " ---------- statements ----------"
+	self code:
+		(((('type ' pltPlus: (self e nameUsingContext: self class context))
+			   pltPlus: ' is (\n\t') pltPlus:
+			  (PTsStringAggregateConcatSeparatedByFunction invokeFromValues:
+				   (OrderedCollection new
+					    add: ((self e domainUsingContext: self class context)
+							     elementsUsingContext: self class context);
+					    add: ',\n\t';
+					    yourself))) pltPlus: ');\n').
+	((PltTYPEOFFunction invokeFromValues: (OrderedCollection new
+			   add: self e;
+			   yourself)) includes: 'CHEDDAR_DOMAINS.PRAGMA_CONVENTION')
+		ifTrue: [
+				self code:
+					(((((self code pltPlus: 'pragma convention (') pltPlus:
+						    (self e conventionUsingContext: self class context))
+						   pltPlus: ', ') pltPlus:
+						  (self e nameUsingContext: self class context)) pltPlus: ');\n') ].
+	self code:
+		(((((((((((((((((((((((((((((((self code pltPlus: '\n') pltPlus:
+			                              'procedure To_') pltPlus:
+			                             (self e nameUsingContext:
+				                              self class context)) pltPlus:
+			                            ' is\n') pltPlus:
+			                           'new Convert_Strings(') pltPlus:
+			                          (self e nameUsingContext:
+				                           self class context)) pltPlus: ', ')
+			                        pltPlus: self convertType) pltPlus: ');\n')
+			                      pltPlus: 'procedure To_') pltPlus:
+			                     (self e nameUsingContext: self class context))
+			                    pltPlus: ' is\n') pltPlus:
+			                   'new Convert_Unbounded_Strings(') pltPlus:
+			                  (self e nameUsingContext: self class context))
+			                 pltPlus: ', ') pltPlus: self convertType)
+			               pltPlus: ');\n') pltPlus:
+			              'function XML_String (obj : in ') pltPlus:
+			             (self e nameUsingContext: self class context))
+			            pltPlus: ') return Unbounded_String;\n') pltPlus:
+			           'function XML_Ref_String (obj : in ') pltPlus:
+			          (self e nameUsingContext: self class context)) pltPlus:
+			         ') return Unbounded_String;\n') pltPlus: 'package ')
+			       pltPlus: (self e nameUsingContext: self class context))
+			      pltPlus: '_io is new text_io.enumeration_io(') pltPlus:
+			     (self e nameUsingContext: self class context)) pltPlus: ');\n')
+			   pltPlus: 'use ') pltPlus:
+			  (self e nameUsingContext: self class context)) pltPlus:
+			 '_io;\n\n').
 	^ self return: self code
 
 

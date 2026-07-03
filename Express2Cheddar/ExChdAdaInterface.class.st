@@ -15,10 +15,10 @@ Class {
 	#name : 'ExChdAdaInterface',
 	#superclass : 'ExChdCoreEntity',
 	#instVars : [
-		'withIt',
 		'useIt',
-		'suffix',
-		'prefix'
+		'withIt',
+		'prefix',
+		'suffix'
 	],
 	#category : 'Express2Cheddar-AdaInterfaceSchema',
 	#package : 'Express2Cheddar',
@@ -27,6 +27,7 @@ Class {
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdAdaInterface class >> iso10303P11Translater [
+
 	^ 'Platypus (c) LISYC EA3883, Universite de Bretagne occidentale. Brest.'
 
 
@@ -34,6 +35,7 @@ ExChdAdaInterface class >> iso10303P11Translater [
 
 { #category : 'platypus-generated-meta-data-accessing' }
 ExChdAdaInterface class >> schemaDefinition [
+
 	^ ExChdAdaInterfaceSchemaDefinition singleton
 
 
@@ -41,6 +43,7 @@ ExChdAdaInterface class >> schemaDefinition [
 
 { #category : 'platypus-generated-meta-data-accessing' }
 ExChdAdaInterface class >> schemaInstance [
+
 	^ ExChdExpress2cheddarSchemaInstance singleton
 
 
@@ -48,6 +51,7 @@ ExChdAdaInterface class >> schemaInstance [
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdAdaInterface class >> translatedFromISO10303P11 [
+
 	^ true
 
 
@@ -55,6 +59,7 @@ ExChdAdaInterface class >> translatedFromISO10303P11 [
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdAdaInterface class >> vwNamespaceName [
+
 	^ #Express2Cheddar
 
 
@@ -62,6 +67,7 @@ ExChdAdaInterface class >> vwNamespaceName [
 
 { #category : 'platypus-generated-visiting' }
 ExChdAdaInterface >> accept: aVisitor [
+
 	^ aVisitor acceptAdaInterface: self
 
 
@@ -69,6 +75,7 @@ ExChdAdaInterface >> accept: aVisitor [
 
 { #category : 'platypus-generated-copying' }
 ExChdAdaInterface >> adaInterfaceCopyTo: another [
+
 	another fastSetPrefix: self prefix.
 	another fastSetSuffix: self suffix.
 	another fastSetWithIt: self withIt.
@@ -79,6 +86,7 @@ ExChdAdaInterface >> adaInterfaceCopyTo: another [
 
 { #category : 'platypus-generated-group-accessing' }
 ExChdAdaInterface >> adaInterfaceFromValues: values [
+
 	| valuesloc |
 	valuesloc := values asOrderedCollection.
 	self setPrefix: valuesloc removeFirst.
@@ -92,6 +100,7 @@ ExChdAdaInterface >> adaInterfaceFromValues: values [
 
 { #category : 'platypus-generated-group-accessing' }
 ExChdAdaInterface >> adaInterfaceToValues: values [
+
 	values add: self prefix.
 	values add: self suffix.
 	values add: self withIt.
@@ -103,6 +112,7 @@ ExChdAdaInterface >> adaInterfaceToValues: values [
 
 { #category : 'platypus-generated-deriving' }
 ExChdAdaInterface >> declaration [
+
 	^ self declarationUsingContext: self class context
 
 
@@ -110,6 +120,7 @@ ExChdAdaInterface >> declaration [
 
 { #category : 'platypus-generated-deriving' }
 ExChdAdaInterface >> declarationUsingContext: aContext [
+
 	^ self declarationUsingContext: aContext receiver: self
 
 
@@ -117,17 +128,18 @@ ExChdAdaInterface >> declarationUsingContext: aContext [
 
 { #category : 'platypus-generated-deriving' }
 ExChdAdaInterface >> declarationUsingContext: aContext receiver: aReceiver [
-	^ ExChdAdaInterfaceDeclarationFunction
-		invokeFromValues:
-			(OrderedCollection new
-				add: aReceiver;
-				yourself)
+
+	^ ExChdAdaInterfaceDeclarationFunction invokeFromValues:
+		  (OrderedCollection new
+			   add: aReceiver;
+			   yourself)
 
 
 ]
 
 { #category : 'platypus-generated-fast-set-accessing' }
 ExChdAdaInterface >> fastSetPrefix: aString [
+
 	prefix := aString
 
 
@@ -135,6 +147,7 @@ ExChdAdaInterface >> fastSetPrefix: aString [
 
 { #category : 'platypus-generated-fast-set-accessing' }
 ExChdAdaInterface >> fastSetSuffix: aString [
+
 	suffix := aString
 
 
@@ -142,6 +155,7 @@ ExChdAdaInterface >> fastSetSuffix: aString [
 
 { #category : 'platypus-generated-fast-set-accessing' }
 ExChdAdaInterface >> fastSetUseIt: aBoolean [
+
 	useIt := aBoolean
 
 
@@ -149,6 +163,7 @@ ExChdAdaInterface >> fastSetUseIt: aBoolean [
 
 { #category : 'platypus-generated-fast-set-accessing' }
 ExChdAdaInterface >> fastSetWithIt: aBoolean [
+
 	withIt := aBoolean
 
 
@@ -156,6 +171,7 @@ ExChdAdaInterface >> fastSetWithIt: aBoolean [
 
 { #category : 'platypus-generated-group-accessing' }
 ExChdAdaInterface >> fromValues: values [
+
 	^ self adaInterfaceFromValues: (super fromValues: values)
 
 
@@ -163,6 +179,7 @@ ExChdAdaInterface >> fromValues: values [
 
 { #category : 'platypus-generated-deriving' }
 ExChdAdaInterface >> fullName [
+
 	^ self fullNameUsingContext: self class context
 
 
@@ -170,6 +187,7 @@ ExChdAdaInterface >> fullName [
 
 { #category : 'platypus-generated-deriving' }
 ExChdAdaInterface >> fullNameUsingContext: aContext [
+
 	^ self fullNameUsingContext: aContext receiver: self
 
 
@@ -177,17 +195,18 @@ ExChdAdaInterface >> fullNameUsingContext: aContext [
 
 { #category : 'platypus-generated-deriving' }
 ExChdAdaInterface >> fullNameUsingContext: aContext receiver: aReceiver [
-	^ ExChdAdaInterfacePathFunction
-		invokeFromValues:
-			(OrderedCollection new
-				add: aReceiver;
-				yourself)
+
+	^ ExChdAdaInterfacePathFunction invokeFromValues:
+		  (OrderedCollection new
+			   add: aReceiver;
+			   yourself)
 
 
 ]
 
 { #category : 'platypus-generated-classifying' }
 ExChdAdaInterface >> isExChdAdaInterface [
+
 	^ true
 
 
@@ -195,6 +214,7 @@ ExChdAdaInterface >> isExChdAdaInterface [
 
 { #category : 'platypus-generated-group-accessing' }
 ExChdAdaInterface >> localFromValues: values [
+
 	^ self adaInterfaceFromValues: values
 
 
@@ -202,6 +222,7 @@ ExChdAdaInterface >> localFromValues: values [
 
 { #category : 'platypus-generated-group-accessing' }
 ExChdAdaInterface >> localToValues: values [
+
 	^ self adaInterfaceToValues: values
 
 
@@ -209,6 +230,7 @@ ExChdAdaInterface >> localToValues: values [
 
 { #category : 'platypus-generated-copying' }
 ExChdAdaInterface >> pltCopyGroup: aClassSymbol to: anObject [
+
 	self class name == aClassSymbol
 		ifTrue: [ self pltCopyTo: anObject ]
 		ifFalse: [ super pltCopyGroup: aClassSymbol to: anObject ]
@@ -218,6 +240,7 @@ ExChdAdaInterface >> pltCopyGroup: aClassSymbol to: anObject [
 
 { #category : 'platypus-generated-copying' }
 ExChdAdaInterface >> pltCopyTo: another [
+
 	super pltCopyTo: another.
 	self adaInterfaceCopyTo: another
 
@@ -226,6 +249,7 @@ ExChdAdaInterface >> pltCopyTo: another [
 
 { #category : 'platypus-generated-copying' }
 ExChdAdaInterface >> pltLocalCopyTo: another [
+
 	self adaInterfaceCopyTo: another
 
 
@@ -233,6 +257,7 @@ ExChdAdaInterface >> pltLocalCopyTo: another [
 
 { #category : 'platypus-generated-accessing' }
 ExChdAdaInterface >> prefix [
+
 	^ prefix
 
 
@@ -240,6 +265,7 @@ ExChdAdaInterface >> prefix [
 
 { #category : 'platypus-generated-accessing' }
 ExChdAdaInterface >> prefix: aString [
+
 	prefix := aString
 
 
@@ -247,6 +273,7 @@ ExChdAdaInterface >> prefix: aString [
 
 { #category : 'platypus-generated-with-context-accessing' }
 ExChdAdaInterface >> prefixUsingContext: aContext [
+
 	^ self prefix
 
 
@@ -254,6 +281,7 @@ ExChdAdaInterface >> prefixUsingContext: aContext [
 
 { #category : 'platypus-generated-set-accessing' }
 ExChdAdaInterface >> setPrefix: aString [
+
 	self prefix: aString
 
 
@@ -261,6 +289,7 @@ ExChdAdaInterface >> setPrefix: aString [
 
 { #category : 'platypus-generated-set-accessing' }
 ExChdAdaInterface >> setSuffix: aString [
+
 	self suffix: aString
 
 
@@ -268,6 +297,7 @@ ExChdAdaInterface >> setSuffix: aString [
 
 { #category : 'platypus-generated-set-accessing' }
 ExChdAdaInterface >> setUseIt: aBoolean [
+
 	self useIt: aBoolean
 
 
@@ -275,6 +305,7 @@ ExChdAdaInterface >> setUseIt: aBoolean [
 
 { #category : 'platypus-generated-set-accessing' }
 ExChdAdaInterface >> setWithIt: aBoolean [
+
 	self withIt: aBoolean
 
 
@@ -282,6 +313,7 @@ ExChdAdaInterface >> setWithIt: aBoolean [
 
 { #category : 'platypus-generated-initializing' }
 ExChdAdaInterface >> stepInitialize [
+
 	super stepInitialize.
 	prefix := ''.
 	suffix := nil.
@@ -293,6 +325,7 @@ ExChdAdaInterface >> stepInitialize [
 
 { #category : 'platypus-generated-accessing' }
 ExChdAdaInterface >> suffix [
+
 	^ suffix
 
 
@@ -300,6 +333,7 @@ ExChdAdaInterface >> suffix [
 
 { #category : 'platypus-generated-accessing' }
 ExChdAdaInterface >> suffix: aString [
+
 	suffix := aString
 
 
@@ -307,6 +341,7 @@ ExChdAdaInterface >> suffix: aString [
 
 { #category : 'platypus-generated-with-context-accessing' }
 ExChdAdaInterface >> suffixUsingContext: aContext [
+
 	^ self suffix
 
 
@@ -314,6 +349,7 @@ ExChdAdaInterface >> suffixUsingContext: aContext [
 
 { #category : 'platypus-generated-group-accessing' }
 ExChdAdaInterface >> toValues: values [
+
 	^ self adaInterfaceToValues: (super toValues: values)
 
 
@@ -321,6 +357,7 @@ ExChdAdaInterface >> toValues: values [
 
 { #category : 'platypus-generated-accessing' }
 ExChdAdaInterface >> useIt [
+
 	^ useIt
 
 
@@ -328,6 +365,7 @@ ExChdAdaInterface >> useIt [
 
 { #category : 'platypus-generated-accessing' }
 ExChdAdaInterface >> useIt: aBoolean [
+
 	useIt := aBoolean
 
 
@@ -335,6 +373,7 @@ ExChdAdaInterface >> useIt: aBoolean [
 
 { #category : 'platypus-generated-with-context-accessing' }
 ExChdAdaInterface >> useItUsingContext: aContext [
+
 	^ self useIt
 
 
@@ -342,6 +381,7 @@ ExChdAdaInterface >> useItUsingContext: aContext [
 
 { #category : 'platypus-generated-accessing' }
 ExChdAdaInterface >> withIt [
+
 	^ withIt
 
 
@@ -349,6 +389,7 @@ ExChdAdaInterface >> withIt [
 
 { #category : 'platypus-generated-accessing' }
 ExChdAdaInterface >> withIt: aBoolean [
+
 	withIt := aBoolean
 
 
@@ -356,6 +397,7 @@ ExChdAdaInterface >> withIt: aBoolean [
 
 { #category : 'platypus-generated-with-context-accessing' }
 ExChdAdaInterface >> withItUsingContext: aContext [
+
 	^ self withIt
 
 

@@ -26,6 +26,7 @@ Class {
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdGetDeclaredEntityDomainsFunction class >> iso10303P11Translater [
+
 	^ 'Platypus (c) LISYC EA3883, Universite de Bretagne occidentale. Brest.'
 
 
@@ -33,6 +34,7 @@ ExChdGetDeclaredEntityDomainsFunction class >> iso10303P11Translater [
 
 { #category : 'platypus-generated-meta-data-accessing' }
 ExChdGetDeclaredEntityDomainsFunction class >> schemaDefinition [
+
 	^ ExChdCheddarDtdSchemaDefinition singleton
 
 
@@ -40,6 +42,7 @@ ExChdGetDeclaredEntityDomainsFunction class >> schemaDefinition [
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdGetDeclaredEntityDomainsFunction class >> translatedFromISO10303P11 [
+
 	^ true
 
 
@@ -47,6 +50,7 @@ ExChdGetDeclaredEntityDomainsFunction class >> translatedFromISO10303P11 [
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdGetDeclaredEntityDomainsFunction class >> vwNamespaceName [
+
 	^ #Express2Cheddar
 
 
@@ -54,6 +58,7 @@ ExChdGetDeclaredEntityDomainsFunction class >> vwNamespaceName [
 
 { #category : 'platypus-generated-accessing' }
 ExChdGetDeclaredEntityDomainsFunction >> fromValues: values [
+
 	self pkgs: (values at: 1)
 
 
@@ -63,21 +68,18 @@ ExChdGetDeclaredEntityDomainsFunction >> fromValues: values [
 ExChdGetDeclaredEntityDomainsFunction >> invoke [
 	" ---------- locals assignments ----------"
 
-	self result: Array new.	" ---------- statements ----------"
+	self result: Array new. " ---------- statements ----------"
 	PlatypusCoreRepeatStatement
-		repeat: [ :no597 | self result: (self result pltPlus: ((self pkgs pltAt: no597) subsUsingContext: self class context)) ]
-		from:
-			(PltLOINDEXFunction
-				invokeFromValues:
-					(OrderedCollection new
-						add: self pkgs;
-						yourself))
-		to:
-			(PltHIINDEXFunction
-				invokeFromValues:
-					(OrderedCollection new
-						add: self pkgs;
-						yourself)).
+		repeat: [ :no2422875 |
+				self result: (self result pltPlus:
+						 ((self pkgs pltAt: no2422875) subsUsingContext:
+							  self class context)) ]
+		from: (PltLOINDEXFunction invokeFromValues: (OrderedCollection new
+					  add: self pkgs;
+					  yourself))
+		to: (PltHIINDEXFunction invokeFromValues: (OrderedCollection new
+					  add: self pkgs;
+					  yourself)).
 	^ self return: self result
 
 
@@ -85,6 +87,7 @@ ExChdGetDeclaredEntityDomainsFunction >> invoke [
 
 { #category : 'platypus-generated-accessing' }
 ExChdGetDeclaredEntityDomainsFunction >> pkgs [
+
 	^ pkgs
 
 
@@ -92,15 +95,18 @@ ExChdGetDeclaredEntityDomainsFunction >> pkgs [
 
 { #category : 'platypus-generated-accessing' }
 ExChdGetDeclaredEntityDomainsFunction >> pkgs: aListOfExChdPackageDtdElement [
+
 	pkgs := aListOfExChdPackageDtdElement
-		ifNil: [ OrderedCollection new ]
-		ifNotNil: [ aListOfExChdPackageDtdElement as: OrderedCollection ]
+		        ifNil: [ OrderedCollection new ]
+		        ifNotNil: [
+		        aListOfExChdPackageDtdElement as: OrderedCollection ]
 
 
 ]
 
 { #category : 'platypus-generated-accessing' }
 ExChdGetDeclaredEntityDomainsFunction >> result [
+
 	^ result
 
 
@@ -108,9 +114,10 @@ ExChdGetDeclaredEntityDomainsFunction >> result [
 
 { #category : 'platypus-generated-accessing' }
 ExChdGetDeclaredEntityDomainsFunction >> result: aListOfExChdDtdElement [
+
 	result := aListOfExChdDtdElement
-		ifNil: [ OrderedCollection new ]
-		ifNotNil: [ aListOfExChdDtdElement as: OrderedCollection ]
+		          ifNil: [ OrderedCollection new ]
+		          ifNotNil: [ aListOfExChdDtdElement as: OrderedCollection ]
 
 
 ]

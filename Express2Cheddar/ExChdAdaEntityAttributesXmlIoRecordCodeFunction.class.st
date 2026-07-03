@@ -43,6 +43,7 @@ Class {
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdAdaEntityAttributesXmlIoRecordCodeFunction class >> iso10303P11Translater [
+
 	^ 'Platypus (c) LISYC EA3883, Universite de Bretagne occidentale. Brest.'
 
 
@@ -50,6 +51,7 @@ ExChdAdaEntityAttributesXmlIoRecordCodeFunction class >> iso10303P11Translater [
 
 { #category : 'platypus-generated-meta-data-accessing' }
 ExChdAdaEntityAttributesXmlIoRecordCodeFunction class >> schemaDefinition [
+
 	^ ExChdRecordAndClassSchemaDefinition singleton
 
 
@@ -57,6 +59,7 @@ ExChdAdaEntityAttributesXmlIoRecordCodeFunction class >> schemaDefinition [
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdAdaEntityAttributesXmlIoRecordCodeFunction class >> translatedFromISO10303P11 [
+
 	^ true
 
 
@@ -64,6 +67,7 @@ ExChdAdaEntityAttributesXmlIoRecordCodeFunction class >> translatedFromISO10303P
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdAdaEntityAttributesXmlIoRecordCodeFunction class >> vwNamespaceName [
+
 	^ #Express2Cheddar
 
 
@@ -71,6 +75,7 @@ ExChdAdaEntityAttributesXmlIoRecordCodeFunction class >> vwNamespaceName [
 
 { #category : 'platypus-generated-accessing' }
 ExChdAdaEntityAttributesXmlIoRecordCodeFunction >> attrcode [
+
 	^ attrcode
 
 
@@ -78,6 +83,7 @@ ExChdAdaEntityAttributesXmlIoRecordCodeFunction >> attrcode [
 
 { #category : 'platypus-generated-accessing' }
 ExChdAdaEntityAttributesXmlIoRecordCodeFunction >> attrcode: aString1 [
+
 	attrcode := aString1
 
 
@@ -85,6 +91,7 @@ ExChdAdaEntityAttributesXmlIoRecordCodeFunction >> attrcode: aString1 [
 
 { #category : 'platypus-generated-accessing' }
 ExChdAdaEntityAttributesXmlIoRecordCodeFunction >> cip [
+
 	^ cip
 
 
@@ -92,6 +99,7 @@ ExChdAdaEntityAttributesXmlIoRecordCodeFunction >> cip [
 
 { #category : 'platypus-generated-accessing' }
 ExChdAdaEntityAttributesXmlIoRecordCodeFunction >> cip: aExChdAdaClass [
+
 	cip := aExChdAdaClass
 
 
@@ -99,6 +107,7 @@ ExChdAdaEntityAttributesXmlIoRecordCodeFunction >> cip: aExChdAdaClass [
 
 { #category : 'platypus-generated-accessing' }
 ExChdAdaEntityAttributesXmlIoRecordCodeFunction >> code [
+
 	^ code
 
 
@@ -106,6 +115,7 @@ ExChdAdaEntityAttributesXmlIoRecordCodeFunction >> code [
 
 { #category : 'platypus-generated-accessing' }
 ExChdAdaEntityAttributesXmlIoRecordCodeFunction >> code: aString [
+
 	code := aString
 
 
@@ -113,6 +123,7 @@ ExChdAdaEntityAttributesXmlIoRecordCodeFunction >> code: aString [
 
 { #category : 'platypus-generated-accessing' }
 ExChdAdaEntityAttributesXmlIoRecordCodeFunction >> fromValues: values [
+
 	self cip: (values at: 1)
 
 
@@ -122,59 +133,44 @@ ExChdAdaEntityAttributesXmlIoRecordCodeFunction >> fromValues: values [
 ExChdAdaEntityAttributesXmlIoRecordCodeFunction >> invoke [
 	" ---------- locals assignments ----------"
 
-	self code: ''.	" ---------- statements ----------"
-	(PltSIZEOFFunction
-		invokeFromValues:
-			(OrderedCollection new
-				add: (self cip supertypesUsingContext: self class context);
-				yourself)) > 0
-		ifTrue: [ 
+	self code: ''. " ---------- statements ----------"
+	(PltSIZEOFFunction invokeFromValues: (OrderedCollection new
+			  add: (self cip supertypesUsingContext: self class context);
+			  yourself)) > 0 ifTrue: [
 			PlatypusCoreAliasStatement
 				alias:
-					(((self cip supertypesUsingContext: self class context)
-						pltAt:
-							(PltLOINDEXFunction
-								invokeFromValues:
-									(OrderedCollection new
-										add: (self cip supertypesUsingContext: self class context);
-										yourself))) handledUsingContext: self class context)
-				statementsBlock: [ :sup1695 | 
-					self
-						code:
-							(self code
-								pltPlus:
-									(ExChdAdaEntityAttributesXmlIoRecordCodeFunction
-										invokeFromValues:
-											(OrderedCollection new
-												add: sup1695;
-												yourself))) ] ].
+					(((self cip supertypesUsingContext: self class context) pltAt:
+						  (PltLOINDEXFunction invokeFromValues: (OrderedCollection new
+								    add: (self cip supertypesUsingContext: self class context);
+								    yourself))) handledUsingContext: self class context)
+				statementsBlock: [ :sup1067189 |
+						self code: (self code pltPlus:
+								 (ExChdAdaEntityAttributesXmlIoRecordCodeFunction
+									  invokeFromValues: (OrderedCollection new
+											   add: sup1067189;
+											   yourself))) ] ].
 	PlatypusCoreRepeatStatement
-		repeat: [ :no597 | 
-			PlatypusCoreAliasStatement
-				alias: ((self cip explicitAttributesUsingContext: self class context) pltAt: no597)
-				statementsBlock: [ :attr2553 | 
-					self
-						attrcode:
-							(ExChdExplicitAttributeXmlIoRecordCodeFunction
-								invokeFromValues:
-									(OrderedCollection new
-										add: attr2553;
-										yourself)).
-					self code: (self code pltPlus: self attrcode) ] ]
-		from:
-			(PltLOINDEXFunction
-				invokeFromValues:
-					(OrderedCollection new
-						add: (self cip explicitAttributesUsingContext: self class context);
-						yourself))
-		to:
-			(PltHIINDEXFunction
-				invokeFromValues:
-					(OrderedCollection new
-						add: (self cip explicitAttributesUsingContext: self class context);
-						yourself)).
-	self code = ''
-		ifTrue: [ self code: '\tnull;' ].
+		repeat: [ :no2185531 |
+				PlatypusCoreAliasStatement
+					alias:
+						((self cip explicitAttributesUsingContext: self class context)
+							 pltAt: no2185531)
+					statementsBlock: [ :attr2709893 |
+							self attrcode:
+								(ExChdExplicitAttributeXmlIoRecordCodeFunction
+									 invokeFromValues: (OrderedCollection new
+											  add: attr2709893;
+											  yourself)).
+							self code: (self code pltPlus: self attrcode) ] ]
+		from: (PltLOINDEXFunction invokeFromValues: (OrderedCollection new
+					  add:
+						  (self cip explicitAttributesUsingContext: self class context);
+					  yourself))
+		to: (PltHIINDEXFunction invokeFromValues: (OrderedCollection new
+					  add:
+						  (self cip explicitAttributesUsingContext: self class context);
+					  yourself)).
+	self code = '' ifTrue: [ self code: '\tnull;' ].
 	^ self return: self code
 
 

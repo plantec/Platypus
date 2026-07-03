@@ -18,6 +18,7 @@ Class {
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdPragmaConvention class >> iso10303P11Translater [
+
 	^ 'Platypus (c) LISYC EA3883, Universite de Bretagne occidentale. Brest.'
 
 
@@ -25,6 +26,7 @@ ExChdPragmaConvention class >> iso10303P11Translater [
 
 { #category : 'platypus-generated-meta-data-accessing' }
 ExChdPragmaConvention class >> schemaDefinition [
+
 	^ ExChdCheddarDomainsSchemaDefinition singleton
 
 
@@ -32,6 +34,7 @@ ExChdPragmaConvention class >> schemaDefinition [
 
 { #category : 'platypus-generated-meta-data-accessing' }
 ExChdPragmaConvention class >> schemaInstance [
+
 	^ ExChdExpress2cheddarSchemaInstance singleton
 
 
@@ -39,6 +42,7 @@ ExChdPragmaConvention class >> schemaInstance [
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdPragmaConvention class >> translatedFromISO10303P11 [
+
 	^ true
 
 
@@ -46,6 +50,7 @@ ExChdPragmaConvention class >> translatedFromISO10303P11 [
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdPragmaConvention class >> vwNamespaceName [
+
 	^ #Express2Cheddar
 
 
@@ -53,6 +58,7 @@ ExChdPragmaConvention class >> vwNamespaceName [
 
 { #category : 'platypus-generated-visiting' }
 ExChdPragmaConvention >> accept: aVisitor [
+
 	^ aVisitor acceptPragmaConvention: self
 
 
@@ -60,6 +66,7 @@ ExChdPragmaConvention >> accept: aVisitor [
 
 { #category : 'platypus-generated-accessing' }
 ExChdPragmaConvention >> convention [
+
 	^ convention
 
 
@@ -67,6 +74,7 @@ ExChdPragmaConvention >> convention [
 
 { #category : 'platypus-generated-accessing' }
 ExChdPragmaConvention >> convention: aString [
+
 	convention := aString
 
 
@@ -74,6 +82,7 @@ ExChdPragmaConvention >> convention: aString [
 
 { #category : 'platypus-generated-with-context-accessing' }
 ExChdPragmaConvention >> conventionUsingContext: aContext [
+
 	^ self convention
 
 
@@ -81,6 +90,7 @@ ExChdPragmaConvention >> conventionUsingContext: aContext [
 
 { #category : 'platypus-generated-fast-set-accessing' }
 ExChdPragmaConvention >> fastSetConvention: aString [
+
 	convention := aString
 
 
@@ -88,6 +98,7 @@ ExChdPragmaConvention >> fastSetConvention: aString [
 
 { #category : 'platypus-generated-group-accessing' }
 ExChdPragmaConvention >> fromValues: values [
+
 	^ self pragmaConventionFromValues: (super fromValues: values)
 
 
@@ -95,6 +106,7 @@ ExChdPragmaConvention >> fromValues: values [
 
 { #category : 'platypus-generated-classifying' }
 ExChdPragmaConvention >> isExChdPragmaConvention [
+
 	^ true
 
 
@@ -102,6 +114,7 @@ ExChdPragmaConvention >> isExChdPragmaConvention [
 
 { #category : 'platypus-generated-group-accessing' }
 ExChdPragmaConvention >> localFromValues: values [
+
 	^ self pragmaConventionFromValues: values
 
 
@@ -109,6 +122,7 @@ ExChdPragmaConvention >> localFromValues: values [
 
 { #category : 'platypus-generated-group-accessing' }
 ExChdPragmaConvention >> localToValues: values [
+
 	^ self pragmaConventionToValues: values
 
 
@@ -116,6 +130,7 @@ ExChdPragmaConvention >> localToValues: values [
 
 { #category : 'platypus-generated-copying' }
 ExChdPragmaConvention >> pltCopyGroup: aClassSymbol to: anObject [
+
 	self class name == aClassSymbol
 		ifTrue: [ self pltCopyTo: anObject ]
 		ifFalse: [ super pltCopyGroup: aClassSymbol to: anObject ]
@@ -125,6 +140,7 @@ ExChdPragmaConvention >> pltCopyGroup: aClassSymbol to: anObject [
 
 { #category : 'platypus-generated-copying' }
 ExChdPragmaConvention >> pltCopyTo: another [
+
 	super pltCopyTo: another.
 	self pragmaConventionCopyTo: another
 
@@ -133,6 +149,7 @@ ExChdPragmaConvention >> pltCopyTo: another [
 
 { #category : 'platypus-generated-copying' }
 ExChdPragmaConvention >> pltLocalCopyTo: another [
+
 	self pragmaConventionCopyTo: another
 
 
@@ -140,6 +157,7 @@ ExChdPragmaConvention >> pltLocalCopyTo: another [
 
 { #category : 'platypus-generated-copying' }
 ExChdPragmaConvention >> pragmaConventionCopyTo: another [
+
 	another fastSetConvention: self convention
 
 
@@ -147,6 +165,7 @@ ExChdPragmaConvention >> pragmaConventionCopyTo: another [
 
 { #category : 'platypus-generated-group-accessing' }
 ExChdPragmaConvention >> pragmaConventionFromValues: values [
+
 	| valuesloc |
 	valuesloc := values asOrderedCollection.
 	self setConvention: valuesloc removeFirst.
@@ -157,6 +176,7 @@ ExChdPragmaConvention >> pragmaConventionFromValues: values [
 
 { #category : 'platypus-generated-group-accessing' }
 ExChdPragmaConvention >> pragmaConventionToValues: values [
+
 	values add: self convention.
 	^ values
 
@@ -165,6 +185,7 @@ ExChdPragmaConvention >> pragmaConventionToValues: values [
 
 { #category : 'platypus-generated-set-accessing' }
 ExChdPragmaConvention >> setConvention: aString [
+
 	self convention: aString
 
 
@@ -172,6 +193,7 @@ ExChdPragmaConvention >> setConvention: aString [
 
 { #category : 'platypus-generated-initializing' }
 ExChdPragmaConvention >> stepInitialize [
+
 	super stepInitialize.
 	convention := ''
 
@@ -180,6 +202,7 @@ ExChdPragmaConvention >> stepInitialize [
 
 { #category : 'platypus-generated-group-accessing' }
 ExChdPragmaConvention >> toValues: values [
+
 	^ self pragmaConventionToValues: (super toValues: values)
 
 

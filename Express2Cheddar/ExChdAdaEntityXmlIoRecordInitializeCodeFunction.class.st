@@ -26,6 +26,7 @@ Class {
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdAdaEntityXmlIoRecordInitializeCodeFunction class >> iso10303P11Translater [
+
 	^ 'Platypus (c) LISYC EA3883, Universite de Bretagne occidentale. Brest.'
 
 
@@ -33,6 +34,7 @@ ExChdAdaEntityXmlIoRecordInitializeCodeFunction class >> iso10303P11Translater [
 
 { #category : 'platypus-generated-meta-data-accessing' }
 ExChdAdaEntityXmlIoRecordInitializeCodeFunction class >> schemaDefinition [
+
 	^ ExChdRecordAndClassSchemaDefinition singleton
 
 
@@ -40,6 +42,7 @@ ExChdAdaEntityXmlIoRecordInitializeCodeFunction class >> schemaDefinition [
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdAdaEntityXmlIoRecordInitializeCodeFunction class >> translatedFromISO10303P11 [
+
 	^ true
 
 
@@ -47,6 +50,7 @@ ExChdAdaEntityXmlIoRecordInitializeCodeFunction class >> translatedFromISO10303P
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdAdaEntityXmlIoRecordInitializeCodeFunction class >> vwNamespaceName [
+
 	^ #Express2Cheddar
 
 
@@ -54,6 +58,7 @@ ExChdAdaEntityXmlIoRecordInitializeCodeFunction class >> vwNamespaceName [
 
 { #category : 'platypus-generated-accessing' }
 ExChdAdaEntityXmlIoRecordInitializeCodeFunction >> cip [
+
 	^ cip
 
 
@@ -61,6 +66,7 @@ ExChdAdaEntityXmlIoRecordInitializeCodeFunction >> cip [
 
 { #category : 'platypus-generated-accessing' }
 ExChdAdaEntityXmlIoRecordInitializeCodeFunction >> cip: aExChdAdaClass [
+
 	cip := aExChdAdaClass
 
 
@@ -68,6 +74,7 @@ ExChdAdaEntityXmlIoRecordInitializeCodeFunction >> cip: aExChdAdaClass [
 
 { #category : 'platypus-generated-accessing' }
 ExChdAdaEntityXmlIoRecordInitializeCodeFunction >> code [
+
 	^ code
 
 
@@ -75,6 +82,7 @@ ExChdAdaEntityXmlIoRecordInitializeCodeFunction >> code [
 
 { #category : 'platypus-generated-accessing' }
 ExChdAdaEntityXmlIoRecordInitializeCodeFunction >> code: aString [
+
 	code := aString
 
 
@@ -82,6 +90,7 @@ ExChdAdaEntityXmlIoRecordInitializeCodeFunction >> code: aString [
 
 { #category : 'platypus-generated-accessing' }
 ExChdAdaEntityXmlIoRecordInitializeCodeFunction >> fromValues: values [
+
 	self cip: (values at: 1)
 
 
@@ -91,19 +100,16 @@ ExChdAdaEntityXmlIoRecordInitializeCodeFunction >> fromValues: values [
 ExChdAdaEntityXmlIoRecordInitializeCodeFunction >> invoke [
 	" ---------- locals assignments ----------"
 
-	self
-		code:
-			(ExChdAdaEntityAttributesXmlIoRecordInitializeCodeFunction
-				invokeFromValues:
-					(OrderedCollection new
-						add: self cip;
-						yourself)).	" ---------- statements ----------"
-	self code = ''
-		ifTrue: [ self code: '\tnull;' ].
-	^ self
-		return:
-			(((('\nprocedure Initialize(obj : out ' pltPlus: (self cip nameUsingContext: self class context))
-				pltPlus: '_io) is \nbegin ') pltPlus: self code) pltPlus: '\nend Initialize;\n')
+	self code:
+		(ExChdAdaEntityAttributesXmlIoRecordInitializeCodeFunction
+			 invokeFromValues: (OrderedCollection new
+					  add: self cip;
+					  yourself)). " ---------- statements ----------"
+	self code = '' ifTrue: [ self code: '\tnull;' ].
+	^ self return: (((('\nprocedure Initialize(obj : out ' pltPlus:
+			      (self cip nameUsingContext: self class context)) pltPlus:
+			     '_io) is \nbegin ') pltPlus: self code) pltPlus:
+			   '\nend Initialize;\n')
 
 
 ]

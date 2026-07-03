@@ -38,6 +38,7 @@ Class {
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdGenericPackageAliasesFunction class >> iso10303P11Translater [
+
 	^ 'Platypus (c) LISYC EA3883, Universite de Bretagne occidentale. Brest.'
 
 
@@ -45,6 +46,7 @@ ExChdGenericPackageAliasesFunction class >> iso10303P11Translater [
 
 { #category : 'platypus-generated-meta-data-accessing' }
 ExChdGenericPackageAliasesFunction class >> schemaDefinition [
+
 	^ ExChdPackageSchemaDefinition singleton
 
 
@@ -52,6 +54,7 @@ ExChdGenericPackageAliasesFunction class >> schemaDefinition [
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdGenericPackageAliasesFunction class >> translatedFromISO10303P11 [
+
 	^ true
 
 
@@ -59,6 +62,7 @@ ExChdGenericPackageAliasesFunction class >> translatedFromISO10303P11 [
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdGenericPackageAliasesFunction class >> vwNamespaceName [
+
 	^ #Express2Cheddar
 
 
@@ -66,6 +70,7 @@ ExChdGenericPackageAliasesFunction class >> vwNamespaceName [
 
 { #category : 'platypus-generated-accessing' }
 ExChdGenericPackageAliasesFunction >> aliases [
+
 	^ aliases
 
 
@@ -73,15 +78,18 @@ ExChdGenericPackageAliasesFunction >> aliases [
 
 { #category : 'platypus-generated-accessing' }
 ExChdGenericPackageAliasesFunction >> aliases: aListOfExChdEntityInstance [
+
 	aliases := aListOfExChdEntityInstance
-		ifNil: [ OrderedCollection new ]
-		ifNotNil: [ aListOfExChdEntityInstance as: OrderedCollection ]
+		           ifNil: [ OrderedCollection new ]
+		           ifNotNil: [
+		           aListOfExChdEntityInstance as: OrderedCollection ]
 
 
 ]
 
 { #category : 'platypus-generated-accessing' }
 ExChdGenericPackageAliasesFunction >> attrname [
+
 	^ attrname
 
 
@@ -89,6 +97,7 @@ ExChdGenericPackageAliasesFunction >> attrname [
 
 { #category : 'platypus-generated-accessing' }
 ExChdGenericPackageAliasesFunction >> attrname: aString [
+
 	attrname := aString
 
 
@@ -96,6 +105,7 @@ ExChdGenericPackageAliasesFunction >> attrname: aString [
 
 { #category : 'platypus-generated-accessing' }
 ExChdGenericPackageAliasesFunction >> e [
+
 	^ e
 
 
@@ -103,6 +113,7 @@ ExChdGenericPackageAliasesFunction >> e [
 
 { #category : 'platypus-generated-accessing' }
 ExChdGenericPackageAliasesFunction >> e: aExChdGenericPackageInstanciation [
+
 	e := aExChdGenericPackageInstanciation
 
 
@@ -110,6 +121,7 @@ ExChdGenericPackageAliasesFunction >> e: aExChdGenericPackageInstanciation [
 
 { #category : 'platypus-generated-accessing' }
 ExChdGenericPackageAliasesFunction >> fromValues: values [
+
 	self e: (values at: 1)
 
 
@@ -119,69 +131,55 @@ ExChdGenericPackageAliasesFunction >> fromValues: values [
 ExChdGenericPackageAliasesFunction >> invoke [
 	" ---------- locals assignments ----------"
 
-	self aliases: Array new.	" ---------- statements ----------"
+	self aliases: Array new. " ---------- statements ----------"
 	PlatypusCoreRepeatStatement
-		repeat: [ :no2046 | 
-			PlatypusCoreAliasStatement
-				alias: ((self e attributesUsingContext: self class context) pltAt: no2046)
-				statementsBlock: [ :attr3996 | 
-					PlatypusCoreAliasStatement
-						alias: (attr3996 nameUsingContext: self class context)
-						statementsBlock: [ :an345 | 
-							(an345
-								pltAt:
-									(PltLENGTHFunction
-										invokeFromValues:
-											(OrderedCollection new
-												add: an345;
-												yourself))) = '_'
-								ifTrue: [ 
-									self
-										attrname:
-											(an345
-												pltCopyFrom: 1
-												to:
-													((PltLENGTHFunction
-														invokeFromValues:
-															(OrderedCollection new
-																add: an345;
-																yourself)) pltMinus: 1)) ]
-								ifFalse: [ self attrname: an345 ] ].
-					self
-						aliases:
-							(self aliases
-								pltPlus:
-									(PlatypusComplexInstance
-										fromRecords:
-											(OrderedCollection new
-												add:
-														(PlatypusComplexInstance
-																fromRecords:
-																	(OrderedCollection new
-																		add: ExChdAdaType new;
-																		add: (attr3996 domainUsingContext: self class context);
-																		yourself)) pltAsObject;
-												add:
-														(ExChdPackageAlias new
-																packageAliasFromValues:
-																		(OrderedCollection new
-																				add: (self e nameUsingContext: self class context);
-																				add: self attrname;
-																				yourself);
-																yourself);
-												yourself)) pltAsObject) ] ]
-		from:
-			(PltLOINDEXFunction
-				invokeFromValues:
-					(OrderedCollection new
-						add: (self e attributesUsingContext: self class context);
-						yourself))
-		to:
-			(PltHIINDEXFunction
-				invokeFromValues:
-					(OrderedCollection new
-						add: (self e attributesUsingContext: self class context);
-						yourself)).
+		repeat: [ :no2314361 |
+				PlatypusCoreAliasStatement
+					alias:
+					((self e attributesUsingContext: self class context) pltAt:
+						 no2314361)
+					statementsBlock: [ :attr3694839 |
+							PlatypusCoreAliasStatement
+								alias: (attr3694839 nameUsingContext: self class context)
+								statementsBlock: [ :an1414305 |
+										(an1414305 pltAt:
+											 (PltLENGTHFunction invokeFromValues:
+												  (OrderedCollection new
+													   add: an1414305;
+													   yourself))) = '_'
+											ifTrue: [
+													self attrname: (an1414305
+															 pltCopyFrom: 1
+															 to:
+																 ((PltLENGTHFunction invokeFromValues:
+																	   (OrderedCollection new
+																		    add: an1414305;
+																		    yourself)) pltMinus: 1)) ]
+											ifFalse: [ self attrname: an1414305 ] ].
+							self aliases: (self aliases pltPlus:
+									 (PlatypusComplexInstance fromRecords:
+										  (OrderedCollection new
+											   add:
+												   (PlatypusComplexInstance fromRecords:
+														    (OrderedCollection new
+															     add: ExChdAdaType new;
+															     add:
+																     (attr3694839 domainUsingContext:
+																		      self class context);
+															     yourself)) pltAsObject;
+											   add: (ExChdPackageAlias new
+													    packageAliasFromValues: (OrderedCollection new
+															     add: (self e nameUsingContext: self class context);
+															     add: self attrname;
+															     yourself);
+													    yourself);
+											   yourself)) pltAsObject) ] ]
+		from: (PltLOINDEXFunction invokeFromValues: (OrderedCollection new
+					  add: (self e attributesUsingContext: self class context);
+					  yourself))
+		to: (PltHIINDEXFunction invokeFromValues: (OrderedCollection new
+					  add: (self e attributesUsingContext: self class context);
+					  yourself)).
 	^ self return: self aliases
 
 

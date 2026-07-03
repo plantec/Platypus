@@ -15,6 +15,7 @@ Class {
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdDiscriminatedTypeUnion class >> iso10303P11Translater [
+
 	^ 'Platypus (c) LISYC EA3883, Universite de Bretagne occidentale. Brest.'
 
 
@@ -22,6 +23,7 @@ ExChdDiscriminatedTypeUnion class >> iso10303P11Translater [
 
 { #category : 'platypus-generated-meta-data-accessing' }
 ExChdDiscriminatedTypeUnion class >> schemaDefinition [
+
 	^ ExChdDiscriminatedTypeSchemaDefinition singleton
 
 
@@ -29,6 +31,7 @@ ExChdDiscriminatedTypeUnion class >> schemaDefinition [
 
 { #category : 'platypus-generated-meta-data-accessing' }
 ExChdDiscriminatedTypeUnion class >> schemaInstance [
+
 	^ ExChdExpress2cheddarSchemaInstance singleton
 
 
@@ -36,6 +39,7 @@ ExChdDiscriminatedTypeUnion class >> schemaInstance [
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdDiscriminatedTypeUnion class >> translatedFromISO10303P11 [
+
 	^ true
 
 
@@ -43,6 +47,7 @@ ExChdDiscriminatedTypeUnion class >> translatedFromISO10303P11 [
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdDiscriminatedTypeUnion class >> vwNamespaceName [
+
 	^ #Express2Cheddar
 
 
@@ -50,6 +55,7 @@ ExChdDiscriminatedTypeUnion class >> vwNamespaceName [
 
 { #category : 'platypus-generated-visiting' }
 ExChdDiscriminatedTypeUnion >> accept: aVisitor [
+
 	^ aVisitor acceptDiscriminatedTypeUnion: self
 
 
@@ -57,6 +63,7 @@ ExChdDiscriminatedTypeUnion >> accept: aVisitor [
 
 { #category : 'platypus-generated-copying' }
 ExChdDiscriminatedTypeUnion >> discriminatedTypeUnionCopyTo: another [
+
 	
 
 
@@ -64,6 +71,7 @@ ExChdDiscriminatedTypeUnion >> discriminatedTypeUnionCopyTo: another [
 
 { #category : 'platypus-generated-group-accessing' }
 ExChdDiscriminatedTypeUnion >> discriminatedTypeUnionFromValues: values [
+
 	| valuesloc |
 	valuesloc := values asOrderedCollection.
 	^ valuesloc
@@ -73,6 +81,7 @@ ExChdDiscriminatedTypeUnion >> discriminatedTypeUnionFromValues: values [
 
 { #category : 'platypus-generated-group-accessing' }
 ExChdDiscriminatedTypeUnion >> discriminatedTypeUnionToValues: values [
+
 	^ values
 
 
@@ -80,6 +89,7 @@ ExChdDiscriminatedTypeUnion >> discriminatedTypeUnionToValues: values [
 
 { #category : 'platypus-generated-group-accessing' }
 ExChdDiscriminatedTypeUnion >> fromValues: values [
+
 	^ self discriminatedTypeUnionFromValues: (super fromValues: values)
 
 
@@ -87,6 +97,7 @@ ExChdDiscriminatedTypeUnion >> fromValues: values [
 
 { #category : 'platypus-generated-classifying' }
 ExChdDiscriminatedTypeUnion >> isExChdDiscriminatedTypeUnion [
+
 	^ true
 
 
@@ -94,6 +105,7 @@ ExChdDiscriminatedTypeUnion >> isExChdDiscriminatedTypeUnion [
 
 { #category : 'platypus-generated-group-accessing' }
 ExChdDiscriminatedTypeUnion >> localFromValues: values [
+
 	^ self discriminatedTypeUnionFromValues: values
 
 
@@ -101,6 +113,7 @@ ExChdDiscriminatedTypeUnion >> localFromValues: values [
 
 { #category : 'platypus-generated-group-accessing' }
 ExChdDiscriminatedTypeUnion >> localToValues: values [
+
 	^ self discriminatedTypeUnionToValues: values
 
 
@@ -108,6 +121,7 @@ ExChdDiscriminatedTypeUnion >> localToValues: values [
 
 { #category : 'platypus-generated-copying' }
 ExChdDiscriminatedTypeUnion >> pltCopyGroup: aClassSymbol to: anObject [
+
 	self class name == aClassSymbol
 		ifTrue: [ self pltCopyTo: anObject ]
 		ifFalse: [ super pltCopyGroup: aClassSymbol to: anObject ]
@@ -117,6 +131,7 @@ ExChdDiscriminatedTypeUnion >> pltCopyGroup: aClassSymbol to: anObject [
 
 { #category : 'platypus-generated-copying' }
 ExChdDiscriminatedTypeUnion >> pltCopyTo: another [
+
 	super pltCopyTo: another.
 	self discriminatedTypeUnionCopyTo: another
 
@@ -125,6 +140,7 @@ ExChdDiscriminatedTypeUnion >> pltCopyTo: another [
 
 { #category : 'platypus-generated-copying' }
 ExChdDiscriminatedTypeUnion >> pltLocalCopyTo: another [
+
 	self discriminatedTypeUnionCopyTo: another
 
 
@@ -132,6 +148,7 @@ ExChdDiscriminatedTypeUnion >> pltLocalCopyTo: another [
 
 { #category : 'platypus-generated-initializing' }
 ExChdDiscriminatedTypeUnion >> stepInitialize [
+
 	super stepInitialize
 
 
@@ -139,6 +156,7 @@ ExChdDiscriminatedTypeUnion >> stepInitialize [
 
 { #category : 'platypus-generated-group-accessing' }
 ExChdDiscriminatedTypeUnion >> toValues: values [
+
 	^ self discriminatedTypeUnionToValues: (super toValues: values)
 
 

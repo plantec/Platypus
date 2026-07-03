@@ -117,6 +117,7 @@ Class {
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdAdaInterfaceSchemaDefinition class >> iso10303P11Translater [
+
 	^ 'Platypus (c) LISYC EA3883, Universite de Bretagne occidentale. Brest.'
 
 
@@ -124,6 +125,7 @@ ExChdAdaInterfaceSchemaDefinition class >> iso10303P11Translater [
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdAdaInterfaceSchemaDefinition class >> translatedFromISO10303P11 [
+
 	^ true
 
 
@@ -131,6 +133,7 @@ ExChdAdaInterfaceSchemaDefinition class >> translatedFromISO10303P11 [
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdAdaInterfaceSchemaDefinition class >> vwNamespaceName [
+
 	^ #Express2Cheddar
 
 
@@ -138,6 +141,7 @@ ExChdAdaInterfaceSchemaDefinition class >> vwNamespaceName [
 
 { #category : 'platypus-generated-context-accessing' }
 ExChdAdaInterfaceSchemaDefinition >> context [
+
 	^ self schemaInstance context
 
 
@@ -145,13 +149,15 @@ ExChdAdaInterfaceSchemaDefinition >> context [
 
 { #category : 'platypus-generated-entities' }
 ExChdAdaInterfaceSchemaDefinition >> entityDefinition1 [
-	^ #(#ada_interface #ExChdAdaInterface)
+
+	^ #( #ada_interface #ExChdAdaInterface )
 
 
 ]
 
 { #category : 'platypus-generated-entities' }
 ExChdAdaInterfaceSchemaDefinition >> entityDefinitionCount [
+
 	^ 1
 
 
@@ -159,27 +165,31 @@ ExChdAdaInterfaceSchemaDefinition >> entityDefinitionCount [
 
 { #category : 'platypus-generated-functions' }
 ExChdAdaInterfaceSchemaDefinition >> functionDeclaration1 [
-	^ #(#ada_interface_path #ExChdAdaInterfacePathFunction)
+
+	^ #( #ada_interface_path #ExChdAdaInterfacePathFunction )
 
 
 ]
 
 { #category : 'platypus-generated-functions' }
 ExChdAdaInterfaceSchemaDefinition >> functionDeclaration2 [
-	^ #(#ada_interface_declaration #ExChdAdaInterfaceDeclarationFunction)
+
+	^ #( #ada_interface_declaration #ExChdAdaInterfaceDeclarationFunction )
 
 
 ]
 
 { #category : 'platypus-generated-functions' }
 ExChdAdaInterfaceSchemaDefinition >> functionDeclaration3 [
-	^ #(#ada_interfaces_code #ExChdAdaInterfacesCodeFunction)
+
+	^ #( #ada_interfaces_code #ExChdAdaInterfacesCodeFunction )
 
 
 ]
 
 { #category : 'platypus-generated-functions' }
 ExChdAdaInterfaceSchemaDefinition >> functionDeclarationCount [
+
 	^ 3
 
 
@@ -187,6 +197,7 @@ ExChdAdaInterfaceSchemaDefinition >> functionDeclarationCount [
 
 { #category : 'platypus-generated-meta-data-accessing' }
 ExChdAdaInterfaceSchemaDefinition >> schemaInstanceClassName [
+
 	^ #ExChdExpress2cheddarSchemaInstance
 
 

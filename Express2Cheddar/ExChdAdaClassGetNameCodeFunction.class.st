@@ -41,6 +41,7 @@ Class {
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdAdaClassGetNameCodeFunction class >> iso10303P11Translater [
+
 	^ 'Platypus (c) LISYC EA3883, Universite de Bretagne occidentale. Brest.'
 
 
@@ -48,6 +49,7 @@ ExChdAdaClassGetNameCodeFunction class >> iso10303P11Translater [
 
 { #category : 'platypus-generated-meta-data-accessing' }
 ExChdAdaClassGetNameCodeFunction class >> schemaDefinition [
+
 	^ ExChdRecordAndClassSchemaDefinition singleton
 
 
@@ -55,6 +57,7 @@ ExChdAdaClassGetNameCodeFunction class >> schemaDefinition [
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdAdaClassGetNameCodeFunction class >> translatedFromISO10303P11 [
+
 	^ true
 
 
@@ -62,6 +65,7 @@ ExChdAdaClassGetNameCodeFunction class >> translatedFromISO10303P11 [
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdAdaClassGetNameCodeFunction class >> vwNamespaceName [
+
 	^ #Express2Cheddar
 
 
@@ -69,6 +73,7 @@ ExChdAdaClassGetNameCodeFunction class >> vwNamespaceName [
 
 { #category : 'platypus-generated-accessing' }
 ExChdAdaClassGetNameCodeFunction >> cip [
+
 	^ cip
 
 
@@ -76,6 +81,7 @@ ExChdAdaClassGetNameCodeFunction >> cip [
 
 { #category : 'platypus-generated-accessing' }
 ExChdAdaClassGetNameCodeFunction >> cip: aExChdAdaClass [
+
 	cip := aExChdAdaClass
 
 
@@ -83,6 +89,7 @@ ExChdAdaClassGetNameCodeFunction >> cip: aExChdAdaClass [
 
 { #category : 'platypus-generated-accessing' }
 ExChdAdaClassGetNameCodeFunction >> code [
+
 	^ code
 
 
@@ -90,6 +97,7 @@ ExChdAdaClassGetNameCodeFunction >> code [
 
 { #category : 'platypus-generated-accessing' }
 ExChdAdaClassGetNameCodeFunction >> code: aString [
+
 	code := aString
 
 
@@ -97,6 +105,7 @@ ExChdAdaClassGetNameCodeFunction >> code: aString [
 
 { #category : 'platypus-generated-accessing' }
 ExChdAdaClassGetNameCodeFunction >> fromValues: values [
+
 	self cip: (values at: 1)
 
 
@@ -104,35 +113,35 @@ ExChdAdaClassGetNameCodeFunction >> fromValues: values [
 
 { #category : 'platypus-generated-invoking' }
 ExChdAdaClassGetNameCodeFunction >> invoke [
-	" ---------- locals assignments ----------"
+	" ---------- locals assignments ----------"" ---------- statements ----------"
 
-	" ---------- statements ----------"
-
-	self
-		code:
-			((('function Get_Name (obj : in ' pltPlus: (self cip nameUsingContext: self class context))
-				pltPlus: ') return Unbounded_String is\n') pltPlus: 'begin\n').
-	(PTsHasInheritedAttributeNamedFunction
-		invokeFromValues:
-			(OrderedCollection new
-				add: self cip;
-				add: 'name';
-				yourself))
+	self code: ((('function Get_Name (obj : in ' pltPlus:
+			   (self cip nameUsingContext: self class context)) pltPlus:
+			  ') return Unbounded_String is\n') pltPlus: 'begin\n').
+	(PTsHasInheritedAttributeNamedFunction invokeFromValues:
+		 (OrderedCollection new
+			  add: self cip;
+			  add: 'name';
+			  yourself))
 		ifTrue: [ self code: (self code pltPlus: '	return obj.name;\n') ]
-		ifFalse: [ self code: (((self code pltPlus: '	return obj.') pltPlus: 'cheddar_private_id') pltPlus: ';\n') ].
-	self
-		code:
-			(((((self code pltPlus: 'end Get_Name;\n\n') pltPlus: 'function Get_Name (obj : in ')
-				pltPlus: (self cip nameUsingContext: self class context)) pltPlus: '_ptr) return Unbounded_String is\n')
-				pltPlus: 'begin\n').
-	(PTsHasInheritedAttributeNamedFunction
-		invokeFromValues:
-			(OrderedCollection new
-				add: self cip;
-				add: 'name';
-				yourself))
+		ifFalse: [
+				self code:
+					(((self code pltPlus: '	return obj.') pltPlus:
+						  'cheddar_private_id') pltPlus: ';\n') ].
+	self code: (((((self code pltPlus: 'end Get_Name;\n\n') pltPlus:
+			    'function Get_Name (obj : in ') pltPlus:
+			   (self cip nameUsingContext: self class context)) pltPlus:
+			  '_ptr) return Unbounded_String is\n') pltPlus: 'begin\n').
+	(PTsHasInheritedAttributeNamedFunction invokeFromValues:
+		 (OrderedCollection new
+			  add: self cip;
+			  add: 'name';
+			  yourself))
 		ifTrue: [ self code: (self code pltPlus: '	return obj.name;\n') ]
-		ifFalse: [ self code: (((self code pltPlus: '	return obj.') pltPlus: 'cheddar_private_id') pltPlus: ';\n') ].
+		ifFalse: [
+				self code:
+					(((self code pltPlus: '	return obj.') pltPlus:
+						  'cheddar_private_id') pltPlus: ';\n') ].
 	self code: (self code pltPlus: 'end Get_Name;\n').
 	^ self return: self code
 

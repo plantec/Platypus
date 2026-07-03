@@ -31,6 +31,7 @@ Class {
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdPackageDiscriminatedTypesFunction class >> iso10303P11Translater [
+
 	^ 'Platypus (c) LISYC EA3883, Universite de Bretagne occidentale. Brest.'
 
 
@@ -38,6 +39,7 @@ ExChdPackageDiscriminatedTypesFunction class >> iso10303P11Translater [
 
 { #category : 'platypus-generated-meta-data-accessing' }
 ExChdPackageDiscriminatedTypesFunction class >> schemaDefinition [
+
 	^ ExChdExpress2cheddarFacadeSchemaDefinition singleton
 
 
@@ -45,6 +47,7 @@ ExChdPackageDiscriminatedTypesFunction class >> schemaDefinition [
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdPackageDiscriminatedTypesFunction class >> translatedFromISO10303P11 [
+
 	^ true
 
 
@@ -52,6 +55,7 @@ ExChdPackageDiscriminatedTypesFunction class >> translatedFromISO10303P11 [
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdPackageDiscriminatedTypesFunction class >> vwNamespaceName [
+
 	^ #Express2Cheddar
 
 
@@ -59,6 +63,7 @@ ExChdPackageDiscriminatedTypesFunction class >> vwNamespaceName [
 
 { #category : 'platypus-generated-accessing' }
 ExChdPackageDiscriminatedTypesFunction >> dtList [
+
 	^ dtList
 
 
@@ -66,15 +71,18 @@ ExChdPackageDiscriminatedTypesFunction >> dtList [
 
 { #category : 'platypus-generated-accessing' }
 ExChdPackageDiscriminatedTypesFunction >> dtList: aListOfExChdDiscriminatedType [
+
 	dtList := aListOfExChdDiscriminatedType
-		ifNil: [ OrderedCollection new ]
-		ifNotNil: [ aListOfExChdDiscriminatedType as: OrderedCollection ]
+		          ifNil: [ OrderedCollection new ]
+		          ifNotNil: [
+		          aListOfExChdDiscriminatedType as: OrderedCollection ]
 
 
 ]
 
 { #category : 'platypus-generated-accessing' }
 ExChdPackageDiscriminatedTypesFunction >> fromValues: values [
+
 	self pkg: (values at: 1)
 
 
@@ -84,30 +92,25 @@ ExChdPackageDiscriminatedTypesFunction >> fromValues: values [
 ExChdPackageDiscriminatedTypesFunction >> invoke [
 	" ---------- locals assignments ----------"
 
-	self dtList: Array new.	" ---------- statements ----------"
+	self dtList: Array new. " ---------- statements ----------"
 	PlatypusCoreAliasStatement
 		alias: (self pkg entitiesUsingContext: self class context)
-		statementsBlock: [ :entities77 | 
-			PlatypusCoreRepeatStatement
-				repeat: [ :noi202 | 
-					((PltTYPEOFFunction
-						invokeFromValues:
-							(OrderedCollection new
-								add: (entities77 pltAt: noi202);
-								yourself)) includes: 'DISCRIMINATED_TYPE.DISCRIMINATED_TYPE')
-						ifTrue: [ self dtList: (self dtList pltPlus: (entities77 pltAt: noi202)) ] ]
-				from:
-					(PltLOINDEXFunction
-						invokeFromValues:
-							(OrderedCollection new
-								add: entities77;
-								yourself))
-				to:
-					(PltHIINDEXFunction
-						invokeFromValues:
-							(OrderedCollection new
-								add: entities77;
-								yourself)) ].
+		statementsBlock: [ :entities2811641 |
+				PlatypusCoreRepeatStatement
+					repeat: [ :noi3027075 |
+							((PltTYPEOFFunction invokeFromValues: (OrderedCollection new
+									   add: (entities2811641 pltAt: noi3027075);
+									   yourself)) includes:
+								 'DISCRIMINATED_TYPE.DISCRIMINATED_TYPE') ifTrue: [
+									self dtList:
+										(self dtList pltPlus: (entities2811641 pltAt: noi3027075)) ] ]
+					from:
+						(PltLOINDEXFunction invokeFromValues: (OrderedCollection new
+								  add: entities2811641;
+								  yourself))
+					to: (PltHIINDEXFunction invokeFromValues: (OrderedCollection new
+								  add: entities2811641;
+								  yourself)) ].
 	^ self return: self dtList
 
 
@@ -115,6 +118,7 @@ ExChdPackageDiscriminatedTypesFunction >> invoke [
 
 { #category : 'platypus-generated-accessing' }
 ExChdPackageDiscriminatedTypesFunction >> pkg [
+
 	^ pkg
 
 
@@ -122,6 +126,7 @@ ExChdPackageDiscriminatedTypesFunction >> pkg [
 
 { #category : 'platypus-generated-accessing' }
 ExChdPackageDiscriminatedTypesFunction >> pkg: aExChdAdaPackage [
+
 	pkg := aExChdAdaPackage
 
 

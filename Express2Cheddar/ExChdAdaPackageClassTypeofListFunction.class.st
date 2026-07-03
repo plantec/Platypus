@@ -33,6 +33,7 @@ Class {
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdAdaPackageClassTypeofListFunction class >> iso10303P11Translater [
+
 	^ 'Platypus (c) LISYC EA3883, Universite de Bretagne occidentale. Brest.'
 
 
@@ -40,6 +41,7 @@ ExChdAdaPackageClassTypeofListFunction class >> iso10303P11Translater [
 
 { #category : 'platypus-generated-meta-data-accessing' }
 ExChdAdaPackageClassTypeofListFunction class >> schemaDefinition [
+
 	^ ExChdPackageSchemaDefinition singleton
 
 
@@ -47,6 +49,7 @@ ExChdAdaPackageClassTypeofListFunction class >> schemaDefinition [
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdAdaPackageClassTypeofListFunction class >> translatedFromISO10303P11 [
+
 	^ true
 
 
@@ -54,6 +57,7 @@ ExChdAdaPackageClassTypeofListFunction class >> translatedFromISO10303P11 [
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdAdaPackageClassTypeofListFunction class >> vwNamespaceName [
+
 	^ #Express2Cheddar
 
 
@@ -61,6 +65,7 @@ ExChdAdaPackageClassTypeofListFunction class >> vwNamespaceName [
 
 { #category : 'platypus-generated-accessing' }
 ExChdAdaPackageClassTypeofListFunction >> classes [
+
 	^ classes
 
 
@@ -68,15 +73,17 @@ ExChdAdaPackageClassTypeofListFunction >> classes [
 
 { #category : 'platypus-generated-accessing' }
 ExChdAdaPackageClassTypeofListFunction >> classes: aListOfExChdAdaClass [
+
 	classes := aListOfExChdAdaClass
-		ifNil: [ OrderedCollection new ]
-		ifNotNil: [ aListOfExChdAdaClass as: OrderedCollection ]
+		           ifNil: [ OrderedCollection new ]
+		           ifNotNil: [ aListOfExChdAdaClass as: OrderedCollection ]
 
 
 ]
 
 { #category : 'platypus-generated-accessing' }
 ExChdAdaPackageClassTypeofListFunction >> fromValues: values [
+
 	self pkg: (values at: 1)
 
 
@@ -87,49 +94,37 @@ ExChdAdaPackageClassTypeofListFunction >> invoke [
 	" ---------- locals assignments ----------"
 
 	self result: ''.
-	self
-		classes:
-			((self pkg entitiesUsingContext: self class context)
-				select: [ :e1724 | 
-					(PltTYPEOFFunction
-						invokeFromValues:
-							(OrderedCollection new
-								add: e1724;
-								yourself)) includes: 'RECORD_AND_CLASS.ADA_CLASS' ]).	" ---------- statements ----------"
+	self classes:
+		((self pkg entitiesUsingContext: self class context) select: [
+				 :e2154901 |
+				 (PltTYPEOFFunction invokeFromValues: (OrderedCollection new
+						   add: e2154901;
+						   yourself)) includes: 'RECORD_AND_CLASS.ADA_CLASS' ]). " ---------- statements ----------"
 	PlatypusCoreRepeatStatement
-		repeat: [ :no1950 | 
-			PlatypusCoreAliasStatement
-				alias: (self classes pltAt: no1950)
-				statementsBlock: [ :curr3060 | 
-					self result: ((self result pltPlus: (curr3060 nameUsingContext: self class context)) pltPlus: '(').
-					self
-						result:
-							(self result
-								pltPlus:
-									(PTsStringAggregateConcatSeparatedByFunction
-										invokeFromValues:
-											(OrderedCollection new
-												add:
-														(PltTYPEOFFunction
-																invokeFromValues:
-																	(OrderedCollection new
-																		add: curr3060;
-																		yourself));
-												add: ',';
-												yourself))).
-					self result: (self result pltPlus: ')\n') ] ]
-		from:
-			(PltLOINDEXFunction
-				invokeFromValues:
-					(OrderedCollection new
-						add: self classes;
-						yourself))
-		to:
-			(PltHIINDEXFunction
-				invokeFromValues:
-					(OrderedCollection new
-						add: self classes;
-						yourself)).
+		repeat: [ :no2360347 |
+				PlatypusCoreAliasStatement
+					alias: (self classes pltAt: no2360347)
+					statementsBlock: [ :curr635301 |
+							self result: ((self result pltPlus:
+									  (curr635301 nameUsingContext: self class context))
+									 pltPlus: '(').
+							self result: (self result pltPlus:
+									 (PTsStringAggregateConcatSeparatedByFunction
+										  invokeFromValues: (OrderedCollection new
+												   add:
+													   (PltTYPEOFFunction invokeFromValues:
+															    (OrderedCollection new
+																     add: curr635301;
+																     yourself));
+												   add: ',';
+												   yourself))).
+							self result: (self result pltPlus: ')\n') ] ]
+		from: (PltLOINDEXFunction invokeFromValues: (OrderedCollection new
+					  add: self classes;
+					  yourself))
+		to: (PltHIINDEXFunction invokeFromValues: (OrderedCollection new
+					  add: self classes;
+					  yourself)).
 	^ self return: self result
 
 
@@ -137,6 +132,7 @@ ExChdAdaPackageClassTypeofListFunction >> invoke [
 
 { #category : 'platypus-generated-accessing' }
 ExChdAdaPackageClassTypeofListFunction >> pkg [
+
 	^ pkg
 
 
@@ -144,6 +140,7 @@ ExChdAdaPackageClassTypeofListFunction >> pkg [
 
 { #category : 'platypus-generated-accessing' }
 ExChdAdaPackageClassTypeofListFunction >> pkg: aExChdAdaPackage [
+
 	pkg := aExChdAdaPackage
 
 
@@ -151,6 +148,7 @@ ExChdAdaPackageClassTypeofListFunction >> pkg: aExChdAdaPackage [
 
 { #category : 'platypus-generated-accessing' }
 ExChdAdaPackageClassTypeofListFunction >> result [
+
 	^ result
 
 
@@ -158,6 +156,7 @@ ExChdAdaPackageClassTypeofListFunction >> result [
 
 { #category : 'platypus-generated-accessing' }
 ExChdAdaPackageClassTypeofListFunction >> result: aString [
+
 	result := aString
 
 

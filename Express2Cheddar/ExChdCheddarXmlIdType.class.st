@@ -23,6 +23,7 @@ Class {
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdCheddarXmlIdType class >> iso10303P11Translater [
+
 	^ 'Platypus (c) LISYC EA3883, Universite de Bretagne occidentale. Brest.'
 
 
@@ -30,6 +31,7 @@ ExChdCheddarXmlIdType class >> iso10303P11Translater [
 
 { #category : 'platypus-generated-meta-data-accessing' }
 ExChdCheddarXmlIdType class >> schemaDefinition [
+
 	^ ExChdCheddarDomainsSchemaDefinition singleton
 
 
@@ -37,6 +39,7 @@ ExChdCheddarXmlIdType class >> schemaDefinition [
 
 { #category : 'platypus-generated-meta-data-accessing' }
 ExChdCheddarXmlIdType class >> schemaInstance [
+
 	^ ExChdExpress2cheddarSchemaInstance singleton
 
 
@@ -44,6 +47,7 @@ ExChdCheddarXmlIdType class >> schemaInstance [
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdCheddarXmlIdType class >> translatedFromISO10303P11 [
+
 	^ true
 
 
@@ -51,6 +55,7 @@ ExChdCheddarXmlIdType class >> translatedFromISO10303P11 [
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdCheddarXmlIdType class >> vwNamespaceName [
+
 	^ #Express2Cheddar
 
 
@@ -58,6 +63,7 @@ ExChdCheddarXmlIdType class >> vwNamespaceName [
 
 { #category : 'platypus-generated-visiting' }
 ExChdCheddarXmlIdType >> accept: aVisitor [
+
 	^ aVisitor acceptCheddarXmlIdType: self
 
 
@@ -65,6 +71,7 @@ ExChdCheddarXmlIdType >> accept: aVisitor [
 
 { #category : 'platypus-generated-deriving' }
 ExChdCheddarXmlIdType >> adbCode [
+
 	^ self adbCodeUsingContext: self class context
 
 
@@ -72,6 +79,7 @@ ExChdCheddarXmlIdType >> adbCode [
 
 { #category : 'platypus-generated-deriving' }
 ExChdCheddarXmlIdType >> adbCodeUsingContext: aContext [
+
 	^ self adbCodeUsingContext: aContext receiver: self
 
 
@@ -79,6 +87,7 @@ ExChdCheddarXmlIdType >> adbCodeUsingContext: aContext [
 
 { #category : 'platypus-generated-deriving' }
 ExChdCheddarXmlIdType >> adbCodeUsingContext: aContext receiver: aReceiver [
+
 	^ ''
 
 
@@ -86,6 +95,7 @@ ExChdCheddarXmlIdType >> adbCodeUsingContext: aContext receiver: aReceiver [
 
 { #category : 'platypus-generated-deriving' }
 ExChdCheddarXmlIdType >> adbInterfacesList [
+
 	^ self adbInterfacesListUsingContext: self class context
 
 
@@ -93,6 +103,7 @@ ExChdCheddarXmlIdType >> adbInterfacesList [
 
 { #category : 'platypus-generated-deriving' }
 ExChdCheddarXmlIdType >> adbInterfacesListUsingContext: aContext [
+
 	^ self adbInterfacesListUsingContext: aContext receiver: self
 
 
@@ -100,36 +111,33 @@ ExChdCheddarXmlIdType >> adbInterfacesListUsingContext: aContext [
 
 { #category : 'platypus-generated-deriving' }
 ExChdCheddarXmlIdType >> adbInterfacesListUsingContext: aContext receiver: aReceiver [
-	^ PlatypusCoreAggregateInitializer
-		collectionFrom:
-			(OrderedCollection new
-				add:
-						(ExChdAdaInterface new
-								adaInterfaceFromValues:
-										(OrderedCollection new
-												add: 'call_framework';
-												add: nil;
-												add: true;
-												add: true;
-												yourself);
-								yourself);
-				add:
-						(ExChdAdaInterface new
-								adaInterfaceFromValues:
-										(OrderedCollection new
-												add: 'id_generators';
-												add: nil;
-												add: true;
-												add: true;
-												yourself);
-								yourself);
-				yourself)
+
+	^ PlatypusCoreAggregateInitializer collectionFrom:
+		  (OrderedCollection new
+			   add: (ExChdAdaInterface new
+					    adaInterfaceFromValues: (OrderedCollection new
+							     add: 'call_framework';
+							     add: nil;
+							     add: true;
+							     add: true;
+							     yourself);
+					    yourself);
+			   add: (ExChdAdaInterface new
+					    adaInterfaceFromValues: (OrderedCollection new
+							     add: 'id_generators';
+							     add: nil;
+							     add: true;
+							     add: true;
+							     yourself);
+					    yourself);
+			   yourself)
 
 
 ]
 
 { #category : 'platypus-generated-deriving' }
 ExChdCheddarXmlIdType >> adsCode [
+
 	^ self adsCodeUsingContext: self class context
 
 
@@ -137,6 +145,7 @@ ExChdCheddarXmlIdType >> adsCode [
 
 { #category : 'platypus-generated-deriving' }
 ExChdCheddarXmlIdType >> adsCodeUsingContext: aContext [
+
 	^ self adsCodeUsingContext: aContext receiver: self
 
 
@@ -144,6 +153,7 @@ ExChdCheddarXmlIdType >> adsCodeUsingContext: aContext [
 
 { #category : 'platypus-generated-deriving' }
 ExChdCheddarXmlIdType >> adsCodeUsingContext: aContext receiver: aReceiver [
+
 	^ ''
 
 
@@ -151,6 +161,7 @@ ExChdCheddarXmlIdType >> adsCodeUsingContext: aContext receiver: aReceiver [
 
 { #category : 'platypus-generated-deriving' }
 ExChdCheddarXmlIdType >> adsInterfacesList [
+
 	^ self adsInterfacesListUsingContext: self class context
 
 
@@ -158,6 +169,7 @@ ExChdCheddarXmlIdType >> adsInterfacesList [
 
 { #category : 'platypus-generated-deriving' }
 ExChdCheddarXmlIdType >> adsInterfacesListUsingContext: aContext [
+
 	^ self adsInterfacesListUsingContext: aContext receiver: self
 
 
@@ -165,76 +177,65 @@ ExChdCheddarXmlIdType >> adsInterfacesListUsingContext: aContext [
 
 { #category : 'platypus-generated-deriving' }
 ExChdCheddarXmlIdType >> adsInterfacesListUsingContext: aContext receiver: aReceiver [
-	^ PlatypusCoreAggregateInitializer
-		collectionFrom:
-			(OrderedCollection new
-				add:
-						(ExChdAdaInterface new
-								adaInterfaceFromValues:
-										(OrderedCollection new
-												add: 'ada.strings';
-												add: 'unbounded.text_io';
-												add: true;
-												add: true;
-												yourself);
-								yourself);
-				add:
-						(ExChdAdaInterface new
-								adaInterfaceFromValues:
-										(OrderedCollection new
-												add: 'Text_io';
-												add: nil;
-												add: true;
-												add: true;
-												yourself);
-								yourself);
-				add:
-						(ExChdAdaInterface new
-								adaInterfaceFromValues:
-										(OrderedCollection new
-												add: 'Unbounded_Strings';
-												add: nil;
-												add: true;
-												add: true;
-												yourself);
-								yourself);
-				add:
-						(ExChdAdaInterface new
-								adaInterfaceFromValues:
-										(OrderedCollection new
-												add: 'Convert_Strings';
-												add: nil;
-												add: true;
-												add: false;
-												yourself);
-								yourself);
-				add:
-						(ExChdAdaInterface new
-								adaInterfaceFromValues:
-										(OrderedCollection new
-												add: 'Convert_Unbounded_Strings';
-												add: nil;
-												add: true;
-												add: false;
-												yourself);
-								yourself);
-				add:
-						(ExChdAdaInterface new
-								adaInterfaceFromValues:
-										(OrderedCollection new
-												add: 'id_generators';
-												add: nil;
-												add: true;
-												add: true;
-												yourself);
-								yourself);
-				yourself)
+
+	^ PlatypusCoreAggregateInitializer collectionFrom:
+		  (OrderedCollection new
+			   add: (ExChdAdaInterface new
+					    adaInterfaceFromValues: (OrderedCollection new
+							     add: 'ada.strings';
+							     add: 'unbounded.text_io';
+							     add: true;
+							     add: true;
+							     yourself);
+					    yourself);
+			   add: (ExChdAdaInterface new
+					    adaInterfaceFromValues: (OrderedCollection new
+							     add: 'Text_io';
+							     add: nil;
+							     add: true;
+							     add: true;
+							     yourself);
+					    yourself);
+			   add: (ExChdAdaInterface new
+					    adaInterfaceFromValues: (OrderedCollection new
+							     add: 'Unbounded_Strings';
+							     add: nil;
+							     add: true;
+							     add: true;
+							     yourself);
+					    yourself);
+			   add: (ExChdAdaInterface new
+					    adaInterfaceFromValues: (OrderedCollection new
+							     add: 'Convert_Strings';
+							     add: nil;
+							     add: true;
+							     add: false;
+							     yourself);
+					    yourself);
+			   add: (ExChdAdaInterface new
+					    adaInterfaceFromValues: (OrderedCollection new
+							     add: 'Convert_Unbounded_Strings';
+							     add: nil;
+							     add: true;
+							     add: false;
+							     yourself);
+					    yourself);
+			   add: (ExChdAdaInterface new
+					    adaInterfaceFromValues: (OrderedCollection new
+							     add: 'id_generators';
+							     add: nil;
+							     add: true;
+							     add: true;
+							     yourself);
+					    yourself);
+			   yourself)
 
 
 ]
 
 { #category : 'platypus-generated-copying' }
 ExChdCheddarXmlIdType >> cheddarXmlIdTypeCopyTo: another [
+
 	
 
 
@@ -242,6 +243,7 @@ ExChdCheddarXmlIdType >> cheddarXmlIdTypeCopyTo: another [
 
 { #category : 'platypus-generated-group-accessing' }
 ExChdCheddarXmlIdType >> cheddarXmlIdTypeFromValues: values [
+
 	| valuesloc |
 	valuesloc := values asOrderedCollection.
 	^ valuesloc
@@ -251,6 +253,7 @@ ExChdCheddarXmlIdType >> cheddarXmlIdTypeFromValues: values [
 
 { #category : 'platypus-generated-group-accessing' }
 ExChdCheddarXmlIdType >> cheddarXmlIdTypeToValues: values [
+
 	^ values
 
 
@@ -258,6 +261,7 @@ ExChdCheddarXmlIdType >> cheddarXmlIdTypeToValues: values [
 
 { #category : 'platypus-generated-group-accessing' }
 ExChdCheddarXmlIdType >> fromValues: values [
+
 	^ self cheddarXmlIdTypeFromValues: (super fromValues: values)
 
 
@@ -265,6 +269,7 @@ ExChdCheddarXmlIdType >> fromValues: values [
 
 { #category : 'platypus-generated-deriving' }
 ExChdCheddarXmlIdType >> initValue [
+
 	^ self initValueUsingContext: self class context
 
 
@@ -272,6 +277,7 @@ ExChdCheddarXmlIdType >> initValue [
 
 { #category : 'platypus-generated-deriving' }
 ExChdCheddarXmlIdType >> initValueUsingContext: aContext [
+
 	^ self initValueUsingContext: aContext receiver: self
 
 
@@ -279,6 +285,7 @@ ExChdCheddarXmlIdType >> initValueUsingContext: aContext [
 
 { #category : 'platypus-generated-deriving' }
 ExChdCheddarXmlIdType >> initValueUsingContext: aContext receiver: aReceiver [
+
 	^ 'generate_id'
 
 
@@ -286,6 +293,7 @@ ExChdCheddarXmlIdType >> initValueUsingContext: aContext receiver: aReceiver [
 
 { #category : 'platypus-generated-classifying' }
 ExChdCheddarXmlIdType >> isExChdCheddarXmlIdType [
+
 	^ true
 
 
@@ -293,6 +301,7 @@ ExChdCheddarXmlIdType >> isExChdCheddarXmlIdType [
 
 { #category : 'platypus-generated-group-accessing' }
 ExChdCheddarXmlIdType >> localFromValues: values [
+
 	^ self cheddarXmlIdTypeFromValues: values
 
 
@@ -300,6 +309,7 @@ ExChdCheddarXmlIdType >> localFromValues: values [
 
 { #category : 'platypus-generated-group-accessing' }
 ExChdCheddarXmlIdType >> localToValues: values [
+
 	^ self cheddarXmlIdTypeToValues: values
 
 
@@ -307,6 +317,7 @@ ExChdCheddarXmlIdType >> localToValues: values [
 
 { #category : 'platypus-generated-copying' }
 ExChdCheddarXmlIdType >> pltCopyGroup: aClassSymbol to: anObject [
+
 	self class name == aClassSymbol
 		ifTrue: [ self pltCopyTo: anObject ]
 		ifFalse: [ super pltCopyGroup: aClassSymbol to: anObject ]
@@ -316,6 +327,7 @@ ExChdCheddarXmlIdType >> pltCopyGroup: aClassSymbol to: anObject [
 
 { #category : 'platypus-generated-copying' }
 ExChdCheddarXmlIdType >> pltCopyTo: another [
+
 	super pltCopyTo: another.
 	self cheddarXmlIdTypeCopyTo: another
 
@@ -324,6 +336,7 @@ ExChdCheddarXmlIdType >> pltCopyTo: another [
 
 { #category : 'platypus-generated-copying' }
 ExChdCheddarXmlIdType >> pltLocalCopyTo: another [
+
 	self cheddarXmlIdTypeCopyTo: another
 
 
@@ -331,6 +344,7 @@ ExChdCheddarXmlIdType >> pltLocalCopyTo: another [
 
 { #category : 'platypus-generated-deriving' }
 ExChdCheddarXmlIdType >> putPrefix [
+
 	^ self putPrefixUsingContext: self class context
 
 
@@ -338,6 +352,7 @@ ExChdCheddarXmlIdType >> putPrefix [
 
 { #category : 'platypus-generated-deriving' }
 ExChdCheddarXmlIdType >> putPrefixUsingContext: aContext [
+
 	^ self putPrefixUsingContext: aContext receiver: self
 
 
@@ -345,6 +360,7 @@ ExChdCheddarXmlIdType >> putPrefixUsingContext: aContext [
 
 { #category : 'platypus-generated-deriving' }
 ExChdCheddarXmlIdType >> putPrefixUsingContext: aContext receiver: aReceiver [
+
 	^ ''
 
 
@@ -352,6 +368,7 @@ ExChdCheddarXmlIdType >> putPrefixUsingContext: aContext receiver: aReceiver [
 
 { #category : 'platypus-generated-deriving' }
 ExChdCheddarXmlIdType >> refedByPointer [
+
 	^ self refedByPointerUsingContext: self class context
 
 
@@ -359,6 +376,7 @@ ExChdCheddarXmlIdType >> refedByPointer [
 
 { #category : 'platypus-generated-deriving' }
 ExChdCheddarXmlIdType >> refedByPointerUsingContext: aContext [
+
 	^ self refedByPointerUsingContext: aContext receiver: self
 
 
@@ -366,6 +384,7 @@ ExChdCheddarXmlIdType >> refedByPointerUsingContext: aContext [
 
 { #category : 'platypus-generated-deriving' }
 ExChdCheddarXmlIdType >> refedByPointerUsingContext: aContext receiver: aReceiver [
+
 	^ false
 
 
@@ -373,6 +392,7 @@ ExChdCheddarXmlIdType >> refedByPointerUsingContext: aContext receiver: aReceive
 
 { #category : 'platypus-generated-initializing' }
 ExChdCheddarXmlIdType >> stepInitialize [
+
 	super stepInitialize
 
 
@@ -380,6 +400,7 @@ ExChdCheddarXmlIdType >> stepInitialize [
 
 { #category : 'platypus-generated-group-accessing' }
 ExChdCheddarXmlIdType >> toValues: values [
+
 	^ self cheddarXmlIdTypeToValues: (super toValues: values)
 
 

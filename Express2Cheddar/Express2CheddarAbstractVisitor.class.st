@@ -8,6 +8,7 @@ Class {
 
 { #category : 'platypus-generated-platypus-signature' }
 Express2CheddarAbstractVisitor class >> iso10303P11Translater [
+
 	^ 'Platypus (c) LISYC EA3883, Universite de Bretagne occidentale. Brest.'
 
 
@@ -15,6 +16,7 @@ Express2CheddarAbstractVisitor class >> iso10303P11Translater [
 
 { #category : 'platypus-generated-platypus-signature' }
 Express2CheddarAbstractVisitor class >> translatedFromISO10303P11 [
+
 	^ true
 
 
@@ -22,6 +24,7 @@ Express2CheddarAbstractVisitor class >> translatedFromISO10303P11 [
 
 { #category : 'platypus-generated-platypus-signature' }
 Express2CheddarAbstractVisitor class >> vwNamespaceName [
+
 	^ #Express2Cheddar
 
 
@@ -308,6 +311,15 @@ Express2CheddarAbstractVisitor >> acceptCheddarFunctionPtr: e [
 
 { #category : 'platypus-generated-visitingCheddarDomains' }
 Express2CheddarAbstractVisitor >> acceptCheddarLawType: e [
+	"my subclasses have to redefine it"
+
+	
+
+
+]
+
+{ #category : 'platypus-generated-visitingCheddarDomains' }
+Express2CheddarAbstractVisitor >> acceptCheddarModeRange: e [
 	"my subclasses have to redefine it"
 
 	

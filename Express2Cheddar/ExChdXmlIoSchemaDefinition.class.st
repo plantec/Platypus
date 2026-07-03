@@ -17,7 +17,7 @@ SCHEMA xml_io;
 			allcls : LIST OF ada_class := all_ada_classes ( );
 			allrecs : LIST OF ada_class := all_ada_records ( );
 			alldts : LIST OF discriminated_type := all_ada_discriminated_types ( );
-			interfaces : LIST OF ada_interface := [ ada_interface ( 'Sax', 'Readers', true, true ), ada_interface ( 'Networks', ?, true, true ), ada_interface ( 'Sax', 'Exceptions', true, true ), ada_interface ( 'Sax', 'Locators', true, true ), ada_interface ( 'Sax', 'Attributes', true, true ), ada_interface ( 'Unicode', 'CES', true, true ), ada_interface ( 'Unicode', ?, true, true ), ada_interface ( 'xml_generic_parsers', ?, true, true ), ada_interface ( 'Ada', 'Text_IO', true, true ), ada_interface ( 'Ada', 'Strings.Unbounded', true, true ), ada_interface ( 'Strings', ?, true, true ), ada_interface ( 'Unbounded_Strings', ?, true, true ), ada_interface ( 'Ada', 'Numerics.Aux', true, true ), ada_interface ( 'call_framework_interface', ?, true, true ), ada_interface ( 'Debug', ?, true, true ) ];
+			interfaces : LIST OF ada_interface := [ ada_interface ( 'Sax', 'Readers', true, true ), ada_interface ( 'Networks', ?, true, true ), ada_interface ( 'Sax', 'Exceptions', true, true ), ada_interface ( 'Sax', 'Locators', true, true ), ada_interface ( 'Sax', 'Attributes', true, true ), ada_interface ( 'Unicode', 'CES', true, true ), ada_interface ( 'Unicode', ?, true, true ), ada_interface ( 'xml_generic_parsers', ?, true, true ), ada_interface ( 'Ada', 'Text_IO', true, true ), ada_interface ( 'Ada', 'Strings.Unbounded', true, true ), ada_interface ( 'Strings', ?, true, true ), ada_interface ( 'Unbounded_Strings', ?, true, true ), ada_interface ( 'doubles', ?, true, true ), ada_interface ( 'call_framework_interface', ?, true, true ), ada_interface ( 'Debug', ?, true, true ) ];
 		END_LOCAL;
 		code := source_licence + '\n';
 
@@ -175,6 +175,7 @@ Class {
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdXmlIoSchemaDefinition class >> iso10303P11Translater [
+
 	^ 'Platypus (c) LISYC EA3883, Universite de Bretagne occidentale. Brest.'
 
 
@@ -182,6 +183,7 @@ ExChdXmlIoSchemaDefinition class >> iso10303P11Translater [
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdXmlIoSchemaDefinition class >> translatedFromISO10303P11 [
+
 	^ true
 
 
@@ -189,6 +191,7 @@ ExChdXmlIoSchemaDefinition class >> translatedFromISO10303P11 [
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdXmlIoSchemaDefinition class >> vwNamespaceName [
+
 	^ #Express2Cheddar
 
 
@@ -196,6 +199,7 @@ ExChdXmlIoSchemaDefinition class >> vwNamespaceName [
 
 { #category : 'platypus-generated-context-accessing' }
 ExChdXmlIoSchemaDefinition >> context [
+
 	^ self schemaInstance context
 
 
@@ -203,6 +207,7 @@ ExChdXmlIoSchemaDefinition >> context [
 
 { #category : 'platypus-generated-entities' }
 ExChdXmlIoSchemaDefinition >> entityDefinitionCount [
+
 	^ 0
 
 
@@ -210,20 +215,25 @@ ExChdXmlIoSchemaDefinition >> entityDefinitionCount [
 
 { #category : 'platypus-generated-functions' }
 ExChdXmlIoSchemaDefinition >> functionDeclaration1 [
-	^ #(#xml_architecture_io_ads_package_code #ExChdXmlArchitectureIoAdsPackageCodeFunction)
+
+	^ #( #xml_architecture_io_ads_package_code
+	     #ExChdXmlArchitectureIoAdsPackageCodeFunction )
 
 
 ]
 
 { #category : 'platypus-generated-functions' }
 ExChdXmlIoSchemaDefinition >> functionDeclaration2 [
-	^ #(#xml_architecture_io_adb_package_code #ExChdXmlArchitectureIoAdbPackageCodeFunction)
+
+	^ #( #xml_architecture_io_adb_package_code
+	     #ExChdXmlArchitectureIoAdbPackageCodeFunction )
 
 
 ]
 
 { #category : 'platypus-generated-functions' }
 ExChdXmlIoSchemaDefinition >> functionDeclarationCount [
+
 	^ 2
 
 
@@ -231,6 +241,7 @@ ExChdXmlIoSchemaDefinition >> functionDeclarationCount [
 
 { #category : 'platypus-generated-meta-data-accessing' }
 ExChdXmlIoSchemaDefinition >> schemaInstanceClassName [
+
 	^ #ExChdExpress2cheddarSchemaInstance
 
 

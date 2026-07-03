@@ -23,9 +23,9 @@ Class {
 	#superclass : 'ExChdAdaEntity',
 	#instVars : [
 		'genericPackageName',
+		'interfaces',
 		'beforeEntities',
-		'parameters',
-		'interfaces'
+		'parameters'
 	],
 	#category : 'Express2Cheddar-PackageSchema',
 	#package : 'Express2Cheddar',
@@ -34,6 +34,7 @@ Class {
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdGenericPackageInstanciation class >> iso10303P11Translater [
+
 	^ 'Platypus (c) LISYC EA3883, Universite de Bretagne occidentale. Brest.'
 
 
@@ -41,6 +42,7 @@ ExChdGenericPackageInstanciation class >> iso10303P11Translater [
 
 { #category : 'platypus-generated-meta-data-accessing' }
 ExChdGenericPackageInstanciation class >> schemaDefinition [
+
 	^ ExChdPackageSchemaDefinition singleton
 
 
@@ -48,6 +50,7 @@ ExChdGenericPackageInstanciation class >> schemaDefinition [
 
 { #category : 'platypus-generated-meta-data-accessing' }
 ExChdGenericPackageInstanciation class >> schemaInstance [
+
 	^ ExChdExpress2cheddarSchemaInstance singleton
 
 
@@ -55,6 +58,7 @@ ExChdGenericPackageInstanciation class >> schemaInstance [
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdGenericPackageInstanciation class >> translatedFromISO10303P11 [
+
 	^ true
 
 
@@ -62,6 +66,7 @@ ExChdGenericPackageInstanciation class >> translatedFromISO10303P11 [
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdGenericPackageInstanciation class >> vwNamespaceName [
+
 	^ #Express2Cheddar
 
 
@@ -69,6 +74,7 @@ ExChdGenericPackageInstanciation class >> vwNamespaceName [
 
 { #category : 'platypus-generated-visiting' }
 ExChdGenericPackageInstanciation >> accept: aVisitor [
+
 	^ aVisitor acceptGenericPackageInstanciation: self
 
 
@@ -76,6 +82,7 @@ ExChdGenericPackageInstanciation >> accept: aVisitor [
 
 { #category : 'platypus-generated-deriving' }
 ExChdGenericPackageInstanciation >> adbCode [
+
 	^ self adbCodeUsingContext: self class context
 
 
@@ -83,6 +90,7 @@ ExChdGenericPackageInstanciation >> adbCode [
 
 { #category : 'platypus-generated-deriving' }
 ExChdGenericPackageInstanciation >> adbCodeUsingContext: aContext [
+
 	^ self adbCodeUsingContext: aContext receiver: self
 
 
@@ -90,6 +98,7 @@ ExChdGenericPackageInstanciation >> adbCodeUsingContext: aContext [
 
 { #category : 'platypus-generated-deriving' }
 ExChdGenericPackageInstanciation >> adbCodeUsingContext: aContext receiver: aReceiver [
+
 	^ ''
 
 
@@ -97,6 +106,7 @@ ExChdGenericPackageInstanciation >> adbCodeUsingContext: aContext receiver: aRec
 
 { #category : 'platypus-generated-deriving' }
 ExChdGenericPackageInstanciation >> adbInterfacesList [
+
 	^ self adbInterfacesListUsingContext: self class context
 
 
@@ -104,6 +114,7 @@ ExChdGenericPackageInstanciation >> adbInterfacesList [
 
 { #category : 'platypus-generated-deriving' }
 ExChdGenericPackageInstanciation >> adbInterfacesListUsingContext: aContext [
+
 	^ self adbInterfacesListUsingContext: aContext receiver: self
 
 
@@ -111,6 +122,7 @@ ExChdGenericPackageInstanciation >> adbInterfacesListUsingContext: aContext [
 
 { #category : 'platypus-generated-deriving' }
 ExChdGenericPackageInstanciation >> adbInterfacesListUsingContext: aContext receiver: aReceiver [
+
 	^ Array new
 
 
@@ -118,6 +130,7 @@ ExChdGenericPackageInstanciation >> adbInterfacesListUsingContext: aContext rece
 
 { #category : 'platypus-generated-deriving' }
 ExChdGenericPackageInstanciation >> adsCode [
+
 	^ self adsCodeUsingContext: self class context
 
 
@@ -125,6 +138,7 @@ ExChdGenericPackageInstanciation >> adsCode [
 
 { #category : 'platypus-generated-deriving' }
 ExChdGenericPackageInstanciation >> adsCodeUsingContext: aContext [
+
 	^ self adsCodeUsingContext: aContext receiver: self
 
 
@@ -132,27 +146,29 @@ ExChdGenericPackageInstanciation >> adsCodeUsingContext: aContext [
 
 { #category : 'platypus-generated-deriving' }
 ExChdGenericPackageInstanciation >> adsCodeUsingContext: aContext receiver: aReceiver [
-	^ ((((((((('package ' pltPlus: (aReceiver adaIdentUsingContext: aContext)) pltPlus: ' is new ')
-		pltPlus: aReceiver genericPackageName) pltPlus: '(')
-		pltPlus:
-			(PTsStringAggregateConcatSeparatedByFunction
-				invokeFromValues:
-					(OrderedCollection new
-						add: aReceiver parameters;
-						add: ', ';
-						yourself))) pltPlus: ');\n') pltPlus: 'use ') pltPlus: (aReceiver adaIdentUsingContext: aContext)) pltPlus: ';\n')
-		pltPlus:
-			(ExChdGenericPackageInstanciationAttributesAdsCodeFunction
-				invokeFromValues:
-					(OrderedCollection new
-						add: aReceiver;
-						yourself))
+
+	^ ((((((((('package ' pltPlus:
+		           (aReceiver adaIdentUsingContext: aContext)) pltPlus:
+		          ' is new ') pltPlus: aReceiver genericPackageName)
+		        pltPlus: '(') pltPlus:
+		       (PTsStringAggregateConcatSeparatedByFunction
+			        invokeFromValues: (OrderedCollection new
+					         add: aReceiver parameters;
+					         add: ', ';
+					         yourself))) pltPlus: ');\n') pltPlus: 'use ') pltPlus:
+		    (aReceiver adaIdentUsingContext: aContext)) pltPlus: ';\n')
+		  pltPlus:
+			  (ExChdGenericPackageInstanciationAttributesAdsCodeFunction
+				   invokeFromValues: (OrderedCollection new
+						    add: aReceiver;
+						    yourself))
 
 
 ]
 
 { #category : 'platypus-generated-deriving' }
 ExChdGenericPackageInstanciation >> adsInterfacesList [
+
 	^ self adsInterfacesListUsingContext: self class context
 
 
@@ -160,6 +176,7 @@ ExChdGenericPackageInstanciation >> adsInterfacesList [
 
 { #category : 'platypus-generated-deriving' }
 ExChdGenericPackageInstanciation >> adsInterfacesListUsingContext: aContext [
+
 	^ self adsInterfacesListUsingContext: aContext receiver: self
 
 
@@ -167,46 +184,45 @@ ExChdGenericPackageInstanciation >> adsInterfacesListUsingContext: aContext [
 
 { #category : 'platypus-generated-deriving' }
 ExChdGenericPackageInstanciation >> adsInterfacesListUsingContext: aContext receiver: aReceiver [
-	^ (PlatypusCoreAggregateInitializer
-		collectionFrom:
-			(OrderedCollection new
-				add:
-						(ExChdAdaInterface new
-								adaInterfaceFromValues:
-										(OrderedCollection new
-												add: (aReceiver genericPackageNameUsingContext: self class context);
-												add: nil;
-												add: true;
-												add: false;
-												yourself);
-								yourself);
-				add:
-						(ExChdAdaInterface new
-								adaInterfaceFromValues:
-										(OrderedCollection new
-												add: ((aReceiver ownerUsingContext: self class context) nameUsingContext: self class context);
-												add: (aReceiver nameUsingContext: self class context);
-												add: false;
-												add: true;
-												yourself);
-								yourself);
-				add:
-						(ExChdAdaInterface new
-								adaInterfaceFromValues:
-										(OrderedCollection new
-												add: 'Unchecked_Deallocation';
-												add: nil;
-												add: true;
-												add: false;
-												yourself);
-								yourself);
-				yourself)) pltPlus: aReceiver interfaces
+
+	^ (PlatypusCoreAggregateInitializer collectionFrom:
+		   (OrderedCollection new
+			    add: (ExChdAdaInterface new
+					     adaInterfaceFromValues: (OrderedCollection new
+							      add:
+								      (aReceiver genericPackageNameUsingContext:
+										       self class context);
+							      add: nil;
+							      add: true;
+							      add: false;
+							      yourself);
+					     yourself);
+			    add: (ExChdAdaInterface new
+					     adaInterfaceFromValues: (OrderedCollection new
+							      add:
+								      ((aReceiver ownerUsingContext: self class context)
+									       nameUsingContext: self class context);
+							      add: (aReceiver nameUsingContext: self class context);
+							      add: false;
+							      add: true;
+							      yourself);
+					     yourself);
+			    add: (ExChdAdaInterface new
+					     adaInterfaceFromValues: (OrderedCollection new
+							      add: 'Unchecked_Deallocation';
+							      add: nil;
+							      add: true;
+							      add: false;
+							      yourself);
+					     yourself);
+			    yourself)) pltPlus: aReceiver interfaces
 
 
 ]
 
 { #category : 'platypus-generated-deriving' }
 ExChdGenericPackageInstanciation >> adsPreDef [
+
 	^ self adsPreDefUsingContext: self class context
 
 
@@ -214,6 +230,7 @@ ExChdGenericPackageInstanciation >> adsPreDef [
 
 { #category : 'platypus-generated-deriving' }
 ExChdGenericPackageInstanciation >> adsPreDefUsingContext: aContext [
+
 	^ self adsPreDefUsingContext: aContext receiver: self
 
 
@@ -221,6 +238,7 @@ ExChdGenericPackageInstanciation >> adsPreDefUsingContext: aContext [
 
 { #category : 'platypus-generated-deriving' }
 ExChdGenericPackageInstanciation >> adsPreDefUsingContext: aContext receiver: aReceiver [
+
 	^ ''
 
 
@@ -228,6 +246,7 @@ ExChdGenericPackageInstanciation >> adsPreDefUsingContext: aContext receiver: aR
 
 { #category : 'platypus-generated-deriving' }
 ExChdGenericPackageInstanciation >> aliases [
+
 	^ self aliasesUsingContext: self class context
 
 
@@ -235,6 +254,7 @@ ExChdGenericPackageInstanciation >> aliases [
 
 { #category : 'platypus-generated-deriving' }
 ExChdGenericPackageInstanciation >> aliasesUsingContext: aContext [
+
 	^ self aliasesUsingContext: aContext receiver: self
 
 
@@ -242,17 +262,18 @@ ExChdGenericPackageInstanciation >> aliasesUsingContext: aContext [
 
 { #category : 'platypus-generated-deriving' }
 ExChdGenericPackageInstanciation >> aliasesUsingContext: aContext receiver: aReceiver [
-	^ ExChdGenericPackageAliasesFunction
-		invokeFromValues:
-			(OrderedCollection new
-				add: aReceiver;
-				yourself)
+
+	^ ExChdGenericPackageAliasesFunction invokeFromValues:
+		  (OrderedCollection new
+			   add: aReceiver;
+			   yourself)
 
 
 ]
 
 { #category : 'platypus-generated-accessing' }
 ExChdGenericPackageInstanciation >> beforeEntities [
+
 	^ beforeEntities
 
 
@@ -260,6 +281,7 @@ ExChdGenericPackageInstanciation >> beforeEntities [
 
 { #category : 'platypus-generated-accessing' }
 ExChdGenericPackageInstanciation >> beforeEntities: aBoolean [
+
 	beforeEntities := aBoolean
 
 
@@ -267,6 +289,7 @@ ExChdGenericPackageInstanciation >> beforeEntities: aBoolean [
 
 { #category : 'platypus-generated-with-context-accessing' }
 ExChdGenericPackageInstanciation >> beforeEntitiesUsingContext: aContext [
+
 	^ self beforeEntities
 
 
@@ -274,6 +297,7 @@ ExChdGenericPackageInstanciation >> beforeEntitiesUsingContext: aContext [
 
 { #category : 'platypus-generated-fast-set-accessing' }
 ExChdGenericPackageInstanciation >> fastSetBeforeEntities: aBoolean [
+
 	beforeEntities := aBoolean
 
 
@@ -281,6 +305,7 @@ ExChdGenericPackageInstanciation >> fastSetBeforeEntities: aBoolean [
 
 { #category : 'platypus-generated-fast-set-accessing' }
 ExChdGenericPackageInstanciation >> fastSetGenericPackageName: aString [
+
 	genericPackageName := aString
 
 
@@ -288,6 +313,7 @@ ExChdGenericPackageInstanciation >> fastSetGenericPackageName: aString [
 
 { #category : 'platypus-generated-fast-set-accessing' }
 ExChdGenericPackageInstanciation >> fastSetInterfaces: aListOfExChdAdaInterface [
+
 	interfaces := aListOfExChdAdaInterface
 
 
@@ -295,6 +321,7 @@ ExChdGenericPackageInstanciation >> fastSetInterfaces: aListOfExChdAdaInterface 
 
 { #category : 'platypus-generated-fast-set-accessing' }
 ExChdGenericPackageInstanciation >> fastSetParameters: aListOfString [
+
 	parameters := aListOfString
 
 
@@ -302,13 +329,16 @@ ExChdGenericPackageInstanciation >> fastSetParameters: aListOfString [
 
 { #category : 'platypus-generated-group-accessing' }
 ExChdGenericPackageInstanciation >> fromValues: values [
-	^ self genericPackageInstanciationFromValues: (super fromValues: values)
+
+	^ self genericPackageInstanciationFromValues:
+		  (super fromValues: values)
 
 
 ]
 
 { #category : 'platypus-generated-copying' }
 ExChdGenericPackageInstanciation >> genericPackageInstanciationCopyTo: another [
+
 	another fastSetGenericPackageName: self genericPackageName.
 	another fastSetParameters: self parameters.
 	another fastSetInterfaces: self interfaces.
@@ -319,6 +349,7 @@ ExChdGenericPackageInstanciation >> genericPackageInstanciationCopyTo: another [
 
 { #category : 'platypus-generated-group-accessing' }
 ExChdGenericPackageInstanciation >> genericPackageInstanciationFromValues: values [
+
 	| valuesloc |
 	valuesloc := values asOrderedCollection.
 	self setGenericPackageName: valuesloc removeFirst.
@@ -332,6 +363,7 @@ ExChdGenericPackageInstanciation >> genericPackageInstanciationFromValues: value
 
 { #category : 'platypus-generated-group-accessing' }
 ExChdGenericPackageInstanciation >> genericPackageInstanciationToValues: values [
+
 	values add: self genericPackageName.
 	values add: self parameters.
 	values add: self interfaces.
@@ -343,6 +375,7 @@ ExChdGenericPackageInstanciation >> genericPackageInstanciationToValues: values 
 
 { #category : 'platypus-generated-accessing' }
 ExChdGenericPackageInstanciation >> genericPackageName [
+
 	^ genericPackageName
 
 
@@ -350,6 +383,7 @@ ExChdGenericPackageInstanciation >> genericPackageName [
 
 { #category : 'platypus-generated-accessing' }
 ExChdGenericPackageInstanciation >> genericPackageName: aString [
+
 	genericPackageName := aString
 
 
@@ -357,6 +391,7 @@ ExChdGenericPackageInstanciation >> genericPackageName: aString [
 
 { #category : 'platypus-generated-with-context-accessing' }
 ExChdGenericPackageInstanciation >> genericPackageNameUsingContext: aContext [
+
 	^ self genericPackageName
 
 
@@ -364,6 +399,7 @@ ExChdGenericPackageInstanciation >> genericPackageNameUsingContext: aContext [
 
 { #category : 'platypus-generated-accessing' }
 ExChdGenericPackageInstanciation >> interfaces [
+
 	^ interfaces
 
 
@@ -371,15 +407,18 @@ ExChdGenericPackageInstanciation >> interfaces [
 
 { #category : 'platypus-generated-accessing' }
 ExChdGenericPackageInstanciation >> interfaces: aListOfExChdAdaInterface [
+
 	interfaces := aListOfExChdAdaInterface
-		ifNil: [ OrderedCollection new ]
-		ifNotNil: [ aListOfExChdAdaInterface as: OrderedCollection ]
+		              ifNil: [ OrderedCollection new ]
+		              ifNotNil: [
+		              aListOfExChdAdaInterface as: OrderedCollection ]
 
 
 ]
 
 { #category : 'platypus-generated-with-context-accessing' }
 ExChdGenericPackageInstanciation >> interfacesUsingContext: aContext [
+
 	^ self interfaces
 
 
@@ -387,6 +426,7 @@ ExChdGenericPackageInstanciation >> interfacesUsingContext: aContext [
 
 { #category : 'platypus-generated-classifying' }
 ExChdGenericPackageInstanciation >> isExChdGenericPackageInstanciation [
+
 	^ true
 
 
@@ -394,6 +434,7 @@ ExChdGenericPackageInstanciation >> isExChdGenericPackageInstanciation [
 
 { #category : 'platypus-generated-group-accessing' }
 ExChdGenericPackageInstanciation >> localFromValues: values [
+
 	^ self genericPackageInstanciationFromValues: values
 
 
@@ -401,6 +442,7 @@ ExChdGenericPackageInstanciation >> localFromValues: values [
 
 { #category : 'platypus-generated-group-accessing' }
 ExChdGenericPackageInstanciation >> localToValues: values [
+
 	^ self genericPackageInstanciationToValues: values
 
 
@@ -408,6 +450,7 @@ ExChdGenericPackageInstanciation >> localToValues: values [
 
 { #category : 'platypus-generated-accessing' }
 ExChdGenericPackageInstanciation >> parameters [
+
 	^ parameters
 
 
@@ -415,13 +458,17 @@ ExChdGenericPackageInstanciation >> parameters [
 
 { #category : 'platypus-generated-accessing' }
 ExChdGenericPackageInstanciation >> parameters: aListOfString [
-	parameters := aListOfString ifNil: [ OrderedCollection new ] ifNotNil: [ aListOfString as: OrderedCollection ]
+
+	parameters := aListOfString
+		              ifNil: [ OrderedCollection new ]
+		              ifNotNil: [ aListOfString as: OrderedCollection ]
 
 
 ]
 
 { #category : 'platypus-generated-with-context-accessing' }
 ExChdGenericPackageInstanciation >> parametersUsingContext: aContext [
+
 	^ self parameters
 
 
@@ -429,6 +476,7 @@ ExChdGenericPackageInstanciation >> parametersUsingContext: aContext [
 
 { #category : 'platypus-generated-copying' }
 ExChdGenericPackageInstanciation >> pltCopyGroup: aClassSymbol to: anObject [
+
 	self class name == aClassSymbol
 		ifTrue: [ self pltCopyTo: anObject ]
 		ifFalse: [ super pltCopyGroup: aClassSymbol to: anObject ]
@@ -438,6 +486,7 @@ ExChdGenericPackageInstanciation >> pltCopyGroup: aClassSymbol to: anObject [
 
 { #category : 'platypus-generated-copying' }
 ExChdGenericPackageInstanciation >> pltCopyTo: another [
+
 	super pltCopyTo: another.
 	self genericPackageInstanciationCopyTo: another
 
@@ -446,6 +495,7 @@ ExChdGenericPackageInstanciation >> pltCopyTo: another [
 
 { #category : 'platypus-generated-copying' }
 ExChdGenericPackageInstanciation >> pltLocalCopyTo: another [
+
 	self genericPackageInstanciationCopyTo: another
 
 
@@ -453,6 +503,7 @@ ExChdGenericPackageInstanciation >> pltLocalCopyTo: another [
 
 { #category : 'platypus-generated-set-accessing' }
 ExChdGenericPackageInstanciation >> setBeforeEntities: aBoolean [
+
 	self beforeEntities: aBoolean
 
 
@@ -460,6 +511,7 @@ ExChdGenericPackageInstanciation >> setBeforeEntities: aBoolean [
 
 { #category : 'platypus-generated-set-accessing' }
 ExChdGenericPackageInstanciation >> setGenericPackageName: aString [
+
 	self genericPackageName: aString
 
 
@@ -467,6 +519,7 @@ ExChdGenericPackageInstanciation >> setGenericPackageName: aString [
 
 { #category : 'platypus-generated-set-accessing' }
 ExChdGenericPackageInstanciation >> setInterfaces: aListOfExChdAdaInterface [
+
 	self interfaces: aListOfExChdAdaInterface
 
 
@@ -474,6 +527,7 @@ ExChdGenericPackageInstanciation >> setInterfaces: aListOfExChdAdaInterface [
 
 { #category : 'platypus-generated-set-accessing' }
 ExChdGenericPackageInstanciation >> setParameters: aListOfString [
+
 	self parameters: aListOfString
 
 
@@ -481,6 +535,7 @@ ExChdGenericPackageInstanciation >> setParameters: aListOfString [
 
 { #category : 'platypus-generated-initializing' }
 ExChdGenericPackageInstanciation >> stepInitialize [
+
 	super stepInitialize.
 	genericPackageName := ''.
 	parameters := OrderedCollection new.
@@ -492,6 +547,7 @@ ExChdGenericPackageInstanciation >> stepInitialize [
 
 { #category : 'platypus-generated-group-accessing' }
 ExChdGenericPackageInstanciation >> toValues: values [
+
 	^ self genericPackageInstanciationToValues: (super toValues: values)
 
 

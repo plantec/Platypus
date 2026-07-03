@@ -40,6 +40,7 @@ Class {
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdDiscriminatedTypeAttributesXmlIoRecordInitializeCodeFunction class >> iso10303P11Translater [
+
 	^ 'Platypus (c) LISYC EA3883, Universite de Bretagne occidentale. Brest.'
 
 
@@ -47,6 +48,7 @@ ExChdDiscriminatedTypeAttributesXmlIoRecordInitializeCodeFunction class >> iso10
 
 { #category : 'platypus-generated-meta-data-accessing' }
 ExChdDiscriminatedTypeAttributesXmlIoRecordInitializeCodeFunction class >> schemaDefinition [
+
 	^ ExChdDiscriminatedTypeSchemaDefinition singleton
 
 
@@ -54,6 +56,7 @@ ExChdDiscriminatedTypeAttributesXmlIoRecordInitializeCodeFunction class >> schem
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdDiscriminatedTypeAttributesXmlIoRecordInitializeCodeFunction class >> translatedFromISO10303P11 [
+
 	^ true
 
 
@@ -61,6 +64,7 @@ ExChdDiscriminatedTypeAttributesXmlIoRecordInitializeCodeFunction class >> trans
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdDiscriminatedTypeAttributesXmlIoRecordInitializeCodeFunction class >> vwNamespaceName [
+
 	^ #Express2Cheddar
 
 
@@ -68,6 +72,7 @@ ExChdDiscriminatedTypeAttributesXmlIoRecordInitializeCodeFunction class >> vwNam
 
 { #category : 'platypus-generated-accessing' }
 ExChdDiscriminatedTypeAttributesXmlIoRecordInitializeCodeFunction >> attrs [
+
 	^ attrs
 
 
@@ -75,15 +80,17 @@ ExChdDiscriminatedTypeAttributesXmlIoRecordInitializeCodeFunction >> attrs [
 
 { #category : 'platypus-generated-accessing' }
 ExChdDiscriminatedTypeAttributesXmlIoRecordInitializeCodeFunction >> attrs: aListOfExChdAttribute [
+
 	attrs := aListOfExChdAttribute
-		ifNil: [ OrderedCollection new ]
-		ifNotNil: [ aListOfExChdAttribute as: OrderedCollection ]
+		         ifNil: [ OrderedCollection new ]
+		         ifNotNil: [ aListOfExChdAttribute as: OrderedCollection ]
 
 
 ]
 
 { #category : 'platypus-generated-accessing' }
 ExChdDiscriminatedTypeAttributesXmlIoRecordInitializeCodeFunction >> code [
+
 	^ code
 
 
@@ -91,6 +98,7 @@ ExChdDiscriminatedTypeAttributesXmlIoRecordInitializeCodeFunction >> code [
 
 { #category : 'platypus-generated-accessing' }
 ExChdDiscriminatedTypeAttributesXmlIoRecordInitializeCodeFunction >> code: aString [
+
 	code := aString
 
 
@@ -98,6 +106,7 @@ ExChdDiscriminatedTypeAttributesXmlIoRecordInitializeCodeFunction >> code: aStri
 
 { #category : 'platypus-generated-accessing' }
 ExChdDiscriminatedTypeAttributesXmlIoRecordInitializeCodeFunction >> discrimAttr [
+
 	^ discrimAttr
 
 
@@ -105,6 +114,7 @@ ExChdDiscriminatedTypeAttributesXmlIoRecordInitializeCodeFunction >> discrimAttr
 
 { #category : 'platypus-generated-accessing' }
 ExChdDiscriminatedTypeAttributesXmlIoRecordInitializeCodeFunction >> discrimAttr: aExChdAttribute [
+
 	discrimAttr := aExChdAttribute
 
 
@@ -112,6 +122,7 @@ ExChdDiscriminatedTypeAttributesXmlIoRecordInitializeCodeFunction >> discrimAttr
 
 { #category : 'platypus-generated-accessing' }
 ExChdDiscriminatedTypeAttributesXmlIoRecordInitializeCodeFunction >> fromValues: values [
+
 	self typ: (values at: 1)
 
 
@@ -122,46 +133,34 @@ ExChdDiscriminatedTypeAttributesXmlIoRecordInitializeCodeFunction >> invoke [
 	" ---------- locals assignments ----------"
 
 	self code: ''.
-	self discrimAttr: (self typ discriminantUsingContext: self class context).
-	self
-		attrs:
-			((self typ tailAttributesUsingContext: self class context)
-				pltPlus: (self typ translatedAttributesUsingContext: self class context)).	" ---------- statements ----------"
-	self
-		code:
-			((self code
-				pltPlus:
-					(ExChdExplicitAttributeXmlIoRecordInitializeCodeFunction
-						invokeFromValues:
-							(OrderedCollection new
-								add: self discrimAttr;
-								yourself))) pltPlus: '\n').
+	self discrimAttr:
+		(self typ discriminantUsingContext: self class context).
+	self attrs:
+		((self typ tailAttributesUsingContext: self class context) pltPlus:
+			 (self typ translatedAttributesUsingContext: self class context)). " ---------- statements ----------"
+	self code: ((self code pltPlus:
+			  (ExChdExplicitAttributeXmlIoRecordInitializeCodeFunction
+				   invokeFromValues: (OrderedCollection new
+						    add: self discrimAttr;
+						    yourself))) pltPlus: '\n').
 	PlatypusCoreRepeatStatement
-		repeat: [ :no3635 | 
-			PlatypusCoreAliasStatement
-				alias: (self attrs pltAt: no3635)
-				statementsBlock: [ :attr649 | 
-					self
-						s:
-							(ExChdExplicitAttributeXmlIoRecordInitializeCodeFunction
-								invokeFromValues:
-									(OrderedCollection new
-										add: attr649;
-										yourself)).
-					self s > ''
-						ifTrue: [ self code: ((self code pltPlus: '\n') pltPlus: self s) ] ] ]
-		from:
-			(PltLOINDEXFunction
-				invokeFromValues:
-					(OrderedCollection new
-						add: self attrs;
-						yourself))
-		to:
-			(PltHIINDEXFunction
-				invokeFromValues:
-					(OrderedCollection new
-						add: self attrs;
-						yourself)).
+		repeat: [ :no2365267 |
+				PlatypusCoreAliasStatement
+					alias: (self attrs pltAt: no2365267)
+					statementsBlock: [ :attr3629763 |
+							self s:
+								(ExChdExplicitAttributeXmlIoRecordInitializeCodeFunction
+									 invokeFromValues: (OrderedCollection new
+											  add: attr3629763;
+											  yourself)).
+							self s > '' ifTrue: [
+								self code: ((self code pltPlus: '\n') pltPlus: self s) ] ] ]
+		from: (PltLOINDEXFunction invokeFromValues: (OrderedCollection new
+					  add: self attrs;
+					  yourself))
+		to: (PltHIINDEXFunction invokeFromValues: (OrderedCollection new
+					  add: self attrs;
+					  yourself)).
 	^ self return: self code
 
 
@@ -169,6 +168,7 @@ ExChdDiscriminatedTypeAttributesXmlIoRecordInitializeCodeFunction >> invoke [
 
 { #category : 'platypus-generated-accessing' }
 ExChdDiscriminatedTypeAttributesXmlIoRecordInitializeCodeFunction >> s [
+
 	^ s
 
 
@@ -176,6 +176,7 @@ ExChdDiscriminatedTypeAttributesXmlIoRecordInitializeCodeFunction >> s [
 
 { #category : 'platypus-generated-accessing' }
 ExChdDiscriminatedTypeAttributesXmlIoRecordInitializeCodeFunction >> s: aString1 [
+
 	s := aString1
 
 
@@ -183,6 +184,7 @@ ExChdDiscriminatedTypeAttributesXmlIoRecordInitializeCodeFunction >> s: aString1
 
 { #category : 'platypus-generated-accessing' }
 ExChdDiscriminatedTypeAttributesXmlIoRecordInitializeCodeFunction >> typ [
+
 	^ typ
 
 
@@ -190,6 +192,7 @@ ExChdDiscriminatedTypeAttributesXmlIoRecordInitializeCodeFunction >> typ [
 
 { #category : 'platypus-generated-accessing' }
 ExChdDiscriminatedTypeAttributesXmlIoRecordInitializeCodeFunction >> typ: aExChdDiscriminatedType [
+
 	typ := aExChdDiscriminatedType
 
 

@@ -35,6 +35,7 @@ Class {
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdDiscriminatedTypeXmlStartElementCodeFunction class >> iso10303P11Translater [
+
 	^ 'Platypus (c) LISYC EA3883, Universite de Bretagne occidentale. Brest.'
 
 
@@ -42,6 +43,7 @@ ExChdDiscriminatedTypeXmlStartElementCodeFunction class >> iso10303P11Translater
 
 { #category : 'platypus-generated-meta-data-accessing' }
 ExChdDiscriminatedTypeXmlStartElementCodeFunction class >> schemaDefinition [
+
 	^ ExChdDiscriminatedTypeSchemaDefinition singleton
 
 
@@ -49,6 +51,7 @@ ExChdDiscriminatedTypeXmlStartElementCodeFunction class >> schemaDefinition [
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdDiscriminatedTypeXmlStartElementCodeFunction class >> translatedFromISO10303P11 [
+
 	^ true
 
 
@@ -56,6 +59,7 @@ ExChdDiscriminatedTypeXmlStartElementCodeFunction class >> translatedFromISO1030
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdDiscriminatedTypeXmlStartElementCodeFunction class >> vwNamespaceName [
+
 	^ #Express2Cheddar
 
 
@@ -63,6 +67,7 @@ ExChdDiscriminatedTypeXmlStartElementCodeFunction class >> vwNamespaceName [
 
 { #category : 'platypus-generated-accessing' }
 ExChdDiscriminatedTypeXmlStartElementCodeFunction >> code [
+
 	^ code
 
 
@@ -70,6 +75,7 @@ ExChdDiscriminatedTypeXmlStartElementCodeFunction >> code [
 
 { #category : 'platypus-generated-accessing' }
 ExChdDiscriminatedTypeXmlStartElementCodeFunction >> code: aString [
+
 	code := aString
 
 
@@ -77,6 +83,7 @@ ExChdDiscriminatedTypeXmlStartElementCodeFunction >> code: aString [
 
 { #category : 'platypus-generated-accessing' }
 ExChdDiscriminatedTypeXmlStartElementCodeFunction >> fromValues: values [
+
 	self typ: (values at: 1)
 
 
@@ -86,24 +93,26 @@ ExChdDiscriminatedTypeXmlStartElementCodeFunction >> fromValues: values [
 ExChdDiscriminatedTypeXmlStartElementCodeFunction >> invoke [
 	" ---------- locals assignments ----------"
 
-	self
-		code:
-			(ExChdDiscriminatedTypeAttributesXmlStartElementCodeFunction
-				invokeFromValues:
-					(OrderedCollection new
-						add: self typ;
-						yourself)).	" ---------- statements ----------"
-	self code > ''
-		ifTrue: [ 
-			self
-				code:
-					((((((((((((('\nprocedure Start_Element(\n' pltPlus: '\tHandler: in out Xml_Generic_Parser;\n')
-						pltPlus: '\tobj : in out ') pltPlus: (self typ nameUsingContext: self class context)) pltPlus: '_io;\n')
-						pltPlus: '\tNamespace_Uri : Unicode.CES.Byte_Sequence := "";\n')
-						pltPlus: '\tLocal_Name : Unicode.CES.Byte_Sequence := "";\n')
-						pltPlus: '\tQname : Unicode.CES.Byte_Sequence := "";\n')
-						pltPlus: '\tAtts : Sax.Attributes.Attributes''Class) is \nbegin\n') pltPlus: '\tif Get_Length (Atts) > 0 then')
-						pltPlus: self code) pltPlus: '\n') pltPlus: '\tend if;\n') pltPlus: 'end Start_Element;\n') ].
+	self code:
+		(ExChdDiscriminatedTypeAttributesXmlStartElementCodeFunction
+			 invokeFromValues: (OrderedCollection new
+					  add: self typ;
+					  yourself)). " ---------- statements ----------"
+	self code > '' ifTrue: [
+			self code: ((((((((((((('\nprocedure Start_Element(\n' pltPlus:
+					             '\tHandler: in out Xml_Generic_Parser;\n') pltPlus:
+					            '\tobj : in out ') pltPlus:
+					           (self typ nameUsingContext: self class context))
+					          pltPlus: '_io;\n') pltPlus:
+					         '\tNamespace_Uri : Unicode.CES.Byte_Sequence := "";\n')
+					        pltPlus:
+					        '\tLocal_Name : Unicode.CES.Byte_Sequence := "";\n')
+					       pltPlus: '\tQname : Unicode.CES.Byte_Sequence := "";\n')
+					      pltPlus:
+					      '\tAtts : Sax.Attributes.Attributes''Class) is \nbegin\n')
+					     pltPlus: '\tif Get_Length (Atts) > 0 then') pltPlus:
+					    self code) pltPlus: '\n') pltPlus: '\tend if;\n') pltPlus:
+					 'end Start_Element;\n') ].
 	^ self return: self code
 
 
@@ -111,6 +120,7 @@ ExChdDiscriminatedTypeXmlStartElementCodeFunction >> invoke [
 
 { #category : 'platypus-generated-accessing' }
 ExChdDiscriminatedTypeXmlStartElementCodeFunction >> typ [
+
 	^ typ
 
 
@@ -118,6 +128,7 @@ ExChdDiscriminatedTypeXmlStartElementCodeFunction >> typ [
 
 { #category : 'platypus-generated-accessing' }
 ExChdDiscriminatedTypeXmlStartElementCodeFunction >> typ: aExChdDiscriminatedType [
+
 	typ := aExChdDiscriminatedType
 
 

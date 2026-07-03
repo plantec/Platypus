@@ -44,6 +44,7 @@ Class {
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdComputeImplicitDomainsFunction class >> iso10303P11Translater [
+
 	^ 'Platypus (c) LISYC EA3883, Universite de Bretagne occidentale. Brest.'
 
 
@@ -51,6 +52,7 @@ ExChdComputeImplicitDomainsFunction class >> iso10303P11Translater [
 
 { #category : 'platypus-generated-meta-data-accessing' }
 ExChdComputeImplicitDomainsFunction class >> schemaDefinition [
+
 	^ ExChdCheddarDtdSchemaDefinition singleton
 
 
@@ -58,6 +60,7 @@ ExChdComputeImplicitDomainsFunction class >> schemaDefinition [
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdComputeImplicitDomainsFunction class >> translatedFromISO10303P11 [
+
 	^ true
 
 
@@ -65,6 +68,7 @@ ExChdComputeImplicitDomainsFunction class >> translatedFromISO10303P11 [
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdComputeImplicitDomainsFunction class >> vwNamespaceName [
+
 	^ #Express2Cheddar
 
 
@@ -72,6 +76,7 @@ ExChdComputeImplicitDomainsFunction class >> vwNamespaceName [
 
 { #category : 'platypus-generated-accessing' }
 ExChdComputeImplicitDomainsFunction >> decl [
+
 	^ decl
 
 
@@ -79,15 +84,17 @@ ExChdComputeImplicitDomainsFunction >> decl [
 
 { #category : 'platypus-generated-accessing' }
 ExChdComputeImplicitDomainsFunction >> decl: aListOfExChdDtdElement [
+
 	decl := aListOfExChdDtdElement
-		ifNil: [ OrderedCollection new ]
-		ifNotNil: [ aListOfExChdDtdElement as: OrderedCollection ]
+		        ifNil: [ OrderedCollection new ]
+		        ifNotNil: [ aListOfExChdDtdElement as: OrderedCollection ]
 
 
 ]
 
 { #category : 'platypus-generated-accessing' }
 ExChdComputeImplicitDomainsFunction >> declDomain [
+
 	^ declDomain
 
 
@@ -95,15 +102,18 @@ ExChdComputeImplicitDomainsFunction >> declDomain [
 
 { #category : 'platypus-generated-accessing' }
 ExChdComputeImplicitDomainsFunction >> declDomain: aListOfExChdEntityInstance [
+
 	declDomain := aListOfExChdEntityInstance
-		ifNil: [ OrderedCollection new ]
-		ifNotNil: [ aListOfExChdEntityInstance as: OrderedCollection ]
+		              ifNil: [ OrderedCollection new ]
+		              ifNotNil: [
+		              aListOfExChdEntityInstance as: OrderedCollection ]
 
 
 ]
 
 { #category : 'platypus-generated-accessing' }
 ExChdComputeImplicitDomainsFunction >> fromValues: values [
+
 	self r: (values at: 1)
 
 
@@ -113,47 +123,40 @@ ExChdComputeImplicitDomainsFunction >> fromValues: values [
 ExChdComputeImplicitDomainsFunction >> invoke [
 	" ---------- locals assignments ----------"
 
-	self refed: (self r referencedEntitiesUsingContext: self class context).
+	self refed:
+		(self r referencedEntitiesUsingContext: self class context).
 	self decl: (self r declaredDomainsUsingContext: self class context).
 	self declDomain: Array new.
-	self notDeclared: Array new.	" ---------- statements ----------"
+	self notDeclared: Array new. " ---------- statements ----------"
 	PlatypusCoreRepeatStatement
-		repeat: [ :no3218 | 
-			PlatypusCoreAliasStatement
-				alias: (self decl pltAt: no3218)
-				statementsBlock: [ :curr228 | self declDomain: (self declDomain pltPlus: (curr228 domainUsingContext: self class context)) ] ]
-		from:
-			(PltLOINDEXFunction
-				invokeFromValues:
-					(OrderedCollection new
-						add: self decl;
-						yourself))
-		to:
-			(PltHIINDEXFunction
-				invokeFromValues:
-					(OrderedCollection new
-						add: self decl;
-						yourself)).
+		repeat: [ :no1874711 |
+				PlatypusCoreAliasStatement
+					alias: (self decl pltAt: no1874711)
+					statementsBlock: [ :curr662431 |
+							self declDomain: (self declDomain pltPlus:
+									 (curr662431 domainUsingContext: self class context)) ] ]
+		from: (PltLOINDEXFunction invokeFromValues: (OrderedCollection new
+					  add: self decl;
+					  yourself))
+		to: (PltHIINDEXFunction invokeFromValues: (OrderedCollection new
+					  add: self decl;
+					  yourself)).
 	PlatypusCoreRepeatStatement
-		repeat: [ :no369 | 
-			PlatypusCoreAliasStatement
-				alias: (self refed pltAt: no369)
-				statementsBlock: [ :curr1479 | 
-					((self declDomain includes: (curr1479 domainUsingContext: self class context)) not
-						and: [ (self notDeclared includes: curr1479) not ])
-						ifTrue: [ self notDeclared: (self notDeclared pltPlus: curr1479) ] ] ]
-		from:
-			(PltLOINDEXFunction
-				invokeFromValues:
-					(OrderedCollection new
-						add: self refed;
-						yourself))
-		to:
-			(PltHIINDEXFunction
-				invokeFromValues:
-					(OrderedCollection new
-						add: self refed;
-						yourself)).
+		repeat: [ :no1805505 |
+				PlatypusCoreAliasStatement
+					alias: (self refed pltAt: no1805505)
+					statementsBlock: [ :curr3533701 |
+							((self declDomain includes:
+								  (curr3533701 domainUsingContext: self class context)) not
+								 and: [ (self notDeclared includes: curr3533701) not ])
+								ifTrue: [
+								self notDeclared: (self notDeclared pltPlus: curr3533701) ] ] ]
+		from: (PltLOINDEXFunction invokeFromValues: (OrderedCollection new
+					  add: self refed;
+					  yourself))
+		to: (PltHIINDEXFunction invokeFromValues: (OrderedCollection new
+					  add: self refed;
+					  yourself)).
 	^ self return: self notDeclared
 
 
@@ -161,6 +164,7 @@ ExChdComputeImplicitDomainsFunction >> invoke [
 
 { #category : 'platypus-generated-accessing' }
 ExChdComputeImplicitDomainsFunction >> notDeclared [
+
 	^ notDeclared
 
 
@@ -168,15 +172,19 @@ ExChdComputeImplicitDomainsFunction >> notDeclared [
 
 { #category : 'platypus-generated-accessing' }
 ExChdComputeImplicitDomainsFunction >> notDeclared: aListOfExChdEntityRefDtdElement1 [
+
 	notDeclared := aListOfExChdEntityRefDtdElement1
-		ifNil: [ OrderedCollection new ]
-		ifNotNil: [ aListOfExChdEntityRefDtdElement1 as: OrderedCollection ]
+		               ifNil: [ OrderedCollection new ]
+		               ifNotNil: [
+		               aListOfExChdEntityRefDtdElement1 as:
+			               OrderedCollection ]
 
 
 ]
 
 { #category : 'platypus-generated-accessing' }
 ExChdComputeImplicitDomainsFunction >> r [
+
 	^ r
 
 
@@ -184,6 +192,7 @@ ExChdComputeImplicitDomainsFunction >> r [
 
 { #category : 'platypus-generated-accessing' }
 ExChdComputeImplicitDomainsFunction >> r: aExChdRootDtdElement [
+
 	r := aExChdRootDtdElement
 
 
@@ -191,6 +200,7 @@ ExChdComputeImplicitDomainsFunction >> r: aExChdRootDtdElement [
 
 { #category : 'platypus-generated-accessing' }
 ExChdComputeImplicitDomainsFunction >> refed [
+
 	^ refed
 
 
@@ -198,9 +208,11 @@ ExChdComputeImplicitDomainsFunction >> refed [
 
 { #category : 'platypus-generated-accessing' }
 ExChdComputeImplicitDomainsFunction >> refed: aListOfExChdEntityRefDtdElement [
+
 	refed := aListOfExChdEntityRefDtdElement
-		ifNil: [ OrderedCollection new ]
-		ifNotNil: [ aListOfExChdEntityRefDtdElement as: OrderedCollection ]
+		         ifNil: [ OrderedCollection new ]
+		         ifNotNil: [
+		         aListOfExChdEntityRefDtdElement as: OrderedCollection ]
 
 
 ]

@@ -33,6 +33,7 @@ Class {
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdAdaClassAdbCodeFunction class >> iso10303P11Translater [
+
 	^ 'Platypus (c) LISYC EA3883, Universite de Bretagne occidentale. Brest.'
 
 
@@ -40,6 +41,7 @@ ExChdAdaClassAdbCodeFunction class >> iso10303P11Translater [
 
 { #category : 'platypus-generated-meta-data-accessing' }
 ExChdAdaClassAdbCodeFunction class >> schemaDefinition [
+
 	^ ExChdRecordAndClassSchemaDefinition singleton
 
 
@@ -47,6 +49,7 @@ ExChdAdaClassAdbCodeFunction class >> schemaDefinition [
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdAdaClassAdbCodeFunction class >> translatedFromISO10303P11 [
+
 	^ true
 
 
@@ -54,6 +57,7 @@ ExChdAdaClassAdbCodeFunction class >> translatedFromISO10303P11 [
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdAdaClassAdbCodeFunction class >> vwNamespaceName [
+
 	^ #Express2Cheddar
 
 
@@ -61,6 +65,7 @@ ExChdAdaClassAdbCodeFunction class >> vwNamespaceName [
 
 { #category : 'platypus-generated-accessing' }
 ExChdAdaClassAdbCodeFunction >> cip [
+
 	^ cip
 
 
@@ -68,6 +73,7 @@ ExChdAdaClassAdbCodeFunction >> cip [
 
 { #category : 'platypus-generated-accessing' }
 ExChdAdaClassAdbCodeFunction >> cip: aExChdAdaClass [
+
 	cip := aExChdAdaClass
 
 
@@ -75,6 +81,7 @@ ExChdAdaClassAdbCodeFunction >> cip: aExChdAdaClass [
 
 { #category : 'platypus-generated-accessing' }
 ExChdAdaClassAdbCodeFunction >> code [
+
 	^ code
 
 
@@ -82,6 +89,7 @@ ExChdAdaClassAdbCodeFunction >> code [
 
 { #category : 'platypus-generated-accessing' }
 ExChdAdaClassAdbCodeFunction >> code: aString [
+
 	code := aString
 
 
@@ -89,6 +97,7 @@ ExChdAdaClassAdbCodeFunction >> code: aString [
 
 { #category : 'platypus-generated-accessing' }
 ExChdAdaClassAdbCodeFunction >> fromValues: values [
+
 	self cip: (values at: 1)
 
 
@@ -96,62 +105,40 @@ ExChdAdaClassAdbCodeFunction >> fromValues: values [
 
 { #category : 'platypus-generated-invoking' }
 ExChdAdaClassAdbCodeFunction >> invoke [
-	" ---------- locals assignments ----------"
+	" ---------- locals assignments ----------"" ---------- statements ----------"
 
-	" ---------- statements ----------"
-
-	self
-		code:
-			((((((((('\n' pltPlus: '-- --------= ') pltPlus: (self cip nameUsingContext: self class context))
-				pltPlus: ' =--------\n')
-				pltPlus:
-					(ExChdAdaClassInitializeCodeFunction
-						invokeFromValues:
-							(OrderedCollection new
-								add: self cip;
-								yourself))) pltPlus: '\n')
-				pltPlus:
-					(ExChdAdaClassCopyCodeFunction
-						invokeFromValues:
-							(OrderedCollection new
-								add: self cip;
-								yourself))) pltPlus: '\n')
-				pltPlus:
-					(ExChdAdaClassPutCodeFunction
-						invokeFromValues:
-							(OrderedCollection new
-								add: self cip;
-								yourself))) pltPlus: '\n').
-	(ExChdIsNamedObjectFunction
-		invokeFromValues:
-			(OrderedCollection new
-				add: self cip;
-				yourself))
-		ifTrue: [ 
-			self
-				code:
-					((self code
-						pltPlus:
-							(ExChdAdaClassGetNameCodeFunction
-								invokeFromValues:
-									(OrderedCollection new
-										add: self cip;
-										yourself))) pltPlus: '\n') ].
-	self
-		code:
-			((((self code
-				pltPlus:
-					(ExChdAdaClassTypeofCodeFunction
-						invokeFromValues:
-							(OrderedCollection new
-								add: self cip;
-								yourself))) pltPlus: '\n')
-				pltPlus:
-					(ExChdAdaClassXmlWriterCodeFunction
-						invokeFromValues:
-							(OrderedCollection new
-								add: self cip;
-								yourself))) pltPlus: '\n').
+	self code: ((((((((('\n' pltPlus: '-- --------= ') pltPlus:
+			        (self cip nameUsingContext: self class context)) pltPlus:
+			       ' =--------\n') pltPlus:
+			      (ExChdAdaClassInitializeCodeFunction invokeFromValues:
+				       (OrderedCollection new
+					        add: self cip;
+					        yourself))) pltPlus: '\n') pltPlus:
+			    (ExChdAdaClassCopyCodeFunction invokeFromValues:
+				     (OrderedCollection new
+					      add: self cip;
+					      yourself))) pltPlus: '\n') pltPlus:
+			  (ExChdAdaClassPutCodeFunction invokeFromValues:
+				   (OrderedCollection new
+					    add: self cip;
+					    yourself))) pltPlus: '\n').
+	(ExChdIsNamedObjectFunction invokeFromValues: (OrderedCollection new
+			  add: self cip;
+			  yourself)) ifTrue: [
+			self code: ((self code pltPlus:
+					  (ExChdAdaClassGetNameCodeFunction invokeFromValues:
+						   (OrderedCollection new
+							    add: self cip;
+							    yourself))) pltPlus: '\n') ].
+	self code: ((((self code pltPlus:
+			    (ExChdAdaClassTypeofCodeFunction invokeFromValues:
+				     (OrderedCollection new
+					      add: self cip;
+					      yourself))) pltPlus: '\n') pltPlus:
+			  (ExChdAdaClassXmlWriterCodeFunction invokeFromValues:
+				   (OrderedCollection new
+					    add: self cip;
+					    yourself))) pltPlus: '\n').
 	^ self return: self code
 
 

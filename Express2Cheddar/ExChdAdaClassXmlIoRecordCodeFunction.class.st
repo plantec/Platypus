@@ -18,6 +18,7 @@ Class {
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdAdaClassXmlIoRecordCodeFunction class >> iso10303P11Translater [
+
 	^ 'Platypus (c) LISYC EA3883, Universite de Bretagne occidentale. Brest.'
 
 
@@ -25,6 +26,7 @@ ExChdAdaClassXmlIoRecordCodeFunction class >> iso10303P11Translater [
 
 { #category : 'platypus-generated-meta-data-accessing' }
 ExChdAdaClassXmlIoRecordCodeFunction class >> schemaDefinition [
+
 	^ ExChdRecordAndClassSchemaDefinition singleton
 
 
@@ -32,6 +34,7 @@ ExChdAdaClassXmlIoRecordCodeFunction class >> schemaDefinition [
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdAdaClassXmlIoRecordCodeFunction class >> translatedFromISO10303P11 [
+
 	^ true
 
 
@@ -39,6 +42,7 @@ ExChdAdaClassXmlIoRecordCodeFunction class >> translatedFromISO10303P11 [
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdAdaClassXmlIoRecordCodeFunction class >> vwNamespaceName [
+
 	^ #Express2Cheddar
 
 
@@ -46,6 +50,7 @@ ExChdAdaClassXmlIoRecordCodeFunction class >> vwNamespaceName [
 
 { #category : 'platypus-generated-accessing' }
 ExChdAdaClassXmlIoRecordCodeFunction >> cip [
+
 	^ cip
 
 
@@ -53,6 +58,7 @@ ExChdAdaClassXmlIoRecordCodeFunction >> cip [
 
 { #category : 'platypus-generated-accessing' }
 ExChdAdaClassXmlIoRecordCodeFunction >> cip: aExChdAdaClass [
+
 	cip := aExChdAdaClass
 
 
@@ -60,6 +66,7 @@ ExChdAdaClassXmlIoRecordCodeFunction >> cip: aExChdAdaClass [
 
 { #category : 'platypus-generated-accessing' }
 ExChdAdaClassXmlIoRecordCodeFunction >> fromValues: values [
+
 	self cip: (values at: 1)
 
 
@@ -67,19 +74,16 @@ ExChdAdaClassXmlIoRecordCodeFunction >> fromValues: values [
 
 { #category : 'platypus-generated-invoking' }
 ExChdAdaClassXmlIoRecordCodeFunction >> invoke [
-	" ---------- locals assignments ----------"
+	" ---------- locals assignments ----------"" ---------- statements ----------"
 
-	" ---------- statements ----------"
-
-	^ self
-		return:
-			(((('\ntype ' pltPlus: (self cip nameUsingContext: self class context)) pltPlus: '_io is record')
-				pltPlus:
-					(ExChdAdaEntityAttributesXmlIoRecordCodeFunction
-						invokeFromValues:
-							(OrderedCollection new
-								add: self cip;
-								yourself))) pltPlus: '\nend record;')
+	^ self return:
+		  (((('\ntype ' pltPlus:
+			      (self cip nameUsingContext: self class context)) pltPlus:
+			     '_io is record') pltPlus:
+			    (ExChdAdaEntityAttributesXmlIoRecordCodeFunction
+				     invokeFromValues: (OrderedCollection new
+						      add: self cip;
+						      yourself))) pltPlus: '\nend record;')
 
 
 ]

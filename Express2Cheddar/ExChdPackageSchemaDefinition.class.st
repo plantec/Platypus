@@ -70,6 +70,34 @@ SCHEMA package;
 		RETURN ( result );
 	END_FUNCTION;
 
+	FUNCTION ada_package_ads_code ( pkg : ada_package ) : STRING;
+		LOCAL 
+			result : STRING;
+			classes : LIST OF ada_class := QUERY ( e <* pkg.entities | 'RECORD_AND_CLASS.ADA_CLASS' IN TYPEOF ( e ) );
+			const_list : LIST OF ada_constant := QUERY ( e <* pkg.constants | 'CHEDDAR_CONSTANTS.ADA_CONSTANT' IN TYPEOF ( e ) );
+			private_classes : LIST OF ada_class := QUERY ( e <* classes | e.is_private );
+			constrained_arrays : LIST OF defined_type;
+			entities : LIST OF dictionary_instance := pkg.entities;
+		END_LOCAL;
+		constrained_arrays := QUERY ( t <* pkg.types | 'CHEDDAR_DOMAINS.CONSTRAINED_ARRAY_TYPE' IN TYPEOF ( t ) );
+		result := ada_package_concepts_list_code ( pkg, ( ( pkg.types - constrained_arrays ) + entities ) + constrained_arrays, true );
+
+		REPEAT no := LOINDEX ( const_list ) TO HIINDEX ( const_list );
+			result := result + const_list [ no].ads_code + '\n';
+		END_REPEAT;
+
+		IF SIZEOF ( private_classes ) > 0 THEN
+			result := result + '\n\nprivate\n \n';
+			REPEAT no := LOINDEX ( private_classes ) TO HIINDEX ( private_classes );
+				ALIAS supref FOR private_classes [ no].supertypes [ 1 ].ref;
+					result := result + '\ntype ' + private_classes [ no].name + ' is new ' + supref.ada_ident + ' with\n' 
+					+ ada_class_attributes_ads_code ( private_classes [ no] );
+				END_ALIAS;
+			END_REPEAT;
+		END_IF;
+		RETURN ( result );
+	END_FUNCTION;
+
 	FUNCTION ada_package_interface ( pkg : ada_package; ads : BOOLEAN ) : LIST OF ada_interface;
 		LOCAL 
 			ads_list : LIST OF ada_interface := [ ada_interface ( 'Ada.Strings.Unbounded', ?, true, true ), ada_interface ( 'Framework_Config', ?, true, true ), ada_interface ( 'id_generators', ?, true, true ) ];
@@ -312,34 +340,6 @@ SCHEMA package;
 		END_IF;
 		RETURN ( code );
 	END_FUNCTION;
-
-	FUNCTION ada_package_ads_code ( pkg : ada_package ) : STRING;
-		LOCAL 
-			result : STRING;
-			classes : LIST OF ada_class := QUERY ( e <* pkg.entities | 'RECORD_AND_CLASS.ADA_CLASS' IN TYPEOF ( e ) );
-			const_list : LIST OF ada_constant := QUERY ( e <* pkg.constants | 'CHEDDAR_CONSTANTS.ADA_CONSTANT' IN TYPEOF ( e ) );
-			private_classes : LIST OF ada_class := QUERY ( e <* classes | e.is_private );
-			constrained_arrays : LIST OF defined_type;
-			entities : LIST OF dictionary_instance := pkg.entities;
-		END_LOCAL;
-		constrained_arrays := QUERY ( t <* pkg.types | 'CHEDDAR_DOMAINS.CONSTRAINED_ARRAY_TYPE' IN TYPEOF ( t ) );
-		result := ada_package_concepts_list_code ( pkg, ( ( pkg.types - constrained_arrays ) + entities ) + constrained_arrays, true );
-
-		REPEAT no := LOINDEX ( const_list ) TO HIINDEX ( const_list );
-			result := result + const_list [ no].ads_code + '\n';
-		END_REPEAT;
-
-		IF SIZEOF ( private_classes ) > 0 THEN
-			result := result + '\n\nprivate\n \n';
-			REPEAT no := LOINDEX ( private_classes ) TO HIINDEX ( private_classes );
-				ALIAS supref FOR private_classes [ no].supertypes [ 1 ].ref;
-					result := result + '\ntype ' + private_classes [ no].name + ' is new ' + supref.ada_ident + ' with\n' 
-					+ ada_class_attributes_ads_code ( private_classes [ no] );
-				END_ALIAS;
-			END_REPEAT;
-		END_IF;
-		RETURN ( result );
-	END_FUNCTION;
 END_SCHEMA;
 
 </ISO10303-11-EXPRESS>
@@ -354,6 +354,7 @@ Class {
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdPackageSchemaDefinition class >> iso10303P11Translater [
+
 	^ 'Platypus (c) LISYC EA3883, Universite de Bretagne occidentale. Brest.'
 
 
@@ -361,6 +362,7 @@ ExChdPackageSchemaDefinition class >> iso10303P11Translater [
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdPackageSchemaDefinition class >> translatedFromISO10303P11 [
+
 	^ true
 
 
@@ -368,6 +370,7 @@ ExChdPackageSchemaDefinition class >> translatedFromISO10303P11 [
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdPackageSchemaDefinition class >> vwNamespaceName [
+
 	^ #Express2Cheddar
 
 
@@ -375,6 +378,7 @@ ExChdPackageSchemaDefinition class >> vwNamespaceName [
 
 { #category : 'platypus-generated-context-accessing' }
 ExChdPackageSchemaDefinition >> context [
+
 	^ self schemaInstance context
 
 
@@ -382,27 +386,31 @@ ExChdPackageSchemaDefinition >> context [
 
 { #category : 'platypus-generated-entities' }
 ExChdPackageSchemaDefinition >> entityDefinition1 [
-	^ #(#ada_package #ExChdAdaPackage)
+
+	^ #( #ada_package #ExChdAdaPackage )
 
 
 ]
 
 { #category : 'platypus-generated-entities' }
 ExChdPackageSchemaDefinition >> entityDefinition2 [
-	^ #(#package_alias #ExChdPackageAlias)
+
+	^ #( #package_alias #ExChdPackageAlias )
 
 
 ]
 
 { #category : 'platypus-generated-entities' }
 ExChdPackageSchemaDefinition >> entityDefinition3 [
-	^ #(#generic_package_instanciation #ExChdGenericPackageInstanciation)
+
+	^ #( #generic_package_instanciation #ExChdGenericPackageInstanciation )
 
 
 ]
 
 { #category : 'platypus-generated-entities' }
 ExChdPackageSchemaDefinition >> entityDefinitionCount [
+
 	^ 3
 
 
@@ -410,83 +418,97 @@ ExChdPackageSchemaDefinition >> entityDefinitionCount [
 
 { #category : 'platypus-generated-functions' }
 ExChdPackageSchemaDefinition >> functionDeclaration1 [
-	^ #(#ada_package_adb_code #ExChdAdaPackageAdbCodeFunction)
+
+	^ #( #ada_package_adb_code #ExChdAdaPackageAdbCodeFunction )
 
 
 ]
 
 { #category : 'platypus-generated-functions' }
 ExChdPackageSchemaDefinition >> functionDeclaration10 [
-	^ #(#all_packages_code_into #ExChdAllPackagesCodeIntoFunction)
+
+	^ #( #generic_package_instanciation_attributes_ads_code
+	     #ExChdGenericPackageInstanciationAttributesAdsCodeFunction )
 
 
 ]
 
 { #category : 'platypus-generated-functions' }
 ExChdPackageSchemaDefinition >> functionDeclaration11 [
-	^ #(#ada_package_ads_code #ExChdAdaPackageAdsCodeFunction)
+
+	^ #( #all_packages_code_into #ExChdAllPackagesCodeIntoFunction )
 
 
 ]
 
 { #category : 'platypus-generated-functions' }
 ExChdPackageSchemaDefinition >> functionDeclaration2 [
-	^ #(#ada_package_interface #ExChdAdaPackageInterfaceFunction)
+
+	^ #( #ada_package_ads_code #ExChdAdaPackageAdsCodeFunction )
 
 
 ]
 
 { #category : 'platypus-generated-functions' }
 ExChdPackageSchemaDefinition >> functionDeclaration3 [
-	^ #(#all_packages_code #ExChdAllPackagesCodeFunction)
+
+	^ #( #ada_package_interface #ExChdAdaPackageInterfaceFunction )
 
 
 ]
 
 { #category : 'platypus-generated-functions' }
 ExChdPackageSchemaDefinition >> functionDeclaration4 [
-	^ #(#concept_in_list #ExChdConceptInListFunction)
+
+	^ #( #all_packages_code #ExChdAllPackagesCodeFunction )
 
 
 ]
 
 { #category : 'platypus-generated-functions' }
 ExChdPackageSchemaDefinition >> functionDeclaration5 [
-	^ #(#concept_list_local_dependencies #ExChdConceptListLocalDependenciesFunction)
+
+	^ #( #concept_in_list #ExChdConceptInListFunction )
 
 
 ]
 
 { #category : 'platypus-generated-functions' }
 ExChdPackageSchemaDefinition >> functionDeclaration6 [
-	^ #(#ada_package_concepts_list_code #ExChdAdaPackageConceptsListCodeFunction)
+
+	^ #( #concept_list_local_dependencies
+	     #ExChdConceptListLocalDependenciesFunction )
 
 
 ]
 
 { #category : 'platypus-generated-functions' }
 ExChdPackageSchemaDefinition >> functionDeclaration7 [
-	^ #(#ada_package_class_typeof_list #ExChdAdaPackageClassTypeofListFunction)
+
+	^ #( #ada_package_concepts_list_code #ExChdAdaPackageConceptsListCodeFunction )
 
 
 ]
 
 { #category : 'platypus-generated-functions' }
 ExChdPackageSchemaDefinition >> functionDeclaration8 [
-	^ #(#generic_package_aliases #ExChdGenericPackageAliasesFunction)
+
+	^ #( #ada_package_class_typeof_list #ExChdAdaPackageClassTypeofListFunction )
 
 
 ]
 
 { #category : 'platypus-generated-functions' }
 ExChdPackageSchemaDefinition >> functionDeclaration9 [
-	^ #(#generic_package_instanciation_attributes_ads_code #ExChdGenericPackageInstanciationAttributesAdsCodeFunction)
+
+	^ #( #generic_package_aliases #ExChdGenericPackageAliasesFunction )
 
 
 ]
 
 { #category : 'platypus-generated-functions' }
 ExChdPackageSchemaDefinition >> functionDeclarationCount [
+
 	^ 11
 
 
@@ -494,6 +516,7 @@ ExChdPackageSchemaDefinition >> functionDeclarationCount [
 
 { #category : 'platypus-generated-meta-data-accessing' }
 ExChdPackageSchemaDefinition >> schemaInstanceClassName [
+
 	^ #ExChdExpress2cheddarSchemaInstance
 
 

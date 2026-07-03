@@ -7,6 +7,7 @@ Class {
 
 { #category : 'platypus-generated-context-accessing' }
 ExChdCoreEntity class >> context [
+
 	^ self schemaDefinition context
 
 
@@ -14,6 +15,7 @@ ExChdCoreEntity class >> context [
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdCoreEntity class >> iso10303P11Translater [
+
 	^ 'Platypus (c) LISYC EA3883, Universite de Bretagne occidentale. Brest.'
 
 
@@ -21,6 +23,7 @@ ExChdCoreEntity class >> iso10303P11Translater [
 
 { #category : 'platypus-generated-meta-data-accessing' }
 ExChdCoreEntity class >> platypusMetaData [
+
 	^ self schemaDefinition metaDataFor: self name asSymbol
 
 
@@ -28,6 +31,7 @@ ExChdCoreEntity class >> platypusMetaData [
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdCoreEntity class >> translatedFromISO10303P11 [
+
 	^ true
 
 
@@ -35,6 +39,7 @@ ExChdCoreEntity class >> translatedFromISO10303P11 [
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdCoreEntity class >> vwNamespaceName [
+
 	^ #Express2Cheddar
 
 
@@ -42,6 +47,7 @@ ExChdCoreEntity class >> vwNamespaceName [
 
 { #category : 'as yet unclassified' }
 ExChdCoreEntity >> isExChdAdaArrayType [
+
 	^ false
 
 
@@ -49,6 +55,7 @@ ExChdCoreEntity >> isExChdAdaArrayType [
 
 { #category : 'as yet unclassified' }
 ExChdCoreEntity >> isExChdAdaAttributeReference [
+
 	^ false
 
 
@@ -56,6 +63,7 @@ ExChdCoreEntity >> isExChdAdaAttributeReference [
 
 { #category : 'as yet unclassified' }
 ExChdCoreEntity >> isExChdAdaBagType [
+
 	^ false
 
 
@@ -63,6 +71,7 @@ ExChdCoreEntity >> isExChdAdaBagType [
 
 { #category : 'as yet unclassified' }
 ExChdCoreEntity >> isExChdAdaBooleanType [
+
 	^ false
 
 
@@ -70,6 +79,7 @@ ExChdCoreEntity >> isExChdAdaBooleanType [
 
 { #category : 'as yet unclassified' }
 ExChdCoreEntity >> isExChdAdaClass [
+
 	^ false
 
 
@@ -77,6 +87,7 @@ ExChdCoreEntity >> isExChdAdaClass [
 
 { #category : 'as yet unclassified' }
 ExChdCoreEntity >> isExChdAdaClassDtdElement [
+
 	^ false
 
 
@@ -84,6 +95,7 @@ ExChdCoreEntity >> isExChdAdaClassDtdElement [
 
 { #category : 'as yet unclassified' }
 ExChdCoreEntity >> isExChdAdaClassRefDtdElement [
+
 	^ false
 
 
@@ -91,6 +103,7 @@ ExChdCoreEntity >> isExChdAdaClassRefDtdElement [
 
 { #category : 'as yet unclassified' }
 ExChdCoreEntity >> isExChdAdaClassReference [
+
 	^ false
 
 
@@ -98,6 +111,7 @@ ExChdCoreEntity >> isExChdAdaClassReference [
 
 { #category : 'as yet unclassified' }
 ExChdCoreEntity >> isExChdAdaConstant [
+
 	^ false
 
 
@@ -105,6 +119,7 @@ ExChdCoreEntity >> isExChdAdaConstant [
 
 { #category : 'as yet unclassified' }
 ExChdCoreEntity >> isExChdAdaDoubleType [
+
 	^ false
 
 
@@ -112,6 +127,7 @@ ExChdCoreEntity >> isExChdAdaDoubleType [
 
 { #category : 'as yet unclassified' }
 ExChdCoreEntity >> isExChdAdaEntity [
+
 	^ false
 
 
@@ -119,6 +135,7 @@ ExChdCoreEntity >> isExChdAdaEntity [
 
 { #category : 'as yet unclassified' }
 ExChdCoreEntity >> isExChdAdaEnumeration [
+
 	^ false
 
 
@@ -126,6 +143,7 @@ ExChdCoreEntity >> isExChdAdaEnumeration [
 
 { #category : 'as yet unclassified' }
 ExChdCoreEntity >> isExChdAdaIntegerType [
+
 	^ false
 
 
@@ -133,6 +151,7 @@ ExChdCoreEntity >> isExChdAdaIntegerType [
 
 { #category : 'as yet unclassified' }
 ExChdCoreEntity >> isExChdAdaInterface [
+
 	^ false
 
 
@@ -140,6 +159,7 @@ ExChdCoreEntity >> isExChdAdaInterface [
 
 { #category : 'as yet unclassified' }
 ExChdCoreEntity >> isExChdAdaListType [
+
 	^ false
 
 
@@ -147,6 +167,7 @@ ExChdCoreEntity >> isExChdAdaListType [
 
 { #category : 'as yet unclassified' }
 ExChdCoreEntity >> isExChdAdaNamedTypeReference [
+
 	^ false
 
 
@@ -154,6 +175,7 @@ ExChdCoreEntity >> isExChdAdaNamedTypeReference [
 
 { #category : 'as yet unclassified' }
 ExChdCoreEntity >> isExChdAdaNaturalType [
+
 	^ false
 
 
@@ -161,6 +183,7 @@ ExChdCoreEntity >> isExChdAdaNaturalType [
 
 { #category : 'as yet unclassified' }
 ExChdCoreEntity >> isExChdAdaPackage [
+
 	^ false
 
 
@@ -168,6 +191,7 @@ ExChdCoreEntity >> isExChdAdaPackage [
 
 { #category : 'as yet unclassified' }
 ExChdCoreEntity >> isExChdAdaPrimitiveClassReference [
+
 	^ false
 
 
@@ -175,6 +199,7 @@ ExChdCoreEntity >> isExChdAdaPrimitiveClassReference [
 
 { #category : 'as yet unclassified' }
 ExChdCoreEntity >> isExChdAdaPrimitiveType [
+
 	^ false
 
 
@@ -182,6 +207,7 @@ ExChdCoreEntity >> isExChdAdaPrimitiveType [
 
 { #category : 'as yet unclassified' }
 ExChdCoreEntity >> isExChdAdaRealType [
+
 	^ false
 
 
@@ -189,6 +215,7 @@ ExChdCoreEntity >> isExChdAdaRealType [
 
 { #category : 'as yet unclassified' }
 ExChdCoreEntity >> isExChdAdaRecordReference [
+
 	^ false
 
 
@@ -196,6 +223,7 @@ ExChdCoreEntity >> isExChdAdaRecordReference [
 
 { #category : 'as yet unclassified' }
 ExChdCoreEntity >> isExChdAdaSetType [
+
 	^ false
 
 
@@ -203,6 +231,7 @@ ExChdCoreEntity >> isExChdAdaSetType [
 
 { #category : 'as yet unclassified' }
 ExChdCoreEntity >> isExChdAdaType [
+
 	^ false
 
 
@@ -210,6 +239,7 @@ ExChdCoreEntity >> isExChdAdaType [
 
 { #category : 'as yet unclassified' }
 ExChdCoreEntity >> isExChdAdaUnboundedStringType [
+
 	^ false
 
 
@@ -217,6 +247,7 @@ ExChdCoreEntity >> isExChdAdaUnboundedStringType [
 
 { #category : 'as yet unclassified' }
 ExChdCoreEntity >> isExChdAttributeDtdElement [
+
 	^ false
 
 
@@ -224,6 +255,7 @@ ExChdCoreEntity >> isExChdAttributeDtdElement [
 
 { #category : 'as yet unclassified' }
 ExChdCoreEntity >> isExChdBasicAdaTypeGetter [
+
 	^ false
 
 
@@ -231,6 +263,7 @@ ExChdCoreEntity >> isExChdBasicAdaTypeGetter [
 
 { #category : 'as yet unclassified' }
 ExChdCoreEntity >> isExChdBasicAdaTypeValueFormat [
+
 	^ false
 
 
@@ -238,6 +271,7 @@ ExChdCoreEntity >> isExChdBasicAdaTypeValueFormat [
 
 { #category : 'as yet unclassified' }
 ExChdCoreEntity >> isExChdCheddarDefinedType [
+
 	^ false
 
 
@@ -245,6 +279,7 @@ ExChdCoreEntity >> isExChdCheddarDefinedType [
 
 { #category : 'as yet unclassified' }
 ExChdCoreEntity >> isExChdCheddarEntityDefinition [
+
 	^ false
 
 
@@ -252,6 +287,7 @@ ExChdCoreEntity >> isExChdCheddarEntityDefinition [
 
 { #category : 'as yet unclassified' }
 ExChdCoreEntity >> isExChdCheddarFunctionPtr [
+
 	^ false
 
 
@@ -259,6 +295,15 @@ ExChdCoreEntity >> isExChdCheddarFunctionPtr [
 
 { #category : 'as yet unclassified' }
 ExChdCoreEntity >> isExChdCheddarLawType [
+
+	^ false
+
+
+]
+
+{ #category : 'as yet unclassified' }
+ExChdCoreEntity >> isExChdCheddarModeRange [
+
 	^ false
 
 
@@ -266,6 +311,7 @@ ExChdCoreEntity >> isExChdCheddarLawType [
 
 { #category : 'as yet unclassified' }
 ExChdCoreEntity >> isExChdCheddarPrimitiveType [
+
 	^ false
 
 
@@ -273,6 +319,7 @@ ExChdCoreEntity >> isExChdCheddarPrimitiveType [
 
 { #category : 'as yet unclassified' }
 ExChdCoreEntity >> isExChdCheddarPriorityRange [
+
 	^ false
 
 
@@ -280,6 +327,7 @@ ExChdCoreEntity >> isExChdCheddarPriorityRange [
 
 { #category : 'as yet unclassified' }
 ExChdCoreEntity >> isExChdCheddarXmlIdType [
+
 	^ false
 
 
@@ -287,6 +335,7 @@ ExChdCoreEntity >> isExChdCheddarXmlIdType [
 
 { #category : 'as yet unclassified' }
 ExChdCoreEntity >> isExChdCollectionDtdElement [
+
 	^ false
 
 
@@ -294,6 +343,7 @@ ExChdCoreEntity >> isExChdCollectionDtdElement [
 
 { #category : 'as yet unclassified' }
 ExChdCoreEntity >> isExChdCompositeDtdElement [
+
 	^ false
 
 
@@ -301,6 +351,7 @@ ExChdCoreEntity >> isExChdCompositeDtdElement [
 
 { #category : 'as yet unclassified' }
 ExChdCoreEntity >> isExChdConstrainedArrayType [
+
 	^ false
 
 
@@ -308,6 +359,7 @@ ExChdCoreEntity >> isExChdConstrainedArrayType [
 
 { #category : 'as yet unclassified' }
 ExChdCoreEntity >> isExChdDiscriminatedType [
+
 	^ false
 
 
@@ -315,6 +367,7 @@ ExChdCoreEntity >> isExChdDiscriminatedType [
 
 { #category : 'as yet unclassified' }
 ExChdCoreEntity >> isExChdDiscriminatedTypeDiscriminant [
+
 	^ false
 
 
@@ -322,6 +375,7 @@ ExChdCoreEntity >> isExChdDiscriminatedTypeDiscriminant [
 
 { #category : 'as yet unclassified' }
 ExChdCoreEntity >> isExChdDiscriminatedTypeDtdElement [
+
 	^ false
 
 
@@ -329,6 +383,7 @@ ExChdCoreEntity >> isExChdDiscriminatedTypeDtdElement [
 
 { #category : 'as yet unclassified' }
 ExChdCoreEntity >> isExChdDiscriminatedTypeRefDtdElement [
+
 	^ false
 
 
@@ -336,6 +391,7 @@ ExChdCoreEntity >> isExChdDiscriminatedTypeRefDtdElement [
 
 { #category : 'as yet unclassified' }
 ExChdCoreEntity >> isExChdDiscriminatedTypeUnion [
+
 	^ false
 
 
@@ -343,6 +399,7 @@ ExChdCoreEntity >> isExChdDiscriminatedTypeUnion [
 
 { #category : 'as yet unclassified' }
 ExChdCoreEntity >> isExChdDiscriminatedTypeUnionElementType [
+
 	^ false
 
 
@@ -350,6 +407,7 @@ ExChdCoreEntity >> isExChdDiscriminatedTypeUnionElementType [
 
 { #category : 'as yet unclassified' }
 ExChdCoreEntity >> isExChdDiscriminatedTypeUnionType [
+
 	^ false
 
 
@@ -357,6 +415,7 @@ ExChdCoreEntity >> isExChdDiscriminatedTypeUnionType [
 
 { #category : 'as yet unclassified' }
 ExChdCoreEntity >> isExChdDomainDtdElement [
+
 	^ false
 
 
@@ -364,6 +423,7 @@ ExChdCoreEntity >> isExChdDomainDtdElement [
 
 { #category : 'as yet unclassified' }
 ExChdCoreEntity >> isExChdDtdElement [
+
 	^ false
 
 
@@ -371,6 +431,7 @@ ExChdCoreEntity >> isExChdDtdElement [
 
 { #category : 'as yet unclassified' }
 ExChdCoreEntity >> isExChdEntityDtdElement [
+
 	^ false
 
 
@@ -378,6 +439,7 @@ ExChdCoreEntity >> isExChdEntityDtdElement [
 
 { #category : 'as yet unclassified' }
 ExChdCoreEntity >> isExChdEntityRefDtdElement [
+
 	^ false
 
 
@@ -385,6 +447,7 @@ ExChdCoreEntity >> isExChdEntityRefDtdElement [
 
 { #category : 'as yet unclassified' }
 ExChdCoreEntity >> isExChdExplicitTypeReference [
+
 	^ false
 
 
@@ -392,6 +455,7 @@ ExChdCoreEntity >> isExChdExplicitTypeReference [
 
 { #category : 'as yet unclassified' }
 ExChdCoreEntity >> isExChdGenericPackageInstanciation [
+
 	^ false
 
 
@@ -399,6 +463,7 @@ ExChdCoreEntity >> isExChdGenericPackageInstanciation [
 
 { #category : 'as yet unclassified' }
 ExChdCoreEntity >> isExChdInScopeAttribute [
+
 	^ false
 
 
@@ -406,6 +471,7 @@ ExChdCoreEntity >> isExChdInScopeAttribute [
 
 { #category : 'as yet unclassified' }
 ExChdCoreEntity >> isExChdPackageAlias [
+
 	^ false
 
 
@@ -413,6 +479,7 @@ ExChdCoreEntity >> isExChdPackageAlias [
 
 { #category : 'as yet unclassified' }
 ExChdCoreEntity >> isExChdPackageDtdElement [
+
 	^ false
 
 
@@ -420,6 +487,7 @@ ExChdCoreEntity >> isExChdPackageDtdElement [
 
 { #category : 'as yet unclassified' }
 ExChdCoreEntity >> isExChdPragmaConvention [
+
 	^ false
 
 
@@ -427,6 +495,7 @@ ExChdCoreEntity >> isExChdPragmaConvention [
 
 { #category : 'as yet unclassified' }
 ExChdCoreEntity >> isExChdRangeType [
+
 	^ false
 
 
@@ -434,6 +503,7 @@ ExChdCoreEntity >> isExChdRangeType [
 
 { #category : 'as yet unclassified' }
 ExChdCoreEntity >> isExChdRecord [
+
 	^ false
 
 
@@ -441,6 +511,7 @@ ExChdCoreEntity >> isExChdRecord [
 
 { #category : 'as yet unclassified' }
 ExChdCoreEntity >> isExChdRecordDtdElement [
+
 	^ false
 
 
@@ -448,6 +519,7 @@ ExChdCoreEntity >> isExChdRecordDtdElement [
 
 { #category : 'as yet unclassified' }
 ExChdCoreEntity >> isExChdRecordRefDtdElement [
+
 	^ false
 
 
@@ -455,6 +527,7 @@ ExChdCoreEntity >> isExChdRecordRefDtdElement [
 
 { #category : 'as yet unclassified' }
 ExChdCoreEntity >> isExChdRootDtdElement [
+
 	^ false
 
 
@@ -462,6 +535,7 @@ ExChdCoreEntity >> isExChdRootDtdElement [
 
 { #category : 'as yet unclassified' }
 ExChdCoreEntity >> isExChdSimpleDomainDtdElement [
+
 	^ false
 
 
@@ -469,6 +543,7 @@ ExChdCoreEntity >> isExChdSimpleDomainDtdElement [
 
 { #category : 'as yet unclassified' }
 ExChdCoreEntity >> isExChdUnknownDomainDtdElement [
+
 	^ false
 
 
@@ -476,6 +551,7 @@ ExChdCoreEntity >> isExChdUnknownDomainDtdElement [
 
 { #category : 'as yet unclassified' }
 ExChdCoreEntity >> isExChdUnmappedEntityDefinition [
+
 	^ false
 
 
@@ -483,6 +559,7 @@ ExChdCoreEntity >> isExChdUnmappedEntityDefinition [
 
 { #category : 'as yet unclassified' }
 ExChdCoreEntity >> isExChdUnmappedTypeReference [
+
 	^ false
 
 
@@ -490,6 +567,7 @@ ExChdCoreEntity >> isExChdUnmappedTypeReference [
 
 { #category : 'platypus-generated-meta-data-accessing' }
 ExChdCoreEntity >> platypusMetaData [
+
 	^ self class platypusMetaData
 
 

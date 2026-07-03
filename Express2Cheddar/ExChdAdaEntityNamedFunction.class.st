@@ -33,6 +33,7 @@ Class {
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdAdaEntityNamedFunction class >> iso10303P11Translater [
+
 	^ 'Platypus (c) LISYC EA3883, Universite de Bretagne occidentale. Brest.'
 
 
@@ -40,6 +41,7 @@ ExChdAdaEntityNamedFunction class >> iso10303P11Translater [
 
 { #category : 'platypus-generated-meta-data-accessing' }
 ExChdAdaEntityNamedFunction class >> schemaDefinition [
+
 	^ ExChdExpress2cheddarFacadeSchemaDefinition singleton
 
 
@@ -47,6 +49,7 @@ ExChdAdaEntityNamedFunction class >> schemaDefinition [
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdAdaEntityNamedFunction class >> translatedFromISO10303P11 [
+
 	^ true
 
 
@@ -54,6 +57,7 @@ ExChdAdaEntityNamedFunction class >> translatedFromISO10303P11 [
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdAdaEntityNamedFunction class >> vwNamespaceName [
+
 	^ #Express2Cheddar
 
 
@@ -61,6 +65,7 @@ ExChdAdaEntityNamedFunction class >> vwNamespaceName [
 
 { #category : 'platypus-generated-accessing' }
 ExChdAdaEntityNamedFunction >> entities [
+
 	^ entities
 
 
@@ -68,15 +73,17 @@ ExChdAdaEntityNamedFunction >> entities [
 
 { #category : 'platypus-generated-accessing' }
 ExChdAdaEntityNamedFunction >> entities: aListOfExChdAdaEntity [
+
 	entities := aListOfExChdAdaEntity
-		ifNil: [ OrderedCollection new ]
-		ifNotNil: [ aListOfExChdAdaEntity as: OrderedCollection ]
+		            ifNil: [ OrderedCollection new ]
+		            ifNotNil: [ aListOfExChdAdaEntity as: OrderedCollection ]
 
 
 ]
 
 { #category : 'platypus-generated-accessing' }
 ExChdAdaEntityNamedFunction >> fromValues: values [
+
 	self name: (values at: 1)
 
 
@@ -87,36 +94,24 @@ ExChdAdaEntityNamedFunction >> invoke [
 	" ---------- locals assignments ----------"
 
 	self entities: ExChdAllAdaEntitiesFunction invoke.
-	self
-		key:
-			(PTsLowerizeFunction
-				invokeFromValues:
-					(OrderedCollection new
-						add: self name;
-						yourself)).	" ---------- statements ----------"
+	self key:
+		(PTsLowerizeFunction invokeFromValues: (OrderedCollection new
+				  add: self name;
+				  yourself)). " ---------- statements ----------"
 	PlatypusCoreRepeatStatement
-		repeat: [ :no2982 | 
-			PlatypusCoreAliasStatement
-				alias: (self entities pltAt: no2982)
-				statementsBlock: [ :curr4092 | 
-					(PTsLowerizeFunction
-						invokeFromValues:
-							(OrderedCollection new
-								add: (curr4092 nameUsingContext: self class context);
-								yourself)) = self key
-						ifTrue: [ ^ self return: curr4092 ] ] ]
-		from:
-			(PltLOINDEXFunction
-				invokeFromValues:
-					(OrderedCollection new
-						add: self entities;
-						yourself))
-		to:
-			(PltHIINDEXFunction
-				invokeFromValues:
-					(OrderedCollection new
-						add: self entities;
-						yourself)).
+		repeat: [ :no3003745 |
+				PlatypusCoreAliasStatement
+					alias: (self entities pltAt: no3003745)
+					statementsBlock: [ :curr1305573 |
+							(PTsLowerizeFunction invokeFromValues: (OrderedCollection new
+									  add: (curr1305573 nameUsingContext: self class context);
+									  yourself)) = self key ifTrue: [ ^ self return: curr1305573 ] ] ]
+		from: (PltLOINDEXFunction invokeFromValues: (OrderedCollection new
+					  add: self entities;
+					  yourself))
+		to: (PltHIINDEXFunction invokeFromValues: (OrderedCollection new
+					  add: self entities;
+					  yourself)).
 	^ self return: nil
 
 
@@ -124,6 +119,7 @@ ExChdAdaEntityNamedFunction >> invoke [
 
 { #category : 'platypus-generated-accessing' }
 ExChdAdaEntityNamedFunction >> key [
+
 	^ key
 
 
@@ -131,6 +127,7 @@ ExChdAdaEntityNamedFunction >> key [
 
 { #category : 'platypus-generated-accessing' }
 ExChdAdaEntityNamedFunction >> key: aString [
+
 	key := aString
 
 
@@ -138,6 +135,7 @@ ExChdAdaEntityNamedFunction >> key: aString [
 
 { #category : 'platypus-generated-accessing' }
 ExChdAdaEntityNamedFunction >> name [
+
 	^ name
 
 
@@ -145,6 +143,7 @@ ExChdAdaEntityNamedFunction >> name [
 
 { #category : 'platypus-generated-accessing' }
 ExChdAdaEntityNamedFunction >> name: aString [
+
 	name := aString
 
 

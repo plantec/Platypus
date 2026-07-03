@@ -8,7 +8,7 @@ FUNCTION xml_architecture_io_ads_package_code : STRING;
 		allcls : LIST OF ada_class := all_ada_classes ( );
 		allrecs : LIST OF ada_class := all_ada_records ( );
 		alldts : LIST OF discriminated_type := all_ada_discriminated_types ( );
-		interfaces : LIST OF ada_interface := [ ada_interface ( 'Sax', 'Readers', true, true ), ada_interface ( 'Networks', ?, true, true ), ada_interface ( 'Sax', 'Exceptions', true, true ), ada_interface ( 'Sax', 'Locators', true, true ), ada_interface ( 'Sax', 'Attributes', true, true ), ada_interface ( 'Unicode', 'CES', true, true ), ada_interface ( 'Unicode', ?, true, true ), ada_interface ( 'xml_generic_parsers', ?, true, true ), ada_interface ( 'Ada', 'Text_IO', true, true ), ada_interface ( 'Ada', 'Strings.Unbounded', true, true ), ada_interface ( 'Strings', ?, true, true ), ada_interface ( 'Unbounded_Strings', ?, true, true ), ada_interface ( 'Ada', 'Numerics.Aux', true, true ), ada_interface ( 'call_framework_interface', ?, true, true ), ada_interface ( 'Debug', ?, true, true ) ];
+		interfaces : LIST OF ada_interface := [ ada_interface ( 'Sax', 'Readers', true, true ), ada_interface ( 'Networks', ?, true, true ), ada_interface ( 'Sax', 'Exceptions', true, true ), ada_interface ( 'Sax', 'Locators', true, true ), ada_interface ( 'Sax', 'Attributes', true, true ), ada_interface ( 'Unicode', 'CES', true, true ), ada_interface ( 'Unicode', ?, true, true ), ada_interface ( 'xml_generic_parsers', ?, true, true ), ada_interface ( 'Ada', 'Text_IO', true, true ), ada_interface ( 'Ada', 'Strings.Unbounded', true, true ), ada_interface ( 'Strings', ?, true, true ), ada_interface ( 'Unbounded_Strings', ?, true, true ), ada_interface ( 'doubles', ?, true, true ), ada_interface ( 'call_framework_interface', ?, true, true ), ada_interface ( 'Debug', ?, true, true ) ];
 	END_LOCAL;
 	code := source_licence + '\n';
 
@@ -136,6 +136,7 @@ Class {
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdXmlArchitectureIoAdsPackageCodeFunction class >> iso10303P11Translater [
+
 	^ 'Platypus (c) LISYC EA3883, Universite de Bretagne occidentale. Brest.'
 
 
@@ -143,6 +144,7 @@ ExChdXmlArchitectureIoAdsPackageCodeFunction class >> iso10303P11Translater [
 
 { #category : 'platypus-generated-meta-data-accessing' }
 ExChdXmlArchitectureIoAdsPackageCodeFunction class >> schemaDefinition [
+
 	^ ExChdXmlIoSchemaDefinition singleton
 
 
@@ -150,6 +152,7 @@ ExChdXmlArchitectureIoAdsPackageCodeFunction class >> schemaDefinition [
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdXmlArchitectureIoAdsPackageCodeFunction class >> translatedFromISO10303P11 [
+
 	^ true
 
 
@@ -157,6 +160,7 @@ ExChdXmlArchitectureIoAdsPackageCodeFunction class >> translatedFromISO10303P11 
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdXmlArchitectureIoAdsPackageCodeFunction class >> vwNamespaceName [
+
 	^ #Express2Cheddar
 
 
@@ -164,6 +168,7 @@ ExChdXmlArchitectureIoAdsPackageCodeFunction class >> vwNamespaceName [
 
 { #category : 'platypus-generated-accessing' }
 ExChdXmlArchitectureIoAdsPackageCodeFunction >> allcls [
+
 	^ allcls
 
 
@@ -171,15 +176,17 @@ ExChdXmlArchitectureIoAdsPackageCodeFunction >> allcls [
 
 { #category : 'platypus-generated-accessing' }
 ExChdXmlArchitectureIoAdsPackageCodeFunction >> allcls: aListOfExChdAdaClass [
+
 	allcls := aListOfExChdAdaClass
-		ifNil: [ OrderedCollection new ]
-		ifNotNil: [ aListOfExChdAdaClass as: OrderedCollection ]
+		          ifNil: [ OrderedCollection new ]
+		          ifNotNil: [ aListOfExChdAdaClass as: OrderedCollection ]
 
 
 ]
 
 { #category : 'platypus-generated-accessing' }
 ExChdXmlArchitectureIoAdsPackageCodeFunction >> alldts [
+
 	^ alldts
 
 
@@ -187,15 +194,18 @@ ExChdXmlArchitectureIoAdsPackageCodeFunction >> alldts [
 
 { #category : 'platypus-generated-accessing' }
 ExChdXmlArchitectureIoAdsPackageCodeFunction >> alldts: aListOfExChdDiscriminatedType [
+
 	alldts := aListOfExChdDiscriminatedType
-		ifNil: [ OrderedCollection new ]
-		ifNotNil: [ aListOfExChdDiscriminatedType as: OrderedCollection ]
+		          ifNil: [ OrderedCollection new ]
+		          ifNotNil: [
+		          aListOfExChdDiscriminatedType as: OrderedCollection ]
 
 
 ]
 
 { #category : 'platypus-generated-accessing' }
 ExChdXmlArchitectureIoAdsPackageCodeFunction >> allrecs [
+
 	^ allrecs
 
 
@@ -203,15 +213,17 @@ ExChdXmlArchitectureIoAdsPackageCodeFunction >> allrecs [
 
 { #category : 'platypus-generated-accessing' }
 ExChdXmlArchitectureIoAdsPackageCodeFunction >> allrecs: aListOfExChdAdaClass1 [
+
 	allrecs := aListOfExChdAdaClass1
-		ifNil: [ OrderedCollection new ]
-		ifNotNil: [ aListOfExChdAdaClass1 as: OrderedCollection ]
+		           ifNil: [ OrderedCollection new ]
+		           ifNotNil: [ aListOfExChdAdaClass1 as: OrderedCollection ]
 
 
 ]
 
 { #category : 'platypus-generated-accessing' }
 ExChdXmlArchitectureIoAdsPackageCodeFunction >> code [
+
 	^ code
 
 
@@ -219,6 +231,7 @@ ExChdXmlArchitectureIoAdsPackageCodeFunction >> code [
 
 { #category : 'platypus-generated-accessing' }
 ExChdXmlArchitectureIoAdsPackageCodeFunction >> code: aString1 [
+
 	code := aString1
 
 
@@ -226,6 +239,7 @@ ExChdXmlArchitectureIoAdsPackageCodeFunction >> code: aString1 [
 
 { #category : 'platypus-generated-accessing' }
 ExChdXmlArchitectureIoAdsPackageCodeFunction >> interfaces [
+
 	^ interfaces
 
 
@@ -233,9 +247,11 @@ ExChdXmlArchitectureIoAdsPackageCodeFunction >> interfaces [
 
 { #category : 'platypus-generated-accessing' }
 ExChdXmlArchitectureIoAdsPackageCodeFunction >> interfaces: aListOfExChdAdaInterface [
+
 	interfaces := aListOfExChdAdaInterface
-		ifNil: [ OrderedCollection new ]
-		ifNotNil: [ aListOfExChdAdaInterface as: OrderedCollection ]
+		              ifNil: [ OrderedCollection new ]
+		              ifNotNil: [
+		              aListOfExChdAdaInterface as: OrderedCollection ]
 
 
 ]
@@ -246,514 +262,494 @@ ExChdXmlArchitectureIoAdsPackageCodeFunction >> invoke [
 
 	self test: ''.
 	self code: ''.
-	self
-		pkgs:
-			(PTsSetToListFunction
-				invokeFromValues:
-					(OrderedCollection new
-						add: ExChdAllAdaPackagesFunction invoke;
-						yourself)).
+	self pkgs:
+		(PTsSetToListFunction invokeFromValues: (OrderedCollection new
+				  add: ExChdAllAdaPackagesFunction invoke;
+				  yourself)).
 	self allcls: ExChdAllAdaClassesFunction invoke.
 	self allrecs: ExChdAllAdaRecordsFunction invoke.
 	self alldts: ExChdAllAdaDiscriminatedTypesFunction invoke.
-	self
-		interfaces:
-			(PlatypusCoreAggregateInitializer
-				collectionFrom:
-					(OrderedCollection new
-						add:
-								(ExChdAdaInterface new
-										adaInterfaceFromValues:
-												(OrderedCollection new
-														add: 'Sax';
-														add: 'Readers';
-														add: true;
-														add: true;
-														yourself);
-										yourself);
-						add:
-								(ExChdAdaInterface new
-										adaInterfaceFromValues:
-												(OrderedCollection new
-														add: 'Networks';
-														add: nil;
-														add: true;
-														add: true;
-														yourself);
-										yourself);
-						add:
-								(ExChdAdaInterface new
-										adaInterfaceFromValues:
-												(OrderedCollection new
-														add: 'Sax';
-														add: 'Exceptions';
-														add: true;
-														add: true;
-														yourself);
-										yourself);
-						add:
-								(ExChdAdaInterface new
-										adaInterfaceFromValues:
-												(OrderedCollection new
-														add: 'Sax';
-														add: 'Locators';
-														add: true;
-														add: true;
-														yourself);
-										yourself);
-						add:
-								(ExChdAdaInterface new
-										adaInterfaceFromValues:
-												(OrderedCollection new
-														add: 'Sax';
-														add: 'Attributes';
-														add: true;
-														add: true;
-														yourself);
-										yourself);
-						add:
-								(ExChdAdaInterface new
-										adaInterfaceFromValues:
-												(OrderedCollection new
-														add: 'Unicode';
-														add: 'CES';
-														add: true;
-														add: true;
-														yourself);
-										yourself);
-						add:
-								(ExChdAdaInterface new
-										adaInterfaceFromValues:
-												(OrderedCollection new
-														add: 'Unicode';
-														add: nil;
-														add: true;
-														add: true;
-														yourself);
-										yourself);
-						add:
-								(ExChdAdaInterface new
-										adaInterfaceFromValues:
-												(OrderedCollection new
-														add: 'xml_generic_parsers';
-														add: nil;
-														add: true;
-														add: true;
-														yourself);
-										yourself);
-						add:
-								(ExChdAdaInterface new
-										adaInterfaceFromValues:
-												(OrderedCollection new
-														add: 'Ada';
-														add: 'Text_IO';
-														add: true;
-														add: true;
-														yourself);
-										yourself);
-						add:
-								(ExChdAdaInterface new
-										adaInterfaceFromValues:
-												(OrderedCollection new
-														add: 'Ada';
-														add: 'Strings.Unbounded';
-														add: true;
-														add: true;
-														yourself);
-										yourself);
-						add:
-								(ExChdAdaInterface new
-										adaInterfaceFromValues:
-												(OrderedCollection new
-														add: 'Strings';
-														add: nil;
-														add: true;
-														add: true;
-														yourself);
-										yourself);
-						add:
-								(ExChdAdaInterface new
-										adaInterfaceFromValues:
-												(OrderedCollection new
-														add: 'Unbounded_Strings';
-														add: nil;
-														add: true;
-														add: true;
-														yourself);
-										yourself);
-						add:
-								(ExChdAdaInterface new
-										adaInterfaceFromValues:
-												(OrderedCollection new
-														add: 'Ada';
-														add: 'Numerics.Aux';
-														add: true;
-														add: true;
-														yourself);
-										yourself);
-						add:
-								(ExChdAdaInterface new
-										adaInterfaceFromValues:
-												(OrderedCollection new
-														add: 'call_framework_interface';
-														add: nil;
-														add: true;
-														add: true;
-														yourself);
-										yourself);
-						add:
-								(ExChdAdaInterface new
-										adaInterfaceFromValues:
-												(OrderedCollection new
-														add: 'Debug';
-														add: nil;
-														add: true;
-														add: true;
-														yourself);
-										yourself);
-						yourself)).	" ---------- statements ----------"
-	self
-		code:
-			(((((((((((((((((((((((((((((((((((((((''
-				pltPlus: '------------------------------------------------------------------------------\n')
-				pltPlus: '------------------------------------------------------------------------------\n')
-				pltPlus: '--  This source file was automatically generated by Platypus\n')
-				pltPlus: '--  see http://dossen.univ-brest.fr/apl\n') pltPlus: '-- \n')
-				pltPlus: '--  Any modification of this file will be lost. \n')
-				pltPlus: '--  Please see the "platypus" directory instead : it contains the Cheddar''s\n')
-				pltPlus: '--  model and its meta-model. \n')
-				pltPlus: '------------------------------------------------------------------------------\n \n')
-				pltPlus: '------------------------------------------------------------------------------\n')
-				pltPlus: '-- Cheddar is a free real time scheduling tool.\n')
-				pltPlus: '-- This program provides services to automatically check temporal constraints\n')
-				pltPlus: '-- of real time tasks.\n') pltPlus: '--\n') pltPlus: '-- Copyright (C) 2002-2014   Frank Singhoff\n')
-				pltPlus: '-- Cheddar is developed by the LAB-STICC Team, University of Brest\n') pltPlus: '--\n')
-				pltPlus: '-- This program is free software; you can redistribute it and/or modify\n')
-				pltPlus: '-- it under the terms of the GNU General Public License as published by\n')
-				pltPlus: '-- the Free Software Foundation; either version 2 of the License, or\n')
-				pltPlus: '-- (at your option) any later version.\n') pltPlus: '--\n')
-				pltPlus: '-- This program is distributed in the hope that it will be useful,\n')
-				pltPlus: '-- but WITHOUT ANY WARRANTY; without even the implied warranty of\n')
-				pltPlus: '-- MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the\n')
-				pltPlus: '-- GNU General Public License for more details.\n') pltPlus: '--\n')
-				pltPlus: '-- You should have received a copy of the GNU General Public License\n')
-				pltPlus: '-- along with this program; if not, write to the Free Software\n')
-				pltPlus: '-- Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA\n') pltPlus: '--\n')
-				pltPlus: '--\n') pltPlus: '-- Contact : cheddar@listes.univ-brest.fr\n')
-				pltPlus: '-- 	To post to this mailing list, you must be subscribed\n')
-				pltPlus: '-- 	(see http//beru.univ-brest.fr/~singhoff/cheddar for details)\n') pltPlus: '--\n')
-				pltPlus: '------------------------------------------------------------------------------\n')
-				pltPlus: '------------------------------------------------------------------------------\n') pltPlus: '\n').
+	self interfaces: (PlatypusCoreAggregateInitializer collectionFrom:
+			 (OrderedCollection new
+				  add: (ExChdAdaInterface new
+						   adaInterfaceFromValues: (OrderedCollection new
+								    add: 'Sax';
+								    add: 'Readers';
+								    add: true;
+								    add: true;
+								    yourself);
+						   yourself);
+				  add: (ExChdAdaInterface new
+						   adaInterfaceFromValues: (OrderedCollection new
+								    add: 'Networks';
+								    add: nil;
+								    add: true;
+								    add: true;
+								    yourself);
+						   yourself);
+				  add: (ExChdAdaInterface new
+						   adaInterfaceFromValues: (OrderedCollection new
+								    add: 'Sax';
+								    add: 'Exceptions';
+								    add: true;
+								    add: true;
+								    yourself);
+						   yourself);
+				  add: (ExChdAdaInterface new
+						   adaInterfaceFromValues: (OrderedCollection new
+								    add: 'Sax';
+								    add: 'Locators';
+								    add: true;
+								    add: true;
+								    yourself);
+						   yourself);
+				  add: (ExChdAdaInterface new
+						   adaInterfaceFromValues: (OrderedCollection new
+								    add: 'Sax';
+								    add: 'Attributes';
+								    add: true;
+								    add: true;
+								    yourself);
+						   yourself);
+				  add: (ExChdAdaInterface new
+						   adaInterfaceFromValues: (OrderedCollection new
+								    add: 'Unicode';
+								    add: 'CES';
+								    add: true;
+								    add: true;
+								    yourself);
+						   yourself);
+				  add: (ExChdAdaInterface new
+						   adaInterfaceFromValues: (OrderedCollection new
+								    add: 'Unicode';
+								    add: nil;
+								    add: true;
+								    add: true;
+								    yourself);
+						   yourself);
+				  add: (ExChdAdaInterface new
+						   adaInterfaceFromValues: (OrderedCollection new
+								    add: 'xml_generic_parsers';
+								    add: nil;
+								    add: true;
+								    add: true;
+								    yourself);
+						   yourself);
+				  add: (ExChdAdaInterface new
+						   adaInterfaceFromValues: (OrderedCollection new
+								    add: 'Ada';
+								    add: 'Text_IO';
+								    add: true;
+								    add: true;
+								    yourself);
+						   yourself);
+				  add: (ExChdAdaInterface new
+						   adaInterfaceFromValues: (OrderedCollection new
+								    add: 'Ada';
+								    add: 'Strings.Unbounded';
+								    add: true;
+								    add: true;
+								    yourself);
+						   yourself);
+				  add: (ExChdAdaInterface new
+						   adaInterfaceFromValues: (OrderedCollection new
+								    add: 'Strings';
+								    add: nil;
+								    add: true;
+								    add: true;
+								    yourself);
+						   yourself);
+				  add: (ExChdAdaInterface new
+						   adaInterfaceFromValues: (OrderedCollection new
+								    add: 'Unbounded_Strings';
+								    add: nil;
+								    add: true;
+								    add: true;
+								    yourself);
+						   yourself);
+				  add: (ExChdAdaInterface new
+						   adaInterfaceFromValues: (OrderedCollection new
+								    add: 'doubles';
+								    add: nil;
+								    add: true;
+								    add: true;
+								    yourself);
+						   yourself);
+				  add: (ExChdAdaInterface new
+						   adaInterfaceFromValues: (OrderedCollection new
+								    add: 'call_framework_interface';
+								    add: nil;
+								    add: true;
+								    add: true;
+								    yourself);
+						   yourself);
+				  add: (ExChdAdaInterface new
+						   adaInterfaceFromValues: (OrderedCollection new
+								    add: 'Debug';
+								    add: nil;
+								    add: true;
+								    add: true;
+								    yourself);
+						   yourself);
+				  yourself)). " ---------- statements ----------"
+	self code: (((((((((((((((((((((((((((((((((((((((((((((('' pltPlus:
+			                                              '------------------------------------------------------------------------------\n')
+			                                             pltPlus:
+			                                             '------------------------------------------------------------------------------\n')
+			                                            pltPlus:
+			                                            '--  This source file was automatically generated by Platypus.\n')
+			                                           pltPlus: '-- \n')
+			                                          pltPlus:
+			                                          '--  Any modification of this file will be lost. \n')
+			                                         pltPlus:
+			                                         '--  Please see the "platypus" directory instead : it contains the Cheddar''s\n')
+			                                        pltPlus:
+			                                        '--  model and its meta-model. \n')
+			                                       pltPlus:
+			                                       '------------------------------------------------------------------------------\n \n')
+			                                      pltPlus:
+			                                      '------------------------------------------------------------------------------\n')
+			                                     pltPlus:
+			                                     '-- Cheddar is a GNU GPL real-time scheduling analysis tool.\n')
+			                                    pltPlus:
+			                                    '-- This program provides services to automatically check schedulability and\n')
+			                                   pltPlus:
+			                                   '-- other performance criteria of real-time architecture models.\n')
+			                                  pltPlus: '--\n') pltPlus:
+			                                 '-- Copyright (C) 2002-2016   Frank Singhoff, Alain Plantec, Jerome Legrand\n')
+			                                pltPlus: '--\n') pltPlus:
+			                               '-- The Cheddar project was started in 2002 by \n')
+			                              pltPlus:
+			                              '-- Frank Singhoff, Lab-STICC UMR 6285 laboratory, University of Brest, France\n')
+			                             pltPlus: '-- \n') pltPlus:
+			                            '-- Cheddar has been published in the "Agence de Protection des Programmes/France" in 2008. \n')
+			                           pltPlus:
+			                           '-- Since 2008, Ellidiss technologies also contributes to the development of \n')
+			                          pltPlus:
+			                          '-- Cheddar and provides industrial support.\n')
+			                         pltPlus: '--\n') pltPlus:
+			                        '-- The full list of contributors and sponsors can be found in AUTHORS.txt and SPONSORS.txt\n')
+			                       pltPlus: '--\n') pltPlus:
+			                      '-- This program is free software; you can redistribute it and/or modify\n')
+			                     pltPlus:
+			                     '-- it under the terms of the GNU General Public License as published by\n')
+			                    pltPlus:
+			                    '-- the Free Software Foundation; either version 2 of the License, or\n')
+			                   pltPlus:
+			                   '-- (at your option) any later version.\n')
+			                  pltPlus: '--\n') pltPlus:
+			                 '-- This program is distributed in the hope that it will be useful,\n')
+			                pltPlus:
+			                '-- but WITHOUT ANY WARRANTY; without even the implied warranty of\n')
+			               pltPlus:
+			               '-- MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the\n')
+			              pltPlus:
+			              '-- GNU General Public License for more details.\n')
+			             pltPlus: '--\n') pltPlus:
+			            '-- You should have received a copy of the GNU General Public License\n')
+			           pltPlus:
+			           '-- along with this program; if not, write to the Free Software\n')
+			          pltPlus:
+			          '-- Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA\n')
+			         pltPlus: '--\n') pltPlus: '--\n') pltPlus:
+			       '-- Contact : cheddar@listes.univ-brest.fr\n') pltPlus:
+			      '--   To post to this mailing list, you must be subscribed\n')
+			     pltPlus:
+			     '--   (see http//beru.univ-brest.fr/~singhoff/cheddar for details)\n')
+			    pltPlus: '--\n') pltPlus:
+			   '------------------------------------------------------------------------------\n')
+			  pltPlus:
+			  '------------------------------------------------------------------------------\n')
+			 pltPlus: '\n').
 	PlatypusCoreRepeatStatement
-		repeat: [ :no2 | 
-			self
-				interfaces:
-					(self interfaces
-						pltPlus:
-							(ExChdAdaInterface new
-								adaInterfaceFromValues:
-										(OrderedCollection new
-												add: ((self pkgs pltAt: no2) nameUsingContext: self class context);
-												add: nil;
-												add: true;
-												add: true;
-												yourself);
-								yourself)).
-			self
-				interfaces:
-					(self interfaces
-						pltPlus:
-							(ExChdAdaPackageInterfaceFunction
-								invokeFromValues:
-									(OrderedCollection new
-										add: (self pkgs pltAt: no2);
-										add: true;
-										yourself))) ]
-		from:
-			(PltLOINDEXFunction
-				invokeFromValues:
-					(OrderedCollection new
-						add: self pkgs;
-						yourself))
-		to:
-			(PltHIINDEXFunction
-				invokeFromValues:
-					(OrderedCollection new
-						add: self pkgs;
-						yourself)).
-	self
-		code:
-			(((((((((((((((((((((((((((((((((((((((''
-				pltPlus: '------------------------------------------------------------------------------\n')
-				pltPlus: '------------------------------------------------------------------------------\n')
-				pltPlus: '--  This source file was automatically generated by Platypus\n')
-				pltPlus: '--  see http://dossen.univ-brest.fr/apl\n') pltPlus: '-- \n')
-				pltPlus: '--  Any modification of this file will be lost. \n')
-				pltPlus: '--  Please see the "platypus" directory instead : it contains the Cheddar''s\n')
-				pltPlus: '--  model and its meta-model. \n')
-				pltPlus: '------------------------------------------------------------------------------\n \n')
-				pltPlus: '------------------------------------------------------------------------------\n')
-				pltPlus: '-- Cheddar is a free real time scheduling tool.\n')
-				pltPlus: '-- This program provides services to automatically check temporal constraints\n')
-				pltPlus: '-- of real time tasks.\n') pltPlus: '--\n') pltPlus: '-- Copyright (C) 2002-2014   Frank Singhoff\n')
-				pltPlus: '-- Cheddar is developed by the LAB-STICC Team, University of Brest\n') pltPlus: '--\n')
-				pltPlus: '-- This program is free software; you can redistribute it and/or modify\n')
-				pltPlus: '-- it under the terms of the GNU General Public License as published by\n')
-				pltPlus: '-- the Free Software Foundation; either version 2 of the License, or\n')
-				pltPlus: '-- (at your option) any later version.\n') pltPlus: '--\n')
-				pltPlus: '-- This program is distributed in the hope that it will be useful,\n')
-				pltPlus: '-- but WITHOUT ANY WARRANTY; without even the implied warranty of\n')
-				pltPlus: '-- MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the\n')
-				pltPlus: '-- GNU General Public License for more details.\n') pltPlus: '--\n')
-				pltPlus: '-- You should have received a copy of the GNU General Public License\n')
-				pltPlus: '-- along with this program; if not, write to the Free Software\n')
-				pltPlus: '-- Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA\n') pltPlus: '--\n')
-				pltPlus: '--\n') pltPlus: '-- Contact : cheddar@listes.univ-brest.fr\n')
-				pltPlus: '-- 	To post to this mailing list, you must be subscribed\n')
-				pltPlus: '-- 	(see http//beru.univ-brest.fr/~singhoff/cheddar for details)\n') pltPlus: '--\n')
-				pltPlus: '------------------------------------------------------------------------------\n')
-				pltPlus: '------------------------------------------------------------------------------\n')
-				pltPlus:
-					(ExChdAdaInterfacesCodeFunction
-						invokeFromValues:
-							(OrderedCollection new
-								add: nil;
-								add: self interfaces;
-								yourself))).
-	self
-		code:
-			((self code pltPlus: 'package xml_architecture_io is\n\n') pltPlus: '-- Attributes of the discriminated types\n\n').
+		repeat: [ :no2762253 |
+				self interfaces: (self interfaces pltPlus: (ExChdAdaInterface new
+							  adaInterfaceFromValues: (OrderedCollection new
+									   add:
+										   ((self pkgs pltAt: no2762253) nameUsingContext:
+												    self class context);
+									   add: nil;
+									   add: true;
+									   add: true;
+									   yourself);
+							  yourself)).
+				self interfaces: (self interfaces pltPlus:
+						 (ExChdAdaPackageInterfaceFunction invokeFromValues:
+							  (OrderedCollection new
+								   add: (self pkgs pltAt: no2762253);
+								   add: true;
+								   yourself))) ]
+		from: (PltLOINDEXFunction invokeFromValues: (OrderedCollection new
+					  add: self pkgs;
+					  yourself))
+		to: (PltHIINDEXFunction invokeFromValues: (OrderedCollection new
+					  add: self pkgs;
+					  yourself)).
+	self code: (((((((((((((((((((((((((((((((((((((((((((((('' pltPlus:
+			                                              '------------------------------------------------------------------------------\n')
+			                                             pltPlus:
+			                                             '------------------------------------------------------------------------------\n')
+			                                            pltPlus:
+			                                            '--  This source file was automatically generated by Platypus.\n')
+			                                           pltPlus: '-- \n')
+			                                          pltPlus:
+			                                          '--  Any modification of this file will be lost. \n')
+			                                         pltPlus:
+			                                         '--  Please see the "platypus" directory instead : it contains the Cheddar''s\n')
+			                                        pltPlus:
+			                                        '--  model and its meta-model. \n')
+			                                       pltPlus:
+			                                       '------------------------------------------------------------------------------\n \n')
+			                                      pltPlus:
+			                                      '------------------------------------------------------------------------------\n')
+			                                     pltPlus:
+			                                     '-- Cheddar is a GNU GPL real-time scheduling analysis tool.\n')
+			                                    pltPlus:
+			                                    '-- This program provides services to automatically check schedulability and\n')
+			                                   pltPlus:
+			                                   '-- other performance criteria of real-time architecture models.\n')
+			                                  pltPlus: '--\n') pltPlus:
+			                                 '-- Copyright (C) 2002-2016   Frank Singhoff, Alain Plantec, Jerome Legrand\n')
+			                                pltPlus: '--\n') pltPlus:
+			                               '-- The Cheddar project was started in 2002 by \n')
+			                              pltPlus:
+			                              '-- Frank Singhoff, Lab-STICC UMR 6285 laboratory, University of Brest, France\n')
+			                             pltPlus: '-- \n') pltPlus:
+			                            '-- Cheddar has been published in the "Agence de Protection des Programmes/France" in 2008. \n')
+			                           pltPlus:
+			                           '-- Since 2008, Ellidiss technologies also contributes to the development of \n')
+			                          pltPlus:
+			                          '-- Cheddar and provides industrial support.\n')
+			                         pltPlus: '--\n') pltPlus:
+			                        '-- The full list of contributors and sponsors can be found in AUTHORS.txt and SPONSORS.txt\n')
+			                       pltPlus: '--\n') pltPlus:
+			                      '-- This program is free software; you can redistribute it and/or modify\n')
+			                     pltPlus:
+			                     '-- it under the terms of the GNU General Public License as published by\n')
+			                    pltPlus:
+			                    '-- the Free Software Foundation; either version 2 of the License, or\n')
+			                   pltPlus:
+			                   '-- (at your option) any later version.\n')
+			                  pltPlus: '--\n') pltPlus:
+			                 '-- This program is distributed in the hope that it will be useful,\n')
+			                pltPlus:
+			                '-- but WITHOUT ANY WARRANTY; without even the implied warranty of\n')
+			               pltPlus:
+			               '-- MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the\n')
+			              pltPlus:
+			              '-- GNU General Public License for more details.\n')
+			             pltPlus: '--\n') pltPlus:
+			            '-- You should have received a copy of the GNU General Public License\n')
+			           pltPlus:
+			           '-- along with this program; if not, write to the Free Software\n')
+			          pltPlus:
+			          '-- Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA\n')
+			         pltPlus: '--\n') pltPlus: '--\n') pltPlus:
+			       '-- Contact : cheddar@listes.univ-brest.fr\n') pltPlus:
+			      '--   To post to this mailing list, you must be subscribed\n')
+			     pltPlus:
+			     '--   (see http//beru.univ-brest.fr/~singhoff/cheddar for details)\n')
+			    pltPlus: '--\n') pltPlus:
+			   '------------------------------------------------------------------------------\n')
+			  pltPlus:
+			  '------------------------------------------------------------------------------\n')
+			 pltPlus: (ExChdAdaInterfacesCodeFunction invokeFromValues:
+					  (OrderedCollection new
+						   add: nil;
+						   add: self interfaces;
+						   yourself))).
+	self code:
+		((self code pltPlus: 'package xml_architecture_io is\n\n') pltPlus:
+			 '-- Attributes of the discriminated types\n\n').
 	PlatypusCoreRepeatStatement
-		repeat: [ :no2218 | 
-			self
-				code:
-					((self code pltPlus: ((self alldts pltAt: no2218) xmlIoRecordCodeUsingContext: self class context)) pltPlus: '\n') ]
-		from:
-			(PltLOINDEXFunction
-				invokeFromValues:
-					(OrderedCollection new
-						add: self alldts;
-						yourself))
-		to:
-			(PltHIINDEXFunction
-				invokeFromValues:
-					(OrderedCollection new
-						add: self alldts;
-						yourself)).
-	self
-		code:
-			((((((((self code pltPlus: '\nprocedure Start_Element(') pltPlus: '\n	Handler: in out Xml_Generic_Parser;')
-				pltPlus: '\n	ref : in out unbounded_string;') pltPlus: '\n	id : in out unbounded_string;')
-				pltPlus: '\n	Namespace_Uri : Unicode.CES.Byte_Sequence := "";')
-				pltPlus: '\n	Local_Name : Unicode.CES.Byte_Sequence := "";') pltPlus: '\n	Qname : Unicode.CES.Byte_Sequence := "";')
-				pltPlus: '\n	Atts : Sax.Attributes.Attributes''Class);\n').
+		repeat: [ :no2635801 |
+				self code: ((self code pltPlus:
+						  ((self alldts pltAt: no2635801) xmlIoRecordCodeUsingContext:
+							   self class context)) pltPlus: '\n') ]
+		from: (PltLOINDEXFunction invokeFromValues: (OrderedCollection new
+					  add: self alldts;
+					  yourself))
+		to: (PltHIINDEXFunction invokeFromValues: (OrderedCollection new
+					  add: self alldts;
+					  yourself)).
+	self code:
+		((((((((self code pltPlus: '\nprocedure Start_Element(') pltPlus:
+			       '\n	Handler: in out Xml_Generic_Parser;') pltPlus:
+			      '\n	ref : in out unbounded_string;') pltPlus:
+			     '\n	id : in out unbounded_string;') pltPlus:
+			    '\n	Namespace_Uri : Unicode.CES.Byte_Sequence := "";')
+			   pltPlus: '\n	Local_Name : Unicode.CES.Byte_Sequence := "";')
+			  pltPlus: '\n	Qname : Unicode.CES.Byte_Sequence := "";') pltPlus:
+			 '\n	Atts : Sax.Attributes.Attributes''Class);\n').
 	PlatypusCoreRepeatStatement
-		repeat: [ :no3465 | 
-			self
-				test:
+		repeat: [ :no4087391 |
+				self test:
 					(ExChdDiscriminatedTypeXmlStartElementCodeFunction
-						invokeFromValues:
-							(OrderedCollection new
-								add: (self alldts pltAt: no3465);
-								yourself)).
-			self test > ''
-				ifTrue: [ 
-					self
-						code:
-							(((((((((self code pltPlus: '\nprocedure Start_Element(\n') pltPlus: '\tHandler : in out Xml_generic_parser;\n')
-								pltPlus: '\tobj : in out ') pltPlus: ((self alldts pltAt: no3465) nameUsingContext: self class context))
-								pltPlus: '_io;\n') pltPlus: '\tNamespace_Uri : Unicode.CES.Byte_Sequence := "";\n')
-								pltPlus: '\tLocal_Name : Unicode.CES.Byte_Sequence := "";\n')
-								pltPlus: '\tQname : Unicode.CES.Byte_Sequence := "";\n')
-								pltPlus: '\tAtts : Sax.Attributes.Attributes''Class);\n') ].
-			self
-				code:
-					((((((((self code pltPlus: '\nprocedure End_Element(\n') pltPlus: '\tHandler : in out Xml_generic_parser;\n')
-						pltPlus: '\tobj : in out ') pltPlus: ((self alldts pltAt: no3465) nameUsingContext: self class context))
-						pltPlus: '_io;\n') pltPlus: '\tNamespace_Uri : Unicode.CES.Byte_Sequence := "";\n')
-						pltPlus: '\tLocal_Name : Unicode.CES.Byte_Sequence := "";\n')
-						pltPlus: '\tQname : Unicode.CES.Byte_Sequence := "");\n') ]
-		from:
-			(PltLOINDEXFunction
-				invokeFromValues:
-					(OrderedCollection new
-						add: self alldts;
-						yourself))
-		to:
-			(PltHIINDEXFunction
-				invokeFromValues:
-					(OrderedCollection new
-						add: self alldts;
-						yourself)).
+						 invokeFromValues: (OrderedCollection new
+								  add: (self alldts pltAt: no4087391);
+								  yourself)).
+				self test > '' ifTrue: [
+						self code:
+							(((((((((self code pltPlus: '\nprocedure Start_Element(\n')
+								        pltPlus: '\tHandler : in out Xml_generic_parser;\n')
+								       pltPlus: '\tobj : in out ') pltPlus:
+								      ((self alldts pltAt: no4087391) nameUsingContext:
+									       self class context)) pltPlus: '_io;\n') pltPlus:
+								    '\tNamespace_Uri : Unicode.CES.Byte_Sequence := "";\n')
+								   pltPlus:
+								   '\tLocal_Name : Unicode.CES.Byte_Sequence := "";\n')
+								  pltPlus: '\tQname : Unicode.CES.Byte_Sequence := "";\n')
+								 pltPlus: '\tAtts : Sax.Attributes.Attributes''Class);\n') ].
+				self code:
+					((((((((self code pltPlus: '\nprocedure End_Element(\n')
+						       pltPlus: '\tHandler : in out Xml_generic_parser;\n')
+						      pltPlus: '\tobj : in out ') pltPlus:
+						     ((self alldts pltAt: no4087391) nameUsingContext:
+							      self class context)) pltPlus: '_io;\n') pltPlus:
+						   '\tNamespace_Uri : Unicode.CES.Byte_Sequence := "";\n')
+						  pltPlus: '\tLocal_Name : Unicode.CES.Byte_Sequence := "";\n')
+						 pltPlus: '\tQname : Unicode.CES.Byte_Sequence := "");\n') ]
+		from: (PltLOINDEXFunction invokeFromValues: (OrderedCollection new
+					  add: self alldts;
+					  yourself))
+		to: (PltHIINDEXFunction invokeFromValues: (OrderedCollection new
+					  add: self alldts;
+					  yourself)).
 	PlatypusCoreRepeatStatement
-		repeat: [ :no3305 | 
-			self
-				code:
+		repeat: [ :no2480129 |
+				self code:
 					(((self code pltPlus: '\nprocedure Initialize(obj : out ')
-						pltPlus: ((self alldts pltAt: no3305) nameUsingContext: self class context)) pltPlus: '_io);') ]
-		from:
-			(PltLOINDEXFunction
-				invokeFromValues:
-					(OrderedCollection new
-						add: self alldts;
-						yourself))
-		to:
-			(PltHIINDEXFunction
-				invokeFromValues:
-					(OrderedCollection new
-						add: self alldts;
-						yourself)).
-	self code: ((self code pltPlus: '\n\n') pltPlus: '-- Attributes of the parsed entities\n\n').
+						  pltPlus:
+						  ((self alldts pltAt: no2480129) nameUsingContext:
+							   self class context)) pltPlus: '_io);') ]
+		from: (PltLOINDEXFunction invokeFromValues: (OrderedCollection new
+					  add: self alldts;
+					  yourself))
+		to: (PltHIINDEXFunction invokeFromValues: (OrderedCollection new
+					  add: self alldts;
+					  yourself)).
+	self code: ((self code pltPlus: '\n\n') pltPlus:
+			 '-- Attributes of the parsed entities\n\n').
 	PlatypusCoreRepeatStatement
-		repeat: [ :no3543 | 
-			self
-				code:
-					((self code pltPlus: ((self allrecs pltAt: no3543) xmlIoRecordCodeUsingContext: self class context)) pltPlus: '\n') ]
-		from:
-			(PltLOINDEXFunction
-				invokeFromValues:
-					(OrderedCollection new
-						add: self allrecs;
-						yourself))
-		to:
-			(PltHIINDEXFunction
-				invokeFromValues:
-					(OrderedCollection new
-						add: self allrecs;
-						yourself)).
+		repeat: [ :no541253 |
+				self code: ((self code pltPlus:
+						  ((self allrecs pltAt: no541253) xmlIoRecordCodeUsingContext:
+							   self class context)) pltPlus: '\n') ]
+		from: (PltLOINDEXFunction invokeFromValues: (OrderedCollection new
+					  add: self allrecs;
+					  yourself))
+		to: (PltHIINDEXFunction invokeFromValues: (OrderedCollection new
+					  add: self allrecs;
+					  yourself)).
 	self code: (self code pltPlus: '\n').
 	PlatypusCoreRepeatStatement
-		repeat: [ :no826 | 
-			self
-				code:
+		repeat: [ :no3598603 |
+				self code:
 					(((self code pltPlus: '\nprocedure Initialize(obj : out ')
-						pltPlus: ((self allrecs pltAt: no826) nameUsingContext: self class context)) pltPlus: '_io);') ]
-		from:
-			(PltLOINDEXFunction
-				invokeFromValues:
-					(OrderedCollection new
-						add: self allrecs;
-						yourself))
-		to:
-			(PltHIINDEXFunction
-				invokeFromValues:
-					(OrderedCollection new
-						add: self allrecs;
-						yourself)).
+						  pltPlus:
+						  ((self allrecs pltAt: no3598603) nameUsingContext:
+							   self class context)) pltPlus: '_io);') ]
+		from: (PltLOINDEXFunction invokeFromValues: (OrderedCollection new
+					  add: self allrecs;
+					  yourself))
+		to: (PltHIINDEXFunction invokeFromValues: (OrderedCollection new
+					  add: self allrecs;
+					  yourself)).
 	self code: (self code pltPlus: '\n').
 	PlatypusCoreRepeatStatement
-		repeat: [ :no3410 | 
-			self
-				test:
-					(ExChdAdaEntityXmlStartElementCodeFunction
-						invokeFromValues:
-							(OrderedCollection new
-								add: (self allrecs pltAt: no3410);
-								yourself)).
-			self test > ''
-				ifTrue: [ 
-					self
-						code:
-							(((((((((self code pltPlus: '\nprocedure Start_Element(\n') pltPlus: '\tHandler : in out Xml_generic_parser;\n')
-								pltPlus: '\tobj : in out ') pltPlus: ((self allrecs pltAt: no3410) nameUsingContext: self class context))
-								pltPlus: '_io;\n') pltPlus: '\tNamespace_Uri : Unicode.CES.Byte_Sequence := "";\n')
-								pltPlus: '\tLocal_Name : Unicode.CES.Byte_Sequence := "";\n')
-								pltPlus: '\tQname : Unicode.CES.Byte_Sequence := "";\n')
-								pltPlus: '\tAtts : Sax.Attributes.Attributes''Class);\n') ].
-			self
-				code:
-					((((((((self code pltPlus: '\nprocedure End_Element(\n') pltPlus: '\tHandler : in out Xml_generic_parser;\n')
-						pltPlus: '\tobj : in out ') pltPlus: ((self allrecs pltAt: no3410) nameUsingContext: self class context))
-						pltPlus: '_io;\n') pltPlus: '\tNamespace_Uri : Unicode.CES.Byte_Sequence := "";\n')
-						pltPlus: '\tLocal_Name : Unicode.CES.Byte_Sequence := "";\n')
-						pltPlus: '\tQname : Unicode.CES.Byte_Sequence := "");\n') ]
-		from:
-			(PltLOINDEXFunction
-				invokeFromValues:
-					(OrderedCollection new
-						add: self allrecs;
-						yourself))
-		to:
-			(PltHIINDEXFunction
-				invokeFromValues:
-					(OrderedCollection new
-						add: self allrecs;
-						yourself)).
+		repeat: [ :no4057547 |
+				self test:
+					(ExChdAdaEntityXmlStartElementCodeFunction invokeFromValues:
+						 (OrderedCollection new
+							  add: (self allrecs pltAt: no4057547);
+							  yourself)).
+				self test > '' ifTrue: [
+						self code:
+							(((((((((self code pltPlus: '\nprocedure Start_Element(\n')
+								        pltPlus: '\tHandler : in out Xml_generic_parser;\n')
+								       pltPlus: '\tobj : in out ') pltPlus:
+								      ((self allrecs pltAt: no4057547) nameUsingContext:
+									       self class context)) pltPlus: '_io;\n') pltPlus:
+								    '\tNamespace_Uri : Unicode.CES.Byte_Sequence := "";\n')
+								   pltPlus:
+								   '\tLocal_Name : Unicode.CES.Byte_Sequence := "";\n')
+								  pltPlus: '\tQname : Unicode.CES.Byte_Sequence := "";\n')
+								 pltPlus: '\tAtts : Sax.Attributes.Attributes''Class);\n') ].
+				self code:
+					((((((((self code pltPlus: '\nprocedure End_Element(\n')
+						       pltPlus: '\tHandler : in out Xml_generic_parser;\n')
+						      pltPlus: '\tobj : in out ') pltPlus:
+						     ((self allrecs pltAt: no4057547) nameUsingContext:
+							      self class context)) pltPlus: '_io;\n') pltPlus:
+						   '\tNamespace_Uri : Unicode.CES.Byte_Sequence := "";\n')
+						  pltPlus: '\tLocal_Name : Unicode.CES.Byte_Sequence := "";\n')
+						 pltPlus: '\tQname : Unicode.CES.Byte_Sequence := "");\n') ]
+		from: (PltLOINDEXFunction invokeFromValues: (OrderedCollection new
+					  add: self allrecs;
+					  yourself))
+		to: (PltHIINDEXFunction invokeFromValues: (OrderedCollection new
+					  add: self allrecs;
+					  yourself)).
 	PlatypusCoreRepeatStatement
-		repeat: [ :no3242 | 
-			self
-				code:
-					((self code pltPlus: ((self allcls pltAt: no3242) xmlIoRecordCodeUsingContext: self class context)) pltPlus: '\n') ]
-		from:
-			(PltLOINDEXFunction
-				invokeFromValues:
-					(OrderedCollection new
-						add: self allcls;
-						yourself))
-		to:
-			(PltHIINDEXFunction
-				invokeFromValues:
-					(OrderedCollection new
-						add: self allcls;
-						yourself)).
+		repeat: [ :no14197 |
+				self code: ((self code pltPlus:
+						  ((self allcls pltAt: no14197) xmlIoRecordCodeUsingContext:
+							   self class context)) pltPlus: '\n') ]
+		from: (PltLOINDEXFunction invokeFromValues: (OrderedCollection new
+					  add: self allcls;
+					  yourself))
+		to: (PltHIINDEXFunction invokeFromValues: (OrderedCollection new
+					  add: self allcls;
+					  yourself)).
 	self code: (self code pltPlus: '\n').
 	PlatypusCoreRepeatStatement
-		repeat: [ :no504 | 
-			self
-				code:
+		repeat: [ :no3734257 |
+				self code:
 					(((self code pltPlus: '\nprocedure Initialize(obj : out ')
-						pltPlus: ((self allcls pltAt: no504) nameUsingContext: self class context)) pltPlus: '_io);') ]
-		from:
-			(PltLOINDEXFunction
-				invokeFromValues:
-					(OrderedCollection new
-						add: self allcls;
-						yourself))
-		to:
-			(PltHIINDEXFunction
-				invokeFromValues:
-					(OrderedCollection new
-						add: self allcls;
-						yourself)).
+						  pltPlus:
+						  ((self allcls pltAt: no3734257) nameUsingContext:
+							   self class context)) pltPlus: '_io);') ]
+		from: (PltLOINDEXFunction invokeFromValues: (OrderedCollection new
+					  add: self allcls;
+					  yourself))
+		to: (PltHIINDEXFunction invokeFromValues: (OrderedCollection new
+					  add: self allcls;
+					  yourself)).
 	self code: (self code pltPlus: '\n').
 	PlatypusCoreRepeatStatement
-		repeat: [ :no3088 | 
-			self
-				test:
-					(ExChdAdaEntityXmlStartElementCodeFunction
-						invokeFromValues:
-							(OrderedCollection new
-								add: (self allcls pltAt: no3088);
-								yourself)).
-			self test > ''
-				ifTrue: [ 
-					self
-						code:
-							(((((((((self code pltPlus: '\nprocedure Start_Element(\n') pltPlus: '\tHandler : in out Xml_generic_parser;\n')
-								pltPlus: '\tobj : in out ') pltPlus: ((self allcls pltAt: no3088) nameUsingContext: self class context))
-								pltPlus: '_io;\n') pltPlus: '\tNamespace_Uri : Unicode.CES.Byte_Sequence := "";\n')
-								pltPlus: '\tLocal_Name : Unicode.CES.Byte_Sequence := "";\n')
-								pltPlus: '\tQname : Unicode.CES.Byte_Sequence := "";\n')
-								pltPlus: '\tAtts : Sax.Attributes.Attributes''Class);\n') ].
-			self
-				code:
-					((((((((self code pltPlus: '\nprocedure End_Element(\n') pltPlus: '\tHandler : in out Xml_generic_parser;\n')
-						pltPlus: '\tobj : in out ') pltPlus: ((self allcls pltAt: no3088) nameUsingContext: self class context))
-						pltPlus: '_io;\n') pltPlus: '\tNamespace_Uri : Unicode.CES.Byte_Sequence := "";\n')
-						pltPlus: '\tLocal_Name : Unicode.CES.Byte_Sequence := "";\n')
-						pltPlus: '\tQname : Unicode.CES.Byte_Sequence := "");\n') ]
-		from:
-			(PltLOINDEXFunction
-				invokeFromValues:
-					(OrderedCollection new
-						add: self allcls;
-						yourself))
-		to:
-			(PltHIINDEXFunction
-				invokeFromValues:
-					(OrderedCollection new
-						add: self allcls;
-						yourself)).
+		repeat: [ :no2297151 |
+				self test:
+					(ExChdAdaEntityXmlStartElementCodeFunction invokeFromValues:
+						 (OrderedCollection new
+							  add: (self allcls pltAt: no2297151);
+							  yourself)).
+				self test > '' ifTrue: [
+						self code:
+							(((((((((self code pltPlus: '\nprocedure Start_Element(\n')
+								        pltPlus: '\tHandler : in out Xml_generic_parser;\n')
+								       pltPlus: '\tobj : in out ') pltPlus:
+								      ((self allcls pltAt: no2297151) nameUsingContext:
+									       self class context)) pltPlus: '_io;\n') pltPlus:
+								    '\tNamespace_Uri : Unicode.CES.Byte_Sequence := "";\n')
+								   pltPlus:
+								   '\tLocal_Name : Unicode.CES.Byte_Sequence := "";\n')
+								  pltPlus: '\tQname : Unicode.CES.Byte_Sequence := "";\n')
+								 pltPlus: '\tAtts : Sax.Attributes.Attributes''Class);\n') ].
+				self code:
+					((((((((self code pltPlus: '\nprocedure End_Element(\n')
+						       pltPlus: '\tHandler : in out Xml_generic_parser;\n')
+						      pltPlus: '\tobj : in out ') pltPlus:
+						     ((self allcls pltAt: no2297151) nameUsingContext:
+							      self class context)) pltPlus: '_io;\n') pltPlus:
+						   '\tNamespace_Uri : Unicode.CES.Byte_Sequence := "";\n')
+						  pltPlus: '\tLocal_Name : Unicode.CES.Byte_Sequence := "";\n')
+						 pltPlus: '\tQname : Unicode.CES.Byte_Sequence := "");\n') ]
+		from: (PltLOINDEXFunction invokeFromValues: (OrderedCollection new
+					  add: self allcls;
+					  yourself))
+		to: (PltHIINDEXFunction invokeFromValues: (OrderedCollection new
+					  add: self allcls;
+					  yourself)).
 	self code: (self code pltPlus: '\n\nend xml_architecture_io;\n').
 	^ self return: self code
 
@@ -762,6 +758,7 @@ ExChdXmlArchitectureIoAdsPackageCodeFunction >> invoke [
 
 { #category : 'platypus-generated-accessing' }
 ExChdXmlArchitectureIoAdsPackageCodeFunction >> pkgs [
+
 	^ pkgs
 
 
@@ -769,15 +766,17 @@ ExChdXmlArchitectureIoAdsPackageCodeFunction >> pkgs [
 
 { #category : 'platypus-generated-accessing' }
 ExChdXmlArchitectureIoAdsPackageCodeFunction >> pkgs: aListOfExChdAdaPackage [
+
 	pkgs := aListOfExChdAdaPackage
-		ifNil: [ OrderedCollection new ]
-		ifNotNil: [ aListOfExChdAdaPackage as: OrderedCollection ]
+		        ifNil: [ OrderedCollection new ]
+		        ifNotNil: [ aListOfExChdAdaPackage as: OrderedCollection ]
 
 
 ]
 
 { #category : 'platypus-generated-accessing' }
 ExChdXmlArchitectureIoAdsPackageCodeFunction >> test [
+
 	^ test
 
 
@@ -785,6 +784,7 @@ ExChdXmlArchitectureIoAdsPackageCodeFunction >> test [
 
 { #category : 'platypus-generated-accessing' }
 ExChdXmlArchitectureIoAdsPackageCodeFunction >> test: aString [
+
 	test := aString
 
 

@@ -19,6 +19,7 @@ Class {
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdDiscriminatedTypeInterfacesListFunction class >> iso10303P11Translater [
+
 	^ 'Platypus (c) LISYC EA3883, Universite de Bretagne occidentale. Brest.'
 
 
@@ -26,6 +27,7 @@ ExChdDiscriminatedTypeInterfacesListFunction class >> iso10303P11Translater [
 
 { #category : 'platypus-generated-meta-data-accessing' }
 ExChdDiscriminatedTypeInterfacesListFunction class >> schemaDefinition [
+
 	^ ExChdDiscriminatedTypeSchemaDefinition singleton
 
 
@@ -33,6 +35,7 @@ ExChdDiscriminatedTypeInterfacesListFunction class >> schemaDefinition [
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdDiscriminatedTypeInterfacesListFunction class >> translatedFromISO10303P11 [
+
 	^ true
 
 
@@ -40,6 +43,7 @@ ExChdDiscriminatedTypeInterfacesListFunction class >> translatedFromISO10303P11 
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdDiscriminatedTypeInterfacesListFunction class >> vwNamespaceName [
+
 	^ #Express2Cheddar
 
 
@@ -47,6 +51,7 @@ ExChdDiscriminatedTypeInterfacesListFunction class >> vwNamespaceName [
 
 { #category : 'platypus-generated-accessing' }
 ExChdDiscriminatedTypeInterfacesListFunction >> ads [
+
 	^ ads
 
 
@@ -54,6 +59,7 @@ ExChdDiscriminatedTypeInterfacesListFunction >> ads [
 
 { #category : 'platypus-generated-accessing' }
 ExChdDiscriminatedTypeInterfacesListFunction >> ads: aBoolean [
+
 	ads := aBoolean
 
 
@@ -61,6 +67,7 @@ ExChdDiscriminatedTypeInterfacesListFunction >> ads: aBoolean [
 
 { #category : 'platypus-generated-accessing' }
 ExChdDiscriminatedTypeInterfacesListFunction >> fromValues: values [
+
 	self r: (values at: 1).
 	self ads: (values at: 2)
 
@@ -69,24 +76,21 @@ ExChdDiscriminatedTypeInterfacesListFunction >> fromValues: values [
 
 { #category : 'platypus-generated-invoking' }
 ExChdDiscriminatedTypeInterfacesListFunction >> invoke [
-	" ---------- locals assignments ----------"
+	" ---------- locals assignments ----------"" ---------- statements ----------"
 
-	" ---------- statements ----------"
-
-	^ self
-		return:
-			(ExChdAdaEntityInterfacesListFunction
-				invokeFromValues:
-					(OrderedCollection new
-						add: self r;
-						add: self ads;
-						yourself))
+	^ self return:
+		  (ExChdAdaEntityInterfacesListFunction invokeFromValues:
+			   (OrderedCollection new
+				    add: self r;
+				    add: self ads;
+				    yourself))
 
 
 ]
 
 { #category : 'platypus-generated-accessing' }
 ExChdDiscriminatedTypeInterfacesListFunction >> r [
+
 	^ r
 
 
@@ -94,6 +98,7 @@ ExChdDiscriminatedTypeInterfacesListFunction >> r [
 
 { #category : 'platypus-generated-accessing' }
 ExChdDiscriminatedTypeInterfacesListFunction >> r: aExChdDiscriminatedType [
+
 	r := aExChdDiscriminatedType
 
 
@@ -101,6 +106,7 @@ ExChdDiscriminatedTypeInterfacesListFunction >> r: aExChdDiscriminatedType [
 
 { #category : 'platypus-generated-accessing' }
 ExChdDiscriminatedTypeInterfacesListFunction >> r: aExChdDiscriminatedType ads: aBoolean [
+
 	self r: aExChdDiscriminatedType.
 	self ads: aBoolean
 

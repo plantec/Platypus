@@ -50,6 +50,7 @@ Class {
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdAdaEntityInterfacesListFunction class >> iso10303P11Translater [
+
 	^ 'Platypus (c) LISYC EA3883, Universite de Bretagne occidentale. Brest.'
 
 
@@ -57,6 +58,7 @@ ExChdAdaEntityInterfacesListFunction class >> iso10303P11Translater [
 
 { #category : 'platypus-generated-meta-data-accessing' }
 ExChdAdaEntityInterfacesListFunction class >> schemaDefinition [
+
 	^ ExChdRecordAndClassSchemaDefinition singleton
 
 
@@ -64,6 +66,7 @@ ExChdAdaEntityInterfacesListFunction class >> schemaDefinition [
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdAdaEntityInterfacesListFunction class >> translatedFromISO10303P11 [
+
 	^ true
 
 
@@ -71,6 +74,7 @@ ExChdAdaEntityInterfacesListFunction class >> translatedFromISO10303P11 [
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdAdaEntityInterfacesListFunction class >> vwNamespaceName [
+
 	^ #Express2Cheddar
 
 
@@ -78,6 +82,7 @@ ExChdAdaEntityInterfacesListFunction class >> vwNamespaceName [
 
 { #category : 'platypus-generated-accessing' }
 ExChdAdaEntityInterfacesListFunction >> ads [
+
 	^ ads
 
 
@@ -85,6 +90,7 @@ ExChdAdaEntityInterfacesListFunction >> ads [
 
 { #category : 'platypus-generated-accessing' }
 ExChdAdaEntityInterfacesListFunction >> ads: aBoolean [
+
 	ads := aBoolean
 
 
@@ -92,6 +98,7 @@ ExChdAdaEntityInterfacesListFunction >> ads: aBoolean [
 
 { #category : 'platypus-generated-accessing' }
 ExChdAdaEntityInterfacesListFunction >> fromValues: values [
+
 	self r: (values at: 1).
 	self ads: (values at: 2)
 
@@ -102,175 +109,120 @@ ExChdAdaEntityInterfacesListFunction >> fromValues: values [
 ExChdAdaEntityInterfacesListFunction >> invoke [
 	" ---------- locals assignments ----------"
 
-	self
-		result:
-			(ExChdEntityDefinitionInterfacesListFunction
-				invokeFromValues:
-					(OrderedCollection new
-						add: self r;
-						add: self ads;
-						yourself)).	" ---------- statements ----------"
+	self result:
+		(ExChdEntityDefinitionInterfacesListFunction invokeFromValues:
+			 (OrderedCollection new
+				  add: self r;
+				  add: self ads;
+				  yourself)). " ---------- statements ----------"
 	self ads
-		ifTrue: [ 
-			((PltTYPEOFFunction
-				invokeFromValues:
-					(OrderedCollection new
-						add: (self r ownerUsingContext: self class context);
-						yourself)) includes: 'PACKAGE.ADA_PACKAGE')
-				ifTrue: [ 
-					self
-						result:
-							(self result
-								pltPlus:
-									(ExChdAdaInterface new
-										adaInterfaceFromValues:
-												(OrderedCollection new
-														add: ((self r ownerUsingContext: self class context) nameUsingContext: self class context);
-														add: nil;
-														add: true;
-														add: true;
-														yourself);
-										yourself)) ].
-			(PltSIZEOFFunction
-				invokeFromValues:
-					(OrderedCollection new
-						add: (self r supertypesUsingContext: self class context);
-						yourself)) > 0
-				ifTrue: [ 
-					PlatypusCoreAliasStatement
-						alias: (((self r supertypesUsingContext: self class context) pltAt: 1) refUsingContext: self class context)
-						statementsBlock: [ :supref3513 | 
-							((PltTYPEOFFunction
-								invokeFromValues:
-									(OrderedCollection new
-										add: (supref3513 ownerUsingContext: self class context);
-										yourself)) includes: 'PACKAGE.ADA_PACKAGE')
-								ifTrue: [ 
-									self
-										result:
-											(self result
-												pltPlus:
-													(ExChdAdaInterface new
-														adaInterfaceFromValues:
-																(OrderedCollection new
-																		add: ((supref3513 ownerUsingContext: self class context) nameUsingContext: self class context);
-																		add: nil;
-																		add: true;
-																		add: true;
-																		yourself);
-														yourself)) ] ] ].
-			self
-				result:
-					(self result
-						pltPlus:
-							(ExChdAdaInterface new
-								adaInterfaceFromValues:
-										(OrderedCollection new
-												add: 'Ada.Finalization';
-												add: nil;
-												add: true;
-												add: false;
-												yourself);
-								yourself)).
-			self
-				result:
-					(self result
-						pltPlus:
-							(ExChdAdaInterface new
-								adaInterfaceFromValues:
-										(OrderedCollection new
-												add: 'unbounded_strings';
-												add: nil;
-												add: true;
-												add: true;
-												yourself);
-								yourself)).
-			self
-				result:
-					(self result
-						pltPlus:
-							(ExChdAdaInterface new
-								adaInterfaceFromValues:
-										(OrderedCollection new
-												add: 'ada.strings';
-												add: 'unbounded';
-												add: true;
-												add: true;
-												yourself);
-								yourself)).
-			self
-				result:
-					(self result
-						pltPlus:
-							(ExChdAdaInterface new
-								adaInterfaceFromValues:
-										(OrderedCollection new
-												add: 'unbounded_strings';
-												add: 'Unbounded_String_List_Package';
-												add: false;
-												add: true;
-												yourself);
-								yourself)).
-			self
-				result:
-					(self result
-						pltPlus:
-							(ExChdAdaInterface new
-								adaInterfaceFromValues:
-										(OrderedCollection new
-												add: 'Unchecked_Deallocation';
-												add: nil;
-												add: true;
-												add: false;
-												yourself);
-								yourself)).
-			self
-				result:
-					(self result
-						pltPlus:
-							(ExChdAdaInterface new
-								adaInterfaceFromValues:
-										(OrderedCollection new
-												add: 'Primitive_XML_Strings';
-												add: nil;
-												add: true;
-												add: true;
-												yourself);
-								yourself)) ]
-		ifFalse: [ 
-			(PTsHasAttributeNamedFunction
-				invokeFromValues:
-					(OrderedCollection new
-						add: self r;
-						add: 'cheddar_private_id';
-						yourself))
-				ifTrue: [ 
-					self
-						result:
-							(self result
-								pltPlus:
-									(ExChdAdaInterface new
-										adaInterfaceFromValues:
-												(OrderedCollection new
-														add: 'framework';
-														add: nil;
-														add: true;
-														add: true;
-														yourself);
-										yourself)).
-					self
-						result:
-							(self result
-								pltPlus:
-									(ExChdAdaInterface new
-										adaInterfaceFromValues:
-												(OrderedCollection new
-														add: 'id_generators';
-														add: nil;
-														add: true;
-														add: true;
-														yourself);
-										yourself)) ] ].
+		ifTrue: [
+				((PltTYPEOFFunction invokeFromValues: (OrderedCollection new
+						   add: (self r ownerUsingContext: self class context);
+						   yourself)) includes: 'PACKAGE.ADA_PACKAGE') ifTrue: [
+						self result: (self result pltPlus: (ExChdAdaInterface new
+									  adaInterfaceFromValues: (OrderedCollection new
+											   add:
+												   ((self r ownerUsingContext: self class context)
+													    nameUsingContext: self class context);
+											   add: nil;
+											   add: true;
+											   add: true;
+											   yourself);
+									  yourself)) ].
+				(PltSIZEOFFunction invokeFromValues: (OrderedCollection new
+						  add: (self r supertypesUsingContext: self class context);
+						  yourself)) > 0 ifTrue: [
+						PlatypusCoreAliasStatement
+							alias:
+								(((self r supertypesUsingContext: self class context) pltAt: 1)
+									 refUsingContext: self class context)
+							statementsBlock: [ :supref1792547 |
+									((PltTYPEOFFunction invokeFromValues: (OrderedCollection new
+											   add:
+												   (supref1792547 ownerUsingContext: self class context);
+											   yourself)) includes: 'PACKAGE.ADA_PACKAGE') ifTrue: [
+											self result: (self result pltPlus: (ExChdAdaInterface new
+														  adaInterfaceFromValues: (OrderedCollection new
+																   add:
+																	   ((supref1792547 ownerUsingContext:
+																			     self class context) nameUsingContext:
+																			    self class context);
+																   add: nil;
+																   add: true;
+																   add: true;
+																   yourself);
+														  yourself)) ] ] ].
+				self result: (self result pltPlus: (ExChdAdaInterface new
+							  adaInterfaceFromValues: (OrderedCollection new
+									   add: 'Ada.Finalization';
+									   add: nil;
+									   add: true;
+									   add: false;
+									   yourself);
+							  yourself)).
+				self result: (self result pltPlus: (ExChdAdaInterface new
+							  adaInterfaceFromValues: (OrderedCollection new
+									   add: 'unbounded_strings';
+									   add: nil;
+									   add: true;
+									   add: true;
+									   yourself);
+							  yourself)).
+				self result: (self result pltPlus: (ExChdAdaInterface new
+							  adaInterfaceFromValues: (OrderedCollection new
+									   add: 'ada.strings';
+									   add: 'unbounded';
+									   add: true;
+									   add: true;
+									   yourself);
+							  yourself)).
+				self result: (self result pltPlus: (ExChdAdaInterface new
+							  adaInterfaceFromValues: (OrderedCollection new
+									   add: 'unbounded_strings';
+									   add: 'Unbounded_String_List_Package';
+									   add: false;
+									   add: true;
+									   yourself);
+							  yourself)).
+				self result: (self result pltPlus: (ExChdAdaInterface new
+							  adaInterfaceFromValues: (OrderedCollection new
+									   add: 'Unchecked_Deallocation';
+									   add: nil;
+									   add: true;
+									   add: false;
+									   yourself);
+							  yourself)).
+				self result: (self result pltPlus: (ExChdAdaInterface new
+							  adaInterfaceFromValues: (OrderedCollection new
+									   add: 'Primitive_XML_Strings';
+									   add: nil;
+									   add: true;
+									   add: true;
+									   yourself);
+							  yourself)) ]
+		ifFalse: [
+				(PTsHasAttributeNamedFunction invokeFromValues:
+					 (OrderedCollection new
+						  add: self r;
+						  add: 'cheddar_private_id';
+						  yourself)) ifTrue: [
+						self result: (self result pltPlus: (ExChdAdaInterface new
+									  adaInterfaceFromValues: (OrderedCollection new
+											   add: 'framework';
+											   add: nil;
+											   add: true;
+											   add: true;
+											   yourself);
+									  yourself)).
+						self result: (self result pltPlus: (ExChdAdaInterface new
+									  adaInterfaceFromValues: (OrderedCollection new
+											   add: 'id_generators';
+											   add: nil;
+											   add: true;
+											   add: true;
+											   yourself);
+									  yourself)) ] ].
 	^ self return: self result
 
 
@@ -278,6 +230,7 @@ ExChdAdaEntityInterfacesListFunction >> invoke [
 
 { #category : 'platypus-generated-accessing' }
 ExChdAdaEntityInterfacesListFunction >> r [
+
 	^ r
 
 
@@ -285,6 +238,7 @@ ExChdAdaEntityInterfacesListFunction >> r [
 
 { #category : 'platypus-generated-accessing' }
 ExChdAdaEntityInterfacesListFunction >> r: aExChdAdaEntity [
+
 	r := aExChdAdaEntity
 
 
@@ -292,6 +246,7 @@ ExChdAdaEntityInterfacesListFunction >> r: aExChdAdaEntity [
 
 { #category : 'platypus-generated-accessing' }
 ExChdAdaEntityInterfacesListFunction >> r: aExChdAdaEntity ads: aBoolean [
+
 	self r: aExChdAdaEntity.
 	self ads: aBoolean
 
@@ -300,6 +255,7 @@ ExChdAdaEntityInterfacesListFunction >> r: aExChdAdaEntity ads: aBoolean [
 
 { #category : 'platypus-generated-accessing' }
 ExChdAdaEntityInterfacesListFunction >> result [
+
 	^ result
 
 
@@ -307,9 +263,11 @@ ExChdAdaEntityInterfacesListFunction >> result [
 
 { #category : 'platypus-generated-accessing' }
 ExChdAdaEntityInterfacesListFunction >> result: aListOfExChdAdaInterface [
+
 	result := aListOfExChdAdaInterface
-		ifNil: [ OrderedCollection new ]
-		ifNotNil: [ aListOfExChdAdaInterface as: OrderedCollection ]
+		          ifNil: [ OrderedCollection new ]
+		          ifNotNil: [
+		          aListOfExChdAdaInterface as: OrderedCollection ]
 
 
 ]

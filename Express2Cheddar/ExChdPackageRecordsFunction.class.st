@@ -31,6 +31,7 @@ Class {
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdPackageRecordsFunction class >> iso10303P11Translater [
+
 	^ 'Platypus (c) LISYC EA3883, Universite de Bretagne occidentale. Brest.'
 
 
@@ -38,6 +39,7 @@ ExChdPackageRecordsFunction class >> iso10303P11Translater [
 
 { #category : 'platypus-generated-meta-data-accessing' }
 ExChdPackageRecordsFunction class >> schemaDefinition [
+
 	^ ExChdExpress2cheddarFacadeSchemaDefinition singleton
 
 
@@ -45,6 +47,7 @@ ExChdPackageRecordsFunction class >> schemaDefinition [
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdPackageRecordsFunction class >> translatedFromISO10303P11 [
+
 	^ true
 
 
@@ -52,6 +55,7 @@ ExChdPackageRecordsFunction class >> translatedFromISO10303P11 [
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdPackageRecordsFunction class >> vwNamespaceName [
+
 	^ #Express2Cheddar
 
 
@@ -59,6 +63,7 @@ ExChdPackageRecordsFunction class >> vwNamespaceName [
 
 { #category : 'platypus-generated-accessing' }
 ExChdPackageRecordsFunction >> fromValues: values [
+
 	self pkg: (values at: 1)
 
 
@@ -68,30 +73,24 @@ ExChdPackageRecordsFunction >> fromValues: values [
 ExChdPackageRecordsFunction >> invoke [
 	" ---------- locals assignments ----------"
 
-	self recList: Array new.	" ---------- statements ----------"
+	self recList: Array new. " ---------- statements ----------"
 	PlatypusCoreAliasStatement
 		alias: (self pkg entitiesUsingContext: self class context)
-		statementsBlock: [ :entities1220 | 
-			PlatypusCoreRepeatStatement
-				repeat: [ :noi1345 | 
-					((PltTYPEOFFunction
-						invokeFromValues:
-							(OrderedCollection new
-								add: (entities1220 pltAt: noi1345);
-								yourself)) includes: 'RECORD_AND_CLASS.RECORD')
-						ifTrue: [ self recList: (self recList pltPlus: (entities1220 pltAt: noi1345)) ] ]
-				from:
-					(PltLOINDEXFunction
-						invokeFromValues:
-							(OrderedCollection new
-								add: entities1220;
-								yourself))
-				to:
-					(PltHIINDEXFunction
-						invokeFromValues:
-							(OrderedCollection new
-								add: entities1220;
-								yourself)) ].
+		statementsBlock: [ :entities1753787 |
+				PlatypusCoreRepeatStatement
+					repeat: [ :noi2534405 |
+							((PltTYPEOFFunction invokeFromValues: (OrderedCollection new
+									   add: (entities1753787 pltAt: noi2534405);
+									   yourself)) includes: 'RECORD_AND_CLASS.RECORD') ifTrue: [
+									self recList:
+										(self recList pltPlus: (entities1753787 pltAt: noi2534405)) ] ]
+					from:
+						(PltLOINDEXFunction invokeFromValues: (OrderedCollection new
+								  add: entities1753787;
+								  yourself))
+					to: (PltHIINDEXFunction invokeFromValues: (OrderedCollection new
+								  add: entities1753787;
+								  yourself)) ].
 	^ self return: self recList
 
 
@@ -99,6 +98,7 @@ ExChdPackageRecordsFunction >> invoke [
 
 { #category : 'platypus-generated-accessing' }
 ExChdPackageRecordsFunction >> pkg [
+
 	^ pkg
 
 
@@ -106,6 +106,7 @@ ExChdPackageRecordsFunction >> pkg [
 
 { #category : 'platypus-generated-accessing' }
 ExChdPackageRecordsFunction >> pkg: aExChdAdaPackage [
+
 	pkg := aExChdAdaPackage
 
 
@@ -113,6 +114,7 @@ ExChdPackageRecordsFunction >> pkg: aExChdAdaPackage [
 
 { #category : 'platypus-generated-accessing' }
 ExChdPackageRecordsFunction >> recList [
+
 	^ recList
 
 
@@ -120,7 +122,10 @@ ExChdPackageRecordsFunction >> recList [
 
 { #category : 'platypus-generated-accessing' }
 ExChdPackageRecordsFunction >> recList: aListOfExChdRecord [
-	recList := aListOfExChdRecord ifNil: [ OrderedCollection new ] ifNotNil: [ aListOfExChdRecord as: OrderedCollection ]
+
+	recList := aListOfExChdRecord
+		           ifNil: [ OrderedCollection new ]
+		           ifNotNil: [ aListOfExChdRecord as: OrderedCollection ]
 
 
 ]

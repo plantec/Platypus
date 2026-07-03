@@ -90,6 +90,7 @@ Class {
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdCheddarConstantsSchemaDefinition class >> iso10303P11Translater [
+
 	^ 'Platypus (c) LISYC EA3883, Universite de Bretagne occidentale. Brest.'
 
 
@@ -97,6 +98,7 @@ ExChdCheddarConstantsSchemaDefinition class >> iso10303P11Translater [
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdCheddarConstantsSchemaDefinition class >> translatedFromISO10303P11 [
+
 	^ true
 
 
@@ -104,6 +106,7 @@ ExChdCheddarConstantsSchemaDefinition class >> translatedFromISO10303P11 [
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdCheddarConstantsSchemaDefinition class >> vwNamespaceName [
+
 	^ #Express2Cheddar
 
 
@@ -111,6 +114,7 @@ ExChdCheddarConstantsSchemaDefinition class >> vwNamespaceName [
 
 { #category : 'platypus-generated-context-accessing' }
 ExChdCheddarConstantsSchemaDefinition >> context [
+
 	^ self schemaInstance context
 
 
@@ -118,13 +122,15 @@ ExChdCheddarConstantsSchemaDefinition >> context [
 
 { #category : 'platypus-generated-entities' }
 ExChdCheddarConstantsSchemaDefinition >> entityDefinition1 [
-	^ #(#ada_constant #ExChdAdaConstant)
+
+	^ #( #ada_constant #ExChdAdaConstant )
 
 
 ]
 
 { #category : 'platypus-generated-entities' }
 ExChdCheddarConstantsSchemaDefinition >> entityDefinitionCount [
+
 	^ 1
 
 
@@ -132,27 +138,31 @@ ExChdCheddarConstantsSchemaDefinition >> entityDefinitionCount [
 
 { #category : 'platypus-generated-functions' }
 ExChdCheddarConstantsSchemaDefinition >> functionDeclaration1 [
-	^ #(#do_comments_with #ExChdDoCommentsWithFunction)
+
+	^ #( #do_comments_with #ExChdDoCommentsWithFunction )
 
 
 ]
 
 { #category : 'platypus-generated-functions' }
 ExChdCheddarConstantsSchemaDefinition >> functionDeclaration2 [
-	^ #(#ada_constant_ads_code #ExChdAdaConstantAdsCodeFunction)
+
+	^ #( #ada_constant_ads_code #ExChdAdaConstantAdsCodeFunction )
 
 
 ]
 
 { #category : 'platypus-generated-functions' }
 ExChdCheddarConstantsSchemaDefinition >> functionDeclaration3 [
-	^ #(#ada_constant_interfaces_list #ExChdAdaConstantInterfacesListFunction)
+
+	^ #( #ada_constant_interfaces_list #ExChdAdaConstantInterfacesListFunction )
 
 
 ]
 
 { #category : 'platypus-generated-functions' }
 ExChdCheddarConstantsSchemaDefinition >> functionDeclarationCount [
+
 	^ 3
 
 
@@ -160,6 +170,7 @@ ExChdCheddarConstantsSchemaDefinition >> functionDeclarationCount [
 
 { #category : 'platypus-generated-meta-data-accessing' }
 ExChdCheddarConstantsSchemaDefinition >> schemaInstanceClassName [
+
 	^ #ExChdExpress2cheddarSchemaInstance
 
 

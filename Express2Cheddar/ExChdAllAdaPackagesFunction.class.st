@@ -21,6 +21,7 @@ Class {
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdAllAdaPackagesFunction class >> iso10303P11Translater [
+
 	^ 'Platypus (c) LISYC EA3883, Universite de Bretagne occidentale. Brest.'
 
 
@@ -28,6 +29,7 @@ ExChdAllAdaPackagesFunction class >> iso10303P11Translater [
 
 { #category : 'platypus-generated-meta-data-accessing' }
 ExChdAllAdaPackagesFunction class >> schemaDefinition [
+
 	^ ExChdExpress2cheddarFacadeSchemaDefinition singleton
 
 
@@ -35,6 +37,7 @@ ExChdAllAdaPackagesFunction class >> schemaDefinition [
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdAllAdaPackagesFunction class >> translatedFromISO10303P11 [
+
 	^ true
 
 
@@ -42,6 +45,7 @@ ExChdAllAdaPackagesFunction class >> translatedFromISO10303P11 [
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdAllAdaPackagesFunction class >> vwNamespaceName [
+
 	^ #Express2Cheddar
 
 
@@ -49,6 +53,7 @@ ExChdAllAdaPackagesFunction class >> vwNamespaceName [
 
 { #category : 'platypus-generated-accessing' }
 ExChdAllAdaPackagesFunction >> insts [
+
 	^ insts
 
 
@@ -56,7 +61,10 @@ ExChdAllAdaPackagesFunction >> insts [
 
 { #category : 'platypus-generated-accessing' }
 ExChdAllAdaPackagesFunction >> insts: aSetOfObject [
-	insts := aSetOfObject ifNil: [ Set new ] ifNotNil: [ aSetOfObject as: Set ]
+
+	insts := aSetOfObject
+		         ifNil: [ Set new ]
+		         ifNotNil: [ aSetOfObject as: Set ]
 
 
 ]
@@ -65,16 +73,11 @@ ExChdAllAdaPackagesFunction >> insts: aSetOfObject [
 ExChdAllAdaPackagesFunction >> invoke [
 	" ---------- locals assignments ----------"
 
-	self insts: PTsAllModelInstancesFunction invoke.	" ---------- statements ----------"
-	^ self
-		return:
-			(self insts
-				select: [ :i871 | 
-					(PltTYPEOFFunction
-						invokeFromValues:
-							(OrderedCollection new
-								add: i871;
-								yourself)) includes: 'PACKAGE.ADA_PACKAGE' ])
+	self insts: PTsAllModelInstancesFunction invoke. " ---------- statements ----------"
+	^ self return: (self insts select: [ :i487031 |
+				   (PltTYPEOFFunction invokeFromValues: (OrderedCollection new
+						     add: i487031;
+						     yourself)) includes: 'PACKAGE.ADA_PACKAGE' ])
 
 
 ]

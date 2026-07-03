@@ -34,6 +34,7 @@ Class {
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdAllAdaRecordsFunction class >> iso10303P11Translater [
+
 	^ 'Platypus (c) LISYC EA3883, Universite de Bretagne occidentale. Brest.'
 
 
@@ -41,6 +42,7 @@ ExChdAllAdaRecordsFunction class >> iso10303P11Translater [
 
 { #category : 'platypus-generated-meta-data-accessing' }
 ExChdAllAdaRecordsFunction class >> schemaDefinition [
+
 	^ ExChdExpress2cheddarFacadeSchemaDefinition singleton
 
 
@@ -48,6 +50,7 @@ ExChdAllAdaRecordsFunction class >> schemaDefinition [
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdAllAdaRecordsFunction class >> translatedFromISO10303P11 [
+
 	^ true
 
 
@@ -55,6 +58,7 @@ ExChdAllAdaRecordsFunction class >> translatedFromISO10303P11 [
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdAllAdaRecordsFunction class >> vwNamespaceName [
+
 	^ #Express2Cheddar
 
 
@@ -62,6 +66,7 @@ ExChdAllAdaRecordsFunction class >> vwNamespaceName [
 
 { #category : 'platypus-generated-accessing' }
 ExChdAllAdaRecordsFunction >> allPkgs [
+
 	^ allPkgs
 
 
@@ -69,15 +74,17 @@ ExChdAllAdaRecordsFunction >> allPkgs [
 
 { #category : 'platypus-generated-accessing' }
 ExChdAllAdaRecordsFunction >> allPkgs: aListOfExChdAdaPackage [
+
 	allPkgs := aListOfExChdAdaPackage
-		ifNil: [ OrderedCollection new ]
-		ifNotNil: [ aListOfExChdAdaPackage as: OrderedCollection ]
+		           ifNil: [ OrderedCollection new ]
+		           ifNotNil: [ aListOfExChdAdaPackage as: OrderedCollection ]
 
 
 ]
 
 { #category : 'platypus-generated-accessing' }
 ExChdAllAdaRecordsFunction >> clsList [
+
 	^ clsList
 
 
@@ -85,9 +92,10 @@ ExChdAllAdaRecordsFunction >> clsList [
 
 { #category : 'platypus-generated-accessing' }
 ExChdAllAdaRecordsFunction >> clsList: aListOfExChdAdaClass [
+
 	clsList := aListOfExChdAdaClass
-		ifNil: [ OrderedCollection new ]
-		ifNotNil: [ aListOfExChdAdaClass as: OrderedCollection ]
+		           ifNil: [ OrderedCollection new ]
+		           ifNotNil: [ aListOfExChdAdaClass as: OrderedCollection ]
 
 
 ]
@@ -97,50 +105,40 @@ ExChdAllAdaRecordsFunction >> invoke [
 	" ---------- locals assignments ----------"
 
 	self clsList: Array new.
-	self
-		allPkgs:
-			(PTsSetToListFunction
-				invokeFromValues:
-					(OrderedCollection new
-						add: ExChdAllAdaPackagesFunction invoke;
-						yourself)).	" ---------- statements ----------"
+	self allPkgs:
+		(PTsSetToListFunction invokeFromValues: (OrderedCollection new
+				  add: ExChdAllAdaPackagesFunction invoke;
+				  yourself)). " ---------- statements ----------"
 	PlatypusCoreRepeatStatement
-		repeat: [ :no3386 | 
-			PlatypusCoreAliasStatement
-				alias: ((self allPkgs pltAt: no3386) entitiesUsingContext: self class context)
-				statementsBlock: [ :entities1244 | 
-					PlatypusCoreRepeatStatement
-						repeat: [ :noi1502 | 
-							((PltTYPEOFFunction
-								invokeFromValues:
-									(OrderedCollection new
-										add: (entities1244 pltAt: noi1502);
-										yourself)) includes: 'RECORD_AND_CLASS.RECORD')
-								ifTrue: [ self clsList: (self clsList pltPlus: (entities1244 pltAt: noi1502)) ] ]
-						from:
-							(PltLOINDEXFunction
-								invokeFromValues:
-									(OrderedCollection new
-										add: entities1244;
-										yourself))
-						to:
-							(PltHIINDEXFunction
-								invokeFromValues:
-									(OrderedCollection new
-										add: entities1244;
-										yourself)) ] ]
-		from:
-			(PltLOINDEXFunction
-				invokeFromValues:
-					(OrderedCollection new
-						add: self allPkgs;
-						yourself))
-		to:
-			(PltHIINDEXFunction
-				invokeFromValues:
-					(OrderedCollection new
-						add: self allPkgs;
-						yourself)).
+		repeat: [ :no1090483 |
+				PlatypusCoreAliasStatement
+					alias: ((self allPkgs pltAt: no1090483) entitiesUsingContext:
+							 self class context)
+					statementsBlock: [ :entities2844109 |
+							PlatypusCoreRepeatStatement
+								repeat: [ :noi2657881 |
+										((PltTYPEOFFunction invokeFromValues:
+											  (OrderedCollection new
+												   add: (entities2844109 pltAt: noi2657881);
+												   yourself)) includes: 'RECORD_AND_CLASS.RECORD')
+											ifTrue: [
+													self clsList:
+														(self clsList pltPlus:
+															 (entities2844109 pltAt: noi2657881)) ] ]
+								from:
+									(PltLOINDEXFunction invokeFromValues: (OrderedCollection new
+											  add: entities2844109;
+											  yourself))
+								to:
+									(PltHIINDEXFunction invokeFromValues: (OrderedCollection new
+											  add: entities2844109;
+											  yourself)) ] ]
+		from: (PltLOINDEXFunction invokeFromValues: (OrderedCollection new
+					  add: self allPkgs;
+					  yourself))
+		to: (PltHIINDEXFunction invokeFromValues: (OrderedCollection new
+					  add: self allPkgs;
+					  yourself)).
 	^ self return: self clsList
 
 

@@ -23,6 +23,7 @@ Class {
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdDiscriminatedTypeUnionType class >> iso10303P11Translater [
+
 	^ 'Platypus (c) LISYC EA3883, Universite de Bretagne occidentale. Brest.'
 
 
@@ -30,6 +31,7 @@ ExChdDiscriminatedTypeUnionType class >> iso10303P11Translater [
 
 { #category : 'platypus-generated-meta-data-accessing' }
 ExChdDiscriminatedTypeUnionType class >> schemaDefinition [
+
 	^ ExChdDiscriminatedTypeSchemaDefinition singleton
 
 
@@ -37,6 +39,7 @@ ExChdDiscriminatedTypeUnionType class >> schemaDefinition [
 
 { #category : 'platypus-generated-meta-data-accessing' }
 ExChdDiscriminatedTypeUnionType class >> schemaInstance [
+
 	^ ExChdExpress2cheddarSchemaInstance singleton
 
 
@@ -44,6 +47,7 @@ ExChdDiscriminatedTypeUnionType class >> schemaInstance [
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdDiscriminatedTypeUnionType class >> translatedFromISO10303P11 [
+
 	^ true
 
 
@@ -51,6 +55,7 @@ ExChdDiscriminatedTypeUnionType class >> translatedFromISO10303P11 [
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdDiscriminatedTypeUnionType class >> vwNamespaceName [
+
 	^ #Express2Cheddar
 
 
@@ -58,6 +63,7 @@ ExChdDiscriminatedTypeUnionType class >> vwNamespaceName [
 
 { #category : 'platypus-generated-visiting' }
 ExChdDiscriminatedTypeUnionType >> accept: aVisitor [
+
 	^ aVisitor acceptDiscriminatedTypeUnionType: self
 
 
@@ -65,6 +71,7 @@ ExChdDiscriminatedTypeUnionType >> accept: aVisitor [
 
 { #category : 'platypus-generated-deriving' }
 ExChdDiscriminatedTypeUnionType >> adbCode [
+
 	^ self adbCodeUsingContext: self class context
 
 
@@ -72,6 +79,7 @@ ExChdDiscriminatedTypeUnionType >> adbCode [
 
 { #category : 'platypus-generated-deriving' }
 ExChdDiscriminatedTypeUnionType >> adbCodeUsingContext: aContext [
+
 	^ self adbCodeUsingContext: aContext receiver: self
 
 
@@ -79,6 +87,7 @@ ExChdDiscriminatedTypeUnionType >> adbCodeUsingContext: aContext [
 
 { #category : 'platypus-generated-deriving' }
 ExChdDiscriminatedTypeUnionType >> adbCodeUsingContext: aContext receiver: aReceiver [
+
 	^ ''
 
 
@@ -86,6 +95,7 @@ ExChdDiscriminatedTypeUnionType >> adbCodeUsingContext: aContext receiver: aRece
 
 { #category : 'platypus-generated-deriving' }
 ExChdDiscriminatedTypeUnionType >> adbInterfacesList [
+
 	^ self adbInterfacesListUsingContext: self class context
 
 
@@ -93,6 +103,7 @@ ExChdDiscriminatedTypeUnionType >> adbInterfacesList [
 
 { #category : 'platypus-generated-deriving' }
 ExChdDiscriminatedTypeUnionType >> adbInterfacesListUsingContext: aContext [
+
 	^ self adbInterfacesListUsingContext: aContext receiver: self
 
 
@@ -100,18 +111,19 @@ ExChdDiscriminatedTypeUnionType >> adbInterfacesListUsingContext: aContext [
 
 { #category : 'platypus-generated-deriving' }
 ExChdDiscriminatedTypeUnionType >> adbInterfacesListUsingContext: aContext receiver: aReceiver [
+
 	^ ExChdDiscriminatedTypeUnionTypeInterfacesListFunction
-		invokeFromValues:
-			(OrderedCollection new
-				add: aReceiver;
-				add: false;
-				yourself)
+		  invokeFromValues: (OrderedCollection new
+				   add: aReceiver;
+				   add: false;
+				   yourself)
 
 
 ]
 
 { #category : 'platypus-generated-deriving' }
 ExChdDiscriminatedTypeUnionType >> adsCode [
+
 	^ self adsCodeUsingContext: self class context
 
 
@@ -119,6 +131,7 @@ ExChdDiscriminatedTypeUnionType >> adsCode [
 
 { #category : 'platypus-generated-deriving' }
 ExChdDiscriminatedTypeUnionType >> adsCodeUsingContext: aContext [
+
 	^ self adsCodeUsingContext: aContext receiver: self
 
 
@@ -126,6 +139,7 @@ ExChdDiscriminatedTypeUnionType >> adsCodeUsingContext: aContext [
 
 { #category : 'platypus-generated-deriving' }
 ExChdDiscriminatedTypeUnionType >> adsCodeUsingContext: aContext receiver: aReceiver [
+
 	^ ''
 
 
@@ -133,6 +147,7 @@ ExChdDiscriminatedTypeUnionType >> adsCodeUsingContext: aContext receiver: aRece
 
 { #category : 'platypus-generated-deriving' }
 ExChdDiscriminatedTypeUnionType >> adsInterfacesList [
+
 	^ self adsInterfacesListUsingContext: self class context
 
 
@@ -140,6 +155,7 @@ ExChdDiscriminatedTypeUnionType >> adsInterfacesList [
 
 { #category : 'platypus-generated-deriving' }
 ExChdDiscriminatedTypeUnionType >> adsInterfacesListUsingContext: aContext [
+
 	^ self adsInterfacesListUsingContext: aContext receiver: self
 
 
@@ -147,18 +163,19 @@ ExChdDiscriminatedTypeUnionType >> adsInterfacesListUsingContext: aContext [
 
 { #category : 'platypus-generated-deriving' }
 ExChdDiscriminatedTypeUnionType >> adsInterfacesListUsingContext: aContext receiver: aReceiver [
+
 	^ ExChdDiscriminatedTypeUnionTypeInterfacesListFunction
-		invokeFromValues:
-			(OrderedCollection new
-				add: aReceiver;
-				add: true;
-				yourself)
+		  invokeFromValues: (OrderedCollection new
+				   add: aReceiver;
+				   add: true;
+				   yourself)
 
 
 ]
 
 { #category : 'platypus-generated-deriving' }
 ExChdDiscriminatedTypeUnionType >> adsPreDef [
+
 	^ self adsPreDefUsingContext: self class context
 
 
@@ -166,6 +183,7 @@ ExChdDiscriminatedTypeUnionType >> adsPreDef [
 
 { #category : 'platypus-generated-deriving' }
 ExChdDiscriminatedTypeUnionType >> adsPreDefUsingContext: aContext [
+
 	^ self adsPreDefUsingContext: aContext receiver: self
 
 
@@ -173,6 +191,7 @@ ExChdDiscriminatedTypeUnionType >> adsPreDefUsingContext: aContext [
 
 { #category : 'platypus-generated-deriving' }
 ExChdDiscriminatedTypeUnionType >> adsPreDefUsingContext: aContext receiver: aReceiver [
+
 	^ ''
 
 
@@ -180,6 +199,7 @@ ExChdDiscriminatedTypeUnionType >> adsPreDefUsingContext: aContext receiver: aRe
 
 { #category : 'platypus-generated-deriving' }
 ExChdDiscriminatedTypeUnionType >> allAttributes [
+
 	^ self allAttributesUsingContext: self class context
 
 
@@ -187,6 +207,7 @@ ExChdDiscriminatedTypeUnionType >> allAttributes [
 
 { #category : 'platypus-generated-deriving' }
 ExChdDiscriminatedTypeUnionType >> allAttributesUsingContext: aContext [
+
 	^ self allAttributesUsingContext: aContext receiver: self
 
 
@@ -194,17 +215,18 @@ ExChdDiscriminatedTypeUnionType >> allAttributesUsingContext: aContext [
 
 { #category : 'platypus-generated-deriving' }
 ExChdDiscriminatedTypeUnionType >> allAttributesUsingContext: aContext receiver: aReceiver [
-	^ PTsInheritedExplicitAttributesFunction
-		invokeFromValues:
-			(OrderedCollection new
-				add: aReceiver;
-				yourself)
+
+	^ PTsInheritedExplicitAttributesFunction invokeFromValues:
+		  (OrderedCollection new
+			   add: aReceiver;
+			   yourself)
 
 
 ]
 
 { #category : 'platypus-generated-copying' }
 ExChdDiscriminatedTypeUnionType >> discriminatedTypeUnionTypeCopyTo: another [
+
 	
 
 
@@ -212,6 +234,7 @@ ExChdDiscriminatedTypeUnionType >> discriminatedTypeUnionTypeCopyTo: another [
 
 { #category : 'platypus-generated-group-accessing' }
 ExChdDiscriminatedTypeUnionType >> discriminatedTypeUnionTypeFromValues: values [
+
 	| valuesloc |
 	valuesloc := values asOrderedCollection.
 	^ valuesloc
@@ -221,6 +244,7 @@ ExChdDiscriminatedTypeUnionType >> discriminatedTypeUnionTypeFromValues: values 
 
 { #category : 'platypus-generated-group-accessing' }
 ExChdDiscriminatedTypeUnionType >> discriminatedTypeUnionTypeToValues: values [
+
 	^ values
 
 
@@ -228,13 +252,16 @@ ExChdDiscriminatedTypeUnionType >> discriminatedTypeUnionTypeToValues: values [
 
 { #category : 'platypus-generated-group-accessing' }
 ExChdDiscriminatedTypeUnionType >> fromValues: values [
-	^ self discriminatedTypeUnionTypeFromValues: (super fromValues: values)
+
+	^ self discriminatedTypeUnionTypeFromValues:
+		  (super fromValues: values)
 
 
 ]
 
 { #category : 'platypus-generated-classifying' }
 ExChdDiscriminatedTypeUnionType >> isExChdDiscriminatedTypeUnionType [
+
 	^ true
 
 
@@ -242,6 +269,7 @@ ExChdDiscriminatedTypeUnionType >> isExChdDiscriminatedTypeUnionType [
 
 { #category : 'platypus-generated-group-accessing' }
 ExChdDiscriminatedTypeUnionType >> localFromValues: values [
+
 	^ self discriminatedTypeUnionTypeFromValues: values
 
 
@@ -249,6 +277,7 @@ ExChdDiscriminatedTypeUnionType >> localFromValues: values [
 
 { #category : 'platypus-generated-group-accessing' }
 ExChdDiscriminatedTypeUnionType >> localToValues: values [
+
 	^ self discriminatedTypeUnionTypeToValues: values
 
 
@@ -256,6 +285,7 @@ ExChdDiscriminatedTypeUnionType >> localToValues: values [
 
 { #category : 'platypus-generated-copying' }
 ExChdDiscriminatedTypeUnionType >> pltCopyGroup: aClassSymbol to: anObject [
+
 	self class name == aClassSymbol
 		ifTrue: [ self pltCopyTo: anObject ]
 		ifFalse: [ super pltCopyGroup: aClassSymbol to: anObject ]
@@ -265,6 +295,7 @@ ExChdDiscriminatedTypeUnionType >> pltCopyGroup: aClassSymbol to: anObject [
 
 { #category : 'platypus-generated-copying' }
 ExChdDiscriminatedTypeUnionType >> pltCopyTo: another [
+
 	super pltCopyTo: another.
 	self discriminatedTypeUnionTypeCopyTo: another
 
@@ -273,6 +304,7 @@ ExChdDiscriminatedTypeUnionType >> pltCopyTo: another [
 
 { #category : 'platypus-generated-copying' }
 ExChdDiscriminatedTypeUnionType >> pltLocalCopyTo: another [
+
 	self discriminatedTypeUnionTypeCopyTo: another
 
 
@@ -280,6 +312,7 @@ ExChdDiscriminatedTypeUnionType >> pltLocalCopyTo: another [
 
 { #category : 'platypus-generated-initializing' }
 ExChdDiscriminatedTypeUnionType >> stepInitialize [
+
 	super stepInitialize
 
 
@@ -287,6 +320,7 @@ ExChdDiscriminatedTypeUnionType >> stepInitialize [
 
 { #category : 'platypus-generated-group-accessing' }
 ExChdDiscriminatedTypeUnionType >> toValues: values [
+
 	^ self discriminatedTypeUnionTypeToValues: (super toValues: values)
 
 
@@ -294,6 +328,7 @@ ExChdDiscriminatedTypeUnionType >> toValues: values [
 
 { #category : 'platypus-generated-deriving' }
 ExChdDiscriminatedTypeUnionType >> unionAdsCode [
+
 	^ self unionAdsCodeUsingContext: self class context
 
 
@@ -301,6 +336,7 @@ ExChdDiscriminatedTypeUnionType >> unionAdsCode [
 
 { #category : 'platypus-generated-deriving' }
 ExChdDiscriminatedTypeUnionType >> unionAdsCodeUsingContext: aContext [
+
 	^ self unionAdsCodeUsingContext: aContext receiver: self
 
 
@@ -308,11 +344,11 @@ ExChdDiscriminatedTypeUnionType >> unionAdsCodeUsingContext: aContext [
 
 { #category : 'platypus-generated-deriving' }
 ExChdDiscriminatedTypeUnionType >> unionAdsCodeUsingContext: aContext receiver: aReceiver [
-	^ ExChdDiscriminatedTypeUnionCaseCodeFunction
-		invokeFromValues:
-			(OrderedCollection new
-				add: aReceiver;
-				yourself)
+
+	^ ExChdDiscriminatedTypeUnionCaseCodeFunction invokeFromValues:
+		  (OrderedCollection new
+			   add: aReceiver;
+			   yourself)
 
 
 ]

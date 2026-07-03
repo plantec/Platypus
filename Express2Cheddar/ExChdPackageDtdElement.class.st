@@ -24,6 +24,7 @@ Class {
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdPackageDtdElement class >> iso10303P11Translater [
+
 	^ 'Platypus (c) LISYC EA3883, Universite de Bretagne occidentale. Brest.'
 
 
@@ -31,6 +32,7 @@ ExChdPackageDtdElement class >> iso10303P11Translater [
 
 { #category : 'platypus-generated-meta-data-accessing' }
 ExChdPackageDtdElement class >> schemaDefinition [
+
 	^ ExChdCheddarDtdSchemaDefinition singleton
 
 
@@ -38,6 +40,7 @@ ExChdPackageDtdElement class >> schemaDefinition [
 
 { #category : 'platypus-generated-meta-data-accessing' }
 ExChdPackageDtdElement class >> schemaInstance [
+
 	^ ExChdExpress2cheddarSchemaInstance singleton
 
 
@@ -45,6 +48,7 @@ ExChdPackageDtdElement class >> schemaInstance [
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdPackageDtdElement class >> translatedFromISO10303P11 [
+
 	^ true
 
 
@@ -52,6 +56,7 @@ ExChdPackageDtdElement class >> translatedFromISO10303P11 [
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdPackageDtdElement class >> vwNamespaceName [
+
 	^ #Express2Cheddar
 
 
@@ -59,6 +64,7 @@ ExChdPackageDtdElement class >> vwNamespaceName [
 
 { #category : 'platypus-generated-visiting' }
 ExChdPackageDtdElement >> accept: aVisitor [
+
 	^ aVisitor acceptPackageDtdElement: self
 
 
@@ -66,6 +72,7 @@ ExChdPackageDtdElement >> accept: aVisitor [
 
 { #category : 'platypus-generated-deriving' }
 ExChdPackageDtdElement >> attributes [
+
 	^ self attributesUsingContext: self class context
 
 
@@ -73,6 +80,7 @@ ExChdPackageDtdElement >> attributes [
 
 { #category : 'platypus-generated-deriving' }
 ExChdPackageDtdElement >> attributesUsingContext: aContext [
+
 	^ self attributesUsingContext: aContext receiver: self
 
 
@@ -80,17 +88,18 @@ ExChdPackageDtdElement >> attributesUsingContext: aContext [
 
 { #category : 'platypus-generated-deriving' }
 ExChdPackageDtdElement >> attributesUsingContext: aContext receiver: aReceiver [
-	^ ExChdComputePackageAttributeDtdElementsFunction
-		invokeFromValues:
-			(OrderedCollection new
-				add: aReceiver;
-				yourself)
+
+	^ ExChdComputePackageAttributeDtdElementsFunction invokeFromValues:
+		  (OrderedCollection new
+			   add: aReceiver;
+			   yourself)
 
 
 ]
 
 { #category : 'platypus-generated-deriving' }
 ExChdPackageDtdElement >> dtdCode [
+
 	^ self dtdCodeUsingContext: self class context
 
 
@@ -98,6 +107,7 @@ ExChdPackageDtdElement >> dtdCode [
 
 { #category : 'platypus-generated-deriving' }
 ExChdPackageDtdElement >> dtdCodeUsingContext: aContext [
+
 	^ self dtdCodeUsingContext: aContext receiver: self
 
 
@@ -105,17 +115,18 @@ ExChdPackageDtdElement >> dtdCodeUsingContext: aContext [
 
 { #category : 'platypus-generated-deriving' }
 ExChdPackageDtdElement >> dtdCodeUsingContext: aContext receiver: aReceiver [
-	^ ExChdComputePackageDtdCodeFunction
-		invokeFromValues:
-			(OrderedCollection new
-				add: aReceiver;
-				yourself)
+
+	^ ExChdComputePackageDtdCodeFunction invokeFromValues:
+		  (OrderedCollection new
+			   add: aReceiver;
+			   yourself)
 
 
 ]
 
 { #category : 'platypus-generated-fast-set-accessing' }
 ExChdPackageDtdElement >> fastSetPackage: aExChdAdaPackage [
+
 	package := aExChdAdaPackage
 
 
@@ -123,6 +134,7 @@ ExChdPackageDtdElement >> fastSetPackage: aExChdAdaPackage [
 
 { #category : 'platypus-generated-group-accessing' }
 ExChdPackageDtdElement >> fromValues: values [
+
 	^ self packageDtdElementFromValues: (super fromValues: values)
 
 
@@ -130,6 +142,7 @@ ExChdPackageDtdElement >> fromValues: values [
 
 { #category : 'platypus-generated-classifying' }
 ExChdPackageDtdElement >> isExChdPackageDtdElement [
+
 	^ true
 
 
@@ -137,6 +150,7 @@ ExChdPackageDtdElement >> isExChdPackageDtdElement [
 
 { #category : 'platypus-generated-group-accessing' }
 ExChdPackageDtdElement >> localFromValues: values [
+
 	^ self packageDtdElementFromValues: values
 
 
@@ -144,6 +158,7 @@ ExChdPackageDtdElement >> localFromValues: values [
 
 { #category : 'platypus-generated-group-accessing' }
 ExChdPackageDtdElement >> localToValues: values [
+
 	^ self packageDtdElementToValues: values
 
 
@@ -151,6 +166,7 @@ ExChdPackageDtdElement >> localToValues: values [
 
 { #category : 'platypus-generated-accessing' }
 ExChdPackageDtdElement >> package [
+
 	^ package
 
 
@@ -158,6 +174,7 @@ ExChdPackageDtdElement >> package [
 
 { #category : 'platypus-generated-accessing' }
 ExChdPackageDtdElement >> package: aExChdAdaPackage [
+
 	package := aExChdAdaPackage
 
 
@@ -165,6 +182,7 @@ ExChdPackageDtdElement >> package: aExChdAdaPackage [
 
 { #category : 'platypus-generated-copying' }
 ExChdPackageDtdElement >> packageDtdElementCopyTo: another [
+
 	another fastSetPackage: self package
 
 
@@ -172,6 +190,7 @@ ExChdPackageDtdElement >> packageDtdElementCopyTo: another [
 
 { #category : 'platypus-generated-group-accessing' }
 ExChdPackageDtdElement >> packageDtdElementFromValues: values [
+
 	| valuesloc |
 	valuesloc := values asOrderedCollection.
 	self setPackage: valuesloc removeFirst.
@@ -182,6 +201,7 @@ ExChdPackageDtdElement >> packageDtdElementFromValues: values [
 
 { #category : 'platypus-generated-group-accessing' }
 ExChdPackageDtdElement >> packageDtdElementToValues: values [
+
 	values add: self package.
 	^ values
 
@@ -190,6 +210,7 @@ ExChdPackageDtdElement >> packageDtdElementToValues: values [
 
 { #category : 'platypus-generated-with-context-accessing' }
 ExChdPackageDtdElement >> packageUsingContext: aContext [
+
 	^ self package
 
 
@@ -197,6 +218,7 @@ ExChdPackageDtdElement >> packageUsingContext: aContext [
 
 { #category : 'platypus-generated-copying' }
 ExChdPackageDtdElement >> pltCopyGroup: aClassSymbol to: anObject [
+
 	self class name == aClassSymbol
 		ifTrue: [ self pltCopyTo: anObject ]
 		ifFalse: [ super pltCopyGroup: aClassSymbol to: anObject ]
@@ -206,6 +228,7 @@ ExChdPackageDtdElement >> pltCopyGroup: aClassSymbol to: anObject [
 
 { #category : 'platypus-generated-copying' }
 ExChdPackageDtdElement >> pltCopyTo: another [
+
 	super pltCopyTo: another.
 	self packageDtdElementCopyTo: another
 
@@ -214,6 +237,7 @@ ExChdPackageDtdElement >> pltCopyTo: another [
 
 { #category : 'platypus-generated-copying' }
 ExChdPackageDtdElement >> pltLocalCopyTo: another [
+
 	self packageDtdElementCopyTo: another
 
 
@@ -221,6 +245,7 @@ ExChdPackageDtdElement >> pltLocalCopyTo: another [
 
 { #category : 'platypus-generated-set-accessing' }
 ExChdPackageDtdElement >> setPackage: aExChdAdaPackage [
+
 	self package: aExChdAdaPackage
 
 
@@ -228,6 +253,7 @@ ExChdPackageDtdElement >> setPackage: aExChdAdaPackage [
 
 { #category : 'platypus-generated-initializing' }
 ExChdPackageDtdElement >> stepInitialize [
+
 	super stepInitialize.
 	package := nil
 
@@ -236,6 +262,7 @@ ExChdPackageDtdElement >> stepInitialize [
 
 { #category : 'platypus-generated-deriving' }
 ExChdPackageDtdElement >> subs [
+
 	^ self subsUsingContext: self class context
 
 
@@ -243,6 +270,7 @@ ExChdPackageDtdElement >> subs [
 
 { #category : 'platypus-generated-deriving' }
 ExChdPackageDtdElement >> subsUsingContext: aContext [
+
 	^ self subsUsingContext: aContext receiver: self
 
 
@@ -250,17 +278,18 @@ ExChdPackageDtdElement >> subsUsingContext: aContext [
 
 { #category : 'platypus-generated-deriving' }
 ExChdPackageDtdElement >> subsUsingContext: aContext receiver: aReceiver [
-	^ ExChdComputePackageSubElementsFunction
-		invokeFromValues:
-			(OrderedCollection new
-				add: aReceiver;
-				yourself)
+
+	^ ExChdComputePackageSubElementsFunction invokeFromValues:
+		  (OrderedCollection new
+			   add: aReceiver;
+			   yourself)
 
 
 ]
 
 { #category : 'platypus-generated-deriving' }
 ExChdPackageDtdElement >> tag [
+
 	^ self tagUsingContext: self class context
 
 
@@ -268,6 +297,7 @@ ExChdPackageDtdElement >> tag [
 
 { #category : 'platypus-generated-deriving' }
 ExChdPackageDtdElement >> tagUsingContext: aContext [
+
 	^ self tagUsingContext: aContext receiver: self
 
 
@@ -275,17 +305,17 @@ ExChdPackageDtdElement >> tagUsingContext: aContext [
 
 { #category : 'platypus-generated-deriving' }
 ExChdPackageDtdElement >> tagUsingContext: aContext receiver: aReceiver [
-	^ PTsLowerizeFunction
-		invokeFromValues:
-			(OrderedCollection new
-				add: (aReceiver package nameUsingContext: self class context);
-				yourself)
+
+	^ PTsLowerizeFunction invokeFromValues: (OrderedCollection new
+			   add: (aReceiver package nameUsingContext: self class context);
+			   yourself)
 
 
 ]
 
 { #category : 'platypus-generated-group-accessing' }
 ExChdPackageDtdElement >> toValues: values [
+
 	^ self packageDtdElementToValues: (super toValues: values)
 
 

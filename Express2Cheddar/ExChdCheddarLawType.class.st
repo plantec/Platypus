@@ -21,6 +21,7 @@ Class {
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdCheddarLawType class >> iso10303P11Translater [
+
 	^ 'Platypus (c) LISYC EA3883, Universite de Bretagne occidentale. Brest.'
 
 
@@ -28,6 +29,7 @@ ExChdCheddarLawType class >> iso10303P11Translater [
 
 { #category : 'platypus-generated-meta-data-accessing' }
 ExChdCheddarLawType class >> schemaDefinition [
+
 	^ ExChdCheddarDomainsSchemaDefinition singleton
 
 
@@ -35,6 +37,7 @@ ExChdCheddarLawType class >> schemaDefinition [
 
 { #category : 'platypus-generated-meta-data-accessing' }
 ExChdCheddarLawType class >> schemaInstance [
+
 	^ ExChdExpress2cheddarSchemaInstance singleton
 
 
@@ -42,6 +45,7 @@ ExChdCheddarLawType class >> schemaInstance [
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdCheddarLawType class >> translatedFromISO10303P11 [
+
 	^ true
 
 
@@ -49,6 +53,7 @@ ExChdCheddarLawType class >> translatedFromISO10303P11 [
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdCheddarLawType class >> vwNamespaceName [
+
 	^ #Express2Cheddar
 
 
@@ -56,6 +61,7 @@ ExChdCheddarLawType class >> vwNamespaceName [
 
 { #category : 'platypus-generated-visiting' }
 ExChdCheddarLawType >> accept: aVisitor [
+
 	^ aVisitor acceptCheddarLawType: self
 
 
@@ -63,6 +69,7 @@ ExChdCheddarLawType >> accept: aVisitor [
 
 { #category : 'platypus-generated-deriving' }
 ExChdCheddarLawType >> adaIdent [
+
 	^ self adaIdentUsingContext: self class context
 
 
@@ -70,6 +77,7 @@ ExChdCheddarLawType >> adaIdent [
 
 { #category : 'platypus-generated-deriving' }
 ExChdCheddarLawType >> adaIdentUsingContext: aContext [
+
 	^ self adaIdentUsingContext: aContext receiver: self
 
 
@@ -77,6 +85,7 @@ ExChdCheddarLawType >> adaIdentUsingContext: aContext [
 
 { #category : 'platypus-generated-deriving' }
 ExChdCheddarLawType >> adaIdentUsingContext: aContext receiver: aReceiver [
+
 	^ 'law_type'
 
 
@@ -84,6 +93,7 @@ ExChdCheddarLawType >> adaIdentUsingContext: aContext receiver: aReceiver [
 
 { #category : 'platypus-generated-deriving' }
 ExChdCheddarLawType >> adaRefIdent [
+
 	^ self adaRefIdentUsingContext: self class context
 
 
@@ -91,6 +101,7 @@ ExChdCheddarLawType >> adaRefIdent [
 
 { #category : 'platypus-generated-deriving' }
 ExChdCheddarLawType >> adaRefIdentUsingContext: aContext [
+
 	^ self adaRefIdentUsingContext: aContext receiver: self
 
 
@@ -98,6 +109,7 @@ ExChdCheddarLawType >> adaRefIdentUsingContext: aContext [
 
 { #category : 'platypus-generated-deriving' }
 ExChdCheddarLawType >> adaRefIdentUsingContext: aContext receiver: aReceiver [
+
 	^ aReceiver adaIdentUsingContext: aContext
 
 
@@ -105,6 +117,7 @@ ExChdCheddarLawType >> adaRefIdentUsingContext: aContext receiver: aReceiver [
 
 { #category : 'platypus-generated-deriving' }
 ExChdCheddarLawType >> adbInterfacesList [
+
 	^ self adbInterfacesListUsingContext: self class context
 
 
@@ -112,6 +125,7 @@ ExChdCheddarLawType >> adbInterfacesList [
 
 { #category : 'platypus-generated-deriving' }
 ExChdCheddarLawType >> adbInterfacesListUsingContext: aContext [
+
 	^ self adbInterfacesListUsingContext: aContext receiver: self
 
 
@@ -119,6 +133,7 @@ ExChdCheddarLawType >> adbInterfacesListUsingContext: aContext [
 
 { #category : 'platypus-generated-deriving' }
 ExChdCheddarLawType >> adbInterfacesListUsingContext: aContext receiver: aReceiver [
+
 	^ Array new
 
 
@@ -126,6 +141,7 @@ ExChdCheddarLawType >> adbInterfacesListUsingContext: aContext receiver: aReceiv
 
 { #category : 'platypus-generated-deriving' }
 ExChdCheddarLawType >> adsInterfacesList [
+
 	^ self adsInterfacesListUsingContext: self class context
 
 
@@ -133,6 +149,7 @@ ExChdCheddarLawType >> adsInterfacesList [
 
 { #category : 'platypus-generated-deriving' }
 ExChdCheddarLawType >> adsInterfacesListUsingContext: aContext [
+
 	^ self adsInterfacesListUsingContext: aContext receiver: self
 
 
@@ -140,36 +157,33 @@ ExChdCheddarLawType >> adsInterfacesListUsingContext: aContext [
 
 { #category : 'platypus-generated-deriving' }
 ExChdCheddarLawType >> adsInterfacesListUsingContext: aContext receiver: aReceiver [
-	^ PlatypusCoreAggregateInitializer
-		collectionFrom:
-			(OrderedCollection new
-				add:
-						(ExChdAdaInterface new
-								adaInterfaceFromValues:
-										(OrderedCollection new
-												add: 'Expression';
-												add: nil;
-												add: true;
-												add: true;
-												yourself);
-								yourself);
-				add:
-						(ExChdAdaInterface new
-								adaInterfaceFromValues:
-										(OrderedCollection new
-												add: 'Expression';
-												add: nil;
-												add: false;
-												add: true;
-												yourself);
-								yourself);
-				yourself)
+
+	^ PlatypusCoreAggregateInitializer collectionFrom:
+		  (OrderedCollection new
+			   add: (ExChdAdaInterface new
+					    adaInterfaceFromValues: (OrderedCollection new
+							     add: 'Expression';
+							     add: nil;
+							     add: true;
+							     add: true;
+							     yourself);
+					    yourself);
+			   add: (ExChdAdaInterface new
+					    adaInterfaceFromValues: (OrderedCollection new
+							     add: 'Expression';
+							     add: nil;
+							     add: false;
+							     add: true;
+							     yourself);
+					    yourself);
+			   yourself)
 
 
 ]
 
 { #category : 'platypus-generated-copying' }
 ExChdCheddarLawType >> cheddarLawTypeCopyTo: another [
+
 	
 
 
@@ -177,6 +191,7 @@ ExChdCheddarLawType >> cheddarLawTypeCopyTo: another [
 
 { #category : 'platypus-generated-group-accessing' }
 ExChdCheddarLawType >> cheddarLawTypeFromValues: values [
+
 	| valuesloc |
 	valuesloc := values asOrderedCollection.
 	^ valuesloc
@@ -186,6 +201,7 @@ ExChdCheddarLawType >> cheddarLawTypeFromValues: values [
 
 { #category : 'platypus-generated-group-accessing' }
 ExChdCheddarLawType >> cheddarLawTypeToValues: values [
+
 	^ values
 
 
@@ -193,6 +209,7 @@ ExChdCheddarLawType >> cheddarLawTypeToValues: values [
 
 { #category : 'platypus-generated-group-accessing' }
 ExChdCheddarLawType >> fromValues: values [
+
 	^ self cheddarLawTypeFromValues: (super fromValues: values)
 
 
@@ -200,6 +217,7 @@ ExChdCheddarLawType >> fromValues: values [
 
 { #category : 'platypus-generated-deriving' }
 ExChdCheddarLawType >> initValue [
+
 	^ self initValueUsingContext: self class context
 
 
@@ -207,6 +225,7 @@ ExChdCheddarLawType >> initValue [
 
 { #category : 'platypus-generated-deriving' }
 ExChdCheddarLawType >> initValueUsingContext: aContext [
+
 	^ self initValueUsingContext: aContext receiver: self
 
 
@@ -214,6 +233,7 @@ ExChdCheddarLawType >> initValueUsingContext: aContext [
 
 { #category : 'platypus-generated-deriving' }
 ExChdCheddarLawType >> initValueUsingContext: aContext receiver: aReceiver [
+
 	^ nil
 
 
@@ -221,6 +241,7 @@ ExChdCheddarLawType >> initValueUsingContext: aContext receiver: aReceiver [
 
 { #category : 'platypus-generated-classifying' }
 ExChdCheddarLawType >> isExChdCheddarLawType [
+
 	^ true
 
 
@@ -228,6 +249,7 @@ ExChdCheddarLawType >> isExChdCheddarLawType [
 
 { #category : 'platypus-generated-group-accessing' }
 ExChdCheddarLawType >> localFromValues: values [
+
 	^ self cheddarLawTypeFromValues: values
 
 
@@ -235,6 +257,7 @@ ExChdCheddarLawType >> localFromValues: values [
 
 { #category : 'platypus-generated-group-accessing' }
 ExChdCheddarLawType >> localToValues: values [
+
 	^ self cheddarLawTypeToValues: values
 
 
@@ -242,6 +265,7 @@ ExChdCheddarLawType >> localToValues: values [
 
 { #category : 'platypus-generated-copying' }
 ExChdCheddarLawType >> pltCopyGroup: aClassSymbol to: anObject [
+
 	self class name == aClassSymbol
 		ifTrue: [ self pltCopyTo: anObject ]
 		ifFalse: [ super pltCopyGroup: aClassSymbol to: anObject ]
@@ -251,6 +275,7 @@ ExChdCheddarLawType >> pltCopyGroup: aClassSymbol to: anObject [
 
 { #category : 'platypus-generated-copying' }
 ExChdCheddarLawType >> pltCopyTo: another [
+
 	super pltCopyTo: another.
 	self cheddarLawTypeCopyTo: another
 
@@ -259,6 +284,7 @@ ExChdCheddarLawType >> pltCopyTo: another [
 
 { #category : 'platypus-generated-copying' }
 ExChdCheddarLawType >> pltLocalCopyTo: another [
+
 	self cheddarLawTypeCopyTo: another
 
 
@@ -266,6 +292,7 @@ ExChdCheddarLawType >> pltLocalCopyTo: another [
 
 { #category : 'platypus-generated-initializing' }
 ExChdCheddarLawType >> stepInitialize [
+
 	super stepInitialize
 
 
@@ -273,6 +300,7 @@ ExChdCheddarLawType >> stepInitialize [
 
 { #category : 'platypus-generated-group-accessing' }
 ExChdCheddarLawType >> toValues: values [
+
 	^ self cheddarLawTypeToValues: (super toValues: values)
 
 

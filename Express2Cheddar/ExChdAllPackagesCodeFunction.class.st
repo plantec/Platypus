@@ -18,6 +18,7 @@ Class {
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdAllPackagesCodeFunction class >> iso10303P11Translater [
+
 	^ 'Platypus (c) LISYC EA3883, Universite de Bretagne occidentale. Brest.'
 
 
@@ -25,6 +26,7 @@ ExChdAllPackagesCodeFunction class >> iso10303P11Translater [
 
 { #category : 'platypus-generated-meta-data-accessing' }
 ExChdAllPackagesCodeFunction class >> schemaDefinition [
+
 	^ ExChdPackageSchemaDefinition singleton
 
 
@@ -32,6 +34,7 @@ ExChdAllPackagesCodeFunction class >> schemaDefinition [
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdAllPackagesCodeFunction class >> translatedFromISO10303P11 [
+
 	^ true
 
 
@@ -39,6 +42,7 @@ ExChdAllPackagesCodeFunction class >> translatedFromISO10303P11 [
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdAllPackagesCodeFunction class >> vwNamespaceName [
+
 	^ #Express2Cheddar
 
 
@@ -46,6 +50,7 @@ ExChdAllPackagesCodeFunction class >> vwNamespaceName [
 
 { #category : 'platypus-generated-accessing' }
 ExChdAllPackagesCodeFunction >> ads [
+
 	^ ads
 
 
@@ -53,6 +58,7 @@ ExChdAllPackagesCodeFunction >> ads [
 
 { #category : 'platypus-generated-accessing' }
 ExChdAllPackagesCodeFunction >> ads: aBoolean [
+
 	ads := aBoolean
 
 
@@ -60,6 +66,7 @@ ExChdAllPackagesCodeFunction >> ads: aBoolean [
 
 { #category : 'platypus-generated-accessing' }
 ExChdAllPackagesCodeFunction >> fromValues: values [
+
 	self ads: (values at: 1)
 
 
@@ -67,19 +74,14 @@ ExChdAllPackagesCodeFunction >> fromValues: values [
 
 { #category : 'platypus-generated-invoking' }
 ExChdAllPackagesCodeFunction >> invoke [
-	" ---------- locals assignments ----------"
+	" ---------- locals assignments ----------"" ---------- statements ----------"
 
-	" ---------- statements ----------"
-
-	^ self
-		return:
-			(ExChdAllPackagesCodeIntoFunction
-				invokeFromValues:
-					(OrderedCollection new
-						add: self ads;
-						add: nil;
-						add: nil;
-						yourself))
+	^ self return: (ExChdAllPackagesCodeIntoFunction invokeFromValues:
+			   (OrderedCollection new
+				    add: self ads;
+				    add: nil;
+				    add: nil;
+				    yourself))
 
 
 ]

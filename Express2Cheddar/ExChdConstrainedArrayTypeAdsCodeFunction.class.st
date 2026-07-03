@@ -38,6 +38,7 @@ Class {
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdConstrainedArrayTypeAdsCodeFunction class >> iso10303P11Translater [
+
 	^ 'Platypus (c) LISYC EA3883, Universite de Bretagne occidentale. Brest.'
 
 
@@ -45,6 +46,7 @@ ExChdConstrainedArrayTypeAdsCodeFunction class >> iso10303P11Translater [
 
 { #category : 'platypus-generated-meta-data-accessing' }
 ExChdConstrainedArrayTypeAdsCodeFunction class >> schemaDefinition [
+
 	^ ExChdCheddarDomainsSchemaDefinition singleton
 
 
@@ -52,6 +54,7 @@ ExChdConstrainedArrayTypeAdsCodeFunction class >> schemaDefinition [
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdConstrainedArrayTypeAdsCodeFunction class >> translatedFromISO10303P11 [
+
 	^ true
 
 
@@ -59,6 +62,7 @@ ExChdConstrainedArrayTypeAdsCodeFunction class >> translatedFromISO10303P11 [
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdConstrainedArrayTypeAdsCodeFunction class >> vwNamespaceName [
+
 	^ #Express2Cheddar
 
 
@@ -66,6 +70,7 @@ ExChdConstrainedArrayTypeAdsCodeFunction class >> vwNamespaceName [
 
 { #category : 'platypus-generated-accessing' }
 ExChdConstrainedArrayTypeAdsCodeFunction >> a [
+
 	^ a
 
 
@@ -73,6 +78,7 @@ ExChdConstrainedArrayTypeAdsCodeFunction >> a [
 
 { #category : 'platypus-generated-accessing' }
 ExChdConstrainedArrayTypeAdsCodeFunction >> a: aExChdConstrainedArrayType [
+
 	a := aExChdConstrainedArrayType
 
 
@@ -80,6 +86,7 @@ ExChdConstrainedArrayTypeAdsCodeFunction >> a: aExChdConstrainedArrayType [
 
 { #category : 'platypus-generated-accessing' }
 ExChdConstrainedArrayTypeAdsCodeFunction >> code [
+
 	^ code
 
 
@@ -87,6 +94,7 @@ ExChdConstrainedArrayTypeAdsCodeFunction >> code [
 
 { #category : 'platypus-generated-accessing' }
 ExChdConstrainedArrayTypeAdsCodeFunction >> code: aString [
+
 	code := aString
 
 
@@ -94,6 +102,7 @@ ExChdConstrainedArrayTypeAdsCodeFunction >> code: aString [
 
 { #category : 'platypus-generated-accessing' }
 ExChdConstrainedArrayTypeAdsCodeFunction >> fromValues: values [
+
 	self a: (values at: 1)
 
 
@@ -103,34 +112,39 @@ ExChdConstrainedArrayTypeAdsCodeFunction >> fromValues: values [
 ExChdConstrainedArrayTypeAdsCodeFunction >> invoke [
 	" ---------- locals assignments ----------"
 
-	self code: ''.	" ---------- statements ----------"
-	self code: (('type ' pltPlus: (self a adaIdentUsingContext: self class context)) pltPlus: ' is Array ( ').
-	(PltEXISTSFunction
-		invokeFromValues:
-			(OrderedCollection new
-				add: (self a maxIdxUsingContext: self class context);
-				yourself))
-		ifTrue: [ 
-			self
-				code:
-					(((self code pltPlus: (self a minIdxUsingContext: self class context)) pltPlus: ' .. ')
-						pltPlus: (self a maxIdxUsingContext: self class context)) ]
-		ifFalse: [ self code: (self code pltPlus: (self a minIdxUsingContext: self class context)) ].
+	self code: ''. " ---------- statements ----------"
+	self code:
+		(('type ' pltPlus: (self a adaIdentUsingContext: self class context))
+			 pltPlus: ' is Array ( ').
+	(PltEXISTSFunction invokeFromValues: (OrderedCollection new
+			  add: (self a maxIdxUsingContext: self class context);
+			  yourself))
+		ifTrue: [
+				self code:
+					(((self code pltPlus:
+						   (self a minIdxUsingContext: self class context)) pltPlus:
+						  ' .. ') pltPlus:
+						 (self a maxIdxUsingContext: self class context)) ]
+		ifFalse: [
+				self code:
+					(self code pltPlus:
+						 (self a minIdxUsingContext: self class context)) ].
 	PlatypusCoreAliasStatement
-		alias:
-			(((self a domainUsingContext: self class context) elementTypeUsingContext: self class context)
-				handledUsingContext: self class context)
-		statementsBlock: [ :etype2148 | 
-			((PltTYPEOFFunction
-				invokeFromValues:
-					(OrderedCollection new
-						add: etype2148;
-						yourself)) includes: 'RECORD_AND_CLASS.ADA_CLASS')
-				ifTrue: [ self code: (((self code pltPlus: ' ) of ') pltPlus: (etype2148 ptrTypeUsingContext: self class context)) pltPlus: ';\n') ]
-				ifFalse: [ 
-					self
-						code:
-							(((self code pltPlus: ' ) of ') pltPlus: (etype2148 adaIdentUsingContext: self class context)) pltPlus: ';\n') ] ].
+		alias: (((self a domainUsingContext: self class context)
+				  elementTypeUsingContext: self class context)
+				 handledUsingContext: self class context)
+		statementsBlock: [ :etype639051 |
+				((PltTYPEOFFunction invokeFromValues: (OrderedCollection new
+						   add: etype639051;
+						   yourself)) includes: 'RECORD_AND_CLASS.ADA_CLASS')
+					ifTrue: [
+							self code: (((self code pltPlus: ' ) of ') pltPlus:
+									  (etype639051 ptrTypeUsingContext: self class context))
+									 pltPlus: ';\n') ]
+					ifFalse: [
+							self code: (((self code pltPlus: ' ) of ') pltPlus:
+									  (etype639051 adaIdentUsingContext: self class context))
+									 pltPlus: ';\n') ] ].
 	^ self return: self code
 
 

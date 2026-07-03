@@ -33,6 +33,7 @@ Class {
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdInScopeAttributeInitCodeFunction class >> iso10303P11Translater [
+
 	^ 'Platypus (c) LISYC EA3883, Universite de Bretagne occidentale. Brest.'
 
 
@@ -40,6 +41,7 @@ ExChdInScopeAttributeInitCodeFunction class >> iso10303P11Translater [
 
 { #category : 'platypus-generated-meta-data-accessing' }
 ExChdInScopeAttributeInitCodeFunction class >> schemaDefinition [
+
 	^ ExChdCheddarDomainsSchemaDefinition singleton
 
 
@@ -47,6 +49,7 @@ ExChdInScopeAttributeInitCodeFunction class >> schemaDefinition [
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdInScopeAttributeInitCodeFunction class >> translatedFromISO10303P11 [
+
 	^ true
 
 
@@ -54,6 +57,7 @@ ExChdInScopeAttributeInitCodeFunction class >> translatedFromISO10303P11 [
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdInScopeAttributeInitCodeFunction class >> vwNamespaceName [
+
 	^ #Express2Cheddar
 
 
@@ -61,6 +65,7 @@ ExChdInScopeAttributeInitCodeFunction class >> vwNamespaceName [
 
 { #category : 'platypus-generated-accessing' }
 ExChdInScopeAttributeInitCodeFunction >> a [
+
 	^ a
 
 
@@ -68,6 +73,7 @@ ExChdInScopeAttributeInitCodeFunction >> a [
 
 { #category : 'platypus-generated-accessing' }
 ExChdInScopeAttributeInitCodeFunction >> a: aExChdInScopeAttribute [
+
 	a := aExChdInScopeAttribute
 
 
@@ -75,6 +81,7 @@ ExChdInScopeAttributeInitCodeFunction >> a: aExChdInScopeAttribute [
 
 { #category : 'platypus-generated-accessing' }
 ExChdInScopeAttributeInitCodeFunction >> code [
+
 	^ code
 
 
@@ -82,6 +89,7 @@ ExChdInScopeAttributeInitCodeFunction >> code [
 
 { #category : 'platypus-generated-accessing' }
 ExChdInScopeAttributeInitCodeFunction >> code: aString [
+
 	code := aString
 
 
@@ -89,6 +97,7 @@ ExChdInScopeAttributeInitCodeFunction >> code: aString [
 
 { #category : 'platypus-generated-accessing' }
 ExChdInScopeAttributeInitCodeFunction >> fromValues: values [
+
 	self a: (values at: 1)
 
 
@@ -98,20 +107,28 @@ ExChdInScopeAttributeInitCodeFunction >> fromValues: values [
 ExChdInScopeAttributeInitCodeFunction >> invoke [
 	" ---------- locals assignments ----------"
 
-	self code: ''.	" ---------- statements ----------"
+	self code: ''. " ---------- statements ----------"
 	PlatypusCoreAliasStatement
-		alias: ((self a domainUsingContext: self class context) handledUsingContext: self class context)
-		statementsBlock: [ :domain1726 | 
-			(domain1726 refedByPointerUsingContext: self class context)
-				ifTrue: [ 
-					self
-						code:
-							(((((((((((((((self code pltPlus: '\n\tif obj.') pltPlus: (self a nameUsingContext: self class context))
-								pltPlus: ' /= null then\n') pltPlus: '\t\tFree (obj.') pltPlus: (self a nameUsingContext: self class context))
-								pltPlus: ' );\n') pltPlus: '\tend if;\n') pltPlus: '\tobj.')
-								pltPlus: (self a nameUsingContext: self class context)) pltPlus: ' := new ')
-								pltPlus: (domain1726 nameUsingContext: self class context)) pltPlus: ';\n') pltPlus: '\tInitialize(obj.')
-								pltPlus: (self a nameUsingContext: self class context)) pltPlus: '.all);\n') ] ].
+		alias:
+			((self a domainUsingContext: self class context)
+				 handledUsingContext: self class context)
+		statementsBlock: [ :domain2900365 |
+				(domain2900365 refedByPointerUsingContext: self class context)
+					ifTrue: [
+							self code:
+								(((((((((((((((self code pltPlus: '\n\tif obj.') pltPlus:
+									              (self a nameUsingContext: self class context))
+									             pltPlus: ' /= null then\n') pltPlus:
+									            '\t\tFree (obj.') pltPlus:
+									           (self a nameUsingContext: self class context))
+									          pltPlus: ' );\n') pltPlus: '\tend if;\n') pltPlus:
+									        '\tobj.') pltPlus:
+									       (self a nameUsingContext: self class context))
+									      pltPlus: ' := new ') pltPlus:
+									     (domain2900365 nameUsingContext: self class context))
+									    pltPlus: ';\n') pltPlus: '\tInitialize(obj.') pltPlus:
+									  (self a nameUsingContext: self class context)) pltPlus:
+									 '.all);\n') ] ].
 	^ self return: self code
 
 

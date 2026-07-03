@@ -35,6 +35,7 @@ Class {
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdRecordCopyCodeFunction class >> iso10303P11Translater [
+
 	^ 'Platypus (c) LISYC EA3883, Universite de Bretagne occidentale. Brest.'
 
 
@@ -42,6 +43,7 @@ ExChdRecordCopyCodeFunction class >> iso10303P11Translater [
 
 { #category : 'platypus-generated-meta-data-accessing' }
 ExChdRecordCopyCodeFunction class >> schemaDefinition [
+
 	^ ExChdRecordAndClassSchemaDefinition singleton
 
 
@@ -49,6 +51,7 @@ ExChdRecordCopyCodeFunction class >> schemaDefinition [
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdRecordCopyCodeFunction class >> translatedFromISO10303P11 [
+
 	^ true
 
 
@@ -56,6 +59,7 @@ ExChdRecordCopyCodeFunction class >> translatedFromISO10303P11 [
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdRecordCopyCodeFunction class >> vwNamespaceName [
+
 	^ #Express2Cheddar
 
 
@@ -63,6 +67,7 @@ ExChdRecordCopyCodeFunction class >> vwNamespaceName [
 
 { #category : 'platypus-generated-accessing' }
 ExChdRecordCopyCodeFunction >> cip [
+
 	^ cip
 
 
@@ -70,6 +75,7 @@ ExChdRecordCopyCodeFunction >> cip [
 
 { #category : 'platypus-generated-accessing' }
 ExChdRecordCopyCodeFunction >> cip: aExChdRecord [
+
 	cip := aExChdRecord
 
 
@@ -77,6 +83,7 @@ ExChdRecordCopyCodeFunction >> cip: aExChdRecord [
 
 { #category : 'platypus-generated-accessing' }
 ExChdRecordCopyCodeFunction >> code [
+
 	^ code
 
 
@@ -84,6 +91,7 @@ ExChdRecordCopyCodeFunction >> code [
 
 { #category : 'platypus-generated-accessing' }
 ExChdRecordCopyCodeFunction >> code: aString [
+
 	code := aString
 
 
@@ -91,6 +99,7 @@ ExChdRecordCopyCodeFunction >> code: aString [
 
 { #category : 'platypus-generated-accessing' }
 ExChdRecordCopyCodeFunction >> fromValues: values [
+
 	self cip: (values at: 1)
 
 
@@ -100,21 +109,28 @@ ExChdRecordCopyCodeFunction >> fromValues: values [
 ExChdRecordCopyCodeFunction >> invoke [
 	" ---------- locals assignments ----------"
 
-	self v: ('New_' pltPlus: (self cip nameUsingContext: self class context)).	" ---------- statements ----------"
-	self
-		code:
-			((((((((((((((('function Copy ( obj : in ' pltPlus: (self cip nameUsingContext: self class context))
-				pltPlus: ' ) return ') pltPlus: (self cip ptrTypeUsingContext: self class context)) pltPlus: ' is\n') pltPlus: '\t')
-				pltPlus: self v) pltPlus: ' : ') pltPlus: (self cip ptrTypeUsingContext: self class context)) pltPlus: ';\n')
-				pltPlus: 'begin\n') pltPlus: '\t') pltPlus: self v) pltPlus: ' := new ')
-				pltPlus: (self cip nameUsingContext: self class context)) pltPlus: '''(obj);\n').
-	self code: (((self code pltPlus: '\treturn (') pltPlus: self v) pltPlus: ');\n').
-	self
-		code:
-			(((((((((self code pltPlus: 'end Copy;\n\n') pltPlus: 'function Copy ( obj : in ')
-				pltPlus: (self cip ptrTypeUsingContext: self class context)) pltPlus: ' ) return ')
-				pltPlus: (self cip ptrTypeUsingContext: self class context)) pltPlus: ' is\n') pltPlus: 'begin\n')
-				pltPlus: '\treturn copy(obj.all);\n') pltPlus: 'end Copy;\n').
+	self v:
+		('New_' pltPlus: (self cip nameUsingContext: self class context)). " ---------- statements ----------"
+	self code: ((((((((((((((('function Copy ( obj : in ' pltPlus:
+			               (self cip nameUsingContext: self class context))
+			              pltPlus: ' ) return ') pltPlus:
+			             (self cip ptrTypeUsingContext: self class context))
+			            pltPlus: ' is\n') pltPlus: '\t') pltPlus: self v)
+			         pltPlus: ' : ') pltPlus:
+			        (self cip ptrTypeUsingContext: self class context))
+			       pltPlus: ';\n') pltPlus: 'begin\n') pltPlus: '\t') pltPlus:
+			    self v) pltPlus: ' := new ') pltPlus:
+			  (self cip nameUsingContext: self class context)) pltPlus:
+			 '''(obj);\n').
+	self code:
+		(((self code pltPlus: '\treturn (') pltPlus: self v) pltPlus: ');\n').
+	self code: (((((((((self code pltPlus: 'end Copy;\n\n') pltPlus:
+			        'function Copy ( obj : in ') pltPlus:
+			       (self cip ptrTypeUsingContext: self class context))
+			      pltPlus: ' ) return ') pltPlus:
+			     (self cip ptrTypeUsingContext: self class context)) pltPlus:
+			    ' is\n') pltPlus: 'begin\n') pltPlus:
+			  '\treturn copy(obj.all);\n') pltPlus: 'end Copy;\n').
 	^ self return: self code
 
 
@@ -122,6 +138,7 @@ ExChdRecordCopyCodeFunction >> invoke [
 
 { #category : 'platypus-generated-accessing' }
 ExChdRecordCopyCodeFunction >> v [
+
 	^ v
 
 
@@ -129,6 +146,7 @@ ExChdRecordCopyCodeFunction >> v [
 
 { #category : 'platypus-generated-accessing' }
 ExChdRecordCopyCodeFunction >> v: aString1 [
+
 	v := aString1
 
 

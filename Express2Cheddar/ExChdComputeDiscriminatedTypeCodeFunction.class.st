@@ -34,6 +34,7 @@ Class {
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdComputeDiscriminatedTypeCodeFunction class >> iso10303P11Translater [
+
 	^ 'Platypus (c) LISYC EA3883, Universite de Bretagne occidentale. Brest.'
 
 
@@ -41,6 +42,7 @@ ExChdComputeDiscriminatedTypeCodeFunction class >> iso10303P11Translater [
 
 { #category : 'platypus-generated-meta-data-accessing' }
 ExChdComputeDiscriminatedTypeCodeFunction class >> schemaDefinition [
+
 	^ ExChdCheddarDtdSchemaDefinition singleton
 
 
@@ -48,6 +50,7 @@ ExChdComputeDiscriminatedTypeCodeFunction class >> schemaDefinition [
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdComputeDiscriminatedTypeCodeFunction class >> translatedFromISO10303P11 [
+
 	^ true
 
 
@@ -55,6 +58,7 @@ ExChdComputeDiscriminatedTypeCodeFunction class >> translatedFromISO10303P11 [
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdComputeDiscriminatedTypeCodeFunction class >> vwNamespaceName [
+
 	^ #Express2Cheddar
 
 
@@ -62,6 +66,7 @@ ExChdComputeDiscriminatedTypeCodeFunction class >> vwNamespaceName [
 
 { #category : 'platypus-generated-accessing' }
 ExChdComputeDiscriminatedTypeCodeFunction >> ent [
+
 	^ ent
 
 
@@ -69,6 +74,7 @@ ExChdComputeDiscriminatedTypeCodeFunction >> ent [
 
 { #category : 'platypus-generated-accessing' }
 ExChdComputeDiscriminatedTypeCodeFunction >> ent: aExChdDiscriminatedTypeDtdElement [
+
 	ent := aExChdDiscriminatedTypeDtdElement
 
 
@@ -76,6 +82,7 @@ ExChdComputeDiscriminatedTypeCodeFunction >> ent: aExChdDiscriminatedTypeDtdElem
 
 { #category : 'platypus-generated-accessing' }
 ExChdComputeDiscriminatedTypeCodeFunction >> fromValues: values [
+
 	self ent: (values at: 1)
 
 
@@ -87,34 +94,29 @@ ExChdComputeDiscriminatedTypeCodeFunction >> invoke [
 
 	self s: ''.
 	self l: Array new.
-	self subs: (self ent subsUsingContext: self class context).	" ---------- statements ----------"
+	self subs: (self ent subsUsingContext: self class context). " ---------- statements ----------"
 	PlatypusCoreRepeatStatement
-		repeat: [ :no437 | 
-			PlatypusCoreAliasStatement
-				alias: (self subs pltAt: no437)
-				statementsBlock: [ :curr1543 | self l: (self l pltPlus: (curr1543 tagUsingContext: self class context)) ] ]
-		from:
-			(PltLOINDEXFunction
-				invokeFromValues:
-					(OrderedCollection new
-						add: self subs;
-						yourself))
-		to:
-			(PltHIINDEXFunction
-				invokeFromValues:
-					(OrderedCollection new
-						add: self subs;
-						yourself)).
-	self
-		s:
-			(((('<!ELEMENT ' pltPlus: (self ent tagUsingContext: self class context)) pltPlus: ' (')
-				pltPlus:
-					(PTsStringAggregateConcatSeparatedByFunction
-						invokeFromValues:
-							(OrderedCollection new
-								add: self l;
-								add: ' | ';
-								yourself))) pltPlus: ')*>\n').
+		repeat: [ :no2955357 |
+				PlatypusCoreAliasStatement
+					alias: (self subs pltAt: no2955357)
+					statementsBlock: [ :curr1743433 |
+							self l:
+								(self l pltPlus:
+									 (curr1743433 tagUsingContext: self class context)) ] ]
+		from: (PltLOINDEXFunction invokeFromValues: (OrderedCollection new
+					  add: self subs;
+					  yourself))
+		to: (PltHIINDEXFunction invokeFromValues: (OrderedCollection new
+					  add: self subs;
+					  yourself)).
+	self s: (((('<!ELEMENT ' pltPlus:
+			    (self ent tagUsingContext: self class context)) pltPlus: ' (')
+			  pltPlus:
+				  (PTsStringAggregateConcatSeparatedByFunction invokeFromValues:
+					   (OrderedCollection new
+						    add: self l;
+						    add: ' | ';
+						    yourself))) pltPlus: ')*>\n').
 	^ self return: self s
 
 
@@ -122,6 +124,7 @@ ExChdComputeDiscriminatedTypeCodeFunction >> invoke [
 
 { #category : 'platypus-generated-accessing' }
 ExChdComputeDiscriminatedTypeCodeFunction >> l [
+
 	^ l
 
 
@@ -129,13 +132,17 @@ ExChdComputeDiscriminatedTypeCodeFunction >> l [
 
 { #category : 'platypus-generated-accessing' }
 ExChdComputeDiscriminatedTypeCodeFunction >> l: aListOfString [
-	l := aListOfString ifNil: [ OrderedCollection new ] ifNotNil: [ aListOfString as: OrderedCollection ]
+
+	l := aListOfString
+		     ifNil: [ OrderedCollection new ]
+		     ifNotNil: [ aListOfString as: OrderedCollection ]
 
 
 ]
 
 { #category : 'platypus-generated-accessing' }
 ExChdComputeDiscriminatedTypeCodeFunction >> s [
+
 	^ s
 
 
@@ -143,6 +150,7 @@ ExChdComputeDiscriminatedTypeCodeFunction >> s [
 
 { #category : 'platypus-generated-accessing' }
 ExChdComputeDiscriminatedTypeCodeFunction >> s: aString [
+
 	s := aString
 
 
@@ -150,6 +158,7 @@ ExChdComputeDiscriminatedTypeCodeFunction >> s: aString [
 
 { #category : 'platypus-generated-accessing' }
 ExChdComputeDiscriminatedTypeCodeFunction >> subs [
+
 	^ subs
 
 
@@ -157,9 +166,10 @@ ExChdComputeDiscriminatedTypeCodeFunction >> subs [
 
 { #category : 'platypus-generated-accessing' }
 ExChdComputeDiscriminatedTypeCodeFunction >> subs: aListOfExChdDtdElement [
+
 	subs := aListOfExChdDtdElement
-		ifNil: [ OrderedCollection new ]
-		ifNotNil: [ aListOfExChdDtdElement as: OrderedCollection ]
+		        ifNil: [ OrderedCollection new ]
+		        ifNotNil: [ aListOfExChdDtdElement as: OrderedCollection ]
 
 
 ]

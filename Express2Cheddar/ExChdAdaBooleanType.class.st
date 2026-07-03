@@ -22,6 +22,7 @@ Class {
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdAdaBooleanType class >> iso10303P11Translater [
+
 	^ 'Platypus (c) LISYC EA3883, Universite de Bretagne occidentale. Brest.'
 
 
@@ -29,6 +30,7 @@ ExChdAdaBooleanType class >> iso10303P11Translater [
 
 { #category : 'platypus-generated-meta-data-accessing' }
 ExChdAdaBooleanType class >> schemaDefinition [
+
 	^ ExChdCheddarDomainsSchemaDefinition singleton
 
 
@@ -36,6 +38,7 @@ ExChdAdaBooleanType class >> schemaDefinition [
 
 { #category : 'platypus-generated-meta-data-accessing' }
 ExChdAdaBooleanType class >> schemaInstance [
+
 	^ ExChdExpress2cheddarSchemaInstance singleton
 
 
@@ -43,6 +46,7 @@ ExChdAdaBooleanType class >> schemaInstance [
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdAdaBooleanType class >> translatedFromISO10303P11 [
+
 	^ true
 
 
@@ -50,6 +54,7 @@ ExChdAdaBooleanType class >> translatedFromISO10303P11 [
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdAdaBooleanType class >> vwNamespaceName [
+
 	^ #Express2Cheddar
 
 
@@ -57,6 +62,7 @@ ExChdAdaBooleanType class >> vwNamespaceName [
 
 { #category : 'platypus-generated-visiting' }
 ExChdAdaBooleanType >> accept: aVisitor [
+
 	^ aVisitor acceptAdaBooleanType: self
 
 
@@ -64,6 +70,7 @@ ExChdAdaBooleanType >> accept: aVisitor [
 
 { #category : 'platypus-generated-copying' }
 ExChdAdaBooleanType >> adaBooleanTypeCopyTo: another [
+
 	
 
 
@@ -71,6 +78,7 @@ ExChdAdaBooleanType >> adaBooleanTypeCopyTo: another [
 
 { #category : 'platypus-generated-group-accessing' }
 ExChdAdaBooleanType >> adaBooleanTypeFromValues: values [
+
 	| valuesloc |
 	valuesloc := values asOrderedCollection.
 	^ valuesloc
@@ -80,6 +88,7 @@ ExChdAdaBooleanType >> adaBooleanTypeFromValues: values [
 
 { #category : 'platypus-generated-group-accessing' }
 ExChdAdaBooleanType >> adaBooleanTypeToValues: values [
+
 	^ values
 
 
@@ -87,6 +96,7 @@ ExChdAdaBooleanType >> adaBooleanTypeToValues: values [
 
 { #category : 'platypus-generated-deriving' }
 ExChdAdaBooleanType >> adaIdent [
+
 	^ self adaIdentUsingContext: self class context
 
 
@@ -94,6 +104,7 @@ ExChdAdaBooleanType >> adaIdent [
 
 { #category : 'platypus-generated-deriving' }
 ExChdAdaBooleanType >> adaIdentUsingContext: aContext [
+
 	^ self adaIdentUsingContext: aContext receiver: self
 
 
@@ -101,6 +112,7 @@ ExChdAdaBooleanType >> adaIdentUsingContext: aContext [
 
 { #category : 'platypus-generated-deriving' }
 ExChdAdaBooleanType >> adaIdentUsingContext: aContext receiver: aReceiver [
+
 	^ 'Boolean'
 
 
@@ -108,6 +120,7 @@ ExChdAdaBooleanType >> adaIdentUsingContext: aContext receiver: aReceiver [
 
 { #category : 'platypus-generated-deriving' }
 ExChdAdaBooleanType >> adaRefIdent [
+
 	^ self adaRefIdentUsingContext: self class context
 
 
@@ -115,6 +128,7 @@ ExChdAdaBooleanType >> adaRefIdent [
 
 { #category : 'platypus-generated-deriving' }
 ExChdAdaBooleanType >> adaRefIdentUsingContext: aContext [
+
 	^ self adaRefIdentUsingContext: aContext receiver: self
 
 
@@ -122,6 +136,7 @@ ExChdAdaBooleanType >> adaRefIdentUsingContext: aContext [
 
 { #category : 'platypus-generated-deriving' }
 ExChdAdaBooleanType >> adaRefIdentUsingContext: aContext receiver: aReceiver [
+
 	^ aReceiver adaIdentUsingContext: aContext
 
 
@@ -129,6 +144,7 @@ ExChdAdaBooleanType >> adaRefIdentUsingContext: aContext receiver: aReceiver [
 
 { #category : 'platypus-generated-deriving' }
 ExChdAdaBooleanType >> adbInterfacesList [
+
 	^ self adbInterfacesListUsingContext: self class context
 
 
@@ -136,6 +152,7 @@ ExChdAdaBooleanType >> adbInterfacesList [
 
 { #category : 'platypus-generated-deriving' }
 ExChdAdaBooleanType >> adbInterfacesListUsingContext: aContext [
+
 	^ self adbInterfacesListUsingContext: aContext receiver: self
 
 
@@ -143,26 +160,25 @@ ExChdAdaBooleanType >> adbInterfacesListUsingContext: aContext [
 
 { #category : 'platypus-generated-deriving' }
 ExChdAdaBooleanType >> adbInterfacesListUsingContext: aContext receiver: aReceiver [
-	^ PlatypusCoreAggregateInitializer
-		collectionFrom:
-			(OrderedCollection new
-				add:
-						(ExChdAdaInterface new
-								adaInterfaceFromValues:
-										(OrderedCollection new
-												add: 'primitive_xml_strings';
-												add: nil;
-												add: true;
-												add: true;
-												yourself);
-								yourself);
-				yourself)
+
+	^ PlatypusCoreAggregateInitializer collectionFrom:
+		  (OrderedCollection new
+			   add: (ExChdAdaInterface new
+					    adaInterfaceFromValues: (OrderedCollection new
+							     add: 'primitive_xml_strings';
+							     add: nil;
+							     add: true;
+							     add: true;
+							     yourself);
+					    yourself);
+			   yourself)
 
 
 ]
 
 { #category : 'platypus-generated-deriving' }
 ExChdAdaBooleanType >> adsInterfacesList [
+
 	^ self adsInterfacesListUsingContext: self class context
 
 
@@ -170,6 +186,7 @@ ExChdAdaBooleanType >> adsInterfacesList [
 
 { #category : 'platypus-generated-deriving' }
 ExChdAdaBooleanType >> adsInterfacesListUsingContext: aContext [
+
 	^ self adsInterfacesListUsingContext: aContext receiver: self
 
 
@@ -177,41 +194,36 @@ ExChdAdaBooleanType >> adsInterfacesListUsingContext: aContext [
 
 { #category : 'platypus-generated-deriving' }
 ExChdAdaBooleanType >> adsInterfacesListUsingContext: aContext receiver: aReceiver [
-	^ (PlatypusCoreAggregateInitializer
-		collectionFrom:
-			(OrderedCollection new
-				add:
-						(ExChdAdaInterface new
-								adaInterfaceFromValues:
-										(OrderedCollection new
-												add: 'standards_io';
-												add: nil;
-												add: true;
-												add: true;
-												yourself);
-								yourself);
-				yourself))
-		pltPlus:
-			(PlatypusCoreAggregateInitializer
-				collectionFrom:
-					(OrderedCollection new
-						add:
-								(ExChdAdaInterface new
-										adaInterfaceFromValues:
-												(OrderedCollection new
-														add: 'standards_io';
-														add: 'boolean_io';
-														add: false;
-														add: true;
-														yourself);
-										yourself);
-						yourself))
+
+	^ (PlatypusCoreAggregateInitializer collectionFrom:
+		   (OrderedCollection new
+			    add: (ExChdAdaInterface new
+					     adaInterfaceFromValues: (OrderedCollection new
+							      add: 'standards_io';
+							      add: nil;
+							      add: true;
+							      add: true;
+							      yourself);
+					     yourself);
+			    yourself)) pltPlus:
+		  (PlatypusCoreAggregateInitializer collectionFrom:
+			   (OrderedCollection new
+				    add: (ExChdAdaInterface new
+						     adaInterfaceFromValues: (OrderedCollection new
+								      add: 'standards_io';
+								      add: 'boolean_io';
+								      add: false;
+								      add: true;
+								      yourself);
+						     yourself);
+				    yourself))
 
 
 ]
 
 { #category : 'platypus-generated-group-accessing' }
 ExChdAdaBooleanType >> fromValues: values [
+
 	^ self adaBooleanTypeFromValues: (super fromValues: values)
 
 
@@ -219,6 +231,7 @@ ExChdAdaBooleanType >> fromValues: values [
 
 { #category : 'platypus-generated-deriving' }
 ExChdAdaBooleanType >> initValue [
+
 	^ self initValueUsingContext: self class context
 
 
@@ -226,6 +239,7 @@ ExChdAdaBooleanType >> initValue [
 
 { #category : 'platypus-generated-deriving' }
 ExChdAdaBooleanType >> initValueUsingContext: aContext [
+
 	^ self initValueUsingContext: aContext receiver: self
 
 
@@ -233,6 +247,7 @@ ExChdAdaBooleanType >> initValueUsingContext: aContext [
 
 { #category : 'platypus-generated-deriving' }
 ExChdAdaBooleanType >> initValueUsingContext: aContext receiver: aReceiver [
+
 	^ 'false'
 
 
@@ -240,6 +255,7 @@ ExChdAdaBooleanType >> initValueUsingContext: aContext receiver: aReceiver [
 
 { #category : 'platypus-generated-classifying' }
 ExChdAdaBooleanType >> isExChdAdaBooleanType [
+
 	^ true
 
 
@@ -247,6 +263,7 @@ ExChdAdaBooleanType >> isExChdAdaBooleanType [
 
 { #category : 'platypus-generated-group-accessing' }
 ExChdAdaBooleanType >> localFromValues: values [
+
 	^ self adaBooleanTypeFromValues: values
 
 
@@ -254,6 +271,7 @@ ExChdAdaBooleanType >> localFromValues: values [
 
 { #category : 'platypus-generated-group-accessing' }
 ExChdAdaBooleanType >> localToValues: values [
+
 	^ self adaBooleanTypeToValues: values
 
 
@@ -261,6 +279,7 @@ ExChdAdaBooleanType >> localToValues: values [
 
 { #category : 'platypus-generated-copying' }
 ExChdAdaBooleanType >> pltCopyGroup: aClassSymbol to: anObject [
+
 	self class name == aClassSymbol
 		ifTrue: [ self pltCopyTo: anObject ]
 		ifFalse: [ super pltCopyGroup: aClassSymbol to: anObject ]
@@ -270,6 +289,7 @@ ExChdAdaBooleanType >> pltCopyGroup: aClassSymbol to: anObject [
 
 { #category : 'platypus-generated-copying' }
 ExChdAdaBooleanType >> pltCopyTo: another [
+
 	super pltCopyTo: another.
 	self adaBooleanTypeCopyTo: another
 
@@ -278,6 +298,7 @@ ExChdAdaBooleanType >> pltCopyTo: another [
 
 { #category : 'platypus-generated-copying' }
 ExChdAdaBooleanType >> pltLocalCopyTo: another [
+
 	self adaBooleanTypeCopyTo: another
 
 
@@ -285,6 +306,7 @@ ExChdAdaBooleanType >> pltLocalCopyTo: another [
 
 { #category : 'platypus-generated-deriving' }
 ExChdAdaBooleanType >> putPrefix [
+
 	^ self putPrefixUsingContext: self class context
 
 
@@ -292,6 +314,7 @@ ExChdAdaBooleanType >> putPrefix [
 
 { #category : 'platypus-generated-deriving' }
 ExChdAdaBooleanType >> putPrefixUsingContext: aContext [
+
 	^ self putPrefixUsingContext: aContext receiver: self
 
 
@@ -299,6 +322,7 @@ ExChdAdaBooleanType >> putPrefixUsingContext: aContext [
 
 { #category : 'platypus-generated-deriving' }
 ExChdAdaBooleanType >> putPrefixUsingContext: aContext receiver: aReceiver [
+
 	^ 'standards_io.boolean_io.'
 
 
@@ -306,6 +330,7 @@ ExChdAdaBooleanType >> putPrefixUsingContext: aContext receiver: aReceiver [
 
 { #category : 'platypus-generated-initializing' }
 ExChdAdaBooleanType >> stepInitialize [
+
 	super stepInitialize
 
 
@@ -313,6 +338,7 @@ ExChdAdaBooleanType >> stepInitialize [
 
 { #category : 'platypus-generated-group-accessing' }
 ExChdAdaBooleanType >> toValues: values [
+
 	^ self adaBooleanTypeToValues: (super toValues: values)
 
 

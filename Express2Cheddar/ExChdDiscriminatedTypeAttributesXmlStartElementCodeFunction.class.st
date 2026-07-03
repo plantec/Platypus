@@ -40,6 +40,7 @@ Class {
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdDiscriminatedTypeAttributesXmlStartElementCodeFunction class >> iso10303P11Translater [
+
 	^ 'Platypus (c) LISYC EA3883, Universite de Bretagne occidentale. Brest.'
 
 
@@ -47,6 +48,7 @@ ExChdDiscriminatedTypeAttributesXmlStartElementCodeFunction class >> iso10303P11
 
 { #category : 'platypus-generated-meta-data-accessing' }
 ExChdDiscriminatedTypeAttributesXmlStartElementCodeFunction class >> schemaDefinition [
+
 	^ ExChdDiscriminatedTypeSchemaDefinition singleton
 
 
@@ -54,6 +56,7 @@ ExChdDiscriminatedTypeAttributesXmlStartElementCodeFunction class >> schemaDefin
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdDiscriminatedTypeAttributesXmlStartElementCodeFunction class >> translatedFromISO10303P11 [
+
 	^ true
 
 
@@ -61,6 +64,7 @@ ExChdDiscriminatedTypeAttributesXmlStartElementCodeFunction class >> translatedF
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdDiscriminatedTypeAttributesXmlStartElementCodeFunction class >> vwNamespaceName [
+
 	^ #Express2Cheddar
 
 
@@ -68,6 +72,7 @@ ExChdDiscriminatedTypeAttributesXmlStartElementCodeFunction class >> vwNamespace
 
 { #category : 'platypus-generated-accessing' }
 ExChdDiscriminatedTypeAttributesXmlStartElementCodeFunction >> attrs [
+
 	^ attrs
 
 
@@ -75,15 +80,17 @@ ExChdDiscriminatedTypeAttributesXmlStartElementCodeFunction >> attrs [
 
 { #category : 'platypus-generated-accessing' }
 ExChdDiscriminatedTypeAttributesXmlStartElementCodeFunction >> attrs: aListOfExChdAttribute [
+
 	attrs := aListOfExChdAttribute
-		ifNil: [ OrderedCollection new ]
-		ifNotNil: [ aListOfExChdAttribute as: OrderedCollection ]
+		         ifNil: [ OrderedCollection new ]
+		         ifNotNil: [ aListOfExChdAttribute as: OrderedCollection ]
 
 
 ]
 
 { #category : 'platypus-generated-accessing' }
 ExChdDiscriminatedTypeAttributesXmlStartElementCodeFunction >> code [
+
 	^ code
 
 
@@ -91,6 +98,7 @@ ExChdDiscriminatedTypeAttributesXmlStartElementCodeFunction >> code [
 
 { #category : 'platypus-generated-accessing' }
 ExChdDiscriminatedTypeAttributesXmlStartElementCodeFunction >> code: aString [
+
 	code := aString
 
 
@@ -98,6 +106,7 @@ ExChdDiscriminatedTypeAttributesXmlStartElementCodeFunction >> code: aString [
 
 { #category : 'platypus-generated-accessing' }
 ExChdDiscriminatedTypeAttributesXmlStartElementCodeFunction >> discrimAttr [
+
 	^ discrimAttr
 
 
@@ -105,6 +114,7 @@ ExChdDiscriminatedTypeAttributesXmlStartElementCodeFunction >> discrimAttr [
 
 { #category : 'platypus-generated-accessing' }
 ExChdDiscriminatedTypeAttributesXmlStartElementCodeFunction >> discrimAttr: aExChdAttribute [
+
 	discrimAttr := aExChdAttribute
 
 
@@ -112,6 +122,7 @@ ExChdDiscriminatedTypeAttributesXmlStartElementCodeFunction >> discrimAttr: aExC
 
 { #category : 'platypus-generated-accessing' }
 ExChdDiscriminatedTypeAttributesXmlStartElementCodeFunction >> fromValues: values [
+
 	self typ: (values at: 1)
 
 
@@ -122,44 +133,34 @@ ExChdDiscriminatedTypeAttributesXmlStartElementCodeFunction >> invoke [
 	" ---------- locals assignments ----------"
 
 	self code: ''.
-	self discrimAttr: (self typ discriminantUsingContext: self class context).
-	self
-		attrs:
-			((self typ tailAttributesUsingContext: self class context)
-				pltPlus: (self typ translatedAttributesUsingContext: self class context)).	" ---------- statements ----------"
-	self
-		code:
-			(ExChdExplicitAttributeXmlStartElementCodeFunction
-				invokeFromValues:
-					(OrderedCollection new
-						add: self discrimAttr;
-						yourself)).
+	self discrimAttr:
+		(self typ discriminantUsingContext: self class context).
+	self attrs:
+		((self typ tailAttributesUsingContext: self class context) pltPlus:
+			 (self typ translatedAttributesUsingContext: self class context)). " ---------- statements ----------"
+	self code:
+		(ExChdExplicitAttributeXmlStartElementCodeFunction
+			 invokeFromValues: (OrderedCollection new
+					  add: self discrimAttr;
+					  yourself)).
 	PlatypusCoreRepeatStatement
-		repeat: [ :no1420 | 
-			PlatypusCoreAliasStatement
-				alias: (self attrs pltAt: no1420)
-				statementsBlock: [ :attr2530 | 
-					self
-						s:
-							(ExChdExplicitAttributeXmlStartElementCodeFunction
-								invokeFromValues:
-									(OrderedCollection new
-										add: attr2530;
-										yourself)).
-					self s > ''
-						ifTrue: [ self code: ((self code pltPlus: '\n') pltPlus: self s) ] ] ]
-		from:
-			(PltLOINDEXFunction
-				invokeFromValues:
-					(OrderedCollection new
-						add: self attrs;
-						yourself))
-		to:
-			(PltHIINDEXFunction
-				invokeFromValues:
-					(OrderedCollection new
-						add: self attrs;
-						yourself)).
+		repeat: [ :no196971 |
+				PlatypusCoreAliasStatement
+					alias: (self attrs pltAt: no196971)
+					statementsBlock: [ :attr1192043 |
+							self s:
+								(ExChdExplicitAttributeXmlStartElementCodeFunction
+									 invokeFromValues: (OrderedCollection new
+											  add: attr1192043;
+											  yourself)).
+							self s > '' ifTrue: [
+								self code: ((self code pltPlus: '\n') pltPlus: self s) ] ] ]
+		from: (PltLOINDEXFunction invokeFromValues: (OrderedCollection new
+					  add: self attrs;
+					  yourself))
+		to: (PltHIINDEXFunction invokeFromValues: (OrderedCollection new
+					  add: self attrs;
+					  yourself)).
 	^ self return: self code
 
 
@@ -167,6 +168,7 @@ ExChdDiscriminatedTypeAttributesXmlStartElementCodeFunction >> invoke [
 
 { #category : 'platypus-generated-accessing' }
 ExChdDiscriminatedTypeAttributesXmlStartElementCodeFunction >> s [
+
 	^ s
 
 
@@ -174,6 +176,7 @@ ExChdDiscriminatedTypeAttributesXmlStartElementCodeFunction >> s [
 
 { #category : 'platypus-generated-accessing' }
 ExChdDiscriminatedTypeAttributesXmlStartElementCodeFunction >> s: aString1 [
+
 	s := aString1
 
 
@@ -181,6 +184,7 @@ ExChdDiscriminatedTypeAttributesXmlStartElementCodeFunction >> s: aString1 [
 
 { #category : 'platypus-generated-accessing' }
 ExChdDiscriminatedTypeAttributesXmlStartElementCodeFunction >> typ [
+
 	^ typ
 
 
@@ -188,6 +192,7 @@ ExChdDiscriminatedTypeAttributesXmlStartElementCodeFunction >> typ [
 
 { #category : 'platypus-generated-accessing' }
 ExChdDiscriminatedTypeAttributesXmlStartElementCodeFunction >> typ: aExChdDiscriminatedType [
+
 	typ := aExChdDiscriminatedType
 
 

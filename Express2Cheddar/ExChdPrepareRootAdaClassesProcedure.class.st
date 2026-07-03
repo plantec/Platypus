@@ -31,6 +31,7 @@ Class {
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdPrepareRootAdaClassesProcedure class >> iso10303P11Translater [
+
 	^ 'Platypus (c) LISYC EA3883, Universite de Bretagne occidentale. Brest.'
 
 
@@ -38,6 +39,7 @@ ExChdPrepareRootAdaClassesProcedure class >> iso10303P11Translater [
 
 { #category : 'platypus-generated-meta-data-accessing' }
 ExChdPrepareRootAdaClassesProcedure class >> schemaDefinition [
+
 	^ ExChdExpress2cheddarFacadeSchemaDefinition singleton
 
 
@@ -45,6 +47,7 @@ ExChdPrepareRootAdaClassesProcedure class >> schemaDefinition [
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdPrepareRootAdaClassesProcedure class >> translatedFromISO10303P11 [
+
 	^ true
 
 
@@ -52,6 +55,7 @@ ExChdPrepareRootAdaClassesProcedure class >> translatedFromISO10303P11 [
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdPrepareRootAdaClassesProcedure class >> vwNamespaceName [
+
 	^ #Express2Cheddar
 
 
@@ -59,6 +63,7 @@ ExChdPrepareRootAdaClassesProcedure class >> vwNamespaceName [
 
 { #category : 'platypus-generated-accessing' }
 ExChdPrepareRootAdaClassesProcedure >> clslist [
+
 	^ clslist
 
 
@@ -66,9 +71,10 @@ ExChdPrepareRootAdaClassesProcedure >> clslist [
 
 { #category : 'platypus-generated-accessing' }
 ExChdPrepareRootAdaClassesProcedure >> clslist: aListOfExChdAdaClass [
+
 	clslist := aListOfExChdAdaClass
-		ifNil: [ OrderedCollection new ]
-		ifNotNil: [ aListOfExChdAdaClass as: OrderedCollection ]
+		           ifNil: [ OrderedCollection new ]
+		           ifNotNil: [ aListOfExChdAdaClass as: OrderedCollection ]
 
 
 ]
@@ -77,42 +83,31 @@ ExChdPrepareRootAdaClassesProcedure >> clslist: aListOfExChdAdaClass [
 ExChdPrepareRootAdaClassesProcedure >> invoke [
 	" ---------- locals assignments ----------"
 
-	self clslist: ExChdAllAdaClassesFunction invoke.	" ---------- statements ----------"
+	self clslist: ExChdAllAdaClassesFunction invoke. " ---------- statements ----------"
 	PlatypusCoreRepeatStatement
-		repeat: [ :no3894 | 
-			PlatypusCoreAliasStatement
-				alias: (self clslist pltAt: no3894)
-				statementsBlock: [ :curr908 | 
-					(PltSIZEOFFunction
-						invokeFromValues:
-							(OrderedCollection new
-								add: (curr908 supertypesUsingContext: self class context);
-								yourself)) = 0
-						ifTrue: [ 
-							(PTsHasAttributeNamedFunction
-								invokeFromValues:
-									(OrderedCollection new
-										add: curr908;
-										add: 'cheddar_private_id';
-										yourself)) not
-								ifTrue: [ 
-									ExChdAddXmlIdToAdaClassProcedure
-										invokeFromValues:
-											(OrderedCollection new
-												add: curr908;
-												yourself) ] ] ] ]
-		from:
-			(PltLOINDEXFunction
-				invokeFromValues:
-					(OrderedCollection new
-						add: self clslist;
-						yourself))
-		to:
-			(PltHIINDEXFunction
-				invokeFromValues:
-					(OrderedCollection new
-						add: self clslist;
-						yourself))
+		repeat: [ :no972161 |
+				PlatypusCoreAliasStatement
+					alias: (self clslist pltAt: no972161)
+					statementsBlock: [ :curr2306351 |
+							(PltSIZEOFFunction invokeFromValues: (OrderedCollection new
+									  add:
+										  (curr2306351 supertypesUsingContext: self class context);
+									  yourself)) = 0 ifTrue: [
+									(PTsHasAttributeNamedFunction invokeFromValues:
+										 (OrderedCollection new
+											  add: curr2306351;
+											  add: 'cheddar_private_id';
+											  yourself)) not ifTrue: [
+											ExChdAddXmlIdToAdaClassProcedure invokeFromValues:
+												(OrderedCollection new
+													 add: curr2306351;
+													 yourself) ] ] ] ]
+		from: (PltLOINDEXFunction invokeFromValues: (OrderedCollection new
+					  add: self clslist;
+					  yourself))
+		to: (PltHIINDEXFunction invokeFromValues: (OrderedCollection new
+					  add: self clslist;
+					  yourself))
 
 
 ]

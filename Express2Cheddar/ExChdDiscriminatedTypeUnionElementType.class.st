@@ -22,6 +22,7 @@ Class {
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdDiscriminatedTypeUnionElementType class >> iso10303P11Translater [
+
 	^ 'Platypus (c) LISYC EA3883, Universite de Bretagne occidentale. Brest.'
 
 
@@ -29,6 +30,7 @@ ExChdDiscriminatedTypeUnionElementType class >> iso10303P11Translater [
 
 { #category : 'platypus-generated-meta-data-accessing' }
 ExChdDiscriminatedTypeUnionElementType class >> schemaDefinition [
+
 	^ ExChdDiscriminatedTypeSchemaDefinition singleton
 
 
@@ -36,6 +38,7 @@ ExChdDiscriminatedTypeUnionElementType class >> schemaDefinition [
 
 { #category : 'platypus-generated-meta-data-accessing' }
 ExChdDiscriminatedTypeUnionElementType class >> schemaInstance [
+
 	^ ExChdExpress2cheddarSchemaInstance singleton
 
 
@@ -43,6 +46,7 @@ ExChdDiscriminatedTypeUnionElementType class >> schemaInstance [
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdDiscriminatedTypeUnionElementType class >> translatedFromISO10303P11 [
+
 	^ true
 
 
@@ -50,6 +54,7 @@ ExChdDiscriminatedTypeUnionElementType class >> translatedFromISO10303P11 [
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdDiscriminatedTypeUnionElementType class >> vwNamespaceName [
+
 	^ #Express2Cheddar
 
 
@@ -57,6 +62,7 @@ ExChdDiscriminatedTypeUnionElementType class >> vwNamespaceName [
 
 { #category : 'platypus-generated-visiting' }
 ExChdDiscriminatedTypeUnionElementType >> accept: aVisitor [
+
 	^ aVisitor acceptDiscriminatedTypeUnionElementType: self
 
 
@@ -64,6 +70,7 @@ ExChdDiscriminatedTypeUnionElementType >> accept: aVisitor [
 
 { #category : 'platypus-generated-deriving' }
 ExChdDiscriminatedTypeUnionElementType >> adbCode [
+
 	^ self adbCodeUsingContext: self class context
 
 
@@ -71,6 +78,7 @@ ExChdDiscriminatedTypeUnionElementType >> adbCode [
 
 { #category : 'platypus-generated-deriving' }
 ExChdDiscriminatedTypeUnionElementType >> adbCodeUsingContext: aContext [
+
 	^ self adbCodeUsingContext: aContext receiver: self
 
 
@@ -78,6 +86,7 @@ ExChdDiscriminatedTypeUnionElementType >> adbCodeUsingContext: aContext [
 
 { #category : 'platypus-generated-deriving' }
 ExChdDiscriminatedTypeUnionElementType >> adbCodeUsingContext: aContext receiver: aReceiver [
+
 	^ ''
 
 
@@ -85,6 +94,7 @@ ExChdDiscriminatedTypeUnionElementType >> adbCodeUsingContext: aContext receiver
 
 { #category : 'platypus-generated-deriving' }
 ExChdDiscriminatedTypeUnionElementType >> adbInterfacesList [
+
 	^ self adbInterfacesListUsingContext: self class context
 
 
@@ -92,6 +102,7 @@ ExChdDiscriminatedTypeUnionElementType >> adbInterfacesList [
 
 { #category : 'platypus-generated-deriving' }
 ExChdDiscriminatedTypeUnionElementType >> adbInterfacesListUsingContext: aContext [
+
 	^ self adbInterfacesListUsingContext: aContext receiver: self
 
 
@@ -99,6 +110,7 @@ ExChdDiscriminatedTypeUnionElementType >> adbInterfacesListUsingContext: aContex
 
 { #category : 'platypus-generated-deriving' }
 ExChdDiscriminatedTypeUnionElementType >> adbInterfacesListUsingContext: aContext receiver: aReceiver [
+
 	^ Array new
 
 
@@ -106,6 +118,7 @@ ExChdDiscriminatedTypeUnionElementType >> adbInterfacesListUsingContext: aContex
 
 { #category : 'platypus-generated-deriving' }
 ExChdDiscriminatedTypeUnionElementType >> adsCode [
+
 	^ self adsCodeUsingContext: self class context
 
 
@@ -113,6 +126,7 @@ ExChdDiscriminatedTypeUnionElementType >> adsCode [
 
 { #category : 'platypus-generated-deriving' }
 ExChdDiscriminatedTypeUnionElementType >> adsCodeUsingContext: aContext [
+
 	^ self adsCodeUsingContext: aContext receiver: self
 
 
@@ -120,6 +134,7 @@ ExChdDiscriminatedTypeUnionElementType >> adsCodeUsingContext: aContext [
 
 { #category : 'platypus-generated-deriving' }
 ExChdDiscriminatedTypeUnionElementType >> adsCodeUsingContext: aContext receiver: aReceiver [
+
 	^ ''
 
 
@@ -127,6 +142,7 @@ ExChdDiscriminatedTypeUnionElementType >> adsCodeUsingContext: aContext receiver
 
 { #category : 'platypus-generated-deriving' }
 ExChdDiscriminatedTypeUnionElementType >> adsInterfacesList [
+
 	^ self adsInterfacesListUsingContext: self class context
 
 
@@ -134,6 +150,7 @@ ExChdDiscriminatedTypeUnionElementType >> adsInterfacesList [
 
 { #category : 'platypus-generated-deriving' }
 ExChdDiscriminatedTypeUnionElementType >> adsInterfacesListUsingContext: aContext [
+
 	^ self adsInterfacesListUsingContext: aContext receiver: self
 
 
@@ -141,6 +158,7 @@ ExChdDiscriminatedTypeUnionElementType >> adsInterfacesListUsingContext: aContex
 
 { #category : 'platypus-generated-deriving' }
 ExChdDiscriminatedTypeUnionElementType >> adsInterfacesListUsingContext: aContext receiver: aReceiver [
+
 	^ Array new
 
 
@@ -148,6 +166,7 @@ ExChdDiscriminatedTypeUnionElementType >> adsInterfacesListUsingContext: aContex
 
 { #category : 'platypus-generated-deriving' }
 ExChdDiscriminatedTypeUnionElementType >> adsPreDef [
+
 	^ self adsPreDefUsingContext: self class context
 
 
@@ -155,6 +174,7 @@ ExChdDiscriminatedTypeUnionElementType >> adsPreDef [
 
 { #category : 'platypus-generated-deriving' }
 ExChdDiscriminatedTypeUnionElementType >> adsPreDefUsingContext: aContext [
+
 	^ self adsPreDefUsingContext: aContext receiver: self
 
 
@@ -162,6 +182,7 @@ ExChdDiscriminatedTypeUnionElementType >> adsPreDefUsingContext: aContext [
 
 { #category : 'platypus-generated-deriving' }
 ExChdDiscriminatedTypeUnionElementType >> adsPreDefUsingContext: aContext receiver: aReceiver [
+
 	^ ''
 
 
@@ -169,6 +190,7 @@ ExChdDiscriminatedTypeUnionElementType >> adsPreDefUsingContext: aContext receiv
 
 { #category : 'platypus-generated-copying' }
 ExChdDiscriminatedTypeUnionElementType >> discriminatedTypeUnionElementTypeCopyTo: another [
+
 	
 
 
@@ -176,6 +198,7 @@ ExChdDiscriminatedTypeUnionElementType >> discriminatedTypeUnionElementTypeCopyT
 
 { #category : 'platypus-generated-group-accessing' }
 ExChdDiscriminatedTypeUnionElementType >> discriminatedTypeUnionElementTypeFromValues: values [
+
 	| valuesloc |
 	valuesloc := values asOrderedCollection.
 	^ valuesloc
@@ -185,6 +208,7 @@ ExChdDiscriminatedTypeUnionElementType >> discriminatedTypeUnionElementTypeFromV
 
 { #category : 'platypus-generated-group-accessing' }
 ExChdDiscriminatedTypeUnionElementType >> discriminatedTypeUnionElementTypeToValues: values [
+
 	^ values
 
 
@@ -192,13 +216,16 @@ ExChdDiscriminatedTypeUnionElementType >> discriminatedTypeUnionElementTypeToVal
 
 { #category : 'platypus-generated-group-accessing' }
 ExChdDiscriminatedTypeUnionElementType >> fromValues: values [
-	^ self discriminatedTypeUnionElementTypeFromValues: (super fromValues: values)
+
+	^ self discriminatedTypeUnionElementTypeFromValues:
+		  (super fromValues: values)
 
 
 ]
 
 { #category : 'platypus-generated-classifying' }
 ExChdDiscriminatedTypeUnionElementType >> isExChdDiscriminatedTypeUnionElementType [
+
 	^ true
 
 
@@ -206,6 +233,7 @@ ExChdDiscriminatedTypeUnionElementType >> isExChdDiscriminatedTypeUnionElementTy
 
 { #category : 'platypus-generated-group-accessing' }
 ExChdDiscriminatedTypeUnionElementType >> localFromValues: values [
+
 	^ self discriminatedTypeUnionElementTypeFromValues: values
 
 
@@ -213,6 +241,7 @@ ExChdDiscriminatedTypeUnionElementType >> localFromValues: values [
 
 { #category : 'platypus-generated-group-accessing' }
 ExChdDiscriminatedTypeUnionElementType >> localToValues: values [
+
 	^ self discriminatedTypeUnionElementTypeToValues: values
 
 
@@ -220,6 +249,7 @@ ExChdDiscriminatedTypeUnionElementType >> localToValues: values [
 
 { #category : 'platypus-generated-copying' }
 ExChdDiscriminatedTypeUnionElementType >> pltCopyGroup: aClassSymbol to: anObject [
+
 	self class name == aClassSymbol
 		ifTrue: [ self pltCopyTo: anObject ]
 		ifFalse: [ super pltCopyGroup: aClassSymbol to: anObject ]
@@ -229,6 +259,7 @@ ExChdDiscriminatedTypeUnionElementType >> pltCopyGroup: aClassSymbol to: anObjec
 
 { #category : 'platypus-generated-copying' }
 ExChdDiscriminatedTypeUnionElementType >> pltCopyTo: another [
+
 	super pltCopyTo: another.
 	self discriminatedTypeUnionElementTypeCopyTo: another
 
@@ -237,6 +268,7 @@ ExChdDiscriminatedTypeUnionElementType >> pltCopyTo: another [
 
 { #category : 'platypus-generated-copying' }
 ExChdDiscriminatedTypeUnionElementType >> pltLocalCopyTo: another [
+
 	self discriminatedTypeUnionElementTypeCopyTo: another
 
 
@@ -244,6 +276,7 @@ ExChdDiscriminatedTypeUnionElementType >> pltLocalCopyTo: another [
 
 { #category : 'platypus-generated-initializing' }
 ExChdDiscriminatedTypeUnionElementType >> stepInitialize [
+
 	super stepInitialize
 
 
@@ -251,13 +284,16 @@ ExChdDiscriminatedTypeUnionElementType >> stepInitialize [
 
 { #category : 'platypus-generated-group-accessing' }
 ExChdDiscriminatedTypeUnionElementType >> toValues: values [
-	^ self discriminatedTypeUnionElementTypeToValues: (super toValues: values)
+
+	^ self discriminatedTypeUnionElementTypeToValues:
+		  (super toValues: values)
 
 
 ]
 
 { #category : 'platypus-generated-deriving' }
 ExChdDiscriminatedTypeUnionElementType >> unionAdsCode [
+
 	^ self unionAdsCodeUsingContext: self class context
 
 
@@ -265,6 +301,7 @@ ExChdDiscriminatedTypeUnionElementType >> unionAdsCode [
 
 { #category : 'platypus-generated-deriving' }
 ExChdDiscriminatedTypeUnionElementType >> unionAdsCodeUsingContext: aContext [
+
 	^ self unionAdsCodeUsingContext: aContext receiver: self
 
 
@@ -272,11 +309,11 @@ ExChdDiscriminatedTypeUnionElementType >> unionAdsCodeUsingContext: aContext [
 
 { #category : 'platypus-generated-deriving' }
 ExChdDiscriminatedTypeUnionElementType >> unionAdsCodeUsingContext: aContext receiver: aReceiver [
+
 	^ ExChdDiscriminatedTypeUnionElementCaseCodeFunction
-		invokeFromValues:
-			(OrderedCollection new
-				add: aReceiver;
-				yourself)
+		  invokeFromValues: (OrderedCollection new
+				   add: aReceiver;
+				   yourself)
 
 
 ]

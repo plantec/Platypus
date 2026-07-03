@@ -51,6 +51,7 @@ Class {
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdGetReferencedEntityDomainsFunction class >> iso10303P11Translater [
+
 	^ 'Platypus (c) LISYC EA3883, Universite de Bretagne occidentale. Brest.'
 
 
@@ -58,6 +59,7 @@ ExChdGetReferencedEntityDomainsFunction class >> iso10303P11Translater [
 
 { #category : 'platypus-generated-meta-data-accessing' }
 ExChdGetReferencedEntityDomainsFunction class >> schemaDefinition [
+
 	^ ExChdCheddarDtdSchemaDefinition singleton
 
 
@@ -65,6 +67,7 @@ ExChdGetReferencedEntityDomainsFunction class >> schemaDefinition [
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdGetReferencedEntityDomainsFunction class >> translatedFromISO10303P11 [
+
 	^ true
 
 
@@ -72,6 +75,7 @@ ExChdGetReferencedEntityDomainsFunction class >> translatedFromISO10303P11 [
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdGetReferencedEntityDomainsFunction class >> vwNamespaceName [
+
 	^ #Express2Cheddar
 
 
@@ -79,6 +83,7 @@ ExChdGetReferencedEntityDomainsFunction class >> vwNamespaceName [
 
 { #category : 'platypus-generated-accessing' }
 ExChdGetReferencedEntityDomainsFunction >> attributes [
+
 	^ attributes
 
 
@@ -86,15 +91,18 @@ ExChdGetReferencedEntityDomainsFunction >> attributes [
 
 { #category : 'platypus-generated-accessing' }
 ExChdGetReferencedEntityDomainsFunction >> attributes: aListOfExChdAttributeDtdElement [
+
 	attributes := aListOfExChdAttributeDtdElement
-		ifNil: [ OrderedCollection new ]
-		ifNotNil: [ aListOfExChdAttributeDtdElement as: OrderedCollection ]
+		              ifNil: [ OrderedCollection new ]
+		              ifNotNil: [
+		              aListOfExChdAttributeDtdElement as: OrderedCollection ]
 
 
 ]
 
 { #category : 'platypus-generated-accessing' }
 ExChdGetReferencedEntityDomainsFunction >> curr [
+
 	^ curr
 
 
@@ -102,6 +110,7 @@ ExChdGetReferencedEntityDomainsFunction >> curr [
 
 { #category : 'platypus-generated-accessing' }
 ExChdGetReferencedEntityDomainsFunction >> curr: aExChdDomainDtdElement [
+
 	curr := aExChdDomainDtdElement
 
 
@@ -109,6 +118,7 @@ ExChdGetReferencedEntityDomainsFunction >> curr: aExChdDomainDtdElement [
 
 { #category : 'platypus-generated-accessing' }
 ExChdGetReferencedEntityDomainsFunction >> domains [
+
 	^ domains
 
 
@@ -116,15 +126,18 @@ ExChdGetReferencedEntityDomainsFunction >> domains [
 
 { #category : 'platypus-generated-accessing' }
 ExChdGetReferencedEntityDomainsFunction >> domains: aListOfExChdEntityRefDtdElement [
+
 	domains := aListOfExChdEntityRefDtdElement
-		ifNil: [ OrderedCollection new ]
-		ifNotNil: [ aListOfExChdEntityRefDtdElement as: OrderedCollection ]
+		           ifNil: [ OrderedCollection new ]
+		           ifNotNil: [
+		           aListOfExChdEntityRefDtdElement as: OrderedCollection ]
 
 
 ]
 
 { #category : 'platypus-generated-accessing' }
 ExChdGetReferencedEntityDomainsFunction >> fromValues: values [
+
 	self pkgs: (values at: 1)
 
 
@@ -136,90 +149,68 @@ ExChdGetReferencedEntityDomainsFunction >> invoke [
 
 	self attributes: Array new.
 	self domains: Array new.
-	self names: Array new.	" ---------- statements ----------"
+	self names: Array new. " ---------- statements ----------"
 	PlatypusCoreRepeatStatement
-		repeat: [ :no768 | 
-			self
-				attributes:
-					(self attributes
-						pltPlus:
-							(ExChdComputePackageAttributeDtdElementsFunction
-								invokeFromValues:
-									(OrderedCollection new
-										add: (self pkgs pltAt: no768);
-										yourself))) ]
-		from:
-			(PltLOINDEXFunction
-				invokeFromValues:
-					(OrderedCollection new
-						add: self pkgs;
-						yourself))
-		to:
-			(PltHIINDEXFunction
-				invokeFromValues:
-					(OrderedCollection new
-						add: self pkgs;
-						yourself)).
+		repeat: [ :no2161667 |
+				self attributes: (self attributes pltPlus:
+						 (ExChdComputePackageAttributeDtdElementsFunction
+							  invokeFromValues: (OrderedCollection new
+									   add: (self pkgs pltAt: no2161667);
+									   yourself))) ]
+		from: (PltLOINDEXFunction invokeFromValues: (OrderedCollection new
+					  add: self pkgs;
+					  yourself))
+		to: (PltHIINDEXFunction invokeFromValues: (OrderedCollection new
+					  add: self pkgs;
+					  yourself)).
 	PlatypusCoreRepeatStatement
-		repeat: [ :noi2076 | 
-			self curr: nil.
-			PlatypusCoreAliasStatement
-				alias: ((self attributes pltAt: noi2076) domainUsingContext: self class context)
-				statementsBlock: [ :dom2747 | 
-					((PltTYPEOFFunction
-						invokeFromValues:
-							(OrderedCollection new
-								add: dom2747;
-								yourself)) includes: 'CHEDDAR_DTD.ENTITY_REF_DTD_ELEMENT')
-						ifTrue: [ self curr: dom2747 ].
-					(((PltTYPEOFFunction
-						invokeFromValues:
-							(OrderedCollection new
-								add: dom2747;
-								yourself)) includes: 'CHEDDAR_DTD.COLLECTION_DTD_ELEMENT')
-						and: [ 
-							(PltTYPEOFFunction
-								invokeFromValues:
-									(OrderedCollection new
-										add: (dom2747 elementDomainUsingContext: self class context);
-										yourself)) includes: 'CHEDDAR_DTD.ENTITY_REF_DTD_ELEMENT' ])
-						ifTrue: [ self curr: (dom2747 elementDomainUsingContext: self class context) ].
-					(PltEXISTSFunction
-						invokeFromValues:
-							(OrderedCollection new
-								add: self curr;
-								yourself))
-						ifTrue: [ 
-							(self names
-								includes:
-									(PTsLowerizeFunction
-										invokeFromValues:
-											(OrderedCollection new
-												add: ((self curr domainUsingContext: self class context) nameUsingContext: self class context);
-												yourself))) not
-								ifTrue: [ 
-									self domains: (self domains pltPlus: self curr).
-									self
-										names:
-											(self names
-												pltPlus:
-													(PTsLowerizeFunction
-														invokeFromValues:
-															(OrderedCollection new
-																add: ((self curr domainUsingContext: self class context) nameUsingContext: self class context);
-																yourself))) ] ] ] ]
-		from:
-			(PltLOINDEXFunction
-				invokeFromValues:
-					(OrderedCollection new
-						add: self attributes;
-						yourself))
-		to:
-			(PltHIINDEXFunction
-				invokeFromValues:
-					(OrderedCollection new
-						add: self attributes;
-						yourself)).
+		repeat: [ :noi3002793 |
+				self curr: nil.
+				PlatypusCoreAliasStatement
+					alias: ((self attributes pltAt: noi3002793) domainUsingContext:
+							 self class context)
+					statementsBlock: [ :dom3051247 |
+							((PltTYPEOFFunction invokeFromValues: (OrderedCollection new
+									   add: dom3051247;
+									   yourself)) includes: 'CHEDDAR_DTD.ENTITY_REF_DTD_ELEMENT')
+								ifTrue: [ self curr: dom3051247 ].
+							(((PltTYPEOFFunction invokeFromValues: (OrderedCollection new
+									    add: dom3051247;
+									    yourself)) includes: 'CHEDDAR_DTD.COLLECTION_DTD_ELEMENT')
+								 and: [
+										 (PltTYPEOFFunction invokeFromValues:
+											  (OrderedCollection new
+												   add:
+													   (dom3051247 elementDomainUsingContext:
+															    self class context);
+												   yourself)) includes:
+											 'CHEDDAR_DTD.ENTITY_REF_DTD_ELEMENT' ]) ifTrue: [
+								self curr:
+									(dom3051247 elementDomainUsingContext: self class context) ].
+							(PltEXISTSFunction invokeFromValues: (OrderedCollection new
+									  add: self curr;
+									  yourself)) ifTrue: [
+									(self names includes:
+										 (PTsLowerizeFunction invokeFromValues:
+											  (OrderedCollection new
+												   add:
+													   ((self curr domainUsingContext: self class context)
+														    nameUsingContext: self class context);
+												   yourself))) not ifTrue: [
+											self domains: (self domains pltPlus: self curr).
+											self names: (self names pltPlus:
+													 (PTsLowerizeFunction invokeFromValues:
+														  (OrderedCollection new
+															   add:
+																   ((self curr domainUsingContext: self class context)
+																	    nameUsingContext: self class context);
+															   yourself))) ] ] ] ]
+		from: (PltLOINDEXFunction invokeFromValues: (OrderedCollection new
+					  add: self attributes;
+					  yourself))
+		to: (PltHIINDEXFunction invokeFromValues: (OrderedCollection new
+					  add: self attributes;
+					  yourself)).
 	^ self return: self domains
 
 
@@ -227,6 +218,7 @@ ExChdGetReferencedEntityDomainsFunction >> invoke [
 
 { #category : 'platypus-generated-accessing' }
 ExChdGetReferencedEntityDomainsFunction >> names [
+
 	^ names
 
 
@@ -234,13 +226,17 @@ ExChdGetReferencedEntityDomainsFunction >> names [
 
 { #category : 'platypus-generated-accessing' }
 ExChdGetReferencedEntityDomainsFunction >> names: aListOfString [
-	names := aListOfString ifNil: [ OrderedCollection new ] ifNotNil: [ aListOfString as: OrderedCollection ]
+
+	names := aListOfString
+		         ifNil: [ OrderedCollection new ]
+		         ifNotNil: [ aListOfString as: OrderedCollection ]
 
 
 ]
 
 { #category : 'platypus-generated-accessing' }
 ExChdGetReferencedEntityDomainsFunction >> pkgs [
+
 	^ pkgs
 
 
@@ -248,9 +244,11 @@ ExChdGetReferencedEntityDomainsFunction >> pkgs [
 
 { #category : 'platypus-generated-accessing' }
 ExChdGetReferencedEntityDomainsFunction >> pkgs: aListOfExChdPackageDtdElement [
+
 	pkgs := aListOfExChdPackageDtdElement
-		ifNil: [ OrderedCollection new ]
-		ifNotNil: [ aListOfExChdPackageDtdElement as: OrderedCollection ]
+		        ifNil: [ OrderedCollection new ]
+		        ifNotNil: [
+		        aListOfExChdPackageDtdElement as: OrderedCollection ]
 
 
 ]

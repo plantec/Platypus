@@ -24,6 +24,7 @@ Class {
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdComputeDiscriminatedTypeSubElementsFunction class >> iso10303P11Translater [
+
 	^ 'Platypus (c) LISYC EA3883, Universite de Bretagne occidentale. Brest.'
 
 
@@ -31,6 +32,7 @@ ExChdComputeDiscriminatedTypeSubElementsFunction class >> iso10303P11Translater 
 
 { #category : 'platypus-generated-meta-data-accessing' }
 ExChdComputeDiscriminatedTypeSubElementsFunction class >> schemaDefinition [
+
 	^ ExChdCheddarDtdSchemaDefinition singleton
 
 
@@ -38,6 +40,7 @@ ExChdComputeDiscriminatedTypeSubElementsFunction class >> schemaDefinition [
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdComputeDiscriminatedTypeSubElementsFunction class >> translatedFromISO10303P11 [
+
 	^ true
 
 
@@ -45,6 +48,7 @@ ExChdComputeDiscriminatedTypeSubElementsFunction class >> translatedFromISO10303
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdComputeDiscriminatedTypeSubElementsFunction class >> vwNamespaceName [
+
 	^ #Express2Cheddar
 
 
@@ -52,6 +56,7 @@ ExChdComputeDiscriminatedTypeSubElementsFunction class >> vwNamespaceName [
 
 { #category : 'platypus-generated-accessing' }
 ExChdComputeDiscriminatedTypeSubElementsFunction >> attrs [
+
 	^ attrs
 
 
@@ -59,15 +64,18 @@ ExChdComputeDiscriminatedTypeSubElementsFunction >> attrs [
 
 { #category : 'platypus-generated-accessing' }
 ExChdComputeDiscriminatedTypeSubElementsFunction >> attrs: aListOfExChdExplicitAttribute [
+
 	attrs := aListOfExChdExplicitAttribute
-		ifNil: [ OrderedCollection new ]
-		ifNotNil: [ aListOfExChdExplicitAttribute as: OrderedCollection ]
+		         ifNil: [ OrderedCollection new ]
+		         ifNotNil: [
+		         aListOfExChdExplicitAttribute as: OrderedCollection ]
 
 
 ]
 
 { #category : 'platypus-generated-accessing' }
 ExChdComputeDiscriminatedTypeSubElementsFunction >> e [
+
 	^ e
 
 
@@ -75,6 +83,7 @@ ExChdComputeDiscriminatedTypeSubElementsFunction >> e [
 
 { #category : 'platypus-generated-accessing' }
 ExChdComputeDiscriminatedTypeSubElementsFunction >> e: aExChdDiscriminatedTypeDtdElement [
+
 	e := aExChdDiscriminatedTypeDtdElement
 
 
@@ -82,6 +91,7 @@ ExChdComputeDiscriminatedTypeSubElementsFunction >> e: aExChdDiscriminatedTypeDt
 
 { #category : 'platypus-generated-accessing' }
 ExChdComputeDiscriminatedTypeSubElementsFunction >> fromValues: values [
+
 	self e: (values at: 1)
 
 
@@ -91,21 +101,16 @@ ExChdComputeDiscriminatedTypeSubElementsFunction >> fromValues: values [
 ExChdComputeDiscriminatedTypeSubElementsFunction >> invoke [
 	" ---------- locals assignments ----------"
 
-	self
-		attrs:
-			(ExChdDiscriminatedTypeAttributesFunction
-				invokeFromValues:
-					(OrderedCollection new
-						add: (self e domainUsingContext: self class context);
-						yourself)).
-	self
-		result:
-			(ExChdComputeAttributeDtdListFromAttributeListFunction
-				invokeFromValues:
-					(OrderedCollection new
-						add: self e;
-						add: self attrs;
-						yourself)).	" ---------- statements ----------"
+	self attrs:
+		(ExChdDiscriminatedTypeAttributesFunction invokeFromValues:
+			 (OrderedCollection new
+				  add: (self e domainUsingContext: self class context);
+				  yourself)).
+	self result: (ExChdComputeAttributeDtdListFromAttributeListFunction
+			 invokeFromValues: (OrderedCollection new
+					  add: self e;
+					  add: self attrs;
+					  yourself)). " ---------- statements ----------"
 	^ self return: self result
 
 
@@ -113,6 +118,7 @@ ExChdComputeDiscriminatedTypeSubElementsFunction >> invoke [
 
 { #category : 'platypus-generated-accessing' }
 ExChdComputeDiscriminatedTypeSubElementsFunction >> result [
+
 	^ result
 
 
@@ -120,9 +126,10 @@ ExChdComputeDiscriminatedTypeSubElementsFunction >> result [
 
 { #category : 'platypus-generated-accessing' }
 ExChdComputeDiscriminatedTypeSubElementsFunction >> result: aListOfExChdDtdElement [
+
 	result := aListOfExChdDtdElement
-		ifNil: [ OrderedCollection new ]
-		ifNotNil: [ aListOfExChdDtdElement as: OrderedCollection ]
+		          ifNil: [ OrderedCollection new ]
+		          ifNotNil: [ aListOfExChdDtdElement as: OrderedCollection ]
 
 
 ]

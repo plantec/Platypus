@@ -17,9 +17,9 @@ Class {
 	#name : 'ExChdConstrainedArrayType',
 	#superclass : 'ExChdCheddarDefinedType',
 	#instVars : [
+		'minIdx',
 		'maxIdx',
-		'interfaces',
-		'minIdx'
+		'interfaces'
 	],
 	#category : 'Express2Cheddar-CheddarDomainsSchema',
 	#package : 'Express2Cheddar',
@@ -28,6 +28,7 @@ Class {
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdConstrainedArrayType class >> iso10303P11Translater [
+
 	^ 'Platypus (c) LISYC EA3883, Universite de Bretagne occidentale. Brest.'
 
 
@@ -35,6 +36,7 @@ ExChdConstrainedArrayType class >> iso10303P11Translater [
 
 { #category : 'platypus-generated-meta-data-accessing' }
 ExChdConstrainedArrayType class >> schemaDefinition [
+
 	^ ExChdCheddarDomainsSchemaDefinition singleton
 
 
@@ -42,6 +44,7 @@ ExChdConstrainedArrayType class >> schemaDefinition [
 
 { #category : 'platypus-generated-meta-data-accessing' }
 ExChdConstrainedArrayType class >> schemaInstance [
+
 	^ ExChdExpress2cheddarSchemaInstance singleton
 
 
@@ -49,6 +52,7 @@ ExChdConstrainedArrayType class >> schemaInstance [
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdConstrainedArrayType class >> translatedFromISO10303P11 [
+
 	^ true
 
 
@@ -56,6 +60,7 @@ ExChdConstrainedArrayType class >> translatedFromISO10303P11 [
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdConstrainedArrayType class >> vwNamespaceName [
+
 	^ #Express2Cheddar
 
 
@@ -63,6 +68,7 @@ ExChdConstrainedArrayType class >> vwNamespaceName [
 
 { #category : 'platypus-generated-visiting' }
 ExChdConstrainedArrayType >> accept: aVisitor [
+
 	^ aVisitor acceptConstrainedArrayType: self
 
 
@@ -70,6 +76,7 @@ ExChdConstrainedArrayType >> accept: aVisitor [
 
 { #category : 'platypus-generated-deriving' }
 ExChdConstrainedArrayType >> adbCode [
+
 	^ self adbCodeUsingContext: self class context
 
 
@@ -77,6 +84,7 @@ ExChdConstrainedArrayType >> adbCode [
 
 { #category : 'platypus-generated-deriving' }
 ExChdConstrainedArrayType >> adbCodeUsingContext: aContext [
+
 	^ self adbCodeUsingContext: aContext receiver: self
 
 
@@ -84,6 +92,7 @@ ExChdConstrainedArrayType >> adbCodeUsingContext: aContext [
 
 { #category : 'platypus-generated-deriving' }
 ExChdConstrainedArrayType >> adbCodeUsingContext: aContext receiver: aReceiver [
+
 	^ ''
 
 
@@ -91,6 +100,7 @@ ExChdConstrainedArrayType >> adbCodeUsingContext: aContext receiver: aReceiver [
 
 { #category : 'platypus-generated-deriving' }
 ExChdConstrainedArrayType >> adbInterfacesList [
+
 	^ self adbInterfacesListUsingContext: self class context
 
 
@@ -98,6 +108,7 @@ ExChdConstrainedArrayType >> adbInterfacesList [
 
 { #category : 'platypus-generated-deriving' }
 ExChdConstrainedArrayType >> adbInterfacesListUsingContext: aContext [
+
 	^ self adbInterfacesListUsingContext: aContext receiver: self
 
 
@@ -105,6 +116,7 @@ ExChdConstrainedArrayType >> adbInterfacesListUsingContext: aContext [
 
 { #category : 'platypus-generated-deriving' }
 ExChdConstrainedArrayType >> adbInterfacesListUsingContext: aContext receiver: aReceiver [
+
 	^ Array new
 
 
@@ -112,6 +124,7 @@ ExChdConstrainedArrayType >> adbInterfacesListUsingContext: aContext receiver: a
 
 { #category : 'platypus-generated-deriving' }
 ExChdConstrainedArrayType >> adsCode [
+
 	^ self adsCodeUsingContext: self class context
 
 
@@ -119,6 +132,7 @@ ExChdConstrainedArrayType >> adsCode [
 
 { #category : 'platypus-generated-deriving' }
 ExChdConstrainedArrayType >> adsCodeUsingContext: aContext [
+
 	^ self adsCodeUsingContext: aContext receiver: self
 
 
@@ -126,17 +140,18 @@ ExChdConstrainedArrayType >> adsCodeUsingContext: aContext [
 
 { #category : 'platypus-generated-deriving' }
 ExChdConstrainedArrayType >> adsCodeUsingContext: aContext receiver: aReceiver [
-	^ ExChdConstrainedArrayTypeAdsCodeFunction
-		invokeFromValues:
-			(OrderedCollection new
-				add: aReceiver;
-				yourself)
+
+	^ ExChdConstrainedArrayTypeAdsCodeFunction invokeFromValues:
+		  (OrderedCollection new
+			   add: aReceiver;
+			   yourself)
 
 
 ]
 
 { #category : 'platypus-generated-deriving' }
 ExChdConstrainedArrayType >> adsInterfacesList [
+
 	^ self adsInterfacesListUsingContext: self class context
 
 
@@ -144,6 +159,7 @@ ExChdConstrainedArrayType >> adsInterfacesList [
 
 { #category : 'platypus-generated-deriving' }
 ExChdConstrainedArrayType >> adsInterfacesListUsingContext: aContext [
+
 	^ self adsInterfacesListUsingContext: aContext receiver: self
 
 
@@ -151,6 +167,7 @@ ExChdConstrainedArrayType >> adsInterfacesListUsingContext: aContext [
 
 { #category : 'platypus-generated-deriving' }
 ExChdConstrainedArrayType >> adsInterfacesListUsingContext: aContext receiver: aReceiver [
+
 	^ aReceiver interfaces
 
 
@@ -158,6 +175,7 @@ ExChdConstrainedArrayType >> adsInterfacesListUsingContext: aContext receiver: a
 
 { #category : 'platypus-generated-copying' }
 ExChdConstrainedArrayType >> constrainedArrayTypeCopyTo: another [
+
 	another fastSetMinIdx: self minIdx.
 	another fastSetMaxIdx: self maxIdx.
 	another fastSetInterfaces: self interfaces
@@ -167,6 +185,7 @@ ExChdConstrainedArrayType >> constrainedArrayTypeCopyTo: another [
 
 { #category : 'platypus-generated-group-accessing' }
 ExChdConstrainedArrayType >> constrainedArrayTypeFromValues: values [
+
 	| valuesloc |
 	valuesloc := values asOrderedCollection.
 	self setMinIdx: valuesloc removeFirst.
@@ -179,6 +198,7 @@ ExChdConstrainedArrayType >> constrainedArrayTypeFromValues: values [
 
 { #category : 'platypus-generated-group-accessing' }
 ExChdConstrainedArrayType >> constrainedArrayTypeToValues: values [
+
 	values add: self minIdx.
 	values add: self maxIdx.
 	values add: self interfaces.
@@ -189,6 +209,7 @@ ExChdConstrainedArrayType >> constrainedArrayTypeToValues: values [
 
 { #category : 'platypus-generated-fast-set-accessing' }
 ExChdConstrainedArrayType >> fastSetInterfaces: aListOfExChdAdaInterface [
+
 	interfaces := aListOfExChdAdaInterface
 
 
@@ -196,6 +217,7 @@ ExChdConstrainedArrayType >> fastSetInterfaces: aListOfExChdAdaInterface [
 
 { #category : 'platypus-generated-fast-set-accessing' }
 ExChdConstrainedArrayType >> fastSetMaxIdx: aString [
+
 	maxIdx := aString
 
 
@@ -203,6 +225,7 @@ ExChdConstrainedArrayType >> fastSetMaxIdx: aString [
 
 { #category : 'platypus-generated-fast-set-accessing' }
 ExChdConstrainedArrayType >> fastSetMinIdx: aString [
+
 	minIdx := aString
 
 
@@ -210,6 +233,7 @@ ExChdConstrainedArrayType >> fastSetMinIdx: aString [
 
 { #category : 'platypus-generated-group-accessing' }
 ExChdConstrainedArrayType >> fromValues: values [
+
 	^ self constrainedArrayTypeFromValues: (super fromValues: values)
 
 
@@ -217,6 +241,7 @@ ExChdConstrainedArrayType >> fromValues: values [
 
 { #category : 'platypus-generated-accessing' }
 ExChdConstrainedArrayType >> interfaces [
+
 	^ interfaces
 
 
@@ -224,15 +249,18 @@ ExChdConstrainedArrayType >> interfaces [
 
 { #category : 'platypus-generated-accessing' }
 ExChdConstrainedArrayType >> interfaces: aListOfExChdAdaInterface [
+
 	interfaces := aListOfExChdAdaInterface
-		ifNil: [ OrderedCollection new ]
-		ifNotNil: [ aListOfExChdAdaInterface as: OrderedCollection ]
+		              ifNil: [ OrderedCollection new ]
+		              ifNotNil: [
+		              aListOfExChdAdaInterface as: OrderedCollection ]
 
 
 ]
 
 { #category : 'platypus-generated-with-context-accessing' }
 ExChdConstrainedArrayType >> interfacesUsingContext: aContext [
+
 	^ self interfaces
 
 
@@ -240,6 +268,7 @@ ExChdConstrainedArrayType >> interfacesUsingContext: aContext [
 
 { #category : 'platypus-generated-classifying' }
 ExChdConstrainedArrayType >> isExChdConstrainedArrayType [
+
 	^ true
 
 
@@ -247,6 +276,7 @@ ExChdConstrainedArrayType >> isExChdConstrainedArrayType [
 
 { #category : 'platypus-generated-group-accessing' }
 ExChdConstrainedArrayType >> localFromValues: values [
+
 	^ self constrainedArrayTypeFromValues: values
 
 
@@ -254,6 +284,7 @@ ExChdConstrainedArrayType >> localFromValues: values [
 
 { #category : 'platypus-generated-group-accessing' }
 ExChdConstrainedArrayType >> localToValues: values [
+
 	^ self constrainedArrayTypeToValues: values
 
 
@@ -261,6 +292,7 @@ ExChdConstrainedArrayType >> localToValues: values [
 
 { #category : 'platypus-generated-accessing' }
 ExChdConstrainedArrayType >> maxIdx [
+
 	^ maxIdx
 
 
@@ -268,6 +300,7 @@ ExChdConstrainedArrayType >> maxIdx [
 
 { #category : 'platypus-generated-accessing' }
 ExChdConstrainedArrayType >> maxIdx: aString [
+
 	maxIdx := aString
 
 
@@ -275,6 +308,7 @@ ExChdConstrainedArrayType >> maxIdx: aString [
 
 { #category : 'platypus-generated-with-context-accessing' }
 ExChdConstrainedArrayType >> maxIdxUsingContext: aContext [
+
 	^ self maxIdx
 
 
@@ -282,6 +316,7 @@ ExChdConstrainedArrayType >> maxIdxUsingContext: aContext [
 
 { #category : 'platypus-generated-accessing' }
 ExChdConstrainedArrayType >> minIdx [
+
 	^ minIdx
 
 
@@ -289,6 +324,7 @@ ExChdConstrainedArrayType >> minIdx [
 
 { #category : 'platypus-generated-accessing' }
 ExChdConstrainedArrayType >> minIdx: aString [
+
 	minIdx := aString
 
 
@@ -296,6 +332,7 @@ ExChdConstrainedArrayType >> minIdx: aString [
 
 { #category : 'platypus-generated-with-context-accessing' }
 ExChdConstrainedArrayType >> minIdxUsingContext: aContext [
+
 	^ self minIdx
 
 
@@ -303,6 +340,7 @@ ExChdConstrainedArrayType >> minIdxUsingContext: aContext [
 
 { #category : 'platypus-generated-copying' }
 ExChdConstrainedArrayType >> pltCopyGroup: aClassSymbol to: anObject [
+
 	self class name == aClassSymbol
 		ifTrue: [ self pltCopyTo: anObject ]
 		ifFalse: [ super pltCopyGroup: aClassSymbol to: anObject ]
@@ -312,6 +350,7 @@ ExChdConstrainedArrayType >> pltCopyGroup: aClassSymbol to: anObject [
 
 { #category : 'platypus-generated-copying' }
 ExChdConstrainedArrayType >> pltCopyTo: another [
+
 	super pltCopyTo: another.
 	self constrainedArrayTypeCopyTo: another
 
@@ -320,6 +359,7 @@ ExChdConstrainedArrayType >> pltCopyTo: another [
 
 { #category : 'platypus-generated-copying' }
 ExChdConstrainedArrayType >> pltLocalCopyTo: another [
+
 	self constrainedArrayTypeCopyTo: another
 
 
@@ -327,6 +367,7 @@ ExChdConstrainedArrayType >> pltLocalCopyTo: another [
 
 { #category : 'platypus-generated-set-accessing' }
 ExChdConstrainedArrayType >> setInterfaces: aListOfExChdAdaInterface [
+
 	self interfaces: aListOfExChdAdaInterface
 
 
@@ -334,6 +375,7 @@ ExChdConstrainedArrayType >> setInterfaces: aListOfExChdAdaInterface [
 
 { #category : 'platypus-generated-set-accessing' }
 ExChdConstrainedArrayType >> setMaxIdx: aString [
+
 	self maxIdx: aString
 
 
@@ -341,6 +383,7 @@ ExChdConstrainedArrayType >> setMaxIdx: aString [
 
 { #category : 'platypus-generated-set-accessing' }
 ExChdConstrainedArrayType >> setMinIdx: aString [
+
 	self minIdx: aString
 
 
@@ -348,6 +391,7 @@ ExChdConstrainedArrayType >> setMinIdx: aString [
 
 { #category : 'platypus-generated-initializing' }
 ExChdConstrainedArrayType >> stepInitialize [
+
 	super stepInitialize.
 	minIdx := ''.
 	maxIdx := nil.
@@ -358,6 +402,7 @@ ExChdConstrainedArrayType >> stepInitialize [
 
 { #category : 'platypus-generated-group-accessing' }
 ExChdConstrainedArrayType >> toValues: values [
+
 	^ self constrainedArrayTypeToValues: (super toValues: values)
 
 

@@ -24,6 +24,7 @@ Class {
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdDiscriminatedTypeXmlEndElementCodeFunction class >> iso10303P11Translater [
+
 	^ 'Platypus (c) LISYC EA3883, Universite de Bretagne occidentale. Brest.'
 
 
@@ -31,6 +32,7 @@ ExChdDiscriminatedTypeXmlEndElementCodeFunction class >> iso10303P11Translater [
 
 { #category : 'platypus-generated-meta-data-accessing' }
 ExChdDiscriminatedTypeXmlEndElementCodeFunction class >> schemaDefinition [
+
 	^ ExChdDiscriminatedTypeSchemaDefinition singleton
 
 
@@ -38,6 +40,7 @@ ExChdDiscriminatedTypeXmlEndElementCodeFunction class >> schemaDefinition [
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdDiscriminatedTypeXmlEndElementCodeFunction class >> translatedFromISO10303P11 [
+
 	^ true
 
 
@@ -45,6 +48,7 @@ ExChdDiscriminatedTypeXmlEndElementCodeFunction class >> translatedFromISO10303P
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdDiscriminatedTypeXmlEndElementCodeFunction class >> vwNamespaceName [
+
 	^ #Express2Cheddar
 
 
@@ -52,6 +56,7 @@ ExChdDiscriminatedTypeXmlEndElementCodeFunction class >> vwNamespaceName [
 
 { #category : 'platypus-generated-accessing' }
 ExChdDiscriminatedTypeXmlEndElementCodeFunction >> fromValues: values [
+
 	self typ: (values at: 1)
 
 
@@ -59,29 +64,30 @@ ExChdDiscriminatedTypeXmlEndElementCodeFunction >> fromValues: values [
 
 { #category : 'platypus-generated-invoking' }
 ExChdDiscriminatedTypeXmlEndElementCodeFunction >> invoke [
-	" ---------- locals assignments ----------"
+	" ---------- locals assignments ----------"" ---------- statements ----------"
 
-	" ---------- statements ----------"
-
-	^ self
-		return:
-			((((((((('\nprocedure End_Element(\n' pltPlus: '\tHandler : in out Xml_generic_parser;\n') pltPlus: '\tobj : in out ')
-				pltPlus: (self typ nameUsingContext: self class context)) pltPlus: '_io;\n')
-				pltPlus: '\tNamespace_Uri : Unicode.CES.Byte_Sequence := "";\n')
-				pltPlus: '\tLocal_Name    : Unicode.CES.Byte_Sequence := "";\n')
-				pltPlus: '\tQname : Unicode.CES.Byte_Sequence := "") is \nbegin\n')
-				pltPlus:
-					(ExChdDiscriminatedTypeAttributesXmlEndElementCodeFunction
-						invokeFromValues:
-							(OrderedCollection new
-								add: self typ;
-								yourself))) pltPlus: '\nend End_Element;\n')
+	^ self return: ((((((((('\nprocedure End_Element(\n' pltPlus:
+			           '\tHandler : in out Xml_generic_parser;\n') pltPlus:
+			          '\tobj : in out ') pltPlus:
+			         (self typ nameUsingContext: self class context)) pltPlus:
+			        '_io;\n') pltPlus:
+			       '\tNamespace_Uri : Unicode.CES.Byte_Sequence := "";\n')
+			      pltPlus:
+			      '\tLocal_Name    : Unicode.CES.Byte_Sequence := "";\n')
+			     pltPlus:
+			     '\tQname : Unicode.CES.Byte_Sequence := "") is \nbegin\n')
+			    pltPlus:
+				    (ExChdDiscriminatedTypeAttributesXmlEndElementCodeFunction
+					     invokeFromValues: (OrderedCollection new
+							      add: self typ;
+							      yourself))) pltPlus: '\nend End_Element;\n')
 
 
 ]
 
 { #category : 'platypus-generated-accessing' }
 ExChdDiscriminatedTypeXmlEndElementCodeFunction >> typ [
+
 	^ typ
 
 
@@ -89,6 +95,7 @@ ExChdDiscriminatedTypeXmlEndElementCodeFunction >> typ [
 
 { #category : 'platypus-generated-accessing' }
 ExChdDiscriminatedTypeXmlEndElementCodeFunction >> typ: aExChdDiscriminatedType [
+
 	typ := aExChdDiscriminatedType
 
 

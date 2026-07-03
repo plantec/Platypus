@@ -20,6 +20,7 @@ Class {
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdAdaBagType class >> iso10303P11Translater [
+
 	^ 'Platypus (c) LISYC EA3883, Universite de Bretagne occidentale. Brest.'
 
 
@@ -27,6 +28,7 @@ ExChdAdaBagType class >> iso10303P11Translater [
 
 { #category : 'platypus-generated-meta-data-accessing' }
 ExChdAdaBagType class >> schemaDefinition [
+
 	^ ExChdCheddarDomainsSchemaDefinition singleton
 
 
@@ -34,6 +36,7 @@ ExChdAdaBagType class >> schemaDefinition [
 
 { #category : 'platypus-generated-meta-data-accessing' }
 ExChdAdaBagType class >> schemaInstance [
+
 	^ ExChdExpress2cheddarSchemaInstance singleton
 
 
@@ -41,6 +44,7 @@ ExChdAdaBagType class >> schemaInstance [
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdAdaBagType class >> translatedFromISO10303P11 [
+
 	^ true
 
 
@@ -48,6 +52,7 @@ ExChdAdaBagType class >> translatedFromISO10303P11 [
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdAdaBagType class >> vwNamespaceName [
+
 	^ #Express2Cheddar
 
 
@@ -55,6 +60,7 @@ ExChdAdaBagType class >> vwNamespaceName [
 
 { #category : 'platypus-generated-visiting' }
 ExChdAdaBagType >> accept: aVisitor [
+
 	^ aVisitor acceptAdaBagType: self
 
 
@@ -62,6 +68,7 @@ ExChdAdaBagType >> accept: aVisitor [
 
 { #category : 'platypus-generated-copying' }
 ExChdAdaBagType >> adaBagTypeCopyTo: another [
+
 	
 
 
@@ -69,6 +76,7 @@ ExChdAdaBagType >> adaBagTypeCopyTo: another [
 
 { #category : 'platypus-generated-group-accessing' }
 ExChdAdaBagType >> adaBagTypeFromValues: values [
+
 	| valuesloc |
 	valuesloc := values asOrderedCollection.
 	^ valuesloc
@@ -78,6 +86,7 @@ ExChdAdaBagType >> adaBagTypeFromValues: values [
 
 { #category : 'platypus-generated-group-accessing' }
 ExChdAdaBagType >> adaBagTypeToValues: values [
+
 	^ values
 
 
@@ -85,6 +94,7 @@ ExChdAdaBagType >> adaBagTypeToValues: values [
 
 { #category : 'platypus-generated-deriving' }
 ExChdAdaBagType >> adaIdent [
+
 	^ self adaIdentUsingContext: self class context
 
 
@@ -92,6 +102,7 @@ ExChdAdaBagType >> adaIdent [
 
 { #category : 'platypus-generated-deriving' }
 ExChdAdaBagType >> adaIdentUsingContext: aContext [
+
 	^ self adaIdentUsingContext: aContext receiver: self
 
 
@@ -99,6 +110,7 @@ ExChdAdaBagType >> adaIdentUsingContext: aContext [
 
 { #category : 'platypus-generated-deriving' }
 ExChdAdaBagType >> adaIdentUsingContext: aContext receiver: aReceiver [
+
 	^ 'bag'
 
 
@@ -106,6 +118,7 @@ ExChdAdaBagType >> adaIdentUsingContext: aContext receiver: aReceiver [
 
 { #category : 'platypus-generated-deriving' }
 ExChdAdaBagType >> adaRefIdent [
+
 	^ self adaRefIdentUsingContext: self class context
 
 
@@ -113,6 +126,7 @@ ExChdAdaBagType >> adaRefIdent [
 
 { #category : 'platypus-generated-deriving' }
 ExChdAdaBagType >> adaRefIdentUsingContext: aContext [
+
 	^ self adaRefIdentUsingContext: aContext receiver: self
 
 
@@ -120,6 +134,7 @@ ExChdAdaBagType >> adaRefIdentUsingContext: aContext [
 
 { #category : 'platypus-generated-deriving' }
 ExChdAdaBagType >> adaRefIdentUsingContext: aContext receiver: aReceiver [
+
 	^ aReceiver adaIdentUsingContext: aContext
 
 
@@ -127,6 +142,7 @@ ExChdAdaBagType >> adaRefIdentUsingContext: aContext receiver: aReceiver [
 
 { #category : 'platypus-generated-deriving' }
 ExChdAdaBagType >> adbInterfacesList [
+
 	^ self adbInterfacesListUsingContext: self class context
 
 
@@ -134,6 +150,7 @@ ExChdAdaBagType >> adbInterfacesList [
 
 { #category : 'platypus-generated-deriving' }
 ExChdAdaBagType >> adbInterfacesListUsingContext: aContext [
+
 	^ self adbInterfacesListUsingContext: aContext receiver: self
 
 
@@ -141,6 +158,7 @@ ExChdAdaBagType >> adbInterfacesListUsingContext: aContext [
 
 { #category : 'platypus-generated-deriving' }
 ExChdAdaBagType >> adbInterfacesListUsingContext: aContext receiver: aReceiver [
+
 	^ Array new
 
 
@@ -148,6 +166,7 @@ ExChdAdaBagType >> adbInterfacesListUsingContext: aContext receiver: aReceiver [
 
 { #category : 'platypus-generated-deriving' }
 ExChdAdaBagType >> adsInterfacesList [
+
 	^ self adsInterfacesListUsingContext: self class context
 
 
@@ -155,6 +174,7 @@ ExChdAdaBagType >> adsInterfacesList [
 
 { #category : 'platypus-generated-deriving' }
 ExChdAdaBagType >> adsInterfacesListUsingContext: aContext [
+
 	^ self adsInterfacesListUsingContext: aContext receiver: self
 
 
@@ -162,26 +182,25 @@ ExChdAdaBagType >> adsInterfacesListUsingContext: aContext [
 
 { #category : 'platypus-generated-deriving' }
 ExChdAdaBagType >> adsInterfacesListUsingContext: aContext receiver: aReceiver [
-	^ PlatypusCoreAggregateInitializer
-		collectionFrom:
-			(OrderedCollection new
-				add:
-						(ExChdAdaInterface new
-								adaInterfaceFromValues:
-										(OrderedCollection new
-												add: 'standards_io';
-												add: nil;
-												add: true;
-												add: true;
-												yourself);
-								yourself);
-				yourself)
+
+	^ PlatypusCoreAggregateInitializer collectionFrom:
+		  (OrderedCollection new
+			   add: (ExChdAdaInterface new
+					    adaInterfaceFromValues: (OrderedCollection new
+							     add: 'standards_io';
+							     add: nil;
+							     add: true;
+							     add: true;
+							     yourself);
+					    yourself);
+			   yourself)
 
 
 ]
 
 { #category : 'platypus-generated-group-accessing' }
 ExChdAdaBagType >> fromValues: values [
+
 	^ self adaBagTypeFromValues: (super fromValues: values)
 
 
@@ -189,6 +208,7 @@ ExChdAdaBagType >> fromValues: values [
 
 { #category : 'platypus-generated-classifying' }
 ExChdAdaBagType >> isExChdAdaBagType [
+
 	^ true
 
 
@@ -196,6 +216,7 @@ ExChdAdaBagType >> isExChdAdaBagType [
 
 { #category : 'platypus-generated-group-accessing' }
 ExChdAdaBagType >> localFromValues: values [
+
 	^ self adaBagTypeFromValues: values
 
 
@@ -203,6 +224,7 @@ ExChdAdaBagType >> localFromValues: values [
 
 { #category : 'platypus-generated-group-accessing' }
 ExChdAdaBagType >> localToValues: values [
+
 	^ self adaBagTypeToValues: values
 
 
@@ -210,6 +232,7 @@ ExChdAdaBagType >> localToValues: values [
 
 { #category : 'platypus-generated-copying' }
 ExChdAdaBagType >> pltCopyGroup: aClassSymbol to: anObject [
+
 	self class name == aClassSymbol
 		ifTrue: [ self pltCopyTo: anObject ]
 		ifFalse: [ super pltCopyGroup: aClassSymbol to: anObject ]
@@ -219,6 +242,7 @@ ExChdAdaBagType >> pltCopyGroup: aClassSymbol to: anObject [
 
 { #category : 'platypus-generated-copying' }
 ExChdAdaBagType >> pltCopyTo: another [
+
 	super pltCopyTo: another.
 	self adaBagTypeCopyTo: another
 
@@ -227,6 +251,7 @@ ExChdAdaBagType >> pltCopyTo: another [
 
 { #category : 'platypus-generated-copying' }
 ExChdAdaBagType >> pltLocalCopyTo: another [
+
 	self adaBagTypeCopyTo: another
 
 
@@ -234,6 +259,7 @@ ExChdAdaBagType >> pltLocalCopyTo: another [
 
 { #category : 'platypus-generated-initializing' }
 ExChdAdaBagType >> stepInitialize [
+
 	super stepInitialize
 
 
@@ -241,6 +267,7 @@ ExChdAdaBagType >> stepInitialize [
 
 { #category : 'platypus-generated-group-accessing' }
 ExChdAdaBagType >> toValues: values [
+
 	^ self adaBagTypeToValues: (super toValues: values)
 
 

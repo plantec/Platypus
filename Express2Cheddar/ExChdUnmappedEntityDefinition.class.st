@@ -22,6 +22,7 @@ Class {
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdUnmappedEntityDefinition class >> iso10303P11Translater [
+
 	^ 'Platypus (c) LISYC EA3883, Universite de Bretagne occidentale. Brest.'
 
 
@@ -29,6 +30,7 @@ ExChdUnmappedEntityDefinition class >> iso10303P11Translater [
 
 { #category : 'platypus-generated-meta-data-accessing' }
 ExChdUnmappedEntityDefinition class >> schemaDefinition [
+
 	^ ExChdCheddarDomainsSchemaDefinition singleton
 
 
@@ -36,6 +38,7 @@ ExChdUnmappedEntityDefinition class >> schemaDefinition [
 
 { #category : 'platypus-generated-meta-data-accessing' }
 ExChdUnmappedEntityDefinition class >> schemaInstance [
+
 	^ ExChdExpress2cheddarSchemaInstance singleton
 
 
@@ -43,6 +46,7 @@ ExChdUnmappedEntityDefinition class >> schemaInstance [
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdUnmappedEntityDefinition class >> translatedFromISO10303P11 [
+
 	^ true
 
 
@@ -50,6 +54,7 @@ ExChdUnmappedEntityDefinition class >> translatedFromISO10303P11 [
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdUnmappedEntityDefinition class >> vwNamespaceName [
+
 	^ #Express2Cheddar
 
 
@@ -57,6 +62,7 @@ ExChdUnmappedEntityDefinition class >> vwNamespaceName [
 
 { #category : 'platypus-generated-visiting' }
 ExChdUnmappedEntityDefinition >> accept: aVisitor [
+
 	^ aVisitor acceptUnmappedEntityDefinition: self
 
 
@@ -64,6 +70,7 @@ ExChdUnmappedEntityDefinition >> accept: aVisitor [
 
 { #category : 'platypus-generated-deriving' }
 ExChdUnmappedEntityDefinition >> adaIdent [
+
 	^ self adaIdentUsingContext: self class context
 
 
@@ -71,6 +78,7 @@ ExChdUnmappedEntityDefinition >> adaIdent [
 
 { #category : 'platypus-generated-deriving' }
 ExChdUnmappedEntityDefinition >> adaIdentUsingContext: aContext [
+
 	^ self adaIdentUsingContext: aContext receiver: self
 
 
@@ -78,6 +86,7 @@ ExChdUnmappedEntityDefinition >> adaIdentUsingContext: aContext [
 
 { #category : 'platypus-generated-deriving' }
 ExChdUnmappedEntityDefinition >> adaIdentUsingContext: aContext receiver: aReceiver [
+
 	^ aReceiver nameUsingContext: aContext
 
 
@@ -85,6 +94,7 @@ ExChdUnmappedEntityDefinition >> adaIdentUsingContext: aContext receiver: aRecei
 
 { #category : 'platypus-generated-deriving' }
 ExChdUnmappedEntityDefinition >> adaRefIdent [
+
 	^ self adaRefIdentUsingContext: self class context
 
 
@@ -92,6 +102,7 @@ ExChdUnmappedEntityDefinition >> adaRefIdent [
 
 { #category : 'platypus-generated-deriving' }
 ExChdUnmappedEntityDefinition >> adaRefIdentUsingContext: aContext [
+
 	^ self adaRefIdentUsingContext: aContext receiver: self
 
 
@@ -99,6 +110,7 @@ ExChdUnmappedEntityDefinition >> adaRefIdentUsingContext: aContext [
 
 { #category : 'platypus-generated-deriving' }
 ExChdUnmappedEntityDefinition >> adaRefIdentUsingContext: aContext receiver: aReceiver [
+
 	^ aReceiver nameUsingContext: aContext
 
 
@@ -106,6 +118,7 @@ ExChdUnmappedEntityDefinition >> adaRefIdentUsingContext: aContext receiver: aRe
 
 { #category : 'platypus-generated-deriving' }
 ExChdUnmappedEntityDefinition >> adbCode [
+
 	^ self adbCodeUsingContext: self class context
 
 
@@ -113,6 +126,7 @@ ExChdUnmappedEntityDefinition >> adbCode [
 
 { #category : 'platypus-generated-deriving' }
 ExChdUnmappedEntityDefinition >> adbCodeUsingContext: aContext [
+
 	^ self adbCodeUsingContext: aContext receiver: self
 
 
@@ -120,6 +134,7 @@ ExChdUnmappedEntityDefinition >> adbCodeUsingContext: aContext [
 
 { #category : 'platypus-generated-deriving' }
 ExChdUnmappedEntityDefinition >> adbCodeUsingContext: aContext receiver: aReceiver [
+
 	^ ''
 
 
@@ -127,6 +142,7 @@ ExChdUnmappedEntityDefinition >> adbCodeUsingContext: aContext receiver: aReceiv
 
 { #category : 'platypus-generated-deriving' }
 ExChdUnmappedEntityDefinition >> adbInterfacesList [
+
 	^ self adbInterfacesListUsingContext: self class context
 
 
@@ -134,6 +150,7 @@ ExChdUnmappedEntityDefinition >> adbInterfacesList [
 
 { #category : 'platypus-generated-deriving' }
 ExChdUnmappedEntityDefinition >> adbInterfacesListUsingContext: aContext [
+
 	^ self adbInterfacesListUsingContext: aContext receiver: self
 
 
@@ -141,6 +158,7 @@ ExChdUnmappedEntityDefinition >> adbInterfacesListUsingContext: aContext [
 
 { #category : 'platypus-generated-deriving' }
 ExChdUnmappedEntityDefinition >> adbInterfacesListUsingContext: aContext receiver: aReceiver [
+
 	^ Array new
 
 
@@ -148,6 +166,7 @@ ExChdUnmappedEntityDefinition >> adbInterfacesListUsingContext: aContext receive
 
 { #category : 'platypus-generated-deriving' }
 ExChdUnmappedEntityDefinition >> adsCode [
+
 	^ self adsCodeUsingContext: self class context
 
 
@@ -155,6 +174,7 @@ ExChdUnmappedEntityDefinition >> adsCode [
 
 { #category : 'platypus-generated-deriving' }
 ExChdUnmappedEntityDefinition >> adsCodeUsingContext: aContext [
+
 	^ self adsCodeUsingContext: aContext receiver: self
 
 
@@ -162,6 +182,7 @@ ExChdUnmappedEntityDefinition >> adsCodeUsingContext: aContext [
 
 { #category : 'platypus-generated-deriving' }
 ExChdUnmappedEntityDefinition >> adsCodeUsingContext: aContext receiver: aReceiver [
+
 	^ ''
 
 
@@ -169,6 +190,7 @@ ExChdUnmappedEntityDefinition >> adsCodeUsingContext: aContext receiver: aReceiv
 
 { #category : 'platypus-generated-deriving' }
 ExChdUnmappedEntityDefinition >> adsInterfacesList [
+
 	^ self adsInterfacesListUsingContext: self class context
 
 
@@ -176,6 +198,7 @@ ExChdUnmappedEntityDefinition >> adsInterfacesList [
 
 { #category : 'platypus-generated-deriving' }
 ExChdUnmappedEntityDefinition >> adsInterfacesListUsingContext: aContext [
+
 	^ self adsInterfacesListUsingContext: aContext receiver: self
 
 
@@ -183,6 +206,7 @@ ExChdUnmappedEntityDefinition >> adsInterfacesListUsingContext: aContext [
 
 { #category : 'platypus-generated-deriving' }
 ExChdUnmappedEntityDefinition >> adsInterfacesListUsingContext: aContext receiver: aReceiver [
+
 	^ Array new
 
 
@@ -190,6 +214,7 @@ ExChdUnmappedEntityDefinition >> adsInterfacesListUsingContext: aContext receive
 
 { #category : 'platypus-generated-group-accessing' }
 ExChdUnmappedEntityDefinition >> fromValues: values [
+
 	^ self unmappedEntityDefinitionFromValues: (super fromValues: values)
 
 
@@ -197,6 +222,7 @@ ExChdUnmappedEntityDefinition >> fromValues: values [
 
 { #category : 'platypus-generated-deriving' }
 ExChdUnmappedEntityDefinition >> initValue [
+
 	^ self initValueUsingContext: self class context
 
 
@@ -204,6 +230,7 @@ ExChdUnmappedEntityDefinition >> initValue [
 
 { #category : 'platypus-generated-deriving' }
 ExChdUnmappedEntityDefinition >> initValueUsingContext: aContext [
+
 	^ self initValueUsingContext: aContext receiver: self
 
 
@@ -211,6 +238,7 @@ ExChdUnmappedEntityDefinition >> initValueUsingContext: aContext [
 
 { #category : 'platypus-generated-deriving' }
 ExChdUnmappedEntityDefinition >> initValueUsingContext: aContext receiver: aReceiver [
+
 	^ nil
 
 
@@ -218,6 +246,7 @@ ExChdUnmappedEntityDefinition >> initValueUsingContext: aContext receiver: aRece
 
 { #category : 'platypus-generated-classifying' }
 ExChdUnmappedEntityDefinition >> isExChdUnmappedEntityDefinition [
+
 	^ true
 
 
@@ -225,6 +254,7 @@ ExChdUnmappedEntityDefinition >> isExChdUnmappedEntityDefinition [
 
 { #category : 'platypus-generated-group-accessing' }
 ExChdUnmappedEntityDefinition >> localFromValues: values [
+
 	^ self unmappedEntityDefinitionFromValues: values
 
 
@@ -232,6 +262,7 @@ ExChdUnmappedEntityDefinition >> localFromValues: values [
 
 { #category : 'platypus-generated-group-accessing' }
 ExChdUnmappedEntityDefinition >> localToValues: values [
+
 	^ self unmappedEntityDefinitionToValues: values
 
 
@@ -239,6 +270,7 @@ ExChdUnmappedEntityDefinition >> localToValues: values [
 
 { #category : 'platypus-generated-copying' }
 ExChdUnmappedEntityDefinition >> pltCopyGroup: aClassSymbol to: anObject [
+
 	self class name == aClassSymbol
 		ifTrue: [ self pltCopyTo: anObject ]
 		ifFalse: [ super pltCopyGroup: aClassSymbol to: anObject ]
@@ -248,6 +280,7 @@ ExChdUnmappedEntityDefinition >> pltCopyGroup: aClassSymbol to: anObject [
 
 { #category : 'platypus-generated-copying' }
 ExChdUnmappedEntityDefinition >> pltCopyTo: another [
+
 	super pltCopyTo: another.
 	self unmappedEntityDefinitionCopyTo: another
 
@@ -256,6 +289,7 @@ ExChdUnmappedEntityDefinition >> pltCopyTo: another [
 
 { #category : 'platypus-generated-copying' }
 ExChdUnmappedEntityDefinition >> pltLocalCopyTo: another [
+
 	self unmappedEntityDefinitionCopyTo: another
 
 
@@ -263,6 +297,7 @@ ExChdUnmappedEntityDefinition >> pltLocalCopyTo: another [
 
 { #category : 'platypus-generated-initializing' }
 ExChdUnmappedEntityDefinition >> stepInitialize [
+
 	super stepInitialize
 
 
@@ -270,6 +305,7 @@ ExChdUnmappedEntityDefinition >> stepInitialize [
 
 { #category : 'platypus-generated-group-accessing' }
 ExChdUnmappedEntityDefinition >> toValues: values [
+
 	^ self unmappedEntityDefinitionToValues: (super toValues: values)
 
 
@@ -277,6 +313,7 @@ ExChdUnmappedEntityDefinition >> toValues: values [
 
 { #category : 'platypus-generated-copying' }
 ExChdUnmappedEntityDefinition >> unmappedEntityDefinitionCopyTo: another [
+
 	
 
 
@@ -284,6 +321,7 @@ ExChdUnmappedEntityDefinition >> unmappedEntityDefinitionCopyTo: another [
 
 { #category : 'platypus-generated-group-accessing' }
 ExChdUnmappedEntityDefinition >> unmappedEntityDefinitionFromValues: values [
+
 	| valuesloc |
 	valuesloc := values asOrderedCollection.
 	^ valuesloc
@@ -293,6 +331,7 @@ ExChdUnmappedEntityDefinition >> unmappedEntityDefinitionFromValues: values [
 
 { #category : 'platypus-generated-group-accessing' }
 ExChdUnmappedEntityDefinition >> unmappedEntityDefinitionToValues: values [
+
 	^ values
 
 

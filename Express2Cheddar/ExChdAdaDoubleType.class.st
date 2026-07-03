@@ -3,7 +3,7 @@
 ENTITY ada_double_type 
 	SUBTYPE OF ( ada_primitive_type );
 DERIVE
-	SELF\ada_primitive_type.ads_interfaces_list : LIST OF ada_interface := std_io_interfaces + [ ada_interface ( 'Ada', 'Numerics.Aux', true, true ), ada_interface ( 'standards_io', 'double_io', false, true ) ];
+	SELF\ada_primitive_type.ads_interfaces_list : LIST OF ada_interface := std_io_interfaces + [ ada_interface ( 'doubles', ?, true, true ), ada_interface ( 'standards_io', 'double_io', false, true ) ];
 	SELF\ada_primitive_type.adb_interfaces_list : LIST OF ada_interface := [ ada_interface ( 'primitive_xml_strings', ?, true, true ) ];
 	ada_ident : STRING := 'Double';
 	ada_ref_ident : STRING := SELF.ada_ident;
@@ -22,6 +22,7 @@ Class {
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdAdaDoubleType class >> iso10303P11Translater [
+
 	^ 'Platypus (c) LISYC EA3883, Universite de Bretagne occidentale. Brest.'
 
 
@@ -29,6 +30,7 @@ ExChdAdaDoubleType class >> iso10303P11Translater [
 
 { #category : 'platypus-generated-meta-data-accessing' }
 ExChdAdaDoubleType class >> schemaDefinition [
+
 	^ ExChdCheddarDomainsSchemaDefinition singleton
 
 
@@ -36,6 +38,7 @@ ExChdAdaDoubleType class >> schemaDefinition [
 
 { #category : 'platypus-generated-meta-data-accessing' }
 ExChdAdaDoubleType class >> schemaInstance [
+
 	^ ExChdExpress2cheddarSchemaInstance singleton
 
 
@@ -43,6 +46,7 @@ ExChdAdaDoubleType class >> schemaInstance [
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdAdaDoubleType class >> translatedFromISO10303P11 [
+
 	^ true
 
 
@@ -50,6 +54,7 @@ ExChdAdaDoubleType class >> translatedFromISO10303P11 [
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdAdaDoubleType class >> vwNamespaceName [
+
 	^ #Express2Cheddar
 
 
@@ -57,6 +62,7 @@ ExChdAdaDoubleType class >> vwNamespaceName [
 
 { #category : 'platypus-generated-visiting' }
 ExChdAdaDoubleType >> accept: aVisitor [
+
 	^ aVisitor acceptAdaDoubleType: self
 
 
@@ -64,6 +70,7 @@ ExChdAdaDoubleType >> accept: aVisitor [
 
 { #category : 'platypus-generated-copying' }
 ExChdAdaDoubleType >> adaDoubleTypeCopyTo: another [
+
 	
 
 
@@ -71,6 +78,7 @@ ExChdAdaDoubleType >> adaDoubleTypeCopyTo: another [
 
 { #category : 'platypus-generated-group-accessing' }
 ExChdAdaDoubleType >> adaDoubleTypeFromValues: values [
+
 	| valuesloc |
 	valuesloc := values asOrderedCollection.
 	^ valuesloc
@@ -80,6 +88,7 @@ ExChdAdaDoubleType >> adaDoubleTypeFromValues: values [
 
 { #category : 'platypus-generated-group-accessing' }
 ExChdAdaDoubleType >> adaDoubleTypeToValues: values [
+
 	^ values
 
 
@@ -87,6 +96,7 @@ ExChdAdaDoubleType >> adaDoubleTypeToValues: values [
 
 { #category : 'platypus-generated-deriving' }
 ExChdAdaDoubleType >> adaIdent [
+
 	^ self adaIdentUsingContext: self class context
 
 
@@ -94,6 +104,7 @@ ExChdAdaDoubleType >> adaIdent [
 
 { #category : 'platypus-generated-deriving' }
 ExChdAdaDoubleType >> adaIdentUsingContext: aContext [
+
 	^ self adaIdentUsingContext: aContext receiver: self
 
 
@@ -101,6 +112,7 @@ ExChdAdaDoubleType >> adaIdentUsingContext: aContext [
 
 { #category : 'platypus-generated-deriving' }
 ExChdAdaDoubleType >> adaIdentUsingContext: aContext receiver: aReceiver [
+
 	^ 'Double'
 
 
@@ -108,6 +120,7 @@ ExChdAdaDoubleType >> adaIdentUsingContext: aContext receiver: aReceiver [
 
 { #category : 'platypus-generated-deriving' }
 ExChdAdaDoubleType >> adaRefIdent [
+
 	^ self adaRefIdentUsingContext: self class context
 
 
@@ -115,6 +128,7 @@ ExChdAdaDoubleType >> adaRefIdent [
 
 { #category : 'platypus-generated-deriving' }
 ExChdAdaDoubleType >> adaRefIdentUsingContext: aContext [
+
 	^ self adaRefIdentUsingContext: aContext receiver: self
 
 
@@ -122,6 +136,7 @@ ExChdAdaDoubleType >> adaRefIdentUsingContext: aContext [
 
 { #category : 'platypus-generated-deriving' }
 ExChdAdaDoubleType >> adaRefIdentUsingContext: aContext receiver: aReceiver [
+
 	^ aReceiver adaIdentUsingContext: aContext
 
 
@@ -129,6 +144,7 @@ ExChdAdaDoubleType >> adaRefIdentUsingContext: aContext receiver: aReceiver [
 
 { #category : 'platypus-generated-deriving' }
 ExChdAdaDoubleType >> adbInterfacesList [
+
 	^ self adbInterfacesListUsingContext: self class context
 
 
@@ -136,6 +152,7 @@ ExChdAdaDoubleType >> adbInterfacesList [
 
 { #category : 'platypus-generated-deriving' }
 ExChdAdaDoubleType >> adbInterfacesListUsingContext: aContext [
+
 	^ self adbInterfacesListUsingContext: aContext receiver: self
 
 
@@ -143,26 +160,25 @@ ExChdAdaDoubleType >> adbInterfacesListUsingContext: aContext [
 
 { #category : 'platypus-generated-deriving' }
 ExChdAdaDoubleType >> adbInterfacesListUsingContext: aContext receiver: aReceiver [
-	^ PlatypusCoreAggregateInitializer
-		collectionFrom:
-			(OrderedCollection new
-				add:
-						(ExChdAdaInterface new
-								adaInterfaceFromValues:
-										(OrderedCollection new
-												add: 'primitive_xml_strings';
-												add: nil;
-												add: true;
-												add: true;
-												yourself);
-								yourself);
-				yourself)
+
+	^ PlatypusCoreAggregateInitializer collectionFrom:
+		  (OrderedCollection new
+			   add: (ExChdAdaInterface new
+					    adaInterfaceFromValues: (OrderedCollection new
+							     add: 'primitive_xml_strings';
+							     add: nil;
+							     add: true;
+							     add: true;
+							     yourself);
+					    yourself);
+			   yourself)
 
 
 ]
 
 { #category : 'platypus-generated-deriving' }
 ExChdAdaDoubleType >> adsInterfacesList [
+
 	^ self adsInterfacesListUsingContext: self class context
 
 
@@ -170,6 +186,7 @@ ExChdAdaDoubleType >> adsInterfacesList [
 
 { #category : 'platypus-generated-deriving' }
 ExChdAdaDoubleType >> adsInterfacesListUsingContext: aContext [
+
 	^ self adsInterfacesListUsingContext: aContext receiver: self
 
 
@@ -177,51 +194,44 @@ ExChdAdaDoubleType >> adsInterfacesListUsingContext: aContext [
 
 { #category : 'platypus-generated-deriving' }
 ExChdAdaDoubleType >> adsInterfacesListUsingContext: aContext receiver: aReceiver [
-	^ (PlatypusCoreAggregateInitializer
-		collectionFrom:
-			(OrderedCollection new
-				add:
-						(ExChdAdaInterface new
-								adaInterfaceFromValues:
-										(OrderedCollection new
-												add: 'standards_io';
-												add: nil;
-												add: true;
-												add: true;
-												yourself);
-								yourself);
-				yourself))
-		pltPlus:
-			(PlatypusCoreAggregateInitializer
-				collectionFrom:
-					(OrderedCollection new
-						add:
-								(ExChdAdaInterface new
-										adaInterfaceFromValues:
-												(OrderedCollection new
-														add: 'Ada';
-														add: 'Numerics.Aux';
-														add: true;
-														add: true;
-														yourself);
-										yourself);
-						add:
-								(ExChdAdaInterface new
-										adaInterfaceFromValues:
-												(OrderedCollection new
-														add: 'standards_io';
-														add: 'double_io';
-														add: false;
-														add: true;
-														yourself);
-										yourself);
-						yourself))
+
+	^ (PlatypusCoreAggregateInitializer collectionFrom:
+		   (OrderedCollection new
+			    add: (ExChdAdaInterface new
+					     adaInterfaceFromValues: (OrderedCollection new
+							      add: 'standards_io';
+							      add: nil;
+							      add: true;
+							      add: true;
+							      yourself);
+					     yourself);
+			    yourself)) pltPlus:
+		  (PlatypusCoreAggregateInitializer collectionFrom:
+			   (OrderedCollection new
+				    add: (ExChdAdaInterface new
+						     adaInterfaceFromValues: (OrderedCollection new
+								      add: 'doubles';
+								      add: nil;
+								      add: true;
+								      add: true;
+								      yourself);
+						     yourself);
+				    add: (ExChdAdaInterface new
+						     adaInterfaceFromValues: (OrderedCollection new
+								      add: 'standards_io';
+								      add: 'double_io';
+								      add: false;
+								      add: true;
+								      yourself);
+						     yourself);
+				    yourself))
 
 
 ]
 
 { #category : 'platypus-generated-group-accessing' }
 ExChdAdaDoubleType >> fromValues: values [
+
 	^ self adaDoubleTypeFromValues: (super fromValues: values)
 
 
@@ -229,6 +239,7 @@ ExChdAdaDoubleType >> fromValues: values [
 
 { #category : 'platypus-generated-deriving' }
 ExChdAdaDoubleType >> initValue [
+
 	^ self initValueUsingContext: self class context
 
 
@@ -236,6 +247,7 @@ ExChdAdaDoubleType >> initValue [
 
 { #category : 'platypus-generated-deriving' }
 ExChdAdaDoubleType >> initValueUsingContext: aContext [
+
 	^ self initValueUsingContext: aContext receiver: self
 
 
@@ -243,6 +255,7 @@ ExChdAdaDoubleType >> initValueUsingContext: aContext [
 
 { #category : 'platypus-generated-deriving' }
 ExChdAdaDoubleType >> initValueUsingContext: aContext receiver: aReceiver [
+
 	^ '0.0'
 
 
@@ -250,6 +263,7 @@ ExChdAdaDoubleType >> initValueUsingContext: aContext receiver: aReceiver [
 
 { #category : 'platypus-generated-classifying' }
 ExChdAdaDoubleType >> isExChdAdaDoubleType [
+
 	^ true
 
 
@@ -257,6 +271,7 @@ ExChdAdaDoubleType >> isExChdAdaDoubleType [
 
 { #category : 'platypus-generated-group-accessing' }
 ExChdAdaDoubleType >> localFromValues: values [
+
 	^ self adaDoubleTypeFromValues: values
 
 
@@ -264,6 +279,7 @@ ExChdAdaDoubleType >> localFromValues: values [
 
 { #category : 'platypus-generated-group-accessing' }
 ExChdAdaDoubleType >> localToValues: values [
+
 	^ self adaDoubleTypeToValues: values
 
 
@@ -271,6 +287,7 @@ ExChdAdaDoubleType >> localToValues: values [
 
 { #category : 'platypus-generated-copying' }
 ExChdAdaDoubleType >> pltCopyGroup: aClassSymbol to: anObject [
+
 	self class name == aClassSymbol
 		ifTrue: [ self pltCopyTo: anObject ]
 		ifFalse: [ super pltCopyGroup: aClassSymbol to: anObject ]
@@ -280,6 +297,7 @@ ExChdAdaDoubleType >> pltCopyGroup: aClassSymbol to: anObject [
 
 { #category : 'platypus-generated-copying' }
 ExChdAdaDoubleType >> pltCopyTo: another [
+
 	super pltCopyTo: another.
 	self adaDoubleTypeCopyTo: another
 
@@ -288,6 +306,7 @@ ExChdAdaDoubleType >> pltCopyTo: another [
 
 { #category : 'platypus-generated-copying' }
 ExChdAdaDoubleType >> pltLocalCopyTo: another [
+
 	self adaDoubleTypeCopyTo: another
 
 
@@ -295,6 +314,7 @@ ExChdAdaDoubleType >> pltLocalCopyTo: another [
 
 { #category : 'platypus-generated-deriving' }
 ExChdAdaDoubleType >> putPrefix [
+
 	^ self putPrefixUsingContext: self class context
 
 
@@ -302,6 +322,7 @@ ExChdAdaDoubleType >> putPrefix [
 
 { #category : 'platypus-generated-deriving' }
 ExChdAdaDoubleType >> putPrefixUsingContext: aContext [
+
 	^ self putPrefixUsingContext: aContext receiver: self
 
 
@@ -309,6 +330,7 @@ ExChdAdaDoubleType >> putPrefixUsingContext: aContext [
 
 { #category : 'platypus-generated-deriving' }
 ExChdAdaDoubleType >> putPrefixUsingContext: aContext receiver: aReceiver [
+
 	^ 'standards_io.double_io.'
 
 
@@ -316,6 +338,7 @@ ExChdAdaDoubleType >> putPrefixUsingContext: aContext receiver: aReceiver [
 
 { #category : 'platypus-generated-initializing' }
 ExChdAdaDoubleType >> stepInitialize [
+
 	super stepInitialize
 
 
@@ -323,6 +346,7 @@ ExChdAdaDoubleType >> stepInitialize [
 
 { #category : 'platypus-generated-group-accessing' }
 ExChdAdaDoubleType >> toValues: values [
+
 	^ self adaDoubleTypeToValues: (super toValues: values)
 
 

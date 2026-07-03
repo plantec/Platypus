@@ -25,6 +25,7 @@ Class {
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdAddXmlIdToAdaClassProcedure class >> iso10303P11Translater [
+
 	^ 'Platypus (c) LISYC EA3883, Universite de Bretagne occidentale. Brest.'
 
 
@@ -32,6 +33,7 @@ ExChdAddXmlIdToAdaClassProcedure class >> iso10303P11Translater [
 
 { #category : 'platypus-generated-meta-data-accessing' }
 ExChdAddXmlIdToAdaClassProcedure class >> schemaDefinition [
+
 	^ ExChdExpress2cheddarFacadeSchemaDefinition singleton
 
 
@@ -39,6 +41,7 @@ ExChdAddXmlIdToAdaClassProcedure class >> schemaDefinition [
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdAddXmlIdToAdaClassProcedure class >> translatedFromISO10303P11 [
+
 	^ true
 
 
@@ -46,6 +49,7 @@ ExChdAddXmlIdToAdaClassProcedure class >> translatedFromISO10303P11 [
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdAddXmlIdToAdaClassProcedure class >> vwNamespaceName [
+
 	^ #Express2Cheddar
 
 
@@ -53,6 +57,7 @@ ExChdAddXmlIdToAdaClassProcedure class >> vwNamespaceName [
 
 { #category : 'platypus-generated-accessing' }
 ExChdAddXmlIdToAdaClassProcedure >> cls [
+
 	^ cls
 
 
@@ -60,6 +65,7 @@ ExChdAddXmlIdToAdaClassProcedure >> cls [
 
 { #category : 'platypus-generated-accessing' }
 ExChdAddXmlIdToAdaClassProcedure >> cls: aExChdAdaClass [
+
 	cls := aExChdAdaClass
 
 
@@ -67,6 +73,7 @@ ExChdAddXmlIdToAdaClassProcedure >> cls: aExChdAdaClass [
 
 { #category : 'platypus-generated-accessing' }
 ExChdAddXmlIdToAdaClassProcedure >> fromValues: values [
+
 	self cls: (values at: 1)
 
 
@@ -74,6 +81,7 @@ ExChdAddXmlIdToAdaClassProcedure >> fromValues: values [
 
 { #category : 'platypus-generated-accessing' }
 ExChdAddXmlIdToAdaClassProcedure >> idattr [
+
 	^ idattr
 
 
@@ -81,6 +89,7 @@ ExChdAddXmlIdToAdaClassProcedure >> idattr [
 
 { #category : 'platypus-generated-accessing' }
 ExChdAddXmlIdToAdaClassProcedure >> idattr: aExChdExplicitAttribute [
+
 	idattr := aExChdExplicitAttribute
 
 
@@ -88,6 +97,7 @@ ExChdAddXmlIdToAdaClassProcedure >> idattr: aExChdExplicitAttribute [
 
 { #category : 'platypus-generated-accessing' }
 ExChdAddXmlIdToAdaClassProcedure >> idtype [
+
 	^ idtype
 
 
@@ -95,6 +105,7 @@ ExChdAddXmlIdToAdaClassProcedure >> idtype [
 
 { #category : 'platypus-generated-accessing' }
 ExChdAddXmlIdToAdaClassProcedure >> idtype: aExChdCheddarXmlIdType [
+
 	idtype := aExChdCheddarXmlIdType
 
 
@@ -104,106 +115,81 @@ ExChdAddXmlIdToAdaClassProcedure >> idtype: aExChdCheddarXmlIdType [
 ExChdAddXmlIdToAdaClassProcedure >> invoke [
 	" ---------- locals assignments ----------"
 
-	self
-		idtype:
-			(PlatypusComplexInstance
-				fromRecords:
-					(OrderedCollection new
-						add:
-								(PlatypusComplexInstance
-										fromRecords:
-											(OrderedCollection new
-												add:
-														(PlatypusComplexInstance
-																fromRecords:
-																	(OrderedCollection new
-																		add:
-																				(PlatypusComplexInstance
-																						fromRecords:
-																							(OrderedCollection new
-																								add:
-																										(PlatypusComplexInstance
-																												fromRecords:
-																													(OrderedCollection new
-																														add:
-																																(PltEntityInstance new
-																																		entityInstanceFromValues:
-																																				(OrderedCollection new
-																																						add: nil;
-																																						yourself);
-																																		yourself);
-																														add: PltSdaiInstance new;
-																														yourself)) pltAsObject;
-																								add: PltDictionaryInstance new;
-																								yourself)) pltAsObject;
-																		add: PltSimpleType new;
-																		yourself)) pltAsObject;
-												add:
-														(PltStringType new
-																stringTypeFromValues:
-																		(OrderedCollection new
-																				add: nil;
-																				add: false;
-																				yourself);
-																yourself);
-												yourself)) pltAsObject;
-						add: ExChdCheddarXmlIdType new;
-						yourself)) pltAsObject.
-	self
-		idattr:
-			(PlatypusComplexInstance
-				fromRecords:
-					(OrderedCollection new
-						add:
-								(PlatypusComplexInstance
-										fromRecords:
-											(OrderedCollection new
-												add:
-														(PlatypusComplexInstance
-																fromRecords:
-																	(OrderedCollection new
-																		add:
-																				(PlatypusComplexInstance
-																						fromRecords:
-																							(OrderedCollection new
-																								add:
-																										(PltEntityInstance new
-																												entityInstanceFromValues:
-																														(OrderedCollection new
-																																add: self cls;
-																																yourself);
-																												yourself);
-																								add: PltSdaiInstance new;
-																								yourself)) pltAsObject;
-																		add: PltDictionaryInstance new;
-																		yourself)) pltAsObject;
-												add:
-														(PltAttribute new
-																attributeFromValues:
-																		(OrderedCollection new
-																				add: 'cheddar_private_id';
-																				add: self cls;
-																				add: self idtype;
-																				add: nil;
-																				yourself);
-																yourself);
-												yourself)) pltAsObject;
-						add:
-								(PltExplicitAttribute new
-										explicitAttributeFromValues:
-												(OrderedCollection new
-														add: false;
-														yourself);
-										yourself);
-						yourself)) pltAsObject.	" ---------- statements ----------"
+	self idtype:
+		(PlatypusComplexInstance fromRecords: (OrderedCollection new
+				  add:
+					  (PlatypusComplexInstance fromRecords: (OrderedCollection new
+								    add:
+									    (PlatypusComplexInstance fromRecords:
+											     (OrderedCollection new
+												      add:
+													      (PlatypusComplexInstance fromRecords:
+															       (OrderedCollection new
+																        add:
+																	        (PlatypusComplexInstance fromRecords:
+																			         (OrderedCollection new
+																				          add: (PltEntityInstance new
+																						           entityInstanceFromValues:
+																							           (OrderedCollection new
+																								            add: nil;
+																								            yourself);
+																						           yourself);
+																				          add: PltSdaiInstance new;
+																				          yourself)) pltAsObject;
+																        add: PltDictionaryInstance new;
+																        yourself)) pltAsObject;
+												      add: PltSimpleType new;
+												      yourself)) pltAsObject;
+								    add: (PltStringType new
+										     stringTypeFromValues: (OrderedCollection new
+												      add: nil;
+												      add: false;
+												      yourself);
+										     yourself);
+								    yourself)) pltAsObject;
+				  add: ExChdCheddarXmlIdType new;
+				  yourself)) pltAsObject.
+	self idattr:
+		(PlatypusComplexInstance fromRecords: (OrderedCollection new
+				  add:
+					  (PlatypusComplexInstance fromRecords: (OrderedCollection new
+								    add:
+									    (PlatypusComplexInstance fromRecords:
+											     (OrderedCollection new
+												      add:
+													      (PlatypusComplexInstance fromRecords:
+															       (OrderedCollection new
+																        add: (PltEntityInstance new
+																		         entityInstanceFromValues:
+																			         (OrderedCollection new
+																				          add: self cls;
+																				          yourself);
+																		         yourself);
+																        add: PltSdaiInstance new;
+																        yourself)) pltAsObject;
+												      add: PltDictionaryInstance new;
+												      yourself)) pltAsObject;
+								    add: (PltAttribute new
+										     attributeFromValues: (OrderedCollection new
+												      add: 'cheddar_private_id';
+												      add: self cls;
+												      add: self idtype;
+												      add: nil;
+												      yourself);
+										     yourself);
+								    yourself)) pltAsObject;
+				  add: (PltExplicitAttribute new
+						   explicitAttributeFromValues: (OrderedCollection new
+								    add: false;
+								    yourself);
+						   yourself);
+				  yourself)) pltAsObject. " ---------- statements ----------"
 	self idtype owner: self idattr.
-	PltINSERTProcedure
-		invokeFromValues:
-			(OrderedCollection new
-				add: (self cls attributesUsingContext: self class context);
-				add: self idattr;
-				add: 0;
-				yourself)
+	PltINSERTProcedure invokeFromValues: (OrderedCollection new
+			 add: (self cls attributesUsingContext: self class context);
+			 add: self idattr;
+			 add: 0;
+			 yourself)
 
 
 ]

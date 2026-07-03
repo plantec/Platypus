@@ -32,6 +32,7 @@ Class {
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdEnumerationAdbCodeFunction class >> iso10303P11Translater [
+
 	^ 'Platypus (c) LISYC EA3883, Universite de Bretagne occidentale. Brest.'
 
 
@@ -39,6 +40,7 @@ ExChdEnumerationAdbCodeFunction class >> iso10303P11Translater [
 
 { #category : 'platypus-generated-meta-data-accessing' }
 ExChdEnumerationAdbCodeFunction class >> schemaDefinition [
+
 	^ ExChdCheddarDomainsSchemaDefinition singleton
 
 
@@ -46,6 +48,7 @@ ExChdEnumerationAdbCodeFunction class >> schemaDefinition [
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdEnumerationAdbCodeFunction class >> translatedFromISO10303P11 [
+
 	^ true
 
 
@@ -53,6 +56,7 @@ ExChdEnumerationAdbCodeFunction class >> translatedFromISO10303P11 [
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdEnumerationAdbCodeFunction class >> vwNamespaceName [
+
 	^ #Express2Cheddar
 
 
@@ -60,6 +64,7 @@ ExChdEnumerationAdbCodeFunction class >> vwNamespaceName [
 
 { #category : 'platypus-generated-accessing' }
 ExChdEnumerationAdbCodeFunction >> code [
+
 	^ code
 
 
@@ -67,6 +72,7 @@ ExChdEnumerationAdbCodeFunction >> code [
 
 { #category : 'platypus-generated-accessing' }
 ExChdEnumerationAdbCodeFunction >> code: aString [
+
 	code := aString
 
 
@@ -74,6 +80,7 @@ ExChdEnumerationAdbCodeFunction >> code: aString [
 
 { #category : 'platypus-generated-accessing' }
 ExChdEnumerationAdbCodeFunction >> e [
+
 	^ e
 
 
@@ -81,6 +88,7 @@ ExChdEnumerationAdbCodeFunction >> e [
 
 { #category : 'platypus-generated-accessing' }
 ExChdEnumerationAdbCodeFunction >> e: aExChdAdaEnumeration [
+
 	e := aExChdAdaEnumeration
 
 
@@ -88,6 +96,7 @@ ExChdEnumerationAdbCodeFunction >> e: aExChdAdaEnumeration [
 
 { #category : 'platypus-generated-accessing' }
 ExChdEnumerationAdbCodeFunction >> fromValues: values [
+
 	self e: (values at: 1)
 
 
@@ -95,19 +104,21 @@ ExChdEnumerationAdbCodeFunction >> fromValues: values [
 
 { #category : 'platypus-generated-invoking' }
 ExChdEnumerationAdbCodeFunction >> invoke [
-	" ---------- locals assignments ----------"
+	" ---------- locals assignments ----------"" ---------- statements ----------"
 
-	" ---------- statements ----------"
-
-	self
-		code:
-			(((((((((((((('function XML_String(obj : in ' pltPlus: (self e nameUsingContext: self class context))
-				pltPlus: ') return Unbounded_String is\n') pltPlus: 'begin\n') pltPlus: '	return to_unbounded_string(')
-				pltPlus: (self e nameUsingContext: self class context)) pltPlus: '''image (obj) );\n')
-				pltPlus: 'end XML_String;\n\n') pltPlus: 'function XML_Ref_String (obj : in ')
-				pltPlus: (self e nameUsingContext: self class context)) pltPlus: ') return Unbounded_String is\n')
-				pltPlus: 'begin\n') pltPlus: '\traise xml_ref_string_error;\n') pltPlus: '\treturn to_unbounded_string("");\n')
-				pltPlus: 'end XML_Ref_String;\n\n').
+	self code: (((((((((((((('function XML_String(obj : in ' pltPlus:
+			              (self e nameUsingContext: self class context))
+			             pltPlus: ') return Unbounded_String is\n') pltPlus:
+			            'begin\n') pltPlus: '	return to_unbounded_string(')
+			          pltPlus: (self e nameUsingContext: self class context))
+			         pltPlus: '''image (obj) );\n') pltPlus:
+			        'end XML_String;\n\n') pltPlus:
+			       'function XML_Ref_String (obj : in ') pltPlus:
+			      (self e nameUsingContext: self class context)) pltPlus:
+			     ') return Unbounded_String is\n') pltPlus: 'begin\n')
+			   pltPlus: '\traise xml_ref_string_error;\n') pltPlus:
+			  '\treturn to_unbounded_string("");\n') pltPlus:
+			 'end XML_Ref_String;\n\n').
 	^ self return: self code
 
 

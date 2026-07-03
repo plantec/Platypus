@@ -19,8 +19,8 @@ Class {
 	#name : 'ExChdCheddarFunctionPtr',
 	#superclass : 'PltEntityDefinition',
 	#instVars : [
-		'arguments',
-		'returns'
+		'returns',
+		'arguments'
 	],
 	#category : 'Express2Cheddar-RecordAndClassSchema',
 	#package : 'Express2Cheddar',
@@ -29,6 +29,7 @@ Class {
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdCheddarFunctionPtr class >> iso10303P11Translater [
+
 	^ 'Platypus (c) LISYC EA3883, Universite de Bretagne occidentale. Brest.'
 
 
@@ -36,6 +37,7 @@ ExChdCheddarFunctionPtr class >> iso10303P11Translater [
 
 { #category : 'platypus-generated-meta-data-accessing' }
 ExChdCheddarFunctionPtr class >> schemaDefinition [
+
 	^ ExChdRecordAndClassSchemaDefinition singleton
 
 
@@ -43,6 +45,7 @@ ExChdCheddarFunctionPtr class >> schemaDefinition [
 
 { #category : 'platypus-generated-meta-data-accessing' }
 ExChdCheddarFunctionPtr class >> schemaInstance [
+
 	^ ExChdExpress2cheddarSchemaInstance singleton
 
 
@@ -50,6 +53,7 @@ ExChdCheddarFunctionPtr class >> schemaInstance [
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdCheddarFunctionPtr class >> translatedFromISO10303P11 [
+
 	^ true
 
 
@@ -57,6 +61,7 @@ ExChdCheddarFunctionPtr class >> translatedFromISO10303P11 [
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdCheddarFunctionPtr class >> vwNamespaceName [
+
 	^ #Express2Cheddar
 
 
@@ -64,6 +69,7 @@ ExChdCheddarFunctionPtr class >> vwNamespaceName [
 
 { #category : 'platypus-generated-visiting' }
 ExChdCheddarFunctionPtr >> accept: aVisitor [
+
 	^ aVisitor acceptCheddarFunctionPtr: self
 
 
@@ -71,6 +77,7 @@ ExChdCheddarFunctionPtr >> accept: aVisitor [
 
 { #category : 'platypus-generated-deriving' }
 ExChdCheddarFunctionPtr >> adbCode [
+
 	^ self adbCodeUsingContext: self class context
 
 
@@ -78,6 +85,7 @@ ExChdCheddarFunctionPtr >> adbCode [
 
 { #category : 'platypus-generated-deriving' }
 ExChdCheddarFunctionPtr >> adbCodeUsingContext: aContext [
+
 	^ self adbCodeUsingContext: aContext receiver: self
 
 
@@ -85,6 +93,7 @@ ExChdCheddarFunctionPtr >> adbCodeUsingContext: aContext [
 
 { #category : 'platypus-generated-deriving' }
 ExChdCheddarFunctionPtr >> adbCodeUsingContext: aContext receiver: aReceiver [
+
 	^ ''
 
 
@@ -92,6 +101,7 @@ ExChdCheddarFunctionPtr >> adbCodeUsingContext: aContext receiver: aReceiver [
 
 { #category : 'platypus-generated-deriving' }
 ExChdCheddarFunctionPtr >> adbInterfaceList [
+
 	^ self adbInterfaceListUsingContext: self class context
 
 
@@ -99,6 +109,7 @@ ExChdCheddarFunctionPtr >> adbInterfaceList [
 
 { #category : 'platypus-generated-deriving' }
 ExChdCheddarFunctionPtr >> adbInterfaceListUsingContext: aContext [
+
 	^ self adbInterfaceListUsingContext: aContext receiver: self
 
 
@@ -106,6 +117,7 @@ ExChdCheddarFunctionPtr >> adbInterfaceListUsingContext: aContext [
 
 { #category : 'platypus-generated-deriving' }
 ExChdCheddarFunctionPtr >> adbInterfaceListUsingContext: aContext receiver: aReceiver [
+
 	^ Array new
 
 
@@ -113,6 +125,7 @@ ExChdCheddarFunctionPtr >> adbInterfaceListUsingContext: aContext receiver: aRec
 
 { #category : 'platypus-generated-deriving' }
 ExChdCheddarFunctionPtr >> adsCode [
+
 	^ self adsCodeUsingContext: self class context
 
 
@@ -120,6 +133,7 @@ ExChdCheddarFunctionPtr >> adsCode [
 
 { #category : 'platypus-generated-deriving' }
 ExChdCheddarFunctionPtr >> adsCodeUsingContext: aContext [
+
 	^ self adsCodeUsingContext: aContext receiver: self
 
 
@@ -127,15 +141,19 @@ ExChdCheddarFunctionPtr >> adsCodeUsingContext: aContext [
 
 { #category : 'platypus-generated-deriving' }
 ExChdCheddarFunctionPtr >> adsCodeUsingContext: aContext receiver: aReceiver [
-	^ ((((('Type ' pltPlus: (aReceiver nameUsingContext: aContext)) pltPlus: ' is access function (')
-		pltPlus: (aReceiver argumentsUsingContext: aContext)) pltPlus: ') return ')
-		pltPlus: (aReceiver returnsUsingContext: aContext)) pltPlus: ';'
+
+	^ ((((('Type ' pltPlus: (aReceiver nameUsingContext: aContext))
+		      pltPlus: ' is access function (') pltPlus:
+		     (aReceiver argumentsUsingContext: aContext)) pltPlus:
+		    ') return ') pltPlus: (aReceiver returnsUsingContext: aContext))
+		  pltPlus: ';'
 
 
 ]
 
 { #category : 'platypus-generated-deriving' }
 ExChdCheddarFunctionPtr >> adsInterfaceList [
+
 	^ self adsInterfaceListUsingContext: self class context
 
 
@@ -143,6 +161,7 @@ ExChdCheddarFunctionPtr >> adsInterfaceList [
 
 { #category : 'platypus-generated-deriving' }
 ExChdCheddarFunctionPtr >> adsInterfaceListUsingContext: aContext [
+
 	^ self adsInterfaceListUsingContext: aContext receiver: self
 
 
@@ -150,6 +169,7 @@ ExChdCheddarFunctionPtr >> adsInterfaceListUsingContext: aContext [
 
 { #category : 'platypus-generated-deriving' }
 ExChdCheddarFunctionPtr >> adsInterfaceListUsingContext: aContext receiver: aReceiver [
+
 	^ Array new
 
 
@@ -157,6 +177,7 @@ ExChdCheddarFunctionPtr >> adsInterfaceListUsingContext: aContext receiver: aRec
 
 { #category : 'platypus-generated-deriving' }
 ExChdCheddarFunctionPtr >> adsPreDef [
+
 	^ self adsPreDefUsingContext: self class context
 
 
@@ -164,6 +185,7 @@ ExChdCheddarFunctionPtr >> adsPreDef [
 
 { #category : 'platypus-generated-deriving' }
 ExChdCheddarFunctionPtr >> adsPreDefUsingContext: aContext [
+
 	^ self adsPreDefUsingContext: aContext receiver: self
 
 
@@ -171,6 +193,7 @@ ExChdCheddarFunctionPtr >> adsPreDefUsingContext: aContext [
 
 { #category : 'platypus-generated-deriving' }
 ExChdCheddarFunctionPtr >> adsPreDefUsingContext: aContext receiver: aReceiver [
+
 	^ ''
 
 
@@ -178,6 +201,7 @@ ExChdCheddarFunctionPtr >> adsPreDefUsingContext: aContext receiver: aReceiver [
 
 { #category : 'platypus-generated-accessing' }
 ExChdCheddarFunctionPtr >> arguments [
+
 	^ arguments
 
 
@@ -185,6 +209,7 @@ ExChdCheddarFunctionPtr >> arguments [
 
 { #category : 'platypus-generated-accessing' }
 ExChdCheddarFunctionPtr >> arguments: aString [
+
 	arguments := aString
 
 
@@ -192,6 +217,7 @@ ExChdCheddarFunctionPtr >> arguments: aString [
 
 { #category : 'platypus-generated-with-context-accessing' }
 ExChdCheddarFunctionPtr >> argumentsUsingContext: aContext [
+
 	^ self arguments
 
 
@@ -199,6 +225,7 @@ ExChdCheddarFunctionPtr >> argumentsUsingContext: aContext [
 
 { #category : 'platypus-generated-copying' }
 ExChdCheddarFunctionPtr >> cheddarFunctionPtrCopyTo: another [
+
 	another fastSetArguments: self arguments.
 	another fastSetReturns: self returns
 
@@ -207,6 +234,7 @@ ExChdCheddarFunctionPtr >> cheddarFunctionPtrCopyTo: another [
 
 { #category : 'platypus-generated-group-accessing' }
 ExChdCheddarFunctionPtr >> cheddarFunctionPtrFromValues: values [
+
 	| valuesloc |
 	valuesloc := values asOrderedCollection.
 	self setArguments: valuesloc removeFirst.
@@ -218,6 +246,7 @@ ExChdCheddarFunctionPtr >> cheddarFunctionPtrFromValues: values [
 
 { #category : 'platypus-generated-group-accessing' }
 ExChdCheddarFunctionPtr >> cheddarFunctionPtrToValues: values [
+
 	values add: self arguments.
 	values add: self returns.
 	^ values
@@ -227,6 +256,7 @@ ExChdCheddarFunctionPtr >> cheddarFunctionPtrToValues: values [
 
 { #category : 'platypus-generated-deriving' }
 ExChdCheddarFunctionPtr >> dependencies [
+
 	^ self dependenciesUsingContext: self class context
 
 
@@ -234,6 +264,7 @@ ExChdCheddarFunctionPtr >> dependencies [
 
 { #category : 'platypus-generated-deriving' }
 ExChdCheddarFunctionPtr >> dependenciesUsingContext: aContext [
+
 	^ self dependenciesUsingContext: aContext receiver: self
 
 
@@ -241,17 +272,18 @@ ExChdCheddarFunctionPtr >> dependenciesUsingContext: aContext [
 
 { #category : 'platypus-generated-deriving' }
 ExChdCheddarFunctionPtr >> dependenciesUsingContext: aContext receiver: aReceiver [
-	^ PlatypusCoreAggregateInitializer
-		collectionFrom:
-			(OrderedCollection new
-				add: aReceiver;
-				yourself)
+
+	^ PlatypusCoreAggregateInitializer collectionFrom:
+		  (OrderedCollection new
+			   add: aReceiver;
+			   yourself)
 
 
 ]
 
 { #category : 'platypus-generated-fast-set-accessing' }
 ExChdCheddarFunctionPtr >> fastSetArguments: aString [
+
 	arguments := aString
 
 
@@ -259,6 +291,7 @@ ExChdCheddarFunctionPtr >> fastSetArguments: aString [
 
 { #category : 'platypus-generated-fast-set-accessing' }
 ExChdCheddarFunctionPtr >> fastSetReturns: aString [
+
 	returns := aString
 
 
@@ -266,6 +299,7 @@ ExChdCheddarFunctionPtr >> fastSetReturns: aString [
 
 { #category : 'platypus-generated-group-accessing' }
 ExChdCheddarFunctionPtr >> fromValues: values [
+
 	^ self cheddarFunctionPtrFromValues: (super fromValues: values)
 
 
@@ -273,6 +307,7 @@ ExChdCheddarFunctionPtr >> fromValues: values [
 
 { #category : 'platypus-generated-classifying' }
 ExChdCheddarFunctionPtr >> isExChdCheddarFunctionPtr [
+
 	^ true
 
 
@@ -280,6 +315,7 @@ ExChdCheddarFunctionPtr >> isExChdCheddarFunctionPtr [
 
 { #category : 'platypus-generated-group-accessing' }
 ExChdCheddarFunctionPtr >> localFromValues: values [
+
 	^ self cheddarFunctionPtrFromValues: values
 
 
@@ -287,6 +323,7 @@ ExChdCheddarFunctionPtr >> localFromValues: values [
 
 { #category : 'platypus-generated-group-accessing' }
 ExChdCheddarFunctionPtr >> localToValues: values [
+
 	^ self cheddarFunctionPtrToValues: values
 
 
@@ -294,6 +331,7 @@ ExChdCheddarFunctionPtr >> localToValues: values [
 
 { #category : 'platypus-generated-copying' }
 ExChdCheddarFunctionPtr >> pltCopyGroup: aClassSymbol to: anObject [
+
 	self class name == aClassSymbol
 		ifTrue: [ self pltCopyTo: anObject ]
 		ifFalse: [ super pltCopyGroup: aClassSymbol to: anObject ]
@@ -303,6 +341,7 @@ ExChdCheddarFunctionPtr >> pltCopyGroup: aClassSymbol to: anObject [
 
 { #category : 'platypus-generated-copying' }
 ExChdCheddarFunctionPtr >> pltCopyTo: another [
+
 	super pltCopyTo: another.
 	self cheddarFunctionPtrCopyTo: another
 
@@ -311,6 +350,7 @@ ExChdCheddarFunctionPtr >> pltCopyTo: another [
 
 { #category : 'platypus-generated-copying' }
 ExChdCheddarFunctionPtr >> pltLocalCopyTo: another [
+
 	self cheddarFunctionPtrCopyTo: another
 
 
@@ -318,6 +358,7 @@ ExChdCheddarFunctionPtr >> pltLocalCopyTo: another [
 
 { #category : 'platypus-generated-deriving' }
 ExChdCheddarFunctionPtr >> refedByPointer [
+
 	^ self refedByPointerUsingContext: self class context
 
 
@@ -325,6 +366,7 @@ ExChdCheddarFunctionPtr >> refedByPointer [
 
 { #category : 'platypus-generated-deriving' }
 ExChdCheddarFunctionPtr >> refedByPointerUsingContext: aContext [
+
 	^ self refedByPointerUsingContext: aContext receiver: self
 
 
@@ -332,6 +374,7 @@ ExChdCheddarFunctionPtr >> refedByPointerUsingContext: aContext [
 
 { #category : 'platypus-generated-deriving' }
 ExChdCheddarFunctionPtr >> refedByPointerUsingContext: aContext receiver: aReceiver [
+
 	^ false
 
 
@@ -339,6 +382,7 @@ ExChdCheddarFunctionPtr >> refedByPointerUsingContext: aContext receiver: aRecei
 
 { #category : 'platypus-generated-accessing' }
 ExChdCheddarFunctionPtr >> returns [
+
 	^ returns
 
 
@@ -346,6 +390,7 @@ ExChdCheddarFunctionPtr >> returns [
 
 { #category : 'platypus-generated-accessing' }
 ExChdCheddarFunctionPtr >> returns: aString [
+
 	returns := aString
 
 
@@ -353,6 +398,7 @@ ExChdCheddarFunctionPtr >> returns: aString [
 
 { #category : 'platypus-generated-with-context-accessing' }
 ExChdCheddarFunctionPtr >> returnsUsingContext: aContext [
+
 	^ self returns
 
 
@@ -360,6 +406,7 @@ ExChdCheddarFunctionPtr >> returnsUsingContext: aContext [
 
 { #category : 'platypus-generated-set-accessing' }
 ExChdCheddarFunctionPtr >> setArguments: aString [
+
 	self arguments: aString
 
 
@@ -367,6 +414,7 @@ ExChdCheddarFunctionPtr >> setArguments: aString [
 
 { #category : 'platypus-generated-set-accessing' }
 ExChdCheddarFunctionPtr >> setReturns: aString [
+
 	self returns: aString
 
 
@@ -374,6 +422,7 @@ ExChdCheddarFunctionPtr >> setReturns: aString [
 
 { #category : 'platypus-generated-initializing' }
 ExChdCheddarFunctionPtr >> stepInitialize [
+
 	super stepInitialize.
 	arguments := ''.
 	returns := ''
@@ -383,6 +432,7 @@ ExChdCheddarFunctionPtr >> stepInitialize [
 
 { #category : 'platypus-generated-group-accessing' }
 ExChdCheddarFunctionPtr >> toValues: values [
+
 	^ self cheddarFunctionPtrToValues: (super toValues: values)
 
 

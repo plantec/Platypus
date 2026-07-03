@@ -28,6 +28,7 @@ Class {
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdDoCommentsWithFunction class >> iso10303P11Translater [
+
 	^ 'Platypus (c) LISYC EA3883, Universite de Bretagne occidentale. Brest.'
 
 
@@ -35,6 +36,7 @@ ExChdDoCommentsWithFunction class >> iso10303P11Translater [
 
 { #category : 'platypus-generated-meta-data-accessing' }
 ExChdDoCommentsWithFunction class >> schemaDefinition [
+
 	^ ExChdCheddarConstantsSchemaDefinition singleton
 
 
@@ -42,6 +44,7 @@ ExChdDoCommentsWithFunction class >> schemaDefinition [
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdDoCommentsWithFunction class >> translatedFromISO10303P11 [
+
 	^ true
 
 
@@ -49,6 +52,7 @@ ExChdDoCommentsWithFunction class >> translatedFromISO10303P11 [
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdDoCommentsWithFunction class >> vwNamespaceName [
+
 	^ #Express2Cheddar
 
 
@@ -56,6 +60,7 @@ ExChdDoCommentsWithFunction class >> vwNamespaceName [
 
 { #category : 'platypus-generated-accessing' }
 ExChdDoCommentsWithFunction >> fromValues: values [
+
 	self src: (values at: 1)
 
 
@@ -63,11 +68,7 @@ ExChdDoCommentsWithFunction >> fromValues: values [
 
 { #category : 'platypus-generated-invoking' }
 ExChdDoCommentsWithFunction >> invoke [
-	" ---------- locals assignments ----------"
-
-	" ---------- statements ----------"
-
-	"---------- native statement ---------- "
+	" ---------- locals assignments ----------"" ---------- statements ----------""---------- native statement ---------- "
 
 	" comments "
 
@@ -82,6 +83,7 @@ ExChdDoCommentsWithFunction >> invoke [
 
 { #category : 'platypus-generated-accessing' }
 ExChdDoCommentsWithFunction >> src [
+
 	^ src
 
 
@@ -89,6 +91,7 @@ ExChdDoCommentsWithFunction >> src [
 
 { #category : 'platypus-generated-accessing' }
 ExChdDoCommentsWithFunction >> src: aString [
+
 	src := aString
 
 

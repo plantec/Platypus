@@ -16,6 +16,7 @@ Class {
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdInScopeAttribute class >> iso10303P11Translater [
+
 	^ 'Platypus (c) LISYC EA3883, Universite de Bretagne occidentale. Brest.'
 
 
@@ -23,6 +24,7 @@ ExChdInScopeAttribute class >> iso10303P11Translater [
 
 { #category : 'platypus-generated-meta-data-accessing' }
 ExChdInScopeAttribute class >> schemaDefinition [
+
 	^ ExChdCheddarDomainsSchemaDefinition singleton
 
 
@@ -30,6 +32,7 @@ ExChdInScopeAttribute class >> schemaDefinition [
 
 { #category : 'platypus-generated-meta-data-accessing' }
 ExChdInScopeAttribute class >> schemaInstance [
+
 	^ ExChdExpress2cheddarSchemaInstance singleton
 
 
@@ -37,6 +40,7 @@ ExChdInScopeAttribute class >> schemaInstance [
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdInScopeAttribute class >> translatedFromISO10303P11 [
+
 	^ true
 
 
@@ -44,6 +48,7 @@ ExChdInScopeAttribute class >> translatedFromISO10303P11 [
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdInScopeAttribute class >> vwNamespaceName [
+
 	^ #Express2Cheddar
 
 
@@ -51,6 +56,7 @@ ExChdInScopeAttribute class >> vwNamespaceName [
 
 { #category : 'platypus-generated-visiting' }
 ExChdInScopeAttribute >> accept: aVisitor [
+
 	^ aVisitor acceptInScopeAttribute: self
 
 
@@ -58,6 +64,7 @@ ExChdInScopeAttribute >> accept: aVisitor [
 
 { #category : 'platypus-generated-group-accessing' }
 ExChdInScopeAttribute >> fromValues: values [
+
 	^ self inScopeAttributeFromValues: (super fromValues: values)
 
 
@@ -65,6 +72,7 @@ ExChdInScopeAttribute >> fromValues: values [
 
 { #category : 'platypus-generated-copying' }
 ExChdInScopeAttribute >> inScopeAttributeCopyTo: another [
+
 	
 
 
@@ -72,6 +80,7 @@ ExChdInScopeAttribute >> inScopeAttributeCopyTo: another [
 
 { #category : 'platypus-generated-group-accessing' }
 ExChdInScopeAttribute >> inScopeAttributeFromValues: values [
+
 	| valuesloc |
 	valuesloc := values asOrderedCollection.
 	^ valuesloc
@@ -81,6 +90,7 @@ ExChdInScopeAttribute >> inScopeAttributeFromValues: values [
 
 { #category : 'platypus-generated-group-accessing' }
 ExChdInScopeAttribute >> inScopeAttributeToValues: values [
+
 	^ values
 
 
@@ -88,6 +98,7 @@ ExChdInScopeAttribute >> inScopeAttributeToValues: values [
 
 { #category : 'platypus-generated-deriving' }
 ExChdInScopeAttribute >> initCode [
+
 	^ self initCodeUsingContext: self class context
 
 
@@ -95,6 +106,7 @@ ExChdInScopeAttribute >> initCode [
 
 { #category : 'platypus-generated-deriving' }
 ExChdInScopeAttribute >> initCodeUsingContext: aContext [
+
 	^ self initCodeUsingContext: aContext receiver: self
 
 
@@ -102,17 +114,18 @@ ExChdInScopeAttribute >> initCodeUsingContext: aContext [
 
 { #category : 'platypus-generated-deriving' }
 ExChdInScopeAttribute >> initCodeUsingContext: aContext receiver: aReceiver [
-	^ ExChdInScopeAttributeInitCodeFunction
-		invokeFromValues:
-			(OrderedCollection new
-				add: aReceiver;
-				yourself)
+
+	^ ExChdInScopeAttributeInitCodeFunction invokeFromValues:
+		  (OrderedCollection new
+			   add: aReceiver;
+			   yourself)
 
 
 ]
 
 { #category : 'platypus-generated-classifying' }
 ExChdInScopeAttribute >> isExChdInScopeAttribute [
+
 	^ true
 
 
@@ -120,6 +133,7 @@ ExChdInScopeAttribute >> isExChdInScopeAttribute [
 
 { #category : 'platypus-generated-group-accessing' }
 ExChdInScopeAttribute >> localFromValues: values [
+
 	^ self inScopeAttributeFromValues: values
 
 
@@ -127,6 +141,7 @@ ExChdInScopeAttribute >> localFromValues: values [
 
 { #category : 'platypus-generated-group-accessing' }
 ExChdInScopeAttribute >> localToValues: values [
+
 	^ self inScopeAttributeToValues: values
 
 
@@ -134,6 +149,7 @@ ExChdInScopeAttribute >> localToValues: values [
 
 { #category : 'platypus-generated-copying' }
 ExChdInScopeAttribute >> pltCopyGroup: aClassSymbol to: anObject [
+
 	self class name == aClassSymbol
 		ifTrue: [ self pltCopyTo: anObject ]
 		ifFalse: [ super pltCopyGroup: aClassSymbol to: anObject ]
@@ -143,6 +159,7 @@ ExChdInScopeAttribute >> pltCopyGroup: aClassSymbol to: anObject [
 
 { #category : 'platypus-generated-copying' }
 ExChdInScopeAttribute >> pltCopyTo: another [
+
 	super pltCopyTo: another.
 	self inScopeAttributeCopyTo: another
 
@@ -151,6 +168,7 @@ ExChdInScopeAttribute >> pltCopyTo: another [
 
 { #category : 'platypus-generated-copying' }
 ExChdInScopeAttribute >> pltLocalCopyTo: another [
+
 	self inScopeAttributeCopyTo: another
 
 
@@ -158,6 +176,7 @@ ExChdInScopeAttribute >> pltLocalCopyTo: another [
 
 { #category : 'platypus-generated-initializing' }
 ExChdInScopeAttribute >> stepInitialize [
+
 	super stepInitialize
 
 
@@ -165,6 +184,7 @@ ExChdInScopeAttribute >> stepInitialize [
 
 { #category : 'platypus-generated-group-accessing' }
 ExChdInScopeAttribute >> toValues: values [
+
 	^ self inScopeAttributeToValues: (super toValues: values)
 
 

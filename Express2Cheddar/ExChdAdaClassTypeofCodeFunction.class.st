@@ -46,6 +46,7 @@ Class {
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdAdaClassTypeofCodeFunction class >> iso10303P11Translater [
+
 	^ 'Platypus (c) LISYC EA3883, Universite de Bretagne occidentale. Brest.'
 
 
@@ -53,6 +54,7 @@ ExChdAdaClassTypeofCodeFunction class >> iso10303P11Translater [
 
 { #category : 'platypus-generated-meta-data-accessing' }
 ExChdAdaClassTypeofCodeFunction class >> schemaDefinition [
+
 	^ ExChdRecordAndClassSchemaDefinition singleton
 
 
@@ -60,6 +62,7 @@ ExChdAdaClassTypeofCodeFunction class >> schemaDefinition [
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdAdaClassTypeofCodeFunction class >> translatedFromISO10303P11 [
+
 	^ true
 
 
@@ -67,6 +70,7 @@ ExChdAdaClassTypeofCodeFunction class >> translatedFromISO10303P11 [
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdAdaClassTypeofCodeFunction class >> vwNamespaceName [
+
 	^ #Express2Cheddar
 
 
@@ -74,6 +78,7 @@ ExChdAdaClassTypeofCodeFunction class >> vwNamespaceName [
 
 { #category : 'platypus-generated-accessing' }
 ExChdAdaClassTypeofCodeFunction >> cip [
+
 	^ cip
 
 
@@ -81,6 +86,7 @@ ExChdAdaClassTypeofCodeFunction >> cip [
 
 { #category : 'platypus-generated-accessing' }
 ExChdAdaClassTypeofCodeFunction >> cip: aExChdAdaClass [
+
 	cip := aExChdAdaClass
 
 
@@ -88,6 +94,7 @@ ExChdAdaClassTypeofCodeFunction >> cip: aExChdAdaClass [
 
 { #category : 'platypus-generated-accessing' }
 ExChdAdaClassTypeofCodeFunction >> code [
+
 	^ code
 
 
@@ -95,6 +102,7 @@ ExChdAdaClassTypeofCodeFunction >> code [
 
 { #category : 'platypus-generated-accessing' }
 ExChdAdaClassTypeofCodeFunction >> code: aString [
+
 	code := aString
 
 
@@ -102,6 +110,7 @@ ExChdAdaClassTypeofCodeFunction >> code: aString [
 
 { #category : 'platypus-generated-accessing' }
 ExChdAdaClassTypeofCodeFunction >> fromValues: values [
+
 	self cip: (values at: 1)
 
 
@@ -111,57 +120,51 @@ ExChdAdaClassTypeofCodeFunction >> fromValues: values [
 ExChdAdaClassTypeofCodeFunction >> invoke [
 	" ---------- locals assignments ----------"
 
-	self
-		sups:
-			(PTsAllSupertypesOfFunction
-				invokeFromValues:
-					(OrderedCollection new
-						add: self cip;
-						yourself)).	" ---------- statements ----------"
-	self
-		code:
-			(((((((('function type_of ( obj : in ' pltPlus: (self cip nameUsingContext: self class context))
-				pltPlus: ' ) return unbounded_string_list is\n') pltPlus: '\tlist : unbounded_string_list;\n')
-				pltPlus: '\ts : unbounded_string_ptr;\n') pltPlus: 'begin\n') pltPlus: '\t') pltPlus: 'Initialize(list);\n')
-				pltPlus: '\n').
+	self sups:
+		(PTsAllSupertypesOfFunction invokeFromValues:
+			 (OrderedCollection new
+				  add: self cip;
+				  yourself)). " ---------- statements ----------"
+	self code: (((((((('function type_of ( obj : in ' pltPlus:
+			        (self cip nameUsingContext: self class context)) pltPlus:
+			       ' ) return unbounded_string_list is\n') pltPlus:
+			      '\tlist : unbounded_string_list;\n') pltPlus:
+			     '\ts : unbounded_string_ptr;\n') pltPlus: 'begin\n') pltPlus:
+			   '\t') pltPlus: 'Initialize(list);\n') pltPlus: '\n').
 	PlatypusCoreRepeatStatement
-		repeat: [ :no239 | 
-			PlatypusCoreAliasStatement
-				alias: (self sups pltAt: no239)
-				statementsBlock: [ :curr1345 | 
-					self
-						code:
-							(((((((((((self code pltPlus: '\t') pltPlus: 's := new unbounded_string;\n') pltPlus: '\t')
-								pltPlus: 's.all := to_unbounded_string("')
-								pltPlus:
-									(PTsUpperizeFunction
-										invokeFromValues:
-											(OrderedCollection new
-												add: ((curr1345 ownerUsingContext: self class context) nameUsingContext: self class context);
-												yourself))) pltPlus: '.')
-								pltPlus:
-									(PTsUpperizeFunction
-										invokeFromValues:
-											(OrderedCollection new
-												add: (curr1345 nameUsingContext: self class context);
-												yourself))) pltPlus: '");\n') pltPlus: '\t') pltPlus: 'Add (list, s);\n') pltPlus: '\n') ] ]
-		from:
-			(PltLOINDEXFunction
-				invokeFromValues:
-					(OrderedCollection new
-						add: self sups;
-						yourself))
-		to:
-			(PltHIINDEXFunction
-				invokeFromValues:
-					(OrderedCollection new
-						add: self sups;
-						yourself)).
-	self
-		code:
-			(((((((self code pltPlus: '\treturn list;\nend type_of;\n\n') pltPlus: 'function type_of ( obj : in ')
-				pltPlus: (self cip ptrTypeUsingContext: self class context)) pltPlus: ' ) return unbounded_string_list is\n')
-				pltPlus: 'begin\n') pltPlus: '\treturn type_of(obj.all);\n') pltPlus: 'end type_of;\n').
+		repeat: [ :no3642985 |
+				PlatypusCoreAliasStatement
+					alias: (self sups pltAt: no3642985)
+					statementsBlock: [ :curr3403911 |
+							self code: (((((((((((self code pltPlus: '\t') pltPlus:
+									          's := new unbounded_string;\n') pltPlus: '\t')
+									        pltPlus: 's.all := to_unbounded_string("') pltPlus:
+									       (PTsUpperizeFunction invokeFromValues:
+										        (OrderedCollection new
+											         add:
+												         ((curr3403911 ownerUsingContext:
+														           self class context) nameUsingContext:
+														          self class context);
+											         yourself))) pltPlus: '.') pltPlus:
+									     (PTsUpperizeFunction invokeFromValues:
+										      (OrderedCollection new
+											       add:
+												       (curr3403911 nameUsingContext: self class context);
+											       yourself))) pltPlus: '");\n') pltPlus: '\t')
+									  pltPlus: 'Add (list, s);\n') pltPlus: '\n') ] ]
+		from: (PltLOINDEXFunction invokeFromValues: (OrderedCollection new
+					  add: self sups;
+					  yourself))
+		to: (PltHIINDEXFunction invokeFromValues: (OrderedCollection new
+					  add: self sups;
+					  yourself)).
+	self code:
+		(((((((self code pltPlus: '\treturn list;\nend type_of;\n\n')
+			      pltPlus: 'function type_of ( obj : in ') pltPlus:
+			     (self cip ptrTypeUsingContext: self class context)) pltPlus:
+			    ' ) return unbounded_string_list is\n') pltPlus: 'begin\n')
+			  pltPlus: '\treturn type_of(obj.all);\n') pltPlus:
+			 'end type_of;\n').
 	^ self return: self code
 
 
@@ -169,6 +172,7 @@ ExChdAdaClassTypeofCodeFunction >> invoke [
 
 { #category : 'platypus-generated-accessing' }
 ExChdAdaClassTypeofCodeFunction >> sups [
+
 	^ sups
 
 
@@ -176,9 +180,11 @@ ExChdAdaClassTypeofCodeFunction >> sups [
 
 { #category : 'platypus-generated-accessing' }
 ExChdAdaClassTypeofCodeFunction >> sups: aListOfExChdEntityDefinition [
+
 	sups := aListOfExChdEntityDefinition
-		ifNil: [ OrderedCollection new ]
-		ifNotNil: [ aListOfExChdEntityDefinition as: OrderedCollection ]
+		        ifNil: [ OrderedCollection new ]
+		        ifNotNil: [
+		        aListOfExChdEntityDefinition as: OrderedCollection ]
 
 
 ]

@@ -30,6 +30,7 @@ Class {
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdDiscriminatedTypeUnionTypeInterfacesListFunction class >> iso10303P11Translater [
+
 	^ 'Platypus (c) LISYC EA3883, Universite de Bretagne occidentale. Brest.'
 
 
@@ -37,6 +38,7 @@ ExChdDiscriminatedTypeUnionTypeInterfacesListFunction class >> iso10303P11Transl
 
 { #category : 'platypus-generated-meta-data-accessing' }
 ExChdDiscriminatedTypeUnionTypeInterfacesListFunction class >> schemaDefinition [
+
 	^ ExChdDiscriminatedTypeSchemaDefinition singleton
 
 
@@ -44,6 +46,7 @@ ExChdDiscriminatedTypeUnionTypeInterfacesListFunction class >> schemaDefinition 
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdDiscriminatedTypeUnionTypeInterfacesListFunction class >> translatedFromISO10303P11 [
+
 	^ true
 
 
@@ -51,6 +54,7 @@ ExChdDiscriminatedTypeUnionTypeInterfacesListFunction class >> translatedFromISO
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdDiscriminatedTypeUnionTypeInterfacesListFunction class >> vwNamespaceName [
+
 	^ #Express2Cheddar
 
 
@@ -58,6 +62,7 @@ ExChdDiscriminatedTypeUnionTypeInterfacesListFunction class >> vwNamespaceName [
 
 { #category : 'platypus-generated-accessing' }
 ExChdDiscriminatedTypeUnionTypeInterfacesListFunction >> d [
+
 	^ d
 
 
@@ -65,6 +70,7 @@ ExChdDiscriminatedTypeUnionTypeInterfacesListFunction >> d [
 
 { #category : 'platypus-generated-accessing' }
 ExChdDiscriminatedTypeUnionTypeInterfacesListFunction >> d: aExChdDiscriminatedTypeUnionType [
+
 	d := aExChdDiscriminatedTypeUnionType
 
 
@@ -72,6 +78,7 @@ ExChdDiscriminatedTypeUnionTypeInterfacesListFunction >> d: aExChdDiscriminatedT
 
 { #category : 'platypus-generated-accessing' }
 ExChdDiscriminatedTypeUnionTypeInterfacesListFunction >> d: aExChdDiscriminatedTypeUnionType isAds: aBoolean [
+
 	self d: aExChdDiscriminatedTypeUnionType.
 	self isAds: aBoolean
 
@@ -80,6 +87,7 @@ ExChdDiscriminatedTypeUnionTypeInterfacesListFunction >> d: aExChdDiscriminatedT
 
 { #category : 'platypus-generated-accessing' }
 ExChdDiscriminatedTypeUnionTypeInterfacesListFunction >> fromValues: values [
+
 	self d: (values at: 1).
 	self isAds: (values at: 2)
 
@@ -90,34 +98,28 @@ ExChdDiscriminatedTypeUnionTypeInterfacesListFunction >> fromValues: values [
 ExChdDiscriminatedTypeUnionTypeInterfacesListFunction >> invoke [
 	" ---------- locals assignments ----------"
 
-	self l: Array new.	" ---------- statements ----------"
+	self l: Array new. " ---------- statements ----------"
 	PlatypusCoreRepeatStatement
-		repeat: [ :no657 | 
-			PlatypusCoreAliasStatement
-				alias: ((self d attributesUsingContext: self class context) pltAt: no657)
-				statementsBlock: [ :curr2607 | 
-					self
-						l:
-							(self l
-								pltPlus:
-									(ExChdEntityDefinitionInterfacesListFunction
-										invokeFromValues:
-											(OrderedCollection new
-												add: ((curr2607 domainUsingContext: self class context) handledUsingContext: self class context);
-												add: self isAds;
-												yourself))) ] ]
-		from:
-			(PltLOINDEXFunction
-				invokeFromValues:
-					(OrderedCollection new
-						add: (self d attributesUsingContext: self class context);
-						yourself))
-		to:
-			(PltHIINDEXFunction
-				invokeFromValues:
-					(OrderedCollection new
-						add: (self d attributesUsingContext: self class context);
-						yourself)).
+		repeat: [ :no2454205 |
+				PlatypusCoreAliasStatement
+					alias:
+					((self d attributesUsingContext: self class context) pltAt:
+						 no2454205)
+					statementsBlock: [ :curr1044201 |
+							self l: (self l pltPlus:
+									 (ExChdEntityDefinitionInterfacesListFunction
+										  invokeFromValues: (OrderedCollection new
+												   add:
+													   ((curr1044201 domainUsingContext: self class context)
+														    handledUsingContext: self class context);
+												   add: self isAds;
+												   yourself))) ] ]
+		from: (PltLOINDEXFunction invokeFromValues: (OrderedCollection new
+					  add: (self d attributesUsingContext: self class context);
+					  yourself))
+		to: (PltHIINDEXFunction invokeFromValues: (OrderedCollection new
+					  add: (self d attributesUsingContext: self class context);
+					  yourself)).
 	^ self return: self l
 
 
@@ -125,6 +127,7 @@ ExChdDiscriminatedTypeUnionTypeInterfacesListFunction >> invoke [
 
 { #category : 'platypus-generated-accessing' }
 ExChdDiscriminatedTypeUnionTypeInterfacesListFunction >> isAds [
+
 	^ isAds
 
 
@@ -132,6 +135,7 @@ ExChdDiscriminatedTypeUnionTypeInterfacesListFunction >> isAds [
 
 { #category : 'platypus-generated-accessing' }
 ExChdDiscriminatedTypeUnionTypeInterfacesListFunction >> isAds: aBoolean [
+
 	isAds := aBoolean
 
 
@@ -139,6 +143,7 @@ ExChdDiscriminatedTypeUnionTypeInterfacesListFunction >> isAds: aBoolean [
 
 { #category : 'platypus-generated-accessing' }
 ExChdDiscriminatedTypeUnionTypeInterfacesListFunction >> l [
+
 	^ l
 
 
@@ -146,9 +151,10 @@ ExChdDiscriminatedTypeUnionTypeInterfacesListFunction >> l [
 
 { #category : 'platypus-generated-accessing' }
 ExChdDiscriminatedTypeUnionTypeInterfacesListFunction >> l: aListOfExChdAdaInterface [
+
 	l := aListOfExChdAdaInterface
-		ifNil: [ OrderedCollection new ]
-		ifNotNil: [ aListOfExChdAdaInterface as: OrderedCollection ]
+		     ifNil: [ OrderedCollection new ]
+		     ifNotNil: [ aListOfExChdAdaInterface as: OrderedCollection ]
 
 
 ]

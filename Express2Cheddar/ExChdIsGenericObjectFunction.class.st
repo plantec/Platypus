@@ -22,6 +22,7 @@ Class {
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdIsGenericObjectFunction class >> iso10303P11Translater [
+
 	^ 'Platypus (c) LISYC EA3883, Universite de Bretagne occidentale. Brest.'
 
 
@@ -29,6 +30,7 @@ ExChdIsGenericObjectFunction class >> iso10303P11Translater [
 
 { #category : 'platypus-generated-meta-data-accessing' }
 ExChdIsGenericObjectFunction class >> schemaDefinition [
+
 	^ ExChdRecordAndClassSchemaDefinition singleton
 
 
@@ -36,6 +38,7 @@ ExChdIsGenericObjectFunction class >> schemaDefinition [
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdIsGenericObjectFunction class >> translatedFromISO10303P11 [
+
 	^ true
 
 
@@ -43,6 +46,7 @@ ExChdIsGenericObjectFunction class >> translatedFromISO10303P11 [
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdIsGenericObjectFunction class >> vwNamespaceName [
+
 	^ #Express2Cheddar
 
 
@@ -50,6 +54,7 @@ ExChdIsGenericObjectFunction class >> vwNamespaceName [
 
 { #category : 'platypus-generated-accessing' }
 ExChdIsGenericObjectFunction >> e [
+
 	^ e
 
 
@@ -57,6 +62,7 @@ ExChdIsGenericObjectFunction >> e [
 
 { #category : 'platypus-generated-accessing' }
 ExChdIsGenericObjectFunction >> e: aExChdEntityInstance [
+
 	e := aExChdEntityInstance
 
 
@@ -64,6 +70,7 @@ ExChdIsGenericObjectFunction >> e: aExChdEntityInstance [
 
 { #category : 'platypus-generated-accessing' }
 ExChdIsGenericObjectFunction >> fromValues: values [
+
 	self e: (values at: 1)
 
 
@@ -71,24 +78,17 @@ ExChdIsGenericObjectFunction >> fromValues: values [
 
 { #category : 'platypus-generated-invoking' }
 ExChdIsGenericObjectFunction >> invoke [
-	" ---------- locals assignments ----------"
+	" ---------- locals assignments ----------"" ---------- statements ----------"
 
-	" ---------- statements ----------"
-
-	((PltTYPEOFFunction
-		invokeFromValues:
-			(OrderedCollection new
-				add: self e;
-				yourself)) includes: 'RECORD_AND_CLASS.ADA_CLASS')
-		ifTrue: [ 
-			^ self
-				return:
-					(PTsInheritsFromEntityNamedFunction
-						invokeFromValues:
-							(OrderedCollection new
-								add: self e;
-								add: 'generic_object';
-								yourself)) ].
+	((PltTYPEOFFunction invokeFromValues: (OrderedCollection new
+			   add: self e;
+			   yourself)) includes: 'RECORD_AND_CLASS.ADA_CLASS') ifTrue: [
+			^ self return:
+				  (PTsInheritsFromEntityNamedFunction invokeFromValues:
+					   (OrderedCollection new
+						    add: self e;
+						    add: 'generic_object';
+						    yourself)) ].
 	^ self return: false
 
 

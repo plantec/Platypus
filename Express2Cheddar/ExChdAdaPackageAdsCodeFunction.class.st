@@ -40,10 +40,7 @@ Class {
 		'constList',
 		'privateClasses',
 		'constrainedArrays',
-		'entities',
-		'genericPackages',
-		'headGenericPackages',
-		'tailGenericPackages'
+		'entities'
 	],
 	#category : 'Express2Cheddar-PackageSchema',
 	#package : 'Express2Cheddar',
@@ -52,6 +49,7 @@ Class {
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdAdaPackageAdsCodeFunction class >> iso10303P11Translater [
+
 	^ 'Platypus (c) LISYC EA3883, Universite de Bretagne occidentale. Brest.'
 
 
@@ -59,6 +57,7 @@ ExChdAdaPackageAdsCodeFunction class >> iso10303P11Translater [
 
 { #category : 'platypus-generated-meta-data-accessing' }
 ExChdAdaPackageAdsCodeFunction class >> schemaDefinition [
+
 	^ ExChdPackageSchemaDefinition singleton
 
 
@@ -66,6 +65,7 @@ ExChdAdaPackageAdsCodeFunction class >> schemaDefinition [
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdAdaPackageAdsCodeFunction class >> translatedFromISO10303P11 [
+
 	^ true
 
 
@@ -73,6 +73,7 @@ ExChdAdaPackageAdsCodeFunction class >> translatedFromISO10303P11 [
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdAdaPackageAdsCodeFunction class >> vwNamespaceName [
+
 	^ #Express2Cheddar
 
 
@@ -80,6 +81,7 @@ ExChdAdaPackageAdsCodeFunction class >> vwNamespaceName [
 
 { #category : 'platypus-generated-accessing' }
 ExChdAdaPackageAdsCodeFunction >> classes [
+
 	^ classes
 
 
@@ -87,15 +89,17 @@ ExChdAdaPackageAdsCodeFunction >> classes [
 
 { #category : 'platypus-generated-accessing' }
 ExChdAdaPackageAdsCodeFunction >> classes: aListOfExChdAdaClass [
+
 	classes := aListOfExChdAdaClass
-		ifNil: [ OrderedCollection new ]
-		ifNotNil: [ aListOfExChdAdaClass as: OrderedCollection ]
+		           ifNil: [ OrderedCollection new ]
+		           ifNotNil: [ aListOfExChdAdaClass as: OrderedCollection ]
 
 
 ]
 
 { #category : 'platypus-generated-accessing' }
 ExChdAdaPackageAdsCodeFunction >> constList [
+
 	^ constList
 
 
@@ -103,15 +107,18 @@ ExChdAdaPackageAdsCodeFunction >> constList [
 
 { #category : 'platypus-generated-accessing' }
 ExChdAdaPackageAdsCodeFunction >> constList: aListOfExChdAdaConstant [
+
 	constList := aListOfExChdAdaConstant
-		ifNil: [ OrderedCollection new ]
-		ifNotNil: [ aListOfExChdAdaConstant as: OrderedCollection ]
+		             ifNil: [ OrderedCollection new ]
+		             ifNotNil: [
+		             aListOfExChdAdaConstant as: OrderedCollection ]
 
 
 ]
 
 { #category : 'platypus-generated-accessing' }
 ExChdAdaPackageAdsCodeFunction >> constrainedArrays [
+
 	^ constrainedArrays
 
 
@@ -119,15 +126,18 @@ ExChdAdaPackageAdsCodeFunction >> constrainedArrays [
 
 { #category : 'platypus-generated-accessing' }
 ExChdAdaPackageAdsCodeFunction >> constrainedArrays: aListOfExChdDefinedType [
+
 	constrainedArrays := aListOfExChdDefinedType
-		ifNil: [ OrderedCollection new ]
-		ifNotNil: [ aListOfExChdDefinedType as: OrderedCollection ]
+		                     ifNil: [ OrderedCollection new ]
+		                     ifNotNil: [
+		                     aListOfExChdDefinedType as: OrderedCollection ]
 
 
 ]
 
 { #category : 'platypus-generated-accessing' }
 ExChdAdaPackageAdsCodeFunction >> entities [
+
 	^ entities
 
 
@@ -135,15 +145,18 @@ ExChdAdaPackageAdsCodeFunction >> entities [
 
 { #category : 'platypus-generated-accessing' }
 ExChdAdaPackageAdsCodeFunction >> entities: aListOfExChdDictionaryInstance [
+
 	entities := aListOfExChdDictionaryInstance
-		ifNil: [ OrderedCollection new ]
-		ifNotNil: [ aListOfExChdDictionaryInstance as: OrderedCollection ]
+		            ifNil: [ OrderedCollection new ]
+		            ifNotNil: [
+		            aListOfExChdDictionaryInstance as: OrderedCollection ]
 
 
 ]
 
 { #category : 'platypus-generated-accessing' }
 ExChdAdaPackageAdsCodeFunction >> fromValues: values [
+
 	self pkg: (values at: 1)
 
 
@@ -187,99 +200,77 @@ ExChdAdaPackageAdsCodeFunction >> headGenericPackages: aListOfExChdGenericPackag
 ExChdAdaPackageAdsCodeFunction >> invoke [
 	" ---------- locals assignments ----------"
 
-	self
-		classes:
-			((self pkg entitiesUsingContext: self class context)
-				select: [ :e2800 | 
-					(PltTYPEOFFunction
-						invokeFromValues:
-							(OrderedCollection new
-								add: e2800;
-								yourself)) includes: 'RECORD_AND_CLASS.ADA_CLASS' ]).
-	self
-		constList:
-			((self pkg constantsUsingContext: self class context)
-				select: [ :e3840 | 
-					(PltTYPEOFFunction
-						invokeFromValues:
-							(OrderedCollection new
-								add: e3840;
-								yourself)) includes: 'CHEDDAR_CONSTANTS.ADA_CONSTANT' ]).
-	self privateClasses: (self classes select: [ :e595 | e595 isPrivateUsingContext: self class context ]).
-	self entities: (self pkg entitiesUsingContext: self class context).	" ---------- statements ----------"
-	self
-		constrainedArrays:
-			((self pkg typesUsingContext: self class context)
-				select: [ :t590 | 
-					(PltTYPEOFFunction
-						invokeFromValues:
-							(OrderedCollection new
-								add: t590;
-								yourself)) includes: 'CHEDDAR_DOMAINS.CONSTRAINED_ARRAY_TYPE' ]).
-	self
-		result:
-			(ExChdAdaPackageConceptsListCodeFunction
-				invokeFromValues:
-					(OrderedCollection new
-						add: self pkg;
-						add:
-								((((self pkg typesUsingContext: self class context) pltMinus: self constrainedArrays) pltPlus: self entities)
-										pltPlus: self constrainedArrays);
-						add: true;
-						yourself)).
+	self classes:
+		((self pkg entitiesUsingContext: self class context) select: [
+				 :e4109075 |
+				 (PltTYPEOFFunction invokeFromValues: (OrderedCollection new
+						   add: e4109075;
+						   yourself)) includes: 'RECORD_AND_CLASS.ADA_CLASS' ]).
+	self constList:
+		((self pkg constantsUsingContext: self class context) select: [
+				 :e688809 |
+				 (PltTYPEOFFunction invokeFromValues: (OrderedCollection new
+						   add: e688809;
+						   yourself)) includes: 'CHEDDAR_CONSTANTS.ADA_CONSTANT' ]).
+	self privateClasses: (self classes select: [ :e3677425 |
+			 e3677425 isPrivateUsingContext: self class context ]).
+	self entities: (self pkg entitiesUsingContext: self class context). " ---------- statements ----------"
+	self constrainedArrays:
+		((self pkg typesUsingContext: self class context) select: [
+				 :t1320239 |
+				 (PltTYPEOFFunction invokeFromValues: (OrderedCollection new
+						   add: t1320239;
+						   yourself)) includes: 'CHEDDAR_DOMAINS.CONSTRAINED_ARRAY_TYPE' ]).
+	self result:
+		(ExChdAdaPackageConceptsListCodeFunction invokeFromValues:
+			 (OrderedCollection new
+				  add: self pkg;
+				  add:
+					  ((((self pkg typesUsingContext: self class context) pltMinus:
+							     self constrainedArrays) pltPlus: self entities) pltPlus:
+							   self constrainedArrays);
+				  add: true;
+				  yourself)).
 	PlatypusCoreRepeatStatement
-		repeat: [ :no2111 | 
-			self
-				result:
-					((self result pltPlus: ((self constList pltAt: no2111) adsCodeUsingContext: self class context)) pltPlus: '\n') ]
-		from:
-			(PltLOINDEXFunction
-				invokeFromValues:
-					(OrderedCollection new
-						add: self constList;
-						yourself))
-		to:
-			(PltHIINDEXFunction
-				invokeFromValues:
-					(OrderedCollection new
-						add: self constList;
-						yourself)).
-	(PltSIZEOFFunction
-		invokeFromValues:
-			(OrderedCollection new
-				add: self privateClasses;
-				yourself)) > 0
-		ifTrue: [ 
+		repeat: [ :no1395015 |
+				self result: ((self result pltPlus:
+						  ((self constList pltAt: no1395015) adsCodeUsingContext:
+							   self class context)) pltPlus: '\n') ]
+		from: (PltLOINDEXFunction invokeFromValues: (OrderedCollection new
+					  add: self constList;
+					  yourself))
+		to: (PltHIINDEXFunction invokeFromValues: (OrderedCollection new
+					  add: self constList;
+					  yourself)).
+	(PltSIZEOFFunction invokeFromValues: (OrderedCollection new
+			  add: self privateClasses;
+			  yourself)) > 0 ifTrue: [
 			self result: (self result pltPlus: '\n\nprivate\n \n').
 			PlatypusCoreRepeatStatement
-				repeat: [ :no541 | 
-					PlatypusCoreAliasStatement
-						alias:
-							((((self privateClasses pltAt: no541) supertypesUsingContext: self class context) pltAt: 1)
-								refUsingContext: self class context)
-						statementsBlock: [ :supref912 | 
-							self
-								result:
-									((((((self result pltPlus: '\ntype ') pltPlus: ((self privateClasses pltAt: no541) nameUsingContext: self class context))
-										pltPlus: ' is new ') pltPlus: (supref912 adaIdentUsingContext: self class context)) pltPlus: ' with\n')
-										pltPlus:
-											(ExChdAdaClassAttributesAdsCodeFunction
-												invokeFromValues:
-													(OrderedCollection new
-														add: (self privateClasses pltAt: no541);
-														yourself))) ] ]
+				repeat: [ :no4062553 |
+						PlatypusCoreAliasStatement
+							alias:
+								((((self privateClasses pltAt: no4062553)
+									   supertypesUsingContext: self class context) pltAt: 1)
+									 refUsingContext: self class context)
+							statementsBlock: [ :supref3670243 |
+									self result: ((((((self result pltPlus: '\ntype ') pltPlus:
+											     ((self privateClasses pltAt: no4062553)
+												      nameUsingContext: self class context)) pltPlus:
+											    ' is new ') pltPlus:
+											   (supref3670243 adaIdentUsingContext: self class context))
+											  pltPlus: ' with\n') pltPlus:
+											 (ExChdAdaClassAttributesAdsCodeFunction invokeFromValues:
+												  (OrderedCollection new
+													   add: (self privateClasses pltAt: no4062553);
+													   yourself))) ] ]
 				from:
-					(PltLOINDEXFunction
-						invokeFromValues:
-							(OrderedCollection new
-								add: self privateClasses;
-								yourself))
-				to:
-					(PltHIINDEXFunction
-						invokeFromValues:
-							(OrderedCollection new
-								add: self privateClasses;
-								yourself)) ].
+					(PltLOINDEXFunction invokeFromValues: (OrderedCollection new
+							  add: self privateClasses;
+							  yourself))
+				to: (PltHIINDEXFunction invokeFromValues: (OrderedCollection new
+							  add: self privateClasses;
+							  yourself)) ].
 	^ self return: self result
 
 
@@ -287,6 +278,7 @@ ExChdAdaPackageAdsCodeFunction >> invoke [
 
 { #category : 'platypus-generated-accessing' }
 ExChdAdaPackageAdsCodeFunction >> pkg [
+
 	^ pkg
 
 
@@ -294,6 +286,7 @@ ExChdAdaPackageAdsCodeFunction >> pkg [
 
 { #category : 'platypus-generated-accessing' }
 ExChdAdaPackageAdsCodeFunction >> pkg: aExChdAdaPackage [
+
 	pkg := aExChdAdaPackage
 
 
@@ -301,6 +294,7 @@ ExChdAdaPackageAdsCodeFunction >> pkg: aExChdAdaPackage [
 
 { #category : 'platypus-generated-accessing' }
 ExChdAdaPackageAdsCodeFunction >> privateClasses [
+
 	^ privateClasses
 
 
@@ -308,15 +302,18 @@ ExChdAdaPackageAdsCodeFunction >> privateClasses [
 
 { #category : 'platypus-generated-accessing' }
 ExChdAdaPackageAdsCodeFunction >> privateClasses: aListOfExChdAdaClass1 [
+
 	privateClasses := aListOfExChdAdaClass1
-		ifNil: [ OrderedCollection new ]
-		ifNotNil: [ aListOfExChdAdaClass1 as: OrderedCollection ]
+		                  ifNil: [ OrderedCollection new ]
+		                  ifNotNil: [
+		                  aListOfExChdAdaClass1 as: OrderedCollection ]
 
 
 ]
 
 { #category : 'platypus-generated-accessing' }
 ExChdAdaPackageAdsCodeFunction >> result [
+
 	^ result
 
 
@@ -324,6 +321,7 @@ ExChdAdaPackageAdsCodeFunction >> result [
 
 { #category : 'platypus-generated-accessing' }
 ExChdAdaPackageAdsCodeFunction >> result: aString [
+
 	result := aString
 
 

@@ -52,6 +52,7 @@ Class {
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdDiscriminatedTypeXmlIoRecordCodeFunction class >> iso10303P11Translater [
+
 	^ 'Platypus (c) LISYC EA3883, Universite de Bretagne occidentale. Brest.'
 
 
@@ -59,6 +60,7 @@ ExChdDiscriminatedTypeXmlIoRecordCodeFunction class >> iso10303P11Translater [
 
 { #category : 'platypus-generated-meta-data-accessing' }
 ExChdDiscriminatedTypeXmlIoRecordCodeFunction class >> schemaDefinition [
+
 	^ ExChdDiscriminatedTypeSchemaDefinition singleton
 
 
@@ -66,6 +68,7 @@ ExChdDiscriminatedTypeXmlIoRecordCodeFunction class >> schemaDefinition [
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdDiscriminatedTypeXmlIoRecordCodeFunction class >> translatedFromISO10303P11 [
+
 	^ true
 
 
@@ -73,6 +76,7 @@ ExChdDiscriminatedTypeXmlIoRecordCodeFunction class >> translatedFromISO10303P11
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdDiscriminatedTypeXmlIoRecordCodeFunction class >> vwNamespaceName [
+
 	^ #Express2Cheddar
 
 
@@ -80,6 +84,7 @@ ExChdDiscriminatedTypeXmlIoRecordCodeFunction class >> vwNamespaceName [
 
 { #category : 'platypus-generated-accessing' }
 ExChdDiscriminatedTypeXmlIoRecordCodeFunction >> code [
+
 	^ code
 
 
@@ -87,6 +92,7 @@ ExChdDiscriminatedTypeXmlIoRecordCodeFunction >> code [
 
 { #category : 'platypus-generated-accessing' }
 ExChdDiscriminatedTypeXmlIoRecordCodeFunction >> code: aString [
+
 	code := aString
 
 
@@ -94,6 +100,7 @@ ExChdDiscriminatedTypeXmlIoRecordCodeFunction >> code: aString [
 
 { #category : 'platypus-generated-accessing' }
 ExChdDiscriminatedTypeXmlIoRecordCodeFunction >> discrimAttr [
+
 	^ discrimAttr
 
 
@@ -101,6 +108,7 @@ ExChdDiscriminatedTypeXmlIoRecordCodeFunction >> discrimAttr [
 
 { #category : 'platypus-generated-accessing' }
 ExChdDiscriminatedTypeXmlIoRecordCodeFunction >> discrimAttr: aExChdAttribute [
+
 	discrimAttr := aExChdAttribute
 
 
@@ -108,6 +116,7 @@ ExChdDiscriminatedTypeXmlIoRecordCodeFunction >> discrimAttr: aExChdAttribute [
 
 { #category : 'platypus-generated-accessing' }
 ExChdDiscriminatedTypeXmlIoRecordCodeFunction >> discrimType [
+
 	^ discrimType
 
 
@@ -115,6 +124,7 @@ ExChdDiscriminatedTypeXmlIoRecordCodeFunction >> discrimType [
 
 { #category : 'platypus-generated-accessing' }
 ExChdDiscriminatedTypeXmlIoRecordCodeFunction >> discrimType: aExChdEntityInstance [
+
 	discrimType := aExChdEntityInstance
 
 
@@ -122,6 +132,7 @@ ExChdDiscriminatedTypeXmlIoRecordCodeFunction >> discrimType: aExChdEntityInstan
 
 { #category : 'platypus-generated-accessing' }
 ExChdDiscriminatedTypeXmlIoRecordCodeFunction >> fromValues: values [
+
 	self typ: (values at: 1)
 
 
@@ -132,76 +143,63 @@ ExChdDiscriminatedTypeXmlIoRecordCodeFunction >> invoke [
 	" ---------- locals assignments ----------"
 
 	self code: ''.
-	self discrimAttr: (self typ discriminantUsingContext: self class context).
-	self discrimType: ((self discrimAttr domainUsingContext: self class context) handledUsingContext: self class context).
+	self discrimAttr:
+		(self typ discriminantUsingContext: self class context).
+	self discrimType:
+		((self discrimAttr domainUsingContext: self class context)
+			 handledUsingContext: self class context).
 	self unionAttr: (self typ unionAttrUsingContext: self class context).
-	self unionType: ((self unionAttr domainUsingContext: self class context) handledUsingContext: self class context).
-	self
-		unionAttributes:
-			(PTsInheritedExplicitAttributesFunction
-				invokeFromValues:
-					(OrderedCollection new
-						add: self unionType;
-						yourself)).
-	self tailsAttrs: (self typ tailAttributesUsingContext: self class context).
-	self translAttrs: (self typ translatedAttributesUsingContext: self class context).	" ---------- statements ----------"
-	self
-		code:
-			((((((('\ntype ' pltPlus: (self typ nameUsingContext: self class context)) pltPlus: '_io is record') pltPlus: '\n\t')
-				pltPlus: (self discrimAttr nameUsingContext: self class context)) pltPlus: ' : ')
-				pltPlus: (self discrimType nameUsingContext: self class context)) pltPlus: ';').
+	self unionType:
+		((self unionAttr domainUsingContext: self class context)
+			 handledUsingContext: self class context).
+	self unionAttributes:
+		(PTsInheritedExplicitAttributesFunction invokeFromValues:
+			 (OrderedCollection new
+				  add: self unionType;
+				  yourself)).
+	self tailsAttrs:
+		(self typ tailAttributesUsingContext: self class context).
+	self translAttrs:
+		(self typ translatedAttributesUsingContext: self class context). " ---------- statements ----------"
+	self code: ((((((('\ntype ' pltPlus:
+			       (self typ nameUsingContext: self class context)) pltPlus:
+			      '_io is record') pltPlus: '\n\t') pltPlus:
+			    (self discrimAttr nameUsingContext: self class context))
+			   pltPlus: ' : ') pltPlus:
+			  (self discrimType nameUsingContext: self class context))
+			 pltPlus: ';').
 	PlatypusCoreRepeatStatement
-		repeat: [ :no15 | 
-			PlatypusCoreAliasStatement
-				alias: (self translAttrs pltAt: no15)
-				statementsBlock: [ :attr1129 | 
-					self
-						code:
-							(self code
-								pltPlus:
-									(ExChdExplicitAttributeXmlIoRecordCodeFunction
-										invokeFromValues:
-											(OrderedCollection new
-												add: attr1129;
-												yourself))) ] ]
-		from:
-			(PltLOINDEXFunction
-				invokeFromValues:
-					(OrderedCollection new
-						add: self translAttrs;
-						yourself))
-		to:
-			(PltHIINDEXFunction
-				invokeFromValues:
-					(OrderedCollection new
-						add: self translAttrs;
-						yourself)).
+		repeat: [ :no2295243 |
+				PlatypusCoreAliasStatement
+					alias: (self translAttrs pltAt: no2295243)
+					statementsBlock: [ :attr1141515 |
+							self code: (self code pltPlus:
+									 (ExChdExplicitAttributeXmlIoRecordCodeFunction
+										  invokeFromValues: (OrderedCollection new
+												   add: attr1141515;
+												   yourself))) ] ]
+		from: (PltLOINDEXFunction invokeFromValues: (OrderedCollection new
+					  add: self translAttrs;
+					  yourself))
+		to: (PltHIINDEXFunction invokeFromValues: (OrderedCollection new
+					  add: self translAttrs;
+					  yourself)).
 	PlatypusCoreRepeatStatement
-		repeat: [ :no2247 | 
-			PlatypusCoreAliasStatement
-				alias: (self tailsAttrs pltAt: no2247)
-				statementsBlock: [ :attr3361 | 
-					self
-						code:
-							(self code
-								pltPlus:
-									(ExChdExplicitAttributeXmlIoRecordCodeFunction
-										invokeFromValues:
-											(OrderedCollection new
-												add: attr3361;
-												yourself))) ] ]
-		from:
-			(PltLOINDEXFunction
-				invokeFromValues:
-					(OrderedCollection new
-						add: self tailsAttrs;
-						yourself))
-		to:
-			(PltHIINDEXFunction
-				invokeFromValues:
-					(OrderedCollection new
-						add: self tailsAttrs;
-						yourself)).
+		repeat: [ :no706613 |
+				PlatypusCoreAliasStatement
+					alias: (self tailsAttrs pltAt: no706613)
+					statementsBlock: [ :attr1976369 |
+							self code: (self code pltPlus:
+									 (ExChdExplicitAttributeXmlIoRecordCodeFunction
+										  invokeFromValues: (OrderedCollection new
+												   add: attr1976369;
+												   yourself))) ] ]
+		from: (PltLOINDEXFunction invokeFromValues: (OrderedCollection new
+					  add: self tailsAttrs;
+					  yourself))
+		to: (PltHIINDEXFunction invokeFromValues: (OrderedCollection new
+					  add: self tailsAttrs;
+					  yourself)).
 	self code: (self code pltPlus: '\nend record;\n').
 	^ self return: self code
 
@@ -210,6 +208,7 @@ ExChdDiscriminatedTypeXmlIoRecordCodeFunction >> invoke [
 
 { #category : 'platypus-generated-accessing' }
 ExChdDiscriminatedTypeXmlIoRecordCodeFunction >> tailsAttrs [
+
 	^ tailsAttrs
 
 
@@ -217,15 +216,18 @@ ExChdDiscriminatedTypeXmlIoRecordCodeFunction >> tailsAttrs [
 
 { #category : 'platypus-generated-accessing' }
 ExChdDiscriminatedTypeXmlIoRecordCodeFunction >> tailsAttrs: aListOfExChdAttribute1 [
+
 	tailsAttrs := aListOfExChdAttribute1
-		ifNil: [ OrderedCollection new ]
-		ifNotNil: [ aListOfExChdAttribute1 as: OrderedCollection ]
+		              ifNil: [ OrderedCollection new ]
+		              ifNotNil: [
+		              aListOfExChdAttribute1 as: OrderedCollection ]
 
 
 ]
 
 { #category : 'platypus-generated-accessing' }
 ExChdDiscriminatedTypeXmlIoRecordCodeFunction >> translAttrs [
+
 	^ translAttrs
 
 
@@ -233,15 +235,18 @@ ExChdDiscriminatedTypeXmlIoRecordCodeFunction >> translAttrs [
 
 { #category : 'platypus-generated-accessing' }
 ExChdDiscriminatedTypeXmlIoRecordCodeFunction >> translAttrs: aListOfExChdAttribute2 [
+
 	translAttrs := aListOfExChdAttribute2
-		ifNil: [ OrderedCollection new ]
-		ifNotNil: [ aListOfExChdAttribute2 as: OrderedCollection ]
+		               ifNil: [ OrderedCollection new ]
+		               ifNotNil: [
+		               aListOfExChdAttribute2 as: OrderedCollection ]
 
 
 ]
 
 { #category : 'platypus-generated-accessing' }
 ExChdDiscriminatedTypeXmlIoRecordCodeFunction >> typ [
+
 	^ typ
 
 
@@ -249,6 +254,7 @@ ExChdDiscriminatedTypeXmlIoRecordCodeFunction >> typ [
 
 { #category : 'platypus-generated-accessing' }
 ExChdDiscriminatedTypeXmlIoRecordCodeFunction >> typ: aExChdDiscriminatedType [
+
 	typ := aExChdDiscriminatedType
 
 
@@ -256,6 +262,7 @@ ExChdDiscriminatedTypeXmlIoRecordCodeFunction >> typ: aExChdDiscriminatedType [
 
 { #category : 'platypus-generated-accessing' }
 ExChdDiscriminatedTypeXmlIoRecordCodeFunction >> unionAttr [
+
 	^ unionAttr
 
 
@@ -263,6 +270,7 @@ ExChdDiscriminatedTypeXmlIoRecordCodeFunction >> unionAttr [
 
 { #category : 'platypus-generated-accessing' }
 ExChdDiscriminatedTypeXmlIoRecordCodeFunction >> unionAttr: aExChdAttribute1 [
+
 	unionAttr := aExChdAttribute1
 
 
@@ -270,6 +278,7 @@ ExChdDiscriminatedTypeXmlIoRecordCodeFunction >> unionAttr: aExChdAttribute1 [
 
 { #category : 'platypus-generated-accessing' }
 ExChdDiscriminatedTypeXmlIoRecordCodeFunction >> unionAttributes [
+
 	^ unionAttributes
 
 
@@ -277,15 +286,18 @@ ExChdDiscriminatedTypeXmlIoRecordCodeFunction >> unionAttributes [
 
 { #category : 'platypus-generated-accessing' }
 ExChdDiscriminatedTypeXmlIoRecordCodeFunction >> unionAttributes: aListOfExChdAttribute [
+
 	unionAttributes := aListOfExChdAttribute
-		ifNil: [ OrderedCollection new ]
-		ifNotNil: [ aListOfExChdAttribute as: OrderedCollection ]
+		                   ifNil: [ OrderedCollection new ]
+		                   ifNotNil: [
+		                   aListOfExChdAttribute as: OrderedCollection ]
 
 
 ]
 
 { #category : 'platypus-generated-accessing' }
 ExChdDiscriminatedTypeXmlIoRecordCodeFunction >> unionType [
+
 	^ unionType
 
 
@@ -293,6 +305,7 @@ ExChdDiscriminatedTypeXmlIoRecordCodeFunction >> unionType [
 
 { #category : 'platypus-generated-accessing' }
 ExChdDiscriminatedTypeXmlIoRecordCodeFunction >> unionType: aExChdDefinedType [
+
 	unionType := aExChdDefinedType
 
 

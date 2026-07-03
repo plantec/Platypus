@@ -52,6 +52,7 @@ Class {
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdAdaEntityXmlStartElementCodeFunction class >> iso10303P11Translater [
+
 	^ 'Platypus (c) LISYC EA3883, Universite de Bretagne occidentale. Brest.'
 
 
@@ -59,6 +60,7 @@ ExChdAdaEntityXmlStartElementCodeFunction class >> iso10303P11Translater [
 
 { #category : 'platypus-generated-meta-data-accessing' }
 ExChdAdaEntityXmlStartElementCodeFunction class >> schemaDefinition [
+
 	^ ExChdRecordAndClassSchemaDefinition singleton
 
 
@@ -66,6 +68,7 @@ ExChdAdaEntityXmlStartElementCodeFunction class >> schemaDefinition [
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdAdaEntityXmlStartElementCodeFunction class >> translatedFromISO10303P11 [
+
 	^ true
 
 
@@ -73,6 +76,7 @@ ExChdAdaEntityXmlStartElementCodeFunction class >> translatedFromISO10303P11 [
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdAdaEntityXmlStartElementCodeFunction class >> vwNamespaceName [
+
 	^ #Express2Cheddar
 
 
@@ -80,6 +84,7 @@ ExChdAdaEntityXmlStartElementCodeFunction class >> vwNamespaceName [
 
 { #category : 'platypus-generated-accessing' }
 ExChdAdaEntityXmlStartElementCodeFunction >> cip [
+
 	^ cip
 
 
@@ -87,6 +92,7 @@ ExChdAdaEntityXmlStartElementCodeFunction >> cip [
 
 { #category : 'platypus-generated-accessing' }
 ExChdAdaEntityXmlStartElementCodeFunction >> cip: aExChdAdaEntity [
+
 	cip := aExChdAdaEntity
 
 
@@ -94,6 +100,7 @@ ExChdAdaEntityXmlStartElementCodeFunction >> cip: aExChdAdaEntity [
 
 { #category : 'platypus-generated-accessing' }
 ExChdAdaEntityXmlStartElementCodeFunction >> code [
+
 	^ code
 
 
@@ -101,6 +108,7 @@ ExChdAdaEntityXmlStartElementCodeFunction >> code [
 
 { #category : 'platypus-generated-accessing' }
 ExChdAdaEntityXmlStartElementCodeFunction >> code: aString [
+
 	code := aString
 
 
@@ -108,6 +116,7 @@ ExChdAdaEntityXmlStartElementCodeFunction >> code: aString [
 
 { #category : 'platypus-generated-accessing' }
 ExChdAdaEntityXmlStartElementCodeFunction >> fromValues: values [
+
 	self cip: (values at: 1)
 
 
@@ -115,45 +124,48 @@ ExChdAdaEntityXmlStartElementCodeFunction >> fromValues: values [
 
 { #category : 'platypus-generated-invoking' }
 ExChdAdaEntityXmlStartElementCodeFunction >> invoke [
-	" ---------- locals assignments ----------"
+	" ---------- locals assignments ----------"" ---------- statements ----------"
 
-	" ---------- statements ----------"
-
-	((PltTYPEOFFunction
-		invokeFromValues:
-			(OrderedCollection new
-				add: self cip;
-				yourself)) includes: 'RECORD_AND_CLASS.RECORD')
-		ifTrue: [ 
-			self
-				code:
-					((((((((((((((('\nprocedure Start_Element(\n' pltPlus: '\tHandler: in out Xml_Generic_Parser;\n')
-						pltPlus: '\tobj : in out ') pltPlus: (self cip nameUsingContext: self class context)) pltPlus: '_io;\n')
-						pltPlus: '\tNamespace_Uri : Unicode.CES.Byte_Sequence := "";\n')
-						pltPlus: '\tLocal_Name : Unicode.CES.Byte_Sequence := "";\n')
-						pltPlus: '\tQname : Unicode.CES.Byte_Sequence := "";\n')
-						pltPlus: '\tAtts : Sax.Attributes.Attributes''Class) is\n') pltPlus: 'begin\n')
-						pltPlus: '\tif To_String (To_Lower (Qname)) = "') pltPlus: (self cip htmlTagUsingContext: self class context))
-						pltPlus: '" then\n') pltPlus: '\t\tinitialize(obj);\n') pltPlus: '\tend if;\n') pltPlus: 'end Start_Element;\n') ]
-		ifFalse: [ 
-			self
-				code:
-					(ExChdAdaEntityAttributesXmlStartElementCodeFunction
-						invokeFromValues:
-							(OrderedCollection new
-								add: self cip;
-								yourself)).
-			self code > ''
-				ifTrue: [ 
-					self
-						code:
-							((((((((((((('\nprocedure Start_Element(\n' pltPlus: '\tHandler: in out Xml_Generic_Parser;\n')
-								pltPlus: '\tobj : in out ') pltPlus: (self cip nameUsingContext: self class context)) pltPlus: '_io;\n')
-								pltPlus: '\tNamespace_Uri : Unicode.CES.Byte_Sequence := "";\n')
-								pltPlus: '\tLocal_Name : Unicode.CES.Byte_Sequence := "";\n')
-								pltPlus: '\tQname : Unicode.CES.Byte_Sequence := "";\n')
-								pltPlus: '\tAtts : Sax.Attributes.Attributes''Class) is \nbegin\n') pltPlus: '\tif Get_Length (Atts) > 0 then')
-								pltPlus: self code) pltPlus: '\n') pltPlus: '\tend if;\n') pltPlus: 'end Start_Element;\n') ] ].
+	((PltTYPEOFFunction invokeFromValues: (OrderedCollection new
+			   add: self cip;
+			   yourself)) includes: 'RECORD_AND_CLASS.RECORD')
+		ifTrue: [
+				self code: ((((((((((((((('\nprocedure Start_Element(\n' pltPlus:
+						               '\tHandler: in out Xml_Generic_Parser;\n')
+						              pltPlus: '\tobj : in out ') pltPlus:
+						             (self cip nameUsingContext: self class context))
+						            pltPlus: '_io;\n') pltPlus:
+						           '\tNamespace_Uri : Unicode.CES.Byte_Sequence := "";\n')
+						          pltPlus:
+						          '\tLocal_Name : Unicode.CES.Byte_Sequence := "";\n')
+						         pltPlus: '\tQname : Unicode.CES.Byte_Sequence := "";\n')
+						        pltPlus:
+						        '\tAtts : Sax.Attributes.Attributes''Class) is\n')
+						       pltPlus: 'begin\n') pltPlus:
+						      '\tif To_String (To_Lower (Qname)) = "') pltPlus:
+						     (self cip htmlTagUsingContext: self class context))
+						    pltPlus: '" then\n') pltPlus: '\t\tinitialize(obj);\n')
+						  pltPlus: '\tend if;\n') pltPlus: 'end Start_Element;\n') ]
+		ifFalse: [
+				self code: (ExChdAdaEntityAttributesXmlStartElementCodeFunction
+						 invokeFromValues: (OrderedCollection new
+								  add: self cip;
+								  yourself)).
+				self code > '' ifTrue: [
+						self code: ((((((((((((('\nprocedure Start_Element(\n' pltPlus:
+								             '\tHandler: in out Xml_Generic_Parser;\n')
+								            pltPlus: '\tobj : in out ') pltPlus:
+								           (self cip nameUsingContext: self class context))
+								          pltPlus: '_io;\n') pltPlus:
+								         '\tNamespace_Uri : Unicode.CES.Byte_Sequence := "";\n')
+								        pltPlus:
+								        '\tLocal_Name : Unicode.CES.Byte_Sequence := "";\n')
+								       pltPlus: '\tQname : Unicode.CES.Byte_Sequence := "";\n')
+								      pltPlus:
+								      '\tAtts : Sax.Attributes.Attributes''Class) is \nbegin\n')
+								     pltPlus: '\tif Get_Length (Atts) > 0 then') pltPlus:
+								    self code) pltPlus: '\n') pltPlus: '\tend if;\n')
+								 pltPlus: 'end Start_Element;\n') ] ].
 	^ self return: self code
 
 

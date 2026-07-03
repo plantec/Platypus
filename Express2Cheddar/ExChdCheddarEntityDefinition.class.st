@@ -23,6 +23,7 @@ Class {
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdCheddarEntityDefinition class >> iso10303P11Translater [
+
 	^ 'Platypus (c) LISYC EA3883, Universite de Bretagne occidentale. Brest.'
 
 
@@ -30,6 +31,7 @@ ExChdCheddarEntityDefinition class >> iso10303P11Translater [
 
 { #category : 'platypus-generated-meta-data-accessing' }
 ExChdCheddarEntityDefinition class >> schemaDefinition [
+
 	^ ExChdCheddarDomainsSchemaDefinition singleton
 
 
@@ -37,6 +39,7 @@ ExChdCheddarEntityDefinition class >> schemaDefinition [
 
 { #category : 'platypus-generated-meta-data-accessing' }
 ExChdCheddarEntityDefinition class >> schemaInstance [
+
 	^ ExChdExpress2cheddarSchemaInstance singleton
 
 
@@ -44,6 +47,7 @@ ExChdCheddarEntityDefinition class >> schemaInstance [
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdCheddarEntityDefinition class >> translatedFromISO10303P11 [
+
 	^ true
 
 
@@ -51,6 +55,7 @@ ExChdCheddarEntityDefinition class >> translatedFromISO10303P11 [
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdCheddarEntityDefinition class >> vwNamespaceName [
+
 	^ #Express2Cheddar
 
 
@@ -58,6 +63,7 @@ ExChdCheddarEntityDefinition class >> vwNamespaceName [
 
 { #category : 'platypus-generated-visiting' }
 ExChdCheddarEntityDefinition >> accept: aVisitor [
+
 	^ aVisitor acceptCheddarEntityDefinition: self
 
 
@@ -65,6 +71,7 @@ ExChdCheddarEntityDefinition >> accept: aVisitor [
 
 { #category : 'platypus-generated-deriving' }
 ExChdCheddarEntityDefinition >> adaIdent [
+
 	^ self adaIdentUsingContext: self class context
 
 
@@ -72,6 +79,7 @@ ExChdCheddarEntityDefinition >> adaIdent [
 
 { #category : 'platypus-generated-deriving' }
 ExChdCheddarEntityDefinition >> adaIdentUsingContext: aContext [
+
 	^ self adaIdentUsingContext: aContext receiver: self
 
 
@@ -79,6 +87,7 @@ ExChdCheddarEntityDefinition >> adaIdentUsingContext: aContext [
 
 { #category : 'platypus-generated-deriving' }
 ExChdCheddarEntityDefinition >> adaIdentUsingContext: aContext receiver: aReceiver [
+
 	^ aReceiver nameUsingContext: aContext
 
 
@@ -86,6 +95,7 @@ ExChdCheddarEntityDefinition >> adaIdentUsingContext: aContext receiver: aReceiv
 
 { #category : 'platypus-generated-deriving' }
 ExChdCheddarEntityDefinition >> adaRefIdent [
+
 	^ self adaRefIdentUsingContext: self class context
 
 
@@ -93,6 +103,7 @@ ExChdCheddarEntityDefinition >> adaRefIdent [
 
 { #category : 'platypus-generated-deriving' }
 ExChdCheddarEntityDefinition >> adaRefIdentUsingContext: aContext [
+
 	^ self adaRefIdentUsingContext: aContext receiver: self
 
 
@@ -100,6 +111,7 @@ ExChdCheddarEntityDefinition >> adaRefIdentUsingContext: aContext [
 
 { #category : 'platypus-generated-deriving' }
 ExChdCheddarEntityDefinition >> adaRefIdentUsingContext: aContext receiver: aReceiver [
+
 	^ aReceiver nameUsingContext: aContext
 
 
@@ -107,6 +119,7 @@ ExChdCheddarEntityDefinition >> adaRefIdentUsingContext: aContext receiver: aRec
 
 { #category : 'platypus-generated-deriving' }
 ExChdCheddarEntityDefinition >> adbCode [
+
 	^ self adbCodeUsingContext: self class context
 
 
@@ -114,6 +127,7 @@ ExChdCheddarEntityDefinition >> adbCode [
 
 { #category : 'platypus-generated-deriving' }
 ExChdCheddarEntityDefinition >> adbCodeUsingContext: aContext [
+
 	^ self adbCodeUsingContext: aContext receiver: self
 
 
@@ -121,6 +135,7 @@ ExChdCheddarEntityDefinition >> adbCodeUsingContext: aContext [
 
 { #category : 'platypus-generated-deriving' }
 ExChdCheddarEntityDefinition >> adbCodeUsingContext: aContext receiver: aReceiver [
+
 	^ ''
 
 
@@ -128,6 +143,7 @@ ExChdCheddarEntityDefinition >> adbCodeUsingContext: aContext receiver: aReceive
 
 { #category : 'platypus-generated-deriving' }
 ExChdCheddarEntityDefinition >> adbInterfacesList [
+
 	^ self adbInterfacesListUsingContext: self class context
 
 
@@ -135,6 +151,7 @@ ExChdCheddarEntityDefinition >> adbInterfacesList [
 
 { #category : 'platypus-generated-deriving' }
 ExChdCheddarEntityDefinition >> adbInterfacesListUsingContext: aContext [
+
 	^ self adbInterfacesListUsingContext: aContext receiver: self
 
 
@@ -142,6 +159,7 @@ ExChdCheddarEntityDefinition >> adbInterfacesListUsingContext: aContext [
 
 { #category : 'platypus-generated-deriving' }
 ExChdCheddarEntityDefinition >> adbInterfacesListUsingContext: aContext receiver: aReceiver [
+
 	^ Array new
 
 
@@ -149,6 +167,7 @@ ExChdCheddarEntityDefinition >> adbInterfacesListUsingContext: aContext receiver
 
 { #category : 'platypus-generated-deriving' }
 ExChdCheddarEntityDefinition >> adsCode [
+
 	^ self adsCodeUsingContext: self class context
 
 
@@ -156,6 +175,7 @@ ExChdCheddarEntityDefinition >> adsCode [
 
 { #category : 'platypus-generated-deriving' }
 ExChdCheddarEntityDefinition >> adsCodeUsingContext: aContext [
+
 	^ self adsCodeUsingContext: aContext receiver: self
 
 
@@ -163,6 +183,7 @@ ExChdCheddarEntityDefinition >> adsCodeUsingContext: aContext [
 
 { #category : 'platypus-generated-deriving' }
 ExChdCheddarEntityDefinition >> adsCodeUsingContext: aContext receiver: aReceiver [
+
 	^ ''
 
 
@@ -170,6 +191,7 @@ ExChdCheddarEntityDefinition >> adsCodeUsingContext: aContext receiver: aReceive
 
 { #category : 'platypus-generated-deriving' }
 ExChdCheddarEntityDefinition >> adsInterfacesList [
+
 	^ self adsInterfacesListUsingContext: self class context
 
 
@@ -177,6 +199,7 @@ ExChdCheddarEntityDefinition >> adsInterfacesList [
 
 { #category : 'platypus-generated-deriving' }
 ExChdCheddarEntityDefinition >> adsInterfacesListUsingContext: aContext [
+
 	^ self adsInterfacesListUsingContext: aContext receiver: self
 
 
@@ -184,6 +207,7 @@ ExChdCheddarEntityDefinition >> adsInterfacesListUsingContext: aContext [
 
 { #category : 'platypus-generated-deriving' }
 ExChdCheddarEntityDefinition >> adsInterfacesListUsingContext: aContext receiver: aReceiver [
+
 	^ Array new
 
 
@@ -191,6 +215,7 @@ ExChdCheddarEntityDefinition >> adsInterfacesListUsingContext: aContext receiver
 
 { #category : 'platypus-generated-copying' }
 ExChdCheddarEntityDefinition >> cheddarEntityDefinitionCopyTo: another [
+
 	
 
 
@@ -198,6 +223,7 @@ ExChdCheddarEntityDefinition >> cheddarEntityDefinitionCopyTo: another [
 
 { #category : 'platypus-generated-group-accessing' }
 ExChdCheddarEntityDefinition >> cheddarEntityDefinitionFromValues: values [
+
 	| valuesloc |
 	valuesloc := values asOrderedCollection.
 	^ valuesloc
@@ -207,6 +233,7 @@ ExChdCheddarEntityDefinition >> cheddarEntityDefinitionFromValues: values [
 
 { #category : 'platypus-generated-group-accessing' }
 ExChdCheddarEntityDefinition >> cheddarEntityDefinitionToValues: values [
+
 	^ values
 
 
@@ -214,6 +241,7 @@ ExChdCheddarEntityDefinition >> cheddarEntityDefinitionToValues: values [
 
 { #category : 'platypus-generated-group-accessing' }
 ExChdCheddarEntityDefinition >> fromValues: values [
+
 	^ self cheddarEntityDefinitionFromValues: (super fromValues: values)
 
 
@@ -221,6 +249,7 @@ ExChdCheddarEntityDefinition >> fromValues: values [
 
 { #category : 'platypus-generated-deriving' }
 ExChdCheddarEntityDefinition >> initValue [
+
 	^ self initValueUsingContext: self class context
 
 
@@ -228,6 +257,7 @@ ExChdCheddarEntityDefinition >> initValue [
 
 { #category : 'platypus-generated-deriving' }
 ExChdCheddarEntityDefinition >> initValueUsingContext: aContext [
+
 	^ self initValueUsingContext: aContext receiver: self
 
 
@@ -235,6 +265,7 @@ ExChdCheddarEntityDefinition >> initValueUsingContext: aContext [
 
 { #category : 'platypus-generated-deriving' }
 ExChdCheddarEntityDefinition >> initValueUsingContext: aContext receiver: aReceiver [
+
 	^ nil
 
 
@@ -242,6 +273,7 @@ ExChdCheddarEntityDefinition >> initValueUsingContext: aContext receiver: aRecei
 
 { #category : 'platypus-generated-classifying' }
 ExChdCheddarEntityDefinition >> isExChdCheddarEntityDefinition [
+
 	^ true
 
 
@@ -249,6 +281,7 @@ ExChdCheddarEntityDefinition >> isExChdCheddarEntityDefinition [
 
 { #category : 'platypus-generated-group-accessing' }
 ExChdCheddarEntityDefinition >> localFromValues: values [
+
 	^ self cheddarEntityDefinitionFromValues: values
 
 
@@ -256,6 +289,7 @@ ExChdCheddarEntityDefinition >> localFromValues: values [
 
 { #category : 'platypus-generated-group-accessing' }
 ExChdCheddarEntityDefinition >> localToValues: values [
+
 	^ self cheddarEntityDefinitionToValues: values
 
 
@@ -263,6 +297,7 @@ ExChdCheddarEntityDefinition >> localToValues: values [
 
 { #category : 'platypus-generated-copying' }
 ExChdCheddarEntityDefinition >> pltCopyGroup: aClassSymbol to: anObject [
+
 	self class name == aClassSymbol
 		ifTrue: [ self pltCopyTo: anObject ]
 		ifFalse: [ super pltCopyGroup: aClassSymbol to: anObject ]
@@ -272,6 +307,7 @@ ExChdCheddarEntityDefinition >> pltCopyGroup: aClassSymbol to: anObject [
 
 { #category : 'platypus-generated-copying' }
 ExChdCheddarEntityDefinition >> pltCopyTo: another [
+
 	super pltCopyTo: another.
 	self cheddarEntityDefinitionCopyTo: another
 
@@ -280,6 +316,7 @@ ExChdCheddarEntityDefinition >> pltCopyTo: another [
 
 { #category : 'platypus-generated-copying' }
 ExChdCheddarEntityDefinition >> pltLocalCopyTo: another [
+
 	self cheddarEntityDefinitionCopyTo: another
 
 
@@ -287,6 +324,7 @@ ExChdCheddarEntityDefinition >> pltLocalCopyTo: another [
 
 { #category : 'platypus-generated-initializing' }
 ExChdCheddarEntityDefinition >> stepInitialize [
+
 	super stepInitialize
 
 
@@ -294,6 +332,7 @@ ExChdCheddarEntityDefinition >> stepInitialize [
 
 { #category : 'platypus-generated-group-accessing' }
 ExChdCheddarEntityDefinition >> toValues: values [
+
 	^ self cheddarEntityDefinitionToValues: (super toValues: values)
 
 

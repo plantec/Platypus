@@ -38,6 +38,7 @@ Class {
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdExplicitAttributeXmlStartElementCodeFunction class >> iso10303P11Translater [
+
 	^ 'Platypus (c) LISYC EA3883, Universite de Bretagne occidentale. Brest.'
 
 
@@ -45,6 +46,7 @@ ExChdExplicitAttributeXmlStartElementCodeFunction class >> iso10303P11Translater
 
 { #category : 'platypus-generated-meta-data-accessing' }
 ExChdExplicitAttributeXmlStartElementCodeFunction class >> schemaDefinition [
+
 	^ ExChdRecordAndClassSchemaDefinition singleton
 
 
@@ -52,6 +54,7 @@ ExChdExplicitAttributeXmlStartElementCodeFunction class >> schemaDefinition [
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdExplicitAttributeXmlStartElementCodeFunction class >> translatedFromISO10303P11 [
+
 	^ true
 
 
@@ -59,6 +62,7 @@ ExChdExplicitAttributeXmlStartElementCodeFunction class >> translatedFromISO1030
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdExplicitAttributeXmlStartElementCodeFunction class >> vwNamespaceName [
+
 	^ #Express2Cheddar
 
 
@@ -66,6 +70,7 @@ ExChdExplicitAttributeXmlStartElementCodeFunction class >> vwNamespaceName [
 
 { #category : 'platypus-generated-accessing' }
 ExChdExplicitAttributeXmlStartElementCodeFunction >> attr [
+
 	^ attr
 
 
@@ -73,6 +78,7 @@ ExChdExplicitAttributeXmlStartElementCodeFunction >> attr [
 
 { #category : 'platypus-generated-accessing' }
 ExChdExplicitAttributeXmlStartElementCodeFunction >> attr: aExChdExplicitAttribute [
+
 	attr := aExChdExplicitAttribute
 
 
@@ -80,6 +86,7 @@ ExChdExplicitAttributeXmlStartElementCodeFunction >> attr: aExChdExplicitAttribu
 
 { #category : 'platypus-generated-accessing' }
 ExChdExplicitAttributeXmlStartElementCodeFunction >> code [
+
 	^ code
 
 
@@ -87,6 +94,7 @@ ExChdExplicitAttributeXmlStartElementCodeFunction >> code [
 
 { #category : 'platypus-generated-accessing' }
 ExChdExplicitAttributeXmlStartElementCodeFunction >> code: aString [
+
 	code := aString
 
 
@@ -94,6 +102,7 @@ ExChdExplicitAttributeXmlStartElementCodeFunction >> code: aString [
 
 { #category : 'platypus-generated-accessing' }
 ExChdExplicitAttributeXmlStartElementCodeFunction >> domain [
+
 	^ domain
 
 
@@ -101,6 +110,7 @@ ExChdExplicitAttributeXmlStartElementCodeFunction >> domain [
 
 { #category : 'platypus-generated-accessing' }
 ExChdExplicitAttributeXmlStartElementCodeFunction >> domain: aExChdEntityInstance [
+
 	domain := aExChdEntityInstance
 
 
@@ -108,6 +118,7 @@ ExChdExplicitAttributeXmlStartElementCodeFunction >> domain: aExChdEntityInstanc
 
 { #category : 'platypus-generated-accessing' }
 ExChdExplicitAttributeXmlStartElementCodeFunction >> elementDomain [
+
 	^ elementDomain
 
 
@@ -115,6 +126,7 @@ ExChdExplicitAttributeXmlStartElementCodeFunction >> elementDomain [
 
 { #category : 'platypus-generated-accessing' }
 ExChdExplicitAttributeXmlStartElementCodeFunction >> elementDomain: aExChdEntityInstance2 [
+
 	elementDomain := aExChdEntityInstance2
 
 
@@ -122,6 +134,7 @@ ExChdExplicitAttributeXmlStartElementCodeFunction >> elementDomain: aExChdEntity
 
 { #category : 'platypus-generated-accessing' }
 ExChdExplicitAttributeXmlStartElementCodeFunction >> fromValues: values [
+
 	self attr: (values at: 1)
 
 
@@ -132,33 +145,32 @@ ExChdExplicitAttributeXmlStartElementCodeFunction >> invoke [
 	" ---------- locals assignments ----------"
 
 	self code: ''.
-	self
-		domain:
-			(ExChdBasicAdaDomainFunction
-				invokeFromValues:
-					(OrderedCollection new
-						add: (self attr domainUsingContext: self class context);
-						yourself)).	" ---------- statements ----------"
-	(ExChdIsGenericObjectFunction
-		invokeFromValues:
-			(OrderedCollection new
-				add: (self domain handledUsingContext: self class context);
-				yourself))
-		ifTrue: [ 
-			self
-				code:
-					(((((((((('\n\t\tif To_String (To_Lower (Qname)) = "'
-						pltPlus:
-							(PTsLowerizeFunction
-								invokeFromValues:
-									(OrderedCollection new
-										add: (self attr nameUsingContext: self class context);
-										yourself))) pltPlus: '" then\n') pltPlus: '\t\t\tfor J in 0 .. Get_Length (Atts) - 1 loop\n')
-						pltPlus: '\t\t\t\tif To_String (To_Lower (Get_Qname (Atts, J))) = "ref" then\n') pltPlus: '\t\t\t\t\tobj.')
-						pltPlus: (self attr nameUsingContext: self class context))
-						pltPlus: ' := To_Unbounded_String (Get_Value (Atts, J));\n') pltPlus: '\t\t\t\tend if;\n')
-						pltPlus: '\t\t\tend loop;\n') pltPlus: '\t\tend if;') ]
-		ifFalse: [  ].
+	self domain:
+		(ExChdBasicAdaDomainFunction invokeFromValues:
+			 (OrderedCollection new
+				  add: (self attr domainUsingContext: self class context);
+				  yourself)). " ---------- statements ----------"
+	(ExChdIsGenericObjectFunction invokeFromValues:
+		 (OrderedCollection new
+			  add: (self domain handledUsingContext: self class context);
+			  yourself))
+		ifTrue: [
+				self code:
+					(((((((((('\n\t\tif To_String (To_Lower (Qname)) = "' pltPlus:
+						          (PTsLowerizeFunction invokeFromValues:
+							           (OrderedCollection new
+								            add:
+									            (self attr nameUsingContext: self class context);
+								            yourself))) pltPlus: '" then\n') pltPlus:
+						        '\t\t\tfor J in 0 .. Get_Length (Atts) - 1 loop\n')
+						       pltPlus:
+						       '\t\t\t\tif To_String (To_Lower (Get_Qname (Atts, J))) = "ref" then\n')
+						      pltPlus: '\t\t\t\t\tobj.') pltPlus:
+						     (self attr nameUsingContext: self class context)) pltPlus:
+						    ' := To_Unbounded_String (Get_Value (Atts, J));\n')
+						   pltPlus: '\t\t\t\tend if;\n') pltPlus: '\t\t\tend loop;\n')
+						 pltPlus: '\t\tend if;') ]
+		ifFalse: [ ].
 	^ self return: self code
 
 
@@ -166,6 +178,7 @@ ExChdExplicitAttributeXmlStartElementCodeFunction >> invoke [
 
 { #category : 'platypus-generated-accessing' }
 ExChdExplicitAttributeXmlStartElementCodeFunction >> subDomain [
+
 	^ subDomain
 
 
@@ -173,6 +186,7 @@ ExChdExplicitAttributeXmlStartElementCodeFunction >> subDomain [
 
 { #category : 'platypus-generated-accessing' }
 ExChdExplicitAttributeXmlStartElementCodeFunction >> subDomain: aExChdEntityInstance1 [
+
 	subDomain := aExChdEntityInstance1
 
 

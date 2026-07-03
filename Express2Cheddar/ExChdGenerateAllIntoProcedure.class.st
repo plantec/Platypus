@@ -1,7 +1,7 @@
 "
 <ISO10303-11-EXPRESS>
 PROCEDURE generate_all_into ( dir : STRING );
-	(*#  MultiByteFileStream defaultToLF  #*) prepare_root_ada_classes;
+	prepare_root_ada_classes;
 	all_packages_code_into ( true, dir, 'Platypus2Cheddar' );
 	all_packages_code_into ( false, dir, 'Platypus2Cheddar' );
 	dtds_into ( dir );
@@ -21,6 +21,7 @@ Class {
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdGenerateAllIntoProcedure class >> iso10303P11Translater [
+
 	^ 'Platypus (c) LISYC EA3883, Universite de Bretagne occidentale. Brest.'
 
 
@@ -28,6 +29,7 @@ ExChdGenerateAllIntoProcedure class >> iso10303P11Translater [
 
 { #category : 'platypus-generated-meta-data-accessing' }
 ExChdGenerateAllIntoProcedure class >> schemaDefinition [
+
 	^ ExChdExpress2cheddarFacadeSchemaDefinition singleton
 
 
@@ -35,6 +37,7 @@ ExChdGenerateAllIntoProcedure class >> schemaDefinition [
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdGenerateAllIntoProcedure class >> translatedFromISO10303P11 [
+
 	^ true
 
 
@@ -42,6 +45,7 @@ ExChdGenerateAllIntoProcedure class >> translatedFromISO10303P11 [
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdGenerateAllIntoProcedure class >> vwNamespaceName [
+
 	^ #Express2Cheddar
 
 
@@ -49,6 +53,7 @@ ExChdGenerateAllIntoProcedure class >> vwNamespaceName [
 
 { #category : 'platypus-generated-accessing' }
 ExChdGenerateAllIntoProcedure >> dir [
+
 	^ dir
 
 
@@ -56,6 +61,7 @@ ExChdGenerateAllIntoProcedure >> dir [
 
 { #category : 'platypus-generated-accessing' }
 ExChdGenerateAllIntoProcedure >> dir: aString [
+
 	dir := aString
 
 
@@ -63,6 +69,7 @@ ExChdGenerateAllIntoProcedure >> dir: aString [
 
 { #category : 'platypus-generated-accessing' }
 ExChdGenerateAllIntoProcedure >> fromValues: values [
+
 	self dir: (values at: 1)
 
 
@@ -70,32 +77,24 @@ ExChdGenerateAllIntoProcedure >> fromValues: values [
 
 { #category : 'platypus-generated-invoking' }
 ExChdGenerateAllIntoProcedure >> invoke [
-	" ---------- locals assignments ----------"
-
-	" ---------- statements ----------"
-
-	"---------- native statement ---------- "
+	" ---------- locals assignments ----------"" ---------- statements ----------"
 
 	ExChdPrepareRootAdaClassesProcedure invoke.
-	ExChdAllPackagesCodeIntoFunction
-		invokeFromValues:
-			(OrderedCollection new
-				add: true;
-				add: self dir;
-				add: 'Platypus2Cheddar';
-				yourself).
-	ExChdAllPackagesCodeIntoFunction
-		invokeFromValues:
-			(OrderedCollection new
-				add: false;
-				add: self dir;
-				add: 'Platypus2Cheddar';
-				yourself).
-	ExChdDtdsIntoProcedure
-		invokeFromValues:
-			(OrderedCollection new
-				add: self dir;
-				yourself)
+	ExChdAllPackagesCodeIntoFunction invokeFromValues:
+		(OrderedCollection new
+			 add: true;
+			 add: self dir;
+			 add: 'Platypus2Cheddar';
+			 yourself).
+	ExChdAllPackagesCodeIntoFunction invokeFromValues:
+		(OrderedCollection new
+			 add: false;
+			 add: self dir;
+			 add: 'Platypus2Cheddar';
+			 yourself).
+	ExChdDtdsIntoProcedure invokeFromValues: (OrderedCollection new
+			 add: self dir;
+			 yourself)
 
 
 ]

@@ -23,6 +23,7 @@ Class {
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdRecord class >> iso10303P11Translater [
+
 	^ 'Platypus (c) LISYC EA3883, Universite de Bretagne occidentale. Brest.'
 
 
@@ -30,6 +31,7 @@ ExChdRecord class >> iso10303P11Translater [
 
 { #category : 'platypus-generated-meta-data-accessing' }
 ExChdRecord class >> schemaDefinition [
+
 	^ ExChdRecordAndClassSchemaDefinition singleton
 
 
@@ -37,6 +39,7 @@ ExChdRecord class >> schemaDefinition [
 
 { #category : 'platypus-generated-meta-data-accessing' }
 ExChdRecord class >> schemaInstance [
+
 	^ ExChdExpress2cheddarSchemaInstance singleton
 
 
@@ -44,6 +47,7 @@ ExChdRecord class >> schemaInstance [
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdRecord class >> translatedFromISO10303P11 [
+
 	^ true
 
 
@@ -51,6 +55,7 @@ ExChdRecord class >> translatedFromISO10303P11 [
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdRecord class >> vwNamespaceName [
+
 	^ #Express2Cheddar
 
 
@@ -58,6 +63,7 @@ ExChdRecord class >> vwNamespaceName [
 
 { #category : 'platypus-generated-visiting' }
 ExChdRecord >> accept: aVisitor [
+
 	^ aVisitor acceptRecord: self
 
 
@@ -65,6 +71,7 @@ ExChdRecord >> accept: aVisitor [
 
 { #category : 'platypus-generated-deriving' }
 ExChdRecord >> adbCode [
+
 	^ self adbCodeUsingContext: self class context
 
 
@@ -72,6 +79,7 @@ ExChdRecord >> adbCode [
 
 { #category : 'platypus-generated-deriving' }
 ExChdRecord >> adbCodeUsingContext: aContext [
+
 	^ self adbCodeUsingContext: aContext receiver: self
 
 
@@ -79,17 +87,18 @@ ExChdRecord >> adbCodeUsingContext: aContext [
 
 { #category : 'platypus-generated-deriving' }
 ExChdRecord >> adbCodeUsingContext: aContext receiver: aReceiver [
-	^ ExChdRecordAdbCodeFunction
-		invokeFromValues:
-			(OrderedCollection new
-				add: aReceiver;
-				yourself)
+
+	^ ExChdRecordAdbCodeFunction invokeFromValues:
+		  (OrderedCollection new
+			   add: aReceiver;
+			   yourself)
 
 
 ]
 
 { #category : 'platypus-generated-deriving' }
 ExChdRecord >> adbInterfacesList [
+
 	^ self adbInterfacesListUsingContext: self class context
 
 
@@ -97,6 +106,7 @@ ExChdRecord >> adbInterfacesList [
 
 { #category : 'platypus-generated-deriving' }
 ExChdRecord >> adbInterfacesListUsingContext: aContext [
+
 	^ self adbInterfacesListUsingContext: aContext receiver: self
 
 
@@ -104,18 +114,19 @@ ExChdRecord >> adbInterfacesListUsingContext: aContext [
 
 { #category : 'platypus-generated-deriving' }
 ExChdRecord >> adbInterfacesListUsingContext: aContext receiver: aReceiver [
-	^ ExChdAdaEntityInterfacesListFunction
-		invokeFromValues:
-			(OrderedCollection new
-				add: aReceiver;
-				add: false;
-				yourself)
+
+	^ ExChdAdaEntityInterfacesListFunction invokeFromValues:
+		  (OrderedCollection new
+			   add: aReceiver;
+			   add: false;
+			   yourself)
 
 
 ]
 
 { #category : 'platypus-generated-deriving' }
 ExChdRecord >> adsCode [
+
 	^ self adsCodeUsingContext: self class context
 
 
@@ -123,6 +134,7 @@ ExChdRecord >> adsCode [
 
 { #category : 'platypus-generated-deriving' }
 ExChdRecord >> adsCodeUsingContext: aContext [
+
 	^ self adsCodeUsingContext: aContext receiver: self
 
 
@@ -130,17 +142,18 @@ ExChdRecord >> adsCodeUsingContext: aContext [
 
 { #category : 'platypus-generated-deriving' }
 ExChdRecord >> adsCodeUsingContext: aContext receiver: aReceiver [
-	^ ExChdRecordAdsCodeFunction
-		invokeFromValues:
-			(OrderedCollection new
-				add: aReceiver;
-				yourself)
+
+	^ ExChdRecordAdsCodeFunction invokeFromValues:
+		  (OrderedCollection new
+			   add: aReceiver;
+			   yourself)
 
 
 ]
 
 { #category : 'platypus-generated-deriving' }
 ExChdRecord >> adsInterfacesList [
+
 	^ self adsInterfacesListUsingContext: self class context
 
 
@@ -148,6 +161,7 @@ ExChdRecord >> adsInterfacesList [
 
 { #category : 'platypus-generated-deriving' }
 ExChdRecord >> adsInterfacesListUsingContext: aContext [
+
 	^ self adsInterfacesListUsingContext: aContext receiver: self
 
 
@@ -155,18 +169,19 @@ ExChdRecord >> adsInterfacesListUsingContext: aContext [
 
 { #category : 'platypus-generated-deriving' }
 ExChdRecord >> adsInterfacesListUsingContext: aContext receiver: aReceiver [
-	^ ExChdAdaEntityInterfacesListFunction
-		invokeFromValues:
-			(OrderedCollection new
-				add: aReceiver;
-				add: true;
-				yourself)
+
+	^ ExChdAdaEntityInterfacesListFunction invokeFromValues:
+		  (OrderedCollection new
+			   add: aReceiver;
+			   add: true;
+			   yourself)
 
 
 ]
 
 { #category : 'platypus-generated-deriving' }
 ExChdRecord >> adsPreDef [
+
 	^ self adsPreDefUsingContext: self class context
 
 
@@ -174,6 +189,7 @@ ExChdRecord >> adsPreDef [
 
 { #category : 'platypus-generated-deriving' }
 ExChdRecord >> adsPreDefUsingContext: aContext [
+
 	^ self adsPreDefUsingContext: aContext receiver: self
 
 
@@ -181,15 +197,19 @@ ExChdRecord >> adsPreDefUsingContext: aContext [
 
 { #category : 'platypus-generated-deriving' }
 ExChdRecord >> adsPreDefUsingContext: aContext receiver: aReceiver [
-	^ ((((('type ' pltPlus: (aReceiver nameUsingContext: aContext)) pltPlus: '; type ')
-		pltPlus: (aReceiver ptrTypeUsingContext: aContext)) pltPlus: ' is access all ')
-		pltPlus: (aReceiver nameUsingContext: aContext)) pltPlus: ';'
+
+	^ ((((('type ' pltPlus: (aReceiver nameUsingContext: aContext))
+		      pltPlus: '; type ') pltPlus:
+		     (aReceiver ptrTypeUsingContext: aContext)) pltPlus:
+		    ' is access all ') pltPlus:
+		   (aReceiver nameUsingContext: aContext)) pltPlus: ';'
 
 
 ]
 
 { #category : 'platypus-generated-group-accessing' }
 ExChdRecord >> fromValues: values [
+
 	^ self recordFromValues: (super fromValues: values)
 
 
@@ -197,6 +217,7 @@ ExChdRecord >> fromValues: values [
 
 { #category : 'platypus-generated-classifying' }
 ExChdRecord >> isExChdRecord [
+
 	^ true
 
 
@@ -204,6 +225,7 @@ ExChdRecord >> isExChdRecord [
 
 { #category : 'platypus-generated-group-accessing' }
 ExChdRecord >> localFromValues: values [
+
 	^ self recordFromValues: values
 
 
@@ -211,6 +233,7 @@ ExChdRecord >> localFromValues: values [
 
 { #category : 'platypus-generated-group-accessing' }
 ExChdRecord >> localToValues: values [
+
 	^ self recordToValues: values
 
 
@@ -218,6 +241,7 @@ ExChdRecord >> localToValues: values [
 
 { #category : 'platypus-generated-copying' }
 ExChdRecord >> pltCopyGroup: aClassSymbol to: anObject [
+
 	self class name == aClassSymbol
 		ifTrue: [ self pltCopyTo: anObject ]
 		ifFalse: [ super pltCopyGroup: aClassSymbol to: anObject ]
@@ -227,6 +251,7 @@ ExChdRecord >> pltCopyGroup: aClassSymbol to: anObject [
 
 { #category : 'platypus-generated-copying' }
 ExChdRecord >> pltCopyTo: another [
+
 	super pltCopyTo: another.
 	self recordCopyTo: another
 
@@ -235,6 +260,7 @@ ExChdRecord >> pltCopyTo: another [
 
 { #category : 'platypus-generated-copying' }
 ExChdRecord >> pltLocalCopyTo: another [
+
 	self recordCopyTo: another
 
 
@@ -242,6 +268,7 @@ ExChdRecord >> pltLocalCopyTo: another [
 
 { #category : 'platypus-generated-copying' }
 ExChdRecord >> recordCopyTo: another [
+
 	
 
 
@@ -249,6 +276,7 @@ ExChdRecord >> recordCopyTo: another [
 
 { #category : 'platypus-generated-group-accessing' }
 ExChdRecord >> recordFromValues: values [
+
 	| valuesloc |
 	valuesloc := values asOrderedCollection.
 	^ valuesloc
@@ -258,6 +286,7 @@ ExChdRecord >> recordFromValues: values [
 
 { #category : 'platypus-generated-group-accessing' }
 ExChdRecord >> recordToValues: values [
+
 	^ values
 
 
@@ -265,6 +294,7 @@ ExChdRecord >> recordToValues: values [
 
 { #category : 'platypus-generated-initializing' }
 ExChdRecord >> stepInitialize [
+
 	super stepInitialize
 
 
@@ -272,6 +302,7 @@ ExChdRecord >> stepInitialize [
 
 { #category : 'platypus-generated-group-accessing' }
 ExChdRecord >> toValues: values [
+
 	^ self recordToValues: (super toValues: values)
 
 
@@ -279,6 +310,7 @@ ExChdRecord >> toValues: values [
 
 { #category : 'platypus-generated-deriving' }
 ExChdRecord >> xmlIoRecordCode [
+
 	^ self xmlIoRecordCodeUsingContext: self class context
 
 
@@ -286,6 +318,7 @@ ExChdRecord >> xmlIoRecordCode [
 
 { #category : 'platypus-generated-deriving' }
 ExChdRecord >> xmlIoRecordCodeUsingContext: aContext [
+
 	^ self xmlIoRecordCodeUsingContext: aContext receiver: self
 
 
@@ -293,17 +326,18 @@ ExChdRecord >> xmlIoRecordCodeUsingContext: aContext [
 
 { #category : 'platypus-generated-deriving' }
 ExChdRecord >> xmlIoRecordCodeUsingContext: aContext receiver: aReceiver [
-	^ ExChdRecordXmlIoRecordCodeFunction
-		invokeFromValues:
-			(OrderedCollection new
-				add: aReceiver;
-				yourself)
+
+	^ ExChdRecordXmlIoRecordCodeFunction invokeFromValues:
+		  (OrderedCollection new
+			   add: aReceiver;
+			   yourself)
 
 
 ]
 
 { #category : 'platypus-generated-deriving' }
 ExChdRecord >> xmlWriterCode [
+
 	^ self xmlWriterCodeUsingContext: self class context
 
 
@@ -311,6 +345,7 @@ ExChdRecord >> xmlWriterCode [
 
 { #category : 'platypus-generated-deriving' }
 ExChdRecord >> xmlWriterCodeUsingContext: aContext [
+
 	^ self xmlWriterCodeUsingContext: aContext receiver: self
 
 
@@ -318,11 +353,11 @@ ExChdRecord >> xmlWriterCodeUsingContext: aContext [
 
 { #category : 'platypus-generated-deriving' }
 ExChdRecord >> xmlWriterCodeUsingContext: aContext receiver: aReceiver [
-	^ ExChdRecordXmlWriterCodeFunction
-		invokeFromValues:
-			(OrderedCollection new
-				add: aReceiver;
-				yourself)
+
+	^ ExChdRecordXmlWriterCodeFunction invokeFromValues:
+		  (OrderedCollection new
+			   add: aReceiver;
+			   yourself)
 
 
 ]

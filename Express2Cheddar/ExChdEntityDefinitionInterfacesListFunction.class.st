@@ -33,6 +33,7 @@ Class {
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdEntityDefinitionInterfacesListFunction class >> iso10303P11Translater [
+
 	^ 'Platypus (c) LISYC EA3883, Universite de Bretagne occidentale. Brest.'
 
 
@@ -40,6 +41,7 @@ ExChdEntityDefinitionInterfacesListFunction class >> iso10303P11Translater [
 
 { #category : 'platypus-generated-meta-data-accessing' }
 ExChdEntityDefinitionInterfacesListFunction class >> schemaDefinition [
+
 	^ ExChdRecordAndClassSchemaDefinition singleton
 
 
@@ -47,6 +49,7 @@ ExChdEntityDefinitionInterfacesListFunction class >> schemaDefinition [
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdEntityDefinitionInterfacesListFunction class >> translatedFromISO10303P11 [
+
 	^ true
 
 
@@ -54,6 +57,7 @@ ExChdEntityDefinitionInterfacesListFunction class >> translatedFromISO10303P11 [
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdEntityDefinitionInterfacesListFunction class >> vwNamespaceName [
+
 	^ #Express2Cheddar
 
 
@@ -61,6 +65,7 @@ ExChdEntityDefinitionInterfacesListFunction class >> vwNamespaceName [
 
 { #category : 'platypus-generated-accessing' }
 ExChdEntityDefinitionInterfacesListFunction >> adaDomain [
+
 	^ adaDomain
 
 
@@ -68,6 +73,7 @@ ExChdEntityDefinitionInterfacesListFunction >> adaDomain [
 
 { #category : 'platypus-generated-accessing' }
 ExChdEntityDefinitionInterfacesListFunction >> adaDomain: aExChdEntityInstance [
+
 	adaDomain := aExChdEntityInstance
 
 
@@ -75,6 +81,7 @@ ExChdEntityDefinitionInterfacesListFunction >> adaDomain: aExChdEntityInstance [
 
 { #category : 'platypus-generated-accessing' }
 ExChdEntityDefinitionInterfacesListFunction >> ads [
+
 	^ ads
 
 
@@ -82,6 +89,7 @@ ExChdEntityDefinitionInterfacesListFunction >> ads [
 
 { #category : 'platypus-generated-accessing' }
 ExChdEntityDefinitionInterfacesListFunction >> ads: aBoolean [
+
 	ads := aBoolean
 
 
@@ -89,6 +97,7 @@ ExChdEntityDefinitionInterfacesListFunction >> ads: aBoolean [
 
 { #category : 'platypus-generated-accessing' }
 ExChdEntityDefinitionInterfacesListFunction >> fromValues: values [
+
 	self r: (values at: 1).
 	self ads: (values at: 2)
 
@@ -99,42 +108,34 @@ ExChdEntityDefinitionInterfacesListFunction >> fromValues: values [
 ExChdEntityDefinitionInterfacesListFunction >> invoke [
 	" ---------- locals assignments ----------"
 
-	self result: Array new.	" ---------- statements ----------"
+	self result: Array new. " ---------- statements ----------"
 	PlatypusCoreRepeatStatement
-		repeat: [ :no638 | 
-			PlatypusCoreAliasStatement
-				alias: ((self r explicitAttributesUsingContext: self class context) pltAt: no638)
-				statementsBlock: [ :curr2594 | 
-					self
-						adaDomain:
-							(ExChdBasicAdaDomainFunction
-								invokeFromValues:
-									(OrderedCollection new
-										add: (curr2594 domainUsingContext: self class context);
-										yourself)).
-					self
-						result:
-							(self result
-								pltPlus:
-									(ExChdDomainInterfacesListFunction
-										invokeFromValues:
-											(OrderedCollection new
-												add: self adaDomain;
-												add: self ads;
-												add: (self r ownerUsingContext: self class context);
-												yourself))) ] ]
-		from:
-			(PltLOINDEXFunction
-				invokeFromValues:
-					(OrderedCollection new
-						add: (self r explicitAttributesUsingContext: self class context);
-						yourself))
-		to:
-			(PltHIINDEXFunction
-				invokeFromValues:
-					(OrderedCollection new
-						add: (self r explicitAttributesUsingContext: self class context);
-						yourself)).
+		repeat: [ :no1660123 |
+				PlatypusCoreAliasStatement
+					alias:
+						((self r explicitAttributesUsingContext: self class context)
+							 pltAt: no1660123)
+					statementsBlock: [ :curr1183355 |
+							self adaDomain:
+								(ExChdBasicAdaDomainFunction invokeFromValues:
+									 (OrderedCollection new
+										  add: (curr1183355 domainUsingContext: self class context);
+										  yourself)).
+							self result: (self result pltPlus:
+									 (ExChdDomainInterfacesListFunction invokeFromValues:
+										  (OrderedCollection new
+											   add: self adaDomain;
+											   add: self ads;
+											   add: (self r ownerUsingContext: self class context);
+											   yourself))) ] ]
+		from: (PltLOINDEXFunction invokeFromValues: (OrderedCollection new
+					  add:
+						  (self r explicitAttributesUsingContext: self class context);
+					  yourself))
+		to: (PltHIINDEXFunction invokeFromValues: (OrderedCollection new
+					  add:
+						  (self r explicitAttributesUsingContext: self class context);
+					  yourself)).
 	^ self return: self result
 
 
@@ -142,6 +143,7 @@ ExChdEntityDefinitionInterfacesListFunction >> invoke [
 
 { #category : 'platypus-generated-accessing' }
 ExChdEntityDefinitionInterfacesListFunction >> r [
+
 	^ r
 
 
@@ -149,6 +151,7 @@ ExChdEntityDefinitionInterfacesListFunction >> r [
 
 { #category : 'platypus-generated-accessing' }
 ExChdEntityDefinitionInterfacesListFunction >> r: aExChdEntityDefinition [
+
 	r := aExChdEntityDefinition
 
 
@@ -156,6 +159,7 @@ ExChdEntityDefinitionInterfacesListFunction >> r: aExChdEntityDefinition [
 
 { #category : 'platypus-generated-accessing' }
 ExChdEntityDefinitionInterfacesListFunction >> r: aExChdEntityDefinition ads: aBoolean [
+
 	self r: aExChdEntityDefinition.
 	self ads: aBoolean
 
@@ -164,6 +168,7 @@ ExChdEntityDefinitionInterfacesListFunction >> r: aExChdEntityDefinition ads: aB
 
 { #category : 'platypus-generated-accessing' }
 ExChdEntityDefinitionInterfacesListFunction >> result [
+
 	^ result
 
 
@@ -171,9 +176,11 @@ ExChdEntityDefinitionInterfacesListFunction >> result [
 
 { #category : 'platypus-generated-accessing' }
 ExChdEntityDefinitionInterfacesListFunction >> result: aListOfExChdAdaInterface [
+
 	result := aListOfExChdAdaInterface
-		ifNil: [ OrderedCollection new ]
-		ifNotNil: [ aListOfExChdAdaInterface as: OrderedCollection ]
+		          ifNil: [ OrderedCollection new ]
+		          ifNotNil: [
+		          aListOfExChdAdaInterface as: OrderedCollection ]
 
 
 ]

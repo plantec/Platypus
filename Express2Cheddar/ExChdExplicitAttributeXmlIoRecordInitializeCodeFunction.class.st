@@ -39,6 +39,7 @@ Class {
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdExplicitAttributeXmlIoRecordInitializeCodeFunction class >> iso10303P11Translater [
+
 	^ 'Platypus (c) LISYC EA3883, Universite de Bretagne occidentale. Brest.'
 
 
@@ -46,6 +47,7 @@ ExChdExplicitAttributeXmlIoRecordInitializeCodeFunction class >> iso10303P11Tran
 
 { #category : 'platypus-generated-meta-data-accessing' }
 ExChdExplicitAttributeXmlIoRecordInitializeCodeFunction class >> schemaDefinition [
+
 	^ ExChdRecordAndClassSchemaDefinition singleton
 
 
@@ -53,6 +55,7 @@ ExChdExplicitAttributeXmlIoRecordInitializeCodeFunction class >> schemaDefinitio
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdExplicitAttributeXmlIoRecordInitializeCodeFunction class >> translatedFromISO10303P11 [
+
 	^ true
 
 
@@ -60,6 +63,7 @@ ExChdExplicitAttributeXmlIoRecordInitializeCodeFunction class >> translatedFromI
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdExplicitAttributeXmlIoRecordInitializeCodeFunction class >> vwNamespaceName [
+
 	^ #Express2Cheddar
 
 
@@ -67,6 +71,7 @@ ExChdExplicitAttributeXmlIoRecordInitializeCodeFunction class >> vwNamespaceName
 
 { #category : 'platypus-generated-accessing' }
 ExChdExplicitAttributeXmlIoRecordInitializeCodeFunction >> attr [
+
 	^ attr
 
 
@@ -74,6 +79,7 @@ ExChdExplicitAttributeXmlIoRecordInitializeCodeFunction >> attr [
 
 { #category : 'platypus-generated-accessing' }
 ExChdExplicitAttributeXmlIoRecordInitializeCodeFunction >> attr: aExChdExplicitAttribute [
+
 	attr := aExChdExplicitAttribute
 
 
@@ -81,6 +87,7 @@ ExChdExplicitAttributeXmlIoRecordInitializeCodeFunction >> attr: aExChdExplicitA
 
 { #category : 'platypus-generated-accessing' }
 ExChdExplicitAttributeXmlIoRecordInitializeCodeFunction >> code [
+
 	^ code
 
 
@@ -88,6 +95,7 @@ ExChdExplicitAttributeXmlIoRecordInitializeCodeFunction >> code [
 
 { #category : 'platypus-generated-accessing' }
 ExChdExplicitAttributeXmlIoRecordInitializeCodeFunction >> code: aString [
+
 	code := aString
 
 
@@ -95,6 +103,7 @@ ExChdExplicitAttributeXmlIoRecordInitializeCodeFunction >> code: aString [
 
 { #category : 'platypus-generated-accessing' }
 ExChdExplicitAttributeXmlIoRecordInitializeCodeFunction >> domain [
+
 	^ domain
 
 
@@ -102,6 +111,7 @@ ExChdExplicitAttributeXmlIoRecordInitializeCodeFunction >> domain [
 
 { #category : 'platypus-generated-accessing' }
 ExChdExplicitAttributeXmlIoRecordInitializeCodeFunction >> domain: aExChdEntityInstance [
+
 	domain := aExChdEntityInstance
 
 
@@ -109,6 +119,7 @@ ExChdExplicitAttributeXmlIoRecordInitializeCodeFunction >> domain: aExChdEntityI
 
 { #category : 'platypus-generated-accessing' }
 ExChdExplicitAttributeXmlIoRecordInitializeCodeFunction >> fromValues: values [
+
 	self attr: (values at: 1)
 
 
@@ -116,6 +127,7 @@ ExChdExplicitAttributeXmlIoRecordInitializeCodeFunction >> fromValues: values [
 
 { #category : 'platypus-generated-accessing' }
 ExChdExplicitAttributeXmlIoRecordInitializeCodeFunction >> init [
+
 	^ init
 
 
@@ -123,6 +135,7 @@ ExChdExplicitAttributeXmlIoRecordInitializeCodeFunction >> init [
 
 { #category : 'platypus-generated-accessing' }
 ExChdExplicitAttributeXmlIoRecordInitializeCodeFunction >> init: aString1 [
+
 	init := aString1
 
 
@@ -133,42 +146,40 @@ ExChdExplicitAttributeXmlIoRecordInitializeCodeFunction >> invoke [
 	" ---------- locals assignments ----------"
 
 	self code: ''.
-	self
-		domain:
-			(ExChdBasicAdaDomainFunction
-				invokeFromValues:
-					(OrderedCollection new
-						add: (self attr domainUsingContext: self class context);
-						yourself)).
-	self init: (self domain initValueUsingContext: self class context).	" ---------- statements ----------"
-	(ExChdIsGenericObjectFunction
-		invokeFromValues:
-			(OrderedCollection new
-				add: (self domain handledUsingContext: self class context);
-				yourself)) not
-		ifTrue: [ 
-			((PltTYPEOFFunction
-				invokeFromValues:
-					(OrderedCollection new
-						add: (self domain handledUsingContext: self class context);
-						yourself)) includes: 'CHEDDAR_DOMAINS.ADA_ENUMERATION')
-				ifTrue: [ 
-					self
-						code:
-							(((('\tobj.' pltPlus: (self attr nameUsingContext: self class context)) pltPlus: ' := ')
-								pltPlus: (self domain adaRefIdentUsingContext: self class context)) pltPlus: '''first;') ]
-				ifFalse: [ 
-					(PltEXISTSFunction
-						invokeFromValues:
-							(OrderedCollection new
-								add: self init;
-								yourself))
-						ifTrue: [ 
-							self
-								code:
-									(((('\tobj.' pltPlus: (self attr nameUsingContext: self class context)) pltPlus: ' := ') pltPlus: self init)
-										pltPlus: ';') ] ] ]
-		ifFalse: [ self code: (('\tobj.' pltPlus: (self attr nameUsingContext: self class context)) pltPlus: ' := empty_string;') ].
+	self domain:
+		(ExChdBasicAdaDomainFunction invokeFromValues:
+			 (OrderedCollection new
+				  add: (self attr domainUsingContext: self class context);
+				  yourself)).
+	self init: (self domain initValueUsingContext: self class context). " ---------- statements ----------"
+	(ExChdIsGenericObjectFunction invokeFromValues:
+		 (OrderedCollection new
+			  add: (self domain handledUsingContext: self class context);
+			  yourself)) not
+		ifTrue: [
+				((PltTYPEOFFunction invokeFromValues: (OrderedCollection new
+						   add: (self domain handledUsingContext: self class context);
+						   yourself)) includes: 'CHEDDAR_DOMAINS.ADA_ENUMERATION')
+					ifTrue: [
+							self code:
+								(((('\tobj.' pltPlus:
+									    (self attr nameUsingContext: self class context))
+									   pltPlus: ' := ') pltPlus:
+									  (self domain adaRefIdentUsingContext: self class context))
+									 pltPlus: '''first;') ]
+					ifFalse: [
+							(PltEXISTSFunction invokeFromValues: (OrderedCollection new
+									  add: self init;
+									  yourself)) ifTrue: [
+									self code:
+										(((('\tobj.' pltPlus:
+											    (self attr nameUsingContext: self class context))
+											   pltPlus: ' := ') pltPlus: self init) pltPlus: ';') ] ] ]
+		ifFalse: [
+				self code:
+					(('\tobj.' pltPlus:
+						  (self attr nameUsingContext: self class context)) pltPlus:
+						 ' := empty_string;') ].
 	^ self return: self code
 
 

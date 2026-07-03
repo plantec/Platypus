@@ -41,6 +41,7 @@ Class {
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdComputePackageDtdCodeFunction class >> iso10303P11Translater [
+
 	^ 'Platypus (c) LISYC EA3883, Universite de Bretagne occidentale. Brest.'
 
 
@@ -48,6 +49,7 @@ ExChdComputePackageDtdCodeFunction class >> iso10303P11Translater [
 
 { #category : 'platypus-generated-meta-data-accessing' }
 ExChdComputePackageDtdCodeFunction class >> schemaDefinition [
+
 	^ ExChdCheddarDtdSchemaDefinition singleton
 
 
@@ -55,6 +57,7 @@ ExChdComputePackageDtdCodeFunction class >> schemaDefinition [
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdComputePackageDtdCodeFunction class >> translatedFromISO10303P11 [
+
 	^ true
 
 
@@ -62,6 +65,7 @@ ExChdComputePackageDtdCodeFunction class >> translatedFromISO10303P11 [
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdComputePackageDtdCodeFunction class >> vwNamespaceName [
+
 	^ #Express2Cheddar
 
 
@@ -69,6 +73,7 @@ ExChdComputePackageDtdCodeFunction class >> vwNamespaceName [
 
 { #category : 'platypus-generated-accessing' }
 ExChdComputePackageDtdCodeFunction >> fromValues: values [
+
 	self p: (values at: 1)
 
 
@@ -79,52 +84,41 @@ ExChdComputePackageDtdCodeFunction >> invoke [
 	" ---------- locals assignments ----------"
 
 	self subs: (self p subsUsingContext: self class context).
-	self s: ''.	" ---------- statements ----------"
-	(PltSIZEOFFunction
-		invokeFromValues:
-			(OrderedCollection new
-				add: self subs;
-				yourself)) > 0
-		ifTrue: [ 
-			self s: (((self s pltPlus: '<!ELEMENT ') pltPlus: (self p tagUsingContext: self class context)) pltPlus: ' (').
+	self s: ''. " ---------- statements ----------"
+	(PltSIZEOFFunction invokeFromValues: (OrderedCollection new
+			  add: self subs;
+			  yourself)) > 0 ifTrue: [
+			self s: (((self s pltPlus: '<!ELEMENT ') pltPlus:
+					  (self p tagUsingContext: self class context)) pltPlus: ' (').
 			PlatypusCoreRepeatStatement
-				repeat: [ :no2094 | 
-					self s: (self s pltPlus: ((self subs pltAt: no2094) tagUsingContext: self class context)).
-					no2094
-						<
-							(PltHIINDEXFunction
-								invokeFromValues:
-									(OrderedCollection new
-										add: self subs;
-										yourself))
-						ifTrue: [ self s: (self s pltPlus: ' | ') ] ]
+				repeat: [ :no157471 |
+						self s: (self s pltPlus:
+								 ((self subs pltAt: no157471) tagUsingContext:
+									  self class context)).
+						no157471
+						< (PltHIINDEXFunction invokeFromValues: (OrderedCollection new
+									  add: self subs;
+									  yourself)) ifTrue: [ self s: (self s pltPlus: ' | ') ] ]
 				from:
-					(PltLOINDEXFunction
-						invokeFromValues:
-							(OrderedCollection new
-								add: self subs;
-								yourself))
-				to:
-					(PltHIINDEXFunction
-						invokeFromValues:
-							(OrderedCollection new
-								add: self subs;
-								yourself)).
+					(PltLOINDEXFunction invokeFromValues: (OrderedCollection new
+							  add: self subs;
+							  yourself))
+				to: (PltHIINDEXFunction invokeFromValues: (OrderedCollection new
+							  add: self subs;
+							  yourself)).
 			self s: (self s pltPlus: ')+>\n').
 			PlatypusCoreRepeatStatement
-				repeat: [ :no2882 | self s: (self s pltPlus: ((self subs pltAt: no2882) dtdCodeUsingContext: self class context)) ]
+				repeat: [ :no15575 |
+						self s: (self s pltPlus:
+								 ((self subs pltAt: no15575) dtdCodeUsingContext:
+									  self class context)) ]
 				from:
-					(PltLOINDEXFunction
-						invokeFromValues:
-							(OrderedCollection new
-								add: self subs;
-								yourself))
-				to:
-					(PltHIINDEXFunction
-						invokeFromValues:
-							(OrderedCollection new
-								add: self subs;
-								yourself)).
+					(PltLOINDEXFunction invokeFromValues: (OrderedCollection new
+							  add: self subs;
+							  yourself))
+				to: (PltHIINDEXFunction invokeFromValues: (OrderedCollection new
+							  add: self subs;
+							  yourself)).
 			self s: (self s pltPlus: '\n') ].
 	^ self return: self s
 
@@ -133,6 +127,7 @@ ExChdComputePackageDtdCodeFunction >> invoke [
 
 { #category : 'platypus-generated-accessing' }
 ExChdComputePackageDtdCodeFunction >> p [
+
 	^ p
 
 
@@ -140,6 +135,7 @@ ExChdComputePackageDtdCodeFunction >> p [
 
 { #category : 'platypus-generated-accessing' }
 ExChdComputePackageDtdCodeFunction >> p: aExChdPackageDtdElement [
+
 	p := aExChdPackageDtdElement
 
 
@@ -147,6 +143,7 @@ ExChdComputePackageDtdCodeFunction >> p: aExChdPackageDtdElement [
 
 { #category : 'platypus-generated-accessing' }
 ExChdComputePackageDtdCodeFunction >> s [
+
 	^ s
 
 
@@ -154,6 +151,7 @@ ExChdComputePackageDtdCodeFunction >> s [
 
 { #category : 'platypus-generated-accessing' }
 ExChdComputePackageDtdCodeFunction >> s: aString [
+
 	s := aString
 
 
@@ -161,6 +159,7 @@ ExChdComputePackageDtdCodeFunction >> s: aString [
 
 { #category : 'platypus-generated-accessing' }
 ExChdComputePackageDtdCodeFunction >> subs [
+
 	^ subs
 
 
@@ -168,9 +167,10 @@ ExChdComputePackageDtdCodeFunction >> subs [
 
 { #category : 'platypus-generated-accessing' }
 ExChdComputePackageDtdCodeFunction >> subs: aListOfExChdDtdElement [
+
 	subs := aListOfExChdDtdElement
-		ifNil: [ OrderedCollection new ]
-		ifNotNil: [ aListOfExChdDtdElement as: OrderedCollection ]
+		        ifNil: [ OrderedCollection new ]
+		        ifNotNil: [ aListOfExChdDtdElement as: OrderedCollection ]
 
 
 ]

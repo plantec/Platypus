@@ -61,6 +61,7 @@ Class {
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdRecordXmlWriterCodeFunction class >> iso10303P11Translater [
+
 	^ 'Platypus (c) LISYC EA3883, Universite de Bretagne occidentale. Brest.'
 
 
@@ -68,6 +69,7 @@ ExChdRecordXmlWriterCodeFunction class >> iso10303P11Translater [
 
 { #category : 'platypus-generated-meta-data-accessing' }
 ExChdRecordXmlWriterCodeFunction class >> schemaDefinition [
+
 	^ ExChdRecordAndClassSchemaDefinition singleton
 
 
@@ -75,6 +77,7 @@ ExChdRecordXmlWriterCodeFunction class >> schemaDefinition [
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdRecordXmlWriterCodeFunction class >> translatedFromISO10303P11 [
+
 	^ true
 
 
@@ -82,6 +85,7 @@ ExChdRecordXmlWriterCodeFunction class >> translatedFromISO10303P11 [
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdRecordXmlWriterCodeFunction class >> vwNamespaceName [
+
 	^ #Express2Cheddar
 
 
@@ -89,6 +93,7 @@ ExChdRecordXmlWriterCodeFunction class >> vwNamespaceName [
 
 { #category : 'platypus-generated-accessing' }
 ExChdRecordXmlWriterCodeFunction >> acode [
+
 	^ acode
 
 
@@ -96,6 +101,7 @@ ExChdRecordXmlWriterCodeFunction >> acode [
 
 { #category : 'platypus-generated-accessing' }
 ExChdRecordXmlWriterCodeFunction >> acode: aString1 [
+
 	acode := aString1
 
 
@@ -103,6 +109,7 @@ ExChdRecordXmlWriterCodeFunction >> acode: aString1 [
 
 { #category : 'platypus-generated-accessing' }
 ExChdRecordXmlWriterCodeFunction >> cip [
+
 	^ cip
 
 
@@ -110,6 +117,7 @@ ExChdRecordXmlWriterCodeFunction >> cip [
 
 { #category : 'platypus-generated-accessing' }
 ExChdRecordXmlWriterCodeFunction >> cip: aExChdRecord [
+
 	cip := aExChdRecord
 
 
@@ -117,6 +125,7 @@ ExChdRecordXmlWriterCodeFunction >> cip: aExChdRecord [
 
 { #category : 'platypus-generated-accessing' }
 ExChdRecordXmlWriterCodeFunction >> code [
+
 	^ code
 
 
@@ -124,6 +133,7 @@ ExChdRecordXmlWriterCodeFunction >> code [
 
 { #category : 'platypus-generated-accessing' }
 ExChdRecordXmlWriterCodeFunction >> code: aString [
+
 	code := aString
 
 
@@ -131,6 +141,7 @@ ExChdRecordXmlWriterCodeFunction >> code: aString [
 
 { #category : 'platypus-generated-accessing' }
 ExChdRecordXmlWriterCodeFunction >> fromValues: values [
+
 	self cip: (values at: 1)
 
 
@@ -138,57 +149,74 @@ ExChdRecordXmlWriterCodeFunction >> fromValues: values [
 
 { #category : 'platypus-generated-invoking' }
 ExChdRecordXmlWriterCodeFunction >> invoke [
-	" ---------- locals assignments ----------"
+	" ---------- locals assignments ----------"" ---------- statements ----------"
 
-	" ---------- statements ----------"
-
-	self
-		code:
-			(('\nprocedure Build_Attributes_XML_String(obj : in ' pltPlus: (self cip nameUsingContext: self class context))
-				pltPlus: '; result : in out Unbounded_String) is \nbegin\n').
+	self code:
+		(('\nprocedure Build_Attributes_XML_String(obj : in ' pltPlus:
+			  (self cip nameUsingContext: self class context)) pltPlus:
+			 '; result : in out Unbounded_String) is \nbegin\n').
 	PlatypusCoreRepeatStatement
-		repeat: [ :no1655 | 
-			PlatypusCoreAliasStatement
-				alias: ((self cip explicitAttributesUsingContext: self class context) pltAt: no1655)
-				statementsBlock: [ :attr3611 | 
-					self
-						acode:
-							(ExChdExplicitAttributeXmlWriterCodeFunction
-								invokeFromValues:
-									(OrderedCollection new
-										add: 'obj';
-										add: attr3611;
-										yourself)).
-					self acode > ''
-						ifTrue: [ self code: ((self code pltPlus: self acode) pltPlus: '\n') ] ] ]
-		from:
-			(PltLOINDEXFunction
-				invokeFromValues:
-					(OrderedCollection new
-						add: (self cip explicitAttributesUsingContext: self class context);
-						yourself))
-		to:
-			(PltHIINDEXFunction
-				invokeFromValues:
-					(OrderedCollection new
-						add: (self cip explicitAttributesUsingContext: self class context);
-						yourself)).
-	self
-		code:
-			(((((((((((((((((((((((((((((((((self code pltPlus: 'end Build_Attributes_XML_String;\n\n')
-				pltPlus: 'function XML_String(obj : in ') pltPlus: (self cip nameUsingContext: self class context))
-				pltPlus: ') return Unbounded_String is\n') pltPlus: '\tresult : Unbounded_String;\n') pltPlus: 'begin\n')
-				pltPlus: '\tresult := to_unbounded_string("<') pltPlus: (self cip htmlTagUsingContext: self class context))
-				pltPlus: '>");\n') pltPlus: '\tBuild_Attributes_XML_String(obj, result);\n')
-				pltPlus: '\tresult := result & to_unbounded_string("</') pltPlus: (self cip htmlTagUsingContext: self class context))
-				pltPlus: '>");\n') pltPlus: '\treturn (result);\n') pltPlus: 'end XML_String;\n\n')
-				pltPlus: 'function XML_String(obj : in ') pltPlus: (self cip ptrTypeUsingContext: self class context))
-				pltPlus: ') return Unbounded_String is\n') pltPlus: 'begin\n') pltPlus: '	if obj /= null then\n')
-				pltPlus: '		return XML_String(obj.all);\n') pltPlus: '	else\n') pltPlus: '		return Empty_String;\n')
-				pltPlus: '	end if;\n') pltPlus: 'end XML_String;\n\n') pltPlus: 'function XML_Ref_String(obj : in ')
-				pltPlus: (self cip nameUsingContext: self class context)) pltPlus: ') return Unbounded_String is\n')
-				pltPlus: '\tresult : Unbounded_String;\n') pltPlus: 'begin\n') pltPlus: '	raise xml_ref_string_error;\n')
-				pltPlus: '	return to_unbounded_string("");\n') pltPlus: 'end XML_Ref_String;\n').
+		repeat: [ :no3875165 |
+				PlatypusCoreAliasStatement
+					alias:
+						((self cip explicitAttributesUsingContext: self class context)
+							 pltAt: no3875165)
+					statementsBlock: [ :attr756147 |
+							self acode:
+								(ExChdExplicitAttributeXmlWriterCodeFunction
+									 invokeFromValues: (OrderedCollection new
+											  add: 'obj';
+											  add: attr756147;
+											  yourself)).
+							self acode > '' ifTrue: [
+								self code: ((self code pltPlus: self acode) pltPlus: '\n') ] ] ]
+		from: (PltLOINDEXFunction invokeFromValues: (OrderedCollection new
+					  add:
+						  (self cip explicitAttributesUsingContext: self class context);
+					  yourself))
+		to: (PltHIINDEXFunction invokeFromValues: (OrderedCollection new
+					  add:
+						  (self cip explicitAttributesUsingContext: self class context);
+					  yourself)).
+	self code: (((((((((((((((((((((((((((((((((self code pltPlus:
+			                                 'end Build_Attributes_XML_String;\n\n')
+			                                pltPlus:
+			                                'function XML_String(obj : in ')
+			                               pltPlus:
+			                               (self cip nameUsingContext:
+				                                self class context)) pltPlus:
+			                              ') return Unbounded_String is\n')
+			                             pltPlus:
+			                             '\tresult : Unbounded_String;\n')
+			                            pltPlus: 'begin\n') pltPlus:
+			                           '\tresult := to_unbounded_string("<')
+			                          pltPlus:
+			                          (self cip htmlTagUsingContext:
+				                           self class context)) pltPlus: '>");\n')
+			                        pltPlus:
+			                        '\tBuild_Attributes_XML_String(obj, result);\n')
+			                       pltPlus:
+			                       '\tresult := result & to_unbounded_string("</')
+			                      pltPlus:
+			                      (self cip htmlTagUsingContext:
+				                       self class context)) pltPlus: '>");\n')
+			                    pltPlus: '\treturn (result);\n') pltPlus:
+			                   'end XML_String;\n\n') pltPlus:
+			                  'function XML_String(obj : in ') pltPlus:
+			                 (self cip ptrTypeUsingContext: self class context))
+			                pltPlus: ') return Unbounded_String is\n')
+			               pltPlus: 'begin\n') pltPlus:
+			              '	if obj /= null then\n') pltPlus:
+			             '		return XML_String(obj.all);\n') pltPlus: '	else\n')
+			           pltPlus: '		return Empty_String;\n') pltPlus:
+			          '	end if;\n') pltPlus: 'end XML_String;\n\n') pltPlus:
+			        'function XML_Ref_String(obj : in ') pltPlus:
+			       (self cip nameUsingContext: self class context)) pltPlus:
+			      ') return Unbounded_String is\n') pltPlus:
+			     '\tresult : Unbounded_String;\n') pltPlus: 'begin\n')
+			   pltPlus: '	raise xml_ref_string_error;\n') pltPlus:
+			  '	return to_unbounded_string("");\n') pltPlus:
+			 'end XML_Ref_String;\n').
 	^ self return: self code
 
 

@@ -42,6 +42,7 @@ Class {
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdBasicAdaExpressionValueStringFunction class >> iso10303P11Translater [
+
 	^ 'Platypus (c) LISYC EA3883, Universite de Bretagne occidentale. Brest.'
 
 
@@ -49,6 +50,7 @@ ExChdBasicAdaExpressionValueStringFunction class >> iso10303P11Translater [
 
 { #category : 'platypus-generated-meta-data-accessing' }
 ExChdBasicAdaExpressionValueStringFunction class >> schemaDefinition [
+
 	^ ExChdCheddarDomainsSchemaDefinition singleton
 
 
@@ -56,6 +58,7 @@ ExChdBasicAdaExpressionValueStringFunction class >> schemaDefinition [
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdBasicAdaExpressionValueStringFunction class >> translatedFromISO10303P11 [
+
 	^ true
 
 
@@ -63,6 +66,7 @@ ExChdBasicAdaExpressionValueStringFunction class >> translatedFromISO10303P11 [
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdBasicAdaExpressionValueStringFunction class >> vwNamespaceName [
+
 	^ #Express2Cheddar
 
 
@@ -70,6 +74,7 @@ ExChdBasicAdaExpressionValueStringFunction class >> vwNamespaceName [
 
 { #category : 'platypus-generated-accessing' }
 ExChdBasicAdaExpressionValueStringFunction >> code [
+
 	^ code
 
 
@@ -77,6 +82,7 @@ ExChdBasicAdaExpressionValueStringFunction >> code [
 
 { #category : 'platypus-generated-accessing' }
 ExChdBasicAdaExpressionValueStringFunction >> code: aString [
+
 	code := aString
 
 
@@ -84,6 +90,7 @@ ExChdBasicAdaExpressionValueStringFunction >> code: aString [
 
 { #category : 'platypus-generated-accessing' }
 ExChdBasicAdaExpressionValueStringFunction >> e [
+
 	^ e
 
 
@@ -91,6 +98,7 @@ ExChdBasicAdaExpressionValueStringFunction >> e [
 
 { #category : 'platypus-generated-accessing' }
 ExChdBasicAdaExpressionValueStringFunction >> e: aExChdExpression [
+
 	e := aExChdExpression
 
 
@@ -98,6 +106,7 @@ ExChdBasicAdaExpressionValueStringFunction >> e: aExChdExpression [
 
 { #category : 'platypus-generated-accessing' }
 ExChdBasicAdaExpressionValueStringFunction >> fromValues: values [
+
 	self e: (values at: 1)
 
 
@@ -107,60 +116,46 @@ ExChdBasicAdaExpressionValueStringFunction >> fromValues: values [
 ExChdBasicAdaExpressionValueStringFunction >> invoke [
 	" ---------- locals assignments ----------"
 
-	self code: ''.	" ---------- statements ----------"
-	((PltTYPEOFFunction
-		invokeFromValues:
-			(OrderedCollection new
-				add: self e;
-				yourself)) includes: 'PLATYPUS_EXPRESSIONS_SCHEMA.IDENTIFIER')
-		ifTrue: [ ^ self return: (self e nameUsingContext: self class context) ].
-	((PltTYPEOFFunction
-		invokeFromValues:
-			(OrderedCollection new
-				add: self e;
-				yourself)) includes: 'PLATYPUS_EXPRESSIONS_SCHEMA.INTEGER_LITERAL')
-		ifTrue: [ 
-			^ self
-				return:
-					(PltFORMATFunction
-						invokeFromValues:
-							(OrderedCollection new
-								add: (self e valUsingContext: self class context);
-								add: 'I';
-								yourself)) ].
-	((PltTYPEOFFunction
-		invokeFromValues:
-			(OrderedCollection new
-				add: self e;
-				yourself)) includes: 'PLATYPUS_EXPRESSIONS_SCHEMA.TRUE_CONSTANT')
+	self code: ''. " ---------- statements ----------"
+	((PltTYPEOFFunction invokeFromValues: (OrderedCollection new
+			   add: self e;
+			   yourself)) includes: 'PLATYPUS_EXPRESSIONS_SCHEMA.IDENTIFIER')
+		ifTrue: [
+		^ self return: (self e nameUsingContext: self class context) ].
+	((PltTYPEOFFunction invokeFromValues: (OrderedCollection new
+			   add: self e;
+			   yourself)) includes:
+		 'PLATYPUS_EXPRESSIONS_SCHEMA.INTEGER_LITERAL') ifTrue: [
+			^ self return:
+				  (PltFORMATFunction invokeFromValues: (OrderedCollection new
+						    add: (self e valUsingContext: self class context);
+						    add: 'I';
+						    yourself)) ].
+	((PltTYPEOFFunction invokeFromValues: (OrderedCollection new
+			   add: self e;
+			   yourself)) includes: 'PLATYPUS_EXPRESSIONS_SCHEMA.TRUE_CONSTANT')
 		ifTrue: [ ^ self return: 'True' ].
-	((PltTYPEOFFunction
-		invokeFromValues:
-			(OrderedCollection new
-				add: self e;
-				yourself)) includes: 'PLATYPUS_EXPRESSIONS_SCHEMA.FALSE_CONSTANT')
-		ifTrue: [ ^ self return: 'False' ].
-	((PltTYPEOFFunction
-		invokeFromValues:
-			(OrderedCollection new
-				add: self e;
-				yourself)) includes: 'PLATYPUS_EXPRESSIONS_SCHEMA.BINARY_EXPRESSION')
-		ifTrue: [ 
-			^ self
-				return:
-					(((((('('
-						pltPlus:
-							(ExChdBasicAdaExpressionValueStringFunction
-								invokeFromValues:
-									(OrderedCollection new
-										add: (self e leftExprUsingContext: self class context);
-										yourself))) pltPlus: ' ') pltPlus: (self e opStringUsingContext: self class context)) pltPlus: ' ')
-						pltPlus:
-							(ExChdBasicAdaExpressionValueStringFunction
-								invokeFromValues:
-									(OrderedCollection new
-										add: (self e rightExprUsingContext: self class context);
-										yourself))) pltPlus: ')') ].
+	((PltTYPEOFFunction invokeFromValues: (OrderedCollection new
+			   add: self e;
+			   yourself)) includes:
+		 'PLATYPUS_EXPRESSIONS_SCHEMA.FALSE_CONSTANT') ifTrue: [
+		^ self return: 'False' ].
+	((PltTYPEOFFunction invokeFromValues: (OrderedCollection new
+			   add: self e;
+			   yourself)) includes:
+		 'PLATYPUS_EXPRESSIONS_SCHEMA.BINARY_EXPRESSION') ifTrue: [
+			^ self return: (((((('(' pltPlus:
+					        (ExChdBasicAdaExpressionValueStringFunction
+						         invokeFromValues: (OrderedCollection new
+								          add:
+									          (self e leftExprUsingContext: self class context);
+								          yourself))) pltPlus: ' ') pltPlus:
+					      (self e opStringUsingContext: self class context))
+					     pltPlus: ' ') pltPlus:
+					    (ExChdBasicAdaExpressionValueStringFunction
+						     invokeFromValues: (OrderedCollection new
+								      add: (self e rightExprUsingContext: self class context);
+								      yourself))) pltPlus: ')') ].
 	^ self return: 'null'
 
 

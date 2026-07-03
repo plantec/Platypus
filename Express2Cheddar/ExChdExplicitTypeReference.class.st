@@ -22,8 +22,8 @@ Class {
 	#name : 'ExChdExplicitTypeReference',
 	#superclass : 'PltDefinedType',
 	#instVars : [
-		'interfaces',
-		'usedName'
+		'usedName',
+		'interfaces'
 	],
 	#category : 'Express2Cheddar-CheddarDomainsSchema',
 	#package : 'Express2Cheddar',
@@ -32,6 +32,7 @@ Class {
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdExplicitTypeReference class >> iso10303P11Translater [
+
 	^ 'Platypus (c) LISYC EA3883, Universite de Bretagne occidentale. Brest.'
 
 
@@ -39,6 +40,7 @@ ExChdExplicitTypeReference class >> iso10303P11Translater [
 
 { #category : 'platypus-generated-meta-data-accessing' }
 ExChdExplicitTypeReference class >> schemaDefinition [
+
 	^ ExChdCheddarDomainsSchemaDefinition singleton
 
 
@@ -46,6 +48,7 @@ ExChdExplicitTypeReference class >> schemaDefinition [
 
 { #category : 'platypus-generated-meta-data-accessing' }
 ExChdExplicitTypeReference class >> schemaInstance [
+
 	^ ExChdExpress2cheddarSchemaInstance singleton
 
 
@@ -53,6 +56,7 @@ ExChdExplicitTypeReference class >> schemaInstance [
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdExplicitTypeReference class >> translatedFromISO10303P11 [
+
 	^ true
 
 
@@ -60,6 +64,7 @@ ExChdExplicitTypeReference class >> translatedFromISO10303P11 [
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdExplicitTypeReference class >> vwNamespaceName [
+
 	^ #Express2Cheddar
 
 
@@ -67,6 +72,7 @@ ExChdExplicitTypeReference class >> vwNamespaceName [
 
 { #category : 'platypus-generated-visiting' }
 ExChdExplicitTypeReference >> accept: aVisitor [
+
 	^ aVisitor acceptExplicitTypeReference: self
 
 
@@ -74,6 +80,7 @@ ExChdExplicitTypeReference >> accept: aVisitor [
 
 { #category : 'platypus-generated-deriving' }
 ExChdExplicitTypeReference >> accepted [
+
 	^ self acceptedUsingContext: self class context
 
 
@@ -81,6 +88,7 @@ ExChdExplicitTypeReference >> accepted [
 
 { #category : 'platypus-generated-deriving' }
 ExChdExplicitTypeReference >> acceptedUsingContext: aContext [
+
 	^ self acceptedUsingContext: aContext receiver: self
 
 
@@ -88,6 +96,7 @@ ExChdExplicitTypeReference >> acceptedUsingContext: aContext [
 
 { #category : 'platypus-generated-deriving' }
 ExChdExplicitTypeReference >> acceptedUsingContext: aContext receiver: aReceiver [
+
 	^ aReceiver acceptExplicitTypeReferenceUsingContext: aContext
 
 
@@ -95,6 +104,7 @@ ExChdExplicitTypeReference >> acceptedUsingContext: aContext receiver: aReceiver
 
 { #category : 'platypus-generated-deriving' }
 ExChdExplicitTypeReference >> adaIdent [
+
 	^ self adaIdentUsingContext: self class context
 
 
@@ -102,6 +112,7 @@ ExChdExplicitTypeReference >> adaIdent [
 
 { #category : 'platypus-generated-deriving' }
 ExChdExplicitTypeReference >> adaIdentUsingContext: aContext [
+
 	^ self adaIdentUsingContext: aContext receiver: self
 
 
@@ -109,6 +120,7 @@ ExChdExplicitTypeReference >> adaIdentUsingContext: aContext [
 
 { #category : 'platypus-generated-deriving' }
 ExChdExplicitTypeReference >> adaIdentUsingContext: aContext receiver: aReceiver [
+
 	^ aReceiver nameUsingContext: aContext
 
 
@@ -116,6 +128,7 @@ ExChdExplicitTypeReference >> adaIdentUsingContext: aContext receiver: aReceiver
 
 { #category : 'platypus-generated-deriving' }
 ExChdExplicitTypeReference >> adaRefIdent [
+
 	^ self adaRefIdentUsingContext: self class context
 
 
@@ -123,6 +136,7 @@ ExChdExplicitTypeReference >> adaRefIdent [
 
 { #category : 'platypus-generated-deriving' }
 ExChdExplicitTypeReference >> adaRefIdentUsingContext: aContext [
+
 	^ self adaRefIdentUsingContext: aContext receiver: self
 
 
@@ -130,18 +144,18 @@ ExChdExplicitTypeReference >> adaRefIdentUsingContext: aContext [
 
 { #category : 'platypus-generated-deriving' }
 ExChdExplicitTypeReference >> adaRefIdentUsingContext: aContext receiver: aReceiver [
-	^ PltNVLFunction
-		invokeFromValues:
-			(OrderedCollection new
-				add: (aReceiver usedNameUsingContext: self class context);
-				add: (aReceiver nameUsingContext: self class context);
-				yourself)
+
+	^ PltNVLFunction invokeFromValues: (OrderedCollection new
+			   add: (aReceiver usedNameUsingContext: self class context);
+			   add: (aReceiver nameUsingContext: self class context);
+			   yourself)
 
 
 ]
 
 { #category : 'platypus-generated-deriving' }
 ExChdExplicitTypeReference >> adbCode [
+
 	^ self adbCodeUsingContext: self class context
 
 
@@ -149,6 +163,7 @@ ExChdExplicitTypeReference >> adbCode [
 
 { #category : 'platypus-generated-deriving' }
 ExChdExplicitTypeReference >> adbCodeUsingContext: aContext [
+
 	^ self adbCodeUsingContext: aContext receiver: self
 
 
@@ -156,6 +171,7 @@ ExChdExplicitTypeReference >> adbCodeUsingContext: aContext [
 
 { #category : 'platypus-generated-deriving' }
 ExChdExplicitTypeReference >> adbCodeUsingContext: aContext receiver: aReceiver [
+
 	^ ''
 
 
@@ -163,6 +179,7 @@ ExChdExplicitTypeReference >> adbCodeUsingContext: aContext receiver: aReceiver 
 
 { #category : 'platypus-generated-deriving' }
 ExChdExplicitTypeReference >> adbInterfacesList [
+
 	^ self adbInterfacesListUsingContext: self class context
 
 
@@ -170,6 +187,7 @@ ExChdExplicitTypeReference >> adbInterfacesList [
 
 { #category : 'platypus-generated-deriving' }
 ExChdExplicitTypeReference >> adbInterfacesListUsingContext: aContext [
+
 	^ self adbInterfacesListUsingContext: aContext receiver: self
 
 
@@ -177,26 +195,27 @@ ExChdExplicitTypeReference >> adbInterfacesListUsingContext: aContext [
 
 { #category : 'platypus-generated-deriving' }
 ExChdExplicitTypeReference >> adbInterfacesListUsingContext: aContext receiver: aReceiver [
-	^ (PlatypusCoreAggregateInitializer
-		collectionFrom:
-			(OrderedCollection new
-				add:
-						(ExChdAdaInterface new
-								adaInterfaceFromValues:
-										(OrderedCollection new
-												add: ((aReceiver ownerUsingContext: self class context) nameUsingContext: self class context);
-												add: nil;
-												add: true;
-												add: true;
-												yourself);
-								yourself);
-				yourself)) pltPlus: aReceiver interfaces
+
+	^ (PlatypusCoreAggregateInitializer collectionFrom:
+		   (OrderedCollection new
+			    add: (ExChdAdaInterface new
+					     adaInterfaceFromValues: (OrderedCollection new
+							      add:
+								      ((aReceiver ownerUsingContext: self class context)
+									       nameUsingContext: self class context);
+							      add: nil;
+							      add: true;
+							      add: true;
+							      yourself);
+					     yourself);
+			    yourself)) pltPlus: aReceiver interfaces
 
 
 ]
 
 { #category : 'platypus-generated-deriving' }
 ExChdExplicitTypeReference >> adsCode [
+
 	^ self adsCodeUsingContext: self class context
 
 
@@ -204,6 +223,7 @@ ExChdExplicitTypeReference >> adsCode [
 
 { #category : 'platypus-generated-deriving' }
 ExChdExplicitTypeReference >> adsCodeUsingContext: aContext [
+
 	^ self adsCodeUsingContext: aContext receiver: self
 
 
@@ -211,6 +231,7 @@ ExChdExplicitTypeReference >> adsCodeUsingContext: aContext [
 
 { #category : 'platypus-generated-deriving' }
 ExChdExplicitTypeReference >> adsCodeUsingContext: aContext receiver: aReceiver [
+
 	^ ''
 
 
@@ -218,6 +239,7 @@ ExChdExplicitTypeReference >> adsCodeUsingContext: aContext receiver: aReceiver 
 
 { #category : 'platypus-generated-deriving' }
 ExChdExplicitTypeReference >> adsInterfacesList [
+
 	^ self adsInterfacesListUsingContext: self class context
 
 
@@ -225,6 +247,7 @@ ExChdExplicitTypeReference >> adsInterfacesList [
 
 { #category : 'platypus-generated-deriving' }
 ExChdExplicitTypeReference >> adsInterfacesListUsingContext: aContext [
+
 	^ self adsInterfacesListUsingContext: aContext receiver: self
 
 
@@ -232,6 +255,7 @@ ExChdExplicitTypeReference >> adsInterfacesListUsingContext: aContext [
 
 { #category : 'platypus-generated-deriving' }
 ExChdExplicitTypeReference >> adsInterfacesListUsingContext: aContext receiver: aReceiver [
+
 	^ aReceiver interfacesUsingContext: aContext
 
 
@@ -239,6 +263,7 @@ ExChdExplicitTypeReference >> adsInterfacesListUsingContext: aContext receiver: 
 
 { #category : 'platypus-generated-copying' }
 ExChdExplicitTypeReference >> explicitTypeReferenceCopyTo: another [
+
 	another fastSetUsedName: self usedName.
 	another fastSetInterfaces: self interfaces
 
@@ -247,6 +272,7 @@ ExChdExplicitTypeReference >> explicitTypeReferenceCopyTo: another [
 
 { #category : 'platypus-generated-group-accessing' }
 ExChdExplicitTypeReference >> explicitTypeReferenceFromValues: values [
+
 	| valuesloc |
 	valuesloc := values asOrderedCollection.
 	self setUsedName: valuesloc removeFirst.
@@ -258,6 +284,7 @@ ExChdExplicitTypeReference >> explicitTypeReferenceFromValues: values [
 
 { #category : 'platypus-generated-group-accessing' }
 ExChdExplicitTypeReference >> explicitTypeReferenceToValues: values [
+
 	values add: self usedName.
 	values add: self interfaces.
 	^ values
@@ -267,6 +294,7 @@ ExChdExplicitTypeReference >> explicitTypeReferenceToValues: values [
 
 { #category : 'platypus-generated-fast-set-accessing' }
 ExChdExplicitTypeReference >> fastSetInterfaces: aListOfExChdAdaInterface [
+
 	interfaces := aListOfExChdAdaInterface
 
 
@@ -274,6 +302,7 @@ ExChdExplicitTypeReference >> fastSetInterfaces: aListOfExChdAdaInterface [
 
 { #category : 'platypus-generated-fast-set-accessing' }
 ExChdExplicitTypeReference >> fastSetUsedName: aString [
+
 	usedName := aString
 
 
@@ -281,6 +310,7 @@ ExChdExplicitTypeReference >> fastSetUsedName: aString [
 
 { #category : 'platypus-generated-group-accessing' }
 ExChdExplicitTypeReference >> fromValues: values [
+
 	^ self explicitTypeReferenceFromValues: (super fromValues: values)
 
 
@@ -288,6 +318,7 @@ ExChdExplicitTypeReference >> fromValues: values [
 
 { #category : 'platypus-generated-deriving' }
 ExChdExplicitTypeReference >> initValue [
+
 	^ self initValueUsingContext: self class context
 
 
@@ -295,6 +326,7 @@ ExChdExplicitTypeReference >> initValue [
 
 { #category : 'platypus-generated-deriving' }
 ExChdExplicitTypeReference >> initValueUsingContext: aContext [
+
 	^ self initValueUsingContext: aContext receiver: self
 
 
@@ -302,6 +334,7 @@ ExChdExplicitTypeReference >> initValueUsingContext: aContext [
 
 { #category : 'platypus-generated-deriving' }
 ExChdExplicitTypeReference >> initValueUsingContext: aContext receiver: aReceiver [
+
 	^ nil
 
 
@@ -309,6 +342,7 @@ ExChdExplicitTypeReference >> initValueUsingContext: aContext receiver: aReceive
 
 { #category : 'platypus-generated-accessing' }
 ExChdExplicitTypeReference >> interfaces [
+
 	^ interfaces
 
 
@@ -316,15 +350,18 @@ ExChdExplicitTypeReference >> interfaces [
 
 { #category : 'platypus-generated-accessing' }
 ExChdExplicitTypeReference >> interfaces: aListOfExChdAdaInterface [
+
 	interfaces := aListOfExChdAdaInterface
-		ifNil: [ OrderedCollection new ]
-		ifNotNil: [ aListOfExChdAdaInterface as: OrderedCollection ]
+		              ifNil: [ OrderedCollection new ]
+		              ifNotNil: [
+		              aListOfExChdAdaInterface as: OrderedCollection ]
 
 
 ]
 
 { #category : 'platypus-generated-with-context-accessing' }
 ExChdExplicitTypeReference >> interfacesUsingContext: aContext [
+
 	^ self interfaces
 
 
@@ -332,6 +369,7 @@ ExChdExplicitTypeReference >> interfacesUsingContext: aContext [
 
 { #category : 'platypus-generated-classifying' }
 ExChdExplicitTypeReference >> isExChdExplicitTypeReference [
+
 	^ true
 
 
@@ -339,6 +377,7 @@ ExChdExplicitTypeReference >> isExChdExplicitTypeReference [
 
 { #category : 'platypus-generated-group-accessing' }
 ExChdExplicitTypeReference >> localFromValues: values [
+
 	^ self explicitTypeReferenceFromValues: values
 
 
@@ -346,6 +385,7 @@ ExChdExplicitTypeReference >> localFromValues: values [
 
 { #category : 'platypus-generated-group-accessing' }
 ExChdExplicitTypeReference >> localToValues: values [
+
 	^ self explicitTypeReferenceToValues: values
 
 
@@ -353,6 +393,7 @@ ExChdExplicitTypeReference >> localToValues: values [
 
 { #category : 'platypus-generated-copying' }
 ExChdExplicitTypeReference >> pltCopyGroup: aClassSymbol to: anObject [
+
 	self class name == aClassSymbol
 		ifTrue: [ self pltCopyTo: anObject ]
 		ifFalse: [ super pltCopyGroup: aClassSymbol to: anObject ]
@@ -362,6 +403,7 @@ ExChdExplicitTypeReference >> pltCopyGroup: aClassSymbol to: anObject [
 
 { #category : 'platypus-generated-copying' }
 ExChdExplicitTypeReference >> pltCopyTo: another [
+
 	super pltCopyTo: another.
 	self explicitTypeReferenceCopyTo: another
 
@@ -370,6 +412,7 @@ ExChdExplicitTypeReference >> pltCopyTo: another [
 
 { #category : 'platypus-generated-copying' }
 ExChdExplicitTypeReference >> pltLocalCopyTo: another [
+
 	self explicitTypeReferenceCopyTo: another
 
 
@@ -377,6 +420,7 @@ ExChdExplicitTypeReference >> pltLocalCopyTo: another [
 
 { #category : 'platypus-generated-deriving' }
 ExChdExplicitTypeReference >> ptrType [
+
 	^ self ptrTypeUsingContext: self class context
 
 
@@ -384,6 +428,7 @@ ExChdExplicitTypeReference >> ptrType [
 
 { #category : 'platypus-generated-deriving' }
 ExChdExplicitTypeReference >> ptrTypeUsingContext: aContext [
+
 	^ self ptrTypeUsingContext: aContext receiver: self
 
 
@@ -391,6 +436,7 @@ ExChdExplicitTypeReference >> ptrTypeUsingContext: aContext [
 
 { #category : 'platypus-generated-deriving' }
 ExChdExplicitTypeReference >> ptrTypeUsingContext: aContext receiver: aReceiver [
+
 	^ (aReceiver adaIdentUsingContext: aContext) pltPlus: '_Ptr'
 
 
@@ -398,6 +444,7 @@ ExChdExplicitTypeReference >> ptrTypeUsingContext: aContext receiver: aReceiver 
 
 { #category : 'platypus-generated-deriving' }
 ExChdExplicitTypeReference >> refedByPointer [
+
 	^ self refedByPointerUsingContext: self class context
 
 
@@ -405,6 +452,7 @@ ExChdExplicitTypeReference >> refedByPointer [
 
 { #category : 'platypus-generated-deriving' }
 ExChdExplicitTypeReference >> refedByPointerUsingContext: aContext [
+
 	^ self refedByPointerUsingContext: aContext receiver: self
 
 
@@ -412,18 +460,18 @@ ExChdExplicitTypeReference >> refedByPointerUsingContext: aContext [
 
 { #category : 'platypus-generated-deriving' }
 ExChdExplicitTypeReference >> refedByPointerUsingContext: aContext receiver: aReceiver [
-	^ PTsStringEndsWithFunction
-		invokeFromValues:
-			(OrderedCollection new
-				add: (aReceiver adaRefIdentUsingContext: self class context);
-				add: '_Ptr';
-				yourself)
+
+	^ PTsStringEndsWithFunction invokeFromValues: (OrderedCollection new
+			   add: (aReceiver adaRefIdentUsingContext: self class context);
+			   add: '_Ptr';
+			   yourself)
 
 
 ]
 
 { #category : 'platypus-generated-set-accessing' }
 ExChdExplicitTypeReference >> setInterfaces: aListOfExChdAdaInterface [
+
 	self interfaces: aListOfExChdAdaInterface
 
 
@@ -431,6 +479,7 @@ ExChdExplicitTypeReference >> setInterfaces: aListOfExChdAdaInterface [
 
 { #category : 'platypus-generated-set-accessing' }
 ExChdExplicitTypeReference >> setUsedName: aString [
+
 	self usedName: aString
 
 
@@ -438,6 +487,7 @@ ExChdExplicitTypeReference >> setUsedName: aString [
 
 { #category : 'platypus-generated-initializing' }
 ExChdExplicitTypeReference >> stepInitialize [
+
 	super stepInitialize.
 	usedName := nil.
 	interfaces := OrderedCollection new
@@ -447,6 +497,7 @@ ExChdExplicitTypeReference >> stepInitialize [
 
 { #category : 'platypus-generated-group-accessing' }
 ExChdExplicitTypeReference >> toValues: values [
+
 	^ self explicitTypeReferenceToValues: (super toValues: values)
 
 
@@ -454,6 +505,7 @@ ExChdExplicitTypeReference >> toValues: values [
 
 { #category : 'platypus-generated-accessing' }
 ExChdExplicitTypeReference >> usedName [
+
 	^ usedName
 
 
@@ -461,6 +513,7 @@ ExChdExplicitTypeReference >> usedName [
 
 { #category : 'platypus-generated-accessing' }
 ExChdExplicitTypeReference >> usedName: aString [
+
 	usedName := aString
 
 
@@ -468,6 +521,7 @@ ExChdExplicitTypeReference >> usedName: aString [
 
 { #category : 'platypus-generated-with-context-accessing' }
 ExChdExplicitTypeReference >> usedNameUsingContext: aContext [
+
 	^ self usedName
 
 

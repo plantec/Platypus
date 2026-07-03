@@ -42,6 +42,7 @@ Class {
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdExplicitAttributePutFunction class >> iso10303P11Translater [
+
 	^ 'Platypus (c) LISYC EA3883, Universite de Bretagne occidentale. Brest.'
 
 
@@ -49,6 +50,7 @@ ExChdExplicitAttributePutFunction class >> iso10303P11Translater [
 
 { #category : 'platypus-generated-meta-data-accessing' }
 ExChdExplicitAttributePutFunction class >> schemaDefinition [
+
 	^ ExChdRecordAndClassSchemaDefinition singleton
 
 
@@ -56,6 +58,7 @@ ExChdExplicitAttributePutFunction class >> schemaDefinition [
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdExplicitAttributePutFunction class >> translatedFromISO10303P11 [
+
 	^ true
 
 
@@ -63,6 +66,7 @@ ExChdExplicitAttributePutFunction class >> translatedFromISO10303P11 [
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdExplicitAttributePutFunction class >> vwNamespaceName [
+
 	^ #Express2Cheddar
 
 
@@ -70,6 +74,7 @@ ExChdExplicitAttributePutFunction class >> vwNamespaceName [
 
 { #category : 'platypus-generated-accessing' }
 ExChdExplicitAttributePutFunction >> attr [
+
 	^ attr
 
 
@@ -77,6 +82,7 @@ ExChdExplicitAttributePutFunction >> attr [
 
 { #category : 'platypus-generated-accessing' }
 ExChdExplicitAttributePutFunction >> attr: aExChdExplicitAttribute [
+
 	attr := aExChdExplicitAttribute
 
 
@@ -84,6 +90,7 @@ ExChdExplicitAttributePutFunction >> attr: aExChdExplicitAttribute [
 
 { #category : 'platypus-generated-accessing' }
 ExChdExplicitAttributePutFunction >> code [
+
 	^ code
 
 
@@ -91,6 +98,7 @@ ExChdExplicitAttributePutFunction >> code [
 
 { #category : 'platypus-generated-accessing' }
 ExChdExplicitAttributePutFunction >> code: aString [
+
 	code := aString
 
 
@@ -98,6 +106,7 @@ ExChdExplicitAttributePutFunction >> code: aString [
 
 { #category : 'platypus-generated-accessing' }
 ExChdExplicitAttributePutFunction >> domain [
+
 	^ domain
 
 
@@ -105,6 +114,7 @@ ExChdExplicitAttributePutFunction >> domain [
 
 { #category : 'platypus-generated-accessing' }
 ExChdExplicitAttributePutFunction >> domain: aExChdEntityInstance [
+
 	domain := aExChdEntityInstance
 
 
@@ -112,6 +122,7 @@ ExChdExplicitAttributePutFunction >> domain: aExChdEntityInstance [
 
 { #category : 'platypus-generated-accessing' }
 ExChdExplicitAttributePutFunction >> fromValues: values [
+
 	self attr: (values at: 1)
 
 
@@ -122,39 +133,38 @@ ExChdExplicitAttributePutFunction >> invoke [
 	" ---------- locals assignments ----------"
 
 	self prfx: ''.
-	self
-		domain:
-			(ExChdBasicAdaDomainFunction
-				invokeFromValues:
-					(OrderedCollection new
-						add: (self attr domainUsingContext: self class context);
-						yourself)).	" ---------- statements ----------"
-	self code: (('put("' pltPlus: (self attr nameUsingContext: self class context)) pltPlus: ': "); ').
-	((PltTYPEOFFunction
-		invokeFromValues:
-			(OrderedCollection new
-				add: (self domain handledUsingContext: self class context);
-				yourself)) includes: 'RECORD_AND_CLASS.CHEDDAR_FUNCTION_PTR')
+	self domain:
+		(ExChdBasicAdaDomainFunction invokeFromValues:
+			 (OrderedCollection new
+				  add: (self attr domainUsingContext: self class context);
+				  yourself)). " ---------- statements ----------"
+	self code:
+		(('put("' pltPlus: (self attr nameUsingContext: self class context))
+			 pltPlus: ': "); ').
+	((PltTYPEOFFunction invokeFromValues: (OrderedCollection new
+			   add: (self domain handledUsingContext: self class context);
+			   yourself)) includes: 'RECORD_AND_CLASS.CHEDDAR_FUNCTION_PTR')
 		ifTrue: [ ^ self return: '' ].
-	((PltTYPEOFFunction
-		invokeFromValues:
-			(OrderedCollection new
-				add: (self domain handledUsingContext: self class context);
-				yourself)) includes: 'CHEDDAR_DOMAINS.ADA_PRIMITIVE_TYPE')
-		ifTrue: [ self prfx: ((self domain handledUsingContext: self class context) putPrefixUsingContext: self class context) ].
-	((self domain handledUsingContext: self class context) refedByPointerUsingContext: self class context)
-		ifTrue: [ 
-			self
-				code:
-					((((((((self code pltPlus: 'if obj.') pltPlus: (self attr nameUsingContext: self class context))
-						pltPlus: ' /= null then ') pltPlus: self prfx) pltPlus: 'put(obj.')
-						pltPlus: (self attr nameUsingContext: self class context)) pltPlus: '.all')
-						pltPlus: '); else put("null"); end if;') ]
-		ifFalse: [ 
-			self
-				code:
-					((((self code pltPlus: self prfx) pltPlus: 'put(obj.') pltPlus: (self attr nameUsingContext: self class context))
-						pltPlus: '); ') ].
+	((PltTYPEOFFunction invokeFromValues: (OrderedCollection new
+			   add: (self domain handledUsingContext: self class context);
+			   yourself)) includes: 'CHEDDAR_DOMAINS.ADA_PRIMITIVE_TYPE')
+		ifTrue: [
+				self prfx: ((self domain handledUsingContext: self class context)
+						 putPrefixUsingContext: self class context) ].
+	((self domain handledUsingContext: self class context)
+		 refedByPointerUsingContext: self class context)
+		ifTrue: [
+				self code: ((((((((self code pltPlus: 'if obj.') pltPlus:
+						       (self attr nameUsingContext: self class context))
+						      pltPlus: ' /= null then ') pltPlus: self prfx) pltPlus:
+						    'put(obj.') pltPlus:
+						   (self attr nameUsingContext: self class context)) pltPlus:
+						  '.all') pltPlus: '); else put("null"); end if;') ]
+		ifFalse: [
+				self code:
+					((((self code pltPlus: self prfx) pltPlus: 'put(obj.') pltPlus:
+						  (self attr nameUsingContext: self class context)) pltPlus:
+						 '); ') ].
 	self code: (self code pltPlus: 'put ( "; " );').
 	^ self return: self code
 
@@ -163,6 +173,7 @@ ExChdExplicitAttributePutFunction >> invoke [
 
 { #category : 'platypus-generated-accessing' }
 ExChdExplicitAttributePutFunction >> prfx [
+
 	^ prfx
 
 
@@ -170,6 +181,7 @@ ExChdExplicitAttributePutFunction >> prfx [
 
 { #category : 'platypus-generated-accessing' }
 ExChdExplicitAttributePutFunction >> prfx: aString1 [
+
 	prfx := aString1
 
 

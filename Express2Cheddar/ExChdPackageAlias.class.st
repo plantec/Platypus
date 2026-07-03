@@ -22,8 +22,8 @@ Class {
 	#name : 'ExChdPackageAlias',
 	#superclass : 'ExChdCoreEntity',
 	#instVars : [
-		'packageName',
-		'attributeName'
+		'attributeName',
+		'packageName'
 	],
 	#category : 'Express2Cheddar-PackageSchema',
 	#package : 'Express2Cheddar',
@@ -32,6 +32,7 @@ Class {
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdPackageAlias class >> iso10303P11Translater [
+
 	^ 'Platypus (c) LISYC EA3883, Universite de Bretagne occidentale. Brest.'
 
 
@@ -39,6 +40,7 @@ ExChdPackageAlias class >> iso10303P11Translater [
 
 { #category : 'platypus-generated-meta-data-accessing' }
 ExChdPackageAlias class >> schemaDefinition [
+
 	^ ExChdPackageSchemaDefinition singleton
 
 
@@ -46,6 +48,7 @@ ExChdPackageAlias class >> schemaDefinition [
 
 { #category : 'platypus-generated-meta-data-accessing' }
 ExChdPackageAlias class >> schemaInstance [
+
 	^ ExChdExpress2cheddarSchemaInstance singleton
 
 
@@ -53,6 +56,7 @@ ExChdPackageAlias class >> schemaInstance [
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdPackageAlias class >> translatedFromISO10303P11 [
+
 	^ true
 
 
@@ -60,6 +64,7 @@ ExChdPackageAlias class >> translatedFromISO10303P11 [
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdPackageAlias class >> vwNamespaceName [
+
 	^ #Express2Cheddar
 
 
@@ -67,6 +72,7 @@ ExChdPackageAlias class >> vwNamespaceName [
 
 { #category : 'platypus-generated-visiting' }
 ExChdPackageAlias >> accept: aVisitor [
+
 	^ aVisitor acceptPackageAlias: self
 
 
@@ -74,6 +80,7 @@ ExChdPackageAlias >> accept: aVisitor [
 
 { #category : 'platypus-generated-deriving' }
 ExChdPackageAlias >> adaRefIdent [
+
 	^ self adaRefIdentUsingContext: self class context
 
 
@@ -81,6 +88,7 @@ ExChdPackageAlias >> adaRefIdent [
 
 { #category : 'platypus-generated-deriving' }
 ExChdPackageAlias >> adaRefIdentUsingContext: aContext [
+
 	^ self adaRefIdentUsingContext: aContext receiver: self
 
 
@@ -88,6 +96,7 @@ ExChdPackageAlias >> adaRefIdentUsingContext: aContext [
 
 { #category : 'platypus-generated-deriving' }
 ExChdPackageAlias >> adaRefIdentUsingContext: aContext receiver: aReceiver [
+
 	^ aReceiver ptrTypeUsingContext: aContext
 
 
@@ -95,6 +104,7 @@ ExChdPackageAlias >> adaRefIdentUsingContext: aContext receiver: aReceiver [
 
 { #category : 'platypus-generated-deriving' }
 ExChdPackageAlias >> adbCode [
+
 	^ self adbCodeUsingContext: self class context
 
 
@@ -102,6 +112,7 @@ ExChdPackageAlias >> adbCode [
 
 { #category : 'platypus-generated-deriving' }
 ExChdPackageAlias >> adbCodeUsingContext: aContext [
+
 	^ self adbCodeUsingContext: aContext receiver: self
 
 
@@ -109,6 +120,7 @@ ExChdPackageAlias >> adbCodeUsingContext: aContext [
 
 { #category : 'platypus-generated-deriving' }
 ExChdPackageAlias >> adbCodeUsingContext: aContext receiver: aReceiver [
+
 	^ ''
 
 
@@ -116,6 +128,7 @@ ExChdPackageAlias >> adbCodeUsingContext: aContext receiver: aReceiver [
 
 { #category : 'platypus-generated-deriving' }
 ExChdPackageAlias >> adbInterfacesList [
+
 	^ self adbInterfacesListUsingContext: self class context
 
 
@@ -123,6 +136,7 @@ ExChdPackageAlias >> adbInterfacesList [
 
 { #category : 'platypus-generated-deriving' }
 ExChdPackageAlias >> adbInterfacesListUsingContext: aContext [
+
 	^ self adbInterfacesListUsingContext: aContext receiver: self
 
 
@@ -130,26 +144,27 @@ ExChdPackageAlias >> adbInterfacesListUsingContext: aContext [
 
 { #category : 'platypus-generated-deriving' }
 ExChdPackageAlias >> adbInterfacesListUsingContext: aContext receiver: aReceiver [
-	^ PlatypusCoreAggregateInitializer
-		collectionFrom:
-			(OrderedCollection new
-				add:
-						(ExChdAdaInterface new
-								adaInterfaceFromValues:
-										(OrderedCollection new
-												add: ((aReceiver ownerUsingContext: self class context) nameUsingContext: self class context);
-												add: nil;
-												add: true;
-												add: true;
-												yourself);
-								yourself);
-				yourself)
+
+	^ PlatypusCoreAggregateInitializer collectionFrom:
+		  (OrderedCollection new
+			   add: (ExChdAdaInterface new
+					    adaInterfaceFromValues: (OrderedCollection new
+							     add:
+								     ((aReceiver ownerUsingContext: self class context)
+									      nameUsingContext: self class context);
+							     add: nil;
+							     add: true;
+							     add: true;
+							     yourself);
+					    yourself);
+			   yourself)
 
 
 ]
 
 { #category : 'platypus-generated-deriving' }
 ExChdPackageAlias >> adsCode [
+
 	^ self adsCodeUsingContext: self class context
 
 
@@ -157,6 +172,7 @@ ExChdPackageAlias >> adsCode [
 
 { #category : 'platypus-generated-deriving' }
 ExChdPackageAlias >> adsCodeUsingContext: aContext [
+
 	^ self adsCodeUsingContext: aContext receiver: self
 
 
@@ -164,16 +180,22 @@ ExChdPackageAlias >> adsCodeUsingContext: aContext [
 
 { #category : 'platypus-generated-deriving' }
 ExChdPackageAlias >> adsCodeUsingContext: aContext receiver: aReceiver [
-	^ (((((((((((('subtype ' pltPlus: (aReceiver nameUsingContext: aContext)) pltPlus: ' is ')
-		pltPlus: aReceiver packageName) pltPlus: '.') pltPlus: aReceiver attributeName) pltPlus: ';\n') pltPlus: 'subtype ')
-		pltPlus: (aReceiver ptrTypeUsingContext: aContext)) pltPlus: ' is  ') pltPlus: aReceiver packageName) pltPlus: '.')
-		pltPlus: aReceiver attributeName) pltPlus: '_Ptr;\n'
+
+	^ (((((((((((('subtype ' pltPlus:
+		              (aReceiver nameUsingContext: aContext)) pltPlus:
+		             ' is ') pltPlus: aReceiver packageName) pltPlus: '.')
+		          pltPlus: aReceiver attributeName) pltPlus: ';\n')
+		        pltPlus: 'subtype ') pltPlus:
+		       (aReceiver ptrTypeUsingContext: aContext)) pltPlus: ' is  ')
+		     pltPlus: aReceiver packageName) pltPlus: '.') pltPlus:
+		   aReceiver attributeName) pltPlus: '_Ptr;\n'
 
 
 ]
 
 { #category : 'platypus-generated-deriving' }
 ExChdPackageAlias >> adsInterfacesList [
+
 	^ self adsInterfacesListUsingContext: self class context
 
 
@@ -181,6 +203,7 @@ ExChdPackageAlias >> adsInterfacesList [
 
 { #category : 'platypus-generated-deriving' }
 ExChdPackageAlias >> adsInterfacesListUsingContext: aContext [
+
 	^ self adsInterfacesListUsingContext: aContext receiver: self
 
 
@@ -188,6 +211,7 @@ ExChdPackageAlias >> adsInterfacesListUsingContext: aContext [
 
 { #category : 'platypus-generated-deriving' }
 ExChdPackageAlias >> adsInterfacesListUsingContext: aContext receiver: aReceiver [
+
 	^ Array new
 
 
@@ -195,6 +219,7 @@ ExChdPackageAlias >> adsInterfacesListUsingContext: aContext receiver: aReceiver
 
 { #category : 'platypus-generated-deriving' }
 ExChdPackageAlias >> adsPreDef [
+
 	^ self adsPreDefUsingContext: self class context
 
 
@@ -202,6 +227,7 @@ ExChdPackageAlias >> adsPreDef [
 
 { #category : 'platypus-generated-deriving' }
 ExChdPackageAlias >> adsPreDefUsingContext: aContext [
+
 	^ self adsPreDefUsingContext: aContext receiver: self
 
 
@@ -209,6 +235,7 @@ ExChdPackageAlias >> adsPreDefUsingContext: aContext [
 
 { #category : 'platypus-generated-deriving' }
 ExChdPackageAlias >> adsPreDefUsingContext: aContext receiver: aReceiver [
+
 	^ ''
 
 
@@ -216,6 +243,7 @@ ExChdPackageAlias >> adsPreDefUsingContext: aContext receiver: aReceiver [
 
 { #category : 'platypus-generated-accessing' }
 ExChdPackageAlias >> attributeName [
+
 	^ attributeName
 
 
@@ -223,6 +251,7 @@ ExChdPackageAlias >> attributeName [
 
 { #category : 'platypus-generated-accessing' }
 ExChdPackageAlias >> attributeName: aString [
+
 	attributeName := aString
 
 
@@ -230,6 +259,7 @@ ExChdPackageAlias >> attributeName: aString [
 
 { #category : 'platypus-generated-with-context-accessing' }
 ExChdPackageAlias >> attributeNameUsingContext: aContext [
+
 	^ self attributeName
 
 
@@ -237,6 +267,7 @@ ExChdPackageAlias >> attributeNameUsingContext: aContext [
 
 { #category : 'platypus-generated-deriving' }
 ExChdPackageAlias >> dependencies [
+
 	^ self dependenciesUsingContext: self class context
 
 
@@ -244,6 +275,7 @@ ExChdPackageAlias >> dependencies [
 
 { #category : 'platypus-generated-deriving' }
 ExChdPackageAlias >> dependenciesUsingContext: aContext [
+
 	^ self dependenciesUsingContext: aContext receiver: self
 
 
@@ -251,17 +283,18 @@ ExChdPackageAlias >> dependenciesUsingContext: aContext [
 
 { #category : 'platypus-generated-deriving' }
 ExChdPackageAlias >> dependenciesUsingContext: aContext receiver: aReceiver [
-	^ PlatypusCoreAggregateInitializer
-		collectionFrom:
-			(OrderedCollection new
-				add: aReceiver;
-				yourself)
+
+	^ PlatypusCoreAggregateInitializer collectionFrom:
+		  (OrderedCollection new
+			   add: aReceiver;
+			   yourself)
 
 
 ]
 
 { #category : 'platypus-generated-fast-set-accessing' }
 ExChdPackageAlias >> fastSetAttributeName: aString [
+
 	attributeName := aString
 
 
@@ -269,6 +302,7 @@ ExChdPackageAlias >> fastSetAttributeName: aString [
 
 { #category : 'platypus-generated-fast-set-accessing' }
 ExChdPackageAlias >> fastSetPackageName: aString [
+
 	packageName := aString
 
 
@@ -276,6 +310,7 @@ ExChdPackageAlias >> fastSetPackageName: aString [
 
 { #category : 'platypus-generated-group-accessing' }
 ExChdPackageAlias >> fromValues: values [
+
 	^ self packageAliasFromValues: (super fromValues: values)
 
 
@@ -283,6 +318,7 @@ ExChdPackageAlias >> fromValues: values [
 
 { #category : 'platypus-generated-deriving' }
 ExChdPackageAlias >> initValue [
+
 	^ self initValueUsingContext: self class context
 
 
@@ -290,6 +326,7 @@ ExChdPackageAlias >> initValue [
 
 { #category : 'platypus-generated-deriving' }
 ExChdPackageAlias >> initValueUsingContext: aContext [
+
 	^ self initValueUsingContext: aContext receiver: self
 
 
@@ -297,6 +334,7 @@ ExChdPackageAlias >> initValueUsingContext: aContext [
 
 { #category : 'platypus-generated-deriving' }
 ExChdPackageAlias >> initValueUsingContext: aContext receiver: aReceiver [
+
 	^ nil
 
 
@@ -304,6 +342,7 @@ ExChdPackageAlias >> initValueUsingContext: aContext receiver: aReceiver [
 
 { #category : 'platypus-generated-classifying' }
 ExChdPackageAlias >> isExChdPackageAlias [
+
 	^ true
 
 
@@ -311,6 +350,7 @@ ExChdPackageAlias >> isExChdPackageAlias [
 
 { #category : 'platypus-generated-group-accessing' }
 ExChdPackageAlias >> localFromValues: values [
+
 	^ self packageAliasFromValues: values
 
 
@@ -318,6 +358,7 @@ ExChdPackageAlias >> localFromValues: values [
 
 { #category : 'platypus-generated-group-accessing' }
 ExChdPackageAlias >> localToValues: values [
+
 	^ self packageAliasToValues: values
 
 
@@ -325,6 +366,7 @@ ExChdPackageAlias >> localToValues: values [
 
 { #category : 'platypus-generated-copying' }
 ExChdPackageAlias >> packageAliasCopyTo: another [
+
 	another fastSetPackageName: self packageName.
 	another fastSetAttributeName: self attributeName
 
@@ -333,6 +375,7 @@ ExChdPackageAlias >> packageAliasCopyTo: another [
 
 { #category : 'platypus-generated-group-accessing' }
 ExChdPackageAlias >> packageAliasFromValues: values [
+
 	| valuesloc |
 	valuesloc := values asOrderedCollection.
 	self setPackageName: valuesloc removeFirst.
@@ -344,6 +387,7 @@ ExChdPackageAlias >> packageAliasFromValues: values [
 
 { #category : 'platypus-generated-group-accessing' }
 ExChdPackageAlias >> packageAliasToValues: values [
+
 	values add: self packageName.
 	values add: self attributeName.
 	^ values
@@ -353,6 +397,7 @@ ExChdPackageAlias >> packageAliasToValues: values [
 
 { #category : 'platypus-generated-accessing' }
 ExChdPackageAlias >> packageName [
+
 	^ packageName
 
 
@@ -360,6 +405,7 @@ ExChdPackageAlias >> packageName [
 
 { #category : 'platypus-generated-accessing' }
 ExChdPackageAlias >> packageName: aString [
+
 	packageName := aString
 
 
@@ -367,6 +413,7 @@ ExChdPackageAlias >> packageName: aString [
 
 { #category : 'platypus-generated-with-context-accessing' }
 ExChdPackageAlias >> packageNameUsingContext: aContext [
+
 	^ self packageName
 
 
@@ -374,6 +421,7 @@ ExChdPackageAlias >> packageNameUsingContext: aContext [
 
 { #category : 'platypus-generated-copying' }
 ExChdPackageAlias >> pltCopyGroup: aClassSymbol to: anObject [
+
 	self class name == aClassSymbol
 		ifTrue: [ self pltCopyTo: anObject ]
 		ifFalse: [ super pltCopyGroup: aClassSymbol to: anObject ]
@@ -383,6 +431,7 @@ ExChdPackageAlias >> pltCopyGroup: aClassSymbol to: anObject [
 
 { #category : 'platypus-generated-copying' }
 ExChdPackageAlias >> pltCopyTo: another [
+
 	super pltCopyTo: another.
 	self packageAliasCopyTo: another
 
@@ -391,6 +440,7 @@ ExChdPackageAlias >> pltCopyTo: another [
 
 { #category : 'platypus-generated-copying' }
 ExChdPackageAlias >> pltLocalCopyTo: another [
+
 	self packageAliasCopyTo: another
 
 
@@ -398,6 +448,7 @@ ExChdPackageAlias >> pltLocalCopyTo: another [
 
 { #category : 'platypus-generated-deriving' }
 ExChdPackageAlias >> ptrType [
+
 	^ self ptrTypeUsingContext: self class context
 
 
@@ -405,6 +456,7 @@ ExChdPackageAlias >> ptrType [
 
 { #category : 'platypus-generated-deriving' }
 ExChdPackageAlias >> ptrTypeUsingContext: aContext [
+
 	^ self ptrTypeUsingContext: aContext receiver: self
 
 
@@ -412,6 +464,7 @@ ExChdPackageAlias >> ptrTypeUsingContext: aContext [
 
 { #category : 'platypus-generated-deriving' }
 ExChdPackageAlias >> ptrTypeUsingContext: aContext receiver: aReceiver [
+
 	^ (aReceiver nameUsingContext: aContext) pltPlus: '_Ptr'
 
 
@@ -419,6 +472,7 @@ ExChdPackageAlias >> ptrTypeUsingContext: aContext receiver: aReceiver [
 
 { #category : 'platypus-generated-deriving' }
 ExChdPackageAlias >> refedByPointer [
+
 	^ self refedByPointerUsingContext: self class context
 
 
@@ -426,6 +480,7 @@ ExChdPackageAlias >> refedByPointer [
 
 { #category : 'platypus-generated-deriving' }
 ExChdPackageAlias >> refedByPointerUsingContext: aContext [
+
 	^ self refedByPointerUsingContext: aContext receiver: self
 
 
@@ -433,6 +488,7 @@ ExChdPackageAlias >> refedByPointerUsingContext: aContext [
 
 { #category : 'platypus-generated-deriving' }
 ExChdPackageAlias >> refedByPointerUsingContext: aContext receiver: aReceiver [
+
 	^ true
 
 
@@ -440,6 +496,7 @@ ExChdPackageAlias >> refedByPointerUsingContext: aContext receiver: aReceiver [
 
 { #category : 'platypus-generated-set-accessing' }
 ExChdPackageAlias >> setAttributeName: aString [
+
 	self attributeName: aString
 
 
@@ -447,6 +504,7 @@ ExChdPackageAlias >> setAttributeName: aString [
 
 { #category : 'platypus-generated-set-accessing' }
 ExChdPackageAlias >> setPackageName: aString [
+
 	self packageName: aString
 
 
@@ -454,6 +512,7 @@ ExChdPackageAlias >> setPackageName: aString [
 
 { #category : 'platypus-generated-initializing' }
 ExChdPackageAlias >> stepInitialize [
+
 	super stepInitialize.
 	packageName := ''.
 	attributeName := ''
@@ -463,6 +522,7 @@ ExChdPackageAlias >> stepInitialize [
 
 { #category : 'platypus-generated-group-accessing' }
 ExChdPackageAlias >> toValues: values [
+
 	^ self packageAliasToValues: (super toValues: values)
 
 

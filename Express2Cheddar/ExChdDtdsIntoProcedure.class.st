@@ -5,7 +5,7 @@ PROCEDURE dtds_Into ( dir : STRING );
 		roots : LIST OF root_dtd_element := root_dtds ( );
 		path : STRING;
 	END_LOCAL;
-	(*#  MultiByteFileStream defaultToLF  #*) prepare_root_ada_classes;
+	prepare_root_ada_classes;
 
 	IF EXISTS ( dir ) THEN
 		path := dir;
@@ -37,6 +37,7 @@ Class {
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdDtdsIntoProcedure class >> iso10303P11Translater [
+
 	^ 'Platypus (c) LISYC EA3883, Universite de Bretagne occidentale. Brest.'
 
 
@@ -44,6 +45,7 @@ ExChdDtdsIntoProcedure class >> iso10303P11Translater [
 
 { #category : 'platypus-generated-meta-data-accessing' }
 ExChdDtdsIntoProcedure class >> schemaDefinition [
+
 	^ ExChdExpress2cheddarFacadeSchemaDefinition singleton
 
 
@@ -51,6 +53,7 @@ ExChdDtdsIntoProcedure class >> schemaDefinition [
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdDtdsIntoProcedure class >> translatedFromISO10303P11 [
+
 	^ true
 
 
@@ -58,6 +61,7 @@ ExChdDtdsIntoProcedure class >> translatedFromISO10303P11 [
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdDtdsIntoProcedure class >> vwNamespaceName [
+
 	^ #Express2Cheddar
 
 
@@ -65,6 +69,7 @@ ExChdDtdsIntoProcedure class >> vwNamespaceName [
 
 { #category : 'platypus-generated-accessing' }
 ExChdDtdsIntoProcedure >> dir [
+
 	^ dir
 
 
@@ -72,6 +77,7 @@ ExChdDtdsIntoProcedure >> dir [
 
 { #category : 'platypus-generated-accessing' }
 ExChdDtdsIntoProcedure >> dir: aString [
+
 	dir := aString
 
 
@@ -79,6 +85,7 @@ ExChdDtdsIntoProcedure >> dir: aString [
 
 { #category : 'platypus-generated-accessing' }
 ExChdDtdsIntoProcedure >> fromValues: values [
+
 	self dir: (values at: 1)
 
 
@@ -88,44 +95,37 @@ ExChdDtdsIntoProcedure >> fromValues: values [
 ExChdDtdsIntoProcedure >> invoke [
 	" ---------- locals assignments ----------"
 
-	self roots: ExChdRootDtdsFunction invoke.	" ---------- statements ----------"	"---------- native statement ---------- "
+	self roots: ExChdRootDtdsFunction invoke. " ---------- statements ----------"
 	ExChdPrepareRootAdaClassesProcedure invoke.
-	(PltEXISTSFunction
-		invokeFromValues:
-			(OrderedCollection new
-				add: self dir;
-				yourself))
+	(PltEXISTSFunction invokeFromValues: (OrderedCollection new
+			  add: self dir;
+			  yourself))
 		ifTrue: [ self path: self dir ]
 		ifFalse: [ self path: '.' ].
 	PlatypusCoreRepeatStatement
-		repeat: [ :no2831 | 
-			PlatypusCoreAliasStatement
-				alias: (self roots pltAt: no2831)
-				statementsBlock: [ :curr3941 | 
-					PTsWriteFileProcedure
-						invokeFromValues:
-							(OrderedCollection new
-								add: (((self path pltPlus: '/') pltPlus: (curr3941 tagUsingContext: self class context)) pltPlus: '.dtd');
-								add: (curr3941 dtdCodeUsingContext: self class context);
-								yourself) ] ]
-		from:
-			(PltLOINDEXFunction
-				invokeFromValues:
-					(OrderedCollection new
-						add: self roots;
-						yourself))
-		to:
-			(PltHIINDEXFunction
-				invokeFromValues:
-					(OrderedCollection new
-						add: self roots;
-						yourself))
+		repeat: [ :no2192789 |
+				PlatypusCoreAliasStatement
+					alias: (self roots pltAt: no2192789)
+					statementsBlock: [ :curr3060283 |
+							PTsWriteFileProcedure invokeFromValues: (OrderedCollection new
+									 add: (((self path pltPlus: '/') pltPlus:
+												   (curr3060283 tagUsingContext: self class context))
+											  pltPlus: '.dtd');
+									 add: (curr3060283 dtdCodeUsingContext: self class context);
+									 yourself) ] ]
+		from: (PltLOINDEXFunction invokeFromValues: (OrderedCollection new
+					  add: self roots;
+					  yourself))
+		to: (PltHIINDEXFunction invokeFromValues: (OrderedCollection new
+					  add: self roots;
+					  yourself))
 
 
 ]
 
 { #category : 'platypus-generated-accessing' }
 ExChdDtdsIntoProcedure >> path [
+
 	^ path
 
 
@@ -133,6 +133,7 @@ ExChdDtdsIntoProcedure >> path [
 
 { #category : 'platypus-generated-accessing' }
 ExChdDtdsIntoProcedure >> path: aString [
+
 	path := aString
 
 
@@ -140,6 +141,7 @@ ExChdDtdsIntoProcedure >> path: aString [
 
 { #category : 'platypus-generated-accessing' }
 ExChdDtdsIntoProcedure >> roots [
+
 	^ roots
 
 
@@ -147,9 +149,11 @@ ExChdDtdsIntoProcedure >> roots [
 
 { #category : 'platypus-generated-accessing' }
 ExChdDtdsIntoProcedure >> roots: aListOfExChdRootDtdElement [
+
 	roots := aListOfExChdRootDtdElement
-		ifNil: [ OrderedCollection new ]
-		ifNotNil: [ aListOfExChdRootDtdElement as: OrderedCollection ]
+		         ifNil: [ OrderedCollection new ]
+		         ifNotNil: [
+		         aListOfExChdRootDtdElement as: OrderedCollection ]
 
 
 ]

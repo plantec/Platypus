@@ -49,6 +49,7 @@ Class {
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdComputePackageSubElementsFunction class >> iso10303P11Translater [
+
 	^ 'Platypus (c) LISYC EA3883, Universite de Bretagne occidentale. Brest.'
 
 
@@ -56,6 +57,7 @@ ExChdComputePackageSubElementsFunction class >> iso10303P11Translater [
 
 { #category : 'platypus-generated-meta-data-accessing' }
 ExChdComputePackageSubElementsFunction class >> schemaDefinition [
+
 	^ ExChdCheddarDtdSchemaDefinition singleton
 
 
@@ -63,6 +65,7 @@ ExChdComputePackageSubElementsFunction class >> schemaDefinition [
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdComputePackageSubElementsFunction class >> translatedFromISO10303P11 [
+
 	^ true
 
 
@@ -70,6 +73,7 @@ ExChdComputePackageSubElementsFunction class >> translatedFromISO10303P11 [
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdComputePackageSubElementsFunction class >> vwNamespaceName [
+
 	^ #Express2Cheddar
 
 
@@ -77,6 +81,7 @@ ExChdComputePackageSubElementsFunction class >> vwNamespaceName [
 
 { #category : 'platypus-generated-accessing' }
 ExChdComputePackageSubElementsFunction >> classes [
+
 	^ classes
 
 
@@ -84,15 +89,17 @@ ExChdComputePackageSubElementsFunction >> classes [
 
 { #category : 'platypus-generated-accessing' }
 ExChdComputePackageSubElementsFunction >> classes: aListOfExChdAdaEntity [
+
 	classes := aListOfExChdAdaEntity
-		ifNil: [ OrderedCollection new ]
-		ifNotNil: [ aListOfExChdAdaEntity as: OrderedCollection ]
+		           ifNil: [ OrderedCollection new ]
+		           ifNotNil: [ aListOfExChdAdaEntity as: OrderedCollection ]
 
 
 ]
 
 { #category : 'platypus-generated-accessing' }
 ExChdComputePackageSubElementsFunction >> discrims [
+
 	^ discrims
 
 
@@ -100,15 +107,18 @@ ExChdComputePackageSubElementsFunction >> discrims [
 
 { #category : 'platypus-generated-accessing' }
 ExChdComputePackageSubElementsFunction >> discrims: aListOfExChdDiscriminatedType [
+
 	discrims := aListOfExChdDiscriminatedType
-		ifNil: [ OrderedCollection new ]
-		ifNotNil: [ aListOfExChdDiscriminatedType as: OrderedCollection ]
+		            ifNil: [ OrderedCollection new ]
+		            ifNotNil: [
+		            aListOfExChdDiscriminatedType as: OrderedCollection ]
 
 
 ]
 
 { #category : 'platypus-generated-accessing' }
 ExChdComputePackageSubElementsFunction >> e [
+
 	^ e
 
 
@@ -116,6 +126,7 @@ ExChdComputePackageSubElementsFunction >> e [
 
 { #category : 'platypus-generated-accessing' }
 ExChdComputePackageSubElementsFunction >> e: aExChdPackageDtdElement [
+
 	e := aExChdPackageDtdElement
 
 
@@ -123,6 +134,7 @@ ExChdComputePackageSubElementsFunction >> e: aExChdPackageDtdElement [
 
 { #category : 'platypus-generated-accessing' }
 ExChdComputePackageSubElementsFunction >> fromValues: values [
+
 	self e: (values at: 1)
 
 
@@ -133,183 +145,134 @@ ExChdComputePackageSubElementsFunction >> invoke [
 	" ---------- locals assignments ----------"
 
 	self result: Array new.
-	self
-		classes:
-			(ExChdPackageAdaClassesFunction
-				invokeFromValues:
-					(OrderedCollection new
-						add: (self e packageUsingContext: self class context);
-						yourself)).
-	self
-		records:
-			(ExChdPackageRecordsFunction
-				invokeFromValues:
-					(OrderedCollection new
-						add: (self e packageUsingContext: self class context);
-						yourself)).
-	self
-		discrims:
-			(ExChdPackageDiscriminatedTypesFunction
-				invokeFromValues:
-					(OrderedCollection new
-						add: (self e packageUsingContext: self class context);
-						yourself)).	" ---------- statements ----------"
+	self classes: (ExChdPackageAdaClassesFunction invokeFromValues:
+			 (OrderedCollection new
+				  add: (self e packageUsingContext: self class context);
+				  yourself)).
+	self records:
+		(ExChdPackageRecordsFunction invokeFromValues:
+			 (OrderedCollection new
+				  add: (self e packageUsingContext: self class context);
+				  yourself)).
+	self discrims:
+		(ExChdPackageDiscriminatedTypesFunction invokeFromValues:
+			 (OrderedCollection new
+				  add: (self e packageUsingContext: self class context);
+				  yourself)). " ---------- statements ----------"
 	PlatypusCoreRepeatStatement
-		repeat: [ :no1185 | 
-			PlatypusCoreAliasStatement
-				alias: (self classes pltAt: no1185)
-				statementsBlock: [ :curr2295 | 
-					self
-						result:
-							(self result
-								pltPlus:
-									(PlatypusComplexInstance
-										fromRecords:
-											(OrderedCollection new
-												add:
-														(PlatypusComplexInstance
-																fromRecords:
-																	(OrderedCollection new
-																		add:
-																				(PlatypusComplexInstance
-																						fromRecords:
-																							(OrderedCollection new
-																								add:
-																										(ExChdDtdElement new
-																												dtdElementFromValues:
-																														(OrderedCollection new
-																																add: self e;
-																																add: nil;
-																																yourself);
-																												yourself);
-																								add: ExChdCompositeDtdElement new;
-																								yourself)) pltAsObject;
-																		add:
-																				(ExChdEntityDtdElement new
-																						entityDtdElementFromValues:
-																								(OrderedCollection new
-																										add: curr2295;
-																										yourself);
-																						yourself);
-																		yourself)) pltAsObject;
-												add: ExChdAdaClassDtdElement new;
-												yourself)) pltAsObject) ] ]
-		from:
-			(PltLOINDEXFunction
-				invokeFromValues:
-					(OrderedCollection new
-						add: self classes;
-						yourself))
-		to:
-			(PltHIINDEXFunction
-				invokeFromValues:
-					(OrderedCollection new
-						add: self classes;
-						yourself)).
+		repeat: [ :no14343 |
+				PlatypusCoreAliasStatement
+					alias: (self classes pltAt: no14343)
+					statementsBlock: [ :curr1993775 |
+							self result: (self result pltPlus:
+									 (PlatypusComplexInstance fromRecords:
+										  (OrderedCollection new
+											   add:
+												   (PlatypusComplexInstance fromRecords:
+														    (OrderedCollection new
+															     add:
+																     (PlatypusComplexInstance fromRecords:
+																		      (OrderedCollection new
+																			       add: (ExChdDtdElement new
+																					        dtdElementFromValues:
+																						        (OrderedCollection new
+																							         add: self e;
+																							         add: nil;
+																							         yourself);
+																					        yourself);
+																			       add: ExChdCompositeDtdElement new;
+																			       yourself)) pltAsObject;
+															     add: (ExChdEntityDtdElement new
+																	      entityDtdElementFromValues:
+																		      (OrderedCollection new
+																			       add: curr1993775;
+																			       yourself);
+																	      yourself);
+															     yourself)) pltAsObject;
+											   add: ExChdAdaClassDtdElement new;
+											   yourself)) pltAsObject) ] ]
+		from: (PltLOINDEXFunction invokeFromValues: (OrderedCollection new
+					  add: self classes;
+					  yourself))
+		to: (PltHIINDEXFunction invokeFromValues: (OrderedCollection new
+					  add: self classes;
+					  yourself)).
 	PlatypusCoreRepeatStatement
-		repeat: [ :no2716 | 
-			PlatypusCoreAliasStatement
-				alias: (self records pltAt: no2716)
-				statementsBlock: [ :curr3826 | 
-					self
-						result:
-							(self result
-								pltPlus:
-									(PlatypusComplexInstance
-										fromRecords:
-											(OrderedCollection new
-												add:
-														(PlatypusComplexInstance
-																fromRecords:
-																	(OrderedCollection new
-																		add:
-																				(PlatypusComplexInstance
-																						fromRecords:
-																							(OrderedCollection new
-																								add:
-																										(ExChdDtdElement new
-																												dtdElementFromValues:
-																														(OrderedCollection new
-																																add: self e;
-																																add: nil;
-																																yourself);
-																												yourself);
-																								add: ExChdCompositeDtdElement new;
-																								yourself)) pltAsObject;
-																		add:
-																				(ExChdEntityDtdElement new
-																						entityDtdElementFromValues:
-																								(OrderedCollection new
-																										add: curr3826;
-																										yourself);
-																						yourself);
-																		yourself)) pltAsObject;
-												add: ExChdRecordDtdElement new;
-												yourself)) pltAsObject) ] ]
-		from:
-			(PltLOINDEXFunction
-				invokeFromValues:
-					(OrderedCollection new
-						add: self records;
-						yourself))
-		to:
-			(PltHIINDEXFunction
-				invokeFromValues:
-					(OrderedCollection new
-						add: self records;
-						yourself)).
+		repeat: [ :no1092273 |
+				PlatypusCoreAliasStatement
+					alias: (self records pltAt: no1092273)
+					statementsBlock: [ :curr3564309 |
+							self result: (self result pltPlus:
+									 (PlatypusComplexInstance fromRecords:
+										  (OrderedCollection new
+											   add:
+												   (PlatypusComplexInstance fromRecords:
+														    (OrderedCollection new
+															     add:
+																     (PlatypusComplexInstance fromRecords:
+																		      (OrderedCollection new
+																			       add: (ExChdDtdElement new
+																					        dtdElementFromValues:
+																						        (OrderedCollection new
+																							         add: self e;
+																							         add: nil;
+																							         yourself);
+																					        yourself);
+																			       add: ExChdCompositeDtdElement new;
+																			       yourself)) pltAsObject;
+															     add: (ExChdEntityDtdElement new
+																	      entityDtdElementFromValues:
+																		      (OrderedCollection new
+																			       add: curr3564309;
+																			       yourself);
+																	      yourself);
+															     yourself)) pltAsObject;
+											   add: ExChdRecordDtdElement new;
+											   yourself)) pltAsObject) ] ]
+		from: (PltLOINDEXFunction invokeFromValues: (OrderedCollection new
+					  add: self records;
+					  yourself))
+		to: (PltHIINDEXFunction invokeFromValues: (OrderedCollection new
+					  add: self records;
+					  yourself)).
 	PlatypusCoreRepeatStatement
-		repeat: [ :no147 | 
-			PlatypusCoreAliasStatement
-				alias: (self discrims pltAt: no147)
-				statementsBlock: [ :curr1257 | 
-					self
-						result:
-							(self result
-								pltPlus:
-									(PlatypusComplexInstance
-										fromRecords:
-											(OrderedCollection new
-												add:
-														(PlatypusComplexInstance
-																fromRecords:
-																	(OrderedCollection new
-																		add:
-																				(PlatypusComplexInstance
-																						fromRecords:
-																							(OrderedCollection new
-																								add:
-																										(ExChdDtdElement new
-																												dtdElementFromValues:
-																														(OrderedCollection new
-																																add: self e;
-																																add: nil;
-																																yourself);
-																												yourself);
-																								add: ExChdCompositeDtdElement new;
-																								yourself)) pltAsObject;
-																		add:
-																				(ExChdEntityDtdElement new
-																						entityDtdElementFromValues:
-																								(OrderedCollection new
-																										add: curr1257;
-																										yourself);
-																						yourself);
-																		yourself)) pltAsObject;
-												add: ExChdDiscriminatedTypeDtdElement new;
-												yourself)) pltAsObject) ] ]
-		from:
-			(PltLOINDEXFunction
-				invokeFromValues:
-					(OrderedCollection new
-						add: self discrims;
-						yourself))
-		to:
-			(PltHIINDEXFunction
-				invokeFromValues:
-					(OrderedCollection new
-						add: self discrims;
-						yourself)).
+		repeat: [ :no2302139 |
+				PlatypusCoreAliasStatement
+					alias: (self discrims pltAt: no2302139)
+					statementsBlock: [ :curr3796379 |
+							self result: (self result pltPlus:
+									 (PlatypusComplexInstance fromRecords:
+										  (OrderedCollection new
+											   add:
+												   (PlatypusComplexInstance fromRecords:
+														    (OrderedCollection new
+															     add:
+																     (PlatypusComplexInstance fromRecords:
+																		      (OrderedCollection new
+																			       add: (ExChdDtdElement new
+																					        dtdElementFromValues:
+																						        (OrderedCollection new
+																							         add: self e;
+																							         add: nil;
+																							         yourself);
+																					        yourself);
+																			       add: ExChdCompositeDtdElement new;
+																			       yourself)) pltAsObject;
+															     add: (ExChdEntityDtdElement new
+																	      entityDtdElementFromValues:
+																		      (OrderedCollection new
+																			       add: curr3796379;
+																			       yourself);
+																	      yourself);
+															     yourself)) pltAsObject;
+											   add: ExChdDiscriminatedTypeDtdElement new;
+											   yourself)) pltAsObject) ] ]
+		from: (PltLOINDEXFunction invokeFromValues: (OrderedCollection new
+					  add: self discrims;
+					  yourself))
+		to: (PltHIINDEXFunction invokeFromValues: (OrderedCollection new
+					  add: self discrims;
+					  yourself)).
 	^ self return: self result
 
 
@@ -317,6 +280,7 @@ ExChdComputePackageSubElementsFunction >> invoke [
 
 { #category : 'platypus-generated-accessing' }
 ExChdComputePackageSubElementsFunction >> records [
+
 	^ records
 
 
@@ -324,15 +288,17 @@ ExChdComputePackageSubElementsFunction >> records [
 
 { #category : 'platypus-generated-accessing' }
 ExChdComputePackageSubElementsFunction >> records: aListOfExChdAdaEntity1 [
+
 	records := aListOfExChdAdaEntity1
-		ifNil: [ OrderedCollection new ]
-		ifNotNil: [ aListOfExChdAdaEntity1 as: OrderedCollection ]
+		           ifNil: [ OrderedCollection new ]
+		           ifNotNil: [ aListOfExChdAdaEntity1 as: OrderedCollection ]
 
 
 ]
 
 { #category : 'platypus-generated-accessing' }
 ExChdComputePackageSubElementsFunction >> result [
+
 	^ result
 
 
@@ -340,9 +306,10 @@ ExChdComputePackageSubElementsFunction >> result [
 
 { #category : 'platypus-generated-accessing' }
 ExChdComputePackageSubElementsFunction >> result: aListOfExChdDtdElement [
+
 	result := aListOfExChdDtdElement
-		ifNil: [ OrderedCollection new ]
-		ifNotNil: [ aListOfExChdDtdElement as: OrderedCollection ]
+		          ifNil: [ OrderedCollection new ]
+		          ifNotNil: [ aListOfExChdDtdElement as: OrderedCollection ]
 
 
 ]

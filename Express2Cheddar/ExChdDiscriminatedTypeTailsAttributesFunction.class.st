@@ -37,6 +37,7 @@ Class {
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdDiscriminatedTypeTailsAttributesFunction class >> iso10303P11Translater [
+
 	^ 'Platypus (c) LISYC EA3883, Universite de Bretagne occidentale. Brest.'
 
 
@@ -44,6 +45,7 @@ ExChdDiscriminatedTypeTailsAttributesFunction class >> iso10303P11Translater [
 
 { #category : 'platypus-generated-meta-data-accessing' }
 ExChdDiscriminatedTypeTailsAttributesFunction class >> schemaDefinition [
+
 	^ ExChdDiscriminatedTypeSchemaDefinition singleton
 
 
@@ -51,6 +53,7 @@ ExChdDiscriminatedTypeTailsAttributesFunction class >> schemaDefinition [
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdDiscriminatedTypeTailsAttributesFunction class >> translatedFromISO10303P11 [
+
 	^ true
 
 
@@ -58,6 +61,7 @@ ExChdDiscriminatedTypeTailsAttributesFunction class >> translatedFromISO10303P11
 
 { #category : 'platypus-generated-platypus-signature' }
 ExChdDiscriminatedTypeTailsAttributesFunction class >> vwNamespaceName [
+
 	^ #Express2Cheddar
 
 
@@ -65,6 +69,7 @@ ExChdDiscriminatedTypeTailsAttributesFunction class >> vwNamespaceName [
 
 { #category : 'platypus-generated-accessing' }
 ExChdDiscriminatedTypeTailsAttributesFunction >> found [
+
 	^ found
 
 
@@ -72,15 +77,17 @@ ExChdDiscriminatedTypeTailsAttributesFunction >> found [
 
 { #category : 'platypus-generated-accessing' }
 ExChdDiscriminatedTypeTailsAttributesFunction >> found: aListOfExChdAttribute1 [
+
 	found := aListOfExChdAttribute1
-		ifNil: [ OrderedCollection new ]
-		ifNotNil: [ aListOfExChdAttribute1 as: OrderedCollection ]
+		         ifNil: [ OrderedCollection new ]
+		         ifNotNil: [ aListOfExChdAttribute1 as: OrderedCollection ]
 
 
 ]
 
 { #category : 'platypus-generated-accessing' }
 ExChdDiscriminatedTypeTailsAttributesFunction >> fromValues: values [
+
 	self typ: (values at: 1)
 
 
@@ -91,44 +98,35 @@ ExChdDiscriminatedTypeTailsAttributesFunction >> invoke [
 	" ---------- locals assignments ----------"
 
 	self unionAttr: (self typ unionAttrUsingContext: self class context).
-	self unionType: ((self unionAttr domainUsingContext: self class context) handledUsingContext: self class context).
-	self
-		unionAttributes:
-			(PTsInheritedExplicitAttributesFunction
-				invokeFromValues:
-					(OrderedCollection new
-						add: self unionType;
-						yourself)).
-	self found: Array new.	" ---------- statements ----------"
+	self unionType:
+		((self unionAttr domainUsingContext: self class context)
+			 handledUsingContext: self class context).
+	self unionAttributes:
+		(PTsInheritedExplicitAttributesFunction invokeFromValues:
+			 (OrderedCollection new
+				  add: self unionType;
+				  yourself)).
+	self found: Array new. " ---------- statements ----------"
 	PlatypusCoreRepeatStatement
-		repeat: [ :no2877 | 
-			PlatypusCoreAliasStatement
-				alias: (self unionAttributes pltAt: no2877)
-				statementsBlock: [ :curr3995 | 
-					PlatypusCoreAliasStatement
-						alias: ((curr3995 domainUsingContext: self class context) handledUsingContext: self class context)
-						statementsBlock: [ :handled1188 | 
-							self
-								found:
-									(self found
-										pltPlus:
-											(PTsInheritedExplicitAttributesFunction
-												invokeFromValues:
-													(OrderedCollection new
-														add: handled1188;
-														yourself))) ] ] ]
-		from:
-			(PltLOINDEXFunction
-				invokeFromValues:
-					(OrderedCollection new
-						add: self unionAttributes;
-						yourself))
-		to:
-			(PltHIINDEXFunction
-				invokeFromValues:
-					(OrderedCollection new
-						add: self unionAttributes;
-						yourself)).
+		repeat: [ :no401309 |
+				PlatypusCoreAliasStatement
+					alias: (self unionAttributes pltAt: no401309)
+					statementsBlock: [ :curr365833 |
+							PlatypusCoreAliasStatement
+								alias: ((curr365833 domainUsingContext: self class context)
+										 handledUsingContext: self class context)
+								statementsBlock: [ :handled3910375 |
+										self found: (self found pltPlus:
+												 (PTsInheritedExplicitAttributesFunction
+													  invokeFromValues: (OrderedCollection new
+															   add: handled3910375;
+															   yourself))) ] ] ]
+		from: (PltLOINDEXFunction invokeFromValues: (OrderedCollection new
+					  add: self unionAttributes;
+					  yourself))
+		to: (PltHIINDEXFunction invokeFromValues: (OrderedCollection new
+					  add: self unionAttributes;
+					  yourself)).
 	^ self return: self found
 
 
@@ -136,6 +134,7 @@ ExChdDiscriminatedTypeTailsAttributesFunction >> invoke [
 
 { #category : 'platypus-generated-accessing' }
 ExChdDiscriminatedTypeTailsAttributesFunction >> typ [
+
 	^ typ
 
 
@@ -143,6 +142,7 @@ ExChdDiscriminatedTypeTailsAttributesFunction >> typ [
 
 { #category : 'platypus-generated-accessing' }
 ExChdDiscriminatedTypeTailsAttributesFunction >> typ: aExChdDiscriminatedType [
+
 	typ := aExChdDiscriminatedType
 
 
@@ -150,6 +150,7 @@ ExChdDiscriminatedTypeTailsAttributesFunction >> typ: aExChdDiscriminatedType [
 
 { #category : 'platypus-generated-accessing' }
 ExChdDiscriminatedTypeTailsAttributesFunction >> unionAttr [
+
 	^ unionAttr
 
 
@@ -157,6 +158,7 @@ ExChdDiscriminatedTypeTailsAttributesFunction >> unionAttr [
 
 { #category : 'platypus-generated-accessing' }
 ExChdDiscriminatedTypeTailsAttributesFunction >> unionAttr: aExChdAttribute [
+
 	unionAttr := aExChdAttribute
 
 
@@ -164,6 +166,7 @@ ExChdDiscriminatedTypeTailsAttributesFunction >> unionAttr: aExChdAttribute [
 
 { #category : 'platypus-generated-accessing' }
 ExChdDiscriminatedTypeTailsAttributesFunction >> unionAttributes [
+
 	^ unionAttributes
 
 
@@ -171,15 +174,18 @@ ExChdDiscriminatedTypeTailsAttributesFunction >> unionAttributes [
 
 { #category : 'platypus-generated-accessing' }
 ExChdDiscriminatedTypeTailsAttributesFunction >> unionAttributes: aListOfExChdAttribute [
+
 	unionAttributes := aListOfExChdAttribute
-		ifNil: [ OrderedCollection new ]
-		ifNotNil: [ aListOfExChdAttribute as: OrderedCollection ]
+		                   ifNil: [ OrderedCollection new ]
+		                   ifNotNil: [
+		                   aListOfExChdAttribute as: OrderedCollection ]
 
 
 ]
 
 { #category : 'platypus-generated-accessing' }
 ExChdDiscriminatedTypeTailsAttributesFunction >> unionType [
+
 	^ unionType
 
 
@@ -187,6 +193,7 @@ ExChdDiscriminatedTypeTailsAttributesFunction >> unionType [
 
 { #category : 'platypus-generated-accessing' }
 ExChdDiscriminatedTypeTailsAttributesFunction >> unionType: aExChdDefinedType [
+
 	unionType := aExChdDefinedType
 
 
