@@ -301,7 +301,7 @@ PlatypusCodeMorph >> contentsMorphLayoutFrame [
 
 { #category : #'initialize/release' }
 PlatypusCodeMorph >> destroy [
-	self breakDependents.
+
 	mainWindow
 		ifNotNil: [mainWindow stopStepping.
 			mainWindow submorphs
