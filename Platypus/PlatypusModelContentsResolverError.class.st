@@ -1,5 +1,7 @@
 Class {
-	#name : #PlatypusModelContentsResolverError,
-	#superclass : #PlatypusVisitorError,
-	#category : #'Platypus-HW-visitors'
+	#name : 'PlatypusModelContentsResolverError',
+	#superclass : 'PlatypusVisitorError',
+	#category : 'Platypus-HW-visitors',
+	#package : 'Platypus',
+	#tag : 'HW-visitors'
 }

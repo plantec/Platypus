@@ -1,24 +1,26 @@
 Class {
-	#name : #PlatypusSmartNamer,
-	#superclass : #PlatypusStepAbstractVisitor,
+	#name : 'PlatypusSmartNamer',
+	#superclass : 'PlatypusStepAbstractVisitor',
 	#instVars : [
 		'query',
 		'namesBuilder'
 	],
-	#category : #'Platypus-HW-translater-private'
+	#category : 'Platypus-HW-translater-private',
+	#package : 'Platypus',
+	#tag : 'HW-translater-private'
 }
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 PlatypusSmartNamer class >> query: aQuerySymbol namesBuilder: aNameBuilder [
 	^ self new query: aQuerySymbol namesBuilder: aNameBuilder
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusSmartNamer class >> querySymbols [
 	^ #(#argName #smalltalkType #smalltalkInitializingExpression)
 ]
 
-{ #category : #'visit dictionary schema' }
+{ #category : 'visit dictionary schema' }
 PlatypusSmartNamer >> acceptAggregationType: e [ 
 	| suffix |
 	query = #smalltalkType ifTrue: [^ 'OrderedCollection'].
@@ -32,7 +34,7 @@ PlatypusSmartNamer >> acceptAggregationType: e [
 	^ self signal error: 'invalid query'
 ]
 
-{ #category : #'visit dictionary schema' }
+{ #category : 'visit dictionary schema' }
 PlatypusSmartNamer >> acceptArrayType: e [ 
 	| suffix |
 	query = #smalltalkType ifTrue: [^ 'OrderedCollection'].
@@ -46,7 +48,7 @@ PlatypusSmartNamer >> acceptArrayType: e [
 	^ self signal error: 'invalid query'
 ]
 
-{ #category : #'visit dictionary schema' }
+{ #category : 'visit dictionary schema' }
 PlatypusSmartNamer >> acceptBagType: e [ 
 	| suffix |
 	query = #smalltalkType ifTrue: [^ 'Bag'].
@@ -59,7 +61,7 @@ PlatypusSmartNamer >> acceptBagType: e [
 	^ self signal error: 'invalid query'
 ]
 
-{ #category : #'visit dictionary schema' }
+{ #category : 'visit dictionary schema' }
 PlatypusSmartNamer >> acceptBinaryType: e [ 
 	query = #smalltalkType
 		ifTrue: [^ 'ByteArray'].
@@ -70,7 +72,7 @@ PlatypusSmartNamer >> acceptBinaryType: e [
 	^ self signal error: 'invalid query'
 ]
 
-{ #category : #'visit dictionary schema' }
+{ #category : 'visit dictionary schema' }
 PlatypusSmartNamer >> acceptBooleanType: e [ 
 	query = #smalltalkType
 		ifTrue: [^ 'Boolean'].
@@ -81,12 +83,12 @@ PlatypusSmartNamer >> acceptBooleanType: e [
 	^ self signal error: 'invalid query'
 ]
 
-{ #category : #'visit dictionary schema' }
+{ #category : 'visit dictionary schema' }
 PlatypusSmartNamer >> acceptDefinedType: e [
 	^ e domain acceptTry: self
 ]
 
-{ #category : #'visit dictionary schema' }
+{ #category : 'visit dictionary schema' }
 PlatypusSmartNamer >> acceptEntityDefinition: e [ 
 	query = #smalltalkType 
 		ifTrue: [^ e generatedClassNameFromNamesBuilder: namesBuilder].
@@ -96,12 +98,12 @@ PlatypusSmartNamer >> acceptEntityDefinition: e [
 	^ self signal error: 'invalid query'
 ]
 
-{ #category : #'visit dictionary schema' }
+{ #category : 'visit dictionary schema' }
 PlatypusSmartNamer >> acceptEntityDefinitionReference: e [ 
 	^ self acceptEntityDefinition: e referenced
 ]
 
-{ #category : #'visit dictionary schema' }
+{ #category : 'visit dictionary schema' }
 PlatypusSmartNamer >> acceptEntityInstance: e [ 
 	query = #smalltalkType
 		ifTrue: [^ 'Object'].
@@ -112,7 +114,7 @@ PlatypusSmartNamer >> acceptEntityInstance: e [
 	^ self signal error: 'invalid query'
 ]
 
-{ #category : #'visit dictionary schema' }
+{ #category : 'visit dictionary schema' }
 PlatypusSmartNamer >> acceptEnumerationType: e [ 
 	query = #smalltalkType ifTrue: [^ 'Symbol'].
 	query = #smalltalkInitializingExpression ifTrue: [^ 'nil'].
@@ -122,7 +124,7 @@ PlatypusSmartNamer >> acceptEnumerationType: e [
 	^ self signal error: 'invalid query'
 ]
 
-{ #category : #'visit dictionary schema' }
+{ #category : 'visit dictionary schema' }
 PlatypusSmartNamer >> acceptGeneralAggregateType: e [ 
 	| suffix |
 	query = #smalltalkType ifTrue: [^ 'OrderedCollection'].
@@ -136,13 +138,13 @@ PlatypusSmartNamer >> acceptGeneralAggregateType: e [
 	^ self signal error: 'invalid query'
 ]
 
-{ #category : #'visit dictionary schema' }
+{ #category : 'visit dictionary schema' }
 PlatypusSmartNamer >> acceptGenericType: e [ 
 	^ self acceptEntityInstance: e 
 
 ]
 
-{ #category : #'visit dictionary schema' }
+{ #category : 'visit dictionary schema' }
 PlatypusSmartNamer >> acceptIntegerType: e [ 
 	query = #smalltalkType
 		ifTrue: [^ 'Integer'].
@@ -153,7 +155,7 @@ PlatypusSmartNamer >> acceptIntegerType: e [
 	^ self signal error: 'invalid query'
 ]
 
-{ #category : #'visit dictionary schema' }
+{ #category : 'visit dictionary schema' }
 PlatypusSmartNamer >> acceptListType: e [ 
 	| suffix |
 	query = #smalltalkType ifTrue: [^ 'OrderedCollection'].
@@ -167,7 +169,7 @@ PlatypusSmartNamer >> acceptListType: e [
 	^ self signal error: 'invalid query'
 ]
 
-{ #category : #'visit dictionary schema' }
+{ #category : 'visit dictionary schema' }
 PlatypusSmartNamer >> acceptLogicalType: e [ 
 	query = #smalltalkType
 		ifTrue: [^ 'Boolean'].
@@ -178,7 +180,7 @@ PlatypusSmartNamer >> acceptLogicalType: e [
 	^ self signal error: 'invalid query'
 ]
 
-{ #category : #'visit dictionary schema' }
+{ #category : 'visit dictionary schema' }
 PlatypusSmartNamer >> acceptNamedTypeReference: e [ 
 	"query = #smalltalkType 
 	ifTrue: [^ self translater classNameFromNamedType: e]. 
@@ -191,7 +193,7 @@ PlatypusSmartNamer >> acceptNamedTypeReference: e [
 	^ e referenced acceptTry: self
 ]
 
-{ #category : #'visit dictionary schema' }
+{ #category : 'visit dictionary schema' }
 PlatypusSmartNamer >> acceptNumberType: e [ 
 	query = #smalltalkType
 		ifTrue: [^ 'Number'].
@@ -202,7 +204,7 @@ PlatypusSmartNamer >> acceptNumberType: e [
 	^ self signal error: 'invalid query'
 ]
 
-{ #category : #'visit dictionary schema' }
+{ #category : 'visit dictionary schema' }
 PlatypusSmartNamer >> acceptRealType: e [ 
 	query = #smalltalkType
 		ifTrue: [^ 'Float'].
@@ -213,7 +215,7 @@ PlatypusSmartNamer >> acceptRealType: e [
 	^ self signal error: 'invalid query'
 ]
 
-{ #category : #'visit dictionary schema' }
+{ #category : 'visit dictionary schema' }
 PlatypusSmartNamer >> acceptSelectType: e [ 
 	query = #smalltalkType ifTrue: [^ 'Object'].
 	query = #smalltalkInitializingExpression ifTrue: [^ 'nil'].
@@ -222,7 +224,7 @@ PlatypusSmartNamer >> acceptSelectType: e [
 	^ self signal error: 'invalid query'
 ]
 
-{ #category : #'visit dictionary schema' }
+{ #category : 'visit dictionary schema' }
 PlatypusSmartNamer >> acceptSetType: e [ 
 	| suffix |
 	query = #smalltalkType ifTrue: [^ 'Set'].
@@ -235,7 +237,7 @@ PlatypusSmartNamer >> acceptSetType: e [
 	^ self signal error: 'invalid query'
 ]
 
-{ #category : #'visit dictionary schema' }
+{ #category : 'visit dictionary schema' }
 PlatypusSmartNamer >> acceptStringType: e [ 
 	query = #smalltalkType
 		ifTrue: [^ 'String'].
@@ -246,7 +248,7 @@ PlatypusSmartNamer >> acceptStringType: e [
 	^ self signal error: 'invalid query'
 ]
 
-{ #category : #querying }
+{ #category : 'querying' }
 PlatypusSmartNamer >> argNameSuffixFor: aMetaData [ 
 	| argname |
 	argname := namesBuilder argNameFor: aMetaData.
@@ -259,7 +261,7 @@ PlatypusSmartNamer >> argNameSuffixFor: aMetaData [
 	^ argname
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusSmartNamer >> query: anObject namesBuilder: aNameBuilder [ 
 	query := anObject.
 	namesBuilder := aNameBuilder

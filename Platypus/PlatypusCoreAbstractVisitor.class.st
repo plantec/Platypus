@@ -1,6 +1,6 @@
 Class {
-	#name : #PlatypusCoreAbstractVisitor,
-	#superclass : #Object,
+	#name : 'PlatypusCoreAbstractVisitor',
+	#superclass : 'Object',
 	#instVars : [
 		'logClient',
 		'logLevel',
@@ -9,32 +9,34 @@ Class {
 		'acceptSelectorsMap',
 		'objectsWithErrorIndex'
 	],
-	#category : #'Platypus-HW-core'
+	#category : 'Platypus-HW-core',
+	#package : 'Platypus',
+	#tag : 'HW-core'
 }
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 PlatypusCoreAbstractVisitor class >> accept: e [
 	^ e accept: self new.
 ]
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 PlatypusCoreAbstractVisitor class >> visitPath: aStack [ 
 	^self new visitPath: aStack 
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusCoreAbstractVisitor >> acceptSelectorsMap [
 	^ acceptSelectorsMap
 ]
 
-{ #category : #'visit generic' }
+{ #category : 'visit generic' }
 PlatypusCoreAbstractVisitor >> acceptTry: anObject [
 	self 
 		asVisitPathTop: anObject 
 		while: [^ self performAcceptFor: anObject]
 ]
 
-{ #category : #'error handling' }
+{ #category : 'error handling' }
 PlatypusCoreAbstractVisitor >> addVisitorError: aVisitorError [ 
 	(self visitErrors size < 30) 
 		ifTrue: [
@@ -46,7 +48,7 @@ PlatypusCoreAbstractVisitor >> addVisitorError: aVisitorError [
 	^ false
 ]
 
-{ #category : #'visit generic' }
+{ #category : 'visit generic' }
 PlatypusCoreAbstractVisitor >> asVisitPathTop: anObjectOrCollection while: aBlock [
 	anObjectOrCollection ifNil: [^self ].
 	self pushIntoVisitPath: anObjectOrCollection.
@@ -54,7 +56,7 @@ PlatypusCoreAbstractVisitor >> asVisitPathTop: anObjectOrCollection while: aBloc
 		ensure: [self popFromVisitPath]
 ]
 
-{ #category : #copying }
+{ #category : 'copying' }
 PlatypusCoreAbstractVisitor >> copy [
 	| cpy |
 	cpy := super copy.
@@ -62,13 +64,13 @@ PlatypusCoreAbstractVisitor >> copy [
 	^ cpy
 ]
 
-{ #category : #'error handling' }
+{ #category : 'error handling' }
 PlatypusCoreAbstractVisitor >> declareWithError: e [ 
 	objectsWithErrorIndex add: e
 				
 ]
 
-{ #category : #'error handling' }
+{ #category : 'error handling' }
 PlatypusCoreAbstractVisitor >> declareWithoutError: e [ 
 	objectsWithErrorIndex
 		remove: e
@@ -76,13 +78,13 @@ PlatypusCoreAbstractVisitor >> declareWithoutError: e [
 
 ]
 
-{ #category : #'error handling' }
+{ #category : 'error handling' }
 PlatypusCoreAbstractVisitor >> declaredWithError: e [ 
 	^ objectsWithErrorIndex includes: e
 
 ]
 
-{ #category : #'initialize/release' }
+{ #category : 'initialize/release' }
 PlatypusCoreAbstractVisitor >> destroy [
 	super destroy.
 	logClient ifNotNil: 
@@ -93,24 +95,24 @@ PlatypusCoreAbstractVisitor >> destroy [
 	acceptSelectorsMap := nil
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusCoreAbstractVisitor >> errors [
 	^ self visitErrors
 
 ]
 
-{ #category : #'initialize/release' }
+{ #category : 'initialize/release' }
 PlatypusCoreAbstractVisitor >> forget [
 	self initializeVisitErrors.
 	self initializeObjectsWithErrorIndex
 ]
 
-{ #category : #'error handling' }
+{ #category : 'error handling' }
 PlatypusCoreAbstractVisitor >> haveError [
 	^ visitErrors notEmpty
 ]
 
-{ #category : #'initialize/release' }
+{ #category : 'initialize/release' }
 PlatypusCoreAbstractVisitor >> initialize [
 	| logClientClass |
 	super initialize.
@@ -126,23 +128,23 @@ PlatypusCoreAbstractVisitor >> initialize [
 	self initializeObjectsWithErrorIndex
 ]
 
-{ #category : #'error handling' }
+{ #category : 'error handling' }
 PlatypusCoreAbstractVisitor >> initializeObjectsWithErrorIndex [
 	objectsWithErrorIndex := IdentitySet new
 ]
 
-{ #category : #'error handling' }
+{ #category : 'error handling' }
 PlatypusCoreAbstractVisitor >> initializeVisitErrors [
 	visitErrors := OrderedCollection new.
 
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusCoreAbstractVisitor >> logClient [
 	^ logClient
 ]
 
-{ #category : #logging }
+{ #category : 'logging' }
 PlatypusCoreAbstractVisitor >> logInfo: aMessage [ 
 	logLevel ~= #NoLog
 		ifTrue: [self logClient
@@ -150,17 +152,17 @@ PlatypusCoreAbstractVisitor >> logInfo: aMessage [
 				ifNotNil: [self logClient info: aMessage asString]]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusCoreAbstractVisitor >> logLevel [
 	^ logLevel
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusCoreAbstractVisitor >> logLevel: aSymbol [
 	logLevel := aSymbol
 ]
 
-{ #category : #logging }
+{ #category : 'logging' }
 PlatypusCoreAbstractVisitor >> logPathAndInfo: aMessage [ 
 	| mess contexts |
 	logLevel == #debug
@@ -174,7 +176,7 @@ PlatypusCoreAbstractVisitor >> logPathAndInfo: aMessage [
 			self logInfo: mess contents , ': ' , aMessage]
 ]
 
-{ #category : #'visit generic' }
+{ #category : 'visit generic' }
 PlatypusCoreAbstractVisitor >> lookUpAndCacheAcceptSelectorOfClass: aClass [ 
 	| currClass str |
 	currClass := aClass.
@@ -195,18 +197,18 @@ PlatypusCoreAbstractVisitor >> lookUpAndCacheAcceptSelectorOfClass: aClass [
 	^ self error: 'unimplemented accept method for class ''' , aClass name , ''''
 ]
 
-{ #category : #'error handling' }
+{ #category : 'error handling' }
 PlatypusCoreAbstractVisitor >> objectsWithErrorIndex [
 	^ objectsWithErrorIndex
 
 ]
 
-{ #category : #'error handling' }
+{ #category : 'error handling' }
 PlatypusCoreAbstractVisitor >> pathTo: aDictionaryInstance [
 	^ aDictionaryInstance inclusiveOwnerPath 
 ]
 
-{ #category : #'visit generic' }
+{ #category : 'visit generic' }
 PlatypusCoreAbstractVisitor >> performAcceptFor: anObject [
 	| selector |
 	selector := 
@@ -216,41 +218,41 @@ PlatypusCoreAbstractVisitor >> performAcceptFor: anObject [
 	^ self perform: selector with: anObject
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusCoreAbstractVisitor >> popFromVisitPath [
 	^ visitPath pop
 
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusCoreAbstractVisitor >> pushIntoVisitPath: anObject [ 
 	visitPath push: anObject
 
 ]
 
-{ #category : #'error handling' }
+{ #category : 'error handling' }
 PlatypusCoreAbstractVisitor >> registerError: aVisitorError [
 	(self addVisitorError: aVisitorError)
 		ifTrue: [ aVisitorError path last inclusiveOwnerPath do: [:p | p addError: aVisitorError]]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusCoreAbstractVisitor >> visitContexts: aCollection [ 
 	aCollection
 		do: [:el | self pushIntoVisitPath: el]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusCoreAbstractVisitor >> visitErrors [
 	^ visitErrors
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusCoreAbstractVisitor >> visitPath: aStack [
 	visitPath := aStack
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusCoreAbstractVisitor >> visitedInstances [
 	| |
 	^ visitPath asArray

@@ -1,14 +1,16 @@
 Class {
-	#name : #PlatypusExpressScanner,
-	#superclass : #SmaCCScanner,
+	#name : 'PlatypusExpressScanner',
+	#superclass : 'SmaCCScanner',
 	#instVars : [
 		'tokenList',
 		'tokenClassifier'
 	],
-	#category : #'Platypus-HW-parsers'
+	#category : 'Platypus-HW-parsers',
+	#package : 'Platypus',
+	#tag : 'HW-parsers'
 }
 
-{ #category : #'generated-initialization' }
+{ #category : 'generated-initialization' }
 PlatypusExpressScanner class >> initializeKeywordMap [
 	keywordMap := Dictionary new.
 	#(#(130 'ABSTRACT' 121) #(130 'AGGREGATE' 68) #(130 'ALIAS' 25) #(130 'AND' 61) #(130 'ANDOR' 59) #(130 'ARRAY' 62) #(130 'AS' 13) #(130 'BAG' 63) #(130 'BEGIN' 16) #(130 'BINARY' 69) #(130 'BOOLEAN' 91) #(130 'BY' 88) #(130 'CASE' 28) #(130 'CONSTANT' 14) #(130 'CONST_E' 81) #(130 'DERIVE' 110) #(130 'DIV' 56) #(130 'ELSE' 58) #(130 'END' 19) #(130 'END_ALIAS' 26) #(130 'END_CASE' 21) #(130 'END_CONSTANT' 6) #(130 'END_ENTITY' 118) #(130 'END_FUNCTION' 8) #(130 'END_IF' 20) #(130 'END_LOCAL' 104) #(130 'END_MAP' 70) #(130 'END_PROCEDURE' 24) #(130 'END_REPEAT' 105) #(130 'END_RULE' 7) #(130 'END_SCHEMA' 51) #(130 'END_SPLITMARK' 99) #(130 'END_TYPE' 92) #(130 'ENTITY' 116) #(130 'ENUMERATION' 72) #(130 'ESCAPE' 17) #(130 'FALSE' 78) #(130 'FIXED' 89) #(130 'FOR' 3) #(130 'FROM' 54) #(130 'FUNCTION' 5) #(130 'GENERIC' 74) #(130 'IF' 18) #(130 'IN' 46) #(130 'INTEGER' 86) #(130 'INVERSE' 114) #(130 'LIKE' 32) #(130 'LIST' 65) #(130 'LOCAL' 97) #(130 'LOGICAL' 87) #(130 'MAP' 84) #(130 'META' 23) #(130 'MOD' 55) #(130 'NOT' 50) #(130 'NUMBER' 73) #(130 'OF' 29) #(130 'ONEOF' 117) #(130 'OPTIONAL' 109) #(130 'OR' 36) #(130 'OTHERWISE' 30) #(130 'PI' 83) #(130 'PROCEDURE' 12) #(130 'QUERY' 82) #(130 'REAL' 85) #(130 'REFERENCE' 9) #(130 'REPEAT' 107) #(130 'RETURN' 106) #(130 'RULE' 2) #(130 'SCHEMA' 53) #(130 'SELECT' 76) #(130 'SELF' 115) #(130 'SET' 64) #(130 'SKIP' 98) #(130 'SPLITMARK' 94) #(130 'STRING' 66) #(130 'SUBTYPE' 119) #(130 'SUPERTYPE' 120) #(130 'THEN' 22) #(130 'TO' 101) #(130 'TRUE' 77) #(130 'TYPE' 100) #(130 'UNIQUE' 112) #(130 'UNKNOWN' 79) #(130 'UNTIL' 103) #(130 'USE' 27) #(130 'VAR' 111) #(130 'WHERE' 71) #(130 'WHILE' 102) #(130 'XOR' 39))
@@ -16,7 +18,7 @@ PlatypusExpressScanner class >> initializeKeywordMap [
 	^ keywordMap
 ]
 
-{ #category : #'generated-comments' }
+{ #category : 'generated-comments' }
 PlatypusExpressScanner class >> scannerDefinitionComment [
 
 	"<tailRemark>		:		[\-][\-][^\n\r\f]* ;
@@ -34,19 +36,19 @@ PlatypusExpressScanner class >> scannerDefinitionComment [
 "
 ]
 
-{ #category : #'generated-tokens' }
+{ #category : 'generated-tokens' }
 PlatypusExpressScanner >> binaryId [
 	^127
 ]
 
-{ #category : #scanning }
+{ #category : 'scanning' }
 PlatypusExpressScanner >> buildTokenList [
 	[self atEnd]
 		whileFalse: [self next].
 	^ self tokenList
 ]
 
-{ #category : #scanning }
+{ #category : 'scanning' }
 PlatypusExpressScanner >> embedRemark [
 	| rem remarkToken smaccToken |
 	rem := self readEmbedRemark.
@@ -65,41 +67,41 @@ PlatypusExpressScanner >> embedRemark [
 	^ self whitespace
 ]
 
-{ #category : #'generated-tokens' }
+{ #category : 'generated-tokens' }
 PlatypusExpressScanner >> emptySymbolTokenId [
 	^312
 ]
 
-{ #category : #'generated-tokens' }
+{ #category : 'generated-tokens' }
 PlatypusExpressScanner >> encodedStringId [
 	^129
 ]
 
-{ #category : #scanning }
+{ #category : 'scanning' }
 PlatypusExpressScanner >> eol [
 	outputStream reset.
 	tokenList add: PlatypusEolToken new.
 	^ self whitespace
 ]
 
-{ #category : #'generated-tokens' }
+{ #category : 'generated-tokens' }
 PlatypusExpressScanner >> errorTokenId [
 	^313
 ]
 
-{ #category : #'generated-tokens' }
+{ #category : 'generated-tokens' }
 PlatypusExpressScanner >> identifierId [
 	^130
 ]
 
-{ #category : #scanning }
+{ #category : 'scanning' }
 PlatypusExpressScanner >> indent [
 	outputStream reset.
 	tokenList add: PlatypusIndentToken new.
 	^ self whitespace
 ]
 
-{ #category : #'initialize-release' }
+{ #category : 'initialize-release' }
 PlatypusExpressScanner >> initialize [
 	super initialize.
 	tokenList := PlatypusTokenList new.
@@ -107,22 +109,22 @@ PlatypusExpressScanner >> initialize [
 
 ]
 
-{ #category : #'generated-tokens' }
+{ #category : 'generated-tokens' }
 PlatypusExpressScanner >> integerId [
 	^125
 ]
 
-{ #category : #'generated-scanner' }
+{ #category : 'generated-scanner' }
 PlatypusExpressScanner >> keywordFor: aString [ 
 	^aString asUppercase
 ]
 
-{ #category : #'generated-tokens' }
+{ #category : 'generated-tokens' }
 PlatypusExpressScanner >> logicalId [
 	^314
 ]
 
-{ #category : #scanning }
+{ #category : 'scanning' }
 PlatypusExpressScanner >> nativeAlgorithm [
 	| smaccToken nativeAlgorithmToken rem |
 	rem := self readEmbedRemark.
@@ -137,12 +139,12 @@ PlatypusExpressScanner >> nativeAlgorithm [
 	^ self whitespace
 ]
 
-{ #category : #'generated-tokens' }
+{ #category : 'generated-tokens' }
 PlatypusExpressScanner >> nativeAlgorithmId [
 	^123
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusExpressScanner >> next [
 	| token tokenClass tokenNodeData precToken |
 	token := super next.
@@ -161,7 +163,7 @@ PlatypusExpressScanner >> next [
 	^ token
 ]
 
-{ #category : #scanning }
+{ #category : 'scanning' }
 PlatypusExpressScanner >> readEmbedRemark [
 	| level loop rem endFound prevChar |
 	level := 1.
@@ -191,17 +193,17 @@ PlatypusExpressScanner >> readEmbedRemark [
 
 ]
 
-{ #category : #'generated-tokens' }
+{ #category : 'generated-tokens' }
 PlatypusExpressScanner >> realId [
 	^126
 ]
 
-{ #category : #'generated-tokens' }
+{ #category : 'generated-tokens' }
 PlatypusExpressScanner >> remarkRefId [
 	^220
 ]
 
-{ #category : #'generated-scanner' }
+{ #category : 'generated-scanner' }
 PlatypusExpressScanner >> scan1 [
 	[ 
 	self step.
@@ -216,7 +218,7 @@ PlatypusExpressScanner >> scan1 [
 	^ self reportLastMatch
 ]
 
-{ #category : #'generated-scanner' }
+{ #category : 'generated-scanner' }
 PlatypusExpressScanner >> scanForToken [
 	self step.
 	((currentCharacter between: $A and: $Z) or: [ currentCharacter between: $a and: $z ])
@@ -417,12 +419,12 @@ PlatypusExpressScanner >> scanForToken [
 	^ self reportLastMatch
 ]
 
-{ #category : #'generated-tokens' }
+{ #category : 'generated-tokens' }
 PlatypusExpressScanner >> stringId [
 	^128
 ]
 
-{ #category : #scanning }
+{ #category : 'scanning' }
 PlatypusExpressScanner >> tailRemark [
 	| rem remarkToken smaccToken |
 	outputStream contents size > 2 
@@ -443,19 +445,19 @@ PlatypusExpressScanner >> tailRemark [
 	^ self whitespace
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusExpressScanner >> tokenList [
 	^ tokenList
 ]
 
-{ #category : #scanning }
+{ #category : 'scanning' }
 PlatypusExpressScanner >> white [
 	outputStream reset.
 	tokenList add: PlatypusOneWhiteSpaceToken new.
 	^ self whitespace
 ]
 
-{ #category : #scanning }
+{ #category : 'scanning' }
 PlatypusExpressScanner >> whitespace [
 	| tokenClass |
 	outputStream contents

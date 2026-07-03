@@ -1,6 +1,6 @@
 Class {
-	#name : #PlatypusSourceLine,
-	#superclass : #Object,
+	#name : 'PlatypusSourceLine',
+	#superclass : 'Object',
 	#instVars : [
 		'tokens',
 		'width',
@@ -8,21 +8,23 @@ Class {
 		'maxWidth',
 		'startLevel'
 	],
-	#category : #'Platypus-HW-CodeTokens'
+	#category : 'Platypus-HW-CodeTokens',
+	#package : 'Platypus',
+	#tag : 'HW-CodeTokens'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusSourceLine class >> cutableTokens [
 	^ Array with: (#( ';' ':=' '|' 'and' 'andor' 'or' 'xor' 'oneof' ',' '||') collect: [:e | e asSymbol]) with: (#('in' 'like' '<>' '=' '>=' '<=' '>' '<' ':=:' ':<>:' '+' '-' '*' '/' 'div' 'mod' ) collect: [:e | e asSymbol]) 
 ]
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 PlatypusSourceLine class >> font: aFont maxWidth: aSize [
 ^ self font: aFont maxWidth: aSize level: 0 
 
 ]
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 PlatypusSourceLine class >> font: aFont maxWidth: aSize level: anInteger [
 	| line |
 	line := self new.
@@ -32,19 +34,19 @@ PlatypusSourceLine class >> font: aFont maxWidth: aSize level: anInteger [
 	^ line
 ]
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 PlatypusSourceLine class >> new [
 	^self basicNew initialize
 ]
 
-{ #category : #adding }
+{ #category : 'adding' }
 PlatypusSourceLine >> add: aToken [ 
 	tokens add: aToken copy.
 	width := width
 				+ (aToken widthOfStringForFont: font)
 ]
 
-{ #category : #adding }
+{ #category : 'adding' }
 PlatypusSourceLine >> add: aToken level: anInteger [ 
 	| added |
 	added := aToken copy.
@@ -55,18 +57,18 @@ PlatypusSourceLine >> add: aToken level: anInteger [
 				+ (aToken widthOfStringForFont: font)
 ]
 
-{ #category : #adding }
+{ #category : 'adding' }
 PlatypusSourceLine >> addAll: aCollection [
 	aCollection do: [:e | self add: e] 
 
 ]
 
-{ #category : #copying }
+{ #category : 'copying' }
 PlatypusSourceLine >> copyEmpty [
 	^self class font: font maxWidth: maxWidth
 ]
 
-{ #category : #formatting }
+{ #category : 'formatting' }
 PlatypusSourceLine >> cutFor: cutArray level: level [ 
 	| lines currLine nextLevel currLevel expressLine |
 	nextLevel := currLevel := startLevel.
@@ -101,24 +103,24 @@ PlatypusSourceLine >> cutFor: cutArray level: level [
 	^ lines
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusSourceLine >> cutableTokens [
 	^self class cutableTokens
 ]
 
-{ #category : #printing }
+{ #category : 'printing' }
 PlatypusSourceLine >> dump: line on: aTokenList [ 
 	line
 		do: [:token | aTokenList add: token].
 	aTokenList add: PlatypusEolToken new
 ]
 
-{ #category : #printing }
+{ #category : 'printing' }
 PlatypusSourceLine >> dumpOn: aTokenList [ 
 	self dumpOn: aTokenList cutables: self cutableTokens
 ]
 
-{ #category : #printing }
+{ #category : 'printing' }
 PlatypusSourceLine >> dumpOn: aTokenList cutables: anArray [ 
 	(maxWidth isNil
 			or: [width < maxWidth
@@ -129,17 +131,17 @@ PlatypusSourceLine >> dumpOn: aTokenList cutables: anArray [
 						do: [:l | l dumpOn: aTokenList cutables: anArray allButFirst]]]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusSourceLine >> font [
 	^font
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusSourceLine >> font: anObject [
 	font := anObject
 ]
 
-{ #category : #formatting }
+{ #category : 'formatting' }
 PlatypusSourceLine >> formatLine: cutablesArray [ 
 	| maxlevel lines nextLines |
 	lines := OrderedCollection with: self.
@@ -155,24 +157,24 @@ PlatypusSourceLine >> formatLine: cutablesArray [
 	^ lines
 ]
 
-{ #category : #initializing }
+{ #category : 'initializing' }
 PlatypusSourceLine >> initialize [
 	super initialize.
 	self reset
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 PlatypusSourceLine >> isEmpty [
 	^tokens isEmpty
 ]
 
-{ #category : #formatting }
+{ #category : 'formatting' }
 PlatypusSourceLine >> levelIndent [
 	^ (1 to: startLevel)
 		collect: [:i | PlatypusIndentToken new]
 ]
 
-{ #category : #formatting }
+{ #category : 'formatting' }
 PlatypusSourceLine >> levelIndentString [
 	| indent |
 	indent := String new writeStream.
@@ -181,19 +183,19 @@ PlatypusSourceLine >> levelIndentString [
 	^ indent contents
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusSourceLine >> maxLevel [
 	^ startLevel + (tokens
 		count: [:t | t isOpenKeyword
 				or: [t isOpenDelim]])
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusSourceLine >> maxWidth: anObject [
 	maxWidth := anObject
 ]
 
-{ #category : #initializing }
+{ #category : 'initializing' }
 PlatypusSourceLine >> reachLevel: level [ 
 	startLevel := level.
 		(self levelIndent)
@@ -201,14 +203,14 @@ PlatypusSourceLine >> reachLevel: level [
 
 ]
 
-{ #category : #reset }
+{ #category : 'reset' }
 PlatypusSourceLine >> reset [
 	tokens := OrderedCollection new.
 	width := 0.
 	startLevel := 0.
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusSourceLine >> tokens [
 	^tokens
 ]

@@ -1,27 +1,29 @@
 Class {
-	#name : #PlatypusExpressLikeScanner,
-	#superclass : #SmaCCScanner,
-	#category : #'Platypus-HW-parsers'
+	#name : 'PlatypusExpressLikeScanner',
+	#superclass : 'SmaCCScanner',
+	#category : 'Platypus-HW-parsers',
+	#package : 'Platypus',
+	#tag : 'HW-parsers'
 }
 
-{ #category : #'generated-comments' }
+{ #category : 'generated-comments' }
 PlatypusExpressLikeScanner class >> scannerDefinitionComment [
 
 	"<character> : \s|\S ;
 <anti>		: \\. ;"
 ]
 
-{ #category : #'generated-tokens' }
+{ #category : 'generated-tokens' }
 PlatypusExpressLikeScanner >> emptySymbolTokenId [
 	^10
 ]
 
-{ #category : #'generated-tokens' }
+{ #category : 'generated-tokens' }
 PlatypusExpressLikeScanner >> errorTokenId [
 	^11
 ]
 
-{ #category : #'generated-scanner' }
+{ #category : 'generated-scanner' }
 PlatypusExpressLikeScanner >> scanForToken [
 	self step.
 	(currentCharacter <= $> or: 

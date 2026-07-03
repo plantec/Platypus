@@ -1,63 +1,65 @@
 Class {
-	#name : #PTsCleanRemarkTextOfFunction,
-	#superclass : #PlatypusCoreAlgorithmDeclaration,
+	#name : 'PTsCleanRemarkTextOfFunction',
+	#superclass : 'PlatypusCoreAlgorithmDeclaration',
 	#instVars : [
 		'rem',
 		'foundMarkPos'
 	],
-	#category : #'Platypus-ExpressDictionaryQueriesSchema'
+	#category : 'Platypus-ExpressDictionaryQueriesSchema',
+	#package : 'Platypus',
+	#tag : 'ExpressDictionaryQueriesSchema'
 }
 
-{ #category : #'platypus-generated-platypus-signature' }
+{ #category : 'platypus-generated-platypus-signature' }
 PTsCleanRemarkTextOfFunction class >> iso10303P11Translater [
 	^ 'Platypus (c) LISYC EA3883, Universite de Bretagne occidentale. Brest.'
 
 
 ]
 
-{ #category : #'platypus-generated-meta-data-accessing' }
+{ #category : 'platypus-generated-meta-data-accessing' }
 PTsCleanRemarkTextOfFunction class >> schemaDefinition [
 	^ PTsExpressDictionaryQueriesSchemaDefinition singleton
 
 
 ]
 
-{ #category : #'platypus-generated-platypus-signature' }
+{ #category : 'platypus-generated-platypus-signature' }
 PTsCleanRemarkTextOfFunction class >> translatedFromISO10303P11 [
 	^ true
 
 
 ]
 
-{ #category : #'platypus-generated-platypus-signature' }
+{ #category : 'platypus-generated-platypus-signature' }
 PTsCleanRemarkTextOfFunction class >> vwNamespaceName [
 	^ #PTs
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 PTsCleanRemarkTextOfFunction >> foundMarkPos [
 	^ foundMarkPos
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 PTsCleanRemarkTextOfFunction >> foundMarkPos: anInteger [
 	foundMarkPos := anInteger
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 PTsCleanRemarkTextOfFunction >> fromValues: values [
 	self rem: (values at: 1)
 
 
 ]
 
-{ #category : #'platypus-generated-invoking' }
+{ #category : 'platypus-generated-invoking' }
 PTsCleanRemarkTextOfFunction >> invoke [
 	" ---------- locals assignments ----------"
 
@@ -108,14 +110,14 @@ PTsCleanRemarkTextOfFunction >> invoke [
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 PTsCleanRemarkTextOfFunction >> rem [
 	^ rem
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 PTsCleanRemarkTextOfFunction >> rem: aPTsRemark [
 	rem := aPTsRemark
 

@@ -1,49 +1,51 @@
 Class {
-	#name : #PTsRootEntityListFunction,
-	#superclass : #PlatypusCoreAlgorithmDeclaration,
+	#name : 'PTsRootEntityListFunction',
+	#superclass : 'PlatypusCoreAlgorithmDeclaration',
 	#instVars : [
 		'entities',
 		'l'
 	],
-	#category : #'Platypus-ExpressDictionaryQueriesSchema'
+	#category : 'Platypus-ExpressDictionaryQueriesSchema',
+	#package : 'Platypus',
+	#tag : 'ExpressDictionaryQueriesSchema'
 }
 
-{ #category : #'platypus-generated-platypus-signature' }
+{ #category : 'platypus-generated-platypus-signature' }
 PTsRootEntityListFunction class >> iso10303P11Translater [
 	^ 'Platypus (c) LISYC EA3883, Universite de Bretagne occidentale. Brest.'
 
 
 ]
 
-{ #category : #'platypus-generated-meta-data-accessing' }
+{ #category : 'platypus-generated-meta-data-accessing' }
 PTsRootEntityListFunction class >> schemaDefinition [
 	^ PTsExpressDictionaryQueriesSchemaDefinition singleton
 
 
 ]
 
-{ #category : #'platypus-generated-platypus-signature' }
+{ #category : 'platypus-generated-platypus-signature' }
 PTsRootEntityListFunction class >> translatedFromISO10303P11 [
 	^ true
 
 
 ]
 
-{ #category : #'platypus-generated-platypus-signature' }
+{ #category : 'platypus-generated-platypus-signature' }
 PTsRootEntityListFunction class >> vwNamespaceName [
 	^ #PTs
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 PTsRootEntityListFunction >> entities [
 	^ entities
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 PTsRootEntityListFunction >> entities: aListOfPTsEntityDefinition [
 	entities := aListOfPTsEntityDefinition
 		ifNil: [ OrderedCollection new ]
@@ -52,14 +54,14 @@ PTsRootEntityListFunction >> entities: aListOfPTsEntityDefinition [
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 PTsRootEntityListFunction >> fromValues: values [
 	self entities: (values at: 1)
 
 
 ]
 
-{ #category : #'platypus-generated-invoking' }
+{ #category : 'platypus-generated-invoking' }
 PTsRootEntityListFunction >> invoke [
 	" ---------- locals assignments ----------"
 
@@ -122,14 +124,14 @@ PTsRootEntityListFunction >> invoke [
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 PTsRootEntityListFunction >> l [
 	^ l
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 PTsRootEntityListFunction >> l: aListOfPTsEntityDefinition [
 	l := aListOfPTsEntityDefinition
 		ifNil: [ OrderedCollection new ]

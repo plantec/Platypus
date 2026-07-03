@@ -1,14 +1,16 @@
 Class {
-	#name : #StepAbstractRepository,
-	#superclass : #StepCoreObject,
+	#name : 'StepAbstractRepository',
+	#superclass : 'StepCoreObject',
 	#instVars : [
 		'instanceByOidIndex',
 		'oidByInstanceIndex'
 	],
-	#category : #'Platypus-STEP-core'
+	#category : 'Platypus-STEP-core',
+	#package : 'Platypus',
+	#tag : 'STEP-core'
 }
 
-{ #category : #'instances accessing' }
+{ #category : 'instances accessing' }
 StepAbstractRepository >> allInstancesOf: aClass [ 
 	| instances |
 	instances := OrderedCollection new.
@@ -17,20 +19,20 @@ StepAbstractRepository >> allInstancesOf: aClass [
 
 ]
 
-{ #category : #'instances accessing' }
+{ #category : 'instances accessing' }
 StepAbstractRepository >> allInstancesOf: aClass do: aBlock [ 
 	^ self instancesDo:
 		[:inst | (inst isKindOf: aClass)
 				ifTrue: [aBlock value: self value: inst]]
 ]
 
-{ #category : #checking }
+{ #category : 'checking' }
 StepAbstractRepository >> checksExternalInstance: instance [ 
 	"no checking by default, subclasses could do it"
 	^ #()
 ]
 
-{ #category : #checking }
+{ #category : 'checking' }
 StepAbstractRepository >> checksInstances [
 	| errors |
 	errors := OrderedCollection new.
@@ -40,41 +42,41 @@ StepAbstractRepository >> checksInstances [
 	^ errors
 ]
 
-{ #category : #checking }
+{ #category : 'checking' }
 StepAbstractRepository >> checksInternalInstance: instance [ 
 	"no checking by default, subclasses could do it"
 	^ #()
 ]
 
-{ #category : #copying }
+{ #category : 'copying' }
 StepAbstractRepository >> copy [
 	^ self error: 'A repository can''t be copied'
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 StepAbstractRepository >> dataParserClass [
 	^ self subclassResponsibility 
 ]
 
-{ #category : #copying }
+{ #category : 'copying' }
 StepAbstractRepository >> deepCopy [
 	^ self copy
 ]
 
-{ #category : #'initialize/release' }
+{ #category : 'initialize/release' }
 StepAbstractRepository >> destroy [
 	instanceByOidIndex := nil.
 	oidByInstanceIndex := nil.
 	super destroy
 ]
 
-{ #category : #'initialize/release' }
+{ #category : 'initialize/release' }
 StepAbstractRepository >> finalize [
 	Transcript show: 'a ' , self class name , ' is finalized' , String cr.
 	self destroy
 ]
 
-{ #category : #'initialize/release' }
+{ #category : 'initialize/release' }
 StepAbstractRepository >> initialize [
 	super initialize.
 	instanceByOidIndex := Dictionary new.
@@ -82,58 +84,58 @@ StepAbstractRepository >> initialize [
 
 ]
 
-{ #category : #'instances accessing' }
+{ #category : 'instances accessing' }
 StepAbstractRepository >> instanceAt: id [ 
 	^ instanceByOidIndex
 		at: id 
 		ifAbsent: []
 ]
 
-{ #category : #'instances accessing' }
+{ #category : 'instances accessing' }
 StepAbstractRepository >> instanceLabelled: id [ 
 	^ instanceByOidIndex
 		at: id 
 		ifAbsent: []
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 StepAbstractRepository >> instances [
 	^ oidByInstanceIndex keys
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 StepAbstractRepository >> instancesDo: aBlock [ 
 	instanceByOidIndex
 		do: [ :v | aBlock value: v]
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 StepAbstractRepository >> oidExists: id [ 
 	^ (self instanceAt: id) notNil
 ]
 
-{ #category : #'instances accessing' }
+{ #category : 'instances accessing' }
 StepAbstractRepository >> oidOf: anInstance [ 
 	^oidByInstanceIndex at: anInstance
 		ifAbsent: [self oidOf: (self registerInstance: anInstance)]
 ]
 
-{ #category : #'file in/out' }
+{ #category : 'file in/out' }
 StepAbstractRepository >> parseStream: in [ 
 	^ self subclassResponsibility
 ]
 
-{ #category : #'instance registering' }
+{ #category : 'instance registering' }
 StepAbstractRepository >> registerHeaderInstance: headerInst [ 
 	
 ]
 
-{ #category : #'instance registering' }
+{ #category : 'instance registering' }
 StepAbstractRepository >> registerInstance: appInst [  	
 	^self registerInstance: appInst withId: oidByInstanceIndex size + 1
 ]
 
-{ #category : #'instance registering' }
+{ #category : 'instance registering' }
 StepAbstractRepository >> registerInstance: appInst withId: id [ 
 	oidByInstanceIndex at: appInst
 		ifAbsent: 
@@ -142,7 +144,7 @@ StepAbstractRepository >> registerInstance: appInst withId: id [
 	^appInst
 ]
 
-{ #category : #'instance registering' }
+{ #category : 'instance registering' }
 StepAbstractRepository >> replace: oldInst with: newInst [
 	| oldOid |
 	oldOid := oidByInstanceIndex at: oldInst.
@@ -152,17 +154,17 @@ StepAbstractRepository >> replace: oldInst with: newInst [
 
 ]
 
-{ #category : #checking }
+{ #category : 'checking' }
 StepAbstractRepository >> resolvesInstanceReferences [
 	self instancesDo: [:inst | self resolvesInstanceReferencesOf: inst]
 ]
 
-{ #category : #checking }
+{ #category : 'checking' }
 StepAbstractRepository >> resolvesInstanceReferencesOf: instance [ 
 
 ]
 
-{ #category : #'file in/out' }
+{ #category : 'file in/out' }
 StepAbstractRepository >> stepFileIn: aFilename [ 
 	| stream |
 	(stream := (Filename named: aFilename) readStream)
@@ -170,7 +172,7 @@ StepAbstractRepository >> stepFileIn: aFilename [
 				ensure: [stream close]]
 ]
 
-{ #category : #'instance registering' }
+{ #category : 'instance registering' }
 StepAbstractRepository >> unregisterInstance: inst [ 
 	oidByInstanceIndex at: inst
 		ifPresent: 
@@ -181,7 +183,7 @@ StepAbstractRepository >> unregisterInstance: inst [
 	^nil
 ]
 
-{ #category : #copying }
+{ #category : 'copying' }
 StepAbstractRepository >> veryDeepCopy [
 	^ self deepCopy
 ]

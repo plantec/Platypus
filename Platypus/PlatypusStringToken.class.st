@@ -1,15 +1,17 @@
 Class {
-	#name : #PlatypusStringToken,
-	#superclass : #PlatypusLiteralToken,
-	#category : #'Platypus-HW-CodeTokens'
+	#name : 'PlatypusStringToken',
+	#superclass : 'PlatypusLiteralToken',
+	#category : 'Platypus-HW-CodeTokens',
+	#package : 'Platypus',
+	#tag : 'HW-CodeTokens'
 }
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 PlatypusStringToken >> accept: aVisitor [
 	^ aVisitor acceptString: self
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 PlatypusStringToken >> isString [
 	^ true
 ]

@@ -1,64 +1,66 @@
 Class {
-	#name : #PTsRemarksForFunction,
-	#superclass : #PlatypusCoreAlgorithmDeclaration,
+	#name : 'PTsRemarksForFunction',
+	#superclass : 'PlatypusCoreAlgorithmDeclaration',
 	#instVars : [
 		'e',
 		'sch',
 		'remarks'
 	],
-	#category : #'Platypus-ExpressDictionaryQueriesSchema'
+	#category : 'Platypus-ExpressDictionaryQueriesSchema',
+	#package : 'Platypus',
+	#tag : 'ExpressDictionaryQueriesSchema'
 }
 
-{ #category : #'platypus-generated-platypus-signature' }
+{ #category : 'platypus-generated-platypus-signature' }
 PTsRemarksForFunction class >> iso10303P11Translater [
 	^ 'Platypus (c) LISYC EA3883, Universite de Bretagne occidentale. Brest.'
 
 
 ]
 
-{ #category : #'platypus-generated-meta-data-accessing' }
+{ #category : 'platypus-generated-meta-data-accessing' }
 PTsRemarksForFunction class >> schemaDefinition [
 	^ PTsExpressDictionaryQueriesSchemaDefinition singleton
 
 
 ]
 
-{ #category : #'platypus-generated-platypus-signature' }
+{ #category : 'platypus-generated-platypus-signature' }
 PTsRemarksForFunction class >> translatedFromISO10303P11 [
 	^ true
 
 
 ]
 
-{ #category : #'platypus-generated-platypus-signature' }
+{ #category : 'platypus-generated-platypus-signature' }
 PTsRemarksForFunction class >> vwNamespaceName [
 	^ #PTs
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 PTsRemarksForFunction >> e [
 	^ e
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 PTsRemarksForFunction >> e: aPTsDictionaryInstance [
 	e := aPTsDictionaryInstance
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 PTsRemarksForFunction >> fromValues: values [
 	self e: (values at: 1)
 
 
 ]
 
-{ #category : #'platypus-generated-invoking' }
+{ #category : 'platypus-generated-invoking' }
 PTsRemarksForFunction >> invoke [
 	" ---------- locals assignments ----------"
 
@@ -94,28 +96,28 @@ PTsRemarksForFunction >> invoke [
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 PTsRemarksForFunction >> remarks [
 	^ remarks
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 PTsRemarksForFunction >> remarks: aListOfPTsRemark [
 	remarks := aListOfPTsRemark ifNil: [ OrderedCollection new ] ifNotNil: [ aListOfPTsRemark as: OrderedCollection ]
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 PTsRemarksForFunction >> sch [
 	^ sch
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 PTsRemarksForFunction >> sch: aPTsSchemaDefinition [
 	sch := aPTsSchemaDefinition
 

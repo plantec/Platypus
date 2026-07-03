@@ -1,10 +1,12 @@
 Class {
-	#name : #PlatypusExpressSemanticChecker,
-	#superclass : #PlatypusExpressChecker,
-	#category : #'Platypus-HW-visitors'
+	#name : 'PlatypusExpressSemanticChecker',
+	#superclass : 'PlatypusExpressChecker',
+	#category : 'Platypus-HW-visitors',
+	#package : 'Platypus',
+	#tag : 'HW-visitors'
 }
 
-{ #category : #'visit dictionary schema' }
+{ #category : 'visit dictionary schema' }
 PlatypusExpressSemanticChecker >> acceptAggregationType: e [ 
 	| low upper |
 	self
@@ -24,7 +26,7 @@ PlatypusExpressSemanticChecker >> acceptAggregationType: e [
 								registerError: (PlatypusExpressSemanticCheckerError message: 'low bound must be greater or equal than upper bound' path: visitPath asArray)]]]
 ]
 
-{ #category : #'visit expressions schema' }
+{ #category : 'visit expressions schema' }
 PlatypusExpressSemanticChecker >> acceptAndExpression: e [ 
 	super acceptBinaryExpression: e.
 	self
@@ -35,7 +37,7 @@ PlatypusExpressSemanticChecker >> acceptAndExpression: e [
 						or: [domain2 isPltGenericType]]]
 ]
 
-{ #category : #'visit dictionary schema' }
+{ #category : 'visit dictionary schema' }
 PlatypusExpressSemanticChecker >> acceptArrayType: e [ 
 	super acceptArrayType: e.
 	self acceptAggregationType: e.
@@ -48,7 +50,7 @@ PlatypusExpressSemanticChecker >> acceptArrayType: e [
 						registerError: (PlatypusExpressSemanticCheckerError message: 'high index must be set' path: visitPath asArray)]]
 ]
 
-{ #category : #'visit statements schema' }
+{ #category : 'visit statements schema' }
 PlatypusExpressSemanticChecker >> acceptAssignmentStatement: e [ 
 	e left acceptTry: self.
 	e rightExpr acceptTry: self.
@@ -58,18 +60,18 @@ PlatypusExpressSemanticChecker >> acceptAssignmentStatement: e [
 		from: e
 ]
 
-{ #category : #'visit dictionary schema' }
+{ #category : 'visit dictionary schema' }
 PlatypusExpressSemanticChecker >> acceptBagType: e [ 
 	super acceptBagType: e.
 	self acceptAggregationType: e
 ]
 
-{ #category : #'visit dictionary schema' }
+{ #category : 'visit dictionary schema' }
 PlatypusExpressSemanticChecker >> acceptBound: e [ 
 
 ]
 
-{ #category : #'visit dictionary schema' }
+{ #category : 'visit dictionary schema' }
 PlatypusExpressSemanticChecker >> acceptConstantDefinition: e [ 
 	e initializer ifNotNil: [ 
 		self
@@ -78,13 +80,13 @@ PlatypusExpressSemanticChecker >> acceptConstantDefinition: e [
 			from: e]
 ]
 
-{ #category : #'visit dictionary schema' }
+{ #category : 'visit dictionary schema' }
 PlatypusExpressSemanticChecker >> acceptContextDefinition: e [ 
 	self logPathAndInfo: e name.
 			super acceptContextDefinition: e
 ]
 
-{ #category : #'visit dictionary schema' }
+{ #category : 'visit dictionary schema' }
 PlatypusExpressSemanticChecker >> acceptDefinedType: e [ 
 	| errPathStack errMess |
 	super acceptDefinedType: e.
@@ -98,7 +100,7 @@ PlatypusExpressSemanticChecker >> acceptDefinedType: e [
 				registerError: (PlatypusExpressSemanticCheckerError message: 'cycle in domain path: ' , errMess path: visitPath asArray)]
 ]
 
-{ #category : #'visit dictionary schema' }
+{ #category : 'visit dictionary schema' }
 PlatypusExpressSemanticChecker >> acceptDerivedAttribute: e [ 
 	super acceptDerivedAttribute: e.
 	e redeclaring
@@ -113,7 +115,7 @@ PlatypusExpressSemanticChecker >> acceptDerivedAttribute: e [
 		from: e
 ]
 
-{ #category : #'visit expressions schema' }
+{ #category : 'visit expressions schema' }
 PlatypusExpressSemanticChecker >> acceptDivExpression: e [ 
 	super acceptBinaryExpression: e.
 	self
@@ -124,12 +126,12 @@ PlatypusExpressSemanticChecker >> acceptDivExpression: e [
 						or: [domain2 isPltGenericType]]]
 ]
 
-{ #category : #'visit dictionary schema' }
+{ #category : 'visit dictionary schema' }
 PlatypusExpressSemanticChecker >> acceptDomainEquivalentItem: e [ 
 
 ]
 
-{ #category : #'visit dictionary schema' }
+{ #category : 'visit dictionary schema' }
 PlatypusExpressSemanticChecker >> acceptEntityDefinition: e [ 
 	super acceptEntityDefinition: e.
 	(e checksHierarchy: OrderedCollection new errorStack: OrderedCollection new)
@@ -139,7 +141,7 @@ PlatypusExpressSemanticChecker >> acceptEntityDefinition: e [
 				registerError: (PlatypusExpressSemanticCheckerError message: 'cycle in hierarchy path' path: e inclusiveOwnerPath)]
 ]
 
-{ #category : #'visit dictionary schema' }
+{ #category : 'visit dictionary schema' }
 PlatypusExpressSemanticChecker >> acceptEnumerationType: e [ 
 	| elements |
 	super acceptEnumerationType: e.
@@ -152,7 +154,7 @@ PlatypusExpressSemanticChecker >> acceptEnumerationType: e [
 			elements add: el]
 ]
 
-{ #category : #'visit expressions schema' }
+{ #category : 'visit expressions schema' }
 PlatypusExpressSemanticChecker >> acceptEqualExpression: e [ 
 	| |
 	super acceptBinaryExpression: e.
@@ -162,7 +164,7 @@ PlatypusExpressSemanticChecker >> acceptEqualExpression: e [
 				testBlock: [:domain1 :domain2 | domain1 isCompatibleWith: domain2]]
 ]
 
-{ #category : #'visit dictionary schema' }
+{ #category : 'visit dictionary schema' }
 PlatypusExpressSemanticChecker >> acceptExplicitAttribute: e [ 
 	super acceptExplicitAttribute: e.
 	e redeclaring
@@ -172,7 +174,7 @@ PlatypusExpressSemanticChecker >> acceptExplicitAttribute: e [
 						registerError: (PlatypusExpressSemanticCheckerError message: 'redeclaring attribute ''' , e name , ''' should be an explicit attribute' path: visitPath asArray)]]
 ]
 
-{ #category : #'visit expressions schema' }
+{ #category : 'visit expressions schema' }
 PlatypusExpressSemanticChecker >> acceptExpoExpression: e [ 
 	super acceptBinaryExpression: e.
 	self
@@ -183,19 +185,19 @@ PlatypusExpressSemanticChecker >> acceptExpoExpression: e [
 						or: [domain2 isPltGenericType]]]
 ]
 
-{ #category : #'visit dictionary schema' }
+{ #category : 'visit dictionary schema' }
 PlatypusExpressSemanticChecker >> acceptExternalMetaSchema: e [ 
 	self acceptExternalSchema: e
 ]
 
-{ #category : #'visit dictionary schema' }
+{ #category : 'visit dictionary schema' }
 PlatypusExpressSemanticChecker >> acceptExternalSchema: e [ 
 	e nativeSchema = e owner
 		ifTrue: [self
 				registerError: (PlatypusExpressSemanticCheckerError message: 'used/referenced inside itself' path: e inclusiveOwnerPath)]
 ]
 
-{ #category : #'visit dictionary schema' }
+{ #category : 'visit dictionary schema' }
 PlatypusExpressSemanticChecker >> acceptFunctionDeclaration: e [ 
 	super acceptFunctionDeclaration: e.
 	(e statements anySatisfy: [:stmt | stmt alwaysReturn]) 
@@ -205,7 +207,7 @@ PlatypusExpressSemanticChecker >> acceptFunctionDeclaration: e [
 				message: 'never return possibility')]
 ]
 
-{ #category : #'visit expressions schema' }
+{ #category : 'visit expressions schema' }
 PlatypusExpressSemanticChecker >> acceptGreaterEqualExpression: e [ 
 	| |
 	super acceptBinaryExpression: e.
@@ -216,7 +218,7 @@ PlatypusExpressSemanticChecker >> acceptGreaterEqualExpression: e [
 		 
 ]
 
-{ #category : #'visit expressions schema' }
+{ #category : 'visit expressions schema' }
 PlatypusExpressSemanticChecker >> acceptGreaterThanExpression: e [ 
 	self acceptBinaryExpression: e.
 	(self checksAggregateOperator: e)
@@ -225,7 +227,7 @@ PlatypusExpressSemanticChecker >> acceptGreaterThanExpression: e [
 				testBlock: [:domain1 :domain2 | domain1 isCompatibleWith: domain2]]
 ]
 
-{ #category : #'visit expressions schema' }
+{ #category : 'visit expressions schema' }
 PlatypusExpressSemanticChecker >> acceptInExpression: e [ 
 	| rinfered linfered |
 	super acceptBinaryExpression: e.
@@ -245,12 +247,12 @@ PlatypusExpressSemanticChecker >> acceptInExpression: e [
 	^ true
 ]
 
-{ #category : #'visit dictionary schema' }
+{ #category : 'visit dictionary schema' }
 PlatypusExpressSemanticChecker >> acceptIncludeSchema: e [ 
 	self acceptExternalSchema: e
 ]
 
-{ #category : #'visit expressions schema' }
+{ #category : 'visit expressions schema' }
 PlatypusExpressSemanticChecker >> acceptInstEqualExpression: e [ 
 	super acceptBinaryExpression: e.
 		( self checksAggregateOperator: e)
@@ -260,7 +262,7 @@ PlatypusExpressSemanticChecker >> acceptInstEqualExpression: e [
 		 
 ]
 
-{ #category : #'visit expressions schema' }
+{ #category : 'visit expressions schema' }
 PlatypusExpressSemanticChecker >> acceptInstNotEqualExpression: e [ 
 	super acceptBinaryExpression: e.
 		(self checksAggregateOperator: e)
@@ -270,7 +272,7 @@ PlatypusExpressSemanticChecker >> acceptInstNotEqualExpression: e [
 
 ]
 
-{ #category : #'visit expressions schema' }
+{ #category : 'visit expressions schema' }
 PlatypusExpressSemanticChecker >> acceptInstanceConstructionExpression: e [ 
 	self acceptBinaryExpression: e.
 	"(self checksAggregateOperator: e)
@@ -279,7 +281,7 @@ PlatypusExpressSemanticChecker >> acceptInstanceConstructionExpression: e [
 				testBlock: [:domain1 :domain2 | domain1 isCompatibleWith: domain2]]"
 ]
 
-{ #category : #'visit dictionary schema' }
+{ #category : 'visit dictionary schema' }
 PlatypusExpressSemanticChecker >> acceptInverseAttribute: e [ 
 	| elementType refedDomain |
 	super acceptInverseAttribute: e.
@@ -313,7 +315,7 @@ PlatypusExpressSemanticChecker >> acceptInverseAttribute: e [
 		from: e
 ]
 
-{ #category : #'visit expressions schema' }
+{ #category : 'visit expressions schema' }
 PlatypusExpressSemanticChecker >> acceptLessEqualExpression: e [ 
 	| |
 	self acceptBinaryExpression: e.
@@ -324,7 +326,7 @@ PlatypusExpressSemanticChecker >> acceptLessEqualExpression: e [
 		 
 ]
 
-{ #category : #'visit expressions schema' }
+{ #category : 'visit expressions schema' }
 PlatypusExpressSemanticChecker >> acceptLessThanExpression: e [ 
 	self acceptBinaryExpression: e.
 	(self checksAggregateOperator: e)
@@ -333,14 +335,14 @@ PlatypusExpressSemanticChecker >> acceptLessThanExpression: e [
 				testBlock: [:domain1 :domain2 | domain1 isCompatibleWith: domain2]]
 ]
 
-{ #category : #'visit dictionary schema' }
+{ #category : 'visit dictionary schema' }
 PlatypusExpressSemanticChecker >> acceptListType: e [ 
 	super acceptListType: e.
 	self acceptAggregationType: e.
 
 ]
 
-{ #category : #'visit dictionary schema' }
+{ #category : 'visit dictionary schema' }
 PlatypusExpressSemanticChecker >> acceptLocalVariable: e [ 
 	e initializer
 		ifNotNil: [self
@@ -349,7 +351,7 @@ PlatypusExpressSemanticChecker >> acceptLocalVariable: e [
 				from: e]
 ]
 
-{ #category : #'visit expressions schema' }
+{ #category : 'visit expressions schema' }
 PlatypusExpressSemanticChecker >> acceptMinusExpression: e [ 
 	self acceptBinaryExpression: e.
 	(self checksAggregateOperator: e)
@@ -365,7 +367,7 @@ PlatypusExpressSemanticChecker >> acceptMinusExpression: e [
 						or: [domain1 isPltGenericType]]]
 ]
 
-{ #category : #'visit expressions schema' }
+{ #category : 'visit expressions schema' }
 PlatypusExpressSemanticChecker >> acceptModExpression: e [ 
 	self acceptBinaryExpression: e.
 	self
@@ -376,7 +378,7 @@ PlatypusExpressSemanticChecker >> acceptModExpression: e [
 						or: [domain2 isPltGenericType]]]
 ]
 
-{ #category : #'visit expressions schema' }
+{ #category : 'visit expressions schema' }
 PlatypusExpressSemanticChecker >> acceptMultExpression: e [ 
 	self acceptBinaryExpression: e.
 	(self checksAggregateOperator: e)
@@ -394,7 +396,7 @@ PlatypusExpressSemanticChecker >> acceptMultExpression: e [
 								or: [domain2 isPltGenericType]]]]
 ]
 
-{ #category : #'visit expressions schema' }
+{ #category : 'visit expressions schema' }
 PlatypusExpressSemanticChecker >> acceptNotEqualExpression: e [ 
  	self acceptBinaryExpression: e.
 	( self checksAggregateOperator: e)
@@ -404,7 +406,7 @@ PlatypusExpressSemanticChecker >> acceptNotEqualExpression: e [
  
 ]
 
-{ #category : #'visit expressions schema' }
+{ #category : 'visit expressions schema' }
 PlatypusExpressSemanticChecker >> acceptOrExpression: e [ 
 	self acceptBinaryExpression: e.
 	self
@@ -415,7 +417,7 @@ PlatypusExpressSemanticChecker >> acceptOrExpression: e [
 						or: [domain2 isPltGenericType]]]
 ]
 
-{ #category : #'visit expressions schema' }
+{ #category : 'visit expressions schema' }
 PlatypusExpressSemanticChecker >> acceptPlusExpression: e [ 
 	self acceptBinaryExpression: e.
 	(self checksAggregateOperator: e)
@@ -429,7 +431,7 @@ PlatypusExpressSemanticChecker >> acceptPlusExpression: e [
 								or: [domain2 isPltGenericType]]]]]
 ]
 
-{ #category : #'visit expressions schema' }
+{ #category : 'visit expressions schema' }
 PlatypusExpressSemanticChecker >> acceptRealDivExpression: e [ 
 	self acceptBinaryExpression: e.
 	self
@@ -440,31 +442,31 @@ PlatypusExpressSemanticChecker >> acceptRealDivExpression: e [
 						or: [domain2 isPltGenericType]]]
 ]
 
-{ #category : #'visit dictionary schema' }
+{ #category : 'visit dictionary schema' }
 PlatypusExpressSemanticChecker >> acceptSchemaDefinition: e [ 
 	self logInfo: 'schema ' , e name.
 	super acceptSchemaDefinition: e
 ]
 
-{ #category : #'visit environment schema' }
+{ #category : 'visit environment schema' }
 PlatypusExpressSemanticChecker >> acceptSchemaInstance: e [ 
 	(e internalSchemata)
 		acceptTry: self
 ]
 
-{ #category : #'visit dictionary schema' }
+{ #category : 'visit dictionary schema' }
 PlatypusExpressSemanticChecker >> acceptSetType: e [ 
 	super acceptSetType: e.
 	self acceptAggregationType: e
 ]
 
-{ #category : #'visit dictionary schema' }
+{ #category : 'visit dictionary schema' }
 PlatypusExpressSemanticChecker >> acceptStatementsContainer: e [ 
 	super acceptStatementsContainer: e.
 	self statementNotReachTest: e 
 ]
 
-{ #category : #'visit dictionary schema' }
+{ #category : 'visit dictionary schema' }
 PlatypusExpressSemanticChecker >> acceptSupertypeConstraint: e [ 
 	super acceptSupertypeConstraint: e.
 	(e checksInheritance: e constrained ref)
@@ -474,7 +476,7 @@ PlatypusExpressSemanticChecker >> acceptSupertypeConstraint: e [
 				
 ]
 
-{ #category : #'visit dictionary schema' }
+{ #category : 'visit dictionary schema' }
 PlatypusExpressSemanticChecker >> acceptUniquenessRule: e [ 
 	| attributes |
 	super acceptUniquenessRule: e.
@@ -487,7 +489,7 @@ PlatypusExpressSemanticChecker >> acceptUniquenessRule: e [
 			attributes add: attr referenced]
 ]
 
-{ #category : #'visit expressions schema' }
+{ #category : 'visit expressions schema' }
 PlatypusExpressSemanticChecker >> acceptXorExpression: e [ 
 	self acceptBinaryExpression: e.
 	self
@@ -498,14 +500,14 @@ PlatypusExpressSemanticChecker >> acceptXorExpression: e [
 						or: [domain2 isPltGenericType]]]
 ]
 
-{ #category : #'visit generic' }
+{ #category : 'visit generic' }
 PlatypusExpressSemanticChecker >> checks: aMetaData [ 
 	self logInfo: 'SEMANTIC CHECKING'.
 	aMetaData acceptTry: self.
 	self logInfo: 'SEMANTIC CHECKING DONE'
 ]
 
-{ #category : #'visit generic' }
+{ #category : 'visit generic' }
 PlatypusExpressSemanticChecker >> checksAggregateOperator: e [ 
 	| linfered rinfered theElementType theAggrType elType1 elType2 aggrExpr elExpr |
 	linfered := e leftExpr computedDomain.
@@ -547,7 +549,7 @@ self
 		ifFalse: [^ nil]
 ]
 
-{ #category : #'visit generic' }
+{ #category : 'visit generic' }
 PlatypusExpressSemanticChecker >> checksAssignOf: expr to: anAssignableOrAttribute from: e [ 
 	| infered static |
 	((infered := expr computedDomain) isAssignableTo: (static := anAssignableOrAttribute computedDomain))
@@ -560,7 +562,7 @@ PlatypusExpressSemanticChecker >> checksAssignOf: expr to: anAssignableOrAttribu
 					message: 'not implemented feature: writeable alias variable')].
 ]
 
-{ #category : #'visit generic' }
+{ #category : 'visit generic' }
 PlatypusExpressSemanticChecker >> checksAttributeRedeclaring: attr [ 
 	| redeclaredDomain redeclaringDomain |
 	redeclaringDomain := attr domain referenced.
@@ -574,7 +576,7 @@ PlatypusExpressSemanticChecker >> checksAttributeRedeclaring: attr [
 										, ', redeclared attribute: domain : ' , redeclaredDomain errorQualifier)))]
 ]
 
-{ #category : #'visit generic' }
+{ #category : 'visit generic' }
 PlatypusExpressSemanticChecker >> checksBinaryOperator: e testBlock: aBlock [ 
 	| linfered rinfered |
 	linfered := e leftExpr computedDomain.
@@ -586,7 +588,7 @@ PlatypusExpressSemanticChecker >> checksBinaryOperator: e testBlock: aBlock [
 	^ true
 ]
 
-{ #category : #'visit generic' }
+{ #category : 'visit generic' }
 PlatypusExpressSemanticChecker >> checksBound: e messagePrefix: aString from: parent [ 
 	e
 		ifNotNil: [
@@ -597,7 +599,7 @@ PlatypusExpressSemanticChecker >> checksBound: e messagePrefix: aString from: pa
 						
 ]
 
-{ #category : #'visit generic' }
+{ #category : 'visit generic' }
 PlatypusExpressSemanticChecker >> statementNotReachTest: aStatementContainer [ 
 	| stmt stmts |
 	stmts := aStatementContainer statements.

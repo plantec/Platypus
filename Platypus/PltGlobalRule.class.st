@@ -11,119 +11,121 @@ END_ENTITY;
 </ISO10303-11-EXPRESS>
 "
 Class {
-	#name : #PltGlobalRule,
-	#superclass : #PltStatementsContainer,
+	#name : 'PltGlobalRule',
+	#superclass : 'PltStatementsContainer',
 	#instVars : [
 		'forEntities',
 		'whereRules'
 	],
-	#category : #'Platypus-PlatypusDictionarySchemaSchema'
+	#category : 'Platypus-PlatypusDictionarySchemaSchema',
+	#package : 'Platypus',
+	#tag : 'PlatypusDictionarySchemaSchema'
 }
 
-{ #category : #'platypus-generated-context-accessing' }
+{ #category : 'platypus-generated-context-accessing' }
 PltGlobalRule class >> context [ ^ self schemaDefinition context
 
 
 ]
 
-{ #category : #'platypus-generated-platypus-signature' }
+{ #category : 'platypus-generated-platypus-signature' }
 PltGlobalRule class >> iso10303P11Translater [
 	^ 'Platypus (c) LISYC EA3883, Universite de Bretagne occidentale. Brest.'
 
 
 ]
 
-{ #category : #'platypus-generated-meta-data-accessing' }
+{ #category : 'platypus-generated-meta-data-accessing' }
 PltGlobalRule class >> platypusMetaData [ 	^ self schemaDefinition metaDataFor: self name asSymbol
 
 
 ]
 
-{ #category : #'platypus-generated-meta-data-accessing' }
+{ #category : 'platypus-generated-meta-data-accessing' }
 PltGlobalRule class >> schemaDefinition [
 	^ PltPlatypusDictionarySchemaSchemaDefinition singleton
 
 
 ]
 
-{ #category : #'platypus-generated-meta-data-accessing' }
+{ #category : 'platypus-generated-meta-data-accessing' }
 PltGlobalRule class >> schemaInstance [
 	^ PltPlatypusMetaSchemasSchemaInstance singleton
 
 
 ]
 
-{ #category : #'platypus-generated-platypus-signature' }
+{ #category : 'platypus-generated-platypus-signature' }
 PltGlobalRule class >> translatedFromISO10303P11 [
 	^ true
 
 
 ]
 
-{ #category : #'platypus-generated-platypus-signature' }
+{ #category : 'platypus-generated-platypus-signature' }
 PltGlobalRule class >> vwNamespaceName [
 	^ #Platypus
 
 
 ]
 
-{ #category : #'platypus-generated-visiting' }
+{ #category : 'platypus-generated-visiting' }
 PltGlobalRule >> accept: aVisitor [
 	^ aVisitor acceptGlobalRule: self
 
 
 ]
 
-{ #category : #'platypus-generated-deriving' }
+{ #category : 'platypus-generated-deriving' }
 PltGlobalRule >> accepted [
 	^ self acceptedUsingContext: self class context
 
 
 ]
 
-{ #category : #'platypus-generated-deriving' }
+{ #category : 'platypus-generated-deriving' }
 PltGlobalRule >> acceptedUsingContext: aContext [
 	^ self acceptedUsingContext: aContext receiver: self
 
 
 ]
 
-{ #category : #'platypus-generated-deriving' }
+{ #category : 'platypus-generated-deriving' }
 PltGlobalRule >> acceptedUsingContext: aContext receiver: aReceiver [
 	^ aReceiver acceptGlobalRuleUsingContext: aContext
 
 
 ]
 
-{ #category : #'platypus-generated-fast-set-accessing' }
+{ #category : 'platypus-generated-fast-set-accessing' }
 PltGlobalRule >> fastSetForEntities: aListOfPltEntityInstancesSet [
 	forEntities := aListOfPltEntityInstancesSet
 
 
 ]
 
-{ #category : #'platypus-generated-fast-set-accessing' }
+{ #category : 'platypus-generated-fast-set-accessing' }
 PltGlobalRule >> fastSetOwner: aPltSchemaDefinition [
 	owner := aPltSchemaDefinition
 
 
 ]
 
-{ #category : #'platypus-generated-fast-set-accessing' }
+{ #category : 'platypus-generated-fast-set-accessing' }
 PltGlobalRule >> fastSetWhereRules: aListOfPltWhereRule [
 	whereRules := aListOfPltWhereRule
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 PltGlobalRule >> forEntities [
 	^ forEntities
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 PltGlobalRule >> forEntities: aListOfPltEntityInstancesSet [
 	forEntities := aListOfPltEntityInstancesSet
 		ifNil: [ OrderedCollection new ]
@@ -132,27 +134,27 @@ PltGlobalRule >> forEntities: aListOfPltEntityInstancesSet [
 
 ]
 
-{ #category : #'platypus-generated-group-accessing' }
+{ #category : 'platypus-generated-group-accessing' }
 PltGlobalRule >> forEntities: aListOfPltEntityInstancesSet whereRules: aListOfPltWhereRule owner: aPltSchemaDefinition [ 	self setForEntities:aListOfPltEntityInstancesSet.	self setWhereRules:aListOfPltWhereRule.	self setOwner:aPltSchemaDefinition.
 
 
 ]
 
-{ #category : #'platypus-generated-with-context-accessing' }
+{ #category : 'platypus-generated-with-context-accessing' }
 PltGlobalRule >> forEntitiesUsingContext: aContext [
 	^ self forEntities
 
 
 ]
 
-{ #category : #'platypus-generated-group-accessing' }
+{ #category : 'platypus-generated-group-accessing' }
 PltGlobalRule >> fromValues: values [
 	^ self globalRuleFromValues: (super fromValues: values)
 
 
 ]
 
-{ #category : #'platypus-generated-copying' }
+{ #category : 'platypus-generated-copying' }
 PltGlobalRule >> globalRuleCopyTo: another [
 	another fastSetForEntities: self forEntities.
 	another fastSetWhereRules: self whereRules.
@@ -161,7 +163,7 @@ PltGlobalRule >> globalRuleCopyTo: another [
 
 ]
 
-{ #category : #'platypus-generated-group-accessing' }
+{ #category : 'platypus-generated-group-accessing' }
 PltGlobalRule >> globalRuleFromValues: values [
 	| valuesloc |
 	valuesloc := values asOrderedCollection.
@@ -173,7 +175,7 @@ PltGlobalRule >> globalRuleFromValues: values [
 
 ]
 
-{ #category : #'platypus-generated-group-accessing' }
+{ #category : 'platypus-generated-group-accessing' }
 PltGlobalRule >> globalRuleToValues: values [
 	values add: self forEntities.
 	values add: self whereRules.
@@ -183,49 +185,49 @@ PltGlobalRule >> globalRuleToValues: values [
 
 ]
 
-{ #category : #'platypus-generated-classifying' }
+{ #category : 'platypus-generated-classifying' }
 PltGlobalRule >> isPltGlobalRule [
 	^ true
 
 
 ]
 
-{ #category : #'platypus-generated-group-accessing' }
+{ #category : 'platypus-generated-group-accessing' }
 PltGlobalRule >> localFromValues: values [
 	^ self globalRuleFromValues: values
 
 
 ]
 
-{ #category : #'platypus-generated-group-accessing' }
+{ #category : 'platypus-generated-group-accessing' }
 PltGlobalRule >> localToValues: values [
 	^ self globalRuleToValues: values
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 PltGlobalRule >> owner [
 	^ owner
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 PltGlobalRule >> owner: aPltSchemaDefinition [
 	owner := aPltSchemaDefinition
 
 
 ]
 
-{ #category : #'platypus-generated-with-context-accessing' }
+{ #category : 'platypus-generated-with-context-accessing' }
 PltGlobalRule >> ownerUsingContext: aContext [
 	^ self owner
 
 
 ]
 
-{ #category : #'platypus-generated-copying' }
+{ #category : 'platypus-generated-copying' }
 PltGlobalRule >> pltCopyGroup: aClassSymbol to: anObject [
 	self class name == aClassSymbol
 		ifTrue: [ self pltCopyTo: anObject ]
@@ -234,7 +236,7 @@ PltGlobalRule >> pltCopyGroup: aClassSymbol to: anObject [
 
 ]
 
-{ #category : #'platypus-generated-copying' }
+{ #category : 'platypus-generated-copying' }
 PltGlobalRule >> pltCopyTo: another [
 	super pltCopyTo: another.
 	self globalRuleCopyTo: another
@@ -242,35 +244,35 @@ PltGlobalRule >> pltCopyTo: another [
 
 ]
 
-{ #category : #'platypus-generated-copying' }
+{ #category : 'platypus-generated-copying' }
 PltGlobalRule >> pltLocalCopyTo: another [
 	self globalRuleCopyTo: another
 
 
 ]
 
-{ #category : #'platypus-generated-set-accessing' }
+{ #category : 'platypus-generated-set-accessing' }
 PltGlobalRule >> setForEntities: aListOfPltEntityInstancesSet [
 	self forEntities: aListOfPltEntityInstancesSet
 
 
 ]
 
-{ #category : #'platypus-generated-set-accessing' }
+{ #category : 'platypus-generated-set-accessing' }
 PltGlobalRule >> setOwner: aPltSchemaDefinition [
 	self owner: aPltSchemaDefinition
 
 
 ]
 
-{ #category : #'platypus-generated-set-accessing' }
+{ #category : 'platypus-generated-set-accessing' }
 PltGlobalRule >> setWhereRules: aListOfPltWhereRule [
 	self whereRules: aListOfPltWhereRule
 
 
 ]
 
-{ #category : #'platypus-generated-initializing' }
+{ #category : 'platypus-generated-initializing' }
 PltGlobalRule >> stepInitialize [
 	super stepInitialize.
 	forEntities := OrderedCollection new.
@@ -280,21 +282,21 @@ PltGlobalRule >> stepInitialize [
 
 ]
 
-{ #category : #'platypus-generated-group-accessing' }
+{ #category : 'platypus-generated-group-accessing' }
 PltGlobalRule >> toValues: values [
 	^ self globalRuleToValues: (super toValues: values)
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 PltGlobalRule >> whereRules [
 	^ whereRules
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 PltGlobalRule >> whereRules: aListOfPltWhereRule [
 	whereRules := aListOfPltWhereRule
 		ifNil: [ OrderedCollection new ]
@@ -303,7 +305,7 @@ PltGlobalRule >> whereRules: aListOfPltWhereRule [
 
 ]
 
-{ #category : #'platypus-generated-with-context-accessing' }
+{ #category : 'platypus-generated-with-context-accessing' }
 PltGlobalRule >> whereRulesUsingContext: aContext [
 	^ self whereRules
 

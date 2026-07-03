@@ -1,14 +1,16 @@
 Class {
-	#name : #StepFileError,
-	#superclass : #StepError,
+	#name : 'StepFileError',
+	#superclass : 'StepError',
 	#instVars : [
 		'contents',
 		'pos'
 	],
-	#category : #'Platypus-STEP-core'
+	#category : 'Platypus-STEP-core',
+	#package : 'Platypus',
+	#tag : 'STEP-core'
 }
 
-{ #category : #exceptionInstantiator }
+{ #category : 'exceptionInstantiator' }
 StepFileError class >> messageText: signalerText contents: fileContents pos: aPositionInFileContents [ 
 	"Signal the occurrence of an exceptional condition with a specified
 	textual description."
@@ -19,22 +21,22 @@ StepFileError class >> messageText: signalerText contents: fileContents pos: aPo
 	^ err
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 StepFileError >> contents [
 	^contents
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 StepFileError >> contents: anObject [
 	contents := anObject
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 StepFileError >> pos [
 	^pos
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 StepFileError >> pos: anObject [
 	pos := anObject
 ]

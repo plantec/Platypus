@@ -1,14 +1,16 @@
 Class {
-	#name : #PlatypusExpressInterpretorStackRangeElement,
-	#superclass : #PlatypusExpressInterpretorStackElement,
+	#name : 'PlatypusExpressInterpretorStackRangeElement',
+	#superclass : 'PlatypusExpressInterpretorStackElement',
 	#instVars : [
 		'aggr',
 		'range'
 	],
-	#category : #'Platypus-HW-interpreter'
+	#category : 'Platypus-HW-interpreter',
+	#package : 'Platypus',
+	#tag : 'HW-interpreter'
 }
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 PlatypusExpressInterpretorStackRangeElement class >> var: aData aggr: anAggregateData range: anInterval interpretor: anInterpretor [ 
 	^ self new
 		var: aData
@@ -17,17 +19,17 @@ PlatypusExpressInterpretorStackRangeElement class >> var: aData aggr: anAggregat
 		interpretor: anInterpretor
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusExpressInterpretorStackRangeElement >> aggr [
 	^aggr
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusExpressInterpretorStackRangeElement >> aggr: anObject [
 	aggr := anObject
 ]
 
-{ #category : #interpreting }
+{ #category : 'interpreting' }
 PlatypusExpressInterpretorStackRangeElement >> assign: aValue [ 
 	| varDomain assigned |
 	self interpretor checkAssignmentOf: aValue to: self var.
@@ -36,7 +38,7 @@ PlatypusExpressInterpretorStackRangeElement >> assign: aValue [
 	^ self fastAssign: assigned
 ]
 
-{ #category : #copying }
+{ #category : 'copying' }
 PlatypusExpressInterpretorStackRangeElement >> deepCopy [
 	| n |
 	n := super deepCopy.
@@ -44,13 +46,13 @@ PlatypusExpressInterpretorStackRangeElement >> deepCopy [
 	^ n
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusExpressInterpretorStackRangeElement >> fastAssign: aValue [ 
 	self aggr range: range put: aValue interpretor: self interpretor.
 	^ aValue
 ]
 
-{ #category : #interpreting }
+{ #category : 'interpreting' }
 PlatypusExpressInterpretorStackRangeElement >> pushIndex: anInteger [ 
 	| elementDomain anonymousVar |
 	elementDomain := self var computedDomain elementType.
@@ -62,7 +64,7 @@ PlatypusExpressInterpretorStackRangeElement >> pushIndex: anInteger [
 
 ]
 
-{ #category : #interpreting }
+{ #category : 'interpreting' }
 PlatypusExpressInterpretorStackRangeElement >> pushRange: anInterval [ 
 	self
 		pushVar: self var
@@ -70,17 +72,17 @@ PlatypusExpressInterpretorStackRangeElement >> pushRange: anInterval [
 		range: (range first + anInterval first - 1 to: anInterval last + range first - 1)
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusExpressInterpretorStackRangeElement >> range [
 	^range
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusExpressInterpretorStackRangeElement >> range: anObject [
 	range := anObject
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusExpressInterpretorStackRangeElement >> val [
 	| rng |
 	self aggr isPltArrayInstance
@@ -90,14 +92,14 @@ PlatypusExpressInterpretorStackRangeElement >> val [
 	^ self aggr range: rng interpretor: self interpretor
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusExpressInterpretorStackRangeElement >> var: aData aggr: anAggregateData range: anInterval interpretor: anInterpretor [ 
 	super var: aData interpretor: anInterpretor.
 	self aggr: anAggregateData.
 	self range: anInterval
 ]
 
-{ #category : #copying }
+{ #category : 'copying' }
 PlatypusExpressInterpretorStackRangeElement >> veryDeepCopy [
 	| n |
 	n := super veryDeepCopy.

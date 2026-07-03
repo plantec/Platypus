@@ -1,21 +1,23 @@
 Class {
-	#name : #PlatypusExpressInterpretorQueryContext,
-	#superclass : #PlatypusExpressInterpretorContext,
+	#name : 'PlatypusExpressInterpretorQueryContext',
+	#superclass : 'PlatypusExpressInterpretorContext',
 	#instVars : [
 		'aggregateSource',
 		'sourceStream',
 		'resultStream',
 		'current'
 	],
-	#category : #'Platypus-HW-interpreter'
+	#category : 'Platypus-HW-interpreter',
+	#package : 'Platypus',
+	#tag : 'HW-interpreter'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusExpressInterpretorQueryContext >> aggregateSource [
 	^aggregateSource
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusExpressInterpretorQueryContext >> aggregateSource: anObject [ 
 	aggregateSource := anObject.
 	sourceStream := ReadStream on: (aggregateSource val nativeCollection) asArray.
@@ -24,38 +26,38 @@ PlatypusExpressInterpretorQueryContext >> aggregateSource: anObject [
 	current := PltMissingValue new
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 PlatypusExpressInterpretorQueryContext >> atEnd [
 	^ self sourceStream atEnd
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusExpressInterpretorQueryContext >> current [
 	^ current
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusExpressInterpretorQueryContext >> current: anObject [
 	current := anObject
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusExpressInterpretorQueryContext >> dontKeep [
 	aggregateSource val isPltArrayInstance
 		ifTrue: [self resultStream nextPut: PltMissingValue new]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusExpressInterpretorQueryContext >> keep [
 	self resultStream nextPut: self current 
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusExpressInterpretorQueryContext >> next [
 	^ current := self sourceStream next
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusExpressInterpretorQueryContext >> result [
 	| result |
 	result := self aggregateSource val copyEmpty.
@@ -64,22 +66,22 @@ PlatypusExpressInterpretorQueryContext >> result [
 	^ result
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusExpressInterpretorQueryContext >> resultStream [
 	^resultStream
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusExpressInterpretorQueryContext >> resultStream: anObject [
 	resultStream := anObject
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusExpressInterpretorQueryContext >> sourceStream [
 	^sourceStream
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusExpressInterpretorQueryContext >> sourceStream: anObject [
 	sourceStream := anObject
 ]

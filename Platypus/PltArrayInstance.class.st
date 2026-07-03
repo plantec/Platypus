@@ -7,76 +7,78 @@ END_ENTITY;
 </ISO10303-11-EXPRESS>
 "
 Class {
-	#name : #PltArrayInstance,
-	#superclass : #PltAggregateInstance,
+	#name : 'PltArrayInstance',
+	#superclass : 'PltAggregateInstance',
 	#instVars : [
 		'contents'
 	],
-	#category : #'Platypus-PlatypusAggregateDataSchemaSchema'
+	#category : 'Platypus-PlatypusAggregateDataSchemaSchema',
+	#package : 'Platypus',
+	#tag : 'PlatypusAggregateDataSchemaSchema'
 }
 
-{ #category : #'platypus-generated-context-accessing' }
+{ #category : 'platypus-generated-context-accessing' }
 PltArrayInstance class >> context [ ^ self schemaDefinition context
 
 
 ]
 
-{ #category : #'platypus-generated-platypus-signature' }
+{ #category : 'platypus-generated-platypus-signature' }
 PltArrayInstance class >> iso10303P11Translater [
 	^ 'Platypus (c) LISYC EA3883, Universite de Bretagne occidentale. Brest.'
 
 
 ]
 
-{ #category : #'platypus-generated-meta-data-accessing' }
+{ #category : 'platypus-generated-meta-data-accessing' }
 PltArrayInstance class >> platypusMetaData [ 	^ self schemaDefinition metaDataFor: self name asSymbol
 
 
 ]
 
-{ #category : #'platypus-generated-meta-data-accessing' }
+{ #category : 'platypus-generated-meta-data-accessing' }
 PltArrayInstance class >> schemaDefinition [
 	^ PltPlatypusAggregateDataSchemaSchemaDefinition singleton
 
 
 ]
 
-{ #category : #'platypus-generated-meta-data-accessing' }
+{ #category : 'platypus-generated-meta-data-accessing' }
 PltArrayInstance class >> schemaInstance [
 	^ PltPlatypusMetaSchemasSchemaInstance singleton
 
 
 ]
 
-{ #category : #'platypus-generated-platypus-signature' }
+{ #category : 'platypus-generated-platypus-signature' }
 PltArrayInstance class >> translatedFromISO10303P11 [
 	^ true
 
 
 ]
 
-{ #category : #'platypus-generated-platypus-signature' }
+{ #category : 'platypus-generated-platypus-signature' }
 PltArrayInstance class >> vwNamespaceName [
 	^ #Platypus
 
 
 ]
 
-{ #category : #'platypus-generated-visiting' }
+{ #category : 'platypus-generated-visiting' }
 PltArrayInstance >> accept: aVisitor [
 	^ aVisitor acceptArrayInstance: self
 
 
 ]
 
-{ #category : #'platypus-generated-copying' }
+{ #category : 'platypus-generated-copying' }
 PltArrayInstance >> arrayInstanceCopyTo: another [
 	another fastSetContents: self contents
 
 
 ]
 
-{ #category : #'platypus-generated-group-accessing' }
+{ #category : 'platypus-generated-group-accessing' }
 PltArrayInstance >> arrayInstanceFromValues: values [
 	| valuesloc |
 	valuesloc := values asOrderedCollection.
@@ -86,7 +88,7 @@ PltArrayInstance >> arrayInstanceFromValues: values [
 
 ]
 
-{ #category : #'platypus-generated-group-accessing' }
+{ #category : 'platypus-generated-group-accessing' }
 PltArrayInstance >> arrayInstanceToValues: values [
 	values add: self contents.
 	^ values
@@ -94,14 +96,14 @@ PltArrayInstance >> arrayInstanceToValues: values [
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 PltArrayInstance >> contents [
 	^ contents
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 PltArrayInstance >> contents: aListOfPltExpression [
 	contents := aListOfPltExpression
 		ifNil: [ OrderedCollection new ]
@@ -110,49 +112,49 @@ PltArrayInstance >> contents: aListOfPltExpression [
 
 ]
 
-{ #category : #'platypus-generated-with-context-accessing' }
+{ #category : 'platypus-generated-with-context-accessing' }
 PltArrayInstance >> contentsUsingContext: aContext [
 	^ self contents
 
 
 ]
 
-{ #category : #'platypus-generated-fast-set-accessing' }
+{ #category : 'platypus-generated-fast-set-accessing' }
 PltArrayInstance >> fastSetContents: aListOfPltExpression [
 	contents := aListOfPltExpression
 
 
 ]
 
-{ #category : #'platypus-generated-group-accessing' }
+{ #category : 'platypus-generated-group-accessing' }
 PltArrayInstance >> fromValues: values [
 	^ self arrayInstanceFromValues: (super fromValues: values)
 
 
 ]
 
-{ #category : #'platypus-generated-classifying' }
+{ #category : 'platypus-generated-classifying' }
 PltArrayInstance >> isPltArrayInstance [
 	^ true
 
 
 ]
 
-{ #category : #'platypus-generated-group-accessing' }
+{ #category : 'platypus-generated-group-accessing' }
 PltArrayInstance >> localFromValues: values [
 	^ self arrayInstanceFromValues: values
 
 
 ]
 
-{ #category : #'platypus-generated-group-accessing' }
+{ #category : 'platypus-generated-group-accessing' }
 PltArrayInstance >> localToValues: values [
 	^ self arrayInstanceToValues: values
 
 
 ]
 
-{ #category : #'platypus-generated-copying' }
+{ #category : 'platypus-generated-copying' }
 PltArrayInstance >> pltCopyGroup: aClassSymbol to: anObject [
 	self class name == aClassSymbol
 		ifTrue: [ self pltCopyTo: anObject ]
@@ -161,7 +163,7 @@ PltArrayInstance >> pltCopyGroup: aClassSymbol to: anObject [
 
 ]
 
-{ #category : #'platypus-generated-copying' }
+{ #category : 'platypus-generated-copying' }
 PltArrayInstance >> pltCopyTo: another [
 	super pltCopyTo: another.
 	self arrayInstanceCopyTo: another
@@ -169,21 +171,21 @@ PltArrayInstance >> pltCopyTo: another [
 
 ]
 
-{ #category : #'platypus-generated-copying' }
+{ #category : 'platypus-generated-copying' }
 PltArrayInstance >> pltLocalCopyTo: another [
 	self arrayInstanceCopyTo: another
 
 
 ]
 
-{ #category : #'platypus-generated-set-accessing' }
+{ #category : 'platypus-generated-set-accessing' }
 PltArrayInstance >> setContents: aListOfPltExpression [
 	self contents: aListOfPltExpression
 
 
 ]
 
-{ #category : #'platypus-generated-initializing' }
+{ #category : 'platypus-generated-initializing' }
 PltArrayInstance >> stepInitialize [
 	super stepInitialize.
 	contents := OrderedCollection new
@@ -191,7 +193,7 @@ PltArrayInstance >> stepInitialize [
 
 ]
 
-{ #category : #'platypus-generated-group-accessing' }
+{ #category : 'platypus-generated-group-accessing' }
 PltArrayInstance >> toValues: values [
 	^ self arrayInstanceToValues: (super toValues: values)
 

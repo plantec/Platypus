@@ -1,10 +1,12 @@
 Class {
-	#name : #PlatypusModelContentsResolver,
-	#superclass : #PlatypusModelContentsChecker,
-	#category : #'Platypus-HW-visitors'
+	#name : 'PlatypusModelContentsResolver',
+	#superclass : 'PlatypusModelContentsChecker',
+	#category : 'Platypus-HW-visitors',
+	#package : 'Platypus',
+	#tag : 'HW-visitors'
 }
 
-{ #category : #'visit dictionary schema' }
+{ #category : 'visit dictionary schema' }
 PlatypusModelContentsResolver >> acceptDefinedTypeReference: e [ 
 	| found |
 	e setRef: (found := self modelContents lookUpNamedTypeBN: e name).
@@ -13,7 +15,7 @@ PlatypusModelContentsResolver >> acceptDefinedTypeReference: e [
 		ifNotNil: [self declareWithoutError: e]
 ]
 
-{ #category : #'visit dictionary schema' }
+{ #category : 'visit dictionary schema' }
 PlatypusModelContentsResolver >> acceptEntityDefinitionReference: e [ 
 	| found chosen |
 	e setRef: (found := self modelContents lookUpEntityDefinitionBN: e name).
@@ -26,7 +28,7 @@ PlatypusModelContentsResolver >> acceptEntityDefinitionReference: e [
 		ifNotNil: [self declareWithoutError: e]
 ]
 
-{ #category : #'visit dictionary schema' }
+{ #category : 'visit dictionary schema' }
 PlatypusModelContentsResolver >> acceptEntityInstanceReference: e [ 
 	| found |
 	e
@@ -36,12 +38,12 @@ PlatypusModelContentsResolver >> acceptEntityInstanceReference: e [
 		ifNotNil: [self declareWithoutError: e]
 ]
 
-{ #category : #'visit population schema' }
+{ #category : 'visit population schema' }
 PlatypusModelContentsResolver >> acceptEnumerationValue: e [ 
 	super acceptEnumerationValue: e
 ]
 
-{ #category : #'visit population schema' }
+{ #category : 'visit population schema' }
 PlatypusModelContentsResolver >> acceptInternalRepresentation: e [ 
 	e definition acceptTry: self.
 	(e definition isPltEntityDefinitionReference
@@ -50,7 +52,7 @@ PlatypusModelContentsResolver >> acceptInternalRepresentation: e [
 	super acceptInternalRepresentation: e
 ]
 
-{ #category : #'visit environment schema' }
+{ #category : 'visit environment schema' }
 PlatypusModelContentsResolver >> acceptModelContents: e [ 
 	self modelContents: e.
 	e dataInstances
@@ -58,7 +60,7 @@ PlatypusModelContentsResolver >> acceptModelContents: e [
 
 ]
 
-{ #category : #'visit population schema' }
+{ #category : 'visit population schema' }
 PlatypusModelContentsResolver >> acceptSimpleRecord: e [ 
 	e definition acceptTry: self.
 	(e definition isPltEntityDefinitionReference
@@ -67,13 +69,13 @@ PlatypusModelContentsResolver >> acceptSimpleRecord: e [
 	super acceptSimpleRecord: e
 ]
 
-{ #category : #'visit generic' }
+{ #category : 'visit generic' }
 PlatypusModelContentsResolver >> acceptTry: e [ 
 	e isPltExpression ifTrue: [e removeCachedDomain].
 	^ super acceptTry: e
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusModelContentsResolver >> checks: aMetaData [ 
 	aMetaData acceptTry: self.
 	self objectsWithErrorIndex do: [:k | 
@@ -81,12 +83,12 @@ PlatypusModelContentsResolver >> checks: aMetaData [
 
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusModelContentsResolver >> instanceLabelled:  persistentLabel [ 
 	^ modelContents instanceLabelled: persistentLabel
 ]
 
-{ #category : #'visit generic' }
+{ #category : 'visit generic' }
 PlatypusModelContentsResolver >> interactivelyResolvedSchemaOwningEntityNamed: aName [ 
 	| found |
 	^ PlatypusSchemaInstanceReference

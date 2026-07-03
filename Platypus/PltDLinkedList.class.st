@@ -2,15 +2,17 @@
 Un exemple de commentaire
 "
 Class {
-	#name : #PltDLinkedList,
-	#superclass : #Object,
+	#name : 'PltDLinkedList',
+	#superclass : 'Object',
 	#instVars : [
 		'nodesList'
 	],
-	#category : #'Platypus-HW-tools'
+	#category : 'Platypus-HW-tools',
+	#package : 'Platypus',
+	#tag : 'HW-tools'
 }
 
-{ #category : #examples }
+{ #category : 'examples' }
 PltDLinkedList class >> example1 [
 	| dlist |
 	dlist := self new.
@@ -18,7 +20,7 @@ PltDLinkedList class >> example1 [
 	dlist explore
 ]
 
-{ #category : #examples }
+{ #category : 'examples' }
 PltDLinkedList class >> example10 [
 	| col |
 	#(#PltDLinkedList #OrderedCollection) do: 
@@ -38,7 +40,7 @@ PltDLinkedList class >> example10 [
 					explore]
 ]
 
-{ #category : #examples }
+{ #category : 'examples' }
 PltDLinkedList class >> example11 [
 	| col rnd |
 	col := self new.
@@ -48,7 +50,7 @@ PltDLinkedList class >> example11 [
 	col explore
 ]
 
-{ #category : #examples }
+{ #category : 'examples' }
 PltDLinkedList class >> example12 [
 	| col rnd |
 	col := self new.
@@ -58,7 +60,7 @@ PltDLinkedList class >> example12 [
 	(col sortBy: [:a :b | a data < b data]) explore
 ]
 
-{ #category : #examples }
+{ #category : 'examples' }
 PltDLinkedList class >> example13 [
 	| col1 col2 |
 	col1 := self new.
@@ -73,7 +75,7 @@ PltDLinkedList class >> example13 [
 	^ col1 , col2
 ]
 
-{ #category : #examples }
+{ #category : 'examples' }
 PltDLinkedList class >> example14 [
 	| col1 col2 |
 	col1 := self new.
@@ -90,7 +92,7 @@ PltDLinkedList class >> example14 [
 		startingAt: 2
 ]
 
-{ #category : #examples }
+{ #category : 'examples' }
 PltDLinkedList class >> example15 [
 	| col1 |
 	col1 := self new.
@@ -98,7 +100,7 @@ PltDLinkedList class >> example15 [
 	^col1 copyFrom: 3 to: 6
 ]
 
-{ #category : #examples }
+{ #category : 'examples' }
 PltDLinkedList class >> example2 [
 	| dlist |
 	dlist := self new.
@@ -113,7 +115,7 @@ PltDLinkedList class >> example2 [
 		do: [:pos | (Association key: pos value: (dlist at: pos)) explore]
 ]
 
-{ #category : #examples }
+{ #category : 'examples' }
 PltDLinkedList class >> example3 [
 	| dlist |
 	dlist := self new.
@@ -122,7 +124,7 @@ PltDLinkedList class >> example3 [
 		do: [:pos | (Association key: pos value: (dlist at: pos)) explore]
 ]
 
-{ #category : #examples }
+{ #category : 'examples' }
 PltDLinkedList class >> example4 [
 	| dlist |
 	dlist := self new.
@@ -132,7 +134,7 @@ PltDLinkedList class >> example4 [
 	dlist explore
 ]
 
-{ #category : #examples }
+{ #category : 'examples' }
 PltDLinkedList class >> example5 [
 	1 to: 4
 		do: 
@@ -146,7 +148,7 @@ PltDLinkedList class >> example5 [
 			(Association key: n value: dlist) explore]
 ]
 
-{ #category : #examples }
+{ #category : 'examples' }
 PltDLinkedList class >> example6 [
 	| dlist |
 	dlist := self new.
@@ -154,7 +156,7 @@ PltDLinkedList class >> example6 [
 	(dlist collect: [:e | e data * 10]) explore
 ]
 
-{ #category : #examples }
+{ #category : 'examples' }
 PltDLinkedList class >> example7 [
 	| dlist |
 	dlist := self new.
@@ -162,7 +164,7 @@ PltDLinkedList class >> example7 [
 	(dlist select: [:e | e data \\ 2 > 0]) explore
 ]
 
-{ #category : #examples }
+{ #category : 'examples' }
 PltDLinkedList class >> example8 [
 	| dlist |
 	dlist := self new.
@@ -190,7 +192,7 @@ PltDLinkedList class >> example8 [
 	dlist inspect
 ]
 
-{ #category : #examples }
+{ #category : 'examples' }
 PltDLinkedList class >> example9 [
 	| dlist dlist2 |
 	dlist := self new.
@@ -201,24 +203,24 @@ PltDLinkedList class >> example9 [
 	dlist2 explore
 ]
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 PltDLinkedList class >> new: aSize [
 	^ self new
 
 ]
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 PltDLinkedList class >> nodesList: anOrderedCollectionOfNodes [ 
 	^ self new nodesList: anOrderedCollectionOfNodes 
 ]
 
-{ #category : #adding }
+{ #category : 'adding' }
 PltDLinkedList >> add: data [ 
 	^self addLast: data.
 	
 ]
 
-{ #category : #adding }
+{ #category : 'adding' }
 PltDLinkedList >> addAll: anotherList [ 
 	| oldLast otherFirst |
 	oldLast := self last.
@@ -229,7 +231,7 @@ PltDLinkedList >> addAll: anotherList [
 		ifNotNil: [oldLast next: otherFirst]
 ]
 
-{ #category : #adding }
+{ #category : 'adding' }
 PltDLinkedList >> addAll: anotherList beforeIndex: index [ 
 	| oldAtIndex |
 	(index > self size
@@ -247,7 +249,7 @@ PltDLinkedList >> addAll: anotherList beforeIndex: index [
 						reverseDo: [:n | nodesList add: n beforeIndex: index]]]
 ]
 
-{ #category : #adding }
+{ #category : 'adding' }
 PltDLinkedList >> addAllFirst: anotherList [ 
 	| oldFirst otherLast |
 	oldFirst := self first.
@@ -259,7 +261,7 @@ PltDLinkedList >> addAllFirst: anotherList [
 		ifNotNil: [oldFirst previous: otherLast]
 ]
 
-{ #category : #adding }
+{ #category : 'adding' }
 PltDLinkedList >> addFirst: data [ 
 	| oldSize next |
 	oldSize := self size.
@@ -275,7 +277,7 @@ PltDLinkedList >> addFirst: data [
 	
 ]
 
-{ #category : #adding }
+{ #category : 'adding' }
 PltDLinkedList >> addLast: data [ 
 	| oldSize prev |
 	oldSize := self size.
@@ -288,12 +290,12 @@ PltDLinkedList >> addLast: data [
 			data previous: nil]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PltDLinkedList >> at: pos [ 
 	^ nodesList at: pos
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PltDLinkedList >> at: pos put: data [ 
 	| added prev next |
 	nodesList at: pos put: data.
@@ -308,7 +310,7 @@ PltDLinkedList >> at: pos put: data [
 		ifFalse: [added next: nil]
 ]
 
-{ #category : #enumerating }
+{ #category : 'enumerating' }
 PltDLinkedList >> collect: aBlock [ 
 	| newCollection |
 	newCollection := self species new.
@@ -316,19 +318,19 @@ PltDLinkedList >> collect: aBlock [
 	^ newCollection
 ]
 
-{ #category : #copying }
+{ #category : 'copying' }
 PltDLinkedList >> copy [
 	^ Error signal: 'a ' , self class name , ' can''t be copied'
 ]
 
-{ #category : #copying }
+{ #category : 'copying' }
 PltDLinkedList >> copyEmpty [
 	"Answer a copy of the receiver without any of the receiver's 
 	elements. "
 	^ self class new
 ]
 
-{ #category : #copying }
+{ #category : 'copying' }
 PltDLinkedList >> copyReplaceFrom: start to: stop with: replacementList [ 
 	| newLinkedList |
 	newLinkedList := nodesList
@@ -340,68 +342,68 @@ PltDLinkedList >> copyReplaceFrom: start to: stop with: replacementList [
 	^ newLinkedList
 ]
 
-{ #category : #'initialize/release' }
+{ #category : 'initialize/release' }
 PltDLinkedList >> destroy [
 	self do: [:node | node destroy].
 	super destroy
 ]
 
-{ #category : #enumerating }
+{ #category : 'enumerating' }
 PltDLinkedList >> detect: aBlock [ 
 	^ nodesList
 		detect: aBlock
 		ifNone: []
 ]
 
-{ #category : #enumerating }
+{ #category : 'enumerating' }
 PltDLinkedList >> detect: aBlock ifNone: noneBlock [
 	^ nodesList
 		detect: aBlock
 		ifNone: noneBlock
 ]
 
-{ #category : #enumerating }
+{ #category : 'enumerating' }
 PltDLinkedList >> do: aBlock [ 
 nodesList do: aBlock
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PltDLinkedList >> first [
 	^ nodesList ifEmpty: [nil] ifNotEmpty: [:l | l first]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PltDLinkedList >> head [
 	^ nodesList first
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PltDLinkedList >> indexOf: aNode [
 	^ nodesList indexOf: aNode
 ]
 
-{ #category : #'initialize/release' }
+{ #category : 'initialize/release' }
 PltDLinkedList >> initialize [
 	super initialize.
 	nodesList := OrderedCollection new
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 PltDLinkedList >> isEmpty [
 	^ nodesList isEmpty
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PltDLinkedList >> last [
 	^ nodesList ifEmpty: [nil] ifNotEmpty: [:l | l last]
 ]
 
-{ #category : #'private accessing' }
+{ #category : 'private accessing' }
 PltDLinkedList >> nodesList: anOrderedCollectionOfNodes [
 	nodesList := anOrderedCollectionOfNodes
 ]
 
-{ #category : #removing }
+{ #category : 'removing' }
 PltDLinkedList >> remove: data ifAbsent: aBlock [ 
 	nodesList remove: data ifAbsent: [ aBlock value. ^ nil].
 	data previous
@@ -410,7 +412,7 @@ PltDLinkedList >> remove: data ifAbsent: aBlock [
 	^ data
 ]
 
-{ #category : #removing }
+{ #category : 'removing' }
 PltDLinkedList >> removeFirst [
 	| res first |
 	nodesList notEmpty
@@ -420,7 +422,7 @@ PltDLinkedList >> removeFirst [
 	^ res
 ]
 
-{ #category : #removing }
+{ #category : 'removing' }
 PltDLinkedList >> removeLast [
 	| res last |
 	nodesList isEmpty ifFalse: [
@@ -430,7 +432,7 @@ PltDLinkedList >> removeLast [
 	^ res
 ]
 
-{ #category : #removing }
+{ #category : 'removing' }
 PltDLinkedList >> replaceFrom: start to: stop with: replacementList [ 
 	| endReplacement firstNode prevNode lastNode nextNode |
 	endReplacement := start - 1 + replacementList size.
@@ -459,7 +461,7 @@ PltDLinkedList >> replaceFrom: start to: stop with: replacementList [
 				ifFalse: [lastNode next: nil]]
 ]
 
-{ #category : #removing }
+{ #category : 'removing' }
 PltDLinkedList >> replaceFromNode: startNode toNode: stopNode with: replacementList [ 
 	| start stop |
 	start := self indexOf: startNode.
@@ -470,17 +472,17 @@ PltDLinkedList >> replaceFromNode: startNode toNode: stopNode with: replacementL
 		with: replacementList
 ]
 
-{ #category : #'initialize/release' }
+{ #category : 'initialize/release' }
 PltDLinkedList >> reset [
 	self initialize
 ]
 
-{ #category : #enumerating }
+{ #category : 'enumerating' }
 PltDLinkedList >> reverseDo: aBlock [ 
 	nodesList reverseDo: aBlock
 ]
 
-{ #category : #enumerating }
+{ #category : 'enumerating' }
 PltDLinkedList >> select: aBlock [ 
 	| newCollection |
 	newCollection := self species new.
@@ -488,12 +490,12 @@ PltDLinkedList >> select: aBlock [
 	^newCollection
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PltDLinkedList >> size [
 	^ nodesList size
 ]
 
-{ #category : #copying }
+{ #category : 'copying' }
 PltDLinkedList >> sortBy: aBlock [ 
 	"Create a copy that is sorted. Sort criteria is the block that 
 	accepts two arguments. 
@@ -505,7 +507,7 @@ PltDLinkedList >> sortBy: aBlock [
 	^cpy
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PltDLinkedList >> tail [
 	^ nodesList last
 ]

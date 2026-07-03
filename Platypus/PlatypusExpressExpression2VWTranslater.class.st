@@ -1,20 +1,22 @@
 Class {
-	#name : #PlatypusExpressExpression2VWTranslater,
-	#superclass : #PlatypusExpressExpression2SmalltalkTranslater,
-	#category : #'Platypus-HW-translater-private'
+	#name : 'PlatypusExpressExpression2VWTranslater',
+	#superclass : 'PlatypusExpressExpression2SmalltalkTranslater',
+	#category : 'Platypus-HW-translater-private',
+	#package : 'Platypus',
+	#tag : 'HW-translater-private'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusExpressExpression2VWTranslater class >> expressionTranslaterClassName [
 	^ #PlatypusExpressExpression2VWTranslater
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusExpressExpression2VWTranslater class >> statementTranslaterClassName [
 	^ #PlatypusExpressStatement2VWTranslater
 ]
 
-{ #category : #'visit dictionary schema' }
+{ #category : 'visit dictionary schema' }
 PlatypusExpressExpression2VWTranslater >> acceptNativeAlgorithm: e [ 
 	| code |
 	(code := e visualWorksCode)

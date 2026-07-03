@@ -1,10 +1,12 @@
 Class {
-	#name : #PlatypusExpressAbstractParser,
-	#superclass : #SmaCCParser,
-	#category : #'Platypus-HW-parsers'
+	#name : 'PlatypusExpressAbstractParser',
+	#superclass : 'SmaCCParser',
+	#category : 'Platypus-HW-parsers',
+	#package : 'Platypus',
+	#tag : 'HW-parsers'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusExpressAbstractParser class >> parse: aString owner: owner onError: aBlock [ 
 	^ [self parseStream: aString readStream owner: owner]
 		on: SmaCCParserError
@@ -12,7 +14,7 @@ PlatypusExpressAbstractParser class >> parse: aString owner: owner onError: aBlo
 				return: (aBlock value: ex description value: ex parameter position)]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusExpressAbstractParser class >> parse: aString startingAt: anInteger owner: owner onError: aBlock [ 
 	^ [self
 		parseStream: aString readStream
@@ -23,7 +25,7 @@ PlatypusExpressAbstractParser class >> parse: aString startingAt: anInteger owne
 				return: (aBlock value: ex description value: ex tag position)]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusExpressAbstractParser class >> parseStream: aStream owner: owner [
 	^ self
 		parseStream: aStream
@@ -31,7 +33,7 @@ PlatypusExpressAbstractParser class >> parseStream: aStream owner: owner [
 		owner: owner
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusExpressAbstractParser class >> parseStream: aStream startingAt: anInteger owner: owner [ 
 	| parser result |
 	parser := self on: aStream.
@@ -45,7 +47,7 @@ PlatypusExpressAbstractParser class >> parseStream: aStream startingAt: anIntege
 	^ result
 ]
 
-{ #category : #'generated-comments' }
+{ #category : 'generated-comments' }
 PlatypusExpressAbstractParser class >> parserDefinitionComment [
 
 	"%left ""="" "">="" "">"" ""in"" "":=:"" "":<>:"" ""<="" ""<"" ""like"" ""<>"";
@@ -1315,702 +1317,702 @@ ExpressionsList
 "
 ]
 
-{ #category : #'generated-accessing' }
+{ #category : 'generated-accessing' }
 PlatypusExpressAbstractParser class >> scannerClass [
 	^PlatypusExpressScanner
 ]
 
-{ #category : #'generated-starting states' }
+{ #category : 'generated-starting states' }
 PlatypusExpressAbstractParser class >> startingStateForConstantsEntry [
 	^5
 ]
 
-{ #category : #'generated-starting states' }
+{ #category : 'generated-starting states' }
 PlatypusExpressAbstractParser class >> startingStateForEntityEntry [
 	^7
 ]
 
-{ #category : #'generated-starting states' }
+{ #category : 'generated-starting states' }
 PlatypusExpressAbstractParser class >> startingStateForExpressionEntry [
 	^12
 ]
 
-{ #category : #'generated-starting states' }
+{ #category : 'generated-starting states' }
 PlatypusExpressAbstractParser class >> startingStateForFunctionEntry [
 	^8
 ]
 
-{ #category : #'generated-starting states' }
+{ #category : 'generated-starting states' }
 PlatypusExpressAbstractParser class >> startingStateForProcedureEntry [
 	^9
 ]
 
-{ #category : #'generated-starting states' }
+{ #category : 'generated-starting states' }
 PlatypusExpressAbstractParser class >> startingStateForRuleEntry [
 	^10
 ]
 
-{ #category : #'generated-starting states' }
+{ #category : 'generated-starting states' }
 PlatypusExpressAbstractParser class >> startingStateForSchemaContentsEntry [
 	^4
 ]
 
-{ #category : #'generated-starting states' }
+{ #category : 'generated-starting states' }
 PlatypusExpressAbstractParser class >> startingStateForSchemaEntry [
 	^3
 ]
 
-{ #category : #'generated-starting states' }
+{ #category : 'generated-starting states' }
 PlatypusExpressAbstractParser class >> startingStateForSchemaInstanceEntry [
 	^2
 ]
 
-{ #category : #'generated-starting states' }
+{ #category : 'generated-starting states' }
 PlatypusExpressAbstractParser class >> startingStateForStatementsEntry [
 	^11
 ]
 
-{ #category : #'generated-starting states' }
+{ #category : 'generated-starting states' }
 PlatypusExpressAbstractParser class >> startingStateForTypeEntry [
 	^6
 ]
 
-{ #category : #'express semantic actions' }
+{ #category : 'express semantic actions' }
 PlatypusExpressAbstractParser >> abstractSupertypeConstraint: supertypeConstraintOrNil [ 
 	| r | r := OrderedCollection new. r add: #abstractSupertype; add: supertypeConstraintOrNil. ^ r
 ]
 
-{ #category : #'express semantic actions' }
+{ #category : 'express semantic actions' }
 PlatypusExpressAbstractParser >> actionBodyDecl: declarationsOrNil statements: statementsOrNil [
 	| r | r := OrderedCollection new. r add: #actionBodyDecl; add: declarationsOrNil; add: statementsOrNil. ^ r
 ]
 
-{ #category : #'express semantic actions' }
+{ #category : 'express semantic actions' }
 PlatypusExpressAbstractParser >> aggregateInitializer: initList [ 
 	| r | r := OrderedCollection new. r add: #aggregateInitializer; add: initList. ^ r
 ]
 
-{ #category : #'express semantic actions' }
+{ #category : 'express semantic actions' }
 PlatypusExpressAbstractParser >> aggregateInitializerElement: expression repetition: expressionOrNil [ 
 	| r | r := OrderedCollection new. r add: #aggregateInitializerElement; add: expression; add: expressionOrNil. ^ r
 ]
 
-{ #category : #'express semantic actions' }
+{ #category : 'express semantic actions' }
 PlatypusExpressAbstractParser >> aggregateType: keyIdentOrNil parameterType: parameterType [ 
 	| r | r := OrderedCollection new. r add: #aggregateType; add: keyIdentOrNil; add: parameterType. ^ r
 ]
 
-{ #category : #'express semantic actions' }
+{ #category : 'express semantic actions' }
 PlatypusExpressAbstractParser >> aliasStatement: ident statements: statements [ 
 	| r | r := OrderedCollection new. r add: #aliasStatement; add: ident; add: statements. ^ r
 ]
 
-{ #category : #'express semantic actions' }
+{ #category : 'express semantic actions' }
 PlatypusExpressAbstractParser >> aliasStatementVariable: anIdentifier for: assignable [
 	| r | r := OrderedCollection new. r add: #aliasStatementVariable; add: anIdentifier; add: assignable. ^ r
 
 ]
 
-{ #category : #'express semantic actions' }
+{ #category : 'express semantic actions' }
 PlatypusExpressAbstractParser >> arrayType: indexSpecOrNil baseType: baseType optionalOrUnique: arrayOfSymbols [
 	| r | r := OrderedCollection new. r add: #arrayType; add: indexSpecOrNil; add: baseType; add: arrayOfSymbols. ^ r
 ]
 
-{ #category : #'express semantic actions' }
+{ #category : 'express semantic actions' }
 PlatypusExpressAbstractParser >> assignable: aCollection [ 
 	| r | r := OrderedCollection new. r add:  #assignable; add: aCollection. ^ r
 ]
 
-{ #category : #'express semantic actions' }
+{ #category : 'express semantic actions' }
 PlatypusExpressAbstractParser >> assignmentStatement: assignable from: expression [ 
 	| r | r := OrderedCollection new. r add: #assignementStatement; add: assignable; add: expression. ^ r
 ]
 
-{ #category : #'express semantic actions' }
+{ #category : 'express semantic actions' }
 PlatypusExpressAbstractParser >> attributeName: simpleIdent groupRef: aGroupIdentOrNil [
 	| r | r := OrderedCollection new. r add: #attributeName; add: simpleIdent; add: aGroupIdentOrNil. ^ r
 ]
 
-{ #category : #'express semantic actions' }
+{ #category : 'express semantic actions' }
 PlatypusExpressAbstractParser >> attributeQualifier: aQualifier [ 
 	| r | r := OrderedCollection new. r add: #attributeQualifier; add: aQualifier. ^ r
 ]
 
-{ #category : #'express semantic actions' }
+{ #category : 'express semantic actions' }
 PlatypusExpressAbstractParser >> bagType: indexSpecOrNil baseType: baseType [ 
 	| r | r := OrderedCollection new. r add: #bagType; add: indexSpecOrNil; add: baseType. ^ r
 ]
 
-{ #category : #'express semantic actions' }
+{ #category : 'express semantic actions' }
 PlatypusExpressAbstractParser >> beginSplitmarkStatement: stringExpression [ 
 	| r | r := OrderedCollection new. r add: #beginSplitmark; add: stringExpression. ^ r
 ]
 
-{ #category : #'express semantic actions' }
+{ #category : 'express semantic actions' }
 PlatypusExpressAbstractParser >> binaryLiteral: aBinary [ 
 	| r | r := OrderedCollection new. r add: #binaryLiteral; add: aBinary. ^ r
 ]
 
-{ #category : #'express semantic actions' }
+{ #category : 'express semantic actions' }
 PlatypusExpressAbstractParser >> binaryType: FixedOrNotPrecisionSpecOrNil [ 
 	| r | r := OrderedCollection new. r add: #binaryType; add: FixedOrNotPrecisionSpecOrNil. ^ r
 ]
 
-{ #category : #'express semantic actions' }
+{ #category : 'express semantic actions' }
 PlatypusExpressAbstractParser >> block: aParserResult [ 
 	^ aParserResult isCollection
 		ifTrue: [aParserResult]
 		ifFalse: [aParserResult metaData]
 ]
 
-{ #category : #'express semantic actions' }
+{ #category : 'express semantic actions' }
 PlatypusExpressAbstractParser >> booleanType [
 	| r | r := OrderedCollection new. r add: #booleanType. ^ r
 ]
 
-{ #category : #'express semantic actions' }
+{ #category : 'express semantic actions' }
 PlatypusExpressAbstractParser >> buildParserResultWith: aMetaData [ 
 	^ aMetaData
 ]
 
-{ #category : #'express semantic actions' }
+{ #category : 'express semantic actions' }
 PlatypusExpressAbstractParser >> cardinalityExpressionFrom: expression1 to: expression2 [ 
 	| r | r := OrderedCollection new. r add: #cardinalityExpression; add: expression1; add: expression2. ^ r
 ]
 
-{ #category : #'express semantic actions' }
+{ #category : 'express semantic actions' }
 PlatypusExpressAbstractParser >> caseAction: expressionsList statement: aStatement [ 
 	| r | r := OrderedCollection new. r add: #caseAction; add: expressionsList; add: aStatement. ^ r
 ]
 
-{ #category : #'express semantic actions' }
+{ #category : 'express semantic actions' }
 PlatypusExpressAbstractParser >> caseOtherwise: aStatement [ 
 	| r | r := OrderedCollection new. r add: #caseOtherwise; add: aStatement. ^ r
 ]
 
-{ #category : #'express semantic actions' }
+{ #category : 'express semantic actions' }
 PlatypusExpressAbstractParser >> caseStatement: caseSelectorExpression caseActions: caseActionsListOrNil caseOtherwise: caseOtherwiseOrNil [ 
 	| r | r := OrderedCollection new. r add: #caseStatement; add: caseSelectorExpression; add: caseActionsListOrNil; add: caseOtherwiseOrNil. ^ r
 ]
 
-{ #category : #'express semantic actions' }
+{ #category : 'express semantic actions' }
 PlatypusExpressAbstractParser >> compoundStatement: aCompoundStatement statements: statementsListOrNil [ 
 	| r | r := OrderedCollection new. r add: #compoundStatement; add: statementsListOrNil . ^ r
 ]
 
-{ #category : #'express semantic actions' }
+{ #category : 'express semantic actions' }
 PlatypusExpressAbstractParser >> compoundStatementBegin [
 	^ #'begin'
 ]
 
-{ #category : #'express semantic actions' }
+{ #category : 'express semantic actions' }
 PlatypusExpressAbstractParser >> conceptIdentifier: anIdent [
 	^ anIdent
 ]
 
-{ #category : #'express semantic actions' }
+{ #category : 'express semantic actions' }
 PlatypusExpressAbstractParser >> conceptIdentifier: anIdent metaExpression: aMetaExpression [ 
 	| r | r := OrderedCollection new. r add: #conceptIdent; add: anIdent; add: #metaExpression; add: aMetaExpression. ^ r
 ]
 
-{ #category : #'express semantic actions' }
+{ #category : 'express semantic actions' }
 PlatypusExpressAbstractParser >> constantBody: ident baseType: baseType expression: initExpression [ 
 	| r | r := OrderedCollection new. r add: #constantBody; add: ident; add: baseType; add: initExpression. ^ r
 ]
 
-{ #category : #'express semantic actions' }
+{ #category : 'express semantic actions' }
 PlatypusExpressAbstractParser >> constantsDecl: constantsBodyCollectionOrNil [
 	| r | r := OrderedCollection new. r add: #constantsDecl; add: constantsBodyCollectionOrNil. ^ r
 ]
 
-{ #category : #'express semantic actions' }
+{ #category : 'express semantic actions' }
 PlatypusExpressAbstractParser >> constantsEntry: constantsList [
 	^ self buildParserResultWith: constantsList
 ]
 
-{ #category : #'express semantic actions' }
+{ #category : 'express semantic actions' }
 PlatypusExpressAbstractParser >> deriveClause: derivedAttributesList [ 
 	| r | r := OrderedCollection new. r add: #deriveClause; add: derivedAttributesList. ^ r
 ]
 
-{ #category : #'express semantic actions' }
+{ #category : 'express semantic actions' }
 PlatypusExpressAbstractParser >> derivedAttribute: attribute baseType: baseType expression: expression [ 
 	| r | r := OrderedCollection new. r add: #derivedAttribute; add: attribute; add: baseType; add: expression. ^ r
 ]
 
-{ #category : #'express semantic actions' }
+{ #category : 'express semantic actions' }
 PlatypusExpressAbstractParser >> eConstant [
 	| r | r := OrderedCollection new. r add: #eConstant. ^ r
 ]
 
-{ #category : #'express semantic actions' }
+{ #category : 'express semantic actions' }
 PlatypusExpressAbstractParser >> elementQualifier: anExpression [
 	| r | r := OrderedCollection new. r add: #elementQualifier; add: anExpression. ^ r
 ]
 
-{ #category : #'express semantic actions' }
+{ #category : 'express semantic actions' }
 PlatypusExpressAbstractParser >> encodedStringLiteral: anEncodedString [ 
 	| r | r := OrderedCollection new. r add:  
 		#encodedStringLiteral.
 		^ r
 ]
 
-{ #category : #'express semantic actions' }
+{ #category : 'express semantic actions' }
 PlatypusExpressAbstractParser >> endSplitmarkStatement [
 	| r | r := OrderedCollection new. r add: #endSplitmarkStatement. ^ r
 ]
 
-{ #category : #'express semantic actions' }
+{ #category : 'express semantic actions' }
 PlatypusExpressAbstractParser >> entity: ident subSuper: anArrayOrNil explicitAttributes: explicitAttrListOrNil deriveClause: derivedClauseOrNil inverseClause: inverseClauseOrNil uniqueClause: uniqueClauseOrNil whereClause: whereClauseOrNil [ 
 	| r | r := OrderedCollection new. r add: #entity; add: ident; add: anArrayOrNil; add: explicitAttrListOrNil; add: derivedClauseOrNil; add: inverseClauseOrNil; add: uniqueClauseOrNil; add: whereClauseOrNil. ^ r
 ]
 
-{ #category : #'express semantic actions' }
+{ #category : 'express semantic actions' }
 PlatypusExpressAbstractParser >> entityEntry: anEntity [
 	^ self buildParserResultWith: anEntity
 ]
 
-{ #category : #'express semantic actions' }
+{ #category : 'express semantic actions' }
 PlatypusExpressAbstractParser >> entityIdentifier: anIdent [
 	^ anIdent
 ]
 
-{ #category : #'express semantic actions' }
+{ #category : 'express semantic actions' }
 PlatypusExpressAbstractParser >> entitySupertype: supertypeConstraintOrNil subtype: subtypeDeclarationOrNil [
 	| r | r := OrderedCollection new. r add: #entitySubSuper; add: supertypeConstraintOrNil; add: subtypeDeclarationOrNil. ^ r
 ]
 
-{ #category : #'express semantic actions' }
+{ #category : 'express semantic actions' }
 PlatypusExpressAbstractParser >> enumerationType: identList [ 
 	| r | r := OrderedCollection new. r add: #enumerationType; add: identList. ^ r
 ]
 
-{ #category : #'express semantic actions' }
+{ #category : 'express semantic actions' }
 PlatypusExpressAbstractParser >> escapeStatement [
 	| r | r := OrderedCollection new. r add: #escapeStatement. ^ r
 ]
 
-{ #category : #'express semantic actions' }
+{ #category : 'express semantic actions' }
 PlatypusExpressAbstractParser >> escapedExpression: anExpression [
 	^ Array with: #escapedExpression with: anExpression
 ]
 
-{ #category : #'express semantic actions' }
+{ #category : 'express semantic actions' }
 PlatypusExpressAbstractParser >> explicitAttributes: arg1 baseType: arg4 optional: arg3 [ 
 	| r | r := OrderedCollection new. r add: #explicitAttributes; add: arg1; add: arg4; add: arg3. ^ r
 ]
 
-{ #category : #'express semantic actions' }
+{ #category : 'express semantic actions' }
 PlatypusExpressAbstractParser >> explicitlyImportedItem: name renamedAs: localName [
 	| r | r := OrderedCollection new. r add: #explicitlyImportedItem; add: name; add:  localName. ^ r
 ]
 
-{ #category : #'express semantic actions' }
+{ #category : 'express semantic actions' }
 PlatypusExpressAbstractParser >> explicitlyImportedItems: aCollectionOfDomainEquivalentItems [
 	| r | r := OrderedCollection new. r add: #explicitlyImportedItems; add: aCollectionOfDomainEquivalentItems. ^ r
 ]
 
-{ #category : #'express semantic actions' }
+{ #category : 'express semantic actions' }
 PlatypusExpressAbstractParser >> expression: op1 and: op2 [ 
 	| r | r := OrderedCollection new. r add: #andExpression; add: op1; add: op2. ^ r
 ]
 
-{ #category : #'express semantic actions' }
+{ #category : 'express semantic actions' }
 PlatypusExpressAbstractParser >> expression: exp1 cardinality: op expression: exp2 [ 
 	| r | r := OrderedCollection new. r add: #cardinalityExpression; add: exp1; add: op; add: exp2 . ^ r
 ]
 
-{ #category : #'express semantic actions' }
+{ #category : 'express semantic actions' }
 PlatypusExpressAbstractParser >> expression: op1 div: op2 [ 
 	| r | r := OrderedCollection new. r add: #divExpression; add: op1; add: op2. ^ r
 ]
 
-{ #category : #'express semantic actions' }
+{ #category : 'express semantic actions' }
 PlatypusExpressAbstractParser >> expression: op1 equal: op2 [ 
 	| r | r := OrderedCollection new. r add: #equalExpression; add: op1; add: op2. ^ r
 ]
 
-{ #category : #'express semantic actions' }
+{ #category : 'express semantic actions' }
 PlatypusExpressAbstractParser >> expression: op1 expo: op2 [ 
 	| r | r := OrderedCollection new. r add: #expoExpression; add: op1; add: op2. ^ r
 ]
 
-{ #category : #'express semantic actions' }
+{ #category : 'express semantic actions' }
 PlatypusExpressAbstractParser >> expression: op1 greaterThan: op2 [ 
 	| r | r := OrderedCollection new. r add: #greaterThanExpression; add: op1; add: op2. ^ r
 ]
 
-{ #category : #'express semantic actions' }
+{ #category : 'express semantic actions' }
 PlatypusExpressAbstractParser >> expression: op1 greaterThanOrEqual: op2 [ 
 	| r | r := OrderedCollection new. r add: #greaterThanOrEqualExpression; add: op1; add: op2. ^ r
 ]
 
-{ #category : #'express semantic actions' }
+{ #category : 'express semantic actions' }
 PlatypusExpressAbstractParser >> expression: op1 in: op2 [ 
 	| r | r := OrderedCollection new. r add: #inExpression; add: op1; add: op2. ^ r
 ]
 
-{ #category : #'express semantic actions' }
+{ #category : 'express semantic actions' }
 PlatypusExpressAbstractParser >> expression: op1 instConst: op2 [ 
 	| r | r := OrderedCollection new. r add: #instanceConstructionExpression; add: op1; add: op2. ^ r
 ]
 
-{ #category : #'express semantic actions' }
+{ #category : 'express semantic actions' }
 PlatypusExpressAbstractParser >> expression: op1 instEqual: op2 [ 
 	| r | r := OrderedCollection new. r add: #instEqualExpression; add: op1; add: op2. ^ r
 ]
 
-{ #category : #'express semantic actions' }
+{ #category : 'express semantic actions' }
 PlatypusExpressAbstractParser >> expression: op1 instNotEqual: op2 [ 
 	| r | r := OrderedCollection new. r add: #instNotEqualExpression; add: op1; add: op2. ^ r
 ]
 
-{ #category : #'express semantic actions' }
+{ #category : 'express semantic actions' }
 PlatypusExpressAbstractParser >> expression: op1 lessThan: op2 [ 
 	| r | r := OrderedCollection new. r add: #lessThanExpression; add: op1; add: op2. ^ r
 ]
 
-{ #category : #'express semantic actions' }
+{ #category : 'express semantic actions' }
 PlatypusExpressAbstractParser >> expression: op1 lessThanOrEqual: op2 [ 
 	| r | r := OrderedCollection new. r add: #lessThanOrEqualExpression; add: op1; add: op2. ^ r
 ]
 
-{ #category : #'express semantic actions' }
+{ #category : 'express semantic actions' }
 PlatypusExpressAbstractParser >> expression: op1 like: op2 [ 
 	| r | r := OrderedCollection new. r add: #likeExpression; add: op1; add: op2. ^ r
 ]
 
-{ #category : #'express semantic actions' }
+{ #category : 'express semantic actions' }
 PlatypusExpressAbstractParser >> expression: op1 minus: op2 [ 
 	| r | r := OrderedCollection new. r add: #minusExpression; add: op1; add: op2. ^ r
 ]
 
-{ #category : #'express semantic actions' }
+{ #category : 'express semantic actions' }
 PlatypusExpressAbstractParser >> expression: op1 mod: op2 [ 
 	| r | r := OrderedCollection new. r add: #modExpression; add: op1; add: op2. ^ r
 ]
 
-{ #category : #'express semantic actions' }
+{ #category : 'express semantic actions' }
 PlatypusExpressAbstractParser >> expression: op1 mult: op2 [ 
 	| r | r := OrderedCollection new. r add: #multExpression; add: op1; add: op2. ^ r
 ]
 
-{ #category : #'express semantic actions' }
+{ #category : 'express semantic actions' }
 PlatypusExpressAbstractParser >> expression: op1 notEqual: op2 [ 
 	| r | r := OrderedCollection new. r add: #notQualExpression; add: op1; add: op2. ^ r
 ]
 
-{ #category : #'express semantic actions' }
+{ #category : 'express semantic actions' }
 PlatypusExpressAbstractParser >> expression: op1 or: op2 [ 
 	| r | r := OrderedCollection new. r add: #orExpression; add: op1; add: op2. ^ r
 ]
 
-{ #category : #'express semantic actions' }
+{ #category : 'express semantic actions' }
 PlatypusExpressAbstractParser >> expression: op1 plus: op2 [ 
 	| r | r := OrderedCollection new. r add: #plusExpression; add: op1; add: op2. ^ r
 ]
 
-{ #category : #'express semantic actions' }
+{ #category : 'express semantic actions' }
 PlatypusExpressAbstractParser >> expression: op1 realDiv: op2 [ 
 	| r | r := OrderedCollection new. r add: #realDicExpression; add: op1; add: op2. ^ r
 ]
 
-{ #category : #'express semantic actions' }
+{ #category : 'express semantic actions' }
 PlatypusExpressAbstractParser >> expression: op1 xor: op2 [ 
 	| r | r := OrderedCollection new. r add: #xorExpression; add: op1; add: op2. ^ r
 ]
 
-{ #category : #'express semantic actions' }
+{ #category : 'express semantic actions' }
 PlatypusExpressAbstractParser >> expressionBetweenParenthesis: expression [
 	^ expression
 ]
 
-{ #category : #'express semantic actions' }
+{ #category : 'express semantic actions' }
 PlatypusExpressAbstractParser >> expressionEntry: expression [
 	^ expression
 ]
 
-{ #category : #'express semantic actions' }
+{ #category : 'express semantic actions' }
 PlatypusExpressAbstractParser >> externalMetaSchema: schemaIdent [ 
 	| r | r := OrderedCollection new. r add: #externalMetaShema; add: schemaIdent. ^ r
 ]
 
-{ #category : #'express semantic actions' }
+{ #category : 'express semantic actions' }
 PlatypusExpressAbstractParser >> formalParameter: identList parameterType: type var: varOrNotBoolean [ 
 	| r | r := OrderedCollection new. r add: #formalParameter; add: identList; add: type; add: varOrNotBoolean. ^ r
 ]
 
-{ #category : #'express semantic actions' }
+{ #category : 'express semantic actions' }
 PlatypusExpressAbstractParser >> formalParametersList: aCollection [ 
 	| r | r := OrderedCollection new. r add: #formalParametersList; add: aCollection. ^ r
 ]
 
-{ #category : #'express semantic actions' }
+{ #category : 'express semantic actions' }
 PlatypusExpressAbstractParser >> function: functionIdent formalParametersDecl: parametersListOrNil returnType: returnType actionBody: actionBody [ 
 	| r | r := OrderedCollection new. r add: #function; add: functionIdent; add: parametersListOrNil; add: returnType; add: actionBody. ^ r
 ]
 
-{ #category : #'express semantic actions' }
+{ #category : 'express semantic actions' }
 PlatypusExpressAbstractParser >> functionEntry: aFunction [
 	^ self buildParserResultWith: aFunction
 ]
 
-{ #category : #'express semantic actions' }
+{ #category : 'express semantic actions' }
 PlatypusExpressAbstractParser >> functionIdentifier: anIdentifier [ 
 	^ anIdentifier
 ]
 
-{ #category : #'express semantic actions' }
+{ #category : 'express semantic actions' }
 PlatypusExpressAbstractParser >> genericType: keyIdentOrNil [
 	| r | r := OrderedCollection new. r add: #genericType; add: keyIdentOrNil. ^ r
 ]
 
-{ #category : #'express semantic actions' }
+{ #category : 'express semantic actions' }
 PlatypusExpressAbstractParser >> groupRef: groupIdent [ 
 	| r | r := OrderedCollection new. r add: #groupRef; add: groupIdent. ^ r
 ]
 
-{ #category : #'express semantic actions' }
+{ #category : 'express semantic actions' }
 PlatypusExpressAbstractParser >> identifier: aString [
 	| r | r := OrderedCollection new. r add: #identifier. aString. ^ r
 ]
 
-{ #category : #'express semantic actions' }
+{ #category : 'express semantic actions' }
 PlatypusExpressAbstractParser >> identifier: aString arguments: arguments [
 	| r | r := OrderedCollection new. r add: #identifier; add: aString; add: arguments. ^ r
 ]
 
-{ #category : #'express semantic actions' }
+{ #category : 'express semantic actions' }
 PlatypusExpressAbstractParser >> ifStatement: cond then: thenStatementOrNil else: elseStatementOrNil [ 
 	| r | r := OrderedCollection new. r add: #ifStatement; add: cond; add: thenStatementOrNil; add: elseStatementOrNil. ^ r
 ]
 
-{ #category : #'express semantic actions' }
+{ #category : 'express semantic actions' }
 PlatypusExpressAbstractParser >> implementedSchemata: anIdentifier [ 
 	| r | r := OrderedCollection new. r add: #implemented; add:  anIdentifier. ^ r
 ]
 
-{ #category : #'express semantic actions' }
+{ #category : 'express semantic actions' }
 PlatypusExpressAbstractParser >> incrementControl: ident first: firstValueExpression last: lastValueExpression step: byExpressionOrNil [ 
 	| r | r := OrderedCollection new. r add: #incrementControl; add: ident; add: firstValueExpression; add: lastValueExpression; add: byExpressionOrNil. ^ r
 ]
 
-{ #category : #'express semantic actions' }
+{ #category : 'express semantic actions' }
 PlatypusExpressAbstractParser >> indexSpecFrom: lowIndex to: hiIndex [ 
 	| r | r := OrderedCollection new. r add: #indexSpec; add: lowIndex; add: hiIndex. ^ r
 ]
 
-{ #category : #'express semantic actions' }
+{ #category : 'express semantic actions' }
 PlatypusExpressAbstractParser >> integerLiteral: anInteger [ 
 	| r | r := OrderedCollection new. r add: #integerLiteral; add: anInteger. ^ r
 ]
 
-{ #category : #'express semantic actions' }
+{ #category : 'express semantic actions' }
 PlatypusExpressAbstractParser >> integerType: precisionSpecOrNil [ 
 	| r | r := OrderedCollection new. r add: #integerType; add: precisionSpecOrNil. ^ r
 ]
 
-{ #category : #'express semantic actions' }
+{ #category : 'express semantic actions' }
 PlatypusExpressAbstractParser >> interfaceSpecification: useOrRefSymbol schema: schemaIdent interfaceList: interfacesListOrNil [ 
 	| r | r := OrderedCollection new. r add: #interfaceSpecification; add: useOrRefSymbol; add: schemaIdent; add: interfacesListOrNil.  ^ r
 ]
 
-{ #category : #'express semantic actions' }
+{ #category : 'express semantic actions' }
 PlatypusExpressAbstractParser >> intervalExpression: expression1 op: lessThanOrLessEqualSymbol1 expression: expression2 op: lessThanOrLessEqualSymbol2 expression: expression3 [ 
 	| r | r := OrderedCollection new. r add: #intervalExpression; add: expression1; add: lessThanOrLessEqualSymbol1; add: expression2; add: lessThanOrLessEqualSymbol2; add: expression3. ^ r
 ]
 
-{ #category : #'express semantic actions' }
+{ #category : 'express semantic actions' }
 PlatypusExpressAbstractParser >> inverseAttribute: ident baseType: baseType for: attrIdent [ 
 	| r | r := OrderedCollection new. r add: #inverseAttribute; add: ident; add: baseType; add: attrIdent. ^ r
 ]
 
-{ #category : #'express semantic actions' }
+{ #category : 'express semantic actions' }
 PlatypusExpressAbstractParser >> inverseAttributeDomain: baseType [
 	^baseType
 ]
 
-{ #category : #'express semantic actions' }
+{ #category : 'express semantic actions' }
 PlatypusExpressAbstractParser >> inverseClause: inverseAttributesList [ 
 	| r | r := OrderedCollection new. r add: #inverseClause; add: inverseAttributesList. ^ r
 ]
 
-{ #category : #'express semantic actions' }
+{ #category : 'express semantic actions' }
 PlatypusExpressAbstractParser >> listType: indexSpecOrNil baseType: baseType unique: uniqueOrNil [ 
 	| r | r := OrderedCollection new. r add: #listType; add: indexSpecOrNil; add: baseType; add: uniqueOrNil. ^ r
 ]
 
-{ #category : #'express semantic actions' }
+{ #category : 'express semantic actions' }
 PlatypusExpressAbstractParser >> localBody: ident baseType: baseType initializer: expressionOrNil [ 
 	| r | r := OrderedCollection new. r add: #localBody; add: ident; add: baseType; add: expressionOrNil. ^ r
 ]
 
-{ #category : #'express semantic actions' }
+{ #category : 'express semantic actions' }
 PlatypusExpressAbstractParser >> localDecl: declarationsOrNil [
 	| r | r := OrderedCollection new. r add: #localDecl; add: declarationsOrNil. ^ r
 ]
 
-{ #category : #'express semantic actions' }
+{ #category : 'express semantic actions' }
 PlatypusExpressAbstractParser >> logicalLiteral: trueFalseOrUnknown [ 
 	| r | r := OrderedCollection new. r add: #logicalLiteral; add: trueFalseOrUnknown. ^ r
 ]
 
-{ #category : #'express semantic actions' }
+{ #category : 'express semantic actions' }
 PlatypusExpressAbstractParser >> logicalType [
 	| r | r := OrderedCollection new. r add: #logicalType. ^ r
 ]
 
-{ #category : #'express semantic actions' }
+{ #category : 'express semantic actions' }
 PlatypusExpressAbstractParser >> missingValue: isARedefine [ 
 	| r | r := OrderedCollection new. r add: #missingValue; add: isARedefine. ^ r
 ]
 
-{ #category : #'express semantic actions' }
+{ #category : 'express semantic actions' }
 PlatypusExpressAbstractParser >> namedType: anIdentifier [
 	| r | r := OrderedCollection new. r add:  #namedType; add: anIdentifier . ^ r
 ]
 
-{ #category : #'express semantic actions' }
+{ #category : 'express semantic actions' }
 PlatypusExpressAbstractParser >> nativeAlgorithm: aNativeAlgorithm [ 
 	| r | r := OrderedCollection new. r add: #nativeAlgorithm; add: aNativeAlgorithm lexicalElement. ^ r
 ]
 
-{ #category : #'express semantic actions' }
+{ #category : 'express semantic actions' }
 PlatypusExpressAbstractParser >> nativeExpression: expr [
 	| r | r := OrderedCollection new. r add: #nativeExpression; add: expr. ^ r
 ]
 
-{ #category : #'express semantic actions' }
+{ #category : 'express semantic actions' }
 PlatypusExpressAbstractParser >> nativeStatement: aNativeAlgorithm [ 
 	| r | r := OrderedCollection new. r add: #nativeStatement; add: aNativeAlgorithm. ^ r
 ]
 
-{ #category : #'express semantic actions' }
+{ #category : 'express semantic actions' }
 PlatypusExpressAbstractParser >> negativeExpression: expression [ 
 	| r | r := OrderedCollection new. r add: #negativeExpression; add: expression. ^ r
 ]
 
-{ #category : #'express semantic actions' }
+{ #category : 'express semantic actions' }
 PlatypusExpressAbstractParser >> not: expression [ 
 	| r | r := OrderedCollection new. r add: #notExpression; add: expression. ^ r
 ]
 
-{ #category : #'express semantic actions' }
+{ #category : 'express semantic actions' }
 PlatypusExpressAbstractParser >> nullStatement [
 	| r | r := OrderedCollection new. r add: #nullStatement . ^ r
 ]
 
-{ #category : #'express semantic actions' }
+{ #category : 'express semantic actions' }
 PlatypusExpressAbstractParser >> numberType [
 	| r | r := OrderedCollection new. r add: #numberType. ^ r
 ]
 
-{ #category : #'express semantic actions' }
+{ #category : 'express semantic actions' }
 PlatypusExpressAbstractParser >> outputStatement: expression [ 
 	| r | r := OrderedCollection new. r add: #outputStatement; add: expression. ^ r
 ]
 
-{ #category : #'express semantic actions' }
+{ #category : 'express semantic actions' }
 PlatypusExpressAbstractParser >> piConstant [
 	| r | r := OrderedCollection new. r add: #piConstant. ^ r
 ]
 
-{ #category : #'express semantic actions' }
+{ #category : 'express semantic actions' }
 PlatypusExpressAbstractParser >> positiveExpression: expression [ 
 	| r | r := OrderedCollection new. r add: #positiveExpression; add: expression. ^ r
 ]
 
-{ #category : #'express semantic actions' }
+{ #category : 'express semantic actions' }
 PlatypusExpressAbstractParser >> precisionSpec: anExpression [ 
 	| r | r := OrderedCollection new. r add: #precisionSpec; add: anExpression. ^ r
 ]
 
-{ #category : #'express semantic actions' }
+{ #category : 'express semantic actions' }
 PlatypusExpressAbstractParser >> procedure: ident formalParametersDecl: parametersListOrNil actionBody: actionBody [ 
 	| r | r := OrderedCollection new. r add: #procedure; add: ident; add: parametersListOrNil; add: actionBody. ^ r
 ]
 
-{ #category : #'express semantic actions' }
+{ #category : 'express semantic actions' }
 PlatypusExpressAbstractParser >> procedureCall: ident [
 	| r | r := OrderedCollection new. r add: #procedureCall; add: ident. ^ r
 ]
 
-{ #category : #'express semantic actions' }
+{ #category : 'express semantic actions' }
 PlatypusExpressAbstractParser >> procedureEntry: aProcedure [
 	^ self buildParserResultWith: aProcedure
 ]
 
-{ #category : #'express semantic actions' }
+{ #category : 'express semantic actions' }
 PlatypusExpressAbstractParser >> procedureIdentifier: anIdentifier [ 
 	^ anIdentifier
 ]
 
-{ #category : #'express semantic actions' }
+{ #category : 'express semantic actions' }
 PlatypusExpressAbstractParser >> qualifiedExpression: expression qualifiers: qualifiersList [ 
 	| r | r := OrderedCollection new. r add: #qualifiedExpression; add: expression; add: qualifiersList. ^ r
 ]
 
-{ #category : #'express semantic actions' }
+{ #category : 'express semantic actions' }
 PlatypusExpressAbstractParser >> queryExpression: ident source: sourceExpression suchThat: suchThatExpression [ 
 	| r | r := OrderedCollection new. r add: #queryExpression; add: ident; add: sourceExpression; add: suchThatExpression. ^ r
 ]
 
-{ #category : #'express semantic actions' }
+{ #category : 'express semantic actions' }
 PlatypusExpressAbstractParser >> queryVariable: ident [
 	| r | r := OrderedCollection new. r add:  #queryVariable; add: ident. ^ r
 ]
 
-{ #category : #'express semantic actions' }
+{ #category : 'express semantic actions' }
 PlatypusExpressAbstractParser >> rangeQualifierFrom: lowExpression to: highExpression [ 
 	| r | r := OrderedCollection new. r add: #rangeQualifier; add: lowExpression; add: highExpression. ^ r
 ]
 
-{ #category : #'express semantic actions' }
+{ #category : 'express semantic actions' }
 PlatypusExpressAbstractParser >> realLiteral: aReal [ 
 	| r | r := OrderedCollection new. r add: #realLiteral; add: aReal. ^ r
 ]
 
-{ #category : #'express semantic actions' }
+{ #category : 'express semantic actions' }
 PlatypusExpressAbstractParser >> realType: precisionSpecOrNil [ 
 	| r | r := OrderedCollection new. r add: #RealType; add: precisionSpecOrNil. ^ r
 ]
 
-{ #category : #'express semantic actions' }
+{ #category : 'express semantic actions' }
 PlatypusExpressAbstractParser >> realizationEntities: aListOrNil [ 
 	| r | r := OrderedCollection new. r add: #realizationEntities; add: aListOrNil. ^ r
 ]
 
-{ #category : #'express semantic actions' }
+{ #category : 'express semantic actions' }
 PlatypusExpressAbstractParser >> realizationIdentifier: anIdentifier [ 
 	^ anIdentifier
 ]
 
-{ #category : #'express semantic actions' }
+{ #category : 'express semantic actions' }
 PlatypusExpressAbstractParser >> realizedSchemata: aListOrNil [
 	| r | r := OrderedCollection new. r add: #realizedSchemata; add: aListOrNil. ^ r
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 PlatypusExpressAbstractParser >> reduceActionForActionBody1: nodes [
 	^ self actionBodyDecl: (nodes at: 1) value statements: (nodes at: 2) value
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 PlatypusExpressAbstractParser >> reduceActionForActionBodyDecl1: nodes [
 	^ (nodes at: 1) value
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 PlatypusExpressAbstractParser >> reduceActionForActionBodyDecl2: nodes [
 	^ (nodes at: 1) value
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 PlatypusExpressAbstractParser >> reduceActionForAggregateInitBody1: nodes [
 	^ OrderedCollection with: (nodes at: 1) value
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 PlatypusExpressAbstractParser >> reduceActionForAggregateInitBody2: nodes [
 	^ OrderedCollection new
 		addAll: (nodes at: 1) value;
@@ -2018,87 +2020,87 @@ PlatypusExpressAbstractParser >> reduceActionForAggregateInitBody2: nodes [
 		yourself
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 PlatypusExpressAbstractParser >> reduceActionForAggregateInitElement1: nodes [
 	^ self aggregateInitializerElement: (nodes at: 1) value repetition: nil
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 PlatypusExpressAbstractParser >> reduceActionForAggregateInitElement2: nodes [
 	^ self aggregateInitializerElement: (nodes at: 1) value repetition: (nodes at: 3) value
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 PlatypusExpressAbstractParser >> reduceActionForAggregateInitializer1: nodes [
 	^ self aggregateInitializer: (nodes at: 2) value
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 PlatypusExpressAbstractParser >> reduceActionForAggregateInitializer2: nodes [
 	^ self aggregateInitializer: #()
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 PlatypusExpressAbstractParser >> reduceActionForAggregateType1: nodes [
 	^ self aggregateType: nil parameterType: (nodes at: 3) value
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 PlatypusExpressAbstractParser >> reduceActionForAggregateType2: nodes [
 	^ self aggregateType: (nodes at: 3) value parameterType: (nodes at: 5) value
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 PlatypusExpressAbstractParser >> reduceActionForAggregationType1: nodes [
 	^ (nodes at: 1) value
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 PlatypusExpressAbstractParser >> reduceActionForAggregationType2: nodes [
 	^ (nodes at: 1) value
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 PlatypusExpressAbstractParser >> reduceActionForAggregationType3: nodes [
 	^ (nodes at: 1) value
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 PlatypusExpressAbstractParser >> reduceActionForAggregationType4: nodes [
 	^ (nodes at: 1) value
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 PlatypusExpressAbstractParser >> reduceActionForAggregationType5: nodes [
 	^ (nodes at: 1) value
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 PlatypusExpressAbstractParser >> reduceActionForAliasStatement1: nodes [
 	^ self aliasStatement: (nodes at: 2) value statements: (nodes at: 4) value
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 PlatypusExpressAbstractParser >> reduceActionForAliasStatementVariable1: nodes [
 	^ self aliasStatementVariable: (nodes at: 1) value for: (nodes at: 3) value
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 PlatypusExpressAbstractParser >> reduceActionForArgumentedIdentifier1: nodes [
 	^ self identifier: (nodes at: 1) value arguments: (nodes at: 3) value
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 PlatypusExpressAbstractParser >> reduceActionForArrayType1: nodes [
 	^ self arrayType: (nodes at: 2) value baseType: (nodes at: 5) value optionalOrUnique: (nodes at: 4) value
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 PlatypusExpressAbstractParser >> reduceActionForAssignable1: nodes [
 	^ self assignable: (nodes at: 1) value
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 PlatypusExpressAbstractParser >> reduceActionForAssignableList1: nodes [
 	^ OrderedCollection new
 		addAll: (nodes at: 1) value;
@@ -2106,32 +2108,32 @@ PlatypusExpressAbstractParser >> reduceActionForAssignableList1: nodes [
 		yourself
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 PlatypusExpressAbstractParser >> reduceActionForAssignableList2: nodes [
 	^ OrderedCollection with: (nodes at: 1) value
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 PlatypusExpressAbstractParser >> reduceActionForAssignmentStatement1: nodes [
 	^ self assignmentStatement: (nodes at: 1) value from: (nodes at: 3) value
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 PlatypusExpressAbstractParser >> reduceActionForAttributeNameDecl1: nodes [
 	^ self attributeName: (nodes at: 1) value groupRef: nil
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 PlatypusExpressAbstractParser >> reduceActionForAttributeNameDecl2: nodes [
 	^ self attributeName: (nodes at: 5) value groupRef: (nodes at: 3) value
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 PlatypusExpressAbstractParser >> reduceActionForAttributesNameDeclList1: nodes [
 	^ OrderedCollection with: (nodes at: 1) value
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 PlatypusExpressAbstractParser >> reduceActionForAttributesNameDeclList2: nodes [
 	^ OrderedCollection new
 		addAll: (nodes at: 1) value;
@@ -2139,167 +2141,167 @@ PlatypusExpressAbstractParser >> reduceActionForAttributesNameDeclList2: nodes [
 		yourself
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 PlatypusExpressAbstractParser >> reduceActionForBagType1: nodes [
 	^ self bagType: (nodes at: 2) value baseType: (nodes at: 4) value
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 PlatypusExpressAbstractParser >> reduceActionForBaseType1: nodes [
 	^ (nodes at: 1) value
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 PlatypusExpressAbstractParser >> reduceActionForBlock1: nodes [
 	^ self block: (nodes at: 1) value
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 PlatypusExpressAbstractParser >> reduceActionForBlock2: nodes [
 	^ self block: (nodes at: 1) value
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 PlatypusExpressAbstractParser >> reduceActionForBlock3: nodes [
 	^ self block: (nodes at: 1) value
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 PlatypusExpressAbstractParser >> reduceActionForBlock4: nodes [
 	^ self block: (nodes at: 1) value
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 PlatypusExpressAbstractParser >> reduceActionForBlock5: nodes [
 	^ self block: (nodes at: 1) value
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 PlatypusExpressAbstractParser >> reduceActionForBlock6: nodes [
 	^ self block: (nodes at: 1) value
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 PlatypusExpressAbstractParser >> reduceActionForByExpression1: nodes [
 	^ (nodes at: 2) value
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 PlatypusExpressAbstractParser >> reduceActionForCardinalityOp1: nodes [
 	^ self cardinalityExpressionFrom: (nodes at: 2) value to: (nodes at: 4) value
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 PlatypusExpressAbstractParser >> reduceActionForCaseAction1: nodes [
 	^ self caseAction: (nodes at: 1) value statement: (nodes at: 3) value
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 PlatypusExpressAbstractParser >> reduceActionForCaseOtherwise1: nodes [
 	^ self caseOtherwise: (nodes at: 3) value
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 PlatypusExpressAbstractParser >> reduceActionForCaseStatement1: nodes [
 	^ self caseStatement: (nodes at: 2) value caseActions: (nodes at: 4) value caseOtherwise: (nodes at: 5) value
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 PlatypusExpressAbstractParser >> reduceActionForCompoundStatement1: nodes [
 	^ self compoundStatement: (nodes at: 1) value statements: (nodes at: 2) value
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 PlatypusExpressAbstractParser >> reduceActionForCompoundStatementBegin1: nodes [
 	^ self compoundStatementBegin
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 PlatypusExpressAbstractParser >> reduceActionForConceptIdentifier1: nodes [
 	^ self conceptIdentifier: (nodes at: 2) value
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 PlatypusExpressAbstractParser >> reduceActionForConceptIdentifier2: nodes [
 	^ self conceptIdentifier: (nodes at: 2) metaExpression: (nodes at: 4)
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 PlatypusExpressAbstractParser >> reduceActionForConceptIdentifier3: nodes [
 	^ self conceptIdentifier: (nodes at: 1) value
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 PlatypusExpressAbstractParser >> reduceActionForConceptIdentifier4: nodes [
 	^ self conceptIdentifier: (nodes at: 1) metaExpression: (nodes at: 3)
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 PlatypusExpressAbstractParser >> reduceActionForConstantBody1: nodes [
 	^ self constantBody: (nodes at: 1) value baseType: (nodes at: 3) value expression: (nodes at: 5) value
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 PlatypusExpressAbstractParser >> reduceActionForConstantsDecl1: nodes [
 	^ self constantsDecl: (nodes at: 2)
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 PlatypusExpressAbstractParser >> reduceActionForConstantsEntry1: nodes [
 	^ self constantsEntry: (nodes at: 1) value
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 PlatypusExpressAbstractParser >> reduceActionForConstructedType1: nodes [
 	^ (nodes at: 1) value
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 PlatypusExpressAbstractParser >> reduceActionForConstructedType2: nodes [
 	^ (nodes at: 1) value
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 PlatypusExpressAbstractParser >> reduceActionForDeriveClause1: nodes [
 	^ self deriveClause: (nodes at: 3) value
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 PlatypusExpressAbstractParser >> reduceActionForDerivedAttribute1: nodes [
 	^ self derivedAttribute: (nodes at: 1) value baseType: (nodes at: 3) value expression: (nodes at: 5) value
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 PlatypusExpressAbstractParser >> reduceActionForDomainType1: nodes [
 	^ (nodes at: 1) value
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 PlatypusExpressAbstractParser >> reduceActionForDomainType2: nodes [
 	^ (nodes at: 1) value
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 PlatypusExpressAbstractParser >> reduceActionForDomainType3: nodes [
 	^ (nodes at: 1) value
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 PlatypusExpressAbstractParser >> reduceActionForDomainType4: nodes [
 	^ (nodes at: 1) value
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 PlatypusExpressAbstractParser >> reduceActionForDomainType5: nodes [
 	^ (nodes at: 1) value
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 PlatypusExpressAbstractParser >> reduceActionForEndSplitmarkStatement1: nodes [
 	^ self endSplitmarkStatement
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 PlatypusExpressAbstractParser >> reduceActionForEntity1: nodes [
 	^ self
 		entity: (nodes at: 2) value
@@ -2311,62 +2313,62 @@ PlatypusExpressAbstractParser >> reduceActionForEntity1: nodes [
 		whereClause: (nodes at: 9) value
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 PlatypusExpressAbstractParser >> reduceActionForEntityEntry1: nodes [
 	^ self entityEntry: (nodes at: 1) value
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 PlatypusExpressAbstractParser >> reduceActionForEntityIdentifier1: nodes [
 	^ self entityIdentifier: (nodes at: 1) value
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 PlatypusExpressAbstractParser >> reduceActionForEntitySubSuper1: nodes [
 	^ self entitySupertype: (nodes at: 1) value subtype: nil
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 PlatypusExpressAbstractParser >> reduceActionForEntitySubSuper2: nodes [
 	^ self entitySupertype: nil subtype: (nodes at: 1) value
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 PlatypusExpressAbstractParser >> reduceActionForEntitySubSuper3: nodes [
 	^ self entitySupertype: (nodes at: 1) value subtype: (nodes at: 2) value
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 PlatypusExpressAbstractParser >> reduceActionForEnumerationType1: nodes [
 	^ self enumerationType: (nodes at: 4) value
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 PlatypusExpressAbstractParser >> reduceActionForEscapeStatement1: nodes [
 	^ self escapeStatement
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 PlatypusExpressAbstractParser >> reduceActionForExplicitAttribute1: nodes [
 	^ self explicitAttributes: (nodes at: 1) value baseType: (nodes at: 4) value optional: (nodes at: 3) value
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 PlatypusExpressAbstractParser >> reduceActionForExplicitlyImportedItem1: nodes [
 	^ self explicitlyImportedItem: (nodes at: 1) value renamedAs: (nodes at: 1) value
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 PlatypusExpressAbstractParser >> reduceActionForExplicitlyImportedItem2: nodes [
 	^ self explicitlyImportedItem: (nodes at: 1) value renamedAs: (nodes at: 3) value
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 PlatypusExpressAbstractParser >> reduceActionForExplicitlyImportedItemsList1: nodes [
 	^ OrderedCollection with: (nodes at: 1) value
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 PlatypusExpressAbstractParser >> reduceActionForExplicitlyImportedItemsList2: nodes [
 	^ OrderedCollection new
 		addAll: (nodes at: 1) value;
@@ -2374,72 +2376,72 @@ PlatypusExpressAbstractParser >> reduceActionForExplicitlyImportedItemsList2: no
 		yourself
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 PlatypusExpressAbstractParser >> reduceActionForExpression10: nodes [
 	^ self expression: (nodes at: 1) value in: (nodes at: 3) value
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 PlatypusExpressAbstractParser >> reduceActionForExpression11: nodes [
 	^ self expression: (nodes at: 1) value like: (nodes at: 3) value
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 PlatypusExpressAbstractParser >> reduceActionForExpression1: nodes [
 	^ (nodes at: 1) value
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 PlatypusExpressAbstractParser >> reduceActionForExpression2: nodes [
 	^ self expression: (nodes at: 1) value lessThan: (nodes at: 3) value
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 PlatypusExpressAbstractParser >> reduceActionForExpression3: nodes [
 	^ self expression: (nodes at: 1) value greaterThan: (nodes at: 3) value
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 PlatypusExpressAbstractParser >> reduceActionForExpression4: nodes [
 	^ self expression: (nodes at: 1) value equal: (nodes at: 3) value
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 PlatypusExpressAbstractParser >> reduceActionForExpression5: nodes [
 	^ self expression: (nodes at: 1) value lessThanOrEqual: (nodes at: 3) value
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 PlatypusExpressAbstractParser >> reduceActionForExpression6: nodes [
 	^ self expression: (nodes at: 1) value greaterThanOrEqual: (nodes at: 3) value
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 PlatypusExpressAbstractParser >> reduceActionForExpression7: nodes [
 	^ self expression: (nodes at: 1) value notEqual: (nodes at: 3) value
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 PlatypusExpressAbstractParser >> reduceActionForExpression8: nodes [
 	^ self expression: (nodes at: 1) value instEqual: (nodes at: 3) value
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 PlatypusExpressAbstractParser >> reduceActionForExpression9: nodes [
 	^ self expression: (nodes at: 1) value instNotEqual: (nodes at: 3) value
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 PlatypusExpressAbstractParser >> reduceActionForExpressionEntry1: nodes [
 	^ self expressionEntry: (nodes at: 1) value
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 PlatypusExpressAbstractParser >> reduceActionForExpressionsList1: nodes [
 	^ OrderedCollection with: (nodes at: 1) value
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 PlatypusExpressAbstractParser >> reduceActionForExpressionsList2: nodes [
 	^ OrderedCollection new
 		addAll: (nodes at: 1) value;
@@ -2447,47 +2449,47 @@ PlatypusExpressAbstractParser >> reduceActionForExpressionsList2: nodes [
 		yourself
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 PlatypusExpressAbstractParser >> reduceActionForFactor1: nodes [
 	^ (nodes at: 1) value
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 PlatypusExpressAbstractParser >> reduceActionForFactor2: nodes [
 	^ self expression: (nodes at: 1) value expo: (nodes at: 3) value
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 PlatypusExpressAbstractParser >> reduceActionForFixedOrNot1: nodes [
 	^ true
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 PlatypusExpressAbstractParser >> reduceActionForFixedOrNot2: nodes [
 	^ false
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 PlatypusExpressAbstractParser >> reduceActionForFixedOrNotPrecisionSpec1: nodes [
 	^ Array with: (nodes at: 1) value with: (nodes at: 2) value
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 PlatypusExpressAbstractParser >> reduceActionForFormalParameter1: nodes [
 	^ self formalParameter: (nodes at: 2) value parameterType: (nodes at: 4) value var: (nodes at: 1) value
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 PlatypusExpressAbstractParser >> reduceActionForFormalParametersDecl1: nodes [
 	^ self formalParametersList: (nodes at: 2) value
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 PlatypusExpressAbstractParser >> reduceActionForFormalParametersList1: nodes [
 	^ OrderedCollection with: (nodes at: 1) value
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 PlatypusExpressAbstractParser >> reduceActionForFormalParametersList2: nodes [
 	^ OrderedCollection new
 		addAll: (nodes at: 1) value;
@@ -2495,7 +2497,7 @@ PlatypusExpressAbstractParser >> reduceActionForFormalParametersList2: nodes [
 		yourself
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 PlatypusExpressAbstractParser >> reduceActionForFunction1: nodes [
 	^ self
 		function: (nodes at: 2) value
@@ -2504,57 +2506,57 @@ PlatypusExpressAbstractParser >> reduceActionForFunction1: nodes [
 		actionBody: (nodes at: 7) value
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 PlatypusExpressAbstractParser >> reduceActionForFunctionEntry1: nodes [
 	^ self functionEntry: (nodes at: 1) value
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 PlatypusExpressAbstractParser >> reduceActionForFunctionIdentifier1: nodes [
 	^ self functionIdentifier: (nodes at: 1) value
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 PlatypusExpressAbstractParser >> reduceActionForGenericType1: nodes [
 	^ self genericType: nil
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 PlatypusExpressAbstractParser >> reduceActionForGenericType2: nodes [
 	^ self genericType: (nodes at: 3) value
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 PlatypusExpressAbstractParser >> reduceActionForGroupRef1: nodes [
 	^ self groupRef: (nodes at: 2) value
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 PlatypusExpressAbstractParser >> reduceActionForIdentifier1: nodes [
 	^ self selfIdentifier
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 PlatypusExpressAbstractParser >> reduceActionForIdentifier2: nodes [
 	^ self missingValue: false
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 PlatypusExpressAbstractParser >> reduceActionForIdentifier3: nodes [
 	^ self identifier: (nodes at: 1) value
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 PlatypusExpressAbstractParser >> reduceActionForIdentifier4: nodes [
 	^ (nodes at: 1) value
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 PlatypusExpressAbstractParser >> reduceActionForIdentifiersList1: nodes [
 	^ OrderedCollection with: (nodes at: 1) value
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 PlatypusExpressAbstractParser >> reduceActionForIdentifiersList2: nodes [
 	^ OrderedCollection new
 		addAll: (nodes at: 1) value;
@@ -2562,17 +2564,17 @@ PlatypusExpressAbstractParser >> reduceActionForIdentifiersList2: nodes [
 		yourself
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 PlatypusExpressAbstractParser >> reduceActionForIfStatement1: nodes [
 	^ self ifStatement: (nodes at: 2) value then: (nodes at: 4) value else: nil
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 PlatypusExpressAbstractParser >> reduceActionForIfStatement2: nodes [
 	^ self ifStatement: (nodes at: 2) value then: (nodes at: 4) value else: (nodes at: 6) value
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 PlatypusExpressAbstractParser >> reduceActionForIncrementControl1: nodes [
 	^ self
 		incrementControl: (nodes at: 1) value
@@ -2581,27 +2583,27 @@ PlatypusExpressAbstractParser >> reduceActionForIncrementControl1: nodes [
 		step: (nodes at: 6) value
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 PlatypusExpressAbstractParser >> reduceActionForIndexSpec1: nodes [
 	^ self indexSpecFrom: (nodes at: 2) value to: (nodes at: 4) value
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 PlatypusExpressAbstractParser >> reduceActionForInterfaceList1: nodes [
 	^ self explicitlyImportedItems: (nodes at: 2) value
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 PlatypusExpressAbstractParser >> reduceActionForInterfaceSpecification1: nodes [
 	^ self interfaceSpecification: (nodes at: 1) value schema: (nodes at: 3) value interfaceList: (nodes at: 4) value
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 PlatypusExpressAbstractParser >> reduceActionForInterfaceSpecification2: nodes [
 	^ self externalMetaSchema: (nodes at: 3) value
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 PlatypusExpressAbstractParser >> reduceActionForInterval1: nodes [
 	^ self
 		intervalExpression: (nodes at: 2) value
@@ -2611,107 +2613,107 @@ PlatypusExpressAbstractParser >> reduceActionForInterval1: nodes [
 		expression: (nodes at: 6) value
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 PlatypusExpressAbstractParser >> reduceActionForIntervalOp1: nodes [
 	^ #<
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 PlatypusExpressAbstractParser >> reduceActionForIntervalOp2: nodes [
 	^ #<=
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 PlatypusExpressAbstractParser >> reduceActionForInverseAttribute1: nodes [
 	^ self inverseAttribute: (nodes at: 1) value baseType: (nodes at: 3) value for: (nodes at: 5) value
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 PlatypusExpressAbstractParser >> reduceActionForInverseAttributeDomain1: nodes [
 	^ self inverseAttributeDomain: (nodes at: 1) value
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 PlatypusExpressAbstractParser >> reduceActionForInverseClause1: nodes [
 	^ self inverseClause: (nodes at: 3) value
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 PlatypusExpressAbstractParser >> reduceActionForListType1: nodes [
 	^ self listType: (nodes at: 2) value baseType: (nodes at: 5) value unique: (nodes at: 4) value
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 PlatypusExpressAbstractParser >> reduceActionForLiteral10: nodes [
 	^ self eConstant
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 PlatypusExpressAbstractParser >> reduceActionForLiteral1: nodes [
 	^ self integerLiteral: (nodes at: 1) value asNumber
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 PlatypusExpressAbstractParser >> reduceActionForLiteral2: nodes [
 	^ self realLiteral: (nodes at: 1) value asNumber
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 PlatypusExpressAbstractParser >> reduceActionForLiteral3: nodes [
 	^ self stringLiteral: (nodes at: 1) value
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 PlatypusExpressAbstractParser >> reduceActionForLiteral4: nodes [
 	^ self encodedStringLiteral: (nodes at: 1) value
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 PlatypusExpressAbstractParser >> reduceActionForLiteral5: nodes [
 	^ self logicalLiteral: #true
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 PlatypusExpressAbstractParser >> reduceActionForLiteral6: nodes [
 	^ self logicalLiteral: #false
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 PlatypusExpressAbstractParser >> reduceActionForLiteral7: nodes [
 	^ self logicalLiteral: #unknown
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 PlatypusExpressAbstractParser >> reduceActionForLiteral8: nodes [
 	^ self binaryLiteral: (nodes at: 1) value
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 PlatypusExpressAbstractParser >> reduceActionForLiteral9: nodes [
 	^ self piConstant
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 PlatypusExpressAbstractParser >> reduceActionForLocalBody1: nodes [
 	^ self localBody: (nodes at: 1) value baseType: (nodes at: 3) value initializer: nil
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 PlatypusExpressAbstractParser >> reduceActionForLocalBody2: nodes [
 	^ self localBody: (nodes at: 1) value baseType: (nodes at: 3) value initializer: (nodes at: 5) value
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 PlatypusExpressAbstractParser >> reduceActionForLocalDecl1: nodes [
 	^ self localDecl: (nodes at: 2) value
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 PlatypusExpressAbstractParser >> reduceActionForMapIdentifiersPath1: nodes [
 	^ OrderedCollection with: (nodes at: 1) value
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 PlatypusExpressAbstractParser >> reduceActionForMapIdentifiersPath2: nodes [
 	^ OrderedCollection new
 		addAll: (nodes at: 1) value;
@@ -2719,337 +2721,337 @@ PlatypusExpressAbstractParser >> reduceActionForMapIdentifiersPath2: nodes [
 		yourself
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 PlatypusExpressAbstractParser >> reduceActionForMapIdentifiersPathAndSemicolon1: nodes [
 	^ (nodes at: 1) value
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 PlatypusExpressAbstractParser >> reduceActionForNamedType1: nodes [
 	^ self namedType: (nodes at: 1) value
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 PlatypusExpressAbstractParser >> reduceActionForNativeAlgorithm1: nodes [
 	^ self nativeAlgorithm: (nodes at: 1) value
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 PlatypusExpressAbstractParser >> reduceActionForNativeExpression1: nodes [
 	^ self nativeExpression: (nodes at: 1) value
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 PlatypusExpressAbstractParser >> reduceActionForNativeStatement1: nodes [
 	^ self nativeStatement: (nodes at: 1) value
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 PlatypusExpressAbstractParser >> reduceActionForNullStatement1: nodes [
 	^ self nullStatement
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 PlatypusExpressAbstractParser >> reduceActionForOptional1: nodes [
 	^ true
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 PlatypusExpressAbstractParser >> reduceActionForOptional2: nodes [
 	^ false
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 PlatypusExpressAbstractParser >> reduceActionForOptionalOrUnique1: nodes [
 	^ Array with: #optional with: #unique
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 PlatypusExpressAbstractParser >> reduceActionForOptionalOrUnique2: nodes [
 	^ Array with: #optional with: #unique
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 PlatypusExpressAbstractParser >> reduceActionForOptionalOrUnique3: nodes [
 	^ Array with: #optional
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 PlatypusExpressAbstractParser >> reduceActionForOptionalOrUnique4: nodes [
 	^ Array with: #unique
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 PlatypusExpressAbstractParser >> reduceActionForOptionalXXByExpression1: nodes [
 	^ nil
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 PlatypusExpressAbstractParser >> reduceActionForOptionalXXByExpression2: nodes [
 	^ nodes at: 1
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 PlatypusExpressAbstractParser >> reduceActionForOptionalXXCaseOtherwise1: nodes [
 	^ nil
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 PlatypusExpressAbstractParser >> reduceActionForOptionalXXCaseOtherwise2: nodes [
 	^ nodes at: 1
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 PlatypusExpressAbstractParser >> reduceActionForOptionalXXDeriveClause1: nodes [
 	^ nil
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 PlatypusExpressAbstractParser >> reduceActionForOptionalXXDeriveClause2: nodes [
 	^ nodes at: 1
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 PlatypusExpressAbstractParser >> reduceActionForOptionalXXEntitySubSuper1: nodes [
 	^ nil
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 PlatypusExpressAbstractParser >> reduceActionForOptionalXXEntitySubSuper2: nodes [
 	^ nodes at: 1
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 PlatypusExpressAbstractParser >> reduceActionForOptionalXXExpressionsList1: nodes [
 	^ nil
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 PlatypusExpressAbstractParser >> reduceActionForOptionalXXExpressionsList2: nodes [
 	^ nodes at: 1
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 PlatypusExpressAbstractParser >> reduceActionForOptionalXXFixedOrNotPrecisionSpec1: nodes [
 	^ nil
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 PlatypusExpressAbstractParser >> reduceActionForOptionalXXFixedOrNotPrecisionSpec2: nodes [
 	^ nodes at: 1
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 PlatypusExpressAbstractParser >> reduceActionForOptionalXXFormalParametersDecl1: nodes [
 	^ nil
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 PlatypusExpressAbstractParser >> reduceActionForOptionalXXFormalParametersDecl2: nodes [
 	^ nodes at: 1
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 PlatypusExpressAbstractParser >> reduceActionForOptionalXXIncrementControl1: nodes [
 	^ nil
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 PlatypusExpressAbstractParser >> reduceActionForOptionalXXIncrementControl2: nodes [
 	^ nodes at: 1
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 PlatypusExpressAbstractParser >> reduceActionForOptionalXXIndexSpec1: nodes [
 	^ nil
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 PlatypusExpressAbstractParser >> reduceActionForOptionalXXIndexSpec2: nodes [
 	^ nodes at: 1
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 PlatypusExpressAbstractParser >> reduceActionForOptionalXXInterfaceList1: nodes [
 	^ nil
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 PlatypusExpressAbstractParser >> reduceActionForOptionalXXInterfaceList2: nodes [
 	^ nodes at: 1
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 PlatypusExpressAbstractParser >> reduceActionForOptionalXXInverseClause1: nodes [
 	^ nil
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 PlatypusExpressAbstractParser >> reduceActionForOptionalXXInverseClause2: nodes [
 	^ nodes at: 1
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 PlatypusExpressAbstractParser >> reduceActionForOptionalXXOptionalOrUnique1: nodes [
 	^ nil
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 PlatypusExpressAbstractParser >> reduceActionForOptionalXXOptionalOrUnique2: nodes [
 	^ nodes at: 1
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 PlatypusExpressAbstractParser >> reduceActionForOptionalXXPrecisionSpec1: nodes [
 	^ nil
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 PlatypusExpressAbstractParser >> reduceActionForOptionalXXPrecisionSpec2: nodes [
 	^ nodes at: 1
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 PlatypusExpressAbstractParser >> reduceActionForOptionalXXSupertypeRuleTail1: nodes [
 	^ nil
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 PlatypusExpressAbstractParser >> reduceActionForOptionalXXSupertypeRuleTail2: nodes [
 	^ nodes at: 1
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 PlatypusExpressAbstractParser >> reduceActionForOptionalXXUniqueClause1: nodes [
 	^ nil
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 PlatypusExpressAbstractParser >> reduceActionForOptionalXXUniqueClause2: nodes [
 	^ nodes at: 1
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 PlatypusExpressAbstractParser >> reduceActionForOptionalXXUntilControl1: nodes [
 	^ nil
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 PlatypusExpressAbstractParser >> reduceActionForOptionalXXUntilControl2: nodes [
 	^ nodes at: 1
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 PlatypusExpressAbstractParser >> reduceActionForOptionalXXWhereClause1: nodes [
 	^ nil
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 PlatypusExpressAbstractParser >> reduceActionForOptionalXXWhereClause2: nodes [
 	^ nodes at: 1
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 PlatypusExpressAbstractParser >> reduceActionForOptionalXXWhileControl1: nodes [
 	^ nil
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 PlatypusExpressAbstractParser >> reduceActionForOptionalXXWhileControl2: nodes [
 	^ nodes at: 1
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 PlatypusExpressAbstractParser >> reduceActionForOptionalXXXXX1: nodes [
 	^ nil
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 PlatypusExpressAbstractParser >> reduceActionForOptionalXXXXX2: nodes [
 	^ nodes at: 1
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 PlatypusExpressAbstractParser >> reduceActionForOptionalXXXuniqueX1: nodes [
 	^ nil
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 PlatypusExpressAbstractParser >> reduceActionForOptionalXXXuniqueX2: nodes [
 	^ nodes at: 1
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 PlatypusExpressAbstractParser >> reduceActionForOutputStatement1: nodes [
 	^ self outputStatement: (nodes at: 2) value
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 PlatypusExpressAbstractParser >> reduceActionForParameterType1: nodes [
 	^ (nodes at: 1) value
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 PlatypusExpressAbstractParser >> reduceActionForPrecisionSpec1: nodes [
 	^ self precisionSpec: (nodes at: 2) value
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 PlatypusExpressAbstractParser >> reduceActionForProcedure1: nodes [
 	^ self procedure: (nodes at: 2) value formalParametersDecl: (nodes at: 3) value actionBody: (nodes at: 5) value
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 PlatypusExpressAbstractParser >> reduceActionForProcedureCallStatement1: nodes [
 	^ self procedureCall: (nodes at: 1) value
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 PlatypusExpressAbstractParser >> reduceActionForProcedureEntry1: nodes [
 	^ self procedureEntry: (nodes at: 1) value
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 PlatypusExpressAbstractParser >> reduceActionForProcedureIdentifier1: nodes [
 	^ self procedureIdentifier: (nodes at: 1) value
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 PlatypusExpressAbstractParser >> reduceActionForQualifier1: nodes [
 	^ self attributeQualifier: (nodes at: 2) value
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 PlatypusExpressAbstractParser >> reduceActionForQualifier2: nodes [
 	^ (nodes at: 1) value
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 PlatypusExpressAbstractParser >> reduceActionForQualifier3: nodes [
 	^ self elementQualifier: (nodes at: 2) value
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 PlatypusExpressAbstractParser >> reduceActionForQualifier4: nodes [
 	^ self rangeQualifierFrom: (nodes at: 2) value to: (nodes at: 4) value
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 PlatypusExpressAbstractParser >> reduceActionForQueryExpression1: nodes [
 	^ self queryExpression: (nodes at: 3) value source: (nodes at: 5) value suchThat: (nodes at: 7) value
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 PlatypusExpressAbstractParser >> reduceActionForQueryVariable1: nodes [
 	^ self queryVariable: (nodes at: 1) value
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 PlatypusExpressAbstractParser >> reduceActionForRemarkReference1: nodes [
 	^ self remarkReference: (nodes at: 1) value
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 PlatypusExpressAbstractParser >> reduceActionForRepeatStatement1: nodes [
 	^ self
 		repeatStatement: (nodes at: 2) value
@@ -3058,221 +3060,221 @@ PlatypusExpressAbstractParser >> reduceActionForRepeatStatement1: nodes [
 		statements: (nodes at: 6) value
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 PlatypusExpressAbstractParser >> reduceActionForRepeatXMultipleXXDerivedAttribute1: nodes [
 	^ OrderedCollection with: (nodes at: 1)
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 PlatypusExpressAbstractParser >> reduceActionForRepeatXMultipleXXDerivedAttribute2: nodes [
 	^ (nodes at: 1)
 		add: (nodes at: 2);
 		yourself
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 PlatypusExpressAbstractParser >> reduceActionForRepeatXMultipleXXInverseAttribute1: nodes [
 	^ OrderedCollection with: (nodes at: 1)
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 PlatypusExpressAbstractParser >> reduceActionForRepeatXMultipleXXInverseAttribute2: nodes [
 	^ (nodes at: 1)
 		add: (nodes at: 2);
 		yourself
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 PlatypusExpressAbstractParser >> reduceActionForRepeatXMultipleXXQualifier1: nodes [
 	^ OrderedCollection with: (nodes at: 1)
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 PlatypusExpressAbstractParser >> reduceActionForRepeatXMultipleXXQualifier2: nodes [
 	^ (nodes at: 1)
 		add: (nodes at: 2);
 		yourself
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 PlatypusExpressAbstractParser >> reduceActionForRepeatXMultipleXXUniqueAttributesList1: nodes [
 	^ OrderedCollection with: (nodes at: 1)
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 PlatypusExpressAbstractParser >> reduceActionForRepeatXMultipleXXUniqueAttributesList2: nodes [
 	^ (nodes at: 1)
 		add: (nodes at: 2);
 		yourself
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 PlatypusExpressAbstractParser >> reduceActionForRepeatXMultipleXXWhereRule1: nodes [
 	^ OrderedCollection with: (nodes at: 1)
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 PlatypusExpressAbstractParser >> reduceActionForRepeatXMultipleXXWhereRule2: nodes [
 	^ (nodes at: 1)
 		add: (nodes at: 2);
 		yourself
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 PlatypusExpressAbstractParser >> reduceActionForRepeatXMultipleXXXnativeAlgorithmX1: nodes [
 	^ OrderedCollection with: (nodes at: 1)
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 PlatypusExpressAbstractParser >> reduceActionForRepeatXMultipleXXXnativeAlgorithmX2: nodes [
 	^ (nodes at: 1)
 		add: (nodes at: 2);
 		yourself
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 PlatypusExpressAbstractParser >> reduceActionForRepeatXXActionBodyDecl1: nodes [
 	^ OrderedCollection new
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 PlatypusExpressAbstractParser >> reduceActionForRepeatXXActionBodyDecl2: nodes [
 	^ (nodes at: 1)
 		add: (nodes at: 2);
 		yourself
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 PlatypusExpressAbstractParser >> reduceActionForRepeatXXBlock1: nodes [
 	^ OrderedCollection new
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 PlatypusExpressAbstractParser >> reduceActionForRepeatXXBlock2: nodes [
 	^ (nodes at: 1)
 		add: (nodes at: 2);
 		yourself
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 PlatypusExpressAbstractParser >> reduceActionForRepeatXXCaseAction1: nodes [
 	^ OrderedCollection new
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 PlatypusExpressAbstractParser >> reduceActionForRepeatXXCaseAction2: nodes [
 	^ (nodes at: 1)
 		add: (nodes at: 2);
 		yourself
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 PlatypusExpressAbstractParser >> reduceActionForRepeatXXConstantBody1: nodes [
 	^ OrderedCollection new
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 PlatypusExpressAbstractParser >> reduceActionForRepeatXXConstantBody2: nodes [
 	^ (nodes at: 1)
 		add: (nodes at: 2);
 		yourself
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 PlatypusExpressAbstractParser >> reduceActionForRepeatXXExplicitAttribute1: nodes [
 	^ OrderedCollection new
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 PlatypusExpressAbstractParser >> reduceActionForRepeatXXExplicitAttribute2: nodes [
 	^ (nodes at: 1)
 		add: (nodes at: 2);
 		yourself
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 PlatypusExpressAbstractParser >> reduceActionForRepeatXXInterfaceSpecification1: nodes [
 	^ OrderedCollection new
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 PlatypusExpressAbstractParser >> reduceActionForRepeatXXInterfaceSpecification2: nodes [
 	^ (nodes at: 1)
 		add: (nodes at: 2);
 		yourself
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 PlatypusExpressAbstractParser >> reduceActionForRepeatXXLocalBody1: nodes [
 	^ OrderedCollection new
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 PlatypusExpressAbstractParser >> reduceActionForRepeatXXLocalBody2: nodes [
 	^ (nodes at: 1)
 		add: (nodes at: 2);
 		yourself
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 PlatypusExpressAbstractParser >> reduceActionForRepeatXXMapIdentifiersPathAndSemicolon1: nodes [
 	^ OrderedCollection new
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 PlatypusExpressAbstractParser >> reduceActionForRepeatXXMapIdentifiersPathAndSemicolon2: nodes [
 	^ (nodes at: 1)
 		add: (nodes at: 2);
 		yourself
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 PlatypusExpressAbstractParser >> reduceActionForRepeatXXRemarkReference1: nodes [
 	^ OrderedCollection new
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 PlatypusExpressAbstractParser >> reduceActionForRepeatXXRemarkReference2: nodes [
 	^ (nodes at: 1)
 		add: (nodes at: 2);
 		yourself
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 PlatypusExpressAbstractParser >> reduceActionForRepeatXXSchemaEntry1: nodes [
 	^ OrderedCollection new
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 PlatypusExpressAbstractParser >> reduceActionForRepeatXXSchemaEntry2: nodes [
 	^ (nodes at: 1)
 		add: (nodes at: 2);
 		yourself
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 PlatypusExpressAbstractParser >> reduceActionForRepeatXXStatement1: nodes [
 	^ OrderedCollection new
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 PlatypusExpressAbstractParser >> reduceActionForRepeatXXStatement2: nodes [
 	^ (nodes at: 1)
 		add: (nodes at: 2);
 		yourself
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 PlatypusExpressAbstractParser >> reduceActionForReturnStatement1: nodes [
 	^ self returnStatement: nil
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 PlatypusExpressAbstractParser >> reduceActionForReturnStatement2: nodes [
 	^ self returnStatement: (nodes at: 3) value
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 PlatypusExpressAbstractParser >> reduceActionForRule1: nodes [
 	^ self
 		rule: (nodes at: 2) value
@@ -3281,312 +3283,312 @@ PlatypusExpressAbstractParser >> reduceActionForRule1: nodes [
 		whereClause: (nodes at: 9) value
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 PlatypusExpressAbstractParser >> reduceActionForRuleEntry1: nodes [
 	^ self ruleEntry: (nodes at: 1) value
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 PlatypusExpressAbstractParser >> reduceActionForRuleIdentifier1: nodes [
 	^ self ruleIdentifier: (nodes at: 1) value
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 PlatypusExpressAbstractParser >> reduceActionForSchema1: nodes [
 	^ self schema: (nodes at: 2) value interfaces: (nodes at: 4) blocks: (nodes at: 5)
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 PlatypusExpressAbstractParser >> reduceActionForSchemaContents1: nodes [
 	^ (nodes at: 1) value
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 PlatypusExpressAbstractParser >> reduceActionForSchemaContentsEntry1: nodes [
 	^ self schemaContentsEntry: (nodes at: 1) value
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 PlatypusExpressAbstractParser >> reduceActionForSchemaEntry1: nodes [
 	^ self schemaEntry: (nodes at: 1) value
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 PlatypusExpressAbstractParser >> reduceActionForSchemaIdentifier1: nodes [
 	^ self schemaIdentifier: (nodes at: 1) value
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 PlatypusExpressAbstractParser >> reduceActionForSchemaInstance1: nodes [
 	^ self schemaInstance: (nodes at: 1) value
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 PlatypusExpressAbstractParser >> reduceActionForSchemaInstanceEntry1: nodes [
 	^ self schemaInstanceEntry: (nodes at: 1) value
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 PlatypusExpressAbstractParser >> reduceActionForSelectType1: nodes [
 	^ self selectType: (nodes at: 3) value
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 PlatypusExpressAbstractParser >> reduceActionForSetType1: nodes [
 	^ self setType: (nodes at: 2) value baseType: (nodes at: 4) value
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 PlatypusExpressAbstractParser >> reduceActionForSignedSimpleFactor1: nodes [
 	^ self positiveExpression: (nodes at: 2) value
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 PlatypusExpressAbstractParser >> reduceActionForSignedSimpleFactor2: nodes [
 	^ self negativeExpression: (nodes at: 2) value
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 PlatypusExpressAbstractParser >> reduceActionForSimpleAttributeNameDecl1: nodes [
 	^ self simpleAttributeName: (nodes at: 1) value groupRef: nil
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 PlatypusExpressAbstractParser >> reduceActionForSimpleAttributeNameDecl2: nodes [
 	^ self simpleAttributeName: (nodes at: 5) value groupRef: (nodes at: 3) value
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 PlatypusExpressAbstractParser >> reduceActionForSimpleExpression1: nodes [
 	^ (nodes at: 1) value
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 PlatypusExpressAbstractParser >> reduceActionForSimpleExpression2: nodes [
 	^ self expression: (nodes at: 1) value or: (nodes at: 3) value
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 PlatypusExpressAbstractParser >> reduceActionForSimpleExpression3: nodes [
 	^ self expression: (nodes at: 1) value xor: (nodes at: 3) value
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 PlatypusExpressAbstractParser >> reduceActionForSimpleExpression4: nodes [
 	^ self expression: (nodes at: 1) value plus: (nodes at: 3) value
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 PlatypusExpressAbstractParser >> reduceActionForSimpleExpression5: nodes [
 	^ self expression: (nodes at: 1) value minus: (nodes at: 3) value
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 PlatypusExpressAbstractParser >> reduceActionForSimpleFactor10: nodes [
 	^ self not: (nodes at: 2) value
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 PlatypusExpressAbstractParser >> reduceActionForSimpleFactor11: nodes [
 	^ self expression: (nodes at: 1) value cardinality: (nodes at: 2) value expression: (nodes at: 3) value
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 PlatypusExpressAbstractParser >> reduceActionForSimpleFactor12: nodes [
 	^ (nodes at: 1) value
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 PlatypusExpressAbstractParser >> reduceActionForSimpleFactor1: nodes [
 	^ (nodes at: 1) value
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 PlatypusExpressAbstractParser >> reduceActionForSimpleFactor2: nodes [
 	^ (nodes at: 1) value
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 PlatypusExpressAbstractParser >> reduceActionForSimpleFactor3: nodes [
 	^ self qualifiedExpression: (nodes at: 1) value qualifiers: (nodes at: 2)
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 PlatypusExpressAbstractParser >> reduceActionForSimpleFactor4: nodes [
 	^ (nodes at: 1) value
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 PlatypusExpressAbstractParser >> reduceActionForSimpleFactor5: nodes [
 	^ (nodes at: 1) value
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 PlatypusExpressAbstractParser >> reduceActionForSimpleFactor6: nodes [
 	^ self expressionBetweenParenthesis: (nodes at: 2) value
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 PlatypusExpressAbstractParser >> reduceActionForSimpleFactor7: nodes [
 	^ self escapedExpression: (nodes at: 2) value
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 PlatypusExpressAbstractParser >> reduceActionForSimpleFactor8: nodes [
 	^ (nodes at: 1) value
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 PlatypusExpressAbstractParser >> reduceActionForSimpleFactor9: nodes [
 	^ (nodes at: 1) value
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 PlatypusExpressAbstractParser >> reduceActionForSimpleIdentifier1: nodes [
 	^ (nodes at: 1) value
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 PlatypusExpressAbstractParser >> reduceActionForSimpleType1: nodes [
 	^ self stringType: (nodes at: 2) value
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 PlatypusExpressAbstractParser >> reduceActionForSimpleType2: nodes [
 	^ self binaryType: (nodes at: 2) value
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 PlatypusExpressAbstractParser >> reduceActionForSimpleType3: nodes [
 	^ self numberType
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 PlatypusExpressAbstractParser >> reduceActionForSimpleType4: nodes [
 	^ self realType: (nodes at: 2) value
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 PlatypusExpressAbstractParser >> reduceActionForSimpleType5: nodes [
 	^ self integerType: (nodes at: 2) value
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 PlatypusExpressAbstractParser >> reduceActionForSimpleType6: nodes [
 	^ self logicalType
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 PlatypusExpressAbstractParser >> reduceActionForSimpleType7: nodes [
 	^ self booleanType
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 PlatypusExpressAbstractParser >> reduceActionForSkipStatement1: nodes [
 	^ self skipStatement
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 PlatypusExpressAbstractParser >> reduceActionForSplitmarkStatement1: nodes [
 	^ self beginSplitmarkStatement: (nodes at: 4) value append: (nodes at: 2) notNil
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 PlatypusExpressAbstractParser >> reduceActionForStatement10: nodes [
 	^ self statement: (nodes at: 1) value
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 PlatypusExpressAbstractParser >> reduceActionForStatement11: nodes [
 	^ self statement: (nodes at: 1) value
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 PlatypusExpressAbstractParser >> reduceActionForStatement12: nodes [
 	^ self statement: (nodes at: 1) value
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 PlatypusExpressAbstractParser >> reduceActionForStatement13: nodes [
 	^ self statement: (nodes at: 1) value
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 PlatypusExpressAbstractParser >> reduceActionForStatement14: nodes [
 	^ self statement: (nodes at: 1) value
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 PlatypusExpressAbstractParser >> reduceActionForStatement15: nodes [
 	^ self statement: (nodes at: 1) value
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 PlatypusExpressAbstractParser >> reduceActionForStatement1: nodes [
 	^ self statement: (nodes at: 1) value
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 PlatypusExpressAbstractParser >> reduceActionForStatement2: nodes [
 	^ self statement: (nodes at: 1) value
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 PlatypusExpressAbstractParser >> reduceActionForStatement3: nodes [
 	^ self statement: (nodes at: 1) value
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 PlatypusExpressAbstractParser >> reduceActionForStatement4: nodes [
 	^ self statement: (nodes at: 1) value
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 PlatypusExpressAbstractParser >> reduceActionForStatement5: nodes [
 	^ self statement: (nodes at: 1) value
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 PlatypusExpressAbstractParser >> reduceActionForStatement6: nodes [
 	^ self statement: (nodes at: 1) value
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 PlatypusExpressAbstractParser >> reduceActionForStatement7: nodes [
 	^ self statement: (nodes at: 1) value
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 PlatypusExpressAbstractParser >> reduceActionForStatement8: nodes [
 	^ self statement: (nodes at: 1) value
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 PlatypusExpressAbstractParser >> reduceActionForStatement9: nodes [
 	^ self statement: (nodes at: 1) value
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 PlatypusExpressAbstractParser >> reduceActionForStatementsEntry1: nodes [
 	^ self statementsEntry: (nodes at: 1) value
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 PlatypusExpressAbstractParser >> reduceActionForSubtypeDeclaration1: nodes [
 	^ self subtypeDeclaration: (nodes at: 4) value
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 PlatypusExpressAbstractParser >> reduceActionForSubtypeIdentifier1: nodes [
 	^ self subtypeIdentifier: (nodes at: 1) value
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 PlatypusExpressAbstractParser >> reduceActionForSubtypeIdentifiersList1: nodes [
 	^ OrderedCollection with: (nodes at: 1) value
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 PlatypusExpressAbstractParser >> reduceActionForSubtypeIdentifiersList2: nodes [
 	^ OrderedCollection new
 		addAll: (nodes at: 1) value;
@@ -3594,47 +3596,47 @@ PlatypusExpressAbstractParser >> reduceActionForSubtypeIdentifiersList2: nodes [
 		yourself
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 PlatypusExpressAbstractParser >> reduceActionForSupertypeConstraint1: nodes [
 	^ self abstractSupertypeConstraint: (nodes at: 3) value
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 PlatypusExpressAbstractParser >> reduceActionForSupertypeConstraint2: nodes [
 	^ self supertypeConstraint: (nodes at: 2) value
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 PlatypusExpressAbstractParser >> reduceActionForSupertypeExpression1: nodes [
 	^ self supertypeEntityReference: (nodes at: 1) value
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 PlatypusExpressAbstractParser >> reduceActionForSupertypeExpression2: nodes [
 	^ self supertypeExpression: (nodes at: 1) value andor: (nodes at: 3) value
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 PlatypusExpressAbstractParser >> reduceActionForSupertypeExpression3: nodes [
 	^ self supertypeExpression: (nodes at: 1) value and: (nodes at: 3) value
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 PlatypusExpressAbstractParser >> reduceActionForSupertypeExpression4: nodes [
 	^ self supertypeOneofExpression: (nodes at: 3) value
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 PlatypusExpressAbstractParser >> reduceActionForSupertypeExpression5: nodes [
 	^ (nodes at: 2) value
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 PlatypusExpressAbstractParser >> reduceActionForSupertypeExpressionsList1: nodes [
 	^ OrderedCollection with: (nodes at: 1) value
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 PlatypusExpressAbstractParser >> reduceActionForSupertypeExpressionsList2: nodes [
 	^ OrderedCollection new
 		addAll: (nodes at: 1) value;
@@ -3642,107 +3644,107 @@ PlatypusExpressAbstractParser >> reduceActionForSupertypeExpressionsList2: nodes
 		yourself
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 PlatypusExpressAbstractParser >> reduceActionForSupertypeRuleTail1: nodes [
 	^ (nodes at: 3) value
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 PlatypusExpressAbstractParser >> reduceActionForTerm1: nodes [
 	^ (nodes at: 1) value
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 PlatypusExpressAbstractParser >> reduceActionForTerm2: nodes [
 	^ self expression: (nodes at: 1) value and: (nodes at: 3) value
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 PlatypusExpressAbstractParser >> reduceActionForTerm3: nodes [
 	^ self expression: (nodes at: 1) value mod: (nodes at: 3) value
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 PlatypusExpressAbstractParser >> reduceActionForTerm4: nodes [
 	^ self expression: (nodes at: 1) value div: (nodes at: 3) value
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 PlatypusExpressAbstractParser >> reduceActionForTerm5: nodes [
 	^ self expression: (nodes at: 1) value realDiv: (nodes at: 3) value
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 PlatypusExpressAbstractParser >> reduceActionForTerm6: nodes [
 	^ self expression: (nodes at: 1) value mult: (nodes at: 3) value
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 PlatypusExpressAbstractParser >> reduceActionForTerm7: nodes [
 	^ self expression: (nodes at: 1) value instConst: (nodes at: 3) value
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 PlatypusExpressAbstractParser >> reduceActionForType1: nodes [
 	^ self type: (nodes at: 2) value underlyingType: (nodes at: 4) value whereClause: (nodes at: 6) value
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 PlatypusExpressAbstractParser >> reduceActionForType2: nodes [
 	^ self typeMapFrom: (nodes at: 2) to: (nodes at: 4)
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 PlatypusExpressAbstractParser >> reduceActionForType3: nodes [
 	^ self typeMapTo: (nodes at: 3) from: (nodes at: 5) value
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 PlatypusExpressAbstractParser >> reduceActionForType4: nodes [
 	^ self typeMapWhereClause: (nodes at: 5) to: (nodes at: 3)
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 PlatypusExpressAbstractParser >> reduceActionForTypeEntry1: nodes [
 	^ self typeEntry: (nodes at: 1) value
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 PlatypusExpressAbstractParser >> reduceActionForTypeIdentifier1: nodes [
 	^ self typeIdentifier: (nodes at: 1) value
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 PlatypusExpressAbstractParser >> reduceActionForUnderlyingType1: nodes [
 	^ (nodes at: 1) value
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 PlatypusExpressAbstractParser >> reduceActionForUniqueAttributesList1: nodes [
 	^ self uniqueAttributesList: (nodes at: 2) value head: (nodes at: 1) value
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 PlatypusExpressAbstractParser >> reduceActionForUniqueAttributesList2: nodes [
 	^ self uniqueAttributesList: (nodes at: 1) value head: nil
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 PlatypusExpressAbstractParser >> reduceActionForUniqueClause1: nodes [
 	^ self uniqueClause: (nodes at: 3) value
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 PlatypusExpressAbstractParser >> reduceActionForUniqueListHead1: nodes [
 	^ (nodes at: 1) value
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 PlatypusExpressAbstractParser >> reduceActionForUniqueNamesList1: nodes [
 	^ OrderedCollection with: (nodes at: 1) value
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 PlatypusExpressAbstractParser >> reduceActionForUniqueNamesList2: nodes [
 	^ OrderedCollection new
 		addAll: (nodes at: 1) value;
@@ -3750,57 +3752,57 @@ PlatypusExpressAbstractParser >> reduceActionForUniqueNamesList2: nodes [
 		yourself
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 PlatypusExpressAbstractParser >> reduceActionForUntilControl1: nodes [
 	^ (nodes at: 2) value
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 PlatypusExpressAbstractParser >> reduceActionForUseOrReference1: nodes [
 	^ #USED
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 PlatypusExpressAbstractParser >> reduceActionForUseOrReference2: nodes [
 	^ #REFERENCED
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 PlatypusExpressAbstractParser >> reduceActionForVar1: nodes [
 	^ true
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 PlatypusExpressAbstractParser >> reduceActionForVar2: nodes [
 	^ false
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 PlatypusExpressAbstractParser >> reduceActionForWhereClause1: nodes [
 	^ self whereClause: (nodes at: 3) value
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 PlatypusExpressAbstractParser >> reduceActionForWhereRule1: nodes [
 	^ self whereRule: (nodes at: 2) value head: (nodes at: 1) value
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 PlatypusExpressAbstractParser >> reduceActionForWhereRule2: nodes [
 	^ self whereRule: (nodes at: 1) value head: nil
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 PlatypusExpressAbstractParser >> reduceActionForWhereRuleHead1: nodes [
 	^ (nodes at: 1) value
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 PlatypusExpressAbstractParser >> reduceActionForWhileControl1: nodes [
 	^ (nodes at: 2) value
 ]
 
-{ #category : #'generated-tables' }
+{ #category : 'generated-tables' }
 PlatypusExpressAbstractParser >> reduceTable [
 	^#(
 #(132 1 #reduceActionForSchemaEntry1:)
@@ -4152,152 +4154,152 @@ PlatypusExpressAbstractParser >> reduceTable [
 )
 ]
 
-{ #category : #'express semantic actions' }
+{ #category : 'express semantic actions' }
 PlatypusExpressAbstractParser >> remarkReference: aRemarkToken [
 	| r | r := OrderedCollection new. r add: #remarkRef; add: aRemarkToken lexicalElement. ^ r
 ]
 
-{ #category : #'express semantic actions' }
+{ #category : 'express semantic actions' }
 PlatypusExpressAbstractParser >> repeatStatement: incrementControlOrNil whileControl: whileExpressionOrNil untilControl: untilExpressionOrNil statements: statementsListOrNil [ 
 	| r | r := OrderedCollection new. r add: #repeatStatement; add: incrementControlOrNil; add: whileExpressionOrNil; add: untilExpressionOrNil; add: statementsListOrNil. ^ r
 ]
 
-{ #category : #'express semantic actions' }
+{ #category : 'express semantic actions' }
 PlatypusExpressAbstractParser >> returnStatement: expressionOrNil [ 
 	| r | r := OrderedCollection new. r add: #returnStatement; add: expressionOrNil. ^ r
 ]
 
-{ #category : #'express semantic actions' }
+{ #category : 'express semantic actions' }
 PlatypusExpressAbstractParser >> rule: ident entities: fromEntitiesList actionBody: actionBody whereClause: whereClause [ 
 	| r | r := OrderedCollection new. r add: #rule; add: ident; add: fromEntitiesList; add: actionBody; add: whereClause. ^ r
 ]
 
-{ #category : #'express semantic actions' }
+{ #category : 'express semantic actions' }
 PlatypusExpressAbstractParser >> ruleEntry: aRule [ 
 	^ self buildParserResultWith: aRule
 ]
 
-{ #category : #'express semantic actions' }
+{ #category : 'express semantic actions' }
 PlatypusExpressAbstractParser >> ruleIdentifier: anIdentifier [ 
 	^ anIdentifier
 ]
 
-{ #category : #'express semantic actions' }
+{ #category : 'express semantic actions' }
 PlatypusExpressAbstractParser >> schema: schemaIdent interfaces: interfacesCollectionOrNil blocks: blocksCollectionOrNil [ 
 	| r | r := OrderedCollection new. r add: #schema; add: schemaIdent; add: interfacesCollectionOrNil; add: blocksCollectionOrNil. ^ r
 ]
 
-{ #category : #'express semantic actions' }
+{ #category : 'express semantic actions' }
 PlatypusExpressAbstractParser >> schemaContentsEntry: schemaContents [ 
 	^ self buildParserResultWith: schemaContents
 ]
 
-{ #category : #'express semantic actions' }
+{ #category : 'express semantic actions' }
 PlatypusExpressAbstractParser >> schemaEntry: aSchema [ 
 	^ self buildParserResultWith: aSchema
 ]
 
-{ #category : #'express semantic actions' }
+{ #category : 'express semantic actions' }
 PlatypusExpressAbstractParser >> schemaIdentifier: anIdentifier [
 	^ anIdentifier
 ]
 
-{ #category : #'express semantic actions' }
+{ #category : 'express semantic actions' }
 PlatypusExpressAbstractParser >> schemaInstance: aCollectionOfSchemata [ 
 	| r | r := OrderedCollection new. r add: #schemaInstance; add: aCollectionOfSchemata. ^ r
 ]
 
-{ #category : #'express semantic actions' }
+{ #category : 'express semantic actions' }
 PlatypusExpressAbstractParser >> schemaInstanceEntry: aSchemaInstance [
 	^ self buildParserResultWith: aSchemaInstance
 ]
 
-{ #category : #'express semantic actions' }
+{ #category : 'express semantic actions' }
 PlatypusExpressAbstractParser >> selectType: identifiersList [ 
 	| r | r := OrderedCollection new. r add: #selectType; add: identifiersList. ^ r
 ]
 
-{ #category : #'express semantic actions' }
+{ #category : 'express semantic actions' }
 PlatypusExpressAbstractParser >> selfIdentifier [
 	| r | r := OrderedCollection new. r add: #self. ^ r
 ]
 
-{ #category : #'express semantic actions' }
+{ #category : 'express semantic actions' }
 PlatypusExpressAbstractParser >> setType: indexSpecOrNil baseType: baseType [ 
 	| r | r := OrderedCollection new. r add: #setType; add: indexSpecOrNil; add: baseType. ^ r
 ]
 
-{ #category : #'express semantic actions' }
+{ #category : 'express semantic actions' }
 PlatypusExpressAbstractParser >> simpleAttributeName: simpleIdent groupRef: aGroupIdentOrNil [ 
 	^ self attributeName: simpleIdent groupRef: aGroupIdentOrNil 
 ]
 
-{ #category : #'express semantic actions' }
+{ #category : 'express semantic actions' }
 PlatypusExpressAbstractParser >> skipStatement [
 	| r | r := OrderedCollection new. r add: #skipStatement. ^ r
 ]
 
-{ #category : #'express semantic actions' }
+{ #category : 'express semantic actions' }
 PlatypusExpressAbstractParser >> sourceEntry: schemataOrNil [
 	^ self buildParserResultWith: schemataOrNil
 ]
 
-{ #category : #'express semantic actions' }
+{ #category : 'express semantic actions' }
 PlatypusExpressAbstractParser >> statement: aStatement [ 
 	^ aStatement
 ]
 
-{ #category : #'express semantic actions' }
+{ #category : 'express semantic actions' }
 PlatypusExpressAbstractParser >> statementsEntry: statements [ 
 	^ statements
 ]
 
-{ #category : #'express semantic actions' }
+{ #category : 'express semantic actions' }
 PlatypusExpressAbstractParser >> stringLiteral: aString [
 	| r | r := OrderedCollection new. r add: #stringLiteral; add: aString. ^ r
 ]
 
-{ #category : #'express semantic actions' }
+{ #category : 'express semantic actions' }
 PlatypusExpressAbstractParser >> stringType: FixedOrNotPrecisionSpecOrNil [
 	| r | r := OrderedCollection new. r add: #stringType; add: FixedOrNotPrecisionSpecOrNil. ^ r
 ]
 
-{ #category : #'express semantic actions' }
+{ #category : 'express semantic actions' }
 PlatypusExpressAbstractParser >> subtypeDeclaration: anIdentifiersList [
 	| r | r := OrderedCollection new. r add: #subtypeDeclaration; add: anIdentifiersList. ^ r
 ]
 
-{ #category : #'express semantic actions' }
+{ #category : 'express semantic actions' }
 PlatypusExpressAbstractParser >> subtypeIdentifier: anIdentifier [ 
 	^ anIdentifier
 ]
 
-{ #category : #'express semantic actions' }
+{ #category : 'express semantic actions' }
 PlatypusExpressAbstractParser >> supertypeConstraint: supertypeExpressionOrNil [
 	| r | r := OrderedCollection new. r add: #supertypeConstraint; add: supertypeExpressionOrNil. ^ r
 ]
 
-{ #category : #'express semantic actions' }
+{ #category : 'express semantic actions' }
 PlatypusExpressAbstractParser >> supertypeEntityReference: anIdentifier [ 
 	| r | r := OrderedCollection new. r add: #supertypeEntityReference; add: anIdentifier. ^ r
 ]
 
-{ #category : #'express semantic actions' }
+{ #category : 'express semantic actions' }
 PlatypusExpressAbstractParser >> supertypeExpression: supertypeExpression1 and: supertypeExpression2 [
 	| r | r := OrderedCollection new. r add: #andSupertypeExpression; add: supertypeExpression1; add: supertypeExpression2. ^ r
 ]
 
-{ #category : #'express semantic actions' }
+{ #category : 'express semantic actions' }
 PlatypusExpressAbstractParser >> supertypeExpression: supertypeExpression1 andor: supertypeExpression2 [ 
 	| r | r := OrderedCollection new. r add: #andorSupertypeExpression; add: supertypeExpression1; add: supertypeExpression2. ^ r
 ]
 
-{ #category : #'express semantic actions' }
+{ #category : 'express semantic actions' }
 PlatypusExpressAbstractParser >> supertypeOneofExpression: identifiersList [ 
 	| r | r := OrderedCollection new. r add: #oneofSupertypeExpression; add: identifiersList. ^ r
 ]
 
-{ #category : #'generated-tables' }
+{ #category : 'generated-tables' }
 PlatypusExpressAbstractParser >> transitionTable [
 	^#(
 #[1 0 58 0 53 0 53 0 142 0 57 0 145 0 61 0 158 0 58 0 220 0 58 1 56]
@@ -4963,53 +4965,53 @@ PlatypusExpressAbstractParser >> transitionTable [
 )
 ]
 
-{ #category : #'express semantic actions' }
+{ #category : 'express semantic actions' }
 PlatypusExpressAbstractParser >> type: ident underlyingType: underlyingType whereClause: whereClauseOrNil [ 
 	| r | r := OrderedCollection new. r add: #type; add: ident; add: underlyingType; add: whereClauseOrNil. ^ r
 ]
 
-{ #category : #'express semantic actions' }
+{ #category : 'express semantic actions' }
 PlatypusExpressAbstractParser >> typeEntry: aType [
 	^self buildParserResultWith: aType
 ]
 
-{ #category : #'express semantic actions' }
+{ #category : 'express semantic actions' }
 PlatypusExpressAbstractParser >> typeIdentifier: anIdentifier [
 	^ anIdentifier
 ]
 
-{ #category : #'express semantic actions' }
+{ #category : 'express semantic actions' }
 PlatypusExpressAbstractParser >> typeMapFrom: aListOfIdent to: anExpression [ 
 	^ self
 ]
 
-{ #category : #'express semantic actions' }
+{ #category : 'express semantic actions' }
 PlatypusExpressAbstractParser >> typeMapTo: anExpression from: aListOfListOfIdent [ 
 	aListOfListOfIdent do: [:i | self typeMapFrom: i to: anExpression]
 
 ]
 
-{ #category : #'express semantic actions' }
+{ #category : 'express semantic actions' }
 PlatypusExpressAbstractParser >> typeMapWhereClause: whereRuleList to: anExpression [
 	whereRuleList do: [:i | self typeMapWhere: i to: anExpression]
 ]
 
-{ #category : #'express semantic actions' }
+{ #category : 'express semantic actions' }
 PlatypusExpressAbstractParser >> uniqueAttributesList: anIdentifiersCollection head: anIdentOrNil [
 	| r | r := OrderedCollection new. r add: #uniqueAttributesList; add: anIdentOrNil; add: anIdentifiersCollection . ^ r
 ]
 
-{ #category : #'express semantic actions' }
+{ #category : 'express semantic actions' }
 PlatypusExpressAbstractParser >> uniqueClause: aUniqueClause [ 
 	| r | r := OrderedCollection new. r add: #uniqueClause; add: aUniqueClause. ^ r
 ]
 
-{ #category : #'express semantic actions' }
+{ #category : 'express semantic actions' }
 PlatypusExpressAbstractParser >> whereClause: aWhereClause [ 
 	| r | r := OrderedCollection new. r add: #whereClause; add: aWhereClause. ^ r
 ]
 
-{ #category : #'express semantic actions' }
+{ #category : 'express semantic actions' }
 PlatypusExpressAbstractParser >> whereRule: anExpression head: anIdentOrNil [
 	| r | r := OrderedCollection new. r add: #whereRule; add: anIdentOrNil; add: anExpression. ^ r
 ]

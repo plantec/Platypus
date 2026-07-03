@@ -1,6 +1,6 @@
 Class {
-	#name : #PTsQueryAttributesFunction,
-	#superclass : #PlatypusCoreAlgorithmDeclaration,
+	#name : 'PTsQueryAttributesFunction',
+	#superclass : 'PlatypusCoreAlgorithmDeclaration',
 	#instVars : [
 		'ent',
 		'attrKind',
@@ -8,59 +8,61 @@ Class {
 		'withRedeclaring',
 		'attributes'
 	],
-	#category : #'Platypus-ExpressDictionaryQueriesSchema'
+	#category : 'Platypus-ExpressDictionaryQueriesSchema',
+	#package : 'Platypus',
+	#tag : 'ExpressDictionaryQueriesSchema'
 }
 
-{ #category : #'platypus-generated-platypus-signature' }
+{ #category : 'platypus-generated-platypus-signature' }
 PTsQueryAttributesFunction class >> iso10303P11Translater [
 	^ 'Platypus (c) LISYC EA3883, Universite de Bretagne occidentale. Brest.'
 
 
 ]
 
-{ #category : #'platypus-generated-meta-data-accessing' }
+{ #category : 'platypus-generated-meta-data-accessing' }
 PTsQueryAttributesFunction class >> schemaDefinition [
 	^ PTsExpressDictionaryQueriesSchemaDefinition singleton
 
 
 ]
 
-{ #category : #'platypus-generated-platypus-signature' }
+{ #category : 'platypus-generated-platypus-signature' }
 PTsQueryAttributesFunction class >> translatedFromISO10303P11 [
 	^ true
 
 
 ]
 
-{ #category : #'platypus-generated-platypus-signature' }
+{ #category : 'platypus-generated-platypus-signature' }
 PTsQueryAttributesFunction class >> vwNamespaceName [
 	^ #PTs
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 PTsQueryAttributesFunction >> attrKind [
 	^ attrKind
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 PTsQueryAttributesFunction >> attrKind: aString [
 	attrKind := aString
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 PTsQueryAttributesFunction >> attributes [
 	^ attributes
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 PTsQueryAttributesFunction >> attributes: aListOfPTsAttribute [
 	attributes := aListOfPTsAttribute
 		ifNil: [ OrderedCollection new ]
@@ -69,21 +71,21 @@ PTsQueryAttributesFunction >> attributes: aListOfPTsAttribute [
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 PTsQueryAttributesFunction >> ent [
 	^ ent
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 PTsQueryAttributesFunction >> ent: aPTsEntityDefinition [
 	ent := aPTsEntityDefinition
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 PTsQueryAttributesFunction >> ent: aPTsEntityDefinition attrKind: aString withInherited: aBoolean withRedeclaring: aBoolean1 [
 	self ent: aPTsEntityDefinition.
 	self attrKind: aString.
@@ -93,7 +95,7 @@ PTsQueryAttributesFunction >> ent: aPTsEntityDefinition attrKind: aString withIn
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 PTsQueryAttributesFunction >> fromValues: values [
 	self ent: (values at: 1).
 	self attrKind: (values at: 2).
@@ -103,7 +105,7 @@ PTsQueryAttributesFunction >> fromValues: values [
 
 ]
 
-{ #category : #'platypus-generated-invoking' }
+{ #category : 'platypus-generated-invoking' }
 PTsQueryAttributesFunction >> invoke [
 	" ---------- locals assignments ----------"
 
@@ -158,28 +160,28 @@ PTsQueryAttributesFunction >> invoke [
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 PTsQueryAttributesFunction >> withInherited [
 	^ withInherited
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 PTsQueryAttributesFunction >> withInherited: aBoolean [
 	withInherited := aBoolean
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 PTsQueryAttributesFunction >> withRedeclaring [
 	^ withRedeclaring
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 PTsQueryAttributesFunction >> withRedeclaring: aBoolean1 [
 	withRedeclaring := aBoolean1
 

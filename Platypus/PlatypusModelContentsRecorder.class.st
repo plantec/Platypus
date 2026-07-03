@@ -1,20 +1,22 @@
 Class {
-	#name : #PlatypusModelContentsRecorder,
-	#superclass : #PlatypusModelContentsVisitor,
+	#name : 'PlatypusModelContentsRecorder',
+	#superclass : 'PlatypusModelContentsVisitor',
 	#instVars : [
 		'checkingPass'
 	],
-	#category : #'Platypus-HW-visitors'
+	#category : 'Platypus-HW-visitors',
+	#package : 'Platypus',
+	#tag : 'HW-visitors'
 }
 
-{ #category : #'visit population schema' }
+{ #category : 'visit population schema' }
 PlatypusModelContentsRecorder >> acceptApplicationInstance: e [ 
 	checkingPass = #recording
 		ifTrue: [(e persistentLabel isNil or: [e persistentLabel isEmpty])
 			ifTrue: [modelContents add: e]]
 ]
 
-{ #category : #'visit population schema' }
+{ #category : 'visit population schema' }
 PlatypusModelContentsRecorder >> acceptEntityInstanceReference: e [ 
 	(e persistentLabel isNil or: [e persistentLabel isEmpty])
 		ifTrue: [checkingPass = #referencing
@@ -23,20 +25,20 @@ PlatypusModelContentsRecorder >> acceptEntityInstanceReference: e [
 		ifFalse: [e ref acceptTry: self]]
 ]
 
-{ #category : #'visit population schema' }
+{ #category : 'visit population schema' }
 PlatypusModelContentsRecorder >> acceptExternalRepresentation: e [ 
 	self acceptApplicationInstance: e.
 	super acceptExternalRepresentation: e 
 
 ]
 
-{ #category : #'visit population schema' }
+{ #category : 'visit population schema' }
 PlatypusModelContentsRecorder >> acceptInternalRepresentation: e [ 
 	self acceptApplicationInstance: e.
 	super acceptInternalRepresentation: e 
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusModelContentsRecorder >> checks: aMetaData [ 
 	checkingPass := #recording.
 	super checks: aMetaData.
@@ -44,7 +46,7 @@ PlatypusModelContentsRecorder >> checks: aMetaData [
 	super checks: modelContents
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusModelContentsRecorder >> checksAll: aMetaDataCollection [
 	checkingPass := #recording.
 	aMetaDataCollection do: [:el | super checks: el].
@@ -52,7 +54,7 @@ PlatypusModelContentsRecorder >> checksAll: aMetaDataCollection [
 	super checks: modelContents
 ]
 
-{ #category : #'initialize-release' }
+{ #category : 'initialize-release' }
 PlatypusModelContentsRecorder >> initialize [
 	super initialize.
 	checkingPass := #recording

@@ -12,50 +12,52 @@ END_FUNCTION;
 </ISO10303-11-EXPRESS>
 "
 Class {
-	#name : #PltEXPFunction,
-	#superclass : #PlatypusCoreAlgorithmDeclaration,
+	#name : 'PltEXPFunction',
+	#superclass : 'PlatypusCoreAlgorithmDeclaration',
 	#instVars : [
 		'p'
 	],
-	#category : #'Platypus-ExpressBuiltinsSchema'
+	#category : 'Platypus-ExpressBuiltinsSchema',
+	#package : 'Platypus',
+	#tag : 'ExpressBuiltinsSchema'
 }
 
-{ #category : #'platypus-generated-platypus-signature' }
+{ #category : 'platypus-generated-platypus-signature' }
 PltEXPFunction class >> iso10303P11Translater [
 	^ 'Platypus (c) LISYC EA3883, Universite de Bretagne occidentale. Brest.'
 
 
 ]
 
-{ #category : #'platypus-generated-meta-data-accessing' }
+{ #category : 'platypus-generated-meta-data-accessing' }
 PltEXPFunction class >> schemaDefinition [
 	^ PltExpressBuiltinsSchemaDefinition singleton
 
 
 ]
 
-{ #category : #'platypus-generated-platypus-signature' }
+{ #category : 'platypus-generated-platypus-signature' }
 PltEXPFunction class >> translatedFromISO10303P11 [
 	^ true
 
 
 ]
 
-{ #category : #'platypus-generated-platypus-signature' }
+{ #category : 'platypus-generated-platypus-signature' }
 PltEXPFunction class >> vwNamespaceName [
 	^ #Platypus
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 PltEXPFunction >> fromValues: values [
 	self p: (values at: 1)
 
 
 ]
 
-{ #category : #'platypus-generated-invoking' }
+{ #category : 'platypus-generated-invoking' }
 PltEXPFunction >> invoke [
 	" ---------- locals assignments ----------"
 
@@ -69,14 +71,14 @@ PltEXPFunction >> invoke [
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 PltEXPFunction >> p [
 	^ p
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 PltEXPFunction >> p: aNumber [
 	p := aNumber
 

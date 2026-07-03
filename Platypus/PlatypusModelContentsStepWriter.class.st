@@ -1,6 +1,6 @@
 Class {
-	#name : #PlatypusModelContentsStepWriter,
-	#superclass : #PlatypusStepAbstractVisitor,
+	#name : 'PlatypusModelContentsStepWriter',
+	#superclass : 'PlatypusStepAbstractVisitor',
 	#instVars : [
 		'outStream',
 		'p21Syntax',
@@ -8,10 +8,12 @@ Class {
 		'modelContents',
 		'annote'
 	],
-	#category : #'Platypus-HW-visitors'
+	#category : 'Platypus-HW-visitors',
+	#package : 'Platypus',
+	#tag : 'HW-visitors'
 }
 
-{ #category : #'visit aggregate data schema' }
+{ #category : 'visit aggregate data schema' }
 PlatypusModelContentsStepWriter >> acceptAggregateData: e [ 
 	self nextPut: $(.
 	e contents acceptTry: self 
@@ -19,7 +21,7 @@ PlatypusModelContentsStepWriter >> acceptAggregateData: e [
 	self nextPut: $)
 ]
 
-{ #category : #'visit aggregate data schema' }
+{ #category : 'visit aggregate data schema' }
 PlatypusModelContentsStepWriter >> acceptAggregateInitializer: e [ 
 	self nextPut: $(.
 	e contents acceptTry: self 
@@ -27,7 +29,7 @@ PlatypusModelContentsStepWriter >> acceptAggregateInitializer: e [
 	self nextPut: $)
 ]
 
-{ #category : #'visit aggregate data schema' }
+{ #category : 'visit aggregate data schema' }
 PlatypusModelContentsStepWriter >> acceptAggregateInitializerElement: e [ 
 	self acceptTry: e val.
 	self nextPut: $:.
@@ -35,7 +37,7 @@ PlatypusModelContentsStepWriter >> acceptAggregateInitializerElement: e [
 		ifTrue: [self acceptTry: e repetition] ifFalse: [self nextPut: $1]
 ]
 
-{ #category : #'visit aggregate data schema' }
+{ #category : 'visit aggregate data schema' }
 PlatypusModelContentsStepWriter >> acceptAggregateInstance: e [ 
 	self nextPut: $(.
 	e 
@@ -49,7 +51,7 @@ PlatypusModelContentsStepWriter >> acceptAggregateInstance: e [
 	self nextPut: $)
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusModelContentsStepWriter >> acceptAllParameters: parameters definition: definition fromSimpleRecord: fromSimpleRecord [ 
 	| attrs |
 	definition ifNotNil: [
@@ -69,12 +71,12 @@ PlatypusModelContentsStepWriter >> acceptAllParameters: parameters definition: d
 			ifTrue: [outStream nextPut: Character cr]]
 ]
 
-{ #category : #'visit expressions schema' }
+{ #category : 'visit expressions schema' }
 PlatypusModelContentsStepWriter >> acceptEConstant: e [ 
 	self nextPutAll: 'E' 
 ]
 
-{ #category : #'visit population schema' }
+{ #category : 'visit population schema' }
 PlatypusModelContentsStepWriter >> acceptEntityDefinitionReference: e [ 
 	e ref ifNil: 
 			[outStream nextPutAll: e name asUppercase]
@@ -82,18 +84,18 @@ PlatypusModelContentsStepWriter >> acceptEntityDefinitionReference: e [
 			[outStream nextPutAll: e ref name asUppercase]
 ]
 
-{ #category : #'visit expressions schema' }
+{ #category : 'visit expressions schema' }
 PlatypusModelContentsStepWriter >> acceptEnumerationValue: e [ 
 	self nextPutAll: '.', e element asUppercase, '.'.
 
 ]
 
-{ #category : #'visit population schema' }
+{ #category : 'visit population schema' }
 PlatypusModelContentsStepWriter >> acceptExternalGroupRepresentation: e [ 
  	self acceptExternalInstance: e
 ]
 
-{ #category : #'visit population schema' }
+{ #category : 'visit population schema' }
 PlatypusModelContentsStepWriter >> acceptExternalInstance: e [ 
 	self acceptGenericInstance: e.
 	self nextPutAll: '('.
@@ -105,17 +107,17 @@ PlatypusModelContentsStepWriter >> acceptExternalInstance: e [
 	self nextPutAll: ');'
 ]
 
-{ #category : #'visit population schema' }
+{ #category : 'visit population schema' }
 PlatypusModelContentsStepWriter >> acceptExternalRepresentation: e [ 
 	self acceptExternalInstance: e
 ]
 
-{ #category : #'visit expressions schema' }
+{ #category : 'visit expressions schema' }
 PlatypusModelContentsStepWriter >> acceptFalseConstant: e [ 
 	self nextPutAll: '.F.'
 ]
 
-{ #category : #'visit population schema' }
+{ #category : 'visit population schema' }
 PlatypusModelContentsStepWriter >> acceptFileDescription: e [ 
 	self nextPutAll: 'FILE_DESCRIPTION(('.
 	e description
@@ -126,7 +128,7 @@ PlatypusModelContentsStepWriter >> acceptFileDescription: e [
 	self nextPutAll: ');'.
 ]
 
-{ #category : #'visit population schema' }
+{ #category : 'visit population schema' }
 PlatypusModelContentsStepWriter >> acceptFileName: e [ 
 	self nextPutAll: 'FILE_NAME('.
 	self nextPutAllString: e name.
@@ -149,7 +151,7 @@ PlatypusModelContentsStepWriter >> acceptFileName: e [
 	self nextPutAll: ');'
 ]
 
-{ #category : #'visit population schema' }
+{ #category : 'visit population schema' }
 PlatypusModelContentsStepWriter >> acceptFileSchema: e [ 
 	self nextPutAll: 'FILE_SCHEMA(('.
 	e schemaIdentifiers
@@ -158,7 +160,7 @@ PlatypusModelContentsStepWriter >> acceptFileSchema: e [
 	self nextPutAll: '));'
 ]
 
-{ #category : #'visit population schema' }
+{ #category : 'visit population schema' }
 PlatypusModelContentsStepWriter >> acceptGenericInstance: t1 [ 
 	outStream nextPut: $#.
 	outStream nextPutAll: t1 persistentLabel asString.
@@ -167,7 +169,7 @@ PlatypusModelContentsStepWriter >> acceptGenericInstance: t1 [
 		ifNotNil: [t1 instanceScope acceptTry: self]
 ]
 
-{ #category : #'visit population schema' }
+{ #category : 'visit population schema' }
 PlatypusModelContentsStepWriter >> acceptInstanceScope: e [ 
 	self nextPutAll: '&SCOPE\' withCRs.
 	e owned
@@ -182,17 +184,17 @@ PlatypusModelContentsStepWriter >> acceptInstanceScope: e [
 		ifFalse: [self nextPut: Character cr]
 ]
 
-{ #category : #'visit expressions schema' }
+{ #category : 'visit expressions schema' }
 PlatypusModelContentsStepWriter >> acceptIntegerLiteral: e [ 
 	self nextPutAll: e val printString
 ]
 
-{ #category : #'visit population schema' }
+{ #category : 'visit population schema' }
 PlatypusModelContentsStepWriter >> acceptInternalGroupRepresentation: e [ 
 	self acceptInternalInstance: e
 ]
 
-{ #category : #'visit population schema' }
+{ #category : 'visit population schema' }
 PlatypusModelContentsStepWriter >> acceptInternalInstance: e [ 
 	self acceptGenericInstance: e.
 	self acceptTry: e definition.
@@ -204,18 +206,18 @@ PlatypusModelContentsStepWriter >> acceptInternalInstance: e [
 	self nextPutAll: ');'
 ]
 
-{ #category : #'visit population schema' }
+{ #category : 'visit population schema' }
 PlatypusModelContentsStepWriter >> acceptInternalRepresentation: e [ 
 	self acceptInternalInstance: e 
 
 ]
 
-{ #category : #'visit expressions schema' }
+{ #category : 'visit expressions schema' }
 PlatypusModelContentsStepWriter >> acceptMissingValue: e [ 
 	self nextPut: $$
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusModelContentsStepWriter >> acceptParameter: aParameter entity: definition attribute: anExplicitAttribute fromSimpleRecord: fromSimpleRecord [ 
 	p21Syntax
 		ifFalse: [ 
@@ -241,22 +243,22 @@ PlatypusModelContentsStepWriter >> acceptParameter: aParameter entity: definitio
 
 ]
 
-{ #category : #'visit expressions schema' }
+{ #category : 'visit expressions schema' }
 PlatypusModelContentsStepWriter >> acceptPiConstant: e [ 
 	self nextPutAll: 'PI'
 ]
 
-{ #category : #'visit expressions schema' }
+{ #category : 'visit expressions schema' }
 PlatypusModelContentsStepWriter >> acceptRealLiteral: e [ 
 	self nextPutAll: e val printString
 ]
 
-{ #category : #'visit expressions schema' }
+{ #category : 'visit expressions schema' }
 PlatypusModelContentsStepWriter >> acceptRedefinedAttributeValue: e [ 
 	self nextPut: $*
 ]
 
-{ #category : #'visit population schema' }
+{ #category : 'visit population schema' }
 PlatypusModelContentsStepWriter >> acceptSimpleRecord: e [ 
 	self acceptTry: e definition.
 	(p21Syntax not
@@ -272,17 +274,17 @@ PlatypusModelContentsStepWriter >> acceptSimpleRecord: e [
 	self nextPut: $)
 ]
 
-{ #category : #'visit expressions schema' }
+{ #category : 'visit expressions schema' }
 PlatypusModelContentsStepWriter >> acceptStringLiteral: e [ 
 	self nextPutAllString: e asClearText
 ]
 
-{ #category : #'visit expressions schema' }
+{ #category : 'visit expressions schema' }
 PlatypusModelContentsStepWriter >> acceptTrueConstant: e [ 
 	self nextPutAll: '.T.'
 ]
 
-{ #category : #'visit expressions schema' }
+{ #category : 'visit expressions schema' }
 PlatypusModelContentsStepWriter >> acceptTypedExpression: e [ 
 	e domain
 		ifNotNil: [self nextPutAll: e domain name asUppercase;
@@ -292,12 +294,12 @@ PlatypusModelContentsStepWriter >> acceptTypedExpression: e [
 		ifNotNil: [self nextPut: $)]
 ]
 
-{ #category : #'visit expressions schema' }
+{ #category : 'visit expressions schema' }
 PlatypusModelContentsStepWriter >> acceptUnknownConstant: e [ 
 	self nextPutAll: '.U.'
 ]
 
-{ #category : #'visit population schema' }
+{ #category : 'visit population schema' }
 PlatypusModelContentsStepWriter >> acceptUserDefinedApplicationInstance: e [ 
 	self nextPut: $#;
 		 nextPutAll: e persistentLabel;
@@ -309,7 +311,7 @@ PlatypusModelContentsStepWriter >> acceptUserDefinedApplicationInstance: e [
 	self nextPutAll: ');'
 ]
 
-{ #category : #'visit population schema' }
+{ #category : 'visit population schema' }
 PlatypusModelContentsStepWriter >> acceptUserDefinedHeaderInstance: e [ 
 	self nextPutAll: e name;
 		 nextPut: $(.
@@ -318,34 +320,34 @@ PlatypusModelContentsStepWriter >> acceptUserDefinedHeaderInstance: e [
 	self nextPutAll: ');'
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusModelContentsStepWriter >> annote [
 	^ annote ifNil: [annote := false]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusModelContentsStepWriter >> annote: aBoolean [
 	annote := aBoolean
 ]
 
-{ #category : #'initialize/release' }
+{ #category : 'initialize/release' }
 PlatypusModelContentsStepWriter >> initialize [
 	super initialize.
 	p21Syntax := true.
 	tokenClassifier := PlatypusExpressTokenClassifier new
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusModelContentsStepWriter >> modelContents [
 	^modelContents
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusModelContentsStepWriter >> modelContents: anObject [
 	modelContents := anObject
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusModelContentsStepWriter >> nextPut: aCharacter [ 
 	"| tokenClass |
 	tokenClass := tokenClassifier
@@ -357,7 +359,7 @@ PlatypusModelContentsStepWriter >> nextPut: aCharacter [
 		outStream nextPut: aCharacter
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusModelContentsStepWriter >> nextPutAll: aString [ 
 	"| tokenClass |
 	tokenClass := tokenClassifier
@@ -369,28 +371,28 @@ PlatypusModelContentsStepWriter >> nextPutAll: aString [
 	outStream nextPutAll: aString
 ]
 
-{ #category : #'visit generic' }
+{ #category : 'visit generic' }
 PlatypusModelContentsStepWriter >> nextPutAllString: aString [ 
 	self nextPutAll: ''''
 			, (aString copyReplaceAll: '''' with: '''''') , ''''
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusModelContentsStepWriter >> outStream [
 	^outStream
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusModelContentsStepWriter >> outStream: anObject [
 	outStream := anObject
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusModelContentsStepWriter >> p21Syntax: useP21Syntax [ 
 	p21Syntax := useP21Syntax
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusModelContentsStepWriter >> stream: anOutputStream modelContents: aModelContents instance: anInstance p21Syntax: useP21Syntax [ 
 	self outStream: anOutputStream.
 	self modelContents: aModelContents.
@@ -398,7 +400,7 @@ PlatypusModelContentsStepWriter >> stream: anOutputStream modelContents: aModelC
 	self acceptTry: anInstance
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusModelContentsStepWriter >> stream: anOutputStream modelContents: aModelContents instance: anInstance p21Syntax: useP21Syntax annote: withTypeAnnotations [
 	self outStream: anOutputStream.
 	self modelContents: aModelContents.
@@ -407,7 +409,7 @@ PlatypusModelContentsStepWriter >> stream: anOutputStream modelContents: aModelC
 	self acceptTry: anInstance
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusModelContentsStepWriter >> stream: anOutputStream modelContents: aModelContents p21Syntax: useP21Syntax [ 
 	| hinstances instances dateTime |
 	self modelContents: aModelContents.
@@ -442,7 +444,7 @@ PlatypusModelContentsStepWriter >> stream: anOutputStream modelContents: aModelC
 	outStream nextPutAll: 'ENDSEC;\END-ISO-10303-21;\' withCRs
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusModelContentsStepWriter >> stream: anOutputStream modelContents: aModelContents values: values p21Syntax: useP21Syntax [ 
 	self modelContents: aModelContents.
 	outStream := anOutputStream.

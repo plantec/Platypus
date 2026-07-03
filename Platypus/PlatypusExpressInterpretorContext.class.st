@@ -1,13 +1,15 @@
 Class {
-	#name : #PlatypusExpressInterpretorContext,
-	#superclass : #PlatypusStepVisitorContext,
+	#name : 'PlatypusExpressInterpretorContext',
+	#superclass : 'PlatypusStepVisitorContext',
 	#instVars : [
 		'dataIndex'
 	],
-	#category : #'Platypus-HW-interpreter'
+	#category : 'Platypus-HW-interpreter',
+	#package : 'Platypus',
+	#tag : 'HW-interpreter'
 }
 
-{ #category : #'data enumerating' }
+{ #category : 'data enumerating' }
 PlatypusExpressInterpretorContext >> applicationInstanceDo: aBlock [ 
 	| v |
 	self
@@ -16,7 +18,7 @@ PlatypusExpressInterpretorContext >> applicationInstanceDo: aBlock [
 				ifTrue: [aBlock value: v]]
 ]
 
-{ #category : #'data enumerating' }
+{ #category : 'data enumerating' }
 PlatypusExpressInterpretorContext >> applicationInstancesDetect: aSelectionBlock [ 
 	| v |
 	^ self
@@ -25,7 +27,7 @@ PlatypusExpressInterpretorContext >> applicationInstancesDetect: aSelectionBlock
 				and: [aSelectionBlock value: v]]
 ]
 
-{ #category : #'data enumerating' }
+{ #category : 'data enumerating' }
 PlatypusExpressInterpretorContext >> applicationInstancesSelect: aSelectionBlock in: selected [ 
 	| v |
 	self
@@ -33,30 +35,30 @@ PlatypusExpressInterpretorContext >> applicationInstancesSelect: aSelectionBlock
 		in: selected
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusExpressInterpretorContext >> data: aData [
 	^ dataIndex
 		at: aData
 		ifAbsent: []
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusExpressInterpretorContext >> data: aData value: aValue [ 
 	^ dataIndex at: aData put: aValue
 ]
 
-{ #category : #'data enumerating' }
+{ #category : 'data enumerating' }
 PlatypusExpressInterpretorContext >> dataDo: aBlock [
 	self dataIndex do: [:d | aBlock value: d val]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusExpressInterpretorContext >> dataIndex [
 	^ dataIndex
 	
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusExpressInterpretorContext >> dataNamed: anIdent [
 	| key |
 	key := anIdent asUppercase.
@@ -64,7 +66,7 @@ PlatypusExpressInterpretorContext >> dataNamed: anIdent [
 	^ nil
 ]
 
-{ #category : #'data enumerating' }
+{ #category : 'data enumerating' }
 PlatypusExpressInterpretorContext >> dataSelect: aSelectionBlock in: selected [ 
 	self dataIndex
 		do: [:d | | v |
@@ -73,29 +75,29 @@ PlatypusExpressInterpretorContext >> dataSelect: aSelectionBlock in: selected [
 				ifTrue: [selected add: v]]
 ]
 
-{ #category : #'initialize/release' }
+{ #category : 'initialize/release' }
 PlatypusExpressInterpretorContext >> destroy [
 	dataIndex := nil.
 	super destroy
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusExpressInterpretorContext >> includesData: aData [ 
 	^ dataIndex includesKey: aData 
 ]
 
-{ #category : #'initialize/release' }
+{ #category : 'initialize/release' }
 PlatypusExpressInterpretorContext >> initialize [
 	super initialize.
 	dataIndex := IdentityDictionary new
 ]
 
-{ #category : #'initialize/release' }
+{ #category : 'initialize/release' }
 PlatypusExpressInterpretorContext >> initializeContextInInterpretor: anInterpretor [ 
 	contextInstance initializeContextInInterpretor: anInterpretor
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusExpressInterpretorContext >> stackElementOfDataNamed: anIdent [ 
 	| key |
 	key := anIdent asUppercase.

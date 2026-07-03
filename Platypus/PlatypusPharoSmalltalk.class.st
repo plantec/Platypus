@@ -1,15 +1,17 @@
 Class {
-	#name : #PlatypusPharoSmalltalk,
-	#superclass : #Object,
-	#category : #'Platypus-HW-core'
+	#name : 'PlatypusPharoSmalltalk',
+	#superclass : 'Object',
+	#category : 'Platypus-HW-core',
+	#package : 'Platypus',
+	#tag : 'HW-core'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusPharoSmalltalk class >> at: aClassNameSymbol [ 
 		^self at: aClassNameSymbol ifAbsent: []
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusPharoSmalltalk class >> at: aClassNameSymbol ifAbsent: aBlock [ 
 	^ Smalltalk at: aClassNameSymbol  asSymbol ifAbsent: aBlock
 ]

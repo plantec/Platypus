@@ -22,45 +22,47 @@ END_PROCEDURE;
 </ISO10303-11-EXPRESS>
 "
 Class {
-	#name : #PltINSERTProcedure,
-	#superclass : #PlatypusCoreAlgorithmDeclaration,
+	#name : 'PltINSERTProcedure',
+	#superclass : 'PlatypusCoreAlgorithmDeclaration',
 	#instVars : [
 		'pL',
 		'pE',
 		'pP'
 	],
-	#category : #'Platypus-ExpressBuiltinsSchema'
+	#category : 'Platypus-ExpressBuiltinsSchema',
+	#package : 'Platypus',
+	#tag : 'ExpressBuiltinsSchema'
 }
 
-{ #category : #'platypus-generated-platypus-signature' }
+{ #category : 'platypus-generated-platypus-signature' }
 PltINSERTProcedure class >> iso10303P11Translater [
 	^ 'Platypus (c) LISYC EA3883, Universite de Bretagne occidentale. Brest.'
 
 
 ]
 
-{ #category : #'platypus-generated-meta-data-accessing' }
+{ #category : 'platypus-generated-meta-data-accessing' }
 PltINSERTProcedure class >> schemaDefinition [
 	^ PltExpressBuiltinsSchemaDefinition singleton
 
 
 ]
 
-{ #category : #'platypus-generated-platypus-signature' }
+{ #category : 'platypus-generated-platypus-signature' }
 PltINSERTProcedure class >> translatedFromISO10303P11 [
 	^ true
 
 
 ]
 
-{ #category : #'platypus-generated-platypus-signature' }
+{ #category : 'platypus-generated-platypus-signature' }
 PltINSERTProcedure class >> vwNamespaceName [
 	^ #Platypus
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 PltINSERTProcedure >> fromValues: values [
 	self pL: (values at: 1).
 	self pE: (values at: 2).
@@ -69,7 +71,7 @@ PltINSERTProcedure >> fromValues: values [
 
 ]
 
-{ #category : #'platypus-generated-invoking' }
+{ #category : 'platypus-generated-invoking' }
 PltINSERTProcedure >> invoke [
 	" ---------- locals assignments ----------"
 
@@ -91,35 +93,35 @@ PltINSERTProcedure >> invoke [
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 PltINSERTProcedure >> pE [
 	^ pE
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 PltINSERTProcedure >> pE: anObject [
 	pE := anObject
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 PltINSERTProcedure >> pL [
 	^ pL
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 PltINSERTProcedure >> pL: aListOfObject [
 	pL := aListOfObject
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 PltINSERTProcedure >> pL: aListOfObject pE: anObject pP: anInteger [
 	self pL: aListOfObject.
 	self pE: anObject.
@@ -128,14 +130,14 @@ PltINSERTProcedure >> pL: aListOfObject pE: anObject pP: anInteger [
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 PltINSERTProcedure >> pP [
 	^ pP
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 PltINSERTProcedure >> pP: anInteger [
 	pP := anInteger
 

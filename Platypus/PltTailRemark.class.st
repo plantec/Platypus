@@ -6,94 +6,96 @@ END_ENTITY;
 </ISO10303-11-EXPRESS>
 "
 Class {
-	#name : #PltTailRemark,
-	#superclass : #PltRemark,
-	#category : #'Platypus-PlatypusDictionarySchemaSchema'
+	#name : 'PltTailRemark',
+	#superclass : 'PltRemark',
+	#category : 'Platypus-PlatypusDictionarySchemaSchema',
+	#package : 'Platypus',
+	#tag : 'PlatypusDictionarySchemaSchema'
 }
 
-{ #category : #'platypus-generated-context-accessing' }
+{ #category : 'platypus-generated-context-accessing' }
 PltTailRemark class >> context [ ^ self schemaDefinition context
 
 
 ]
 
-{ #category : #'platypus-generated-platypus-signature' }
+{ #category : 'platypus-generated-platypus-signature' }
 PltTailRemark class >> iso10303P11Translater [
 	^ 'Platypus (c) LISYC EA3883, Universite de Bretagne occidentale. Brest.'
 
 
 ]
 
-{ #category : #'platypus-generated-meta-data-accessing' }
+{ #category : 'platypus-generated-meta-data-accessing' }
 PltTailRemark class >> platypusMetaData [ 	^ self schemaDefinition metaDataFor: self name asSymbol
 
 
 ]
 
-{ #category : #'platypus-generated-meta-data-accessing' }
+{ #category : 'platypus-generated-meta-data-accessing' }
 PltTailRemark class >> schemaDefinition [
 	^ PltPlatypusDictionarySchemaSchemaDefinition singleton
 
 
 ]
 
-{ #category : #'platypus-generated-meta-data-accessing' }
+{ #category : 'platypus-generated-meta-data-accessing' }
 PltTailRemark class >> schemaInstance [
 	^ PltPlatypusMetaSchemasSchemaInstance singleton
 
 
 ]
 
-{ #category : #'platypus-generated-platypus-signature' }
+{ #category : 'platypus-generated-platypus-signature' }
 PltTailRemark class >> translatedFromISO10303P11 [
 	^ true
 
 
 ]
 
-{ #category : #'platypus-generated-platypus-signature' }
+{ #category : 'platypus-generated-platypus-signature' }
 PltTailRemark class >> vwNamespaceName [
 	^ #Platypus
 
 
 ]
 
-{ #category : #'platypus-generated-visiting' }
+{ #category : 'platypus-generated-visiting' }
 PltTailRemark >> accept: aVisitor [
 	^ aVisitor acceptTailRemark: self
 
 
 ]
 
-{ #category : #'platypus-generated-group-accessing' }
+{ #category : 'platypus-generated-group-accessing' }
 PltTailRemark >> fromValues: values [
 	^ self tailRemarkFromValues: (super fromValues: values)
 
 
 ]
 
-{ #category : #'platypus-generated-classifying' }
+{ #category : 'platypus-generated-classifying' }
 PltTailRemark >> isPltTailRemark [
 	^ true
 
 
 ]
 
-{ #category : #'platypus-generated-group-accessing' }
+{ #category : 'platypus-generated-group-accessing' }
 PltTailRemark >> localFromValues: values [
 	^ self tailRemarkFromValues: values
 
 
 ]
 
-{ #category : #'platypus-generated-group-accessing' }
+{ #category : 'platypus-generated-group-accessing' }
 PltTailRemark >> localToValues: values [
 	^ self tailRemarkToValues: values
 
 
 ]
 
-{ #category : #'platypus-generated-copying' }
+{ #category : 'platypus-generated-copying' }
 PltTailRemark >> pltCopyGroup: aClassSymbol to: anObject [
 	self class name == aClassSymbol
 		ifTrue: [ self pltCopyTo: anObject ]
@@ -102,7 +104,7 @@ PltTailRemark >> pltCopyGroup: aClassSymbol to: anObject [
 
 ]
 
-{ #category : #'platypus-generated-copying' }
+{ #category : 'platypus-generated-copying' }
 PltTailRemark >> pltCopyTo: another [
 	super pltCopyTo: another.
 	self tailRemarkCopyTo: another
@@ -110,28 +112,28 @@ PltTailRemark >> pltCopyTo: another [
 
 ]
 
-{ #category : #'platypus-generated-copying' }
+{ #category : 'platypus-generated-copying' }
 PltTailRemark >> pltLocalCopyTo: another [
 	self tailRemarkCopyTo: another
 
 
 ]
 
-{ #category : #'platypus-generated-initializing' }
+{ #category : 'platypus-generated-initializing' }
 PltTailRemark >> stepInitialize [
 	super stepInitialize
 
 
 ]
 
-{ #category : #'platypus-generated-copying' }
+{ #category : 'platypus-generated-copying' }
 PltTailRemark >> tailRemarkCopyTo: another [
 	
 
 
 ]
 
-{ #category : #'platypus-generated-group-accessing' }
+{ #category : 'platypus-generated-group-accessing' }
 PltTailRemark >> tailRemarkFromValues: values [
 	| valuesloc |
 	valuesloc := values asOrderedCollection.
@@ -140,14 +142,14 @@ PltTailRemark >> tailRemarkFromValues: values [
 
 ]
 
-{ #category : #'platypus-generated-group-accessing' }
+{ #category : 'platypus-generated-group-accessing' }
 PltTailRemark >> tailRemarkToValues: values [
 	^ values
 
 
 ]
 
-{ #category : #'platypus-generated-group-accessing' }
+{ #category : 'platypus-generated-group-accessing' }
 PltTailRemark >> toValues: values [
 	^ self tailRemarkToValues: (super toValues: values)
 

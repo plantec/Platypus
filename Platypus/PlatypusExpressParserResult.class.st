@@ -1,52 +1,54 @@
 Class {
-	#name : #PlatypusExpressParserResult,
-	#superclass : #Object,
+	#name : 'PlatypusExpressParserResult',
+	#superclass : 'Object',
 	#instVars : [
 		'tokenList',
 		'metaData',
 		'users'
 	],
-	#category : #'Platypus-HW-parsers'
+	#category : 'Platypus-HW-parsers',
+	#package : 'Platypus',
+	#tag : 'HW-parsers'
 }
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 PlatypusExpressParserResult class >> tokenList: aTokenList metaData: aMetaDataInstance [
 	^ self new tokenList: aTokenList metaData: aMetaDataInstance
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusExpressParserResult >> metaData [
 	^ metaData
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusExpressParserResult >> metaData: anObject [
 	metaData := anObject
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusExpressParserResult >> tokenList [
 	^tokenList
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusExpressParserResult >> tokenList: anObject [
 	tokenList := anObject
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusExpressParserResult >> tokenList: aTokenList metaData: aMetaDataInstance [ 
 	self tokenList: aTokenList.
 	self metaData: aMetaDataInstance.
 
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusExpressParserResult >> users [
 	^ users 
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusExpressParserResult >> users: aListOfSchemaInstanceReferences [
 	users := aListOfSchemaInstanceReferences
 ]

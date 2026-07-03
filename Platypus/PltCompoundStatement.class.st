@@ -7,76 +7,78 @@ END_ENTITY;
 </ISO10303-11-EXPRESS>
 "
 Class {
-	#name : #PltCompoundStatement,
-	#superclass : #PltStatement,
+	#name : 'PltCompoundStatement',
+	#superclass : 'PltStatement',
 	#instVars : [
 		'statements'
 	],
-	#category : #'Platypus-PlatypusStatementsSchemaSchema'
+	#category : 'Platypus-PlatypusStatementsSchemaSchema',
+	#package : 'Platypus',
+	#tag : 'PlatypusStatementsSchemaSchema'
 }
 
-{ #category : #'platypus-generated-context-accessing' }
+{ #category : 'platypus-generated-context-accessing' }
 PltCompoundStatement class >> context [ ^ self schemaDefinition context
 
 
 ]
 
-{ #category : #'platypus-generated-platypus-signature' }
+{ #category : 'platypus-generated-platypus-signature' }
 PltCompoundStatement class >> iso10303P11Translater [
 	^ 'Platypus (c) LISYC EA3883, Universite de Bretagne occidentale. Brest.'
 
 
 ]
 
-{ #category : #'platypus-generated-meta-data-accessing' }
+{ #category : 'platypus-generated-meta-data-accessing' }
 PltCompoundStatement class >> platypusMetaData [ 	^ self schemaDefinition metaDataFor: self name asSymbol
 
 
 ]
 
-{ #category : #'platypus-generated-meta-data-accessing' }
+{ #category : 'platypus-generated-meta-data-accessing' }
 PltCompoundStatement class >> schemaDefinition [
 	^ PltPlatypusStatementsSchemaSchemaDefinition singleton
 
 
 ]
 
-{ #category : #'platypus-generated-meta-data-accessing' }
+{ #category : 'platypus-generated-meta-data-accessing' }
 PltCompoundStatement class >> schemaInstance [
 	^ PltPlatypusMetaSchemasSchemaInstance singleton
 
 
 ]
 
-{ #category : #'platypus-generated-platypus-signature' }
+{ #category : 'platypus-generated-platypus-signature' }
 PltCompoundStatement class >> translatedFromISO10303P11 [
 	^ true
 
 
 ]
 
-{ #category : #'platypus-generated-platypus-signature' }
+{ #category : 'platypus-generated-platypus-signature' }
 PltCompoundStatement class >> vwNamespaceName [
 	^ #Platypus
 
 
 ]
 
-{ #category : #'platypus-generated-visiting' }
+{ #category : 'platypus-generated-visiting' }
 PltCompoundStatement >> accept: aVisitor [
 	^ aVisitor acceptCompoundStatement: self
 
 
 ]
 
-{ #category : #'platypus-generated-copying' }
+{ #category : 'platypus-generated-copying' }
 PltCompoundStatement >> compoundStatementCopyTo: another [
 	another fastSetStatements: self statements
 
 
 ]
 
-{ #category : #'platypus-generated-group-accessing' }
+{ #category : 'platypus-generated-group-accessing' }
 PltCompoundStatement >> compoundStatementFromValues: values [
 	| valuesloc |
 	valuesloc := values asOrderedCollection.
@@ -86,7 +88,7 @@ PltCompoundStatement >> compoundStatementFromValues: values [
 
 ]
 
-{ #category : #'platypus-generated-group-accessing' }
+{ #category : 'platypus-generated-group-accessing' }
 PltCompoundStatement >> compoundStatementToValues: values [
 	values add: self statements.
 	^ values
@@ -94,42 +96,42 @@ PltCompoundStatement >> compoundStatementToValues: values [
 
 ]
 
-{ #category : #'platypus-generated-fast-set-accessing' }
+{ #category : 'platypus-generated-fast-set-accessing' }
 PltCompoundStatement >> fastSetStatements: aListOfPltStatement [
 	statements := aListOfPltStatement
 
 
 ]
 
-{ #category : #'platypus-generated-group-accessing' }
+{ #category : 'platypus-generated-group-accessing' }
 PltCompoundStatement >> fromValues: values [
 	^ self compoundStatementFromValues: (super fromValues: values)
 
 
 ]
 
-{ #category : #'platypus-generated-classifying' }
+{ #category : 'platypus-generated-classifying' }
 PltCompoundStatement >> isPltCompoundStatement [
 	^ true
 
 
 ]
 
-{ #category : #'platypus-generated-group-accessing' }
+{ #category : 'platypus-generated-group-accessing' }
 PltCompoundStatement >> localFromValues: values [
 	^ self compoundStatementFromValues: values
 
 
 ]
 
-{ #category : #'platypus-generated-group-accessing' }
+{ #category : 'platypus-generated-group-accessing' }
 PltCompoundStatement >> localToValues: values [
 	^ self compoundStatementToValues: values
 
 
 ]
 
-{ #category : #'platypus-generated-copying' }
+{ #category : 'platypus-generated-copying' }
 PltCompoundStatement >> pltCopyGroup: aClassSymbol to: anObject [
 	self class name == aClassSymbol
 		ifTrue: [ self pltCopyTo: anObject ]
@@ -138,7 +140,7 @@ PltCompoundStatement >> pltCopyGroup: aClassSymbol to: anObject [
 
 ]
 
-{ #category : #'platypus-generated-copying' }
+{ #category : 'platypus-generated-copying' }
 PltCompoundStatement >> pltCopyTo: another [
 	super pltCopyTo: another.
 	self compoundStatementCopyTo: another
@@ -146,28 +148,28 @@ PltCompoundStatement >> pltCopyTo: another [
 
 ]
 
-{ #category : #'platypus-generated-copying' }
+{ #category : 'platypus-generated-copying' }
 PltCompoundStatement >> pltLocalCopyTo: another [
 	self compoundStatementCopyTo: another
 
 
 ]
 
-{ #category : #'platypus-generated-set-accessing' }
+{ #category : 'platypus-generated-set-accessing' }
 PltCompoundStatement >> setStatements: aListOfPltStatement [
 	self statements: aListOfPltStatement
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 PltCompoundStatement >> statements [
 	^ statements
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 PltCompoundStatement >> statements: aListOfPltStatement [
 	statements := aListOfPltStatement
 		ifNil: [ OrderedCollection new ]
@@ -176,14 +178,14 @@ PltCompoundStatement >> statements: aListOfPltStatement [
 
 ]
 
-{ #category : #'platypus-generated-with-context-accessing' }
+{ #category : 'platypus-generated-with-context-accessing' }
 PltCompoundStatement >> statementsUsingContext: aContext [
 	^ self statements
 
 
 ]
 
-{ #category : #'platypus-generated-initializing' }
+{ #category : 'platypus-generated-initializing' }
 PltCompoundStatement >> stepInitialize [
 	super stepInitialize.
 	statements := OrderedCollection new
@@ -191,7 +193,7 @@ PltCompoundStatement >> stepInitialize [
 
 ]
 
-{ #category : #'platypus-generated-group-accessing' }
+{ #category : 'platypus-generated-group-accessing' }
 PltCompoundStatement >> toValues: values [
 	^ self compoundStatementToValues: (super toValues: values)
 

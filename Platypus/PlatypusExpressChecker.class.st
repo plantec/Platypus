@@ -1,13 +1,15 @@
 Class {
-	#name : #PlatypusExpressChecker,
-	#superclass : #PlatypusStepChecker,
+	#name : 'PlatypusExpressChecker',
+	#superclass : 'PlatypusStepChecker',
 	#instVars : [
 		'schemaInstance'
 	],
-	#category : #'Platypus-HW-visitors'
+	#category : 'Platypus-HW-visitors',
+	#package : 'Platypus',
+	#tag : 'HW-visitors'
 }
 
-{ #category : #checking }
+{ #category : 'checking' }
 PlatypusExpressChecker class >> checks: metaData [ 
 	^ self
 		checks: metaData
@@ -15,19 +17,19 @@ PlatypusExpressChecker class >> checks: metaData [
 
 ]
 
-{ #category : #checking }
+{ #category : 'checking' }
 PlatypusExpressChecker class >> checks: metaData owners: ownerPath [ 
 	| checker |
 	checker := self new visitContexts: ownerPath.
 	^ checker checks: metaData
 ]
 
-{ #category : #'visit dictionary schema' }
+{ #category : 'visit dictionary schema' }
 PlatypusExpressChecker >> acceptDefinedTypeReference: e [ 
 	^ self acceptNamedTypeReference: e
 ]
 
-{ #category : #'visit dictionary schema' }
+{ #category : 'visit dictionary schema' }
 PlatypusExpressChecker >> acceptEntityDefinitionReference: e [ 
 	^ self acceptNamedTypeReference: e
 ]

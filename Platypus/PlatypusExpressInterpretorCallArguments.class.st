@@ -1,23 +1,25 @@
 Class {
-	#name : #PlatypusExpressInterpretorCallArguments,
-	#superclass : #PlatypusExpressInterpretorStackValue,
+	#name : 'PlatypusExpressInterpretorCallArguments',
+	#superclass : 'PlatypusExpressInterpretorStackValue',
 	#instVars : [
 		'arguments'
 	],
-	#category : #'Platypus-HW-interpreter'
+	#category : 'Platypus-HW-interpreter',
+	#package : 'Platypus',
+	#tag : 'HW-interpreter'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusExpressInterpretorCallArguments >> addValue: aValue [
 	arguments add: aValue
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusExpressInterpretorCallArguments >> arguments [
 	^ arguments 
 ]
 
-{ #category : #'initialize-release' }
+{ #category : 'initialize-release' }
 PlatypusExpressInterpretorCallArguments >> initialize [
 	super initialize.
 	arguments := OrderedCollection new.

@@ -1,15 +1,17 @@
 Class {
-	#name : #PlatypusGroupKeywordToken,
-	#superclass : #PlatypusKeywordToken,
-	#category : #'Platypus-HW-CodeTokens'
+	#name : 'PlatypusGroupKeywordToken',
+	#superclass : 'PlatypusKeywordToken',
+	#category : 'Platypus-HW-CodeTokens',
+	#package : 'Platypus',
+	#tag : 'HW-CodeTokens'
 }
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 PlatypusGroupKeywordToken >> accept: aVisitor [ 
 	^ aVisitor acceptGroupKeyword: self
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 PlatypusGroupKeywordToken >> isGroupKeyword [
 	^true
 ]

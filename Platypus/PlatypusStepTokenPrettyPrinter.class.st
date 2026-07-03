@@ -1,16 +1,18 @@
 Class {
-	#name : #PlatypusStepTokenPrettyPrinter,
-	#superclass : #PlatypusTokenPrettyPrinter,
-	#category : #'Platypus-HW-CodeTokens'
+	#name : 'PlatypusStepTokenPrettyPrinter',
+	#superclass : 'PlatypusTokenPrettyPrinter',
+	#category : 'Platypus-HW-CodeTokens',
+	#package : 'Platypus',
+	#tag : 'HW-CodeTokens'
 }
 
-{ #category : #'public pretty printing' }
+{ #category : 'public pretty printing' }
 PlatypusStepTokenPrettyPrinter class >> prettyPrint: aSource [ 
 	^ self prettyPrint: aSource startLevel: 0 
 
 ]
 
-{ #category : #'public pretty printing' }
+{ #category : 'public pretty printing' }
 PlatypusStepTokenPrettyPrinter class >> prettyPrint: aSource startLevel: anIndentLevel [
 	| srcTokenList ppTokenList code |
 	srcTokenList := (PlatypusExpressScanner on: aSource readStream) buildTokenList.
@@ -25,7 +27,7 @@ PlatypusStepTokenPrettyPrinter class >> prettyPrint: aSource startLevel: anInden
 	^ code
 ]
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 PlatypusStepTokenPrettyPrinter >> acceptEmbeddedRemark: n [ 
 	| printEolBefore |
 	printEolBefore := true.
@@ -44,7 +46,7 @@ PlatypusStepTokenPrettyPrinter >> acceptEmbeddedRemark: n [
 	self printEol
 ]
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 PlatypusStepTokenPrettyPrinter >> acceptGroupKeyword: n [ 
 	currentLevel := currentLevel - 1.
 	self acceptToken: n.
@@ -56,7 +58,7 @@ PlatypusStepTokenPrettyPrinter >> acceptGroupKeyword: n [
 		ifFalse: [self printEol]
 ]
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 PlatypusStepTokenPrettyPrinter >> acceptNativeCode: n [ 
 	| printEolBefore |
 	printEolBefore := true.
@@ -73,7 +75,7 @@ PlatypusStepTokenPrettyPrinter >> acceptNativeCode: n [
 		ifFalse: [self printEol]
 ]
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 PlatypusStepTokenPrettyPrinter >> acceptOpenKeyword: n [ 
 	| printeol |
 	printeol := true.

@@ -1,43 +1,45 @@
 Class {
-	#name : #PTsStringAggregateConcatSeparatedByFunction,
-	#superclass : #PlatypusCoreAlgorithmDeclaration,
+	#name : 'PTsStringAggregateConcatSeparatedByFunction',
+	#superclass : 'PlatypusCoreAlgorithmDeclaration',
 	#instVars : [
 		'l',
 		'sep',
 		's'
 	],
-	#category : #'Platypus-ExpressToolsboxFunctionsSchema'
+	#category : 'Platypus-ExpressToolsboxFunctionsSchema',
+	#package : 'Platypus',
+	#tag : 'ExpressToolsboxFunctionsSchema'
 }
 
-{ #category : #'platypus-generated-platypus-signature' }
+{ #category : 'platypus-generated-platypus-signature' }
 PTsStringAggregateConcatSeparatedByFunction class >> iso10303P11Translater [
 	^ 'Platypus (c) LISYC EA3883, Universite de Bretagne occidentale. Brest.'
 
 
 ]
 
-{ #category : #'platypus-generated-meta-data-accessing' }
+{ #category : 'platypus-generated-meta-data-accessing' }
 PTsStringAggregateConcatSeparatedByFunction class >> schemaDefinition [
 	^ PTsExpressToolsboxFunctionsSchemaDefinition singleton
 
 
 ]
 
-{ #category : #'platypus-generated-platypus-signature' }
+{ #category : 'platypus-generated-platypus-signature' }
 PTsStringAggregateConcatSeparatedByFunction class >> translatedFromISO10303P11 [
 	^ true
 
 
 ]
 
-{ #category : #'platypus-generated-platypus-signature' }
+{ #category : 'platypus-generated-platypus-signature' }
 PTsStringAggregateConcatSeparatedByFunction class >> vwNamespaceName [
 	^ #PTs
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 PTsStringAggregateConcatSeparatedByFunction >> fromValues: values [
 	self l: (values at: 1).
 	self sep: (values at: 2)
@@ -45,7 +47,7 @@ PTsStringAggregateConcatSeparatedByFunction >> fromValues: values [
 
 ]
 
-{ #category : #'platypus-generated-invoking' }
+{ #category : 'platypus-generated-invoking' }
 PTsStringAggregateConcatSeparatedByFunction >> invoke [
 	" ---------- locals assignments ----------"
 
@@ -78,21 +80,21 @@ PTsStringAggregateConcatSeparatedByFunction >> invoke [
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 PTsStringAggregateConcatSeparatedByFunction >> l [
 	^ l
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 PTsStringAggregateConcatSeparatedByFunction >> l: aListOfString [
 	l := aListOfString ifNil: [ OrderedCollection new ] ifNotNil: [ aListOfString as: OrderedCollection ]
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 PTsStringAggregateConcatSeparatedByFunction >> l: aListOfString sep: aString [
 	self l: aListOfString.
 	self sep: aString
@@ -100,28 +102,28 @@ PTsStringAggregateConcatSeparatedByFunction >> l: aListOfString sep: aString [
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 PTsStringAggregateConcatSeparatedByFunction >> s [
 	^ s
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 PTsStringAggregateConcatSeparatedByFunction >> s: aString [
 	s := aString
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 PTsStringAggregateConcatSeparatedByFunction >> sep [
 	^ sep
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 PTsStringAggregateConcatSeparatedByFunction >> sep: aString [
 	sep := aString
 

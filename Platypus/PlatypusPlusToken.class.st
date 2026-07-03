@@ -1,10 +1,12 @@
 Class {
-	#name : #PlatypusPlusToken,
-	#superclass : #PlatypusOperatorToken,
-	#category : #'Platypus-HW-CodeTokens'
+	#name : 'PlatypusPlusToken',
+	#superclass : 'PlatypusOperatorToken',
+	#category : 'Platypus-HW-CodeTokens',
+	#package : 'Platypus',
+	#tag : 'HW-CodeTokens'
 }
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 PlatypusPlusToken >> accept: aVisitor [ 
 	^ aVisitor acceptPlus: self
 ]

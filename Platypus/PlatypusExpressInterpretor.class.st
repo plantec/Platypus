@@ -1,6 +1,6 @@
 Class {
-	#name : #PlatypusExpressInterpretor,
-	#superclass : #PlatypusStepAbstractVisitor,
+	#name : 'PlatypusExpressInterpretor',
+	#superclass : 'PlatypusStepAbstractVisitor',
 	#instVars : [
 		'modelContentsAccessBlock',
 		'stack',
@@ -12,10 +12,12 @@ Class {
 		'selfStack',
 		'debugger'
 	],
-	#category : #'Platypus-HW-interpreter'
+	#category : 'Platypus-HW-interpreter',
+	#package : 'Platypus',
+	#tag : 'HW-interpreter'
 }
 
-{ #category : #'visit aggregate data schema' }
+{ #category : 'visit aggregate data schema' }
 PlatypusExpressInterpretor >> acceptAggregateData: e [ 
 	| interpreted contents domain var |
 	interpreted := e class new stepInitialize.
@@ -30,7 +32,7 @@ PlatypusExpressInterpretor >> acceptAggregateData: e [
 	^ self pushVar: var val: interpreted
 ]
 
-{ #category : #'visit aggregate data schema' }
+{ #category : 'visit aggregate data schema' }
 PlatypusExpressInterpretor >> acceptAggregateInitializer: e [ 
 	| interpreted contents el domain var |
 	interpreted := PltAggregateInitializer new.
@@ -51,14 +53,14 @@ PlatypusExpressInterpretor >> acceptAggregateInitializer: e [
 
 ]
 
-{ #category : #'visit dictionary schema' }
+{ #category : 'visit dictionary schema' }
 PlatypusExpressInterpretor >> acceptAlgorithmDeclaration: e [ 
 	self
 		asContext: e
 		while: [self acceptStatementsContainer: e]
 ]
 
-{ #category : #'visit statements schema' }
+{ #category : 'visit statements schema' }
 PlatypusExpressInterpretor >> acceptAliasStatement: e [ 
 	^ self
 		asContext: e
@@ -66,7 +68,7 @@ PlatypusExpressInterpretor >> acceptAliasStatement: e [
 				do: [:stmt | stmt acceptTry: self]]
 ]
 
-{ #category : #'visit statements schema' }
+{ #category : 'visit statements schema' }
 PlatypusExpressInterpretor >> acceptAliasStatementVariable: e [ 
 	| aliasStackElement |
 	(aliasStackElement := self localData: e)
@@ -76,7 +78,7 @@ PlatypusExpressInterpretor >> acceptAliasStatementVariable: e [
 		ifNotNil: [self push: aliasStackElement]
 ]
 
-{ #category : #'visit expressions schema' }
+{ #category : 'visit expressions schema' }
 PlatypusExpressInterpretor >> acceptAndExpression: e [ 
 	| right left |
 	e leftExpr acceptTry: self.
@@ -91,13 +93,13 @@ PlatypusExpressInterpretor >> acceptAndExpression: e [
 			^ self pushVal: right]
 ]
 
-{ #category : #'visit statements schema' }
+{ #category : 'visit statements schema' }
 PlatypusExpressInterpretor >> acceptAssignable: e [ 
 	e head acceptTry: self.
 	self doQualifiers: e qualifiers
 ]
 
-{ #category : #'visit statements schema' }
+{ #category : 'visit statements schema' }
 PlatypusExpressInterpretor >> acceptAssignmentStatement: e [ 
 	| rightValue currStackElement |
 	e rightExpr acceptTry: self.
@@ -107,28 +109,28 @@ PlatypusExpressInterpretor >> acceptAssignmentStatement: e [
 	currStackElement assign: rightValue
 ]
 
-{ #category : #'visit dictionary schema' }
+{ #category : 'visit dictionary schema' }
 PlatypusExpressInterpretor >> acceptAttributeIdentifier: e [ 
 self
 	asValOfSelf: e selfInstance
 	while: [self acceptIdentifier: e]
 ]
 
-{ #category : #'visit expressions schema' }
+{ #category : 'visit expressions schema' }
 PlatypusExpressInterpretor >> acceptAttributeQualifier: e [ 
 	| stackElement |
 	stackElement := self pop.
 	stackElement pushAttribute: e attributeName
 ]
 
-{ #category : #'visit dictionary schema' }
+{ #category : 'visit dictionary schema' }
 PlatypusExpressInterpretor >> acceptAttributeReference: e [ 
 	| |
 	self acceptTry: e ref.
 
 ]
 
-{ #category : #'visit statements schema' }
+{ #category : 'visit statements schema' }
 PlatypusExpressInterpretor >> acceptCaseAction: e [ 
 	| selector |
 	selector := self popVal.
@@ -141,7 +143,7 @@ PlatypusExpressInterpretor >> acceptCaseAction: e [
 		ifFalse: [self pushVal: PltFalseConstant new]
 ]
 
-{ #category : #'visit statements schema' }
+{ #category : 'visit statements schema' }
 PlatypusExpressInterpretor >> acceptCaseStatement: e [ 
 	| selector |
 	e selector acceptTry: self.
@@ -155,22 +157,22 @@ PlatypusExpressInterpretor >> acceptCaseStatement: e [
 				ifNotNil: [e caseOtherwise acceptTry: self]]
 ]
 
-{ #category : #'visit dictionary schema' }
+{ #category : 'visit dictionary schema' }
 PlatypusExpressInterpretor >> acceptConstantDefinition: e [ 
 	self push: (self data: e)
 ]
 
-{ #category : #'visit dictionary schema' }
+{ #category : 'visit dictionary schema' }
 PlatypusExpressInterpretor >> acceptDefinedType: e [ 
 
 ]
 
-{ #category : #'visit dictionary schema' }
+{ #category : 'visit dictionary schema' }
 PlatypusExpressInterpretor >> acceptDerivedAttribute: e [ 
 	e assign acceptTry: self
 ]
 
-{ #category : #'visit expressions schema' }
+{ #category : 'visit expressions schema' }
 PlatypusExpressInterpretor >> acceptDivExpression: e [ 
 	| right left |
 	self acceptBinaryExpression: e.
@@ -182,7 +184,7 @@ PlatypusExpressInterpretor >> acceptDivExpression: e [
 			^ self pushVal: left / right]
 ]
 
-{ #category : #'visit expressions schema' }
+{ #category : 'visit expressions schema' }
 PlatypusExpressInterpretor >> acceptElementQualifier: e [ 
 	| idx stackElement |
 	e index acceptTry: self.
@@ -191,14 +193,14 @@ PlatypusExpressInterpretor >> acceptElementQualifier: e [
 	stackElement pushIndex: idx val 
 ]
 
-{ #category : #'visit statements schema' }
+{ #category : 'visit statements schema' }
 PlatypusExpressInterpretor >> acceptEndSplitmarkStatement: e [ 
 	Transcript show: 'Writing ' withCRs , splitMarkStack last name , '\' withCRs.
 	splitMarkStack last close.
 	splitMarkStack removeLast
 ]
 
-{ #category : #'visit dictionary schema' }
+{ #category : 'visit dictionary schema' }
 PlatypusExpressInterpretor >> acceptEntityDefinition: e [ 
 	| stackElem externalRep rec dataIndex attrIdentOrValue |
 	self
@@ -218,13 +220,13 @@ PlatypusExpressInterpretor >> acceptEntityDefinition: e [
 			self push: stackElem]
 ]
 
-{ #category : #'visit expressions schema' }
+{ #category : 'visit expressions schema' }
 PlatypusExpressInterpretor >> acceptEntityInstancesSet: e [
 	self
 		push: (self data: e)
 ]
 
-{ #category : #'visit expressions schema' }
+{ #category : 'visit expressions schema' }
 PlatypusExpressInterpretor >> acceptEnumerationValue: e [ 
 	^ self
 		pushVar: (PltAnonymousVariable domain: e computedDomain)
@@ -232,7 +234,7 @@ PlatypusExpressInterpretor >> acceptEnumerationValue: e [
 
 ]
 
-{ #category : #'visit expressions schema' }
+{ #category : 'visit expressions schema' }
 PlatypusExpressInterpretor >> acceptEqualExpression: e [ 
 	| right left |
 	self acceptBinaryExpression: e.
@@ -246,12 +248,12 @@ PlatypusExpressInterpretor >> acceptEqualExpression: e [
 			self pushVal: PltMissingValue new]
 ]
 
-{ #category : #'visit statements schema' }
+{ #category : 'visit statements schema' }
 PlatypusExpressInterpretor >> acceptEscapeStatement: e [ 
 	PlatypusExpressEscapeStatementException signal
 ]
 
-{ #category : #'visit dictionary schema' }
+{ #category : 'visit dictionary schema' }
 PlatypusExpressInterpretor >> acceptExplicitAttribute: e [ 
 	| stackElement |
 	stackElement := self valOfSelf stackElementOfExplicitAttribute: e interpretor: self.
@@ -259,7 +261,7 @@ PlatypusExpressInterpretor >> acceptExplicitAttribute: e [
 	self push: stackElement
 ]
 
-{ #category : #'visit expressions schema' }
+{ #category : 'visit expressions schema' }
 PlatypusExpressInterpretor >> acceptExpoExpression: e [ 
 	| right left |
 	self acceptBinaryExpression: e.
@@ -272,14 +274,14 @@ PlatypusExpressInterpretor >> acceptExpoExpression: e [
 				pushVal: (left expo: right)]
 ]
 
-{ #category : #'visit population schema' }
+{ #category : 'visit population schema' }
 PlatypusExpressInterpretor >> acceptGenericInstance: e [
 	| stackElem |
 	stackElem := PlatypusExpressInterpretorStackAppInst instance:  e interpretor: self.
 	self push: stackElem
 ]
 
-{ #category : #'visit dictionary schema' }
+{ #category : 'visit dictionary schema' }
 PlatypusExpressInterpretor >> acceptGlobalRule: e [ 
 	| result |
 	result := PltListInstance new.
@@ -295,7 +297,7 @@ PlatypusExpressInterpretor >> acceptGlobalRule: e [
 	self pushVal: result
 ]
 
-{ #category : #'visit expressions schema' }
+{ #category : 'visit expressions schema' }
 PlatypusExpressInterpretor >> acceptGreaterEqualExpression: e [ 
 	| right left |
 	self acceptBinaryExpression: e.
@@ -310,7 +312,7 @@ PlatypusExpressInterpretor >> acceptGreaterEqualExpression: e [
 			^ PlatypusExpressInvalidArgumentException signal: 'invalid left argument']
 ]
 
-{ #category : #'visit expressions schema' }
+{ #category : 'visit expressions schema' }
 PlatypusExpressInterpretor >> acceptGreaterThanExpression: e [ 
 	| right left |
 	self acceptBinaryExpression: e.
@@ -323,7 +325,7 @@ PlatypusExpressInterpretor >> acceptGreaterThanExpression: e [
 			^ self pushVal: left > right]
 ]
 
-{ #category : #'visit expressions schema' }
+{ #category : 'visit expressions schema' }
 PlatypusExpressInterpretor >> acceptGroupQualifier: e [ 
 	| stackElement domain anonymousVar group instRef |
 	stackElement := self pop.
@@ -339,7 +341,7 @@ PlatypusExpressInterpretor >> acceptGroupQualifier: e [
 			self pushVar: anonymousVar val: group]
 ]
 
-{ #category : #'visit expressions schema' }
+{ #category : 'visit expressions schema' }
 PlatypusExpressInterpretor >> acceptIdentifier: e [ 
 	| args |
 	e ref canHaveArguments
@@ -357,7 +359,7 @@ PlatypusExpressInterpretor >> acceptIdentifier: e [
 		ifTrue: [self popArgs]
 ]
 
-{ #category : #'visit statements schema' }
+{ #category : 'visit statements schema' }
 PlatypusExpressInterpretor >> acceptIfStatement: e [ 
 	e selector acceptTry: self.
 	self popVal ifTrueConstant: [e thenStatements
@@ -368,7 +370,7 @@ PlatypusExpressInterpretor >> acceptIfStatement: e [
 
 ]
 
-{ #category : #'visit expressions schema' }
+{ #category : 'visit expressions schema' }
 PlatypusExpressInterpretor >> acceptInExpression: e [ 
 	| right left |
 	self acceptBinaryExpression: e.
@@ -384,7 +386,7 @@ PlatypusExpressInterpretor >> acceptInExpression: e [
 				pushVal: (right includesVal: left)]
 ]
 
-{ #category : #'visit statements schema' }
+{ #category : 'visit statements schema' }
 PlatypusExpressInterpretor >> acceptIncrementControl: e [ 
 	| counter step last |
 	counter := self data: e variable.
@@ -398,13 +400,13 @@ PlatypusExpressInterpretor >> acceptIncrementControl: e [
 	^ false
 ]
 
-{ #category : #'visit statements schema' }
+{ #category : 'visit statements schema' }
 PlatypusExpressInterpretor >> acceptIncrementControlVariable: e [ 
 	self
 		push: (self data: e)
 ]
 
-{ #category : #'visit expressions schema' }
+{ #category : 'visit expressions schema' }
 PlatypusExpressInterpretor >> acceptInstEqualExpression: e [ 
 	| right left |
 	self acceptBinaryExpression: e.
@@ -416,7 +418,7 @@ PlatypusExpressInterpretor >> acceptInstEqualExpression: e [
 		pushVal: (left instEqual: right)]
 ]
 
-{ #category : #'visit expressions schema' }
+{ #category : 'visit expressions schema' }
 PlatypusExpressInterpretor >> acceptInstNotEqualExpression: e [ 
 	| right left |
 	self acceptBinaryExpression: e.
@@ -428,7 +430,7 @@ PlatypusExpressInterpretor >> acceptInstNotEqualExpression: e [
 		pushVal: (left instNotEqual: right)]
 ]
 
-{ #category : #'visit expressions schema' }
+{ #category : 'visit expressions schema' }
 PlatypusExpressInterpretor >> acceptInstanceConstructionExpression: e [ 
 	| stackElem right left externalRep |
 	self acceptBinaryExpression: e.
@@ -451,7 +453,7 @@ PlatypusExpressInterpretor >> acceptInstanceConstructionExpression: e [
 
 ]
 
-{ #category : #'visit dictionary schema' }
+{ #category : 'visit dictionary schema' }
 PlatypusExpressInterpretor >> acceptIntegerBound: e [ 
 	| v var |
 	v := PltIntegerLiteral val: e boundValue.
@@ -459,13 +461,13 @@ PlatypusExpressInterpretor >> acceptIntegerBound: e [
 	self pushVar: var val: v
 ]
 
-{ #category : #'visit expressions schema' }
+{ #category : 'visit expressions schema' }
 PlatypusExpressInterpretor >> acceptInterval: e [ 
 	e expr acceptTry: self.
 
 ]
 
-{ #category : #'visit dictionary schema' }
+{ #category : 'visit dictionary schema' }
 PlatypusExpressInterpretor >> acceptInverseAttribute: e [ 
 	| invertedAttrVal result var selfRef |
 	selfRef := self valOfSelf.
@@ -495,7 +497,7 @@ PlatypusExpressInterpretor >> acceptInverseAttribute: e [
 	^ result
 ]
 
-{ #category : #'visit expressions schema' }
+{ #category : 'visit expressions schema' }
 PlatypusExpressInterpretor >> acceptLessEqualExpression: e [ 
 	| right left |
 	self acceptBinaryExpression: e.
@@ -510,7 +512,7 @@ PlatypusExpressInterpretor >> acceptLessEqualExpression: e [
 			^ PlatypusExpressInvalidArgumentException signal: 'invalid left argument']
 ]
 
-{ #category : #'visit expressions schema' }
+{ #category : 'visit expressions schema' }
 PlatypusExpressInterpretor >> acceptLessThanExpression: e [ 
 	| right left |
 	self acceptBinaryExpression: e.
@@ -523,19 +525,19 @@ PlatypusExpressInterpretor >> acceptLessThanExpression: e [
 			^ self pushVal: left < right]
 ]
 
-{ #category : #'visit expressions schema' }
+{ #category : 'visit expressions schema' }
 PlatypusExpressInterpretor >> acceptLiteral: e [ 
 	^ self
 		pushVar: (PltAnonymousVariable domain: e computedDomain)
 		val: e copy
 ]
 
-{ #category : #'visit dictionary schema' }
+{ #category : 'visit dictionary schema' }
 PlatypusExpressInterpretor >> acceptLocalVariable: e [ 
 	self push: (self data: e)
 ]
 
-{ #category : #'visit expressions schema' }
+{ #category : 'visit expressions schema' }
 PlatypusExpressInterpretor >> acceptMinusExpression: e [ 
 	| right left |
 	self acceptBinaryExpression: e.
@@ -549,13 +551,13 @@ PlatypusExpressInterpretor >> acceptMinusExpression: e [
 				pushVal: (left minus: right interpretor: self)]
 ]
 
-{ #category : #'visit expressions schema' }
+{ #category : 'visit expressions schema' }
 PlatypusExpressInterpretor >> acceptMissingValue: e [ 
 	^ self
 		pushVal: e
 ]
 
-{ #category : #'visit expressions schema' }
+{ #category : 'visit expressions schema' }
 PlatypusExpressInterpretor >> acceptModExpression: e [ 
 	| right left |
 	self acceptBinaryExpression: e.
@@ -568,7 +570,7 @@ PlatypusExpressInterpretor >> acceptModExpression: e [
 				pushVal: (left mod: right)]
 ]
 
-{ #category : #'visit expressions schema' }
+{ #category : 'visit expressions schema' }
 PlatypusExpressInterpretor >> acceptMultExpression: e [ 
 	| right left |
 	self acceptBinaryExpression: e.
@@ -582,7 +584,7 @@ PlatypusExpressInterpretor >> acceptMultExpression: e [
 				pushVal: (left mult: right interpretor: self)]
 ]
 
-{ #category : #'visit dictionary schema' }
+{ #category : 'visit dictionary schema' }
 PlatypusExpressInterpretor >> acceptNativeAlgorithm: e [ 
 	| nativeCode |
 	(nativeCode := e platypusInterpreterCode)
@@ -590,7 +592,7 @@ PlatypusExpressInterpretor >> acceptNativeAlgorithm: e [
 	^ self acceptTry: nativeCode
 ]
 
-{ #category : #'visit dictionary schema' }
+{ #category : 'visit dictionary schema' }
 PlatypusExpressInterpretor >> acceptNativeCode: e [ 
 	^ PlatypusNativeCodeInterpretor new
 		evaluate: e
@@ -598,17 +600,17 @@ PlatypusExpressInterpretor >> acceptNativeCode: e [
 		requestor: requestor
 ]
 
-{ #category : #'visit expressions schema' }
+{ #category : 'visit expressions schema' }
 PlatypusExpressInterpretor >> acceptNativeExpression: e [ 
 	e source acceptTry: self
 ]
 
-{ #category : #'visit statements schema' }
+{ #category : 'visit statements schema' }
 PlatypusExpressInterpretor >> acceptNativeStatement: e [ 
 	e source acceptTry: self
 ]
 
-{ #category : #'visit expressions schema' }
+{ #category : 'visit expressions schema' }
 PlatypusExpressInterpretor >> acceptNegativeExpression: e [ 
 	| expr |
 	e expr acceptTry: self.
@@ -619,7 +621,7 @@ PlatypusExpressInterpretor >> acceptNegativeExpression: e [
 			^ self pushVal: expr negated]
 ]
 
-{ #category : #'visit expressions schema' }
+{ #category : 'visit expressions schema' }
 PlatypusExpressInterpretor >> acceptNotEqualExpression: e [ 
 	| right left |
 	self acceptBinaryExpression: e.
@@ -633,7 +635,7 @@ PlatypusExpressInterpretor >> acceptNotEqualExpression: e [
 			self pushVal: PltMissingValue new]
 ]
 
-{ #category : #'visit expressions schema' }
+{ #category : 'visit expressions schema' }
 PlatypusExpressInterpretor >> acceptNotExpression: e [ 
 	| expr |
 	e expr acceptTry: self.
@@ -644,13 +646,13 @@ PlatypusExpressInterpretor >> acceptNotExpression: e [
 			^ self pushVal: expr not]
 ]
 
-{ #category : #'visit statements schema' }
+{ #category : 'visit statements schema' }
 PlatypusExpressInterpretor >> acceptNullStatement: e [
 	^ self
 
 ]
 
-{ #category : #'visit expressions schema' }
+{ #category : 'visit expressions schema' }
 PlatypusExpressInterpretor >> acceptOrExpression: e [ 
 	| right left |
 	e leftExpr acceptTry: self.
@@ -665,19 +667,19 @@ PlatypusExpressInterpretor >> acceptOrExpression: e [
 			^ self pushVal: right]
 ]
 
-{ #category : #'visit statements schema' }
+{ #category : 'visit statements schema' }
 PlatypusExpressInterpretor >> acceptOutputStatement: e [ 
 	"Transcript show: '#'."
 	e output acceptTry: self.
 	splitMarkStack last nextPutAll: self popVal asClearText
 ]
 
-{ #category : #'visit dictionary schema' }
+{ #category : 'visit dictionary schema' }
 PlatypusExpressInterpretor >> acceptParameterDefinition: e [ 
 	self push: (self data: e)
 ]
 
-{ #category : #'visit expressions schema' }
+{ #category : 'visit expressions schema' }
 PlatypusExpressInterpretor >> acceptPlusExpression: e [ 
 	| right left |
 	self acceptBinaryExpression: e.
@@ -692,25 +694,25 @@ PlatypusExpressInterpretor >> acceptPlusExpression: e [
 				pushVal: (left plus: right interpretor: self)]
 ]
 
-{ #category : #'visit dictionary schema' }
+{ #category : 'visit dictionary schema' }
 PlatypusExpressInterpretor >> acceptPopulationDependentBound: e [ 
 	| |
 	e boundValue acceptTry: self.
 
 ]
 
-{ #category : #'visit statements schema' }
+{ #category : 'visit statements schema' }
 PlatypusExpressInterpretor >> acceptProcedureCallStatement: e [ 
 	e call acceptTry: self
 ]
 
-{ #category : #'visit expressions schema' }
+{ #category : 'visit expressions schema' }
 PlatypusExpressInterpretor >> acceptQualifiedExpression: e [ 
 	e head acceptTry: self.
 	self doQualifiers: e qualifiers
 ]
 
-{ #category : #'visit expressions schema' }
+{ #category : 'visit expressions schema' }
 PlatypusExpressInterpretor >> acceptQueryExpression: e [ 
 	| resultVar resultVal |
 	self
@@ -729,12 +731,12 @@ PlatypusExpressInterpretor >> acceptQueryExpression: e [
 	self pushVar: resultVar val: resultVal
 ]
 
-{ #category : #'visit expressions schema' }
+{ #category : 'visit expressions schema' }
 PlatypusExpressInterpretor >> acceptQueryVariable: e [ 
 	self push: (self data: e)
 ]
 
-{ #category : #'visit expressions schema' }
+{ #category : 'visit expressions schema' }
 PlatypusExpressInterpretor >> acceptRangeQualifier: e [ 
 	| idx1 idx2 stackElement |
 	e index1 acceptTry: self.
@@ -746,7 +748,7 @@ PlatypusExpressInterpretor >> acceptRangeQualifier: e [
 		pushRange: (idx1 val to: idx2 val)
 ]
 
-{ #category : #'visit expressions schema' }
+{ #category : 'visit expressions schema' }
 PlatypusExpressInterpretor >> acceptRealDivExpression: e [ 
 	| right left |
 	self acceptBinaryExpression: e.
@@ -759,7 +761,7 @@ PlatypusExpressInterpretor >> acceptRealDivExpression: e [
 				pushVal: (left div: right)]
 ]
 
-{ #category : #'visit statements schema' }
+{ #category : 'visit statements schema' }
 PlatypusExpressInterpretor >> acceptRepeatStatement: e [ 
 	| while untilControl skip |
 	self
@@ -789,25 +791,25 @@ PlatypusExpressInterpretor >> acceptRepeatStatement: e [
 								ifTrue: [^ nil]]]]
 ]
 
-{ #category : #'visit statements schema' }
+{ #category : 'visit statements schema' }
 PlatypusExpressInterpretor >> acceptReturnStatement: e [ 
 	e returned acceptTry: self.
 	PlatypusExpressReturnStatementException signal
 ]
 
-{ #category : #'visit expressions schema' }
+{ #category : 'visit expressions schema' }
 PlatypusExpressInterpretor >> acceptSelfIdentifier: e [ 
 	| anonymousVar |
 	anonymousVar := PltAnonymousVariable domain: self valOfSelf computedDomain.
 	self pushVar: anonymousVar val: self valOfSelf
 ]
 
-{ #category : #'visit statements schema' }
+{ #category : 'visit statements schema' }
 PlatypusExpressInterpretor >> acceptSkipStatement: e [ 
 	PlatypusExpressSkipStatementException signal
 ]
 
-{ #category : #'visit statements schema' }
+{ #category : 'visit statements schema' }
 PlatypusExpressInterpretor >> acceptSplitmarkStatement: e [ 
 	| contents fileName oldStream |
 	contents := ''.
@@ -824,13 +826,13 @@ PlatypusExpressInterpretor >> acceptSplitmarkStatement: e [
 		ifTrue: [splitMarkStack last nextPutAll: contents]
 ]
 
-{ #category : #'visit statements schema' }
+{ #category : 'visit statements schema' }
 PlatypusExpressInterpretor >> acceptStatementsContainer: e [ 
 	[e statements
 		do: [:stmt | stmt acceptTry: self]] on: PlatypusExpressReturnStatementException do: []
 ]
 
-{ #category : #'visit generic' }
+{ #category : 'visit generic' }
 PlatypusExpressInterpretor >> acceptTry: e [ 
 	e referenced
 		ifNil: [^ PlatypusExpressUnresolvedIdentifierException signal: 'Unresolved symbol: ' , e name].
@@ -841,7 +843,7 @@ PlatypusExpressInterpretor >> acceptTry: e [
 	^ super acceptTry: e
 ]
 
-{ #category : #'visit dictionary schema' }
+{ #category : 'visit dictionary schema' }
 PlatypusExpressInterpretor >> acceptWhereRule: e [ 
 	e whereValue acceptTry: self.
 	self topVal
@@ -850,7 +852,7 @@ PlatypusExpressInterpretor >> acceptWhereRule: e [
 		ifUnknownConstant: [Transcript show: e fullyQualifiedName , ': unknown\' withCRs]
 ]
 
-{ #category : #'visit expressions schema' }
+{ #category : 'visit expressions schema' }
 PlatypusExpressInterpretor >> acceptXorExpression: e [ 
 	| right left |
 	self acceptBinaryExpression: e.
@@ -863,22 +865,22 @@ PlatypusExpressInterpretor >> acceptXorExpression: e [
 				pushVal: (left xor: right)]
 ]
 
-{ #category : #'data accessing' }
+{ #category : 'data accessing' }
 PlatypusExpressInterpretor >> allApplicationInstances [
 	^ self applicationInstancesSelect: [:d | d notNil]
 ]
 
-{ #category : #'data accessing' }
+{ #category : 'data accessing' }
 PlatypusExpressInterpretor >> allInstancesOf: anEntityDefinition [ 
 	^ self applicationInstancesSelect: [:d | d computedDomain isSpecializationOf: anEntityDefinition]
 ]
 
-{ #category : #'data accessing' }
+{ #category : 'data accessing' }
 PlatypusExpressInterpretor >> allPersistentApplicationInstances [
 	^ self modelContents dataInstances 
 ]
 
-{ #category : #'data enumerating' }
+{ #category : 'data enumerating' }
 PlatypusExpressInterpretor >> applicationInstancesSelect: aSelectionBlock [ 
 	| selected context schemaInstance models ref |
 	selected := OrderedCollection new.
@@ -889,24 +891,24 @@ PlatypusExpressInterpretor >> applicationInstancesSelect: aSelectionBlock [
 	^selected
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusExpressInterpretor >> argsStackSize [
 	^ argsStack size
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusExpressInterpretor >> argsStackTop [
 	^ argsStack top
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusExpressInterpretor >> asContext: contextInstance while: aBlock [ 
 	contextInstance pushContextInInterpretor: self.
 	aBlock
 		ensure: [self popContext]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusExpressInterpretor >> asContextsStack: aStack while: aBlock [
 	| oldContexts |
 	oldContexts := contextsStack.
@@ -914,7 +916,7 @@ PlatypusExpressInterpretor >> asContextsStack: aStack while: aBlock [
 	aBlock ensure: [contextsStack := oldContexts]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusExpressInterpretor >> asValOfSelf: anInstance while: aBlock [
 	| omc |
 	omc := modelContentsAccessBlock.
@@ -926,7 +928,7 @@ PlatypusExpressInterpretor >> asValOfSelf: anInstance while: aBlock [
 			modelContentsAccessBlock := omc]
 ]
 
-{ #category : #interpreting }
+{ #category : 'interpreting' }
 PlatypusExpressInterpretor >> attributeOrRule: anAttributeOrLocalRule instance: anEntityInstance [ 
 	| toBeEvaluated |
 	toBeEvaluated := anAttributeOrLocalRule isPltWhereRule
@@ -936,17 +938,17 @@ PlatypusExpressInterpretor >> attributeOrRule: anAttributeOrLocalRule instance: 
 
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusExpressInterpretor >> checksAssignments [
 	^ checksAssignments
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusExpressInterpretor >> checksAssignments: trueOrFalse [
 	checksAssignments := trueOrFalse
 ]
 
-{ #category : #interpreting }
+{ #category : 'interpreting' }
 PlatypusExpressInterpretor >> compute: anExpressionOrStatement [ 
 	[anExpressionOrStatement acceptTry: self]
 		on: Error
@@ -955,7 +957,7 @@ PlatypusExpressInterpretor >> compute: anExpressionOrStatement [
 			err signal]
 ]
 
-{ #category : #interpreting }
+{ #category : 'interpreting' }
 PlatypusExpressInterpretor >> compute: anArrayOfExpressionsOrStatements in: context to: receiver notifying: aRequestor ifFail: failBlock logged: isLogged [ 
 	| owners |
 	context isPltSchemaInstance
@@ -981,24 +983,24 @@ PlatypusExpressInterpretor >> compute: anArrayOfExpressionsOrStatements in: cont
 		ifFalse: [self]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusExpressInterpretor >> contextsStack [
 	^ contextsStack
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusExpressInterpretor >> currentContext [
 	^contextsStack top
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusExpressInterpretor >> currentSourceHandler [
 	| tam |
 	self contextsStack reverseDo: [:ctxt| (tam := ctxt contextInstance tamarisItemRef) ifNotNil: [^ tam]].
 	^ nil 
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusExpressInterpretor >> data: aData [ 
 	| found |
 	 contextsStack 
@@ -1007,21 +1009,21 @@ PlatypusExpressInterpretor >> data: aData [
 		signal: 'Unresolved symbol: ' , aData name
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusExpressInterpretor >> data: aData value: aValue [ 
 	 contextsStack 
 		reverseDo: [:c | (c includesData: aData) ifTrue: [^c data: aData value: aValue]].
 	^self currentContext data: aData value: aValue
 ]
 
-{ #category : #'data enumerating' }
+{ #category : 'data enumerating' }
 PlatypusExpressInterpretor >> dataDo: aBlock [ 
 	contextsStack reverseDo: [:c | c dataDo: aBlock].
 	self modelContents dataInstances do: aBlock.
 
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusExpressInterpretor >> dataNamed: anIdent [ 
 	| found |
 	 contextsStack 
@@ -1029,7 +1031,7 @@ PlatypusExpressInterpretor >> dataNamed: anIdent [
 	^nil
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusExpressInterpretor >> dataNamed: anIdent value: aValue [ 
 	| found |
 	 contextsStack reverseDo: 
@@ -1040,7 +1042,7 @@ PlatypusExpressInterpretor >> dataNamed: anIdent value: aValue [
 	^false
 ]
 
-{ #category : #'data enumerating' }
+{ #category : 'data enumerating' }
 PlatypusExpressInterpretor >> dataSelect: aSelectionBlock [
 	| result |
 	result := OrderedCollection new.
@@ -1050,13 +1052,13 @@ PlatypusExpressInterpretor >> dataSelect: aSelectionBlock [
 
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusExpressInterpretor >> debugger: anExpressDebogger [ 
 	debugger := anExpressDebogger.
 
 ]
 
-{ #category : #'context initializing' }
+{ #category : 'context initializing' }
 PlatypusExpressInterpretor >> declareConstant: e [ 
 	| varValue value |
 	self pushVar: e val: e defaultValue.
@@ -1066,7 +1068,7 @@ PlatypusExpressInterpretor >> declareConstant: e [
 	varValue val: value copy
 ]
 
-{ #category : #'context initializing' }
+{ #category : 'context initializing' }
 PlatypusExpressInterpretor >> declareEntityInstancesSet: e [ 
 	| instancesList |
 	instancesList := PltListInstance new.
@@ -1077,7 +1079,7 @@ PlatypusExpressInterpretor >> declareEntityInstancesSet: e [
 	
 ]
 
-{ #category : #'context initializing' }
+{ #category : 'context initializing' }
 PlatypusExpressInterpretor >> declareLocalVariable: e [ 
 	| domain value varValue |
 	self pushVar: e val: e defaultValue.
@@ -1091,19 +1093,19 @@ PlatypusExpressInterpretor >> declareLocalVariable: e [
 	self pop
 ]
 
-{ #category : #'context initializing' }
+{ #category : 'context initializing' }
 PlatypusExpressInterpretor >> declareParameter: e [ 
 	self pushVar: e val: e defaultValue.
 	self localData: e value: (self pop)
 ]
 
-{ #category : #'context initializing' }
+{ #category : 'context initializing' }
 PlatypusExpressInterpretor >> declareQueryVariable: e [ 
 	self pushVar: e val: e defaultValue.
 	self localData: e value: self pop
 ]
 
-{ #category : #'initialize/release' }
+{ #category : 'initialize/release' }
 PlatypusExpressInterpretor >> destroy [
 	super destroy.
 	stack destroy.
@@ -1112,7 +1114,7 @@ PlatypusExpressInterpretor >> destroy [
 	contextsStack := nil
 ]
 
-{ #category : #'visit expressions schema' }
+{ #category : 'visit expressions schema' }
 PlatypusExpressInterpretor >> doQualifiers: quals [ 
 	| first |
 	quals isEmpty
@@ -1125,7 +1127,7 @@ PlatypusExpressInterpretor >> doQualifiers: quals [
 					self doQualifiers: quals allButFirst]]
 ]
 
-{ #category : #interpreting }
+{ #category : 'interpreting' }
 PlatypusExpressInterpretor >> evaluate: textOrStream in: context to: receiver notifying: aRequestor ifFail: failBlock [ 
 	^ self
 		evaluate: textOrStream
@@ -1136,7 +1138,7 @@ PlatypusExpressInterpretor >> evaluate: textOrStream in: context to: receiver no
 		logged: false
 ]
 
-{ #category : #interpreting }
+{ #category : 'interpreting' }
 PlatypusExpressInterpretor >> evaluate: textOrStream in: context to: receiver notifying: aRequestor ifFail: failBlock logged: isLogged [ 
 	^ (self parse: textOrStream in: context notifying: aRequestor ifFail: failBlock)
 		ifNotNil: [:result |
@@ -1149,7 +1151,7 @@ PlatypusExpressInterpretor >> evaluate: textOrStream in: context to: receiver no
 				logged: isLogged]
 ]
 
-{ #category : #interpreting }
+{ #category : 'interpreting' }
 PlatypusExpressInterpretor >> expression: anExpression context: aContext instance: anEntityInstance [ 
 	requestor := nil.
 	aContext
@@ -1160,7 +1162,7 @@ PlatypusExpressInterpretor >> expression: anExpression context: aContext instanc
 			^ self pop val]
 ]
 
-{ #category : #'initialize/release' }
+{ #category : 'initialize/release' }
 PlatypusExpressInterpretor >> initialize [
 	super initialize.
 	stack := PlatypusStack new.
@@ -1171,22 +1173,22 @@ PlatypusExpressInterpretor >> initialize [
 	checksAssignments := true
 ]
 
-{ #category : #'result output' }
+{ #category : 'result output' }
 PlatypusExpressInterpretor >> isAFileNamed: aName [ 
 	^ ( FileLocator workingDirectory / aName) exists
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusExpressInterpretor >> localData: aData [ 
 	^ self currentContext data: aData
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusExpressInterpretor >> localData: aData value: aValue [ 
 	^ self currentContext data: aData value: aValue
 ]
 
-{ #category : #'visit generic' }
+{ #category : 'visit generic' }
 PlatypusExpressInterpretor >> lookUpAndCacheAcceptSelectorOfClass: aClass [ 
 	| currClass selector str |
 	currClass := aClass.
@@ -1207,7 +1209,7 @@ PlatypusExpressInterpretor >> lookUpAndCacheAcceptSelectorOfClass: aClass [
 	^ self error: 'unimplemented accept method for class ''' , aClass name , ''''
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusExpressInterpretor >> lookUpIdentifierBN: aName [ 
 	| found |
 	contextsStack
@@ -1216,7 +1218,7 @@ PlatypusExpressInterpretor >> lookUpIdentifierBN: aName [
 	^ PltPlatypusExpressPrimitivesSchemaInstance  lookUpIdentifierBN: aName
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusExpressInterpretor >> lookUpIdentifierBN: aName fromContext: aContext [ 
 	| found |
 	aContext inclusiveOwnerPath
@@ -1225,7 +1227,7 @@ PlatypusExpressInterpretor >> lookUpIdentifierBN: aName fromContext: aContext [
 	^ nil
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusExpressInterpretor >> lookUpNamedTypeBN: aName [ 
 	| found |
 	contextsStack
@@ -1234,17 +1236,17 @@ PlatypusExpressInterpretor >> lookUpNamedTypeBN: aName [
 	^ PltPlatypusExpressPrimitivesSchemaInstance lookUpNamedTypeBN: aName
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusExpressInterpretor >> modelContents [ 
 	^ modelContentsAccessBlock value 
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusExpressInterpretor >> modelContents: aModelContents [
 	modelContentsAccessBlock := [aModelContents]
 ]
 
-{ #category : #'result output' }
+{ #category : 'result output' }
 PlatypusExpressInterpretor >> outputFileStreamNamed: aName [ 
 	| filename dir |
 	(dir := ( FileLocator workingDirectory / self resultOutputDirectoryName) ) ensureCreateDirectory.
@@ -1252,7 +1254,7 @@ PlatypusExpressInterpretor >> outputFileStreamNamed: aName [
 	^ filename writeStream
 ]
 
-{ #category : #interpreting }
+{ #category : 'interpreting' }
 PlatypusExpressInterpretor >> parse: textOrStream in: context notifying: aRequestor ifFail: failBlock [
 	| position descr repl contents start result stream |
 	stream := textOrStream isStream
@@ -1287,30 +1289,30 @@ PlatypusExpressInterpretor >> parse: textOrStream in: context notifying: aReques
 
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusExpressInterpretor >> pop [
 	^ stack pop.
 
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusExpressInterpretor >> popArgs [
 	^ argsStack pop
 ]
 
-{ #category : #'context initializing' }
+{ #category : 'context initializing' }
 PlatypusExpressInterpretor >> popContext [
 	contextsStack pop
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusExpressInterpretor >> popVal [
 	| elem |
 	elem := self pop.
 	^ elem val
 ]
 
-{ #category : #'context initializing' }
+{ #category : 'context initializing' }
 PlatypusExpressInterpretor >> prepareIncrControl: e [ 
 	| counter step last |
 	e first acceptTry: self.
@@ -1327,31 +1329,31 @@ PlatypusExpressInterpretor >> prepareIncrControl: e [
 	self currentContext last: last
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusExpressInterpretor >> push: aStackElement [ 
 	| |
 	stack push: aStackElement 
 
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusExpressInterpretor >> pushArgs: aStackCallArgumentsElement [ 
 	argsStack push: aStackCallArgumentsElement
 ]
 
-{ #category : #'context initializing' }
+{ #category : 'context initializing' }
 PlatypusExpressInterpretor >> pushContext: anInterpretorContext [ 
 	contextsStack push: anInterpretorContext.
 	anInterpretorContext initializeContextInInterpretor: self
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusExpressInterpretor >> pushVal: anObject [ 
 	self
 		push: (PlatypusExpressInterpretorStackVar val: anObject interpretor: self)
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusExpressInterpretor >> pushVar: aVariable val: aValue [ 
 	self
 		push: (PlatypusExpressInterpretorStackVar
@@ -1360,12 +1362,12 @@ PlatypusExpressInterpretor >> pushVar: aVariable val: aValue [
 				interpretor: self)
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusExpressInterpretor >> removeFromStackAt: pos [
 	stack removeAt: pos
 ]
 
-{ #category : #interpreting }
+{ #category : 'interpreting' }
 PlatypusExpressInterpretor >> resolves: anArrayOfExpressionsOrStatements in: context to: receiver notifying: aRequestor owners: owners [
 	| resolutionOwners  checker |
 	requestor := aRequestor.
@@ -1383,62 +1385,62 @@ PlatypusExpressInterpretor >> resolves: anArrayOfExpressionsOrStatements in: con
 
 ]
 
-{ #category : #'result output' }
+{ #category : 'result output' }
 PlatypusExpressInterpretor >> resultOutputDirectoryName [
 	^ 'Platypus-output'
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusExpressInterpretor >> return: anObject [ 
 	self pushVal: anObject 
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusExpressInterpretor >> schemaInstance [
 	^ contextsStack first contextInstance schemaInstance
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusExpressInterpretor >> selfStack [
 	^ selfStack 
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusExpressInterpretor >> selfStackSize [
 	^ selfStack size
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusExpressInterpretor >> stack [
 	^ stack
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusExpressInterpretor >> stackAt: aPos [
 	^ stack at: aPos
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusExpressInterpretor >> stackSize [
 	^ stack size
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusExpressInterpretor >> top [
 	^ self stack top
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusExpressInterpretor >> topVal [
 	^ self top val
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusExpressInterpretor >> valOfSelf [
 	^ selfStack top
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusExpressInterpretor >> valueFromDomain: aDomain assignCompatibleWith: aValue [ 
 	^ aValue 
 		ifMissing: [aValue]
@@ -1451,7 +1453,7 @@ PlatypusExpressInterpretor >> valueFromDomain: aDomain assignCompatibleWith: aVa
 								, aValue prettyPrintedExpressCode]]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusExpressInterpretor >> valueOf: anIdent [ 
 	| v result |
 	result := (v := self dataNamed: anIdent)

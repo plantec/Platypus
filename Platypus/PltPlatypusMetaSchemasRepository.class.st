@@ -1,31 +1,33 @@
 Class {
-	#name : #PltPlatypusMetaSchemasRepository,
-	#superclass : #PlatypusCoreRepository,
-	#category : #'Platypus-PlatypusMetaSchemasSchemaInstance'
+	#name : 'PltPlatypusMetaSchemasRepository',
+	#superclass : 'PlatypusCoreRepository',
+	#category : 'Platypus-PlatypusMetaSchemasSchemaInstance',
+	#package : 'Platypus',
+	#tag : 'PlatypusMetaSchemasSchemaInstance'
 }
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 PltPlatypusMetaSchemasRepository class >> generatedMetaDataSchemaInstanceName [
 	^ #PltPlatypusMetaSchemasSchemaInstance
 
 
 ]
 
-{ #category : #'platypus-generated-platypus-signature' }
+{ #category : 'platypus-generated-platypus-signature' }
 PltPlatypusMetaSchemasRepository class >> iso10303P11Translater [
 	^ 'Platypus (c) LISYC EA3883, Universite de Bretagne occidentale. Brest.'
 
 
 ]
 
-{ #category : #'platypus-generated-platypus-signature' }
+{ #category : 'platypus-generated-platypus-signature' }
 PltPlatypusMetaSchemasRepository class >> translatedFromISO10303P11 [
 	^ true
 
 
 ]
 
-{ #category : #'platypus-generated-platypus-signature' }
+{ #category : 'platypus-generated-platypus-signature' }
 PltPlatypusMetaSchemasRepository class >> vwNamespaceName [
 	^ #Platypus
 

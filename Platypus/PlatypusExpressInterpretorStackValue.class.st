@@ -1,40 +1,42 @@
 Class {
-	#name : #PlatypusExpressInterpretorStackValue,
-	#superclass : #Object,
+	#name : 'PlatypusExpressInterpretorStackValue',
+	#superclass : 'Object',
 	#instVars : [
 		'interpretor'
 	],
-	#category : #'Platypus-HW-interpreter'
+	#category : 'Platypus-HW-interpreter',
+	#package : 'Platypus',
+	#tag : 'HW-interpreter'
 }
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 PlatypusExpressInterpretorStackValue class >> interpretor: anExpressInterpreter [
 	^ self new interpretor: anExpressInterpreter
 ]
 
-{ #category : #copying }
+{ #category : 'copying' }
 PlatypusExpressInterpretorStackValue >> deepCopy [
 	| n |
 	n := self copy.
 	^ n
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusExpressInterpretorStackValue >> interpretor [
 	^interpretor
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusExpressInterpretorStackValue >> interpretor: anObject [
 	interpretor := anObject
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusExpressInterpretorStackValue >> val [
 	^ self subclassResponsibility 
 ]
 
-{ #category : #copying }
+{ #category : 'copying' }
 PlatypusExpressInterpretorStackValue >> veryDeepCopy [
 	| n |
 	n := self copy.

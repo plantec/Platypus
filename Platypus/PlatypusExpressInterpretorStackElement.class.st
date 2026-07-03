@@ -1,53 +1,55 @@
 Class {
-	#name : #PlatypusExpressInterpretorStackElement,
-	#superclass : #PlatypusExpressInterpretorStackValue,
+	#name : 'PlatypusExpressInterpretorStackElement',
+	#superclass : 'PlatypusExpressInterpretorStackValue',
 	#instVars : [
 		'var'
 	],
-	#category : #'Platypus-HW-interpreter'
+	#category : 'Platypus-HW-interpreter',
+	#package : 'Platypus',
+	#tag : 'HW-interpreter'
 }
 
-{ #category : #interpreting }
+{ #category : 'interpreting' }
 PlatypusExpressInterpretorStackElement >> addRecordsToExternalRepresentation: externalRep [
 	self val addRecordsToExternalRepresentation: externalRep
 
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusExpressInterpretorStackElement >> aggr: anAggr positionFromIndex: anInteger [ 
 	anAggr isPltArrayInstance
 		ifTrue: [^ anInteger - self aggr lowerBound val + 1]
 		ifFalse: [^ anInteger]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusExpressInterpretorStackElement >> asString [
 	^ self val printableCode
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusExpressInterpretorStackElement >> computedDomain [
 	^ self val computedDomain
 
 ]
 
-{ #category : #interpreting }
+{ #category : 'interpreting' }
 PlatypusExpressInterpretorStackElement >> fastAssign: aValue [ 
 	self subclassResponsibility
 
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusExpressInterpretorStackElement >> instance [
 	^ self val
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusExpressInterpretorStackElement >> printString [
 	^ self asString
 ]
 
-{ #category : #interpreting }
+{ #category : 'interpreting' }
 PlatypusExpressInterpretorStackElement >> pushAttribute: anIdent [ 
 	| v key allAttrIdentif |
 	(v := self val)
@@ -60,7 +62,7 @@ PlatypusExpressInterpretorStackElement >> pushAttribute: anIdent [
 			self pushAttribute: allAttrIdentif definition entityInstance: v]
 ]
 
-{ #category : #interpreting }
+{ #category : 'interpreting' }
 PlatypusExpressInterpretorStackElement >> pushAttribute: attrDef entityInstance: entityInst [ 
 	self interpretor asValOfSelf: entityInst
 		while: 
@@ -68,7 +70,7 @@ PlatypusExpressInterpretorStackElement >> pushAttribute: attrDef entityInstance:
 			attrDef acceptTry: self interpretor]
 ]
 
-{ #category : #interpreting }
+{ #category : 'interpreting' }
 PlatypusExpressInterpretorStackElement >> pushIndex: anInteger [ 
 	| elementDomain anonymousVar |
 	elementDomain := self var staticDomain elementType.
@@ -79,7 +81,7 @@ PlatypusExpressInterpretorStackElement >> pushIndex: anInteger [
 		index: anInteger
 ]
 
-{ #category : #interpreting }
+{ #category : 'interpreting' }
 PlatypusExpressInterpretorStackElement >> pushRange: anInterval [ 
 	| anonymousVar |
 	anonymousVar := PltAnonymousVariable domain: self val computedDomain.
@@ -90,7 +92,7 @@ PlatypusExpressInterpretorStackElement >> pushRange: anInterval [
 
 ]
 
-{ #category : #interpreting }
+{ #category : 'interpreting' }
 PlatypusExpressInterpretorStackElement >> pushVar: anObject aggr: anAgregateData index: anInteger [ 
 	| stackElement |
 	stackElement := PlatypusExpressInterpretorStackIndexedElement
@@ -101,7 +103,7 @@ PlatypusExpressInterpretorStackElement >> pushVar: anObject aggr: anAgregateData
 	interpretor push: stackElement
 ]
 
-{ #category : #interpreting }
+{ #category : 'interpreting' }
 PlatypusExpressInterpretorStackElement >> pushVar: anObject aggr: anAgregateData range: anInterval [ 
 	| stackElement |
 	stackElement := PlatypusExpressInterpretorStackRangeElement
@@ -112,23 +114,23 @@ PlatypusExpressInterpretorStackElement >> pushVar: anObject aggr: anAgregateData
 	interpretor push: stackElement
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusExpressInterpretorStackElement >> val [
 	^ self subclassResponsibility 
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusExpressInterpretorStackElement >> var [
 	^var
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusExpressInterpretorStackElement >> var: anObject [ 
 	var := anObject.
 
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusExpressInterpretorStackElement >> var: anObject interpretor: anInterpretor [
 	self var: anObject.
 	self interpretor: anInterpretor

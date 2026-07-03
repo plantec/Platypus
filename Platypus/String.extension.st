@@ -1,6 +1,6 @@
-Extension { #name : #String }
+Extension { #name : 'String' }
 
-{ #category : #'*platypus-utilities' }
+{ #category : '*platypus-utilities' }
 String >> capitalizeFirst: firstCapitalized [ 
 	| instr outstr resString curr |
 	instr := ReadStream on: self.
@@ -16,7 +16,7 @@ String >> capitalizeFirst: firstCapitalized [
 	^ resString
 ]
 
-{ #category : #'*Platypus' }
+{ #category : '*Platypus' }
 String >> findAnySubStr: delimiters startingAt: start [ 
 	"Answer the index of the character within the receiver, starting at start, that begins a substring matching one of the delimiters.  delimiters is an Array of Strings (Characters are permitted also).  If the receiver does not contain any of the delimiters, answer size + 1."
 
@@ -31,7 +31,7 @@ String >> findAnySubStr: delimiters startingAt: start [
 		min min: ind]
 ]
 
-{ #category : #'*Platypus' }
+{ #category : '*Platypus' }
 String >> findBetweenSubStrs: delimiters [
 	"Answer the collection of String tokens that result from parsing self.  Tokens are separated by 'delimiters', which can be a collection of Strings, or a collection of Characters.  Several delimiters in a row are considered as just one separation."
 
@@ -46,7 +46,7 @@ String >> findBetweenSubStrs: delimiters [
 	^tokens
 ]
 
-{ #category : #'*Platypus' }
+{ #category : '*Platypus' }
 String >> padded: leftOrRight to: length with: char [
 	leftOrRight = #left ifTrue:
 		[^ (String new: (length - self size max: 0) withAll: char) , self].
@@ -54,7 +54,7 @@ String >> padded: leftOrRight to: length with: char [
 		[^ self , (String new: (length - self size max: 0) withAll: char)].
 ]
 
-{ #category : #'*Platypus' }
+{ #category : '*Platypus' }
 String >> skipAnySubStr: delimiters startingAt: start [ 
 	"Answer the index of the last character within the receiver, starting at start, that does NOT match one of the delimiters. delimiters is a Array of substrings (Characters also allowed).  If the receiver is all delimiters, answer size + 1."
 
@@ -78,13 +78,13 @@ String >> skipAnySubStr: delimiters startingAt: start [
 	^ self size + 1
 ]
 
-{ #category : #'*platypus-accessing' }
+{ #category : '*platypus-accessing' }
 String >> updateDictionaryInstanceName: aDictionaryInstance [ 
 	aDictionaryInstance name: self 
 
 ]
 
-{ #category : #'*platypus-utilities' }
+{ #category : '*platypus-utilities' }
 String >> withoutCr [
 	^ self species streamContents: [:strm |
 		self do: [:c | 

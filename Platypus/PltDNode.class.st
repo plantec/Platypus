@@ -1,26 +1,28 @@
 Class {
-	#name : #PltDNode,
-	#superclass : #Object,
+	#name : 'PltDNode',
+	#superclass : 'Object',
 	#instVars : [
 		'next',
 		'previous',
 		'data'
 	],
-	#category : #'Platypus-HW-tools'
+	#category : 'Platypus-HW-tools',
+	#package : 'Platypus',
+	#tag : 'HW-tools'
 }
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 PltDNode class >> data: data [ 
 	| node |
 	node := self new. node data: data. ^ node
 ]
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 PltDNode class >> new [
 	^ self basicNew initialize
 ]
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 PltDNode class >> previous: previousNode next: nextNode data: data [ 
 	| node |
 	node := self new.
@@ -28,22 +30,22 @@ PltDNode class >> previous: previousNode next: nextNode data: data [
 	^node
 ]
 
-{ #category : #converting }
+{ #category : 'converting' }
 PltDNode >> asString [
 	^data asString
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PltDNode >> data [
 	^data
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PltDNode >> data: anObject [ 
 	data := anObject
 ]
 
-{ #category : #'initialize/release' }
+{ #category : 'initialize/release' }
 PltDNode >> destroy [
 	next := nil.
 	previous := nil.
@@ -51,7 +53,7 @@ PltDNode >> destroy [
 	super destroy
 ]
 
-{ #category : #'initialize/release' }
+{ #category : 'initialize/release' }
 PltDNode >> initialize [
 	super initialize.
 	next := nil.
@@ -59,48 +61,48 @@ PltDNode >> initialize [
 	data := nil
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PltDNode >> next [
 	^next
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PltDNode >> next: anObject [
 	next := anObject
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PltDNode >> nextLink [
 	^ next
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PltDNode >> nextLink: anObject [ 
 	next := anObject
 ]
 
-{ #category : #copying }
+{ #category : 'copying' }
 PltDNode >> postCopy [
 	data := data copy
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PltDNode >> previous [
 	^previous
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PltDNode >> previous: anObject [ 
 previous := anObject
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PltDNode >> previous: anObject next: anotherObject [ 
 	previous := anObject.
 	next := anotherObject
 ]
 
-{ #category : #printing }
+{ #category : 'printing' }
 PltDNode >> printOn: aStream [ 
 	aStream nextPutAll: self class name, '('.
 	data printOn: aStream.

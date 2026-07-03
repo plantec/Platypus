@@ -1,57 +1,59 @@
 Class {
-	#name : #PlatypusCoreRepository,
-	#superclass : #StepAbstractRepository,
+	#name : 'PlatypusCoreRepository',
+	#superclass : 'StepAbstractRepository',
 	#instVars : [
 		'header',
 		'metaDataSchemaInstance'
 	],
-	#category : #'Platypus-HW-core'
+	#category : 'Platypus-HW-core',
+	#package : 'Platypus',
+	#tag : 'HW-core'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusCoreRepository class >> dataParserClass [
 	^ StepParser
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusCoreRepository class >> generatedMetaDataSchemaInstance [
 	^ (PlatypusPharoSmalltalk at: self generatedMetaDataSchemaInstanceName) singleton
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusCoreRepository class >> generatedMetaDataSchemaInstanceName [
 	^ self subclassResponsibility 
 ]
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 PlatypusCoreRepository class >> new [
 	^ super new
 		metaDataSchemaInstance: self generatedMetaDataSchemaInstance
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusCoreRepository >> allApplicationInstances [
 	^ self allPersistentApplicationInstances
 
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusCoreRepository >> allPersistentApplicationInstances [
 	^ self instances
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusCoreRepository >> alternativeIndex: aListOfAssoc [
 	"the arg is a collection of association made of:  <entity name> -> <class name> "
 	self metaDataSchemaInstance alternativeIndex: aListOfAssoc
 ]
 
-{ #category : #converting }
+{ #category : 'converting' }
 PlatypusCoreRepository >> asSchemaInstanceContext [
 	self metaDataSchemaInstance context: (PlatypusCoreRunningContext folder: self)
 ]
 
-{ #category : #checking }
+{ #category : 'checking' }
 PlatypusCoreRepository >> checksExternalInstance: instance [ 
 	| errors metaData |
 	errors := OrderedCollection new.
@@ -66,7 +68,7 @@ PlatypusCoreRepository >> checksExternalInstance: instance [
 	^ errors
 ]
 
-{ #category : #checking }
+{ #category : 'checking' }
 PlatypusCoreRepository >> checksInstance: instance [ 
 	(instance isKindOf: PlatypusComplexInstance) ifTrue: [
 		^ self checksExternalInstance: instance]
@@ -75,7 +77,7 @@ PlatypusCoreRepository >> checksInstance: instance [
 
 ]
 
-{ #category : #checking }
+{ #category : 'checking' }
 PlatypusCoreRepository >> checksInternalInstance: instance [ 
 	| errors metaData |
 	errors := OrderedCollection new.
@@ -89,62 +91,62 @@ PlatypusCoreRepository >> checksInternalInstance: instance [
 	^ errors
 ]
 
-{ #category : #'file in/out' }
+{ #category : 'file in/out' }
 PlatypusCoreRepository >> classFromEntityName: aString [ 
 	^ self metaDataSchemaInstance classFromEntityName: aString 
 ]
 
-{ #category : #'file in/out' }
+{ #category : 'file in/out' }
 PlatypusCoreRepository >> createInstanceFromEntityName: entityName [ 
 	| class |
 	^ (class := self classFromEntityName: entityName)
 		ifNotNil: [class new ]
 ]
 
-{ #category : #'file in/out' }
+{ #category : 'file in/out' }
 PlatypusCoreRepository >> createInstanceFromEntityName: entityName withId: id [ 
 	| inst |
 	^ (inst := self createInstanceFromEntityName: entityName)
 		ifNotNil: [self registerInstance: inst withId: id]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusCoreRepository >> dataParserClass [
 	^ self class dataParserClass
 ]
 
-{ #category : #'initialize/release' }
+{ #category : 'initialize/release' }
 PlatypusCoreRepository >> finalize [
 	super finalize.
 
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusCoreRepository >> header [
 	^header
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusCoreRepository >> metaDataSchemaInstance [
 	^metaDataSchemaInstance
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusCoreRepository >> metaDataSchemaInstance: anObject [
 	metaDataSchemaInstance := anObject
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusCoreRepository >> namesBuilder [
 	^ self metaDataSchemaInstance namesBuilder
 ]
 
-{ #category : #'file in/out' }
+{ #category : 'file in/out' }
 PlatypusCoreRepository >> parseStream: in [ 
 	^ self parseStream: in onError: [:d :l | self notify: d at: l in: in].
 ]
 
-{ #category : #'file in/out' }
+{ #category : 'file in/out' }
 PlatypusCoreRepository >> parseStream: in onError: aBlock [ 
 	| id result entityName parameters newInst metaData val setterSymbol records newRec |
 	result := self dataParserClass parseStream: in onError: aBlock.
@@ -187,7 +189,7 @@ PlatypusCoreRepository >> parseStream: in onError: aBlock [
 	self resolvesInstanceReferences
 ]
 
-{ #category : #checking }
+{ #category : 'checking' }
 PlatypusCoreRepository >> resolvedTokenOf: t [ 
 	(t isKindOf: StepInstanceReference)
 		ifTrue: [^ self instanceAt: t id]
@@ -198,7 +200,7 @@ PlatypusCoreRepository >> resolvedTokenOf: t [
 	^ t
 ]
 
-{ #category : #checking }
+{ #category : 'checking' }
 PlatypusCoreRepository >> resolvesInstanceReferencesOf: instance [ 
 	| getterSymbol setterSymbol entityDef |
 	(instance isKindOf: PlatypusComplexInstance)
@@ -215,7 +217,7 @@ PlatypusCoreRepository >> resolvesInstanceReferencesOf: instance [
 										resolvedTokenOf: (instance perform: getterSymbol))]]]
 ]
 
-{ #category : #'file in/out' }
+{ #category : 'file in/out' }
 PlatypusCoreRepository >> stepFileOut: aFilename [ 
 	(PlatypusCoreRepositoryStepFileWriter folder: self) doFolder; stepFileOut: aFilename 
 ]

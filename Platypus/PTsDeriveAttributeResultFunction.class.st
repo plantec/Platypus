@@ -1,62 +1,64 @@
 Class {
-	#name : #PTsDeriveAttributeResultFunction,
-	#superclass : #PlatypusCoreAlgorithmDeclaration,
+	#name : 'PTsDeriveAttributeResultFunction',
+	#superclass : 'PlatypusCoreAlgorithmDeclaration',
 	#instVars : [
 		'd'
 	],
-	#category : #'Platypus-ExpressDictionaryQueriesSchema'
+	#category : 'Platypus-ExpressDictionaryQueriesSchema',
+	#package : 'Platypus',
+	#tag : 'ExpressDictionaryQueriesSchema'
 }
 
-{ #category : #'platypus-generated-platypus-signature' }
+{ #category : 'platypus-generated-platypus-signature' }
 PTsDeriveAttributeResultFunction class >> iso10303P11Translater [
 	^ 'Platypus (c) LISYC EA3883, Universite de Bretagne occidentale. Brest.'
 
 
 ]
 
-{ #category : #'platypus-generated-meta-data-accessing' }
+{ #category : 'platypus-generated-meta-data-accessing' }
 PTsDeriveAttributeResultFunction class >> schemaDefinition [
 	^ PTsExpressDictionaryQueriesSchemaDefinition singleton
 
 
 ]
 
-{ #category : #'platypus-generated-platypus-signature' }
+{ #category : 'platypus-generated-platypus-signature' }
 PTsDeriveAttributeResultFunction class >> translatedFromISO10303P11 [
 	^ true
 
 
 ]
 
-{ #category : #'platypus-generated-platypus-signature' }
+{ #category : 'platypus-generated-platypus-signature' }
 PTsDeriveAttributeResultFunction class >> vwNamespaceName [
 	^ #PTs
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 PTsDeriveAttributeResultFunction >> d [
 	^ d
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 PTsDeriveAttributeResultFunction >> d: aPTsDerivedAttribute [
 	d := aPTsDerivedAttribute
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 PTsDeriveAttributeResultFunction >> fromValues: values [
 	self d: (values at: 1)
 
 
 ]
 
-{ #category : #'platypus-generated-invoking' }
+{ #category : 'platypus-generated-invoking' }
 PTsDeriveAttributeResultFunction >> invoke [
 	" ---------- locals assignments ----------"
 

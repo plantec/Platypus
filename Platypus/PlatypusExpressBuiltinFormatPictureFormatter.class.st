@@ -1,6 +1,6 @@
 Class {
-	#name : #PlatypusExpressBuiltinFormatPictureFormatter,
-	#superclass : #PlatypusExpressBuiltinFormatFormatter,
+	#name : 'PlatypusExpressBuiltinFormatPictureFormatter',
+	#superclass : 'PlatypusExpressBuiltinFormatFormatter',
 	#instVars : [
 		'negation',
 		'sign',
@@ -9,30 +9,32 @@ Class {
 		'width',
 		'decimals'
 	],
-	#category : #'Platypus-HW-interpreter'
+	#category : 'Platypus-HW-interpreter',
+	#package : 'Platypus',
+	#tag : 'HW-interpreter'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusExpressBuiltinFormatPictureFormatter >> decimalChar [
 	^decimalChar
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusExpressBuiltinFormatPictureFormatter >> decimalChar: anObject [
 	decimalChar := anObject
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusExpressBuiltinFormatPictureFormatter >> decimals [
 	^decimals
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusExpressBuiltinFormatPictureFormatter >> decimals: anObject [
 	decimals := anObject
 ]
 
-{ #category : #formatting }
+{ #category : 'formatting' }
 PlatypusExpressBuiltinFormatPictureFormatter >> format: aNumber [ 
 	| symbolicFormatter source symbolicResult decIdx groupingPositions result dstPos |
 	source := OrderedCollection new.
@@ -92,17 +94,17 @@ PlatypusExpressBuiltinFormatPictureFormatter >> format: aNumber [
 	^ symbolicResult
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusExpressBuiltinFormatPictureFormatter >> groupingChar [
 	^groupingChar
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusExpressBuiltinFormatPictureFormatter >> groupingChar: anObject [
 	groupingChar := anObject
 ]
 
-{ #category : #initializing }
+{ #category : 'initializing' }
 PlatypusExpressBuiltinFormatPictureFormatter >> initializeFromSourceFormat: anArray [ 
 	| picture |
 	anArray first = $(
@@ -125,32 +127,32 @@ PlatypusExpressBuiltinFormatPictureFormatter >> initializeFromSourceFormat: anAr
 					self groupingChar: picture second]]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusExpressBuiltinFormatPictureFormatter >> negation [
 	^negation
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusExpressBuiltinFormatPictureFormatter >> negation: anObject [
 	negation := anObject
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusExpressBuiltinFormatPictureFormatter >> sign [
 	^sign
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusExpressBuiltinFormatPictureFormatter >> sign: anObject [
 	sign := anObject
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusExpressBuiltinFormatPictureFormatter >> width [
 	^width
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusExpressBuiltinFormatPictureFormatter >> width: anObject [
 	width := anObject
 ]

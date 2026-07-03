@@ -1,6 +1,6 @@
 Class {
-	#name : #PlatypusExpressBuiltinFormatSymbolicFormatter,
-	#superclass : #PlatypusExpressBuiltinFormatFormatter,
+	#name : 'PlatypusExpressBuiltinFormatSymbolicFormatter',
+	#superclass : 'PlatypusExpressBuiltinFormatFormatter',
 	#instVars : [
 		'sign',
 		'precZero',
@@ -8,20 +8,22 @@ Class {
 		'decimals',
 		'type'
 	],
-	#category : #'Platypus-HW-interpreter'
+	#category : 'Platypus-HW-interpreter',
+	#package : 'Platypus',
+	#tag : 'HW-interpreter'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusExpressBuiltinFormatSymbolicFormatter >> decimals [
 	^decimals
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusExpressBuiltinFormatSymbolicFormatter >> decimals: anObject [
 	decimals := anObject
 ]
 
-{ #category : #formatting }
+{ #category : 'formatting' }
 PlatypusExpressBuiltinFormatSymbolicFormatter >> finalStringFrom: aStringEncodingANumber forNumber: aNumber [ 
 	| result |
 	result := aStringEncodingANumber.
@@ -45,7 +47,7 @@ PlatypusExpressBuiltinFormatSymbolicFormatter >> finalStringFrom: aStringEncodin
 	^ result
 ]
 
-{ #category : #formatting }
+{ #category : 'formatting' }
 PlatypusExpressBuiltinFormatSymbolicFormatter >> format: aNumber [ 
 	| resultStr dec intPart decPartStr intPartStr fracPartStr fracMax fracPartStrBuf fracPartStrStream startCopy |
 	aNumber isInteger
@@ -88,7 +90,7 @@ PlatypusExpressBuiltinFormatSymbolicFormatter >> format: aNumber [
 	^ intPartStr , fracPartStr , 'E+' , decPartStr
 ]
 
-{ #category : #initializing }
+{ #category : 'initializing' }
 PlatypusExpressBuiltinFormatSymbolicFormatter >> initializeFromSourceFormat: aSourceString [ 
 	| iwidth idecimals |
 	type := aSourceString fourth.
@@ -110,48 +112,48 @@ PlatypusExpressBuiltinFormatSymbolicFormatter >> initializeFromSourceFormat: aSo
 						ifFalse: [idecimals]]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusExpressBuiltinFormatSymbolicFormatter >> precZero [
 	^precZero
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusExpressBuiltinFormatSymbolicFormatter >> precZero: anObject [
 	precZero := anObject
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusExpressBuiltinFormatSymbolicFormatter >> sign [
 	^sign
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusExpressBuiltinFormatSymbolicFormatter >> sign: anObject [
 	sign := anObject
 ]
 
-{ #category : #formatting }
+{ #category : 'formatting' }
 PlatypusExpressBuiltinFormatSymbolicFormatter >> stringFromInteger: aNumber [ 
 	^ self finalStringFrom: aNumber asString forNumber: aNumber 
 
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusExpressBuiltinFormatSymbolicFormatter >> type [
 	^type
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusExpressBuiltinFormatSymbolicFormatter >> type: anObject [
 	type := anObject
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusExpressBuiltinFormatSymbolicFormatter >> width [
 	^width
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusExpressBuiltinFormatSymbolicFormatter >> width: anObject [
 	width := anObject
 ]

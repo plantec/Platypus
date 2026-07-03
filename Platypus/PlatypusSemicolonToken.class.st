@@ -1,20 +1,22 @@
 Class {
-	#name : #PlatypusSemicolonToken,
-	#superclass : #PlatypusDelimToken,
-	#category : #'Platypus-HW-CodeTokens'
+	#name : 'PlatypusSemicolonToken',
+	#superclass : 'PlatypusDelimToken',
+	#category : 'Platypus-HW-CodeTokens',
+	#package : 'Platypus',
+	#tag : 'HW-CodeTokens'
 }
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 PlatypusSemicolonToken class >> new [
 	^ super new lexicalElement: ';' asSymbol
 ]
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 PlatypusSemicolonToken >> accept: aVisitor [ 
 	^ aVisitor acceptSemicolon: self
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 PlatypusSemicolonToken >> isSemicolon [
 	^true
 ]

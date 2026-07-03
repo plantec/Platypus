@@ -12,50 +12,52 @@ END_FUNCTION;
 </ISO10303-11-EXPRESS>
 "
 Class {
-	#name : #PltBLENGTHFunction,
-	#superclass : #PlatypusCoreAlgorithmDeclaration,
+	#name : 'PltBLENGTHFunction',
+	#superclass : 'PlatypusCoreAlgorithmDeclaration',
 	#instVars : [
 		'p'
 	],
-	#category : #'Platypus-ExpressBuiltinsSchema'
+	#category : 'Platypus-ExpressBuiltinsSchema',
+	#package : 'Platypus',
+	#tag : 'ExpressBuiltinsSchema'
 }
 
-{ #category : #'platypus-generated-platypus-signature' }
+{ #category : 'platypus-generated-platypus-signature' }
 PltBLENGTHFunction class >> iso10303P11Translater [
 	^ 'Platypus (c) LISYC EA3883, Universite de Bretagne occidentale. Brest.'
 
 
 ]
 
-{ #category : #'platypus-generated-meta-data-accessing' }
+{ #category : 'platypus-generated-meta-data-accessing' }
 PltBLENGTHFunction class >> schemaDefinition [
 	^ PltExpressBuiltinsSchemaDefinition singleton
 
 
 ]
 
-{ #category : #'platypus-generated-platypus-signature' }
+{ #category : 'platypus-generated-platypus-signature' }
 PltBLENGTHFunction class >> translatedFromISO10303P11 [
 	^ true
 
 
 ]
 
-{ #category : #'platypus-generated-platypus-signature' }
+{ #category : 'platypus-generated-platypus-signature' }
 PltBLENGTHFunction class >> vwNamespaceName [
 	^ #Platypus
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 PltBLENGTHFunction >> fromValues: values [
 	self p: (values at: 1)
 
 
 ]
 
-{ #category : #'platypus-generated-invoking' }
+{ #category : 'platypus-generated-invoking' }
 PltBLENGTHFunction >> invoke [
 	" ---------- locals assignments ----------"
 
@@ -69,14 +71,14 @@ PltBLENGTHFunction >> invoke [
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 PltBLENGTHFunction >> p [
 	^ p
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 PltBLENGTHFunction >> p: aBinary [
 	p := aBinary
 

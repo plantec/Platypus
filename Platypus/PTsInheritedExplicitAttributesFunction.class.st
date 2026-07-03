@@ -1,49 +1,51 @@
 Class {
-	#name : #PTsInheritedExplicitAttributesFunction,
-	#superclass : #PlatypusCoreAlgorithmDeclaration,
+	#name : 'PTsInheritedExplicitAttributesFunction',
+	#superclass : 'PlatypusCoreAlgorithmDeclaration',
 	#instVars : [
 		'e',
 		'attributes'
 	],
-	#category : #'Platypus-ExpressDictionaryQueriesSchema'
+	#category : 'Platypus-ExpressDictionaryQueriesSchema',
+	#package : 'Platypus',
+	#tag : 'ExpressDictionaryQueriesSchema'
 }
 
-{ #category : #'platypus-generated-platypus-signature' }
+{ #category : 'platypus-generated-platypus-signature' }
 PTsInheritedExplicitAttributesFunction class >> iso10303P11Translater [
 	^ 'Platypus (c) LISYC EA3883, Universite de Bretagne occidentale. Brest.'
 
 
 ]
 
-{ #category : #'platypus-generated-meta-data-accessing' }
+{ #category : 'platypus-generated-meta-data-accessing' }
 PTsInheritedExplicitAttributesFunction class >> schemaDefinition [
 	^ PTsExpressDictionaryQueriesSchemaDefinition singleton
 
 
 ]
 
-{ #category : #'platypus-generated-platypus-signature' }
+{ #category : 'platypus-generated-platypus-signature' }
 PTsInheritedExplicitAttributesFunction class >> translatedFromISO10303P11 [
 	^ true
 
 
 ]
 
-{ #category : #'platypus-generated-platypus-signature' }
+{ #category : 'platypus-generated-platypus-signature' }
 PTsInheritedExplicitAttributesFunction class >> vwNamespaceName [
 	^ #PTs
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 PTsInheritedExplicitAttributesFunction >> attributes [
 	^ attributes
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 PTsInheritedExplicitAttributesFunction >> attributes: aListOfPTsAttribute [
 	attributes := aListOfPTsAttribute
 		ifNil: [ OrderedCollection new ]
@@ -52,28 +54,28 @@ PTsInheritedExplicitAttributesFunction >> attributes: aListOfPTsAttribute [
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 PTsInheritedExplicitAttributesFunction >> e [
 	^ e
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 PTsInheritedExplicitAttributesFunction >> e: aPTsEntityDefinition [
 	e := aPTsEntityDefinition
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 PTsInheritedExplicitAttributesFunction >> fromValues: values [
 	self e: (values at: 1)
 
 
 ]
 
-{ #category : #'platypus-generated-invoking' }
+{ #category : 'platypus-generated-invoking' }
 PTsInheritedExplicitAttributesFunction >> invoke [
 	" ---------- locals assignments ----------"
 

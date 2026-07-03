@@ -433,264 +433,266 @@ END_SCHEMA;
 </ISO10303-11-EXPRESS>
 "
 Class {
-	#name : #PltExpressBuiltinsSchemaDefinition,
-	#superclass : #PlatypusCoreSchema,
-	#category : #'Platypus-ExpressBuiltinsSchema'
+	#name : 'PltExpressBuiltinsSchemaDefinition',
+	#superclass : 'PlatypusCoreSchema',
+	#category : 'Platypus-ExpressBuiltinsSchema',
+	#package : 'Platypus',
+	#tag : 'ExpressBuiltinsSchema'
 }
 
-{ #category : #'platypus-generated-platypus-signature' }
+{ #category : 'platypus-generated-platypus-signature' }
 PltExpressBuiltinsSchemaDefinition class >> iso10303P11Translater [
 	^ 'Platypus (c) LISYC EA3883, Universite de Bretagne occidentale. Brest.'
 
 
 ]
 
-{ #category : #'platypus-generated-platypus-signature' }
+{ #category : 'platypus-generated-platypus-signature' }
 PltExpressBuiltinsSchemaDefinition class >> translatedFromISO10303P11 [
 	^ true
 
 
 ]
 
-{ #category : #'platypus-generated-platypus-signature' }
+{ #category : 'platypus-generated-platypus-signature' }
 PltExpressBuiltinsSchemaDefinition class >> vwNamespaceName [
 	^ #Platypus
 
 
 ]
 
-{ #category : #'platypus-generated-context-accessing' }
+{ #category : 'platypus-generated-context-accessing' }
 PltExpressBuiltinsSchemaDefinition >> context [
 	^ self schemaInstance context
 
 
 ]
 
-{ #category : #'platypus-generated-entities' }
+{ #category : 'platypus-generated-entities' }
 PltExpressBuiltinsSchemaDefinition >> entityDefinitionCount [
 	^ 0
 
 
 ]
 
-{ #category : #'platypus-generated-functions' }
+{ #category : 'platypus-generated-functions' }
 PltExpressBuiltinsSchemaDefinition >> functionDeclaration1 [
 	^ #(#ABS #PltABSFunction)
 
 
 ]
 
-{ #category : #'platypus-generated-functions' }
+{ #category : 'platypus-generated-functions' }
 PltExpressBuiltinsSchemaDefinition >> functionDeclaration10 [
 	^ #(#FORMAT #PltFORMATFunction)
 
 
 ]
 
-{ #category : #'platypus-generated-functions' }
+{ #category : 'platypus-generated-functions' }
 PltExpressBuiltinsSchemaDefinition >> functionDeclaration11 [
 	^ #(#HIBOUND #PltHIBOUNDFunction)
 
 
 ]
 
-{ #category : #'platypus-generated-functions' }
+{ #category : 'platypus-generated-functions' }
 PltExpressBuiltinsSchemaDefinition >> functionDeclaration12 [
 	^ #(#HIINDEX #PltHIINDEXFunction)
 
 
 ]
 
-{ #category : #'platypus-generated-functions' }
+{ #category : 'platypus-generated-functions' }
 PltExpressBuiltinsSchemaDefinition >> functionDeclaration13 [
 	^ #(#LENGTH #PltLENGTHFunction)
 
 
 ]
 
-{ #category : #'platypus-generated-functions' }
+{ #category : 'platypus-generated-functions' }
 PltExpressBuiltinsSchemaDefinition >> functionDeclaration14 [
 	^ #(#LOBOUND #PltLOBOUNDFunction)
 
 
 ]
 
-{ #category : #'platypus-generated-functions' }
+{ #category : 'platypus-generated-functions' }
 PltExpressBuiltinsSchemaDefinition >> functionDeclaration15 [
 	^ #(#LOG #PltLOGFunction)
 
 
 ]
 
-{ #category : #'platypus-generated-functions' }
+{ #category : 'platypus-generated-functions' }
 PltExpressBuiltinsSchemaDefinition >> functionDeclaration16 [
 	^ #(#LOG2 #PltLOG2Function)
 
 
 ]
 
-{ #category : #'platypus-generated-functions' }
+{ #category : 'platypus-generated-functions' }
 PltExpressBuiltinsSchemaDefinition >> functionDeclaration17 [
 	^ #(#LOG10 #PltLOG10Function)
 
 
 ]
 
-{ #category : #'platypus-generated-functions' }
+{ #category : 'platypus-generated-functions' }
 PltExpressBuiltinsSchemaDefinition >> functionDeclaration18 [
 	^ #(#LOINDEX #PltLOINDEXFunction)
 
 
 ]
 
-{ #category : #'platypus-generated-functions' }
+{ #category : 'platypus-generated-functions' }
 PltExpressBuiltinsSchemaDefinition >> functionDeclaration19 [
 	^ #(#ODD #PltODDFunction)
 
 
 ]
 
-{ #category : #'platypus-generated-functions' }
+{ #category : 'platypus-generated-functions' }
 PltExpressBuiltinsSchemaDefinition >> functionDeclaration2 [
 	^ #(#ACOS #PltACOSFunction)
 
 
 ]
 
-{ #category : #'platypus-generated-functions' }
+{ #category : 'platypus-generated-functions' }
 PltExpressBuiltinsSchemaDefinition >> functionDeclaration20 [
 	^ #(#ROLESOF #PltROLESOFFunction)
 
 
 ]
 
-{ #category : #'platypus-generated-functions' }
+{ #category : 'platypus-generated-functions' }
 PltExpressBuiltinsSchemaDefinition >> functionDeclaration21 [
 	^ #(#SIN #PltSINFunction)
 
 
 ]
 
-{ #category : #'platypus-generated-functions' }
+{ #category : 'platypus-generated-functions' }
 PltExpressBuiltinsSchemaDefinition >> functionDeclaration22 [
 	^ #(#SIZEOF #PltSIZEOFFunction)
 
 
 ]
 
-{ #category : #'platypus-generated-functions' }
+{ #category : 'platypus-generated-functions' }
 PltExpressBuiltinsSchemaDefinition >> functionDeclaration23 [
 	^ #(#SQRT #PltSQRTFunction)
 
 
 ]
 
-{ #category : #'platypus-generated-functions' }
+{ #category : 'platypus-generated-functions' }
 PltExpressBuiltinsSchemaDefinition >> functionDeclaration24 [
 	^ #(#TAN #PltTANFunction)
 
 
 ]
 
-{ #category : #'platypus-generated-functions' }
+{ #category : 'platypus-generated-functions' }
 PltExpressBuiltinsSchemaDefinition >> functionDeclaration25 [
 	^ #(#TYPEOF #PltTYPEOFFunction)
 
 
 ]
 
-{ #category : #'platypus-generated-functions' }
+{ #category : 'platypus-generated-functions' }
 PltExpressBuiltinsSchemaDefinition >> functionDeclaration26 [
 	^ #(#USEDIN #PltUSEDINFunction)
 
 
 ]
 
-{ #category : #'platypus-generated-functions' }
+{ #category : 'platypus-generated-functions' }
 PltExpressBuiltinsSchemaDefinition >> functionDeclaration27 [
 	^ #(#VALUE #PltVALUEFunction)
 
 
 ]
 
-{ #category : #'platypus-generated-functions' }
+{ #category : 'platypus-generated-functions' }
 PltExpressBuiltinsSchemaDefinition >> functionDeclaration28 [
 	^ #(#VALUE_IN #PltValueInFunction)
 
 
 ]
 
-{ #category : #'platypus-generated-functions' }
+{ #category : 'platypus-generated-functions' }
 PltExpressBuiltinsSchemaDefinition >> functionDeclaration29 [
 	^ #(#VALUE_UNIQUE #PltValueUniqueFunction)
 
 
 ]
 
-{ #category : #'platypus-generated-functions' }
+{ #category : 'platypus-generated-functions' }
 PltExpressBuiltinsSchemaDefinition >> functionDeclaration3 [
 	^ #(#ASIN #PltASINFunction)
 
 
 ]
 
-{ #category : #'platypus-generated-functions' }
+{ #category : 'platypus-generated-functions' }
 PltExpressBuiltinsSchemaDefinition >> functionDeclaration30 [
 	^ #(#NVL #PltNVLFunction)
 
 
 ]
 
-{ #category : #'platypus-generated-functions' }
+{ #category : 'platypus-generated-functions' }
 PltExpressBuiltinsSchemaDefinition >> functionDeclaration4 [
 	^ #(#ATAN #PltATANFunction)
 
 
 ]
 
-{ #category : #'platypus-generated-functions' }
+{ #category : 'platypus-generated-functions' }
 PltExpressBuiltinsSchemaDefinition >> functionDeclaration5 [
 	^ #(#BLENGTH #PltBLENGTHFunction)
 
 
 ]
 
-{ #category : #'platypus-generated-functions' }
+{ #category : 'platypus-generated-functions' }
 PltExpressBuiltinsSchemaDefinition >> functionDeclaration6 [
 	^ #(#COS #PltCOSFunction)
 
 
 ]
 
-{ #category : #'platypus-generated-functions' }
+{ #category : 'platypus-generated-functions' }
 PltExpressBuiltinsSchemaDefinition >> functionDeclaration7 [
 	^ #(#EVEN #PltEVENFunction)
 
 
 ]
 
-{ #category : #'platypus-generated-functions' }
+{ #category : 'platypus-generated-functions' }
 PltExpressBuiltinsSchemaDefinition >> functionDeclaration8 [
 	^ #(#EXISTS #PltEXISTSFunction)
 
 
 ]
 
-{ #category : #'platypus-generated-functions' }
+{ #category : 'platypus-generated-functions' }
 PltExpressBuiltinsSchemaDefinition >> functionDeclaration9 [
 	^ #(#EXP #PltEXPFunction)
 
 
 ]
 
-{ #category : #'platypus-generated-functions' }
+{ #category : 'platypus-generated-functions' }
 PltExpressBuiltinsSchemaDefinition >> functionDeclarationCount [
 	^ 30
 
 
 ]
 
-{ #category : #'platypus-generated-meta-data-accessing' }
+{ #category : 'platypus-generated-meta-data-accessing' }
 PltExpressBuiltinsSchemaDefinition >> schemaInstanceClassName [
 	^ #PltPlatypusExpressPrimitivesSchemaInstance
 

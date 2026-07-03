@@ -1,6 +1,6 @@
 Class {
-	#name : #PlatypusModelContentsMetaDefinitionsBuilder,
-	#superclass : #Object,
+	#name : 'PlatypusModelContentsMetaDefinitionsBuilder',
+	#superclass : 'Object',
 	#instVars : [
 		'checkingPass',
 		'rulesIndex',
@@ -9,10 +9,12 @@ Class {
 		'toBeRecorded',
 		'replaceIndex'
 	],
-	#category : #'Platypus-HW-visitors'
+	#category : 'Platypus-HW-visitors',
+	#package : 'Platypus',
+	#tag : 'HW-visitors'
 }
 
-{ #category : #computing }
+{ #category : 'computing' }
 PlatypusModelContentsMetaDefinitionsBuilder >> acceptModelContents: e [ 
 	modelContents := e.
 	interpreter modelContents: e.
@@ -37,7 +39,7 @@ PlatypusModelContentsMetaDefinitionsBuilder >> acceptModelContents: e [
 	
 ]
 
-{ #category : #computing }
+{ #category : 'computing' }
 PlatypusModelContentsMetaDefinitionsBuilder >> buildMappingFor: e [
 	| instDefinition metaExpression metaCondition evalResult |
 	instDefinition := e definition ref.
@@ -66,7 +68,7 @@ PlatypusModelContentsMetaDefinitionsBuilder >> buildMappingFor: e [
 
 ]
 
-{ #category : #computing }
+{ #category : 'computing' }
 PlatypusModelContentsMetaDefinitionsBuilder >> computeMappingFor: e [ 
 	| instDefinition key |
 	instDefinition := e definition.
@@ -90,7 +92,7 @@ PlatypusModelContentsMetaDefinitionsBuilder >> computeMappingFor: e [
 					replaceIndex at: instDefinition put: newInst]]
 ]
 
-{ #category : #'initialize-release' }
+{ #category : 'initialize-release' }
 PlatypusModelContentsMetaDefinitionsBuilder >> initialize [
 	super initialize.
 	rulesIndex := IdentityDictionary new.
@@ -100,7 +102,7 @@ PlatypusModelContentsMetaDefinitionsBuilder >> initialize [
 
 ]
 
-{ #category : #computing }
+{ #category : 'computing' }
 PlatypusModelContentsMetaDefinitionsBuilder >> storeRule: e [ 
 	| key |
 	key := PltMetaMappingRule platypusMetaData name asUppercase.

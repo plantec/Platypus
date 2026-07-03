@@ -1,31 +1,33 @@
 Class {
-	#name : #PlatypusGenericToken,
-	#superclass : #PltDNode,
+	#name : 'PlatypusGenericToken',
+	#superclass : 'PltDNode',
 	#instVars : [
 		'startPos'
 	],
-	#category : #'Platypus-HW-CodeTokens'
+	#category : 'Platypus-HW-CodeTokens',
+	#package : 'Platypus',
+	#tag : 'HW-CodeTokens'
 }
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 PlatypusGenericToken class >> token: anObject [ 
 
 	^ self new lexicalElement: anObject 
 ]
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 PlatypusGenericToken >> accept: aVisitor [
 	^aVisitor acceptToken: self
 ]
 
-{ #category : #converting }
+{ #category : 'converting' }
 PlatypusGenericToken >> asString [
 	^ self lexicalElement isSymbol
 		ifTrue: [self lexicalElement]
 		ifFalse: [self lexicalElement asString]
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 PlatypusGenericToken >> is: aLexicalElement [ 
 	(aLexicalElement isKindOf: Symbol)
 		ifTrue: [^ self lexicalElement asString = aLexicalElement asString].
@@ -34,156 +36,156 @@ PlatypusGenericToken >> is: aLexicalElement [
 		ifNone: []) notNil
 ]
 
-{ #category : #classification }
+{ #category : 'classification' }
 PlatypusGenericToken >> isBlank [
 	^ self isWhiteSpace
 		or: [self isIndent or: [self isEol]]
 ]
 
-{ #category : #classification }
+{ #category : 'classification' }
 PlatypusGenericToken >> isBuiltinFunction [
 	^ false
 ]
 
-{ #category : #classification }
+{ #category : 'classification' }
 PlatypusGenericToken >> isBuiltinProcedure [
 	^ false
 ]
 
-{ #category : #classification }
+{ #category : 'classification' }
 PlatypusGenericToken >> isCloseDelim [
 ^false
 ]
 
-{ #category : #classification }
+{ #category : 'classification' }
 PlatypusGenericToken >> isCloseKeyword [
 ^false
 ]
 
-{ #category : #classification }
+{ #category : 'classification' }
 PlatypusGenericToken >> isEmbeddedRemark [
 	^ false
 ]
 
-{ #category : #classification }
+{ #category : 'classification' }
 PlatypusGenericToken >> isEol [
 	^ false
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 PlatypusGenericToken >> isEquivalentTo: anotherToken [ 
 	^ self = anotherToken
 ]
 
-{ #category : #classification }
+{ #category : 'classification' }
 PlatypusGenericToken >> isGroupKeyword [
 ^false
 ]
 
-{ #category : #classification }
+{ #category : 'classification' }
 PlatypusGenericToken >> isIdentifier [
 	^ false
 ]
 
-{ #category : #classification }
+{ #category : 'classification' }
 PlatypusGenericToken >> isIndent [
 	^ false
 ]
 
-{ #category : #classification }
+{ #category : 'classification' }
 PlatypusGenericToken >> isKeyword [
 	^ false
 ]
 
-{ #category : #classification }
+{ #category : 'classification' }
 PlatypusGenericToken >> isLogical [
 	^ false
 ]
 
-{ #category : #classification }
+{ #category : 'classification' }
 PlatypusGenericToken >> isNativeCode [
 	^ false
 ]
 
-{ #category : #classification }
+{ #category : 'classification' }
 PlatypusGenericToken >> isNumber [
 	^ false
 ]
 
-{ #category : #classification }
+{ #category : 'classification' }
 PlatypusGenericToken >> isOpenDelim [
 	^ false
 
 ]
 
-{ #category : #classification }
+{ #category : 'classification' }
 PlatypusGenericToken >> isOpenKeyword [
 ^false
 ]
 
-{ #category : #classification }
+{ #category : 'classification' }
 PlatypusGenericToken >> isOperator [
 	^false
 ]
 
-{ #category : #classification }
+{ #category : 'classification' }
 PlatypusGenericToken >> isPrimaryElementCloseKeyword [
 	^ false
 ]
 
-{ #category : #classification }
+{ #category : 'classification' }
 PlatypusGenericToken >> isPrimaryElementOpenKeyword [
 	^ false
 ]
 
-{ #category : #classification }
+{ #category : 'classification' }
 PlatypusGenericToken >> isPrimaryElementOpenKeyword: anArrayOfSymbol [ 
 	^ self isPrimaryElementOpenKeyword
 		and: [anArrayOfSymbol
 				anySatisfy: [:s | s = self lexicalElement]]
 ]
 
-{ #category : #classification }
+{ #category : 'classification' }
 PlatypusGenericToken >> isRemark [
 	^ false
 ]
 
-{ #category : #classification }
+{ #category : 'classification' }
 PlatypusGenericToken >> isSemicolon [
 	^ false
 ]
 
-{ #category : #classification }
+{ #category : 'classification' }
 PlatypusGenericToken >> isStepLiteral [
 	^ false
 ]
 
-{ #category : #classification }
+{ #category : 'classification' }
 PlatypusGenericToken >> isString [
 	^ false
 ]
 
-{ #category : #classification }
+{ #category : 'classification' }
 PlatypusGenericToken >> isTailRemark [
 	^ false
 ]
 
-{ #category : #classification }
+{ #category : 'classification' }
 PlatypusGenericToken >> isWhiteSpace [
 	^false
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusGenericToken >> lexicalElement [
 	^ data
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusGenericToken >> lexicalElement: anObject [ 
 	data := anObject
 ]
 
-{ #category : #printing }
+{ #category : 'printing' }
 PlatypusGenericToken >> printOn: aStream [ 
 	aStream nextPutAll: self class name.
 			aStream nextPut: $(.
@@ -191,28 +193,28 @@ PlatypusGenericToken >> printOn: aStream [
 			aStream nextPut: $)
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusGenericToken >> startPos [
 	^ startPos
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusGenericToken >> startPos: anInteger [
 	 startPos := anInteger
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusGenericToken >> stopPos [
 	^ startPos + self lexicalElement size
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusGenericToken >> stopPosWithStart: aPosition [
 	startPos := aPosition.
 	^ startPos + self asString size
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusGenericToken >> widthOfStringForFont: textFont [
 	textFont notNil ifTrue: [
 	^ textFont widthOfString: self asString].

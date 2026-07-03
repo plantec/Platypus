@@ -1,20 +1,22 @@
 Class {
-	#name : #PlatypusLogicalToken,
-	#superclass : #PlatypusLiteralToken,
-	#category : #'Platypus-HW-CodeTokens'
+	#name : 'PlatypusLogicalToken',
+	#superclass : 'PlatypusLiteralToken',
+	#category : 'Platypus-HW-CodeTokens',
+	#package : 'Platypus',
+	#tag : 'HW-CodeTokens'
 }
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 PlatypusLogicalToken class >> token: anObject [ 
 	^ super token: anObject asLowercase asSymbol
 ]
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 PlatypusLogicalToken >> accept: aVisitor [ 
 	^ aVisitor acceptLogical: self
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 PlatypusLogicalToken >> isLogical [
 	^true
 ]

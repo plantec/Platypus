@@ -1,24 +1,26 @@
 Class {
-	#name : #PlatypusExpressInterpretorStackAppInst,
-	#superclass : #PlatypusExpressInterpretorStackElement,
+	#name : 'PlatypusExpressInterpretorStackAppInst',
+	#superclass : 'PlatypusExpressInterpretorStackElement',
 	#instVars : [
 		'instance',
 		'interpreted'
 	],
-	#category : #'Platypus-HW-interpreter'
+	#category : 'Platypus-HW-interpreter',
+	#package : 'Platypus',
+	#tag : 'HW-interpreter'
 }
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 PlatypusExpressInterpretorStackAppInst class >> instance: anInstance interpretor: anInterpretor [ 
 	^ self new instance: anInstance interpretor: anInterpretor
 ]
 
-{ #category : #interpreting }
+{ #category : 'interpreting' }
 PlatypusExpressInterpretorStackAppInst >> addRecordsToExternalRepresentation: externalRep [
 	instance asExternalRepresentation records do: [:rec | rec copy addRecordsToExternalRepresentation: externalRep]
 ]
 
-{ #category : #interpreting }
+{ #category : 'interpreting' }
 PlatypusExpressInterpretorStackAppInst >> assign: aValue [ 
 	| varDomain assigned |
 	self interpretor checkAssignmentOf: aValue to: self var.
@@ -27,7 +29,7 @@ PlatypusExpressInterpretorStackAppInst >> assign: aValue [
 	^ self fastAssign: assigned
 ]
 
-{ #category : #copying }
+{ #category : 'copying' }
 PlatypusExpressInterpretorStackAppInst >> deepCopy [
 	| n |
 	n := super deepCopy.
@@ -35,29 +37,29 @@ PlatypusExpressInterpretorStackAppInst >> deepCopy [
 	^ n
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusExpressInterpretorStackAppInst >> domain [
 	^ self instance computedDomain
 
 ]
 
-{ #category : #interpreting }
+{ #category : 'interpreting' }
 PlatypusExpressInterpretorStackAppInst >> fastAssign: aValue [ 
 	instance := aValue.
 	^ instance
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusExpressInterpretorStackAppInst >> instance [
 	^instance
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusExpressInterpretorStackAppInst >> instance: anExternalRep [
 	instance := anExternalRep
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusExpressInterpretorStackAppInst >> instance: anInstance interpretor: anInterpretor [ 
 	self instance: anInstance.
 	super
@@ -65,7 +67,7 @@ PlatypusExpressInterpretorStackAppInst >> instance: anInstance interpretor: anIn
 		interpretor: anInterpretor
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusExpressInterpretorStackAppInst >> val [
 	| value attrDomain valueDomain  |
 	interpreted ifNil: 
@@ -103,7 +105,7 @@ PlatypusExpressInterpretorStackAppInst >> val [
 	^ interpreted
 ]
 
-{ #category : #copying }
+{ #category : 'copying' }
 PlatypusExpressInterpretorStackAppInst >> veryDeepCopy [
 	| n |
 	n := super veryDeepCopy.

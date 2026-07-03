@@ -1,20 +1,22 @@
 Class {
-	#name : #PlatypusExpressStatement2PharoTranslater,
-	#superclass : #PlatypusExpressStatement2SmalltalkTranslater,
-	#category : #'Platypus-HW-translater-private'
+	#name : 'PlatypusExpressStatement2PharoTranslater',
+	#superclass : 'PlatypusExpressStatement2SmalltalkTranslater',
+	#category : 'Platypus-HW-translater-private',
+	#package : 'Platypus',
+	#tag : 'HW-translater-private'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusExpressStatement2PharoTranslater class >> expressionTranslaterClassName [
 	^ #PlatypusExpressExpression2PharoTranslater
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusExpressStatement2PharoTranslater class >> statementTranslaterClassName [
 	^ #PlatypusExpressStatement2PharoTranslater
 ]
 
-{ #category : #'visit dictionary schema' }
+{ #category : 'visit dictionary schema' }
 PlatypusExpressStatement2PharoTranslater >> acceptNativeAlgorithm: e [ 
 	| code |
 	(code := e pharoCode)

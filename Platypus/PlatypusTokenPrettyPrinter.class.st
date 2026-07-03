@@ -1,6 +1,6 @@
 Class {
-	#name : #PlatypusTokenPrettyPrinter,
-	#superclass : #Object,
+	#name : 'PlatypusTokenPrettyPrinter',
+	#superclass : 'Object',
 	#instVars : [
 		'delimLevel',
 		'sourceTokenList',
@@ -15,27 +15,29 @@ Class {
 		'currentLineno',
 		'currentLine'
 	],
-	#category : #'Platypus-HW-CodeTokens'
+	#category : 'Platypus-HW-CodeTokens',
+	#package : 'Platypus',
+	#tag : 'HW-CodeTokens'
 }
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 PlatypusTokenPrettyPrinter >> acceptAssign: n [ 
 	self acceptOperator: n
 ]
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 PlatypusTokenPrettyPrinter >> acceptBuiltinFunction: n [ 
 
 	self acceptKeyword: n.
 
 ]
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 PlatypusTokenPrettyPrinter >> acceptBuiltinProcedure: n [ 
 	self acceptKeyword: n
 ]
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 PlatypusTokenPrettyPrinter >> acceptCloseDelim: n [ 
 	currentLevel := currentLevel - 1.
 	delimLevel := delimLevel - 1.
@@ -44,26 +46,26 @@ PlatypusTokenPrettyPrinter >> acceptCloseDelim: n [
 	self printWhiteSpace]
 ]
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 PlatypusTokenPrettyPrinter >> acceptCloseKeyword: n [ 
 	currentLevel := currentLevel - 1.
 	self acceptToken: n.
 	self printWhiteSpace
 ]
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 PlatypusTokenPrettyPrinter >> acceptDelim: n [ 
 	self acceptToken: n.
 	self printWhiteSpace
 ]
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 PlatypusTokenPrettyPrinter >> acceptDomain: n [ 
 	self acceptToken: n.
 		self printWhiteSpace
 ]
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 PlatypusTokenPrettyPrinter >> acceptEol: n [ 
 	currentLine dumpOn: resultTokenList.
 	eolPrinted := eolPrinted + 1.
@@ -71,7 +73,7 @@ PlatypusTokenPrettyPrinter >> acceptEol: n [
 	currentLine reset
 ]
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 PlatypusTokenPrettyPrinter >> acceptIdentifier: n [ 
 	| printit nextNode prevNonBlank prevOpen |
 	prevNonBlank := sourceTokenList previousNonBlankFrom: currentNode previous.
@@ -90,12 +92,12 @@ PlatypusTokenPrettyPrinter >> acceptIdentifier: n [
 		ifTrue: [self printWhiteSpace]
 ]
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 PlatypusTokenPrettyPrinter >> acceptIndent: n [ 
 	currentLine add: n
 ]
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 PlatypusTokenPrettyPrinter >> acceptKeyword: n [ 
 	| prevKeyword |
 	(n is: #(#subtype #abstract #realization))
@@ -108,7 +110,7 @@ PlatypusTokenPrettyPrinter >> acceptKeyword: n [
 	self printWhiteSpace
 ]
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 PlatypusTokenPrettyPrinter >> acceptLiteral: n [ 
 	| prevNonBlank prevOpen |
 	(prevNonBlank := sourceTokenList previousNonBlankFrom: currentNode previous)
@@ -120,17 +122,17 @@ PlatypusTokenPrettyPrinter >> acceptLiteral: n [
 	self printWhiteSpace
 ]
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 PlatypusTokenPrettyPrinter >> acceptLogical: n [ 
 	self acceptLiteral: n
 ]
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 PlatypusTokenPrettyPrinter >> acceptNumber: n [ 
 	self acceptLiteral: n
 ]
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 PlatypusTokenPrettyPrinter >> acceptOpenDelim: n [ 
 	self acceptToken: n.
 	self printWhiteSpace.
@@ -138,12 +140,12 @@ PlatypusTokenPrettyPrinter >> acceptOpenDelim: n [
 	delimLevel := delimLevel + 1
 ]
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 PlatypusTokenPrettyPrinter >> acceptOperator: n [ 
 	self acceptToken: n. self printWhiteSpace
 ]
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 PlatypusTokenPrettyPrinter >> acceptPlus: n [ 
 	(currentNode previous notNil
 			and: [currentNode previous  isString])
@@ -154,25 +156,25 @@ PlatypusTokenPrettyPrinter >> acceptPlus: n [
 	self acceptOperator: n
 ]
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 PlatypusTokenPrettyPrinter >> acceptRemark: n [ 
 	self acceptToken: n
 ]
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 PlatypusTokenPrettyPrinter >> acceptSemicolon: n [ 
 	self acceptToken: n.
 	delimLevel == 0
 		ifTrue: [self printEol] ifFalse: [self printWhiteSpace]
 ]
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 PlatypusTokenPrettyPrinter >> acceptString: n [ 
 	self acceptLiteral: n.
 
 ]
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 PlatypusTokenPrettyPrinter >> acceptTailRemark: n [ 
 	| printspace |
 	printspace := true.
@@ -190,17 +192,17 @@ PlatypusTokenPrettyPrinter >> acceptTailRemark: n [
 		ifFalse: [self printEol]
 ]
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 PlatypusTokenPrettyPrinter >> acceptToken: n [ 
 	currentLine add: n level: currentLevel
 ]
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 PlatypusTokenPrettyPrinter >> acceptWhiteSpace: n [ 
 	currentLine add: n
 ]
 
-{ #category : #'pretty printing' }
+{ #category : 'pretty printing' }
 PlatypusTokenPrettyPrinter >> prettyPrint [
 	| node |
 	node := startNode.
@@ -215,7 +217,7 @@ PlatypusTokenPrettyPrinter >> prettyPrint [
 	node := node next] repeat
 ]
 
-{ #category : #'pretty printing' }
+{ #category : 'pretty printing' }
 PlatypusTokenPrettyPrinter >> prettyPrint: aTokenList [ 
 	^ self
 		prettyPrint: aTokenList
@@ -223,7 +225,7 @@ PlatypusTokenPrettyPrinter >> prettyPrint: aTokenList [
 		maxLineWidth: nil
 ]
 
-{ #category : #'pretty printing' }
+{ #category : 'pretty printing' }
 PlatypusTokenPrettyPrinter >> prettyPrint: aTokenList font: aFont maxLineWidth: aSize [ 
 	^ self
 		prettyPrint: aTokenList
@@ -233,13 +235,13 @@ PlatypusTokenPrettyPrinter >> prettyPrint: aTokenList font: aFont maxLineWidth: 
 		maxLineWidth: aSize
 ]
 
-{ #category : #'pretty printing' }
+{ #category : 'pretty printing' }
 PlatypusTokenPrettyPrinter >> prettyPrint: aTokenList from: aStartNode to: aStopNode font: aFont maxLineWidth: aSize [ 
 ^ self prettyPrint: aTokenList from: aStartNode to: aStopNode startLevel: 0 font: aFont maxLineWidth: aSize 
 
 ]
 
-{ #category : #'pretty printing' }
+{ #category : 'pretty printing' }
 PlatypusTokenPrettyPrinter >> prettyPrint: aTokenList from: aStartNode to: aStopNode startLevel: anInteger font: aFont maxLineWidth: aSize [ 
 	sourceTokenList := aTokenList isNil 
 				ifTrue: [PlatypusTokenList new]
@@ -260,13 +262,13 @@ PlatypusTokenPrettyPrinter >> prettyPrint: aTokenList from: aStartNode to: aStop
 	^self prettyPrint
 ]
 
-{ #category : #'pretty printing' }
+{ #category : 'pretty printing' }
 PlatypusTokenPrettyPrinter >> prettyPrintNode: aTokenListNode [ 
 	currentNode := aTokenListNode.
 	aTokenListNode  accept: self
 ]
 
-{ #category : #'pretty printing' }
+{ #category : 'pretty printing' }
 PlatypusTokenPrettyPrinter >> printEol [
 	| printit |
 	printit := true.
@@ -278,7 +280,7 @@ PlatypusTokenPrettyPrinter >> printEol [
 		ifTrue: [PlatypusEolToken new accept: self]
 ]
 
-{ #category : #'pretty printing' }
+{ #category : 'pretty printing' }
 PlatypusTokenPrettyPrinter >> printWhiteSpace [
 	| printit nextNode |
 	printit := true.

@@ -1,28 +1,30 @@
 Class {
-	#name : #StepInstance,
-	#superclass : #StepCoreObject,
+	#name : 'StepInstance',
+	#superclass : 'StepCoreObject',
 	#instVars : [
 		'label'
 	],
-	#category : #'Platypus-STEP-core'
+	#category : 'Platypus-STEP-core',
+	#package : 'Platypus',
+	#tag : 'STEP-core'
 }
 
-{ #category : #classification }
+{ #category : 'classification' }
 StepInstance >> isExternalRepresentation [
 	^ false
 ]
 
-{ #category : #classification }
+{ #category : 'classification' }
 StepInstance >> isInternalRepresentation [
 	^ false
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 StepInstance >> label [
 	^label
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 StepInstance >> label: anObject [
 	label := anObject
 ]

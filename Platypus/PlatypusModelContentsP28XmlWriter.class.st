@@ -1,16 +1,18 @@
 Class {
-	#name : #PlatypusModelContentsP28XmlWriter,
-	#superclass : #PlatypusStepOnePassAbstractVisitor,
+	#name : 'PlatypusModelContentsP28XmlWriter',
+	#superclass : 'PlatypusStepOnePassAbstractVisitor',
 	#instVars : [
 		'outStream',
 		'p21Syntax',
 		'tokenClassifier',
 		'modelContents'
 	],
-	#category : #'Platypus-HW-visitors'
+	#category : 'Platypus-HW-visitors',
+	#package : 'Platypus',
+	#tag : 'HW-visitors'
 }
 
-{ #category : #'visit aggregate data schema' }
+{ #category : 'visit aggregate data schema' }
 PlatypusModelContentsP28XmlWriter >> acceptAggregateData: e [ 
 	self nextPut: $(.
 	self halt.
@@ -19,7 +21,7 @@ PlatypusModelContentsP28XmlWriter >> acceptAggregateData: e [
 	self nextPut: $)
 ]
 
-{ #category : #'visit aggregate data schema' }
+{ #category : 'visit aggregate data schema' }
 PlatypusModelContentsP28XmlWriter >> acceptAggregateInstance: e [ 
 	self nextPut: $(.
 	e contents acceptTry: self 
@@ -27,7 +29,7 @@ PlatypusModelContentsP28XmlWriter >> acceptAggregateInstance: e [
 	self nextPut: $)
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusModelContentsP28XmlWriter >> acceptAllParameters: parameters definition: definition fromSimpleRecord: fromSimpleRecord [ 
 	| pos attributes attr |
 	(p21Syntax
@@ -59,12 +61,12 @@ PlatypusModelContentsP28XmlWriter >> acceptAllParameters: parameters definition:
 					outStream nextPut: Character cr]]
 ]
 
-{ #category : #'visit expressions schema' }
+{ #category : 'visit expressions schema' }
 PlatypusModelContentsP28XmlWriter >> acceptEConstant: e [ 
 	self nextPutAll: 'E' 
 ]
 
-{ #category : #'visit population schema' }
+{ #category : 'visit population schema' }
 PlatypusModelContentsP28XmlWriter >> acceptEntityDefinitionReference: e [ 
 	e ref ifNil: 
 			[outStream withStyleFor: PlatypusUnresolvedReferenceToken
@@ -74,18 +76,18 @@ PlatypusModelContentsP28XmlWriter >> acceptEntityDefinitionReference: e [
 				do: [outStream nextPutAll: e ref name asUppercase]]
 ]
 
-{ #category : #'visit expressions schema' }
+{ #category : 'visit expressions schema' }
 PlatypusModelContentsP28XmlWriter >> acceptEnumerationValue: e [ 
 	self nextPutAll: '.', e element asUppercase, '.'.
 
 ]
 
-{ #category : #'visit population schema' }
+{ #category : 'visit population schema' }
 PlatypusModelContentsP28XmlWriter >> acceptExternalGroupRepresentation: e [ 
  	self acceptExternalInstance: e
 ]
 
-{ #category : #'visit population schema' }
+{ #category : 'visit population schema' }
 PlatypusModelContentsP28XmlWriter >> acceptExternalInstance: e [ 
 	self acceptGenericInstance: e.
 	self nextPutAll: '('.
@@ -98,17 +100,17 @@ PlatypusModelContentsP28XmlWriter >> acceptExternalInstance: e [
 	self nextPutAll: ');'
 ]
 
-{ #category : #'visit population schema' }
+{ #category : 'visit population schema' }
 PlatypusModelContentsP28XmlWriter >> acceptExternalRepresentation: e [ 
 	self acceptExternalInstance: e
 ]
 
-{ #category : #'visit expressions schema' }
+{ #category : 'visit expressions schema' }
 PlatypusModelContentsP28XmlWriter >> acceptFalseConstant: e [ 
 	self nextPutAll: '.F.'
 ]
 
-{ #category : #'visit population schema' }
+{ #category : 'visit population schema' }
 PlatypusModelContentsP28XmlWriter >> acceptFileDescription: e [ 
 	self nextPutAll: 'FILE_DESCRIPTION(('.
 	e description
@@ -119,7 +121,7 @@ PlatypusModelContentsP28XmlWriter >> acceptFileDescription: e [
 	self nextPutAll: ');'.
 ]
 
-{ #category : #'visit population schema' }
+{ #category : 'visit population schema' }
 PlatypusModelContentsP28XmlWriter >> acceptFileName: e [ 
 	self nextPutAll: 'FILE_NAME('.
 	self nextPutAllString: e name.
@@ -142,7 +144,7 @@ PlatypusModelContentsP28XmlWriter >> acceptFileName: e [
 	self nextPutAll: ');'
 ]
 
-{ #category : #'visit population schema' }
+{ #category : 'visit population schema' }
 PlatypusModelContentsP28XmlWriter >> acceptFileSchema: e [ 
 	self nextPutAll: 'FILE_SCHEMA(('.
 	e schemaIdentifiers
@@ -151,7 +153,7 @@ PlatypusModelContentsP28XmlWriter >> acceptFileSchema: e [
 	self nextPutAll: '));'
 ]
 
-{ #category : #'visit population schema' }
+{ #category : 'visit population schema' }
 PlatypusModelContentsP28XmlWriter >> acceptGenericInstance: e [ 
 	outStream withStyleFor: PlatypusDelimToken
 		do: 
@@ -161,7 +163,7 @@ PlatypusModelContentsP28XmlWriter >> acceptGenericInstance: e [
 	e instanceScope ifNotNil: [e instanceScope acceptTry: self]
 ]
 
-{ #category : #'visit population schema' }
+{ #category : 'visit population schema' }
 PlatypusModelContentsP28XmlWriter >> acceptInstanceScope: e [ 
 	self nextPutAll: '&SCOPE\' withCRs.
 	e owned
@@ -176,17 +178,17 @@ PlatypusModelContentsP28XmlWriter >> acceptInstanceScope: e [
 		ifFalse: [self nextPut: Character cr]
 ]
 
-{ #category : #'visit expressions schema' }
+{ #category : 'visit expressions schema' }
 PlatypusModelContentsP28XmlWriter >> acceptIntegerLiteral: e [ 
 	self nextPutAll: e val printString
 ]
 
-{ #category : #'visit population schema' }
+{ #category : 'visit population schema' }
 PlatypusModelContentsP28XmlWriter >> acceptInternalGroupRepresentation: e [ 
 	self acceptInternalInstance: e
 ]
 
-{ #category : #'visit population schema' }
+{ #category : 'visit population schema' }
 PlatypusModelContentsP28XmlWriter >> acceptInternalInstance: e [ 
 	self acceptGenericInstance: e.
 	self acceptTry: e definition.
@@ -198,33 +200,33 @@ PlatypusModelContentsP28XmlWriter >> acceptInternalInstance: e [
 	self nextPutAll: ');'
 ]
 
-{ #category : #'visit population schema' }
+{ #category : 'visit population schema' }
 PlatypusModelContentsP28XmlWriter >> acceptInternalRepresentation: e [ 
 	self acceptInternalInstance: e 
 
 ]
 
-{ #category : #'visit expressions schema' }
+{ #category : 'visit expressions schema' }
 PlatypusModelContentsP28XmlWriter >> acceptMissingValue: e [ 
 	self nextPut: $$
 ]
 
-{ #category : #'visit expressions schema' }
+{ #category : 'visit expressions schema' }
 PlatypusModelContentsP28XmlWriter >> acceptPiConstant: e [ 
 	self nextPutAll: 'PI'
 ]
 
-{ #category : #'visit expressions schema' }
+{ #category : 'visit expressions schema' }
 PlatypusModelContentsP28XmlWriter >> acceptRealLiteral: e [ 
 	self nextPutAll: e val printString
 ]
 
-{ #category : #'visit expressions schema' }
+{ #category : 'visit expressions schema' }
 PlatypusModelContentsP28XmlWriter >> acceptRedefinedAttributeValue: e [ 
 	self nextPut: $*
 ]
 
-{ #category : #'visit population schema' }
+{ #category : 'visit population schema' }
 PlatypusModelContentsP28XmlWriter >> acceptSimpleRecord: e [ 
 	self acceptTry: e definition.
 	(p21Syntax not
@@ -241,17 +243,17 @@ PlatypusModelContentsP28XmlWriter >> acceptSimpleRecord: e [
 	self nextPut: $)
 ]
 
-{ #category : #'visit expressions schema' }
+{ #category : 'visit expressions schema' }
 PlatypusModelContentsP28XmlWriter >> acceptStringLiteral: e [ 
 	self nextPutAllString: e asClearText
 ]
 
-{ #category : #'visit expressions schema' }
+{ #category : 'visit expressions schema' }
 PlatypusModelContentsP28XmlWriter >> acceptTrueConstant: e [ 
 	self nextPutAll: '.T.'
 ]
 
-{ #category : #'visit expressions schema' }
+{ #category : 'visit expressions schema' }
 PlatypusModelContentsP28XmlWriter >> acceptTypedExpression: e [ 
 	e domain
 		ifNotNil: [self nextPutAll: e domain name asUppercase;
@@ -261,12 +263,12 @@ PlatypusModelContentsP28XmlWriter >> acceptTypedExpression: e [
 		ifNotNil: [self nextPut: $)]
 ]
 
-{ #category : #'visit expressions schema' }
+{ #category : 'visit expressions schema' }
 PlatypusModelContentsP28XmlWriter >> acceptUnknownConstant: e [ 
 	self nextPutAll: '.U.'
 ]
 
-{ #category : #'visit population schema' }
+{ #category : 'visit population schema' }
 PlatypusModelContentsP28XmlWriter >> acceptUserDefinedApplicationInstance: e [ 
 	self nextPut: $#;
 		 nextPutAll: e persistentLabel;
@@ -278,7 +280,7 @@ PlatypusModelContentsP28XmlWriter >> acceptUserDefinedApplicationInstance: e [
 	self nextPutAll: ');'
 ]
 
-{ #category : #'visit population schema' }
+{ #category : 'visit population schema' }
 PlatypusModelContentsP28XmlWriter >> acceptUserDefinedHeaderInstance: e [ 
 	self nextPutAll: e name;
 		 nextPut: $(.
@@ -287,7 +289,7 @@ PlatypusModelContentsP28XmlWriter >> acceptUserDefinedHeaderInstance: e [
 	self nextPutAll: ');'
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusModelContentsP28XmlWriter >> doSimpleTagNamed: tagName while: aBlock [ 
 	outStream nextPutAll: '<'.
 	outStream withStyleFor: PlatypusKeywordToken
@@ -300,24 +302,24 @@ PlatypusModelContentsP28XmlWriter >> doSimpleTagNamed: tagName while: aBlock [
 	outStream nextPutAll: '>'
 ]
 
-{ #category : #'initialize/release' }
+{ #category : 'initialize/release' }
 PlatypusModelContentsP28XmlWriter >> initialize [
 	super initialize.
 	p21Syntax := true.
 	tokenClassifier := PlatypusExpressTokenClassifier new
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusModelContentsP28XmlWriter >> modelContents [
 	^modelContents
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusModelContentsP28XmlWriter >> modelContents: anObject [
 	modelContents := anObject
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusModelContentsP28XmlWriter >> nextPut: aCharacter [
 	| tokenClass |
 	tokenClass := tokenClassifier tokenClassFromCharacter: aCharacter
@@ -325,7 +327,7 @@ PlatypusModelContentsP28XmlWriter >> nextPut: aCharacter [
 	outStream withStyleFor: tokenClass do: [outStream nextPut: aCharacter]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusModelContentsP28XmlWriter >> nextPutAll: aString [ 
 	| tokenClass |
 	tokenClass := tokenClassifier
@@ -336,23 +338,23 @@ PlatypusModelContentsP28XmlWriter >> nextPutAll: aString [
 		do: [outStream nextPutAll: aString]
 ]
 
-{ #category : #'visit generic' }
+{ #category : 'visit generic' }
 PlatypusModelContentsP28XmlWriter >> nextPutAllString: aString [ 
 	self nextPutAll: ''''
 			, (aString copyReplaceAll: '''' with: '''''') , ''''
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusModelContentsP28XmlWriter >> outStream [
 	^outStream
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusModelContentsP28XmlWriter >> outStream: anObject [
 	outStream := anObject
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusModelContentsP28XmlWriter >> stream: anOutputStream modelContents: aModelContents p21Syntax: useP21Syntax [ 
 	| hinstances instances dateTime |
 	self modelContents: aModelContents.
@@ -395,7 +397,7 @@ PlatypusModelContentsP28XmlWriter >> stream: anOutputStream modelContents: aMode
 				do: [outStream nextPutAll: 'ENDSEC;\END-ISO-10303-21;\' withCRs]]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusModelContentsP28XmlWriter >> stream: anOutputStream modelContents: aModelContents values: values p21Syntax: useP21Syntax [ 
 	self modelContents: aModelContents.
 	outStream := anOutputStream.

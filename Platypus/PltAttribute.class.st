@@ -11,71 +11,73 @@ END_ENTITY;
 </ISO10303-11-EXPRESS>
 "
 Class {
-	#name : #PltAttribute,
-	#superclass : #PltDictionaryInstance,
+	#name : 'PltAttribute',
+	#superclass : 'PltDictionaryInstance',
 	#instVars : [
 		'domain',
 		'redeclaring',
 		'name'
 	],
-	#category : #'Platypus-PlatypusDictionarySchemaSchema'
+	#category : 'Platypus-PlatypusDictionarySchemaSchema',
+	#package : 'Platypus',
+	#tag : 'PlatypusDictionarySchemaSchema'
 }
 
-{ #category : #'platypus-generated-context-accessing' }
+{ #category : 'platypus-generated-context-accessing' }
 PltAttribute class >> context [ ^ self schemaDefinition context
 
 
 ]
 
-{ #category : #'platypus-generated-platypus-signature' }
+{ #category : 'platypus-generated-platypus-signature' }
 PltAttribute class >> iso10303P11Translater [
 	^ 'Platypus (c) LISYC EA3883, Universite de Bretagne occidentale. Brest.'
 
 
 ]
 
-{ #category : #'platypus-generated-meta-data-accessing' }
+{ #category : 'platypus-generated-meta-data-accessing' }
 PltAttribute class >> platypusMetaData [ 	^ self schemaDefinition metaDataFor: self name asSymbol
 
 
 ]
 
-{ #category : #'platypus-generated-meta-data-accessing' }
+{ #category : 'platypus-generated-meta-data-accessing' }
 PltAttribute class >> schemaDefinition [
 	^ PltPlatypusDictionarySchemaSchemaDefinition singleton
 
 
 ]
 
-{ #category : #'platypus-generated-meta-data-accessing' }
+{ #category : 'platypus-generated-meta-data-accessing' }
 PltAttribute class >> schemaInstance [
 	^ PltPlatypusMetaSchemasSchemaInstance singleton
 
 
 ]
 
-{ #category : #'platypus-generated-platypus-signature' }
+{ #category : 'platypus-generated-platypus-signature' }
 PltAttribute class >> translatedFromISO10303P11 [
 	^ true
 
 
 ]
 
-{ #category : #'platypus-generated-platypus-signature' }
+{ #category : 'platypus-generated-platypus-signature' }
 PltAttribute class >> vwNamespaceName [
 	^ #Platypus
 
 
 ]
 
-{ #category : #'platypus-generated-visiting' }
+{ #category : 'platypus-generated-visiting' }
 PltAttribute >> accept: aVisitor [
 	^ aVisitor acceptAttribute: self
 
 
 ]
 
-{ #category : #'platypus-generated-copying' }
+{ #category : 'platypus-generated-copying' }
 PltAttribute >> attributeCopyTo: another [
 	another fastSetName: self name.
 	another fastSetOwner: self owner.
@@ -85,7 +87,7 @@ PltAttribute >> attributeCopyTo: another [
 
 ]
 
-{ #category : #'platypus-generated-group-accessing' }
+{ #category : 'platypus-generated-group-accessing' }
 PltAttribute >> attributeFromValues: values [
 	| valuesloc |
 	valuesloc := values asOrderedCollection.
@@ -98,7 +100,7 @@ PltAttribute >> attributeFromValues: values [
 
 ]
 
-{ #category : #'platypus-generated-group-accessing' }
+{ #category : 'platypus-generated-group-accessing' }
 PltAttribute >> attributeToValues: values [
 	values add: self name.
 	values add: self owner.
@@ -109,132 +111,132 @@ PltAttribute >> attributeToValues: values [
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 PltAttribute >> domain [
 	^ domain
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 PltAttribute >> domain: aPltBaseType [
 	domain := aPltBaseType
 
 
 ]
 
-{ #category : #'platypus-generated-with-context-accessing' }
+{ #category : 'platypus-generated-with-context-accessing' }
 PltAttribute >> domainUsingContext: aContext [
 	^ self domain
 
 
 ]
 
-{ #category : #'platypus-generated-fast-set-accessing' }
+{ #category : 'platypus-generated-fast-set-accessing' }
 PltAttribute >> fastSetDomain: aPltBaseType [
 	domain := aPltBaseType
 
 
 ]
 
-{ #category : #'platypus-generated-fast-set-accessing' }
+{ #category : 'platypus-generated-fast-set-accessing' }
 PltAttribute >> fastSetName: aString [
 	name := aString
 
 
 ]
 
-{ #category : #'platypus-generated-fast-set-accessing' }
+{ #category : 'platypus-generated-fast-set-accessing' }
 PltAttribute >> fastSetOwner: aPltEntityDefinition [
 	owner := aPltEntityDefinition
 
 
 ]
 
-{ #category : #'platypus-generated-fast-set-accessing' }
+{ #category : 'platypus-generated-fast-set-accessing' }
 PltAttribute >> fastSetRedeclaring: aPltAttributeReference [
 	redeclaring := aPltAttributeReference
 
 
 ]
 
-{ #category : #'platypus-generated-group-accessing' }
+{ #category : 'platypus-generated-group-accessing' }
 PltAttribute >> fromValues: values [
 	^ self attributeFromValues: (super fromValues: values)
 
 
 ]
 
-{ #category : #'platypus-generated-classifying' }
+{ #category : 'platypus-generated-classifying' }
 PltAttribute >> isPltAttribute [
 	^ true
 
 
 ]
 
-{ #category : #'platypus-generated-group-accessing' }
+{ #category : 'platypus-generated-group-accessing' }
 PltAttribute >> localFromValues: values [
 	^ self attributeFromValues: values
 
 
 ]
 
-{ #category : #'platypus-generated-group-accessing' }
+{ #category : 'platypus-generated-group-accessing' }
 PltAttribute >> localToValues: values [
 	^ self attributeToValues: values
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 PltAttribute >> name [
 	^ name
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 PltAttribute >> name: aString [
 	name := aString
 
 
 ]
 
-{ #category : #'platypus-generated-group-accessing' }
+{ #category : 'platypus-generated-group-accessing' }
 PltAttribute >> name: aString owner: aPltEntityDefinition domain: aPltBaseType redeclaring: aPltAttributeReference [ 	self setName:aString.	self setOwner:aPltEntityDefinition.	self setDomain:aPltBaseType.	self setRedeclaring:aPltAttributeReference.
 
 
 ]
 
-{ #category : #'platypus-generated-with-context-accessing' }
+{ #category : 'platypus-generated-with-context-accessing' }
 PltAttribute >> nameUsingContext: aContext [
 	^ self name
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 PltAttribute >> owner [
 	^ owner
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 PltAttribute >> owner: aPltEntityDefinition [
 	owner := aPltEntityDefinition
 
 
 ]
 
-{ #category : #'platypus-generated-with-context-accessing' }
+{ #category : 'platypus-generated-with-context-accessing' }
 PltAttribute >> ownerUsingContext: aContext [
 	^ self owner
 
 
 ]
 
-{ #category : #'platypus-generated-copying' }
+{ #category : 'platypus-generated-copying' }
 PltAttribute >> pltCopyGroup: aClassSymbol to: anObject [
 	self class name == aClassSymbol
 		ifTrue: [ self pltCopyTo: anObject ]
@@ -243,7 +245,7 @@ PltAttribute >> pltCopyGroup: aClassSymbol to: anObject [
 
 ]
 
-{ #category : #'platypus-generated-copying' }
+{ #category : 'platypus-generated-copying' }
 PltAttribute >> pltCopyTo: another [
 	super pltCopyTo: another.
 	self attributeCopyTo: another
@@ -251,63 +253,63 @@ PltAttribute >> pltCopyTo: another [
 
 ]
 
-{ #category : #'platypus-generated-copying' }
+{ #category : 'platypus-generated-copying' }
 PltAttribute >> pltLocalCopyTo: another [
 	self attributeCopyTo: another
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 PltAttribute >> redeclaring [
 	^ redeclaring
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 PltAttribute >> redeclaring: aPltAttributeReference [
 	redeclaring := aPltAttributeReference
 
 
 ]
 
-{ #category : #'platypus-generated-with-context-accessing' }
+{ #category : 'platypus-generated-with-context-accessing' }
 PltAttribute >> redeclaringUsingContext: aContext [
 	^ self redeclaring
 
 
 ]
 
-{ #category : #'platypus-generated-set-accessing' }
+{ #category : 'platypus-generated-set-accessing' }
 PltAttribute >> setDomain: aPltBaseType [
 	self domain: aPltBaseType
 
 
 ]
 
-{ #category : #'platypus-generated-set-accessing' }
+{ #category : 'platypus-generated-set-accessing' }
 PltAttribute >> setName: aString [
 	self name: aString
 
 
 ]
 
-{ #category : #'platypus-generated-set-accessing' }
+{ #category : 'platypus-generated-set-accessing' }
 PltAttribute >> setOwner: aPltEntityDefinition [
 	self owner: aPltEntityDefinition
 
 
 ]
 
-{ #category : #'platypus-generated-set-accessing' }
+{ #category : 'platypus-generated-set-accessing' }
 PltAttribute >> setRedeclaring: aPltAttributeReference [
 	self redeclaring: aPltAttributeReference
 
 
 ]
 
-{ #category : #'platypus-generated-initializing' }
+{ #category : 'platypus-generated-initializing' }
 PltAttribute >> stepInitialize [
 	super stepInitialize.
 	name := ''.
@@ -318,7 +320,7 @@ PltAttribute >> stepInitialize [
 
 ]
 
-{ #category : #'platypus-generated-group-accessing' }
+{ #category : 'platypus-generated-group-accessing' }
 PltAttribute >> toValues: values [
 	^ self attributeToValues: (super toValues: values)
 

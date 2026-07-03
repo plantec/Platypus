@@ -1,13 +1,15 @@
 Class {
-	#name : #PlatypusExpressExpression2AdaTranslater,
-	#superclass : #PlatypusExpressTranslater,
+	#name : 'PlatypusExpressExpression2AdaTranslater',
+	#superclass : 'PlatypusExpressTranslater',
 	#instVars : [
 		'receiverName'
 	],
-	#category : #'Platypus-HW-translater-private'
+	#category : 'Platypus-HW-translater-private',
+	#package : 'Platypus',
+	#tag : 'HW-translater-private'
 }
 
-{ #category : #'visit expressions schema' }
+{ #category : 'visit expressions schema' }
 PlatypusExpressExpression2AdaTranslater >> acceptAggregateInitializer: e [ 
 	self flag: 'Not implemented'.
 	e contents isEmpty ifTrue: [self nextPutAll: ' Array new']
@@ -18,7 +20,7 @@ PlatypusExpressExpression2AdaTranslater >> acceptAggregateInitializer: e [
 	self nextPutAll: '; yourself) ) ']
 ]
 
-{ #category : #'visit expressions schema' }
+{ #category : 'visit expressions schema' }
 PlatypusExpressExpression2AdaTranslater >> acceptAggregateInitializerElement: e [ 
 	| vname |
 	self flag: 'Not implemented'.
@@ -36,13 +38,13 @@ PlatypusExpressExpression2AdaTranslater >> acceptAggregateInitializerElement: e 
 
 ]
 
-{ #category : #'visit statements schema' }
+{ #category : 'visit statements schema' }
 PlatypusExpressExpression2AdaTranslater >> acceptAliasStatementVariable: e [ 
 	self nextPutAll: '( ', e name, ' )'.
 
 ]
 
-{ #category : #'visit expressions schema' }
+{ #category : 'visit expressions schema' }
 PlatypusExpressExpression2AdaTranslater >> acceptAndExpression: e [ 
 	self nextPutAll: ' ( '.
 	self acceptTry: e leftExpr.
@@ -51,7 +53,7 @@ PlatypusExpressExpression2AdaTranslater >> acceptAndExpression: e [
 	self nextPutAll: ' )  '
 ]
 
-{ #category : #'visit statements schema' }
+{ #category : 'visit statements schema' }
 PlatypusExpressExpression2AdaTranslater >> acceptAssignable: e [ 
 	e qualifiers
 		ifEmpty: [self nextPutAll: '( '.
@@ -70,7 +72,7 @@ PlatypusExpressExpression2AdaTranslater >> acceptAssignable: e [
 					self nextPutAll: ') ']]
 ]
 
-{ #category : #'visit expressions schema' }
+{ #category : 'visit expressions schema' }
 PlatypusExpressExpression2AdaTranslater >> acceptAttributeQualifier: e [ 
 	| contextvn selector tmpAttr |
 	self flag: 'Not implemented'.
@@ -82,7 +84,7 @@ PlatypusExpressExpression2AdaTranslater >> acceptAttributeQualifier: e [
 	self nextPutAll: selector , ' ' , contextvn
 ]
 
-{ #category : #'visit expressions schema' }
+{ #category : 'visit expressions schema' }
 PlatypusExpressExpression2AdaTranslater >> acceptBinaryExpression: e [ 
 	self nextPutAll: ' ( '.
 	self acceptTry: e leftExpr.
@@ -91,59 +93,59 @@ PlatypusExpressExpression2AdaTranslater >> acceptBinaryExpression: e [
 	self nextPutAll: ' )  '
 ]
 
-{ #category : #'visit dictionary schema' }
+{ #category : 'visit dictionary schema' }
 PlatypusExpressExpression2AdaTranslater >> acceptConstantDefinition: e [ 
 	self nextPutAll: '( ', e name, ' )'.
 
 ]
 
-{ #category : #'visit dictionary schema' }
+{ #category : 'visit dictionary schema' }
 PlatypusExpressExpression2AdaTranslater >> acceptDerivedAttribute: e [ 
 	self nextPutAll: '( ', e name, ' )'.
 
 ]
 
-{ #category : #'visit expressions schema' }
+{ #category : 'visit expressions schema' }
 PlatypusExpressExpression2AdaTranslater >> acceptEConstant: e [ 
 	self nextPutAll: ' 2.71828 '
 
 ]
 
-{ #category : #'visit expressions schema' }
+{ #category : 'visit expressions schema' }
 PlatypusExpressExpression2AdaTranslater >> acceptElementQualifier: e [ 
 	self flag: 'Not implemented'.
 	self nextPutAll: '  pltAt:  '.
 	self acceptTry: e index
 ]
 
-{ #category : #'visit expressions schema' }
+{ #category : 'visit expressions schema' }
 PlatypusExpressExpression2AdaTranslater >> acceptEntityInstanceConstructor: e [ 
 	self error: 'deprecated'
 ]
 
-{ #category : #'visit dictionary schema' }
+{ #category : 'visit dictionary schema' }
 PlatypusExpressExpression2AdaTranslater >> acceptEntityInstancesSet: e [
 	self nextPutAll: '( ', e name, ' )'.
 
 ]
 
-{ #category : #'visit expressions schema' }
+{ #category : 'visit expressions schema' }
 PlatypusExpressExpression2AdaTranslater >> acceptEnumerationValue: e [ 
 	self nextPutAll: e element
 ]
 
-{ #category : #'visit dictionary schema' }
+{ #category : 'visit dictionary schema' }
 PlatypusExpressExpression2AdaTranslater >> acceptExplicitAttribute: e [ 
 	self nextPutAll: '( ', e name, ' )'.
 
 ]
 
-{ #category : #'visit expressions schema' }
+{ #category : 'visit expressions schema' }
 PlatypusExpressExpression2AdaTranslater >> acceptFalseConstant: e [ 
 	^ self nextPutAll: 'False'
 ]
 
-{ #category : #'visit expressions schema' }
+{ #category : 'visit expressions schema' }
 PlatypusExpressExpression2AdaTranslater >> acceptGroupQualifier: e [ 
 	| grpname grpref |
 	self flag: 'Not implemented'.
@@ -153,7 +155,7 @@ PlatypusExpressExpression2AdaTranslater >> acceptGroupQualifier: e [
 
 ]
 
-{ #category : #'visit expressions schema' }
+{ #category : 'visit expressions schema' }
 PlatypusExpressExpression2AdaTranslater >> acceptIdentifier: e [ 
 	e referenced isPltEntityDefinition 
 		ifTrue: 
@@ -186,7 +188,7 @@ PlatypusExpressExpression2AdaTranslater >> acceptIdentifier: e [
 				ifFalse: [self acceptTry: e referenced]]
 ]
 
-{ #category : #'visit expressions schema' }
+{ #category : 'visit expressions schema' }
 PlatypusExpressExpression2AdaTranslater >> acceptInExpression: e [ 
 	self flag: 'Not implemented'.
 	self nextPutAll: ' ( '.
@@ -196,13 +198,13 @@ PlatypusExpressExpression2AdaTranslater >> acceptInExpression: e [
 	self nextPutAll: ' )  '
 ]
 
-{ #category : #'visit statements schema' }
+{ #category : 'visit statements schema' }
 PlatypusExpressExpression2AdaTranslater >> acceptIncrementControlVariable: e [ 
 	self nextPutAll: '( ', e name, ' )'.
 
 ]
 
-{ #category : #'visit expressions schema' }
+{ #category : 'visit expressions schema' }
 PlatypusExpressExpression2AdaTranslater >> acceptInstanceConstructionExpression: e [ 
 	self flag: 'Not implemented'.
 	self nextPutAll: ' ((PlatypusComplexInstance fromRecords: ( (OrderedCollection new) add: '.
@@ -212,19 +214,19 @@ PlatypusExpressExpression2AdaTranslater >> acceptInstanceConstructionExpression:
 	self nextPutAll: '; yourself)) pltAsObject )'
 ]
 
-{ #category : #'visit expressions schema' }
+{ #category : 'visit expressions schema' }
 PlatypusExpressExpression2AdaTranslater >> acceptInterval: e [ 
 	self acceptTry: e expr.
 
 ]
 
-{ #category : #'visit dictionary schema' }
+{ #category : 'visit dictionary schema' }
 PlatypusExpressExpression2AdaTranslater >> acceptInverseAttribute: e [ 
 	self nextPutAll: '( ', e name, ' )'.
 
 ]
 
-{ #category : #'visit expressions schema' }
+{ #category : 'visit expressions schema' }
 PlatypusExpressExpression2AdaTranslater >> acceptLikeExpression: e [ 
 	self flag: 'Not implemented'.
 	self nextPutAll: ' ( '.
@@ -234,29 +236,29 @@ PlatypusExpressExpression2AdaTranslater >> acceptLikeExpression: e [
 	self nextPutAll: ' )  '
 ]
 
-{ #category : #'visit expressions schema' }
+{ #category : 'visit expressions schema' }
 PlatypusExpressExpression2AdaTranslater >> acceptLiteral: e [ 
 	^ self nextPutAll: e val printString
 ]
 
-{ #category : #'visit dictionary schema' }
+{ #category : 'visit dictionary schema' }
 PlatypusExpressExpression2AdaTranslater >> acceptLocalVariable: e [ 
 	self nextPutAll: '( ', e name, ' )'.
 
 ]
 
-{ #category : #'visit expressions schema' }
+{ #category : 'visit expressions schema' }
 PlatypusExpressExpression2AdaTranslater >> acceptMissingValue: e [ 
 	self nextPutAll: 'null'.
 
 ]
 
-{ #category : #'visit dictionary schema' }
+{ #category : 'visit dictionary schema' }
 PlatypusExpressExpression2AdaTranslater >> acceptNativeAlgorithm: e [ 
 	self subclassResponsibility 
 ]
 
-{ #category : #'visit expressions schema' }
+{ #category : 'visit expressions schema' }
 PlatypusExpressExpression2AdaTranslater >> acceptNativeCode: e [ 
 	| stmt |
 	self flag: 'Not implemented'.
@@ -267,7 +269,7 @@ PlatypusExpressExpression2AdaTranslater >> acceptNativeCode: e [
 	self nextPutAllCr: stmt
 ]
 
-{ #category : #'visit expressions schema' }
+{ #category : 'visit expressions schema' }
 PlatypusExpressExpression2AdaTranslater >> acceptNegativeExpression: e [ 
 	self nextPutAll: '( ('. 
 	self acceptTry: e expr.
@@ -275,14 +277,14 @@ PlatypusExpressExpression2AdaTranslater >> acceptNegativeExpression: e [
 
 ]
 
-{ #category : #'visit expressions schema' }
+{ #category : 'visit expressions schema' }
 PlatypusExpressExpression2AdaTranslater >> acceptNotExpression: e [ 
 	self nextPutAll: '( Not ('.
 	self acceptTry: e expr.
 	self nextPutAll: ') ) '
 ]
 
-{ #category : #'visit expressions schema' }
+{ #category : 'visit expressions schema' }
 PlatypusExpressExpression2AdaTranslater >> acceptOrExpression: e [ 
 	self nextPutAll: ' ( '.
 	self acceptTry: e leftExpr.
@@ -291,18 +293,18 @@ PlatypusExpressExpression2AdaTranslater >> acceptOrExpression: e [
 	self nextPutAll: ' )  '
 ]
 
-{ #category : #'visit dictionary schema' }
+{ #category : 'visit dictionary schema' }
 PlatypusExpressExpression2AdaTranslater >> acceptParameterDefinition: e [ 
 	self nextPutAll: '( ', e name, ' )'.
 
 ]
 
-{ #category : #'visit expressions schema' }
+{ #category : 'visit expressions schema' }
 PlatypusExpressExpression2AdaTranslater >> acceptPiConstant: e [ 
 	self nextPutAll: ' 3.14159 '
 ]
 
-{ #category : #'visit expressions schema' }
+{ #category : 'visit expressions schema' }
 PlatypusExpressExpression2AdaTranslater >> acceptPositiveExpression: e [ 
 	self flag: 'Not implemented'.
 	self nextPutAll: '( ('.
@@ -310,7 +312,7 @@ PlatypusExpressExpression2AdaTranslater >> acceptPositiveExpression: e [
 	self nextPutAll: ') ) '
 ]
 
-{ #category : #'visit expressions schema' }
+{ #category : 'visit expressions schema' }
 PlatypusExpressExpression2AdaTranslater >> acceptQualifiedExpression: e [ 
 	self flag: 'Not implemented'.
 
@@ -325,7 +327,7 @@ PlatypusExpressExpression2AdaTranslater >> acceptQualifiedExpression: e [
 			self nextPutAll: ') ']
 ]
 
-{ #category : #'visit expressions schema' }
+{ #category : 'visit expressions schema' }
 PlatypusExpressExpression2AdaTranslater >> acceptQueryExpression: e [ 
 	self flag: 'Not implemented'.
 	self nextPutAll: '('.
@@ -345,7 +347,7 @@ PlatypusExpressExpression2AdaTranslater >> acceptQueryExpression: e [
 	self nextPutAll: '])'
 ]
 
-{ #category : #'visit expressions schema' }
+{ #category : 'visit expressions schema' }
 PlatypusExpressExpression2AdaTranslater >> acceptQueryVariable: e [ 
 	| vn |
 	self flag: 'Not implemented'.
@@ -353,7 +355,7 @@ PlatypusExpressExpression2AdaTranslater >> acceptQueryVariable: e [
 	self nextPutAll: vn, ' '
 ]
 
-{ #category : #'visit expressions schema' }
+{ #category : 'visit expressions schema' }
 PlatypusExpressExpression2AdaTranslater >> acceptRangeQualifier: e [ 
 	self flag: 'Not implemented'.
 
@@ -363,7 +365,7 @@ PlatypusExpressExpression2AdaTranslater >> acceptRangeQualifier: e [
 	self acceptTry: e index2
 ]
 
-{ #category : #'visit expressions schema' }
+{ #category : 'visit expressions schema' }
 PlatypusExpressExpression2AdaTranslater >> acceptSelfIdentifier: e [ 
 	self flag: 'Not implemented'.
 	receiverName
@@ -371,23 +373,23 @@ PlatypusExpressExpression2AdaTranslater >> acceptSelfIdentifier: e [
 		ifNotNil: [self nextPutAll: receiverName, ' ']
 ]
 
-{ #category : #'visit expressions schema' }
+{ #category : 'visit expressions schema' }
 PlatypusExpressExpression2AdaTranslater >> acceptStringLiteral: e [ 
 
 	self nextPutAll: (self unshunkedString: e val) printString
 ]
 
-{ #category : #'visit expressions schema' }
+{ #category : 'visit expressions schema' }
 PlatypusExpressExpression2AdaTranslater >> acceptTrueConstant: e [ 
 	^ self nextPutAll: 'True'
 ]
 
-{ #category : #'visit expressions schema' }
+{ #category : 'visit expressions schema' }
 PlatypusExpressExpression2AdaTranslater >> acceptUnknownConstant: e [ 
 	^ self acceptLiteral: e
 ]
 
-{ #category : #'visit expressions schema' }
+{ #category : 'visit expressions schema' }
 PlatypusExpressExpression2AdaTranslater >> acceptXorExpression: e [ 
 	self nextPutAll: ' ( '.
 	self acceptTry: e leftExpr.
@@ -396,7 +398,7 @@ PlatypusExpressExpression2AdaTranslater >> acceptXorExpression: e [
 	self nextPutAll: ' )  '
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusExpressExpression2AdaTranslater >> translate: a [
 	self halt.
 	^super translate: a

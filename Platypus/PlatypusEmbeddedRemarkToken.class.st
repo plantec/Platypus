@@ -1,20 +1,22 @@
 Class {
-	#name : #PlatypusEmbeddedRemarkToken,
-	#superclass : #PlatypusRemarkToken,
-	#category : #'Platypus-HW-CodeTokens'
+	#name : 'PlatypusEmbeddedRemarkToken',
+	#superclass : 'PlatypusRemarkToken',
+	#category : 'Platypus-HW-CodeTokens',
+	#package : 'Platypus',
+	#tag : 'HW-CodeTokens'
 }
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 PlatypusEmbeddedRemarkToken class >> token: anObject [ 
 	^ self new lexicalElement: anObject
 ]
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 PlatypusEmbeddedRemarkToken >> accept: aVisitor [ 
 	^ aVisitor acceptEmbeddedRemark: self
 ]
 
-{ #category : #converting }
+{ #category : 'converting' }
 PlatypusEmbeddedRemarkToken >> asPltRemark [
 	| pltRem |
 	pltRem := PltEmbeddedRemark new.
@@ -22,7 +24,7 @@ PlatypusEmbeddedRemarkToken >> asPltRemark [
 	^ pltRem
 ]
 
-{ #category : #converting }
+{ #category : 'converting' }
 PlatypusEmbeddedRemarkToken >> asString [
 	self lexicalElement size > 0
 		ifTrue: [(self lexicalElement first == $"
@@ -31,7 +33,7 @@ PlatypusEmbeddedRemarkToken >> asString [
 	^ '(*' ,self lexicalElement , '*)'
 ]
 
-{ #category : #formating }
+{ #category : 'formating' }
 PlatypusEmbeddedRemarkToken >> formatWithIndentString: aString [ 
 	| newLex lines |
 	newLex := ''.
@@ -44,7 +46,7 @@ PlatypusEmbeddedRemarkToken >> formatWithIndentString: aString [
 	self lexicalElement: newLex
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 PlatypusEmbeddedRemarkToken >> isEmbeddedRemark [
 	^ true
 ]

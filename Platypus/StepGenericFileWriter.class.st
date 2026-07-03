@@ -1,13 +1,15 @@
 Class {
-	#name : #StepGenericFileWriter,
-	#superclass : #StepGenericRepositoryAbstractVisitor,
+	#name : 'StepGenericFileWriter',
+	#superclass : 'StepGenericRepositoryAbstractVisitor',
 	#instVars : [
 		'stream'
 	],
-	#category : #'Platypus-STEP-core'
+	#category : 'Platypus-STEP-core',
+	#package : 'Platypus',
+	#tag : 'STEP-core'
 }
 
-{ #category : #'data encoding' }
+{ #category : 'data encoding' }
 StepGenericFileWriter >> doAggregation: a [  
 	stream nextPut: $(.
 	a
@@ -16,12 +18,12 @@ StepGenericFileWriter >> doAggregation: a [
 	stream nextPut: $)
 ]
 
-{ #category : #'data encoding' }
+{ #category : 'data encoding' }
 StepGenericFileWriter >> doBoolean: b [ 
 	self doLogical: b
 ]
 
-{ #category : #'data encoding' }
+{ #category : 'data encoding' }
 StepGenericFileWriter >> doEnumeration: e [ 
 	e isNil
 		ifTrue: [stream nextPut: $$]
@@ -32,7 +34,7 @@ StepGenericFileWriter >> doEnumeration: e [
 					stream nextPut: $.]]
 ]
 
-{ #category : #'data encoding' }
+{ #category : 'data encoding' }
 StepGenericFileWriter >> doExternalRepresentation: inst [ 
 	stream nextPut: $#.
 	stream nextPutAll: (self oidOf: inst) printString.
@@ -44,7 +46,7 @@ StepGenericFileWriter >> doExternalRepresentation: inst [
 	stream nextPutAll: ');'
 ]
 
-{ #category : #'data encoding' }
+{ #category : 'data encoding' }
 StepGenericFileWriter >> doFolder [
 	| dateTime instances |
 	dateTime := Time dateAndTimeNow.
@@ -71,21 +73,21 @@ StepGenericFileWriter >> doFolder [
 	stream nextPut: Character cr
 ]
 
-{ #category : #'data encoding' }
+{ #category : 'data encoding' }
 StepGenericFileWriter >> doInstance: inst [ 
 	(inst isKindOf: StepExternalRepresentation)
 		ifTrue: [self doExternalRepresentation: inst]
 		ifFalse: [self doInternalRepresentation: inst]
 ]
 
-{ #category : #'data encoding' }
+{ #category : 'data encoding' }
 StepGenericFileWriter >> doInstanceRef: i [ 
 	stream nextPut: $#.
 	folder
 		ifNotNil: [stream nextPutAll: i id asString]
 ]
 
-{ #category : #'data encoding' }
+{ #category : 'data encoding' }
 StepGenericFileWriter >> doInternalRepresentation: inst [ 
 	stream nextPut: $#.
 	stream nextPutAll: (self oidOf: inst) printString.
@@ -98,7 +100,7 @@ StepGenericFileWriter >> doInternalRepresentation: inst [
 	stream nextPutAll: ');'
 ]
 
-{ #category : #'data encoding' }
+{ #category : 'data encoding' }
 StepGenericFileWriter >> doLogical: l [ 
 	stream nextPut: $..
 	l
@@ -107,22 +109,22 @@ StepGenericFileWriter >> doLogical: l [
 	stream nextPut: $.
 ]
 
-{ #category : #'data encoding' }
+{ #category : 'data encoding' }
 StepGenericFileWriter >> doNullValue: e [
 	stream nextPut: $$
 ]
 
-{ #category : #'data encoding' }
+{ #category : 'data encoding' }
 StepGenericFileWriter >> doNumber: n [
 	stream nextPutAll: n printString
 ]
 
-{ #category : #'data encoding' }
+{ #category : 'data encoding' }
 StepGenericFileWriter >> doRedefinedValue: aRedefinedValue [ 
 	stream nextPut: $*.
 ]
 
-{ #category : #'data encoding' }
+{ #category : 'data encoding' }
 StepGenericFileWriter >> doSimpleRecord: inst [ 
 	stream nextPutAll: inst entityName asUppercase.
 	stream nextPut: $(.
@@ -132,7 +134,7 @@ StepGenericFileWriter >> doSimpleRecord: inst [
 	stream nextPutAll: ')'
 ]
 
-{ #category : #'data encoding' }
+{ #category : 'data encoding' }
 StepGenericFileWriter >> doString: s [
 	stream nextPut: $'.
 	s
@@ -143,13 +145,13 @@ StepGenericFileWriter >> doString: s [
 	stream nextPut: $'
 ]
 
-{ #category : #'initialize/release' }
+{ #category : 'initialize/release' }
 StepGenericFileWriter >> initialize [
 	super initialize.
 	stream := WriteStream on: String new.
 ]
 
-{ #category : #'file in-out' }
+{ #category : 'file in-out' }
 StepGenericFileWriter >> stepFileOut: aFilename [ 
 	| out |
 	(out := (Filename named: aFilename) writeStream)
@@ -158,12 +160,12 @@ StepGenericFileWriter >> stepFileOut: aFilename [
 				ensure: [out close]]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 StepGenericFileWriter >> stream [
 	^ stream
 ]
 
-{ #category : #'data encoding' }
+{ #category : 'data encoding' }
 StepGenericFileWriter >> toStream: out [ 
 	| |
 	stream := out.

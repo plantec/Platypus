@@ -1,21 +1,23 @@
 Class {
-	#name : #PlatypusNamesBuilder,
-	#superclass : #Object,
+	#name : 'PlatypusNamesBuilder',
+	#superclass : 'Object',
 	#instVars : [
 		'classPrefix',
 		'systemCategoryPrefix',
 		'rootClassName',
 		'rootClassSystemCategory'
 	],
-	#category : #'Platypus-HW-translater-private'
+	#category : 'Platypus-HW-translater-private',
+	#package : 'Platypus',
+	#tag : 'HW-translater-private'
 }
 
-{ #category : #utilities }
+{ #category : 'utilities' }
 PlatypusNamesBuilder class >> capitalize: aString first: firstCapitalized [ 
 	^ aString capitalizeFirst: firstCapitalized
 ]
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 PlatypusNamesBuilder class >> classPrefix: aClassPrefix systemCategoryPrefix: aSysCatPrefix rootClassName: aRootClassName  rootClassSystemCategory: aRootClassSystemCategory [ 
 	^ self new 
 		classPrefix: aClassPrefix
@@ -24,13 +26,13 @@ PlatypusNamesBuilder class >> classPrefix: aClassPrefix systemCategoryPrefix: aS
 		rootClassSystemCategory: aRootClassSystemCategory
 ]
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 PlatypusNamesBuilder class >> default [
 	^ self prefixedBy: #PTs 
 	
 ]
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 PlatypusNamesBuilder class >> meta [
 	^ self 
 		classPrefix: #Plt
@@ -39,7 +41,7 @@ PlatypusNamesBuilder class >> meta [
 		rootClassSystemCategory: #'Platypus-PlatypusDictionarySchemaSchema'
 ]
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 PlatypusNamesBuilder class >> prefixedBy: aPrefix [ 
 	^ self
 		classPrefix: aPrefix
@@ -48,12 +50,12 @@ PlatypusNamesBuilder class >> prefixedBy: aPrefix [
 		rootClassSystemCategory: aPrefix , '-CoreEntity'
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusNamesBuilder class >> querySymbols [
 	^ #(#argName #smalltalkType #smalltalkInitializingExpression)
 ]
 
-{ #category : #utilities }
+{ #category : 'utilities' }
 PlatypusNamesBuilder class >> uncapitalize: aString [ 
 	| instr outstr resString curr |
 	instr := ReadStream on: aString.
@@ -68,12 +70,12 @@ PlatypusNamesBuilder class >> uncapitalize: aString [
 	^ resString
 ]
 
-{ #category : #naming }
+{ #category : 'naming' }
 PlatypusNamesBuilder >> abstractVisitorClassName [
 	^ systemCategoryPrefix, 'AbstractVisitor'
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusNamesBuilder >> allClassInstVarNamesFromEntity: e [ 
 	| cls nativesClassInstVar |
 	(cls := self classFromMetaData: e)
@@ -82,7 +84,7 @@ PlatypusNamesBuilder >> allClassInstVarNamesFromEntity: e [
 	^ nativesClassInstVar
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusNamesBuilder >> allClassVarNamesFromEntity: e [ 
 	| cls nativesClassVar |
 	(cls := self classFromMetaData: e)
@@ -91,7 +93,7 @@ PlatypusNamesBuilder >> allClassVarNamesFromEntity: e [
 	^ nativesClassVar
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusNamesBuilder >> allInstVarNamesFromEntity: e [ 
 	| nativesInstVar cls inherited instVarNames locals |
 	inherited := Set new.
@@ -113,7 +115,7 @@ PlatypusNamesBuilder >> allInstVarNamesFromEntity: e [
 	^ instVarNames
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusNamesBuilder >> allReservedNamesFromEntity: e [ 
 	| nativesInstVar cls inherited instVarNames |
 	inherited := Set new.
@@ -129,18 +131,18 @@ PlatypusNamesBuilder >> allReservedNamesFromEntity: e [
 	^ instVarNames
 ]
 
-{ #category : #querying }
+{ #category : 'querying' }
 PlatypusNamesBuilder >> argNameFor: aMetaData [ 
 	^ (PlatypusSmartNamer query: #argName namesBuilder: self) acceptTry: aMetaData
 ]
 
-{ #category : #querying }
+{ #category : 'querying' }
 PlatypusNamesBuilder >> argNameFor: aMetaData scopeMetaData: aScope [ 
 	^ self argNameFor: aMetaData scopeMetaData: aScope reservedNames: OrderedCollection new
 	
 ]
 
-{ #category : #querying }
+{ #category : 'querying' }
 PlatypusNamesBuilder >> argNameFor: aMetaData scopeMetaData: aScope reservedNames: aListOfString [ 
 	^ self 
 		localVarName: (self argNameFor: aMetaData)
@@ -148,7 +150,7 @@ PlatypusNamesBuilder >> argNameFor: aMetaData scopeMetaData: aScope reservedName
 		reservedNames: aListOfString
 ]
 
-{ #category : #querying }
+{ #category : 'querying' }
 PlatypusNamesBuilder >> argNameSuffixFor: aMetaData [
 	| argname |
 	argname := self argNameFor: aMetaData.
@@ -163,30 +165,30 @@ PlatypusNamesBuilder >> argNameSuffixFor: aMetaData [
 	^ argname
 ]
 
-{ #category : #utilities }
+{ #category : 'utilities' }
 PlatypusNamesBuilder >> capitalize: aString first: firstCapitalized [ 
 	^ self class capitalize: aString first: firstCapitalized
 ]
 
-{ #category : #'generated class accessing' }
+{ #category : 'generated class accessing' }
 PlatypusNamesBuilder >> classFromMetaData: aMetaData [ 
 	^ PlatypusPharoSmalltalk
 		at: (aMetaData generatedClassNameFromNamesBuilder: self) asSymbol
 		ifAbsent: []
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusNamesBuilder >> classPrefix [
 	^ classPrefix
 
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusNamesBuilder >> classPrefix: anObject [ 
 	classPrefix := anObject
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusNamesBuilder >> classPrefix: aClassPrefix systemCategoryPrefix: aSysCatPrefix rootClassName: aRootClassName rootClassSystemCategory: aRootClassSystemCategory [ 
 	self classPrefix: aClassPrefix.
 	self systemCategoryPrefix: aSysCatPrefix.
@@ -194,24 +196,24 @@ PlatypusNamesBuilder >> classPrefix: aClassPrefix systemCategoryPrefix: aSysCatP
 	self rootClassSystemCategory: aRootClassSystemCategory
 ]
 
-{ #category : #naming }
+{ #category : 'naming' }
 PlatypusNamesBuilder >> contextArgNameFromAttribute: e [ 
 	^ self contextArgNameFromEntity: e owner
 ]
 
-{ #category : #naming }
+{ #category : 'naming' }
 PlatypusNamesBuilder >> contextArgNameFromEntity: e [ 
 	^ self localVarName: 'aContext' inScope: e
 ]
 
-{ #category : #naming }
+{ #category : 'naming' }
 PlatypusNamesBuilder >> contextArgNameFromQualifier: e [ 
 	| parent |
 	^ (parent := self parentAttributeOf: e) ifNotNil: [
 	self contextArgNameFromAttribute: (parent)]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusNamesBuilder >> functionInvokingFrom: anAlgorithm [ 
 	| code selectorParts |
 	code := WriteStream on: String new.
@@ -225,22 +227,22 @@ PlatypusNamesBuilder >> functionInvokingFrom: anAlgorithm [
 	^code contents
 ]
 
-{ #category : #naming }
+{ #category : 'naming' }
 PlatypusNamesBuilder >> localCopyMethodNameFromEntity: e [
 	^ (self normalizedNameFrom: e name first: false), 'CopyTo:'
 ]
 
-{ #category : #naming }
+{ #category : 'naming' }
 PlatypusNamesBuilder >> localFromValuesMethodNameFromEntity: e [ 
 	^ (self normalizedNameFrom: e name first: false) , 'FromValues:'
 ]
 
-{ #category : #naming }
+{ #category : 'naming' }
 PlatypusNamesBuilder >> localToValuesMethodNameFromEntity: e [ 
 	^ (self normalizedNameFrom: e name first: false) , 'ToValues:'
 ]
 
-{ #category : #naming }
+{ #category : 'naming' }
 PlatypusNamesBuilder >> localVarName: aPrefix inScope: aScopeMetaData [ 
 	^ self
 		localVarName: aPrefix
@@ -248,7 +250,7 @@ PlatypusNamesBuilder >> localVarName: aPrefix inScope: aScopeMetaData [
 		reservedNames: OrderedCollection new
 ]
 
-{ #category : #naming }
+{ #category : 'naming' }
 PlatypusNamesBuilder >> localVarName: aPrefix inScope: aScopeMetaData reservedNames: aListOfString [ 
 	| allInstVars |
 	allInstVars := self allReservedNamesFromEntity: aScopeMetaData.
@@ -256,7 +258,7 @@ PlatypusNamesBuilder >> localVarName: aPrefix inScope: aScopeMetaData reservedNa
 	^ self localVarName: aPrefix reservedNames: aListOfString
 ]
 
-{ #category : #naming }
+{ #category : 'naming' }
 PlatypusNamesBuilder >> localVarName: aPrefix reservedNames: aListOfString [ 
 	| candidat cpt |
 	candidat := aPrefix asSymbol.
@@ -268,18 +270,18 @@ PlatypusNamesBuilder >> localVarName: aPrefix reservedNames: aListOfString [
 	^ candidat
 ]
 
-{ #category : #naming }
+{ #category : 'naming' }
 PlatypusNamesBuilder >> methodCategoryPrefix [
 	^ 'platypus-generated'
 ]
 
-{ #category : #utilities }
+{ #category : 'utilities' }
 PlatypusNamesBuilder >> nameWithUnderbar: aName [ 
 	1 to: aName size do: [:pos | ((aName at: pos) = $_) ifTrue: [^true]].
 	^false
 ]
 
-{ #category : #'naming basic' }
+{ #category : 'naming basic' }
 PlatypusNamesBuilder >> normalizedAlgorithmFormalParametersInfosFrom: aFunctionDeclaration [ 
 	| selp parts reserved arg |
 	parts := OrderedCollection new.
@@ -294,7 +296,7 @@ PlatypusNamesBuilder >> normalizedAlgorithmFormalParametersInfosFrom: aFunctionD
 	^ parts
 ]
 
-{ #category : #'naming basic' }
+{ #category : 'naming basic' }
 PlatypusNamesBuilder >> normalizedAlgorithmLocalVariablesInfosFrom: anAlgorithm [ 
 	| selp parts reserved arg |
 	parts := OrderedCollection new.
@@ -309,17 +311,17 @@ PlatypusNamesBuilder >> normalizedAlgorithmLocalVariablesInfosFrom: anAlgorithm 
 	^ parts
 ]
 
-{ #category : #'naming basic' }
+{ #category : 'naming basic' }
 PlatypusNamesBuilder >> normalizedClassNameFrom: aName [ 
 	^ self normalizedClassNameFrom: aName suffix: ''
 ]
 
-{ #category : #'naming basic' }
+{ #category : 'naming basic' }
 PlatypusNamesBuilder >> normalizedClassNameFrom: aName suffix: aSuffix [
 	^self classPrefix ,(self normalizedNameFrom: aName first: true) , aSuffix
 ]
 
-{ #category : #'naming basic' }
+{ #category : 'naming basic' }
 PlatypusNamesBuilder >> normalizedGetSelectorFrom: aName prefix: aPrefix suffix: aSuffix [ 
 	^ (aPrefix
 		ifNil: [(self normalizedVarNameFrom: aName)
@@ -328,17 +330,17 @@ PlatypusNamesBuilder >> normalizedGetSelectorFrom: aName prefix: aPrefix suffix:
 				, (self normalizedVarSuffixFrom: aName) , aSuffix]) asSymbol
 ]
 
-{ #category : #'naming basic' }
+{ #category : 'naming basic' }
 PlatypusNamesBuilder >> normalizedGetSelectorFrom: aName suffix: aSuffix [ 
 	^ self normalizedGetSelectorFrom: aName prefix: nil suffix: aSuffix 
 ]
 
-{ #category : #'naming basic' }
+{ #category : 'naming basic' }
 PlatypusNamesBuilder >> normalizedGetSelectorWithArgFrom: aName prefix: aPrefix suffix: aSuffix [ 
 	^ (self normalizedGetSelectorFrom: aName prefix: aPrefix suffix: aSuffix), ':' 
 ]
 
-{ #category : #'naming basic' }
+{ #category : 'naming basic' }
 PlatypusNamesBuilder >> normalizedMethodCategory: aName className: aClassName meta: isMeta [ 
 	aName first = $* 
 		ifTrue: 
@@ -354,7 +356,7 @@ PlatypusNamesBuilder >> normalizedMethodCategory: aName className: aClassName me
 		, aName , '''!']
 ]
 
-{ #category : #'naming basic' }
+{ #category : 'naming basic' }
 PlatypusNamesBuilder >> normalizedMethodCategory: aName nameSpace: aNameSpace className: aClassName meta: isMeta [ 
 	^ String cr , '!' , aNameSpace, '.', aClassName
 		, (isMeta
@@ -362,20 +364,20 @@ PlatypusNamesBuilder >> normalizedMethodCategory: aName nameSpace: aNameSpace cl
 				ifFalse: ['']) , ' methodsFor: ''' , self methodCategoryPrefix , '-' , aName , '''!'
 ]
 
-{ #category : #'naming basic' }
+{ #category : 'naming basic' }
 PlatypusNamesBuilder >> normalizedNameFrom: aName first: firstCapitalized [ 
 	^(self nameWithUnderbar: aName ) 
 		ifTrue: [self capitalize: aName first: firstCapitalized]
 		ifFalse: [aName asIdentifier: firstCapitalized]
 ]
 
-{ #category : #'naming basic' }
+{ #category : 'naming basic' }
 PlatypusNamesBuilder >> normalizedNameSpaceFrom: aName suffix: aSuffix [ 
 	^ ((self capitalize: aName first: true)
 				asIdentifier: true) , aSuffix
 ]
 
-{ #category : #'naming basic' }
+{ #category : 'naming basic' }
 PlatypusNamesBuilder >> normalizedSetSelectorFrom: aName prefix: aPrefix suffix: aSuffix [ 
 	^ (aPrefix
 		ifNil: [(self normalizedVarNameFrom: aName)
@@ -384,26 +386,26 @@ PlatypusNamesBuilder >> normalizedSetSelectorFrom: aName prefix: aPrefix suffix:
 				, (self normalizedVarSuffixFrom: aName) , aSuffix , ':']) asSymbol
 ]
 
-{ #category : #'naming basic' }
+{ #category : 'naming basic' }
 PlatypusNamesBuilder >> normalizedSetSelectorFrom: aName suffix: aSuffix [ 
  ^ self normalizedSetSelectorFrom: aName prefix: nil suffix: aSuffix 
 	
 ]
 
-{ #category : #'naming basic' }
+{ #category : 'naming basic' }
 PlatypusNamesBuilder >> normalizedSystemCategoryNameFrom: aName suffix: aSuffix [ 
 	^ self systemCategoryPrefix , '-'
 		, ((self capitalize: aName first: true)
 				asIdentifier: true) , aSuffix
 ]
 
-{ #category : #'naming basic' }
+{ #category : 'naming basic' }
 PlatypusNamesBuilder >> normalizedVarNameFrom: aName [ 
 	^(self normalizedNameFrom: aName first: false) 
 
 ]
 
-{ #category : #'naming basic' }
+{ #category : 'naming basic' }
 PlatypusNamesBuilder >> normalizedVarSuffixFrom: aName [ 
 	| strim |
 	aName size > 1
@@ -416,7 +418,7 @@ PlatypusNamesBuilder >> normalizedVarSuffixFrom: aName [
 		^ aName asUppercase
 ]
 
-{ #category : #utilities }
+{ #category : 'utilities' }
 PlatypusNamesBuilder >> parentAttributeOf: aMetaData [ 
 	| md |
 	md := aMetaData.
@@ -427,71 +429,71 @@ PlatypusNamesBuilder >> parentAttributeOf: aMetaData [
 	^md
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusNamesBuilder >> querySymbols [
 	^ self class querySymbols
 ]
 
-{ #category : #naming }
+{ #category : 'naming' }
 PlatypusNamesBuilder >> receiverArgNameFromAttribute: e [ 
 	^ self receiverArgNameFromEntity: e owner
 ]
 
-{ #category : #naming }
+{ #category : 'naming' }
 PlatypusNamesBuilder >> receiverArgNameFromEntity: e [ 
 	^ self localVarName: 'aReceiver' inScope: e
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusNamesBuilder >> rootClassName [
 	^rootClassName
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusNamesBuilder >> rootClassName: anObject [
 	rootClassName := anObject
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusNamesBuilder >> rootClassSystemCategory [
 	^rootClassSystemCategory
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusNamesBuilder >> rootClassSystemCategory: anObject [
 	rootClassSystemCategory := anObject
 ]
 
-{ #category : #querying }
+{ #category : 'querying' }
 PlatypusNamesBuilder >> smalltalkInitializingExpressionOf: aMetaData [ 
 	^ (PlatypusSmartNamer query: #smalltalkInitializingExpression namesBuilder: self) 
 		acceptTry: aMetaData	
 ]
 
-{ #category : #querying }
+{ #category : 'querying' }
 PlatypusNamesBuilder >> smalltalkTypeOf: aMetaData [ 
 ^ (PlatypusSmartNamer query: #smalltalkType
 		namesBuilder: self) acceptTry: aMetaData
 
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusNamesBuilder >> systemCategoryPrefix [
 	^ systemCategoryPrefix
 
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusNamesBuilder >> systemCategoryPrefix: anObject [ 
 	systemCategoryPrefix := anObject
 ]
 
-{ #category : #utilities }
+{ #category : 'utilities' }
 PlatypusNamesBuilder >> uncapitalize: aString [
 	^ self class uncapitalize: aString
 ]
 
-{ #category : #naming }
+{ #category : 'naming' }
 PlatypusNamesBuilder >> uniqueBlockVarName: aPrefix owner: aMetaData [ 
 	^ aPrefix , aMetaData basicIdentityHash asString
 ]

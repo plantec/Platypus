@@ -1,10 +1,12 @@
 Class {
-	#name : #StepParser,
-	#superclass : #SmaCCParser,
-	#category : #'Platypus-STEP-core'
+	#name : 'StepParser',
+	#superclass : 'SmaCCParser',
+	#category : 'Platypus-STEP-core',
+	#package : 'Platypus',
+	#tag : 'STEP-core'
 }
 
-{ #category : #'generated-comments' }
+{ #category : 'generated-comments' }
 StepParser class >> parserDefinitionComment [
 
 	"%start ExchangeFile DataEntities DataEntity SimpleRecordEntry Parameter	;
@@ -113,42 +115,42 @@ EmbeddedList
 "
 ]
 
-{ #category : #'generated-accessing' }
+{ #category : 'generated-accessing' }
 StepParser class >> scannerClass [
 	^StepScanner
 ]
 
-{ #category : #'generated-starting states' }
+{ #category : 'generated-starting states' }
 StepParser class >> startingStateForDataEntities [
 	^3
 ]
 
-{ #category : #'generated-starting states' }
+{ #category : 'generated-starting states' }
 StepParser class >> startingStateForDataEntity [
 	^4
 ]
 
-{ #category : #'generated-starting states' }
+{ #category : 'generated-starting states' }
 StepParser class >> startingStateForExchangeFile [
 	^1
 ]
 
-{ #category : #'generated-starting states' }
+{ #category : 'generated-starting states' }
 StepParser class >> startingStateForParameter [
 	^6
 ]
 
-{ #category : #'generated-starting states' }
+{ #category : 'generated-starting states' }
 StepParser class >> startingStateForSimpleRecordEntry [
 	^5
 ]
 
-{ #category : #'semantic actions' }
+{ #category : 'semantic actions' }
 StepParser >> complexInstanceKey [
 	^ #complexInstance
 ]
 
-{ #category : #'semantic actions' }
+{ #category : 'semantic actions' }
 StepParser >> data: instLabel record: record [ 
 	| records |
 	^ record key = self simpleInstanceKey
@@ -161,164 +163,164 @@ StepParser >> data: instLabel record: record [
 			StepExternalRepresentation label: instLabel records: records]
 ]
 
-{ #category : #'semantic actions' }
+{ #category : 'semantic actions' }
 StepParser >> headerDataNamed: name record: record [ 
 	^ StepSimpleRecord		
 				entityName: name
 				values: record
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 StepParser >> reduceActionForDataEntity1: nodes [
 	^ self data: (nodes at: 1) record: (nodes at: 7)
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 StepParser >> reduceActionForDataEntity2: nodes [
 	^ self data: (nodes at: 1) record: (nodes at: 3)
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 StepParser >> reduceActionForDataSection1: nodes [
 	^ nodes at: 3
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 StepParser >> reduceActionForEmbeddedList1: nodes [
 	^ nodes at: 2
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 StepParser >> reduceActionForEmbeddedList2: nodes [
 	^ OrderedCollection new
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 StepParser >> reduceActionForEntityInstanceRHS1: nodes [
 	^ self simpleInstanceKey -> (nodes at: 1)
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 StepParser >> reduceActionForEntityInstanceRHS2: nodes [
 	^ self complexInstanceKey -> (nodes at: 1)
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 StepParser >> reduceActionForEntityName1: nodes [
 	^ (nodes at: 1) value asUppercase
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 StepParser >> reduceActionForExchangeFile1: nodes [
 	^ Array with: (nodes at: 3) with: (nodes at: 4)
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 StepParser >> reduceActionForHeaderEntity1: nodes [
 	^ self headerDataNamed: (nodes at: 1) record: (nodes at: 3)
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 StepParser >> reduceActionForHeaderEntity2: nodes [
 	^ self headerDataNamed: (nodes at: 1) value record: OrderedCollection new
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 StepParser >> reduceActionForHeaderSection1: nodes [
 	^ nodes at: 3
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 StepParser >> reduceActionForInstLabel1: nodes [
 	^ (nodes at: 2) value
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 StepParser >> reduceActionForInstLabel2: nodes [
 	^ (nodes at: 2) value
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 StepParser >> reduceActionForInstanceReference1: nodes [
 	^ StepInstanceReference id: (nodes at: 1)
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 StepParser >> reduceActionForLogical1: nodes [
 	^ true
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 StepParser >> reduceActionForLogical2: nodes [
 	^ false
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 StepParser >> reduceActionForLogical3: nodes [
 	^ #UNKNOWN
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 StepParser >> reduceActionForOptionalXXParameters1: nodes [
 	^ nil
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 StepParser >> reduceActionForOptionalXXParameters2: nodes [
 	^ nodes at: 1
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 StepParser >> reduceActionForOptionalXXPlusOrMinus1: nodes [
 	^ nil
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 StepParser >> reduceActionForOptionalXXPlusOrMinus2: nodes [
 	^ nodes at: 1
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 StepParser >> reduceActionForOptionalXXXXX1: nodes [
 	^ nil
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 StepParser >> reduceActionForOptionalXXXXX2: nodes [
 	^ nodes at: 1
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 StepParser >> reduceActionForParameter1: nodes [
 	^ nodes at: 1
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 StepParser >> reduceActionForParameter2: nodes [
 	^ (nodes at: 3) value
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 StepParser >> reduceActionForParameterValue10: nodes [
 	^ nodes at: 1
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 StepParser >> reduceActionForParameterValue11: nodes [
 	^ nodes at: 1
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 StepParser >> reduceActionForParameterValue1: nodes [
 	^ $$
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 StepParser >> reduceActionForParameterValue2: nodes [
 	^ StepRedefinedValue new
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 StepParser >> reduceActionForParameterValue3: nodes [
 	| v |
 	v := (nodes at: 2) value asNumber.
@@ -327,7 +329,7 @@ StepParser >> reduceActionForParameterValue3: nodes [
 	^ v
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 StepParser >> reduceActionForParameterValue4: nodes [
 	| v |
 	v := (nodes at: 2) value asNumber.
@@ -336,126 +338,126 @@ StepParser >> reduceActionForParameterValue4: nodes [
 	^ v asFloat
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 StepParser >> reduceActionForParameterValue5: nodes [
 	^ ((nodes at: 1) value copyFrom: 2 to: (nodes at: 1) value size - 1) asSymbol
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 StepParser >> reduceActionForParameterValue6: nodes [
 	| v |
 	v := (nodes at: 1) value copyFrom: 2 to: (nodes at: 1) value size - 1.
 	^ v copyReplaceAll: '''''' with: ''''
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 StepParser >> reduceActionForParameterValue7: nodes [
 	^ (nodes at: 1) value copyFrom: 2 to: (nodes at: 1) value size - 1
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 StepParser >> reduceActionForParameterValue8: nodes [
 	^ nodes at: 1
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 StepParser >> reduceActionForParameterValue9: nodes [
 	^ nodes at: 1
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 StepParser >> reduceActionForParameters1: nodes [
 	^ OrderedCollection with: (nodes at: 1)
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 StepParser >> reduceActionForParameters2: nodes [
 	(nodes at: 1) add: (nodes at: 3).
 	^ nodes at: 1
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 StepParser >> reduceActionForPlusOrMinus1: nodes [
 	^ $+
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 StepParser >> reduceActionForPlusOrMinus2: nodes [
 	^ $-
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 StepParser >> reduceActionForRepeatXXDataEntity1: nodes [
 	^ OrderedCollection new
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 StepParser >> reduceActionForRepeatXXDataEntity2: nodes [
 	^ (nodes at: 1)
 		add: (nodes at: 2);
 		yourself
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 StepParser >> reduceActionForRepeatXXHeaderEntity1: nodes [
 	^ OrderedCollection new
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 StepParser >> reduceActionForRepeatXXHeaderEntity2: nodes [
 	^ (nodes at: 1)
 		add: (nodes at: 2);
 		yourself
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 StepParser >> reduceActionForRepeatXXSubsuperRecordListElement1: nodes [
 	^ OrderedCollection new
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 StepParser >> reduceActionForRepeatXXSubsuperRecordListElement2: nodes [
 	^ (nodes at: 1)
 		add: (nodes at: 2);
 		yourself
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 StepParser >> reduceActionForSimpleRecord1: nodes [
 	^ self simpleRecord: (nodes at: 1) attributes: ((nodes at: 3) ifNil: [ OrderedCollection new ])
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 StepParser >> reduceActionForSimpleRecordEntry1: nodes [
 	^ StepSimpleRecord entityName: (nodes at: 1) first values: (nodes at: 1) second
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 StepParser >> reduceActionForSubsuperRecord1: nodes [
 	^ nodes at: 2
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 StepParser >> reduceActionForSubsuperRecordList1: nodes [
 	^ nodes at: 1
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 StepParser >> reduceActionForSubsuperRecordListElement1: nodes [
 	^ Association key: (nodes at: 1) value value: (nodes at: 3)
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 StepParser >> reduceActionForSubsuperRecordListElement2: nodes [
 	^ Association key: (nodes at: 1) value value: OrderedCollection new
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 StepParser >> reduceActionForTypedValue1: nodes [
 	^ nodes at: 3
 ]
 
-{ #category : #'generated-tables' }
+{ #category : 'generated-tables' }
 StepParser >> reduceTable [
 	^#(
 #(30 0 #reduceActionForRepeatXXHeaderEntity1:)
@@ -522,17 +524,17 @@ StepParser >> reduceTable [
 )
 ]
 
-{ #category : #'semantic actions' }
+{ #category : 'semantic actions' }
 StepParser >> simpleInstanceKey [
 	^ #simpleInstance
 ]
 
-{ #category : #'semantic actions' }
+{ #category : 'semantic actions' }
 StepParser >> simpleRecord: entity attributes: attributes [ 
 	^ Array with: entity with: attributes
 ]
 
-{ #category : #'generated-tables' }
+{ #category : 'generated-tables' }
 StepParser >> transitionTable [
 	^#(
 #[1 0 29 0 6 0 33 0 60]

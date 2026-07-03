@@ -62,44 +62,46 @@ END_FUNCTION;
 </ISO10303-11-EXPRESS>
 "
 Class {
-	#name : #PltUSEDINFunction,
-	#superclass : #PlatypusCoreAlgorithmDeclaration,
+	#name : 'PltUSEDINFunction',
+	#superclass : 'PlatypusCoreAlgorithmDeclaration',
 	#instVars : [
 		't',
 		'r'
 	],
-	#category : #'Platypus-ExpressBuiltinsSchema'
+	#category : 'Platypus-ExpressBuiltinsSchema',
+	#package : 'Platypus',
+	#tag : 'ExpressBuiltinsSchema'
 }
 
-{ #category : #'platypus-generated-platypus-signature' }
+{ #category : 'platypus-generated-platypus-signature' }
 PltUSEDINFunction class >> iso10303P11Translater [
 	^ 'Platypus (c) LISYC EA3883, Universite de Bretagne occidentale. Brest.'
 
 
 ]
 
-{ #category : #'platypus-generated-meta-data-accessing' }
+{ #category : 'platypus-generated-meta-data-accessing' }
 PltUSEDINFunction class >> schemaDefinition [
 	^ PltExpressBuiltinsSchemaDefinition singleton
 
 
 ]
 
-{ #category : #'platypus-generated-platypus-signature' }
+{ #category : 'platypus-generated-platypus-signature' }
 PltUSEDINFunction class >> translatedFromISO10303P11 [
 	^ true
 
 
 ]
 
-{ #category : #'platypus-generated-platypus-signature' }
+{ #category : 'platypus-generated-platypus-signature' }
 PltUSEDINFunction class >> vwNamespaceName [
 	^ #Platypus
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 PltUSEDINFunction >> fromValues: values [
 	self t: (values at: 1).
 	self r: (values at: 2)
@@ -107,7 +109,7 @@ PltUSEDINFunction >> fromValues: values [
 
 ]
 
-{ #category : #'platypus-generated-invoking' }
+{ #category : 'platypus-generated-invoking' }
 PltUSEDINFunction >> invoke [
 	" ---------- locals assignments ----------"
 
@@ -148,35 +150,35 @@ PltUSEDINFunction >> invoke [
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 PltUSEDINFunction >> r [
 	^ r
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 PltUSEDINFunction >> r: aString [
 	r := aString
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 PltUSEDINFunction >> t [
 	^ t
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 PltUSEDINFunction >> t: anObject [
 	t := anObject
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 PltUSEDINFunction >> t: anObject r: aString [
 	self t: anObject.
 	self r: aString

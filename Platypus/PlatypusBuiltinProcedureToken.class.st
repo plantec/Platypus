@@ -1,15 +1,17 @@
 Class {
-	#name : #PlatypusBuiltinProcedureToken,
-	#superclass : #PlatypusKeywordToken,
-	#category : #'Platypus-HW-CodeTokens'
+	#name : 'PlatypusBuiltinProcedureToken',
+	#superclass : 'PlatypusKeywordToken',
+	#category : 'Platypus-HW-CodeTokens',
+	#package : 'Platypus',
+	#tag : 'HW-CodeTokens'
 }
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 PlatypusBuiltinProcedureToken >> accept: aVisitor [ 
 	^ aVisitor acceptBuiltinProcedure: self
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 PlatypusBuiltinProcedureToken >> isBuiltinProcedure [
 	^ true
 ]

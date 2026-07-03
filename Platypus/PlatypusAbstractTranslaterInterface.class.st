@@ -1,20 +1,22 @@
 Class {
-	#name : #PlatypusAbstractTranslaterInterface,
-	#superclass : #Object,
-	#category : #'Platypus-HW-translater-public'
+	#name : 'PlatypusAbstractTranslaterInterface',
+	#superclass : 'Object',
+	#category : 'Platypus-HW-translater-public',
+	#package : 'Platypus',
+	#tag : 'HW-translater-public'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusAbstractTranslaterInterface class >> translaterClass [
 	^ PlatypusPharoSmalltalk at: self translaterClassName asSymbol
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusAbstractTranslaterInterface class >> translaterClassName [
 	^ self subclassResponsibility 
 ]
 
-{ #category : #'public accessing' }
+{ #category : 'public accessing' }
 PlatypusAbstractTranslaterInterface >> localTranslate: aMetaData [ 
 	| translater |
 	translater := self translaterClass namesBuilder: aMetaData namesBuilder.
@@ -22,19 +24,19 @@ PlatypusAbstractTranslaterInterface >> localTranslate: aMetaData [
 	^ self translate: aMetaData withStructureTranslater: translater
 ]
 
-{ #category : #'public accessing' }
+{ #category : 'public accessing' }
 PlatypusAbstractTranslaterInterface >> translate: aMetaData [ 
 	| translater |
 	translater := self translaterClass namesBuilder: aMetaData namesBuilder.
 	^ self translate: aMetaData withStructureTranslater: translater
 ]
 
-{ #category : #'public accessing' }
+{ #category : 'public accessing' }
 PlatypusAbstractTranslaterInterface >> translate: aMetaData withStructureTranslater: aTranslater [ 
 	^ aTranslater translate: aMetaData
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusAbstractTranslaterInterface >> translaterClass [
 	^ self class translaterClass
 	

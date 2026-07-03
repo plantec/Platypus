@@ -1,20 +1,22 @@
 Class {
-	#name : #PlatypusExpressBuiltinFormatScanner,
-	#superclass : #SmaCCScanner,
-	#category : #'Platypus-HW-parsers'
+	#name : 'PlatypusExpressBuiltinFormatScanner',
+	#superclass : 'SmaCCScanner',
+	#category : 'Platypus-HW-parsers',
+	#package : 'Platypus',
+	#tag : 'HW-parsers'
 }
 
-{ #category : #generated }
+{ #category : 'generated' }
 PlatypusExpressBuiltinFormatScanner >> emptySymbolTokenId [
 	^ 26
 ]
 
-{ #category : #generated }
+{ #category : 'generated' }
 PlatypusExpressBuiltinFormatScanner >> errorTokenId [
 	^ 27
 ]
 
-{ #category : #generated }
+{ #category : 'generated' }
 PlatypusExpressBuiltinFormatScanner >> scanForToken [
 	self step.
 	currentCharacter = $#
@@ -53,7 +55,7 @@ PlatypusExpressBuiltinFormatScanner >> scanForToken [
 	^ self reportLastMatch
 ]
 
-{ #category : #generated }
+{ #category : 'generated' }
 PlatypusExpressBuiltinFormatScanner >> tokenActions [
 	^ #(nil nil nil nil nil nil nil nil nil nil nil #whitespace)
 ]

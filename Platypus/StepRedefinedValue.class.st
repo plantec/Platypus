@@ -1,25 +1,27 @@
 Class {
-	#name : #StepRedefinedValue,
-	#superclass : #StepCoreObject,
+	#name : 'StepRedefinedValue',
+	#superclass : 'StepCoreObject',
 	#classVars : [
 		'Singleton'
 	],
-	#category : #'Platypus-STEP-core'
+	#category : 'Platypus-STEP-core',
+	#package : 'Platypus',
+	#tag : 'STEP-core'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 StepRedefinedValue class >> new [
 	^ self singleton
 
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 StepRedefinedValue class >> singleton [
 	^ Singleton
 		ifNil: [Singleton := self basicNew]
 ]
 
-{ #category : #printing }
+{ #category : 'printing' }
 StepRedefinedValue >> printOn: aStream [ 
 	aStream nextPut: $*.
 

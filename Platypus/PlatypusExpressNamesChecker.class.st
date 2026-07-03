@@ -1,10 +1,12 @@
 Class {
-	#name : #PlatypusExpressNamesChecker,
-	#superclass : #PlatypusExpressChecker,
-	#category : #'Platypus-HW-visitors'
+	#name : 'PlatypusExpressNamesChecker',
+	#superclass : 'PlatypusExpressChecker',
+	#category : 'Platypus-HW-visitors',
+	#package : 'Platypus',
+	#tag : 'HW-visitors'
 }
 
-{ #category : #'visit dictionary schema' }
+{ #category : 'visit dictionary schema' }
 PlatypusExpressNamesChecker >> acceptContextDefinition: e [ 
 	super acceptContextDefinition: e.
 	e namedTypesCache
@@ -21,13 +23,13 @@ PlatypusExpressNamesChecker >> acceptContextDefinition: e [
 										registerError: (PlatypusExpressNamesCheckerError metaData: m  message: ' multiply defined ')]]]]
 ]
 
-{ #category : #'visit dictionary schema' }
+{ #category : 'visit dictionary schema' }
 PlatypusExpressNamesChecker >> acceptSchemaDefinition: e [ 
 		self logInfo: 'schema ' , e name.
 		super acceptSchemaDefinition: e
 ]
 
-{ #category : #'visit environment schema' }
+{ #category : 'visit environment schema' }
 PlatypusExpressNamesChecker >> acceptSchemaInstance: e [ 
 	| index m |
 	index := Dictionary new.
@@ -45,7 +47,7 @@ PlatypusExpressNamesChecker >> acceptSchemaInstance: e [
 	e internalSchemata acceptTry: self
 ]
 
-{ #category : #'visit generic' }
+{ #category : 'visit generic' }
 PlatypusExpressNamesChecker >> checks: aMetaData [ 
 	self logInfo: 'NAMES CHECKING'.
 	aMetaData acceptTry: self.

@@ -1,10 +1,12 @@
 Class {
-	#name : #PlatypusToPharoTranslater,
-	#superclass : #PlatypusAbstractTranslaterInterface,
-	#category : #'Platypus-HW-translater-public'
+	#name : 'PlatypusToPharoTranslater',
+	#superclass : 'PlatypusAbstractTranslaterInterface',
+	#category : 'Platypus-HW-translater-public',
+	#package : 'Platypus',
+	#tag : 'HW-translater-public'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusToPharoTranslater class >> translaterClassName [
 	^ #PlatypusExpressStructure2PharoTranslater 
 ]

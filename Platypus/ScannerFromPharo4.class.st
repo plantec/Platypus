@@ -2,8 +2,8 @@
 I scan a string or text, picking out Smalltalk syntactic tokens. I look one character ahead. I put each token found into the instance variable, token, and its type (a Symbol) into the variable, tokenType. At the end of the input stream, I pretend to see an endless sequence of special characters called doits.
 "
 Class {
-	#name : #ScannerFromPharo4,
-	#superclass : #Object,
+	#name : 'ScannerFromPharo4',
+	#superclass : 'Object',
 	#instVars : [
 		'source',
 		'mark',
@@ -18,23 +18,25 @@ Class {
 	#classVars : [
 		'DoItCharacter'
 	],
-	#category : #'Platypus-HW-translater-private'
+	#category : 'Platypus-HW-translater-private',
+	#package : 'Platypus',
+	#tag : 'HW-translater-private'
 }
 
-{ #category : #'class initialization' }
+{ #category : 'class initialization' }
 ScannerFromPharo4 class >> initialize [
 	"The unicode ending with FFFE or FFFF are non characters and can be used by applications if they wish.
 	We use last legal unicode 16r10FFFF to encode the end of source stream"
 	DoItCharacter := Character value: 16r10FFFF
 ]
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 ScannerFromPharo4 class >> new [
 
 	^self basicNew initScanner
 ]
 
-{ #category : #'expression types' }
+{ #category : 'expression types' }
 ScannerFromPharo4 >> advance [
 
 	| prevToken |
@@ -43,7 +45,7 @@ ScannerFromPharo4 >> advance [
 	^prevToken
 ]
 
-{ #category : #'error handling' }
+{ #category : 'error handling' }
 ScannerFromPharo4 >> ambiguousSelector: aString inRange: anInterval [
 	"Warning: this methods breaks backward compatibility: $- is now part of literal argument.."
 	
@@ -51,14 +53,14 @@ ScannerFromPharo4 >> ambiguousSelector: aString inRange: anInterval [
 	^self
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 ScannerFromPharo4 >> initScanner [
 
 	buffer := (String new: 40) writeStream.
 	typeTable := String typeTable
 ]
 
-{ #category : #'initialize-release' }
+{ #category : 'initialize-release' }
 ScannerFromPharo4 >> initScannerForTokenization [
 	"Use a version of typeTable that doesn't raise xIllegal when enocuntering an :="
 	| underscoreIndex |
@@ -67,27 +69,27 @@ ScannerFromPharo4 >> initScannerForTokenization [
 	typeTable at: underscoreIndex put: #xUnderscoreForTokenization
 ]
 
-{ #category : #'error handling' }
+{ #category : 'error handling' }
 ScannerFromPharo4 >> notify: string [ 
 	"Refer to the comment in Object|notify:." 
 	self error: string
 ]
 
-{ #category : #'error handling' }
+{ #category : 'error handling' }
 ScannerFromPharo4 >> notify: string at: posiiton [
 	"Parser compatible message"
 	 
 	^self notify: string 
 ]
 
-{ #category : #'error handling' }
+{ #category : 'error handling' }
 ScannerFromPharo4 >> offEnd: aString [ 
 	"Parser overrides this"
 
 	^self notify: aString
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 ScannerFromPharo4 >> scan: inputStream [ 
 	"Bind the input stream, fill the character buffers and first token buffer."
 
@@ -97,7 +99,7 @@ ScannerFromPharo4 >> scan: inputStream [
 	self scanToken
 ]
 
-{ #category : #'expression types' }
+{ #category : 'expression types' }
 ScannerFromPharo4 >> scanAllTokenPositionsInto: aBlock [
 	"Evaluate aBlock with the start and end positions of all separate non-white-space tokens, including comments."
 
@@ -147,7 +149,7 @@ ScannerFromPharo4 >> scanAllTokenPositionsInto: aBlock [
 		self scanToken ] repeat
 ]
 
-{ #category : #'expression types' }
+{ #category : 'expression types' }
 ScannerFromPharo4 >> scanLitByte [
 	| stream |
 	stream := (ByteArray new: 16) writeStream.
@@ -161,7 +163,7 @@ ScannerFromPharo4 >> scanLitByte [
 	token := stream contents
 ]
 
-{ #category : #'expression types' }
+{ #category : 'expression types' }
 ScannerFromPharo4 >> scanLitVec [
 	| s |
 	s := (Array new: 16) writeStream.
@@ -186,7 +188,7 @@ ScannerFromPharo4 >> scanLitVec [
 	token := s contents
 ]
 
-{ #category : #'expression types' }
+{ #category : 'expression types' }
 ScannerFromPharo4 >> scanLitWord [
 	"Accumulate keywords and asSymbol the result."
 
@@ -199,7 +201,7 @@ ScannerFromPharo4 >> scanLitWord [
 	token := token asSymbol
 ]
 
-{ #category : #'expression types' }
+{ #category : 'expression types' }
 ScannerFromPharo4 >> scanStringStruct [
 
 	| s |
@@ -217,7 +219,7 @@ ScannerFromPharo4 >> scanStringStruct [
 	token := s contents
 ]
 
-{ #category : #'expression types' }
+{ #category : 'expression types' }
 ScannerFromPharo4 >> scanToken [
 
 	[(tokenType := self typeTableAt: hereChar) == #xDelimiter]
@@ -233,7 +235,7 @@ ScannerFromPharo4 >> scanToken [
 	^token
 ]
 
-{ #category : #'public access' }
+{ #category : 'public access' }
 ScannerFromPharo4 >> scanTokens: textOrString [ 
 	"Answer an Array that has been tokenized as though the input text, 
 	textOrString, had appeared between the array delimitors #( and ) in a 
@@ -246,7 +248,7 @@ ScannerFromPharo4 >> scanTokens: textOrString [
 	"Scanner new scanTokens: 'identifier keyword: 8r31 ''string'' .'"
 ]
 
-{ #category : #'expression types' }
+{ #category : 'expression types' }
 ScannerFromPharo4 >> step [
 
 	| c |
@@ -258,7 +260,7 @@ ScannerFromPharo4 >> step [
 	^c
 ]
 
-{ #category : #'multi-character scans' }
+{ #category : 'multi-character scans' }
 ScannerFromPharo4 >> typeTableAt: aCharacter [
 	^typeTable
 		at: aCharacter charCode
@@ -268,7 +270,7 @@ ScannerFromPharo4 >> typeTableAt: aCharacter [
 				ifFalse: [#xLetter]]
 ]
 
-{ #category : #'multi-character scans' }
+{ #category : 'multi-character scans' }
 ScannerFromPharo4 >> xBinary [
 
 	| startOfToken |
@@ -283,7 +285,7 @@ ScannerFromPharo4 >> xBinary [
 	token := token asSymbol
 ]
 
-{ #category : #'multi-character scans' }
+{ #category : 'multi-character scans' }
 ScannerFromPharo4 >> xColon [
 	"Allow := for assignment"
 	
@@ -297,14 +299,14 @@ ScannerFromPharo4 >> xColon [
 	^ token := self step asSymbol
 ]
 
-{ #category : #'multi-character scans' }
+{ #category : 'multi-character scans' }
 ScannerFromPharo4 >> xDelimiter [
 	"Ignore blanks, etc."
 
 	self scanToken
 ]
 
-{ #category : #'multi-character scans' }
+{ #category : 'multi-character scans' }
 ScannerFromPharo4 >> xDigit [
 	"Form a number."
 
@@ -318,7 +320,7 @@ ScannerFromPharo4 >> xDigit [
 	self step; step
 ]
 
-{ #category : #'multi-character scans' }
+{ #category : 'multi-character scans' }
 ScannerFromPharo4 >> xDollar [
 	"Form a Character literal."
 
@@ -331,7 +333,7 @@ ScannerFromPharo4 >> xDollar [
 	tokenType := #number
 ]
 
-{ #category : #'multi-character scans' }
+{ #category : 'multi-character scans' }
 ScannerFromPharo4 >> xDoubleQuote [
 	"Collect a comment."
 	| aStream |
@@ -350,13 +352,13 @@ ScannerFromPharo4 >> xDoubleQuote [
 	self scanToken
 ]
 
-{ #category : #'multi-character scans' }
+{ #category : 'multi-character scans' }
 ScannerFromPharo4 >> xIllegal [
 	"An illegal character was encountered"
 	self notify: 'Illegal character (char code ' , hereChar charCode , ' ' , hereChar charCode storeStringHex , ')' at: mark
 ]
 
-{ #category : #'multi-character scans' }
+{ #category : 'multi-character scans' }
 ScannerFromPharo4 >> xLetter [
 	"Form a word or keyword."
 
@@ -381,7 +383,7 @@ ScannerFromPharo4 >> xLetter [
 	token := buffer contents
 ]
 
-{ #category : #'multi-character scans' }
+{ #category : 'multi-character scans' }
 ScannerFromPharo4 >> xLitQuote [
 	"Symbols and vectors: #(1 (4 5) 2 3) #ifTrue:ifFalse: #'abc'."
 	| start |
@@ -419,7 +421,7 @@ ScannerFromPharo4 >> xLitQuote [
 	"
 ]
 
-{ #category : #'multi-character scans' }
+{ #category : 'multi-character scans' }
 ScannerFromPharo4 >> xSingleQuote [
 	"String."
 
@@ -438,12 +440,12 @@ ScannerFromPharo4 >> xSingleQuote [
 	tokenType := #string
 ]
 
-{ #category : #'multi-character scans' }
+{ #category : 'multi-character scans' }
 ScannerFromPharo4 >> xUnderscore [
 	^ self xIllegal
 ]
 
-{ #category : #'multi-character scans' }
+{ #category : 'multi-character scans' }
 ScannerFromPharo4 >> xUnderscoreForTokenization [
 	self step.
 	tokenType := #leftArrow.

@@ -1,21 +1,23 @@
 Class {
-	#name : #PlatypusExpressStructure2SmalltalkTranslater,
-	#superclass : #PlatypusExpressTranslater,
+	#name : 'PlatypusExpressStructure2SmalltalkTranslater',
+	#superclass : 'PlatypusExpressTranslater',
 	#instVars : [
 		'translationsDone',
 		'namesBuilder',
 		'localTranslationOnly',
 		'schemaInstance'
 	],
-	#category : #'Platypus-HW-translater-private'
+	#category : 'Platypus-HW-translater-private',
+	#package : 'Platypus',
+	#tag : 'HW-translater-private'
 }
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 PlatypusExpressStructure2SmalltalkTranslater class >> namesBuilder: aNamesBuilder [
 	^ self new namesBuilder: aNamesBuilder
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusExpressStructure2SmalltalkTranslater class >> translaterRequiredAspects [
 	^ #(
 		#classPrefix
@@ -25,7 +27,7 @@ PlatypusExpressStructure2SmalltalkTranslater class >> translaterRequiredAspects 
 	)
 ]
 
-{ #category : #'visit dictionary schema' }
+{ #category : 'visit dictionary schema' }
 PlatypusExpressStructure2SmalltalkTranslater >> acceptDerivedAttribute: e [ 
 	(translationsDone includes: e)
 		ifFalse: [translationsDone add: e.
@@ -33,7 +35,7 @@ PlatypusExpressStructure2SmalltalkTranslater >> acceptDerivedAttribute: e [
 			]
 ]
 
-{ #category : #'visit dictionary schema' }
+{ #category : 'visit dictionary schema' }
 PlatypusExpressStructure2SmalltalkTranslater >> acceptEntityDefinition: e [ 
 	(translationsDone includes: e)
 		ifFalse: [translationsDone add: e.
@@ -42,7 +44,7 @@ PlatypusExpressStructure2SmalltalkTranslater >> acceptEntityDefinition: e [
 					super acceptEntityDefinition: e]]
 ]
 
-{ #category : #'visit dictionary schema' }
+{ #category : 'visit dictionary schema' }
 PlatypusExpressStructure2SmalltalkTranslater >> acceptExplicitAttribute: e [ 
 	(translationsDone includes: e)
 		ifFalse: [translationsDone add: e.
@@ -50,35 +52,35 @@ PlatypusExpressStructure2SmalltalkTranslater >> acceptExplicitAttribute: e [
 			]
 ]
 
-{ #category : #'visit dictionary schema' }
+{ #category : 'visit dictionary schema' }
 PlatypusExpressStructure2SmalltalkTranslater >> acceptFunctionDeclaration: e [ 
 	(translationsDone includes: e)
 		ifFalse: [translationsDone add: e.
 			self doAlgorithmDeclaration: e]
 ]
 
-{ #category : #'visit dictionary schema' }
+{ #category : 'visit dictionary schema' }
 PlatypusExpressStructure2SmalltalkTranslater >> acceptGlobalRule: e [ 
 	(translationsDone includes: e)
 		ifFalse: [translationsDone add: e.
 			self doGlobalRule: e]
 ]
 
-{ #category : #'visit dictionary schema' }
+{ #category : 'visit dictionary schema' }
 PlatypusExpressStructure2SmalltalkTranslater >> acceptInverseAttribute: e [ 
 	(translationsDone includes: e)
 		ifFalse: [translationsDone add: e.
 			self doInverseAttribute: e]
 ]
 
-{ #category : #'visit dictionary schema' }
+{ #category : 'visit dictionary schema' }
 PlatypusExpressStructure2SmalltalkTranslater >> acceptProcedureDeclaration: e [ 
 	(translationsDone includes: e)
 		ifFalse: [translationsDone add: e.
 			self doAlgorithmDeclaration: e]
 ]
 
-{ #category : #'visit dictionary schema' }
+{ #category : 'visit dictionary schema' }
 PlatypusExpressStructure2SmalltalkTranslater >> acceptSchemaDefinition: e [ 
 	(translationsDone includes: e) 
 		ifFalse: 
@@ -87,7 +89,7 @@ PlatypusExpressStructure2SmalltalkTranslater >> acceptSchemaDefinition: e [
 			super acceptSchemaDefinition: e]]
 ]
 
-{ #category : #'visit dictionary schema' }
+{ #category : 'visit dictionary schema' }
 PlatypusExpressStructure2SmalltalkTranslater >> acceptSchemaInstance: e [ 
 	(translationsDone includes: e)
 		ifFalse: [translationsDone add: e.
@@ -96,7 +98,7 @@ PlatypusExpressStructure2SmalltalkTranslater >> acceptSchemaInstance: e [
 				do: [:sch | sch acceptTry: self]]
 ]
 
-{ #category : #'visit generic' }
+{ #category : 'visit generic' }
 PlatypusExpressStructure2SmalltalkTranslater >> acceptTry: e [
 	schemaInstance
 		ifNil: [schemaInstance := e schemaInstance].
@@ -104,7 +106,7 @@ PlatypusExpressStructure2SmalltalkTranslater >> acceptTry: e [
 
 ]
 
-{ #category : #'visit dictionary schema' }
+{ #category : 'visit dictionary schema' }
 PlatypusExpressStructure2SmalltalkTranslater >> acceptWhereRule: e [ 
 	(translationsDone includes: e) 
 		ifFalse: 
@@ -112,7 +114,7 @@ PlatypusExpressStructure2SmalltalkTranslater >> acceptWhereRule: e [
 			self doWhereRule: e]
 ]
 
-{ #category : #'generating from algorithm' }
+{ #category : 'generating from algorithm' }
 PlatypusExpressStructure2SmalltalkTranslater >> buildAlgorithmCodeFrom: e [ 
 	| clsName invoquing paramInfos localInfos count ln allInfos affect code |
 	clsName := e generatedClassName.
@@ -191,7 +193,7 @@ PlatypusExpressStructure2SmalltalkTranslater >> buildAlgorithmCodeFrom: e [
 		category: 'invoking'
 ]
 
-{ #category : #'generating from entity' }
+{ #category : 'generating from entity' }
 PlatypusExpressStructure2SmalltalkTranslater >> buildClassificationMethodFromEntity: e [ 
 	| selector clsName |
 	clsName := e generatedClassName.
@@ -209,7 +211,7 @@ PlatypusExpressStructure2SmalltalkTranslater >> buildClassificationMethodFromEnt
 		category: (self mcCategory: ((e schemaDefinition  systemCategoryFromNamesBuilder: self namesBuilder) , '-classifying' ))
 ]
 
-{ #category : #'generating from schema' }
+{ #category : 'generating from schema' }
 PlatypusExpressStructure2SmalltalkTranslater >> buildContextAccessingMethodsFromSchema: e [ 
 	| selector clsName |
 	clsName := e generatedClassName.
@@ -221,7 +223,7 @@ PlatypusExpressStructure2SmalltalkTranslater >> buildContextAccessingMethodsFrom
 					category: 'context-accessing'
 ]
 
-{ #category : #'generating from schemaInstance' }
+{ #category : 'generating from schemaInstance' }
 PlatypusExpressStructure2SmalltalkTranslater >> buildContextAccessingMethodsFromSchemaInstance: e [ 
 	| clsName |
 	clsName := e generatedClassName.
@@ -237,7 +239,7 @@ PlatypusExpressStructure2SmalltalkTranslater >> buildContextAccessingMethodsFrom
 		category: 'context-accessing'
 ]
 
-{ #category : #'generating from entity' }
+{ #category : 'generating from entity' }
 PlatypusExpressStructure2SmalltalkTranslater >> buildCopyGroupToMethodFromEntity: e [ 
 	| arg1vn arg2vn selector1 selector2 code |
 	arg1vn := self namesBuilder localVarName: 'aClassSymbol' inScope: e.
@@ -253,7 +255,7 @@ PlatypusExpressStructure2SmalltalkTranslater >> buildCopyGroupToMethodFromEntity
 		category: 'copying'
 ]
 
-{ #category : #'generating from entity' }
+{ #category : 'generating from entity' }
 PlatypusExpressStructure2SmalltalkTranslater >> buildCopyToMethodFromEntity: e [ 
 	| selector clsName argvn code localCopyMthName |
 	clsName := e generatedClassName.
@@ -269,7 +271,7 @@ PlatypusExpressStructure2SmalltalkTranslater >> buildCopyToMethodFromEntity: e [
 		category: 'copying'
 ]
 
-{ #category : #'generating from schema' }
+{ #category : 'generating from schema' }
 PlatypusExpressStructure2SmalltalkTranslater >> buildEntitiesMethodsFromSchema: e [ 
 	| clsName cpt buildSelector prefix |
 	clsName := e generatedClassName.
@@ -293,14 +295,14 @@ PlatypusExpressStructure2SmalltalkTranslater >> buildEntitiesMethodsFromSchema: 
 		category: 'entities'
 ]
 
-{ #category : #'generating from schemaInstance' }
+{ #category : 'generating from schemaInstance' }
 PlatypusExpressStructure2SmalltalkTranslater >> buildExpressSchemaCodeMethodFromSchemaInstance: e [ 
 	self
 		buildExpressSchemaCodeMethodFromSchemaInstance: e
 		intoClassNamed: (e generatedClassName)
 ]
 
-{ #category : #'generating from schemaInstance' }
+{ #category : 'generating from schemaInstance' }
 PlatypusExpressStructure2SmalltalkTranslater >> buildExpressSchemaCodeMethodFromSchemaInstance: e intoClassNamed: aClassName [ 
 	| express |
 	express := e translatedSchemaCode.
@@ -313,7 +315,7 @@ PlatypusExpressStructure2SmalltalkTranslater >> buildExpressSchemaCodeMethodFrom
 		meta: false
 ]
 
-{ #category : #'generating from schemaInstance' }
+{ #category : 'generating from schemaInstance' }
 PlatypusExpressStructure2SmalltalkTranslater >> buildExternalsSchemaInstancesMethodFromSchemaInstance: e [ 
 	| selector clsName code |
 	clsName := e generatedClassName.
@@ -330,7 +332,7 @@ code := code, ')'.	self
 
 ]
 
-{ #category : #'generating from schema' }
+{ #category : 'generating from schema' }
 PlatypusExpressStructure2SmalltalkTranslater >> buildFunctionsMethodsFromSchema: e [ 
 	| clsName cpt buildSelector prefix |
 	clsName := e generatedClassName.
@@ -355,7 +357,7 @@ PlatypusExpressStructure2SmalltalkTranslater >> buildFunctionsMethodsFromSchema:
 
 ]
 
-{ #category : #'generating from attribute' }
+{ #category : 'generating from attribute' }
 PlatypusExpressStructure2SmalltalkTranslater >> buildGetAccessorMethodFromDerivedAttribute: e [ 
 	| selector clsName contextvn calledSelector receivervn receiverPart code |
 	clsName := e generatedClassName.
@@ -387,7 +389,7 @@ PlatypusExpressStructure2SmalltalkTranslater >> buildGetAccessorMethodFromDerive
 		category: 'deriving'
 ]
 
-{ #category : #'generating from attribute' }
+{ #category : 'generating from attribute' }
 PlatypusExpressStructure2SmalltalkTranslater >> buildGetAccessorMethodFromInverseAttribute: e [ 
 	| selector clsName invertedAttrOwnerClassName invertedAttrGetterSelector foundvn currvn contextvn cmp calledSelector code |
 	clsName := e generatedClassName.
@@ -421,7 +423,7 @@ PlatypusExpressStructure2SmalltalkTranslater >> buildGetAccessorMethodFromInvers
 		category: 'inverse-accessing'
 ]
 
-{ #category : #'generating from attribute' }
+{ #category : 'generating from attribute' }
 PlatypusExpressStructure2SmalltalkTranslater >> buildGetAccessorMethodFromWhereRule: e [ 
 	| selector clsName contextvn calledSelector code |
 	clsName := e generatedClassName.
@@ -445,7 +447,7 @@ PlatypusExpressStructure2SmalltalkTranslater >> buildGetAccessorMethodFromWhereR
 		category: 'rules'
 ]
 
-{ #category : #'generating from attribute' }
+{ #category : 'generating from attribute' }
 PlatypusExpressStructure2SmalltalkTranslater >> buildGetAndSetAccessorMethodFromExpliciteAttribute: e [ 
 	| vname argName selector lowSet clsName getSelector |
 	vname := e instVarNameFromNamesBuilder: self namesBuilder.
@@ -487,7 +489,7 @@ self
 					category: 'with-context-accessing'
 ]
 
-{ #category : #'generating from algorithm' }
+{ #category : 'generating from algorithm' }
 PlatypusExpressStructure2SmalltalkTranslater >> buildGlobalRuleAccessingFrom: e [ 
 	|  clsName localInfos affect code|
 	clsName := e generatedClassName.
@@ -514,7 +516,7 @@ PlatypusExpressStructure2SmalltalkTranslater >> buildGlobalRuleAccessingFrom: e 
 						category: 'accessing']
 ]
 
-{ #category : #'generating from algorithm' }
+{ #category : 'generating from algorithm' }
 PlatypusExpressStructure2SmalltalkTranslater >> buildGlobalRuleInitializeFrom: e [ 
 	| code clsName |
 	clsName := e generatedClassName.
@@ -543,7 +545,7 @@ PlatypusExpressStructure2SmalltalkTranslater >> buildGlobalRuleInitializeFrom: e
 		category: 'initializing'
 ]
 
-{ #category : #'generating from algorithm' }
+{ #category : 'generating from algorithm' }
 PlatypusExpressStructure2SmalltalkTranslater >> buildGlobalRuleWhereRulesCodeFrom: e [ 
 	| code clsName |
 	clsName := e generatedClassName.
@@ -561,7 +563,7 @@ PlatypusExpressStructure2SmalltalkTranslater >> buildGlobalRuleWhereRulesCodeFro
 
 ]
 
-{ #category : #'generating from entity' }
+{ #category : 'generating from entity' }
 PlatypusExpressStructure2SmalltalkTranslater >> buildInitializeMethodFromEntity: e [ 
 	| selector clsName code |
 	clsName := e generatedClassName.
@@ -577,7 +579,7 @@ PlatypusExpressStructure2SmalltalkTranslater >> buildInitializeMethodFromEntity:
 		category: 'initializing'
 ]
 
-{ #category : #'generating from schemaInstance' }
+{ #category : 'generating from schemaInstance' }
 PlatypusExpressStructure2SmalltalkTranslater >> buildInitializeMethodFromSchemaInstance: e [ 
 	| selector clsName code |
 	clsName := e generatedClassName.
@@ -590,7 +592,7 @@ PlatypusExpressStructure2SmalltalkTranslater >> buildInitializeMethodFromSchemaI
 		category: 'initializing'
 ]
 
-{ #category : #'generating from entity' }
+{ #category : 'generating from entity' }
 PlatypusExpressStructure2SmalltalkTranslater >> buildLocalCopyToMethodFromEntity: e [ 
 	| selector clsName argvn getterSelector setterSelector code |
 	clsName := e generatedClassName.
@@ -615,7 +617,7 @@ PlatypusExpressStructure2SmalltalkTranslater >> buildLocalCopyToMethodFromEntity
 		category: 'copying'
 ]
 
-{ #category : #'generating from entity' }
+{ #category : 'generating from entity' }
 PlatypusExpressStructure2SmalltalkTranslater >> buildLocalGroupAccessingMethodFromEntity: e [ 
 	| clsName setterSelector selectorsAndArgs reservedvn setter argvn localvn getterSelector selector code localFromValuesSelector localToValuesSelector |
 	clsName := e generatedClassName.
@@ -709,7 +711,7 @@ PlatypusExpressStructure2SmalltalkTranslater >> buildLocalGroupAccessingMethodFr
 
 ]
 
-{ #category : #'generating from schemaInstance' }
+{ #category : 'generating from schemaInstance' }
 PlatypusExpressStructure2SmalltalkTranslater >> buildMetaDataFileContentsMethodFromSchemaInstance: e [ 
 	| clsName metaDataStream |
 	clsName := e generatedClassName.
@@ -724,7 +726,7 @@ PlatypusExpressStructure2SmalltalkTranslater >> buildMetaDataFileContentsMethodF
 		meta: false
 ]
 
-{ #category : #'generating from schemaInstance' }
+{ #category : 'generating from schemaInstance' }
 PlatypusExpressStructure2SmalltalkTranslater >> buildNamesBuilderClassNameMethodFromSchemaInstance: e [ 
 	| selector clsName |
 	clsName := e generatedClassName.
@@ -736,7 +738,7 @@ PlatypusExpressStructure2SmalltalkTranslater >> buildNamesBuilderClassNameMethod
 		category: 'accessing'
 ]
 
-{ #category : #'generating from schemaInstance' }
+{ #category : 'generating from schemaInstance' }
 PlatypusExpressStructure2SmalltalkTranslater >> buildNamesBuilderMethodFromSchemaInstance: e [ 
 	| selector clsName code |
 	clsName := e generatedClassName.
@@ -755,7 +757,7 @@ PlatypusExpressStructure2SmalltalkTranslater >> buildNamesBuilderMethodFromSchem
 		category: 'accessing'
 ]
 
-{ #category : #'generating from entity' }
+{ #category : 'generating from entity' }
 PlatypusExpressStructure2SmalltalkTranslater >> buildPlatypusSignatureMethodForClass: className namespace: namespace packageName: packageName category: aCategoryName [ 
 	self 
 		fileOutMethodSource: 'translatedFromISO10303P11 ^ true.'
@@ -774,7 +776,7 @@ PlatypusExpressStructure2SmalltalkTranslater >> buildPlatypusSignatureMethodForC
 		category: 'platypus-signature'
 ]
 
-{ #category : #'generating from schemaInstance' }
+{ #category : 'generating from schemaInstance' }
 PlatypusExpressStructure2SmalltalkTranslater >> buildRepositoryMethodFromSchemaInstance: e [ 
 	| selector clsName repositoryClassName |
 	clsName := e generatedClassName.
@@ -794,7 +796,7 @@ PlatypusExpressStructure2SmalltalkTranslater >> buildRepositoryMethodFromSchemaI
 		category: 'accessing'
 ]
 
-{ #category : #'generating from entity' }
+{ #category : 'generating from entity' }
 PlatypusExpressStructure2SmalltalkTranslater >> buildRootEntityClass [
 	| rootClsName selector code |
 	(translationsDone includes: (rootClsName := self rootClassName asSymbol)) 
@@ -839,7 +841,7 @@ PlatypusExpressStructure2SmalltalkTranslater >> buildRootEntityClass [
 				category: 'context-accessing']
 ]
 
-{ #category : #'generating from entity' }
+{ #category : 'generating from entity' }
 PlatypusExpressStructure2SmalltalkTranslater >> buildSchemaDefinitionMethodFromAlgorithm: e [ 
 	| selector clsName schemaClassName code |
 	clsName := e generatedClassName.
@@ -854,7 +856,7 @@ PlatypusExpressStructure2SmalltalkTranslater >> buildSchemaDefinitionMethodFromA
 		category: 'meta-data-accessing'
 ]
 
-{ #category : #'generating from entity' }
+{ #category : 'generating from entity' }
 PlatypusExpressStructure2SmalltalkTranslater >> buildSchemaDefinitionMethodFromEntity: e [ 
 	| selector clsName schemaClassName code |
 	clsName := e generatedClassName.
@@ -870,7 +872,7 @@ PlatypusExpressStructure2SmalltalkTranslater >> buildSchemaDefinitionMethodFromE
 		category: 'meta-data-accessing'
 ]
 
-{ #category : #'generating from schemaInstance' }
+{ #category : 'generating from schemaInstance' }
 PlatypusExpressStructure2SmalltalkTranslater >> buildSchemaDefinitionsMethodsFromSchemaInstance: e [ 
 	| clsName cpt buildSelector prefix code |
 	clsName := e generatedClassName.
@@ -895,7 +897,7 @@ PlatypusExpressStructure2SmalltalkTranslater >> buildSchemaDefinitionsMethodsFro
 		category: 'schemata-accessing'
 ]
 
-{ #category : #'generating from schema' }
+{ #category : 'generating from schema' }
 PlatypusExpressStructure2SmalltalkTranslater >> buildSchemaInstanceClassNameMethodsFromSchema: e [ 
 	| clsName schInstClsName selector |
 	clsName := e generatedClassName.
@@ -909,7 +911,7 @@ PlatypusExpressStructure2SmalltalkTranslater >> buildSchemaInstanceClassNameMeth
 		category: 'meta-data-accessing'
 ]
 
-{ #category : #'generating from entity' }
+{ #category : 'generating from entity' }
 PlatypusExpressStructure2SmalltalkTranslater >> buildSchemaInstanceMethodFromEntity: e [ 
 	| selector clsName schemaInstanceClassName code |
 	clsName := e generatedClassName.
@@ -924,7 +926,7 @@ PlatypusExpressStructure2SmalltalkTranslater >> buildSchemaInstanceMethodFromEnt
 		category: 'meta-data-accessing'
 ]
 
-{ #category : #'generating from entity' }
+{ #category : 'generating from entity' }
 PlatypusExpressStructure2SmalltalkTranslater >> buildVisitMethodFromEntity: e [ 
 	| selector clsName code category |
 	clsName := e generatedClassName.
@@ -952,29 +954,29 @@ PlatypusExpressStructure2SmalltalkTranslater >> buildVisitMethodFromEntity: e [
 
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusExpressStructure2SmalltalkTranslater >> classPrefix [
 	^ self namesBuilder classPrefix
 ]
 
-{ #category : #utilities }
+{ #category : 'utilities' }
 PlatypusExpressStructure2SmalltalkTranslater >> commentFromMetaData: e [ 
 	| clsName |
 	clsName := e generatedClassName.
 	self commentFromMetaData: e classname: clsName
 ]
 
-{ #category : #utilities }
+{ #category : 'utilities' }
 PlatypusExpressStructure2SmalltalkTranslater >> commentFromMetaData: e classname: aClassName [ 
 	self subclassResponsibility 
 ]
 
-{ #category : #'generating from attribute' }
+{ #category : 'generating from attribute' }
 PlatypusExpressStructure2SmalltalkTranslater >> contextAccessingCode [
 	^ ' self class context'
 ]
 
-{ #category : #'visit dictionary schema' }
+{ #category : 'visit dictionary schema' }
 PlatypusExpressStructure2SmalltalkTranslater >> doAlgorithmDeclaration: e [ 
 	| paramInfos localInfos allInfos instv |
 	paramInfos := self namesBuilder 
@@ -995,12 +997,12 @@ PlatypusExpressStructure2SmalltalkTranslater >> doAlgorithmDeclaration: e [
 	self buildSchemaDefinitionMethodFromAlgorithm: e
 ]
 
-{ #category : #'visit dictionary schema' }
+{ #category : 'visit dictionary schema' }
 PlatypusExpressStructure2SmalltalkTranslater >> doDerivedAttribute: e [ 
 	 self buildGetAccessorMethodFromDerivedAttribute: e
 ]
 
-{ #category : #'visit dictionary schema' }
+{ #category : 'visit dictionary schema' }
 PlatypusExpressStructure2SmalltalkTranslater >> doEntityDefinition: e [ 
 	| superClassname instv classv |
 	self localTranslationOnly 
@@ -1043,12 +1045,12 @@ PlatypusExpressStructure2SmalltalkTranslater >> doEntityDefinition: e [
 	self buildSchemaInstanceMethodFromEntity: e
 ]
 
-{ #category : #'visit dictionary schema' }
+{ #category : 'visit dictionary schema' }
 PlatypusExpressStructure2SmalltalkTranslater >> doExplicitAttribute: e [ 
 	self buildGetAndSetAccessorMethodFromExpliciteAttribute: e
 ]
 
-{ #category : #'visit dictionary schema' }
+{ #category : 'visit dictionary schema' }
 PlatypusExpressStructure2SmalltalkTranslater >> doGlobalRule: e [ 
 	|  instv allInfos |
 	allInfos := self namesBuilder normalizedAlgorithmLocalVariablesInfosFrom: e.
@@ -1069,12 +1071,12 @@ PlatypusExpressStructure2SmalltalkTranslater >> doGlobalRule: e [
 
 ]
 
-{ #category : #'visit dictionary schema' }
+{ #category : 'visit dictionary schema' }
 PlatypusExpressStructure2SmalltalkTranslater >> doInverseAttribute: e [ 
 	self buildGetAccessorMethodFromInverseAttribute: e 
 ]
 
-{ #category : #'visit dictionary schema' }
+{ #category : 'visit dictionary schema' }
 PlatypusExpressStructure2SmalltalkTranslater >> doSchemaDefinition: e [ 
 	self 
 		fileOutClassDefinition: e generatedClassName
@@ -1089,7 +1091,7 @@ PlatypusExpressStructure2SmalltalkTranslater >> doSchemaDefinition: e [
 	self buildFunctionsMethodsFromSchema: e
 ]
 
-{ #category : #'visit dictionary schema' }
+{ #category : 'visit dictionary schema' }
 PlatypusExpressStructure2SmalltalkTranslater >> doSchemaInstance: e [ 
 	| clsName |
 	self
@@ -1126,19 +1128,19 @@ PlatypusExpressStructure2SmalltalkTranslater >> doSchemaInstance: e [
 	self buildInitializeMethodFromSchemaInstance: e
 ]
 
-{ #category : #'visit dictionary schema' }
+{ #category : 'visit dictionary schema' }
 PlatypusExpressStructure2SmalltalkTranslater >> doWhereRule: e [ 
 	e label ifNotNil: [
 	self buildGetAccessorMethodFromWhereRule: e]
 ]
 
-{ #category : #utilities }
+{ #category : 'utilities' }
 PlatypusExpressStructure2SmalltalkTranslater >> environment [
 	^ self namesBuilder systemCategoryPrefix
 
 ]
 
-{ #category : #utilities }
+{ #category : 'utilities' }
 PlatypusExpressStructure2SmalltalkTranslater >> fileInSplittedBaseSelector: selector contents: aBigString className: clsName category: category step: step meta: isMeta [ 
 	|  lines prev buildSelector count code |
 	lines := OrderedCollection new.
@@ -1170,7 +1172,7 @@ PlatypusExpressStructure2SmalltalkTranslater >> fileInSplittedBaseSelector: sele
 		category: category
 ]
 
-{ #category : #utilities }
+{ #category : 'utilities' }
 PlatypusExpressStructure2SmalltalkTranslater >> fileOutClassDefinition: aClassName superClassName: superClassName instVars: instVars classVars: classVars category: aCategoryName [ 
 	self 
 		fileOutClassDefinition: aClassName
@@ -1182,18 +1184,18 @@ PlatypusExpressStructure2SmalltalkTranslater >> fileOutClassDefinition: aClassNa
 		category: aCategoryName
 ]
 
-{ #category : #utilities }
+{ #category : 'utilities' }
 PlatypusExpressStructure2SmalltalkTranslater >> fileOutClassDefinition: aClassName superClassName: superClassName instVars: instVars classVars: classVars namespace: namespace packageName: packageName category: aCategoryName [ 
 	self subclassResponsibility 
 ]
 
-{ #category : #utilities }
+{ #category : 'utilities' }
 PlatypusExpressStructure2SmalltalkTranslater >> fileOutDoIt: aSource [ 
 		self subclassResponsibility
 
 ]
 
-{ #category : #utilities }
+{ #category : 'utilities' }
 PlatypusExpressStructure2SmalltalkTranslater >> fileOutMethodSource: aSource className: aClassName meta: isMeta category: aCategorySymbol [ 
 	self 
 		fileOutMethodSource: aSource
@@ -1203,31 +1205,31 @@ PlatypusExpressStructure2SmalltalkTranslater >> fileOutMethodSource: aSource cla
 		category: aCategorySymbol
 ]
 
-{ #category : #utilities }
+{ #category : 'utilities' }
 PlatypusExpressStructure2SmalltalkTranslater >> fileOutMethodSource: aSource className: aClassName meta: isMeta packageName: packageName category: aCategorySymbol [ 
 		self subclassResponsibility 
 ]
 
-{ #category : #utilities }
+{ #category : 'utilities' }
 PlatypusExpressStructure2SmalltalkTranslater >> fileOutNamespaceDefinition: aNamespaceName imports: imports environment: envName packageName: packageName category: aCategoryName [ 
 		self subclassResponsibility 
 ]
 
-{ #category : #utilities }
+{ #category : 'utilities' }
 PlatypusExpressStructure2SmalltalkTranslater >> finalResultFrom: aString [
 
  ^ super finalResultFrom: aString
 
 ]
 
-{ #category : #'initialize/release' }
+{ #category : 'initialize/release' }
 PlatypusExpressStructure2SmalltalkTranslater >> initialize [
 	super initialize.
 	translationsDone := Set new.
 
 ]
 
-{ #category : #'generating from attribute' }
+{ #category : 'generating from attribute' }
 PlatypusExpressStructure2SmalltalkTranslater >> initializeStatementFromAttribute: e [ 
 	| varName initExpr |
 	varName := e instVarNameFromNamesBuilder: self namesBuilder.
@@ -1237,17 +1239,17 @@ PlatypusExpressStructure2SmalltalkTranslater >> initializeStatementFromAttribute
 			^ varName , ' := ' , initExpr , '.']
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusExpressStructure2SmalltalkTranslater >> localTranslationOnly [
 	^ localTranslationOnly ifNil: [localTranslationOnly := false]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusExpressStructure2SmalltalkTranslater >> localTranslationOnly: anObject [
 	localTranslationOnly := anObject
 ]
 
-{ #category : #'generating from attribute' }
+{ #category : 'generating from attribute' }
 PlatypusExpressStructure2SmalltalkTranslater >> lowSetExpressionFromAttribute: e [ 
 	| domain argName |
 	domain := e domain referenced.
@@ -1262,57 +1264,57 @@ PlatypusExpressStructure2SmalltalkTranslater >> lowSetExpressionFromAttribute: e
 				ifFalse: [^ argName]]
 ]
 
-{ #category : #utilities }
+{ #category : 'utilities' }
 PlatypusExpressStructure2SmalltalkTranslater >> mcCategory: aCat [ 
 	self subclassResponsibility
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusExpressStructure2SmalltalkTranslater >> namesBuilder [
 	^ namesBuilder 
 		
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusExpressStructure2SmalltalkTranslater >> namesBuilder: aNamesBuilder [
 	
 	 namesBuilder := aNamesBuilder
 
 ]
 
-{ #category : #utilities }
+{ #category : 'utilities' }
 PlatypusExpressStructure2SmalltalkTranslater >> platypusVWNamespace [
 	^ 'Platypus'
 ]
 
-{ #category : #utilities }
+{ #category : 'utilities' }
 PlatypusExpressStructure2SmalltalkTranslater >> prettyPrint: aString [ 
 	^ PlatypusVWPackageExporterScanner new outPut: aString
 ]
 
-{ #category : #utilities }
+{ #category : 'utilities' }
 PlatypusExpressStructure2SmalltalkTranslater >> qualifiedClassNameOf: e [ 
 		self subclassResponsibility
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusExpressStructure2SmalltalkTranslater >> rootClassName [
 	^self namesBuilder  rootClassName
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusExpressStructure2SmalltalkTranslater >> rootClassSystemCategory [
 	^  self namesBuilder  rootClassSystemCategory 
 		
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusExpressStructure2SmalltalkTranslater >> systemCategoryPrefix [
 	^  self namesBuilder  systemCategoryPrefix 
 
 ]
 
-{ #category : #'public accessing' }
+{ #category : 'public accessing' }
 PlatypusExpressStructure2SmalltalkTranslater >> translate: aMetaData [ 
 	Cursor wait
 		showWhile: [self acceptTry: aMetaData.
@@ -1322,7 +1324,7 @@ PlatypusExpressStructure2SmalltalkTranslater >> translate: aMetaData [
 
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusExpressStructure2SmalltalkTranslater >> xtraMethodCategory: name xtraClassname: aClassName schema: aSchema [ 
 	^ String cr , '!' , aClassName , ' methodsFor: ''' , '*'
 		, (aSchema systemCategoryFromNamesBuilder: self namesBuilder) , '-' , name , '''!'

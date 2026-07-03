@@ -1,15 +1,17 @@
 Class {
-	#name : #PlatypusExpressNativeAlgorithmToken,
-	#superclass : #PlatypusGenericToken,
-	#category : #'Platypus-HW-CodeTokens'
+	#name : 'PlatypusExpressNativeAlgorithmToken',
+	#superclass : 'PlatypusGenericToken',
+	#category : 'Platypus-HW-CodeTokens',
+	#package : 'Platypus',
+	#tag : 'HW-CodeTokens'
 }
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 PlatypusExpressNativeAlgorithmToken >> accept: aVisitor [ 
 	^ aVisitor acceptNativeCode: self
 ]
 
-{ #category : #converting }
+{ #category : 'converting' }
 PlatypusExpressNativeAlgorithmToken >> asPltRemark [
 	| pltRem |
 	pltRem := PltEmbeddedRemark new.
@@ -17,12 +19,12 @@ PlatypusExpressNativeAlgorithmToken >> asPltRemark [
 	^ pltRem
 ]
 
-{ #category : #converting }
+{ #category : 'converting' }
 PlatypusExpressNativeAlgorithmToken >> asString [
 	^ '(*#' , self lexicalElement , '#*)'
 ]
 
-{ #category : #formating }
+{ #category : 'formating' }
 PlatypusExpressNativeAlgorithmToken >> formatWithIndentString: aString [ 
 	| newsub newLex |
 	newsub := String cr , aString , '(*# '.
@@ -34,7 +36,7 @@ PlatypusExpressNativeAlgorithmToken >> formatWithIndentString: aString [
 	self lexicalElement: newLex
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 PlatypusExpressNativeAlgorithmToken >> isNativeCode [
 	^ true
 ]

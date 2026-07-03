@@ -1,20 +1,22 @@
 Class {
-	#name : #PlatypusExpressStructure2PharoTranslater,
-	#superclass : #PlatypusExpressStructure2SmalltalkTranslater,
-	#category : #'Platypus-HW-translater-private'
+	#name : 'PlatypusExpressStructure2PharoTranslater',
+	#superclass : 'PlatypusExpressStructure2SmalltalkTranslater',
+	#category : 'Platypus-HW-translater-private',
+	#package : 'Platypus',
+	#tag : 'HW-translater-private'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusExpressStructure2PharoTranslater class >> expressionTranslaterClassName [
 	^ #PlatypusExpressExpression2PharoTranslater
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusExpressStructure2PharoTranslater class >> statementTranslaterClassName [
 	^ #PlatypusExpressStatement2PharoTranslater
 ]
 
-{ #category : #utilities }
+{ #category : 'utilities' }
 PlatypusExpressStructure2PharoTranslater >> commentFromMetaData: e classname: aClassName [ 
 	self nextPutAllCr: '!' , aClassName 
 				, '  commentStamp: ''platypus comment'' prior:0!'.
@@ -23,7 +25,7 @@ PlatypusExpressStructure2PharoTranslater >> commentFromMetaData: e classname: aC
 	self nextPutAll: PlatypusCoreObject expressSchemaCodeStopMark , '!'
 ]
 
-{ #category : #utilities }
+{ #category : 'utilities' }
 PlatypusExpressStructure2PharoTranslater >> fileOutClassDefinition: aClassName superClassName: superClassName instVars: instVars classVars: classVars namespace: namespace packageName: packageName category: aCategoryName [ 
 	| pointPos supName |
 	pointPos := superClassName indexOf: $..
@@ -40,7 +42,7 @@ PlatypusExpressStructure2PharoTranslater >> fileOutClassDefinition: aClassName s
 	self buildPlatypusSignatureMethodForClass: aClassName namespace: namespace packageName: packageName category: aCategoryName
 ]
 
-{ #category : #utilities }
+{ #category : 'utilities' }
 PlatypusExpressStructure2PharoTranslater >> fileOutDoIt: aSource [ 
 	self
 				nextPutAllCr: aSource, '!'
@@ -48,7 +50,7 @@ PlatypusExpressStructure2PharoTranslater >> fileOutDoIt: aSource [
 
 ]
 
-{ #category : #utilities }
+{ #category : 'utilities' }
 PlatypusExpressStructure2PharoTranslater >> fileOutMethodSource: aSource className: aClassName meta: isMeta packageName: packageName category: aCategorySymbol [ 
 	| categoryCode |
 	categoryCode := self namesBuilder 
@@ -61,22 +63,22 @@ PlatypusExpressStructure2PharoTranslater >> fileOutMethodSource: aSource classNa
 
 ]
 
-{ #category : #utilities }
+{ #category : 'utilities' }
 PlatypusExpressStructure2PharoTranslater >> fileOutNamespaceDefinition: aNamespaceName imports: imports environment: envName packageName: packageName category: aCategoryName [ 
 
 ]
 
-{ #category : #utilities }
+{ #category : 'utilities' }
 PlatypusExpressStructure2PharoTranslater >> finalResultFrom: aString [ 
 	^ (super finalResultFrom: aString)
 ]
 
-{ #category : #utilities }
+{ #category : 'utilities' }
 PlatypusExpressStructure2PharoTranslater >> mcCategory: aCat [ 
 	^ '*' , aCat
 ]
 
-{ #category : #utilities }
+{ #category : 'utilities' }
 PlatypusExpressStructure2PharoTranslater >> qualifiedClassNameOf: e [ 
 	^ e generatedClassName
 ]

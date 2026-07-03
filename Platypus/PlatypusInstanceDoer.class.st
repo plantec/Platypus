@@ -1,15 +1,17 @@
 Class {
-	#name : #PlatypusInstanceDoer,
-	#superclass : #PlatypusStepOnePassAbstractVisitor,
+	#name : 'PlatypusInstanceDoer',
+	#superclass : 'PlatypusStepOnePassAbstractVisitor',
 	#instVars : [
 		'modelContents',
 		'action',
 		'sourceCollection'
 	],
-	#category : #'Platypus-HW-visitors'
+	#category : 'Platypus-HW-visitors',
+	#package : 'Platypus',
+	#tag : 'HW-visitors'
 }
 
-{ #category : #'visit population schema' }
+{ #category : 'visit population schema' }
 PlatypusInstanceDoer >> acceptAggregateData: e [ 
 	e contents 	
 		doWithIndex: [:v :p |
@@ -17,7 +19,7 @@ PlatypusInstanceDoer >> acceptAggregateData: e [
 			self acceptTry: v]
 ]
 
-{ #category : #'visit population schema' }
+{ #category : 'visit population schema' }
 PlatypusInstanceDoer >> acceptExternalRepresentation: e [ 
 	e records
 		doWithIndex: [:v :p |
@@ -25,7 +27,7 @@ PlatypusInstanceDoer >> acceptExternalRepresentation: e [
 			self acceptTry: v]
 ]
 
-{ #category : #'visit population schema' }
+{ #category : 'visit population schema' }
 PlatypusInstanceDoer >> acceptInternalRepresentation: e [ 
 	e parameters 
 		doWithIndex: [:v :p |
@@ -33,7 +35,7 @@ PlatypusInstanceDoer >> acceptInternalRepresentation: e [
 			self acceptTry: v]
 ]
 
-{ #category : #'visit population schema' }
+{ #category : 'visit population schema' }
 PlatypusInstanceDoer >> acceptModelContents: e [ 
 	self modelContents: e.
 	e dataInstances  
@@ -44,7 +46,7 @@ PlatypusInstanceDoer >> acceptModelContents: e [
 					self acceptTry: v]]
 ]
 
-{ #category : #'visit population schema' }
+{ #category : 'visit population schema' }
 PlatypusInstanceDoer >> acceptSimpleRecord: e [ 
 	e parameters 
 		doWithIndex: [:v :p |
@@ -52,7 +54,7 @@ PlatypusInstanceDoer >> acceptSimpleRecord: e [
 			self acceptTry: v]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusInstanceDoer >> do: aBlock from: aCollection in: aModelContents [
 	action := aBlock.
 	sourceCollection := aCollection.
@@ -60,7 +62,7 @@ PlatypusInstanceDoer >> do: aBlock from: aCollection in: aModelContents [
 
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusInstanceDoer >> modelContents: anObject [
 	modelContents := anObject
 ]

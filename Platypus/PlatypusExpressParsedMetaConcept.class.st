@@ -1,50 +1,52 @@
 Class {
-	#name : #PlatypusExpressParsedMetaConcept,
-	#superclass : #Object,
+	#name : 'PlatypusExpressParsedMetaConcept',
+	#superclass : 'Object',
 	#instVars : [
 		'ident',
 		'metaExpression'
 	],
-	#category : #'Platypus-HW-parsers'
+	#category : 'Platypus-HW-parsers',
+	#package : 'Platypus',
+	#tag : 'HW-parsers'
 }
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 PlatypusExpressParsedMetaConcept class >> ident: anIdent [
 	^ self ident: anIdent metaExpression: nil
 ]
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 PlatypusExpressParsedMetaConcept class >> ident: anIdent metaExpression: aMetaExpression [
 	^ self new ident: anIdent metaExpression: aMetaExpression
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusExpressParsedMetaConcept >> ident [
 	^ident
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusExpressParsedMetaConcept >> ident: anObject [
 	ident := anObject
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusExpressParsedMetaConcept >> ident: anIdent metaExpression: aMetaExpression [
 	metaExpression := aMetaExpression.
 	ident := anIdent
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusExpressParsedMetaConcept >> metaExpression [
 	^metaExpression
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusExpressParsedMetaConcept >> metaExpression: anObject [
 	metaExpression := anObject
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusExpressParsedMetaConcept >> updateDictionaryInstanceName: aDictionaryInstance [ 
 	aDictionaryInstance name: self ident.
 	self metaExpression 

@@ -1,22 +1,24 @@
 Class {
-	#name : #PlatypusExpressParserContext,
-	#superclass : #Object,
+	#name : 'PlatypusExpressParserContext',
+	#superclass : 'Object',
 	#instVars : [
 		'namedTypesIndex',
 		'identifiersIndex',
 		'ownerContext',
 		'contextInstance'
 	],
-	#category : #'Platypus-HW-parsers'
+	#category : 'Platypus-HW-parsers',
+	#package : 'Platypus',
+	#tag : 'HW-parsers'
 }
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 PlatypusExpressParserContext class >> contextInstance: anPltDictionaryInstance [ 
 ^ self contextInstance: anPltDictionaryInstance owner: nil 
 
 ]
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 PlatypusExpressParserContext class >> contextInstance: aPltDictionaryInstance owner: anotherContextOrNil [ 
 	| context |
 	context := self new.
@@ -25,17 +27,17 @@ PlatypusExpressParserContext class >> contextInstance: aPltDictionaryInstance ow
 	^ context
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusExpressParserContext >> contextInstance [
 	^ contextInstance
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusExpressParserContext >> contextInstance: anObject [ 
 	contextInstance := anObject
 ]
 
-{ #category : #'initialize/release' }
+{ #category : 'initialize/release' }
 PlatypusExpressParserContext >> destroy [
 	namedTypesIndex := nil.
 	identifiersIndex := nil.
@@ -44,7 +46,7 @@ PlatypusExpressParserContext >> destroy [
 	super destroy
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusExpressParserContext >> existingContextInstance: anObject [ 
 	self contextInstance: anObject.
 	anObject isPltSchemaDefinition
@@ -56,7 +58,7 @@ PlatypusExpressParserContext >> existingContextInstance: anObject [
 						keysAndValuesDo: [:k :v | self namedTypesIndex at: k put: v]]]
 ]
 
-{ #category : #'initialize/release' }
+{ #category : 'initialize/release' }
 PlatypusExpressParserContext >> flushCaches [
 	self contextInstance isPltContextDefinition
 		ifTrue: [self contextInstance namedTypesCache isNil
@@ -69,23 +71,23 @@ PlatypusExpressParserContext >> flushCaches [
 						associationsDo: [:assoc | self contextInstance identifiersCache add: assoc]]]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusExpressParserContext >> identifiersIndex [
 	^ identifiersIndex
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusExpressParserContext >> identifiersIndex: aDictionary [
 	identifiersIndex := aDictionary
 ]
 
-{ #category : #'initialize/release' }
+{ #category : 'initialize/release' }
 PlatypusExpressParserContext >> initialize [
 	super initialize.
 
 ]
 
-{ #category : #searching }
+{ #category : 'searching' }
 PlatypusExpressParserContext >> lookUpIdentifierBN: anIdent [ 
 	| availables |
 	availables := self identifiersIndex
@@ -95,7 +97,7 @@ PlatypusExpressParserContext >> lookUpIdentifierBN: anIdent [
 		ifNotNil: [availables anyOne]
 ]
 
-{ #category : #searching }
+{ #category : 'searching' }
 PlatypusExpressParserContext >> lookUpNamedTypeBN: anIdent [ 
 	| availables |
 	availables := self namedTypesIndex
@@ -105,22 +107,22 @@ PlatypusExpressParserContext >> lookUpNamedTypeBN: anIdent [
 	^ availables ifNotNil: [availables anyOne]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusExpressParserContext >> namedTypesIndex [
 	^ namedTypesIndex
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusExpressParserContext >> namedTypesIndex: aDictionary [
 	namedTypesIndex := aDictionary
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusExpressParserContext >> ownerContext [
 	^ ownerContext
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusExpressParserContext >> ownerContext: anotherContextOrNil [ 
 	ownerContext := anotherContextOrNil.
 	self identifiersIndex: Dictionary new.
@@ -128,7 +130,7 @@ PlatypusExpressParserContext >> ownerContext: anotherContextOrNil [
 	
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusExpressParserContext >> registerIdentifier: data named: anIdent [ 
 	| key set |
 	key := anIdent asUppercase.
@@ -136,7 +138,7 @@ PlatypusExpressParserContext >> registerIdentifier: data named: anIdent [
 	set at: key add: data
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusExpressParserContext >> registerNamedType: data named: anIdent [ 
 	| key set |
 	key := anIdent asUppercase.

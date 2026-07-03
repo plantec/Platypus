@@ -1,16 +1,18 @@
 Class {
-	#name : #PlatypusVisitorError,
-	#superclass : #Object,
+	#name : 'PlatypusVisitorError',
+	#superclass : 'Object',
 	#instVars : [
 		'message',
 		'data',
 		'path',
 		'metaData'
 	],
-	#category : #'Platypus-HW-visitors'
+	#category : 'Platypus-HW-visitors',
+	#package : 'Platypus',
+	#tag : 'HW-visitors'
 }
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 PlatypusVisitorError class >> metaData: anEntityInstance message: aMessage [ 
 	^ self new
 		message: aMessage;
@@ -18,7 +20,7 @@ PlatypusVisitorError class >> metaData: anEntityInstance message: aMessage [
 
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusVisitorError >> asString [
 	| s named p |
 	s := WriteStream on: ''.
@@ -39,27 +41,27 @@ PlatypusVisitorError >> asString [
 	^ s contents
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusVisitorError >> message [
 	^message
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusVisitorError >> message: anObject [
 	message := anObject
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusVisitorError >> metaData [
 	^ metaData
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusVisitorError >> metaData: anEntityInstance [ 
 	metaData := anEntityInstance
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusVisitorError >> path [
 	^ metaData ifNotNil: [ metaData inclusiveOwnerPath ]
 ]

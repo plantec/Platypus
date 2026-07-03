@@ -9,119 +9,121 @@ END_ENTITY;
 </ISO10303-11-EXPRESS>
 "
 Class {
-	#name : #PltStatementsContainer,
-	#superclass : #PltContextDefinition,
+	#name : 'PltStatementsContainer',
+	#superclass : 'PltContextDefinition',
 	#instVars : [
 		'locals',
 		'statements'
 	],
-	#category : #'Platypus-PlatypusDictionarySchemaSchema'
+	#category : 'Platypus-PlatypusDictionarySchemaSchema',
+	#package : 'Platypus',
+	#tag : 'PlatypusDictionarySchemaSchema'
 }
 
-{ #category : #'platypus-generated-context-accessing' }
+{ #category : 'platypus-generated-context-accessing' }
 PltStatementsContainer class >> context [ ^ self schemaDefinition context
 
 
 ]
 
-{ #category : #'platypus-generated-platypus-signature' }
+{ #category : 'platypus-generated-platypus-signature' }
 PltStatementsContainer class >> iso10303P11Translater [
 	^ 'Platypus (c) LISYC EA3883, Universite de Bretagne occidentale. Brest.'
 
 
 ]
 
-{ #category : #'platypus-generated-meta-data-accessing' }
+{ #category : 'platypus-generated-meta-data-accessing' }
 PltStatementsContainer class >> platypusMetaData [ 	^ self schemaDefinition metaDataFor: self name asSymbol
 
 
 ]
 
-{ #category : #'platypus-generated-meta-data-accessing' }
+{ #category : 'platypus-generated-meta-data-accessing' }
 PltStatementsContainer class >> schemaDefinition [
 	^ PltPlatypusDictionarySchemaSchemaDefinition singleton
 
 
 ]
 
-{ #category : #'platypus-generated-meta-data-accessing' }
+{ #category : 'platypus-generated-meta-data-accessing' }
 PltStatementsContainer class >> schemaInstance [
 	^ PltPlatypusMetaSchemasSchemaInstance singleton
 
 
 ]
 
-{ #category : #'platypus-generated-platypus-signature' }
+{ #category : 'platypus-generated-platypus-signature' }
 PltStatementsContainer class >> translatedFromISO10303P11 [
 	^ true
 
 
 ]
 
-{ #category : #'platypus-generated-platypus-signature' }
+{ #category : 'platypus-generated-platypus-signature' }
 PltStatementsContainer class >> vwNamespaceName [
 	^ #Platypus
 
 
 ]
 
-{ #category : #'platypus-generated-visiting' }
+{ #category : 'platypus-generated-visiting' }
 PltStatementsContainer >> accept: aVisitor [
 	^ aVisitor acceptStatementsContainer: self
 
 
 ]
 
-{ #category : #'platypus-generated-fast-set-accessing' }
+{ #category : 'platypus-generated-fast-set-accessing' }
 PltStatementsContainer >> fastSetLocals: aListOfPltLocalVariable [
 	locals := aListOfPltLocalVariable
 
 
 ]
 
-{ #category : #'platypus-generated-fast-set-accessing' }
+{ #category : 'platypus-generated-fast-set-accessing' }
 PltStatementsContainer >> fastSetStatements: aListOfPltStatement [
 	statements := aListOfPltStatement
 
 
 ]
 
-{ #category : #'platypus-generated-group-accessing' }
+{ #category : 'platypus-generated-group-accessing' }
 PltStatementsContainer >> fromValues: values [
 	^ self statementsContainerFromValues: (super fromValues: values)
 
 
 ]
 
-{ #category : #'platypus-generated-classifying' }
+{ #category : 'platypus-generated-classifying' }
 PltStatementsContainer >> isPltStatementsContainer [
 	^ true
 
 
 ]
 
-{ #category : #'platypus-generated-group-accessing' }
+{ #category : 'platypus-generated-group-accessing' }
 PltStatementsContainer >> localFromValues: values [
 	^ self statementsContainerFromValues: values
 
 
 ]
 
-{ #category : #'platypus-generated-group-accessing' }
+{ #category : 'platypus-generated-group-accessing' }
 PltStatementsContainer >> localToValues: values [
 	^ self statementsContainerToValues: values
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 PltStatementsContainer >> locals [
 	^ locals
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 PltStatementsContainer >> locals: aListOfPltLocalVariable [
 	locals := aListOfPltLocalVariable
 		ifNil: [ OrderedCollection new ]
@@ -130,20 +132,20 @@ PltStatementsContainer >> locals: aListOfPltLocalVariable [
 
 ]
 
-{ #category : #'platypus-generated-group-accessing' }
+{ #category : 'platypus-generated-group-accessing' }
 PltStatementsContainer >> locals: aListOfPltLocalVariable statements: aListOfPltStatement [ 	self setLocals:aListOfPltLocalVariable.	self setStatements:aListOfPltStatement.
 
 
 ]
 
-{ #category : #'platypus-generated-with-context-accessing' }
+{ #category : 'platypus-generated-with-context-accessing' }
 PltStatementsContainer >> localsUsingContext: aContext [
 	^ self locals
 
 
 ]
 
-{ #category : #'platypus-generated-copying' }
+{ #category : 'platypus-generated-copying' }
 PltStatementsContainer >> pltCopyGroup: aClassSymbol to: anObject [
 	self class name == aClassSymbol
 		ifTrue: [ self pltCopyTo: anObject ]
@@ -152,7 +154,7 @@ PltStatementsContainer >> pltCopyGroup: aClassSymbol to: anObject [
 
 ]
 
-{ #category : #'platypus-generated-copying' }
+{ #category : 'platypus-generated-copying' }
 PltStatementsContainer >> pltCopyTo: another [
 	super pltCopyTo: another.
 	self statementsContainerCopyTo: another
@@ -160,35 +162,35 @@ PltStatementsContainer >> pltCopyTo: another [
 
 ]
 
-{ #category : #'platypus-generated-copying' }
+{ #category : 'platypus-generated-copying' }
 PltStatementsContainer >> pltLocalCopyTo: another [
 	self statementsContainerCopyTo: another
 
 
 ]
 
-{ #category : #'platypus-generated-set-accessing' }
+{ #category : 'platypus-generated-set-accessing' }
 PltStatementsContainer >> setLocals: aListOfPltLocalVariable [
 	self locals: aListOfPltLocalVariable
 
 
 ]
 
-{ #category : #'platypus-generated-set-accessing' }
+{ #category : 'platypus-generated-set-accessing' }
 PltStatementsContainer >> setStatements: aListOfPltStatement [
 	self statements: aListOfPltStatement
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 PltStatementsContainer >> statements [
 	^ statements
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 PltStatementsContainer >> statements: aListOfPltStatement [
 	statements := aListOfPltStatement
 		ifNil: [ OrderedCollection new ]
@@ -197,7 +199,7 @@ PltStatementsContainer >> statements: aListOfPltStatement [
 
 ]
 
-{ #category : #'platypus-generated-copying' }
+{ #category : 'platypus-generated-copying' }
 PltStatementsContainer >> statementsContainerCopyTo: another [
 	another fastSetLocals: self locals.
 	another fastSetStatements: self statements
@@ -205,7 +207,7 @@ PltStatementsContainer >> statementsContainerCopyTo: another [
 
 ]
 
-{ #category : #'platypus-generated-group-accessing' }
+{ #category : 'platypus-generated-group-accessing' }
 PltStatementsContainer >> statementsContainerFromValues: values [
 	| valuesloc |
 	valuesloc := values asOrderedCollection.
@@ -216,7 +218,7 @@ PltStatementsContainer >> statementsContainerFromValues: values [
 
 ]
 
-{ #category : #'platypus-generated-group-accessing' }
+{ #category : 'platypus-generated-group-accessing' }
 PltStatementsContainer >> statementsContainerToValues: values [
 	values add: self locals.
 	values add: self statements.
@@ -225,14 +227,14 @@ PltStatementsContainer >> statementsContainerToValues: values [
 
 ]
 
-{ #category : #'platypus-generated-with-context-accessing' }
+{ #category : 'platypus-generated-with-context-accessing' }
 PltStatementsContainer >> statementsUsingContext: aContext [
 	^ self statements
 
 
 ]
 
-{ #category : #'platypus-generated-initializing' }
+{ #category : 'platypus-generated-initializing' }
 PltStatementsContainer >> stepInitialize [
 	super stepInitialize.
 	locals := OrderedCollection new.
@@ -241,7 +243,7 @@ PltStatementsContainer >> stepInitialize [
 
 ]
 
-{ #category : #'platypus-generated-group-accessing' }
+{ #category : 'platypus-generated-group-accessing' }
 PltStatementsContainer >> toValues: values [
 	^ self statementsContainerToValues: (super toValues: values)
 

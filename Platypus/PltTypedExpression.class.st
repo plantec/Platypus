@@ -7,125 +7,127 @@ END_ENTITY;
 </ISO10303-11-EXPRESS>
 "
 Class {
-	#name : #PltTypedExpression,
-	#superclass : #PltSimpleUnaryExpression,
+	#name : 'PltTypedExpression',
+	#superclass : 'PltSimpleUnaryExpression',
 	#instVars : [
 		'domain'
 	],
-	#category : #'Platypus-PlatypusExpressionsSchemaSchema'
+	#category : 'Platypus-PlatypusExpressionsSchemaSchema',
+	#package : 'Platypus',
+	#tag : 'PlatypusExpressionsSchemaSchema'
 }
 
-{ #category : #'platypus-generated-context-accessing' }
+{ #category : 'platypus-generated-context-accessing' }
 PltTypedExpression class >> context [ ^ self schemaDefinition context
 
 
 ]
 
-{ #category : #'platypus-generated-platypus-signature' }
+{ #category : 'platypus-generated-platypus-signature' }
 PltTypedExpression class >> iso10303P11Translater [
 	^ 'Platypus (c) LISYC EA3883, Universite de Bretagne occidentale. Brest.'
 
 
 ]
 
-{ #category : #'platypus-generated-meta-data-accessing' }
+{ #category : 'platypus-generated-meta-data-accessing' }
 PltTypedExpression class >> platypusMetaData [ 	^ self schemaDefinition metaDataFor: self name asSymbol
 
 
 ]
 
-{ #category : #'platypus-generated-meta-data-accessing' }
+{ #category : 'platypus-generated-meta-data-accessing' }
 PltTypedExpression class >> schemaDefinition [
 	^ PltPlatypusExpressionsSchemaSchemaDefinition singleton
 
 
 ]
 
-{ #category : #'platypus-generated-meta-data-accessing' }
+{ #category : 'platypus-generated-meta-data-accessing' }
 PltTypedExpression class >> schemaInstance [
 	^ PltPlatypusMetaSchemasSchemaInstance singleton
 
 
 ]
 
-{ #category : #'platypus-generated-platypus-signature' }
+{ #category : 'platypus-generated-platypus-signature' }
 PltTypedExpression class >> translatedFromISO10303P11 [
 	^ true
 
 
 ]
 
-{ #category : #'platypus-generated-platypus-signature' }
+{ #category : 'platypus-generated-platypus-signature' }
 PltTypedExpression class >> vwNamespaceName [
 	^ #Platypus
 
 
 ]
 
-{ #category : #'platypus-generated-visiting' }
+{ #category : 'platypus-generated-visiting' }
 PltTypedExpression >> accept: aVisitor [
 	^ aVisitor acceptTypedExpression: self
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 PltTypedExpression >> domain [
 	^ domain
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 PltTypedExpression >> domain: aPltNamedTypeReference [
 	domain := aPltNamedTypeReference
 
 
 ]
 
-{ #category : #'platypus-generated-with-context-accessing' }
+{ #category : 'platypus-generated-with-context-accessing' }
 PltTypedExpression >> domainUsingContext: aContext [
 	^ self domain
 
 
 ]
 
-{ #category : #'platypus-generated-fast-set-accessing' }
+{ #category : 'platypus-generated-fast-set-accessing' }
 PltTypedExpression >> fastSetDomain: aPltNamedTypeReference [
 	domain := aPltNamedTypeReference
 
 
 ]
 
-{ #category : #'platypus-generated-group-accessing' }
+{ #category : 'platypus-generated-group-accessing' }
 PltTypedExpression >> fromValues: values [
 	^ self typedExpressionFromValues: (super fromValues: values)
 
 
 ]
 
-{ #category : #'platypus-generated-classifying' }
+{ #category : 'platypus-generated-classifying' }
 PltTypedExpression >> isPltTypedExpression [
 	^ true
 
 
 ]
 
-{ #category : #'platypus-generated-group-accessing' }
+{ #category : 'platypus-generated-group-accessing' }
 PltTypedExpression >> localFromValues: values [
 	^ self typedExpressionFromValues: values
 
 
 ]
 
-{ #category : #'platypus-generated-group-accessing' }
+{ #category : 'platypus-generated-group-accessing' }
 PltTypedExpression >> localToValues: values [
 	^ self typedExpressionToValues: values
 
 
 ]
 
-{ #category : #'platypus-generated-copying' }
+{ #category : 'platypus-generated-copying' }
 PltTypedExpression >> pltCopyGroup: aClassSymbol to: anObject [
 	self class name == aClassSymbol
 		ifTrue: [ self pltCopyTo: anObject ]
@@ -134,7 +136,7 @@ PltTypedExpression >> pltCopyGroup: aClassSymbol to: anObject [
 
 ]
 
-{ #category : #'platypus-generated-copying' }
+{ #category : 'platypus-generated-copying' }
 PltTypedExpression >> pltCopyTo: another [
 	super pltCopyTo: another.
 	self typedExpressionCopyTo: another
@@ -142,21 +144,21 @@ PltTypedExpression >> pltCopyTo: another [
 
 ]
 
-{ #category : #'platypus-generated-copying' }
+{ #category : 'platypus-generated-copying' }
 PltTypedExpression >> pltLocalCopyTo: another [
 	self typedExpressionCopyTo: another
 
 
 ]
 
-{ #category : #'platypus-generated-set-accessing' }
+{ #category : 'platypus-generated-set-accessing' }
 PltTypedExpression >> setDomain: aPltNamedTypeReference [
 	self domain: aPltNamedTypeReference
 
 
 ]
 
-{ #category : #'platypus-generated-initializing' }
+{ #category : 'platypus-generated-initializing' }
 PltTypedExpression >> stepInitialize [
 	super stepInitialize.
 	domain := nil
@@ -164,21 +166,21 @@ PltTypedExpression >> stepInitialize [
 
 ]
 
-{ #category : #'platypus-generated-group-accessing' }
+{ #category : 'platypus-generated-group-accessing' }
 PltTypedExpression >> toValues: values [
 	^ self typedExpressionToValues: (super toValues: values)
 
 
 ]
 
-{ #category : #'platypus-generated-copying' }
+{ #category : 'platypus-generated-copying' }
 PltTypedExpression >> typedExpressionCopyTo: another [
 	another fastSetDomain: self domain
 
 
 ]
 
-{ #category : #'platypus-generated-group-accessing' }
+{ #category : 'platypus-generated-group-accessing' }
 PltTypedExpression >> typedExpressionFromValues: values [
 	| valuesloc |
 	valuesloc := values asOrderedCollection.
@@ -188,7 +190,7 @@ PltTypedExpression >> typedExpressionFromValues: values [
 
 ]
 
-{ #category : #'platypus-generated-group-accessing' }
+{ #category : 'platypus-generated-group-accessing' }
 PltTypedExpression >> typedExpressionToValues: values [
 	values add: self domain.
 	^ values

@@ -1,28 +1,30 @@
 Class {
-	#name : #PlatypusStepOwnerSetter,
-	#superclass : #PlatypusStepOnePassAbstractVisitor,
-	#category : #'Platypus-HW-visitors'
+	#name : 'PlatypusStepOwnerSetter',
+	#superclass : 'PlatypusStepOnePassAbstractVisitor',
+	#category : 'Platypus-HW-visitors',
+	#package : 'Platypus',
+	#tag : 'HW-visitors'
 }
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 PlatypusStepOwnerSetter >> acceptEnumerationValue: e [
 	super acceptEnumerationValue: e
 ]
 
-{ #category : #'visit expressions schema' }
+{ #category : 'visit expressions schema' }
 PlatypusStepOwnerSetter >> acceptIdentifier: e [
 	 e ref acceptTry: self. 
 	 e parameters acceptTry: self
 ]
 
-{ #category : #'visit environment schema' }
+{ #category : 'visit environment schema' }
 PlatypusStepOwnerSetter >> acceptSchemaInstance: e [ 
 	e internalSchemata acceptTry: self.
 	e metaConceptsIndex acceptTry: self.
 
 ]
 
-{ #category : #'visit generic' }
+{ #category : 'visit generic' }
 PlatypusStepOwnerSetter >> acceptTry: e [
 	e ifNotNil: [
 		e owner ifNil: [

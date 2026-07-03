@@ -1,34 +1,36 @@
 Class {
-	#name : #StepGenericRepository,
-	#superclass : #StepAbstractRepository,
+	#name : 'StepGenericRepository',
+	#superclass : 'StepAbstractRepository',
 	#instVars : [
 		'header'
 	],
-	#category : #'Platypus-STEP-core'
+	#category : 'Platypus-STEP-core',
+	#package : 'Platypus',
+	#tag : 'STEP-core'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 StepGenericRepository class >> dataParserClass [
 	^ StepParser
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 StepGenericRepository >> dataParserClass [
 	^ self class dataParserClass
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 StepGenericRepository >> header [
 	^header
 ]
 
-{ #category : #'initialize/release' }
+{ #category : 'initialize/release' }
 StepGenericRepository >> initialize [
 	super initialize.
 	header := OrderedCollection new.
 ]
 
-{ #category : #'file in/out' }
+{ #category : 'file in/out' }
 StepGenericRepository >> notify: error at: location in: stream [ 
 	| contentsWithError errorOut errFilename |
 	contentsWithError := stream contents 
@@ -48,7 +50,7 @@ StepGenericRepository >> notify: error at: location in: stream [
 		folder: self) signal
 ]
 
-{ #category : #'file in/out' }
+{ #category : 'file in/out' }
 StepGenericRepository >> parseDataStream: in onError: aBlock [ 
 	| id result |
 	result := self dataParserClass 
@@ -58,12 +60,12 @@ StepGenericRepository >> parseDataStream: in onError: aBlock [
 	self registerAllInstances: result
 ]
 
-{ #category : #'file in/out' }
+{ #category : 'file in/out' }
 StepGenericRepository >> parseStream: in [ 
 	^ self parseStream: in onError: [:d :l | self notify: d at: l in: in].
 ]
 
-{ #category : #'file in/out' }
+{ #category : 'file in/out' }
 StepGenericRepository >> parseStream: in onError: aBlock [ 
 	| id result |
 	result := self dataParserClass parseStream: in onError: aBlock.
@@ -71,7 +73,7 @@ StepGenericRepository >> parseStream: in onError: aBlock [
 	self registerAllInstances: (result second)
 ]
 
-{ #category : #'file in/out' }
+{ #category : 'file in/out' }
 StepGenericRepository >> parseStream: in startingAt: startingState onError: aBlock [ 
 	| id result |
 	result := self dataParserClass parseStream: in startingAt: startingState onError: aBlock.
@@ -79,7 +81,7 @@ StepGenericRepository >> parseStream: in startingAt: startingState onError: aBlo
 	self registerAllInstances: (result second)
 ]
 
-{ #category : #'file in/out' }
+{ #category : 'file in/out' }
 StepGenericRepository >> registerAllInstances: aCollection [
 	aCollection
 		do: [:inst | 
@@ -87,12 +89,12 @@ StepGenericRepository >> registerAllInstances: aCollection [
 	self resolvesInstanceReferences
 ]
 
-{ #category : #'instance registering' }
+{ #category : 'instance registering' }
 StepGenericRepository >> registerHeaderInstance: headerInst [ 
 	header add: headerInst
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 StepGenericRepository >> resolvedTokenOf: t [ 
 	(t isKindOf: StepInstanceReference)
 		ifTrue: [ t ref: (self instanceAt: t id)]
@@ -104,7 +106,7 @@ StepGenericRepository >> resolvedTokenOf: t [
 	^ t
 ]
 
-{ #category : #checking }
+{ #category : 'checking' }
 StepGenericRepository >> resolvesInstanceReferencesOf: instance [ 
 	1
 		to: instance class instSize

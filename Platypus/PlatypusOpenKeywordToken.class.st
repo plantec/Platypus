@@ -1,15 +1,17 @@
 Class {
-	#name : #PlatypusOpenKeywordToken,
-	#superclass : #PlatypusKeywordToken,
-	#category : #'Platypus-HW-CodeTokens'
+	#name : 'PlatypusOpenKeywordToken',
+	#superclass : 'PlatypusKeywordToken',
+	#category : 'Platypus-HW-CodeTokens',
+	#package : 'Platypus',
+	#tag : 'HW-CodeTokens'
 }
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 PlatypusOpenKeywordToken >> accept: aVisitor [ 
 	^ aVisitor acceptOpenKeyword: self
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 PlatypusOpenKeywordToken >> isOpenKeyword [
 	^true
 ]

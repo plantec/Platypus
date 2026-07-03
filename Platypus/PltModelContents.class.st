@@ -9,8 +9,8 @@ END_ENTITY;
 </ISO10303-11-EXPRESS>
 "
 Class {
-	#name : #PltModelContents,
-	#superclass : #PltSessionInstance,
+	#name : 'PltModelContents',
+	#superclass : 'PltSessionInstance',
 	#instVars : [
 		'headerInstances',
 		'dataInstances',
@@ -20,85 +20,87 @@ Class {
 		'recordComputedInstances',
 		'entitiesByInstanceIndex'
 	],
-	#category : #'Platypus-PlatypusEnvironmentSchemaSchema'
+	#category : 'Platypus-PlatypusEnvironmentSchemaSchema',
+	#package : 'Platypus',
+	#tag : 'PlatypusEnvironmentSchemaSchema'
 }
 
-{ #category : #'platypus-generated-context-accessing' }
+{ #category : 'platypus-generated-context-accessing' }
 PltModelContents class >> context [ ^ self schemaDefinition context
 
 
 ]
 
-{ #category : #'platypus-generated-platypus-signature' }
+{ #category : 'platypus-generated-platypus-signature' }
 PltModelContents class >> iso10303P11Translater [
 	^ 'Platypus (c) LISYC EA3883, Universite de Bretagne occidentale. Brest.'
 
 
 ]
 
-{ #category : #'platypus-generated-meta-data-accessing' }
+{ #category : 'platypus-generated-meta-data-accessing' }
 PltModelContents class >> platypusMetaData [ 	^ self schemaDefinition metaDataFor: self name asSymbol
 
 
 ]
 
-{ #category : #'platypus-generated-meta-data-accessing' }
+{ #category : 'platypus-generated-meta-data-accessing' }
 PltModelContents class >> schemaDefinition [
 	^ PltPlatypusEnvironmentSchemaSchemaDefinition singleton
 
 
 ]
 
-{ #category : #'platypus-generated-meta-data-accessing' }
+{ #category : 'platypus-generated-meta-data-accessing' }
 PltModelContents class >> schemaInstance [
 	^ PltPlatypusMetaSchemasSchemaInstance singleton
 
 
 ]
 
-{ #category : #'platypus-generated-platypus-signature' }
+{ #category : 'platypus-generated-platypus-signature' }
 PltModelContents class >> translatedFromISO10303P11 [
 	^ true
 
 
 ]
 
-{ #category : #'platypus-generated-platypus-signature' }
+{ #category : 'platypus-generated-platypus-signature' }
 PltModelContents class >> vwNamespaceName [
 	^ #Platypus
 
 
 ]
 
-{ #category : #'platypus-generated-visiting' }
+{ #category : 'platypus-generated-visiting' }
 PltModelContents >> accept: aVisitor [
 	^ aVisitor acceptModelContents: self
 
 
 ]
 
-{ #category : #'platypus-generated-fast-set-accessing' }
+{ #category : 'platypus-generated-fast-set-accessing' }
 PltModelContents >> fastSetOwner: aPltSchemaInstance [
 	owner := aPltSchemaInstance
 
 
 ]
 
-{ #category : #'platypus-generated-group-accessing' }
+{ #category : 'platypus-generated-group-accessing' }
 PltModelContents >> fromValues: values [
 	^ self modelContentsFromValues: (super fromValues: values)
 
 
 ]
 
-{ #category : #'platypus-generated-inverse-accessing' }
+{ #category : 'platypus-generated-inverse-accessing' }
 PltModelContents >> instances [
 	^ self instancesUsingContext: self class context
 
 
 ]
 
-{ #category : #'platypus-generated-inverse-accessing' }
+{ #category : 'platypus-generated-inverse-accessing' }
 PltModelContents >> instancesUsingContext: aContext [
 	| founds |
 	founds := Set new.
@@ -113,35 +115,35 @@ PltModelContents >> instancesUsingContext: aContext [
 
 ]
 
-{ #category : #'platypus-generated-classifying' }
+{ #category : 'platypus-generated-classifying' }
 PltModelContents >> isPltModelContents [
 	^ true
 
 
 ]
 
-{ #category : #'platypus-generated-group-accessing' }
+{ #category : 'platypus-generated-group-accessing' }
 PltModelContents >> localFromValues: values [
 	^ self modelContentsFromValues: values
 
 
 ]
 
-{ #category : #'platypus-generated-group-accessing' }
+{ #category : 'platypus-generated-group-accessing' }
 PltModelContents >> localToValues: values [
 	^ self modelContentsToValues: values
 
 
 ]
 
-{ #category : #'platypus-generated-copying' }
+{ #category : 'platypus-generated-copying' }
 PltModelContents >> modelContentsCopyTo: another [
 	another fastSetOwner: self owner
 
 
 ]
 
-{ #category : #'platypus-generated-group-accessing' }
+{ #category : 'platypus-generated-group-accessing' }
 PltModelContents >> modelContentsFromValues: values [
 	| valuesloc |
 	valuesloc := values asOrderedCollection.
@@ -151,7 +153,7 @@ PltModelContents >> modelContentsFromValues: values [
 
 ]
 
-{ #category : #'platypus-generated-group-accessing' }
+{ #category : 'platypus-generated-group-accessing' }
 PltModelContents >> modelContentsToValues: values [
 	values add: self owner.
 	^ values
@@ -159,28 +161,28 @@ PltModelContents >> modelContentsToValues: values [
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 PltModelContents >> owner [
 	^ owner
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 PltModelContents >> owner: aPltSchemaInstance [
 	owner := aPltSchemaInstance
 
 
 ]
 
-{ #category : #'platypus-generated-with-context-accessing' }
+{ #category : 'platypus-generated-with-context-accessing' }
 PltModelContents >> ownerUsingContext: aContext [
 	^ self owner
 
 
 ]
 
-{ #category : #'platypus-generated-copying' }
+{ #category : 'platypus-generated-copying' }
 PltModelContents >> pltCopyGroup: aClassSymbol to: anObject [
 	self class name == aClassSymbol
 		ifTrue: [ self pltCopyTo: anObject ]
@@ -189,7 +191,7 @@ PltModelContents >> pltCopyGroup: aClassSymbol to: anObject [
 
 ]
 
-{ #category : #'platypus-generated-copying' }
+{ #category : 'platypus-generated-copying' }
 PltModelContents >> pltCopyTo: another [
 	super pltCopyTo: another.
 	self modelContentsCopyTo: another
@@ -197,21 +199,21 @@ PltModelContents >> pltCopyTo: another [
 
 ]
 
-{ #category : #'platypus-generated-copying' }
+{ #category : 'platypus-generated-copying' }
 PltModelContents >> pltLocalCopyTo: another [
 	self modelContentsCopyTo: another
 
 
 ]
 
-{ #category : #'platypus-generated-set-accessing' }
+{ #category : 'platypus-generated-set-accessing' }
 PltModelContents >> setOwner: aPltSchemaInstance [
 	self owner: aPltSchemaInstance
 
 
 ]
 
-{ #category : #'platypus-generated-initializing' }
+{ #category : 'platypus-generated-initializing' }
 PltModelContents >> stepInitialize [
 	super stepInitialize.
 	owner := nil
@@ -219,7 +221,7 @@ PltModelContents >> stepInitialize [
 
 ]
 
-{ #category : #'platypus-generated-group-accessing' }
+{ #category : 'platypus-generated-group-accessing' }
 PltModelContents >> toValues: values [
 	^ self modelContentsToValues: (super toValues: values)
 

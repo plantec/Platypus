@@ -1,32 +1,34 @@
 Class {
-	#name : #PlatypusCoreAlgorithmDeclaration,
-	#superclass : #PlatypusCoreObject,
-	#category : #'Platypus-HW-core'
+	#name : 'PlatypusCoreAlgorithmDeclaration',
+	#superclass : 'PlatypusCoreObject',
+	#category : 'Platypus-HW-core',
+	#package : 'Platypus',
+	#tag : 'HW-core'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusCoreAlgorithmDeclaration class >> context [
 	^self schemaDefinition context
 ]
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 PlatypusCoreAlgorithmDeclaration class >> fromValues: values [
 	^ self new fromValues: values
 ]
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 PlatypusCoreAlgorithmDeclaration class >> invoke [
 	^self new invoke
 ]
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 PlatypusCoreAlgorithmDeclaration class >> invokeFromValues: values [ 
 	| algo |
 	algo := self new fromValues: values.
 	^algo invoke
 ]
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 PlatypusCoreAlgorithmDeclaration class >> invokeOnContextStream: aStream [
 	| repo |
 	repo := self schemaInstance repositoryClass new asSchemaInstanceContext.
@@ -34,7 +36,7 @@ PlatypusCoreAlgorithmDeclaration class >> invokeOnContextStream: aStream [
 	^self new invoke
 ]
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 PlatypusCoreAlgorithmDeclaration class >> invokeOnContextStream: aStream fromValues: values [
 	| repo |
 	repo := self schemaInstance repositoryClass new asSchemaInstanceContext.
@@ -42,33 +44,33 @@ PlatypusCoreAlgorithmDeclaration class >> invokeOnContextStream: aStream fromVal
 	^(self new fromValues: values) invoke
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusCoreAlgorithmDeclaration class >> schemaInstance [
 	^ self schemaDefinition schemaInstance
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusCoreAlgorithmDeclaration >> fromValues: values [ 
 
 ]
 
-{ #category : #executing }
+{ #category : 'executing' }
 PlatypusCoreAlgorithmDeclaration >> invoke [
 	
 ]
 
-{ #category : #executing }
+{ #category : 'executing' }
 PlatypusCoreAlgorithmDeclaration >> invokeOnModelDataStream: aStream [
 	
 	
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusCoreAlgorithmDeclaration >> myContext [
 	^ self class context
 ]
 
-{ #category : #executing }
+{ #category : 'executing' }
 PlatypusCoreAlgorithmDeclaration >> return: anObject [ 
 	^ anObject pltNativeValue 
 ]

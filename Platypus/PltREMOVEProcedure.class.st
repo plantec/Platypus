@@ -16,44 +16,46 @@ END_PROCEDURE;
 </ISO10303-11-EXPRESS>
 "
 Class {
-	#name : #PltREMOVEProcedure,
-	#superclass : #PlatypusCoreAlgorithmDeclaration,
+	#name : 'PltREMOVEProcedure',
+	#superclass : 'PlatypusCoreAlgorithmDeclaration',
 	#instVars : [
 		'pL',
 		'pP'
 	],
-	#category : #'Platypus-ExpressBuiltinsSchema'
+	#category : 'Platypus-ExpressBuiltinsSchema',
+	#package : 'Platypus',
+	#tag : 'ExpressBuiltinsSchema'
 }
 
-{ #category : #'platypus-generated-platypus-signature' }
+{ #category : 'platypus-generated-platypus-signature' }
 PltREMOVEProcedure class >> iso10303P11Translater [
 	^ 'Platypus (c) LISYC EA3883, Universite de Bretagne occidentale. Brest.'
 
 
 ]
 
-{ #category : #'platypus-generated-meta-data-accessing' }
+{ #category : 'platypus-generated-meta-data-accessing' }
 PltREMOVEProcedure class >> schemaDefinition [
 	^ PltExpressBuiltinsSchemaDefinition singleton
 
 
 ]
 
-{ #category : #'platypus-generated-platypus-signature' }
+{ #category : 'platypus-generated-platypus-signature' }
 PltREMOVEProcedure class >> translatedFromISO10303P11 [
 	^ true
 
 
 ]
 
-{ #category : #'platypus-generated-platypus-signature' }
+{ #category : 'platypus-generated-platypus-signature' }
 PltREMOVEProcedure class >> vwNamespaceName [
 	^ #Platypus
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 PltREMOVEProcedure >> fromValues: values [
 	self pL: (values at: 1).
 	self pP: (values at: 2)
@@ -61,7 +63,7 @@ PltREMOVEProcedure >> fromValues: values [
 
 ]
 
-{ #category : #'platypus-generated-invoking' }
+{ #category : 'platypus-generated-invoking' }
 PltREMOVEProcedure >> invoke [
 	" ---------- locals assignments ----------"
 
@@ -77,21 +79,21 @@ PltREMOVEProcedure >> invoke [
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 PltREMOVEProcedure >> pL [
 	^ pL
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 PltREMOVEProcedure >> pL: aListOfObject [
 	pL := aListOfObject
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 PltREMOVEProcedure >> pL: aListOfObject pP: anInteger [
 	self pL: aListOfObject.
 	self pP: anInteger
@@ -99,14 +101,14 @@ PltREMOVEProcedure >> pL: aListOfObject pP: anInteger [
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 PltREMOVEProcedure >> pP [
 	^ pP
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 PltREMOVEProcedure >> pP: anInteger [
 	pP := anInteger
 

@@ -1,52 +1,54 @@
 Class {
-	#name : #PlatypusKeywordToken,
-	#superclass : #PlatypusGenericToken,
+	#name : 'PlatypusKeywordToken',
+	#superclass : 'PlatypusGenericToken',
 	#classVars : [
 		'ForceToUppercase'
 	],
-	#category : #'Platypus-HW-CodeTokens'
+	#category : 'Platypus-HW-CodeTokens',
+	#package : 'Platypus',
+	#tag : 'HW-CodeTokens'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusKeywordToken class >> forceToUppercase [
 	^ ForceToUppercase ifNil: [ForceToUppercase := true]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusKeywordToken class >> forceToUppercase: aBoolean [ 
 	ForceToUppercase := aBoolean
 ]
 
-{ #category : #'class initialization' }
+{ #category : 'class initialization' }
 PlatypusKeywordToken class >> initialize [
 	"self initialize"
 
 	ForceToUppercase := true
 ]
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 PlatypusKeywordToken class >> token: anObject [ 
 	^ super token: anObject asLowercase asSymbol
 ]
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 PlatypusKeywordToken >> accept: aVisitor [ 
 	^ aVisitor acceptKeyword: self
 ]
 
-{ #category : #converting }
+{ #category : 'converting' }
 PlatypusKeywordToken >> asString [
 	self forceToUppercase
 		ifTrue: [^ self lexicalElement asString asUppercase].
 	^ self lexicalElement asString
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusKeywordToken >> forceToUppercase [
 	^ self class forceToUppercase
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 PlatypusKeywordToken >> isKeyword [ 
 	^true
 ]

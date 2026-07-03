@@ -1,14 +1,16 @@
 Class {
-	#name : #PlatypusStack,
-	#superclass : #Object,
+	#name : 'PlatypusStack',
+	#superclass : 'Object',
 	#instVars : [
 		'stack',
 		'stackp'
 	],
-	#category : #'Platypus-HW-core'
+	#category : 'Platypus-HW-core',
+	#package : 'Platypus',
+	#tag : 'HW-core'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusStack >> asArray [
 	| arr |
 	arr := Array new: stackp.
@@ -20,12 +22,12 @@ PlatypusStack >> asArray [
 	^ arr
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusStack >> at: pos [
 	^ stack at: pos
 ]
 
-{ #category : #enumerating }
+{ #category : 'enumerating' }
 PlatypusStack >> collect: aBlock [ 
 	| newCollection |
 	newCollection := OrderedCollection new: self size.
@@ -35,28 +37,28 @@ PlatypusStack >> collect: aBlock [
 	^ newCollection
 ]
 
-{ #category : #enumerating }
+{ #category : 'enumerating' }
 PlatypusStack >> collectWithIndex: aBlock [
 	^stack asOrderedCollection collectWithIndex: aBlock
 ]
 
-{ #category : #'initialize/release' }
+{ #category : 'initialize/release' }
 PlatypusStack >> destroy [
 	super destroy.
 	stack := nil
 ]
 
-{ #category : #enumerating }
+{ #category : 'enumerating' }
 PlatypusStack >> do: aBlock [
 	1 to: stackp do: [:p | aBlock value: (stack at: p)]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusStack >> first [
 	^ stack first
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusStack >> grow [
 	| newStack |
 	newStack := Array
@@ -69,31 +71,31 @@ PlatypusStack >> grow [
 	stack := newStack
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusStack >> growSize [
 	"Return the size by which the receiver should grow if there are no 
 	empty slots left."
 	^ stack size max: 2
 ]
 
-{ #category : #'initialize/release' }
+{ #category : 'initialize/release' }
 PlatypusStack >> initialize [
 	super initialize.
 	stack := Array new: 100.
 	stackp := 0
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusStack >> isEmpty [
 	^ self size = 0
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusStack >> notEmpty [
 	^ self isEmpty not
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusStack >> pop [
 	| val |
 	val := stack at: stackp.
@@ -101,7 +103,7 @@ PlatypusStack >> pop [
 	^ val
 ]
 
-{ #category : #copying }
+{ #category : 'copying' }
 PlatypusStack >> postCopy [
 	| cpy |
 	cpy := super postCopy.
@@ -110,17 +112,17 @@ PlatypusStack >> postCopy [
 	^ cpy
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusStack >> privateStack: aCollection [ 
 	stack := aCollection
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusStack >> privateStackp: anInteger [
 	stackp := anInteger
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusStack >> push: anObject [ 
 	stackp := stackp + 1.
 	stackp > stack size
@@ -128,7 +130,7 @@ PlatypusStack >> push: anObject [
 	stack at: stackp put: anObject
 ]
 
-{ #category : #removing }
+{ #category : 'removing' }
 PlatypusStack >> removeAt: index [ 
 	| removed |
 	removed := stack at: index.
@@ -141,7 +143,7 @@ PlatypusStack >> removeAt: index [
 	^ removed
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusStack >> reverseDo: aBlock [ 
 	stackp
 		to: 1
@@ -150,12 +152,12 @@ PlatypusStack >> reverseDo: aBlock [
 				value: (stack at: p)]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusStack >> size [
 	^ stackp
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusStack >> top [
 	^ stack at: stackp
 ]

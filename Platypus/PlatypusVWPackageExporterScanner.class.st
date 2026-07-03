@@ -1,10 +1,12 @@
 Class {
-	#name : #PlatypusVWPackageExporterScanner,
-	#superclass : #ScannerFromPharo4,
-	#category : #'Platypus-HW-translater-private'
+	#name : 'PlatypusVWPackageExporterScanner',
+	#superclass : 'ScannerFromPharo4',
+	#category : 'Platypus-HW-translater-private',
+	#package : 'Platypus',
+	#tag : 'HW-translater-private'
 }
 
-{ #category : #'public access' }
+{ #category : 'public access' }
 PlatypusVWPackageExporterScanner >> canOutputSpaceAfterToken: aToken [ 
 	^ ((#(':' '-' '+' ) includes: aToken)
 		or: [aToken size > 1
@@ -12,14 +14,14 @@ PlatypusVWPackageExporterScanner >> canOutputSpaceAfterToken: aToken [
 						and: [aToken last = $"]]]) not
 ]
 
-{ #category : #'public access' }
+{ #category : 'public access' }
 PlatypusVWPackageExporterScanner >> outPut: aString [ 
 	| tokens |
 	tokens := self tokenize: aString.
 	^ self outPutTokens: tokens
 ]
 
-{ #category : #'public access' }
+{ #category : 'public access' }
 PlatypusVWPackageExporterScanner >> outPutTokens: tokens [ 
 	| prettPrinted |
 	prettPrinted := WriteStream on: String new.
@@ -35,7 +37,7 @@ PlatypusVWPackageExporterScanner >> outPutTokens: tokens [
 	^ prettPrinted contents
 ]
 
-{ #category : #'expression types' }
+{ #category : 'expression types' }
 PlatypusVWPackageExporterScanner >> scanToken [
 	super scanToken.
 	tokenType = #leftArrow
@@ -43,7 +45,7 @@ PlatypusVWPackageExporterScanner >> scanToken [
 	^ token
 ]
 
-{ #category : #'public access' }
+{ #category : 'public access' }
 PlatypusVWPackageExporterScanner >> tokenize: sourceString [ 
 	| coll |
 	coll := OrderedCollection new.
@@ -66,13 +68,13 @@ PlatypusVWPackageExporterScanner >> tokenize: sourceString [
 	^ coll
 ]
 
-{ #category : #'multi-character scans' }
+{ #category : 'multi-character scans' }
 PlatypusVWPackageExporterScanner >> xBinary [
 	super xBinary.
 
 ]
 
-{ #category : #'multi-character scans' }
+{ #category : 'multi-character scans' }
 PlatypusVWPackageExporterScanner >> xColon [
 	super xColon.
 	tokenType = #leftArrow
@@ -80,39 +82,39 @@ PlatypusVWPackageExporterScanner >> xColon [
 		ifFalse: [token := token asString]
 ]
 
-{ #category : #'multi-character scans' }
+{ #category : 'multi-character scans' }
 PlatypusVWPackageExporterScanner >> xDelimiter [
 	super xDelimiter.
 
 ]
 
-{ #category : #'multi-character scans' }
+{ #category : 'multi-character scans' }
 PlatypusVWPackageExporterScanner >> xDigit [
 	super xDigit.
 	token := token asString.
 
 ]
 
-{ #category : #'multi-character scans' }
+{ #category : 'multi-character scans' }
 PlatypusVWPackageExporterScanner >> xDollar [
 	super xDollar.
 	token := token printString
 ]
 
-{ #category : #'multi-character scans' }
+{ #category : 'multi-character scans' }
 PlatypusVWPackageExporterScanner >> xDoubleQuote [
 	super xDoubleQuote.
 
 ]
 
-{ #category : #'multi-character scans' }
+{ #category : 'multi-character scans' }
 PlatypusVWPackageExporterScanner >> xLetter [
 	super xLetter.
 	token := token asString.
 
 ]
 
-{ #category : #'multi-character scans' }
+{ #category : 'multi-character scans' }
 PlatypusVWPackageExporterScanner >> xLitQuote [
 	super xLitQuote.
 	(token isKindOf: Array)
@@ -120,7 +122,7 @@ PlatypusVWPackageExporterScanner >> xLitQuote [
 
 ]
 
-{ #category : #'multi-character scans' }
+{ #category : 'multi-character scans' }
 PlatypusVWPackageExporterScanner >> xSingleQuote [
 	super xSingleQuote.
 	token := token printString

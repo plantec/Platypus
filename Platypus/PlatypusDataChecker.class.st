@@ -1,6 +1,6 @@
 Class {
-	#name : #PlatypusDataChecker,
-	#superclass : #PlatypusStepChecker,
+	#name : 'PlatypusDataChecker',
+	#superclass : 'PlatypusStepChecker',
 	#instVars : [
 		'value',
 		'attribute',
@@ -11,10 +11,12 @@ Class {
 		'platypusRepository',
 		'errors'
 	],
-	#category : #'Platypus-HW-visitors'
+	#category : 'Platypus-HW-visitors',
+	#package : 'Platypus',
+	#tag : 'HW-visitors'
 }
 
-{ #category : #checking }
+{ #category : 'checking' }
 PlatypusDataChecker class >> checksValue: aValue attribute: anAttribute instanceOid: anInteger repository: aPlatypusRepository [ 
 	| errors instance |
 	errors := self new
@@ -31,7 +33,7 @@ PlatypusDataChecker class >> checksValue: aValue attribute: anAttribute instance
 				repository: aPlatypusRepository]
 ]
 
-{ #category : #checking }
+{ #category : 'checking' }
 PlatypusDataChecker class >> checksValue: aValue elementType: aMetaData aggrType: anAggrType aggrPos: aPosition attribute: anAttribute instanceOid: anInteger repository: aPlatypusRepository [
 	^ self new
 		checksValue: aValue
@@ -43,12 +45,12 @@ PlatypusDataChecker class >> checksValue: aValue elementType: aMetaData aggrType
 		repository: aPlatypusRepository
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusDataChecker class >> errorClass [
 	^ PlatypusPharoSmalltalk at: #PlatypusStepCheckerError
 ]
 
-{ #category : #'visit dictionary schema' }
+{ #category : 'visit dictionary schema' }
 PlatypusDataChecker >> acceptAggregationType: e [ 
 	| pos tmpErrors cls |
 	cls := PlatypusPharoSmalltalk at: (self smalltalkTypeOf: e) asSymbol.
@@ -78,37 +80,37 @@ PlatypusDataChecker >> acceptAggregationType: e [
 		ifFalse: [self valueIsA: value class insteadOf: cls]
 ]
 
-{ #category : #'visit dictionary schema' }
+{ #category : 'visit dictionary schema' }
 PlatypusDataChecker >> acceptArrayType: e [ 
 	self acceptAggregationType: e
 ]
 
-{ #category : #'visit dictionary schema' }
+{ #category : 'visit dictionary schema' }
 PlatypusDataChecker >> acceptBagType: e [ 
 	self acceptAggregationType: e
 ]
 
-{ #category : #'visit dictionary schema' }
+{ #category : 'visit dictionary schema' }
 PlatypusDataChecker >> acceptBinaryType: e [ 
 	self acceptSimpleType: e
 ]
 
-{ #category : #'visit dictionary schema' }
+{ #category : 'visit dictionary schema' }
 PlatypusDataChecker >> acceptBooleanType: e [ 
 	self acceptSimpleType: e
 ]
 
-{ #category : #'visit dictionary schema' }
+{ #category : 'visit dictionary schema' }
 PlatypusDataChecker >> acceptDefinedType: e [ 
 	^ self acceptTry: e domain
 ]
 
-{ #category : #'visit dictionary schema' }
+{ #category : 'visit dictionary schema' }
 PlatypusDataChecker >> acceptDictionaryInstanceReference: e [ 
 	^ self acceptTry: e referenced
 ]
 
-{ #category : #'visit dictionary schema' }
+{ #category : 'visit dictionary schema' }
 PlatypusDataChecker >> acceptEntityDefinition: e [ 
 	| cls |
 	cls := platypusRepository metaDataSchemaInstance classFromEntityName: e name.
@@ -116,7 +118,7 @@ PlatypusDataChecker >> acceptEntityDefinition: e [
 		ifFalse: [self valueIsA: value class insteadOf: cls]
 ]
 
-{ #category : #'visit dictionary schema' }
+{ #category : 'visit dictionary schema' }
 PlatypusDataChecker >> acceptEntityDefinitionReference: e [ 
 	| cls |
 	cls := platypusRepository metaDataSchemaInstance classFromEntityName: e name.
@@ -124,7 +126,7 @@ PlatypusDataChecker >> acceptEntityDefinitionReference: e [
 		ifFalse: [self valueIsA: value class insteadOf: cls]
 ]
 
-{ #category : #'visit dictionary schema' }
+{ #category : 'visit dictionary schema' }
 PlatypusDataChecker >> acceptEnumerationType: e [ 
 	(value isKindOf: Symbol)
 		ifTrue: [((e elements
@@ -134,37 +136,37 @@ PlatypusDataChecker >> acceptEnumerationType: e [
 		ifFalse: [self valueIsA: value class insteadOf: Symbol]
 ]
 
-{ #category : #'visit dictionary schema' }
+{ #category : 'visit dictionary schema' }
 PlatypusDataChecker >> acceptExplicitAttribute: e [ 
 	^ self acceptTry: e domain
 ]
 
-{ #category : #'visit dictionary schema' }
+{ #category : 'visit dictionary schema' }
 PlatypusDataChecker >> acceptIntegerType: e [ 
 	self acceptSimpleType:e
 ]
 
-{ #category : #'visit dictionary schema' }
+{ #category : 'visit dictionary schema' }
 PlatypusDataChecker >> acceptListType: e [ 
 	self acceptAggregationType: e 
 ]
 
-{ #category : #'visit dictionary schema' }
+{ #category : 'visit dictionary schema' }
 PlatypusDataChecker >> acceptLogicalType: e [ 
 	self acceptSimpleType: e
 ]
 
-{ #category : #'visit dictionary schema' }
+{ #category : 'visit dictionary schema' }
 PlatypusDataChecker >> acceptNamedTypeReference: e [ 
 	^ self acceptTry: e referenced
 ]
 
-{ #category : #'visit dictionary schema' }
+{ #category : 'visit dictionary schema' }
 PlatypusDataChecker >> acceptRealType: e [ 
 	self acceptSimpleType: e
 ]
 
-{ #category : #'visit dictionary schema' }
+{ #category : 'visit dictionary schema' }
 PlatypusDataChecker >> acceptSelectType: e [ 
 	e selections
 		do: [:sel | (self class
@@ -179,12 +181,12 @@ PlatypusDataChecker >> acceptSelectType: e [
 	self selectValueOutOfDomain: e
 ]
 
-{ #category : #'visit dictionary schema' }
+{ #category : 'visit dictionary schema' }
 PlatypusDataChecker >> acceptSetType: e [ 
 	self acceptAggregationType: e
 ]
 
-{ #category : #'visit dictionary schema' }
+{ #category : 'visit dictionary schema' }
 PlatypusDataChecker >> acceptSimpleType: e [ 
 	| cls |
 	cls := PlatypusPharoSmalltalk at: (self smalltalkTypeOf: e) asSymbol.
@@ -192,12 +194,12 @@ PlatypusDataChecker >> acceptSimpleType: e [
 		ifFalse: [self valueIsA: value class insteadOf: cls]
 ]
 
-{ #category : #'visit dictionary schema' }
+{ #category : 'visit dictionary schema' }
 PlatypusDataChecker >> acceptStringType: e [ 
 	self acceptSimpleType: e
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusDataChecker >> acceptTry: e [ 
 	"Transcript show: e class name , String cr."
 	value isNil
@@ -205,17 +207,17 @@ PlatypusDataChecker >> acceptTry: e [
 		ifFalse: [^ super acceptTry: e]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusDataChecker >> aggrPos [
 	^aggrPos
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusDataChecker >> aggrType [
 	^aggrType
 ]
 
-{ #category : #checking }
+{ #category : 'checking' }
 PlatypusDataChecker >> checksMissingValue [
 	aggr
 		ifNil: [attribute optionalFlag
@@ -224,7 +226,7 @@ PlatypusDataChecker >> checksMissingValue [
 				ifFalse: [self valueShouldNotBeMissing]]
 ]
 
-{ #category : #checking }
+{ #category : 'checking' }
 PlatypusDataChecker >> checksValue: aValue attribute: anAttribute instanceOid: anInteger repository: aPlatypusRepository [
 	value := aValue.
 	attribute := anAttribute.
@@ -234,7 +236,7 @@ PlatypusDataChecker >> checksValue: aValue attribute: anAttribute instanceOid: a
 	^ errors
 ]
 
-{ #category : #checking }
+{ #category : 'checking' }
 PlatypusDataChecker >> checksValue: aValue elementType: aMetaData aggrType: anAggrType aggrPos: aPosition attribute: anAttribute instanceOid: anInteger repository: aPlatypusRepository [ 
 	value := aValue.
 	aggrPos := aPosition.
@@ -246,7 +248,7 @@ PlatypusDataChecker >> checksValue: aValue elementType: aMetaData aggrType: anAg
 	^ errors
 ]
 
-{ #category : #'error handling' }
+{ #category : 'error handling' }
 PlatypusDataChecker >> enumerationValueOutOfDomain: enumerationType [ 
 	| elements |
 	elements := String new.
@@ -260,12 +262,12 @@ PlatypusDataChecker >> enumerationValueOutOfDomain: enumerationType [
 				repository: platypusRepository)
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusDataChecker >> errorClass [
 	^ self class errorClass
 ]
 
-{ #category : #'error handling' }
+{ #category : 'error handling' }
 PlatypusDataChecker >> errorHeading [
 	| start |
 	aggrPos
@@ -274,18 +276,18 @@ PlatypusDataChecker >> errorHeading [
 	^ start
 ]
 
-{ #category : #'initialize/release' }
+{ #category : 'initialize/release' }
 PlatypusDataChecker >> initialize [
 	super initialize.
 	errors := OrderedCollection new
 ]
 
-{ #category : #'meta data accessing' }
+{ #category : 'meta data accessing' }
 PlatypusDataChecker >> metaDataSchemaInstance [
 	^ platypusRepository metaDataSchemaInstance 
 ]
 
-{ #category : #'error handling' }
+{ #category : 'error handling' }
 PlatypusDataChecker >> selectValueOutOfDomain: selectType [ 
 	| elements cls |
 	elements := String new.
@@ -301,12 +303,12 @@ PlatypusDataChecker >> selectValueOutOfDomain: selectType [
 				repository: platypusRepository)
 ]
 
-{ #category : #'meta data accessing' }
+{ #category : 'meta data accessing' }
 PlatypusDataChecker >> smalltalkTypeOf: anObject [ 
 	^ self metaDataSchemaInstance smalltalkTypeOf: anObject
 ]
 
-{ #category : #'error handling' }
+{ #category : 'error handling' }
 PlatypusDataChecker >> valueIsA: valClass insteadOf: goodClass [ 
 	errors
 		add: (self errorClass
@@ -315,7 +317,7 @@ PlatypusDataChecker >> valueIsA: valClass insteadOf: goodClass [
 				repository: platypusRepository)
 ]
 
-{ #category : #'error handling' }
+{ #category : 'error handling' }
 PlatypusDataChecker >> valueShouldNotBeMissing [
 	errors
 		add: (self errorClass

@@ -1,10 +1,12 @@
 Class {
-	#name : #PlatypusExpressStatement2SmalltalkTranslater,
-	#superclass : #PlatypusExpressTranslater,
-	#category : #'Platypus-HW-translater-private'
+	#name : 'PlatypusExpressStatement2SmalltalkTranslater',
+	#superclass : 'PlatypusExpressTranslater',
+	#category : 'Platypus-HW-translater-private',
+	#package : 'Platypus',
+	#tag : 'HW-translater-private'
 }
 
-{ #category : #'visit statements schema' }
+{ #category : 'visit statements schema' }
 PlatypusExpressStatement2SmalltalkTranslater >> acceptAliasStatement: e [ 
 	self nextPutAll: '(PlatypusCoreAliasStatement alias: ('.
 	self expressionTranslaterClass accept: e variable ref fromTranslater: self.
@@ -18,7 +20,7 @@ PlatypusExpressStatement2SmalltalkTranslater >> acceptAliasStatement: e [
 
 ]
 
-{ #category : #'visit statements schema' }
+{ #category : 'visit statements schema' }
 PlatypusExpressStatement2SmalltalkTranslater >> acceptAliasStatementVariable: e [ 
 	| vn |
 	vn := self namesBuilder
@@ -27,7 +29,7 @@ PlatypusExpressStatement2SmalltalkTranslater >> acceptAliasStatementVariable: e 
 	self nextPutAll: vn , ': '
 ]
 
-{ #category : #'visit statements schema' }
+{ #category : 'visit statements schema' }
 PlatypusExpressStatement2SmalltalkTranslater >> acceptAssignable: e [ 
 	e qualifiers
 		ifEmpty: [self nextPutAll: ' self '
@@ -47,14 +49,14 @@ PlatypusExpressStatement2SmalltalkTranslater >> acceptAssignable: e [
 			e qualifiers last acceptTry: self]
 ]
 
-{ #category : #'visit statements schema' }
+{ #category : 'visit statements schema' }
 PlatypusExpressStatement2SmalltalkTranslater >> acceptAssignmentStatement: e [ 
 	self acceptTry: e left.
 	self expressionTranslaterClass accept: e rightExpr fromTranslater: self.
 	self nextPutAllCr: ' .'
 ]
 
-{ #category : #'visit dictionary schema' }
+{ #category : 'visit dictionary schema' }
 PlatypusExpressStatement2SmalltalkTranslater >> acceptAttributeQualifier: e [ 
 	| selector tmpAttr |
 	tmpAttr := PltExplicitAttribute new name: e attributeName.
@@ -62,7 +64,7 @@ PlatypusExpressStatement2SmalltalkTranslater >> acceptAttributeQualifier: e [
 	self nextPutAll: ' ' , selector , ': '
 ]
 
-{ #category : #'visit statements schema' }
+{ #category : 'visit statements schema' }
 PlatypusExpressStatement2SmalltalkTranslater >> acceptCaseStatement: e [ 
 	| guardBlocksAssocs otherWiseBlock selector |
 	guardBlocksAssocs := '((OrderedCollection new) '.
@@ -83,30 +85,30 @@ PlatypusExpressStatement2SmalltalkTranslater >> acceptCaseStatement: e [
 	self nextPutAllCr: 'PlatypusCoreCaseStatement caseActionBlocks: ' , guardBlocksAssocs , ' otherwiseBlock: ' , otherWiseBlock , ' case: ' , selector , '.'
 ]
 
-{ #category : #'visit statements schema' }
+{ #category : 'visit statements schema' }
 PlatypusExpressStatement2SmalltalkTranslater >> acceptCompoundStatement: e [ 
 	e statements do: [:stmt | self acceptTry: stmt].
 
 ]
 
-{ #category : #'visit expressions schema' }
+{ #category : 'visit expressions schema' }
 PlatypusExpressStatement2SmalltalkTranslater >> acceptElementQualifier: e [ 
 	self nextPutAll: '  at:  '.
 	self expressionTranslaterClass accept: e index fromTranslater: self.
 	self nextPutAll: '  put:  '
 ]
 
-{ #category : #'visit statements schema' }
+{ #category : 'visit statements schema' }
 PlatypusExpressStatement2SmalltalkTranslater >> acceptEndSplitmarkStatement: e [ 
 	self nextPutAllCr: 'self class schemaInstance popSplitmark.'
 ]
 
-{ #category : #'visit statements schema' }
+{ #category : 'visit statements schema' }
 PlatypusExpressStatement2SmalltalkTranslater >> acceptEscapeStatement: e [ 
 	self nextPutAllCr: 'PlatypusExpressEscapeStatementException signal. '
 ]
 
-{ #category : #'visit expressions schema' }
+{ #category : 'visit expressions schema' }
 PlatypusExpressStatement2SmalltalkTranslater >> acceptIdentifier: e [ 
 	e referenced isPltAlgorithmDeclaration
 		ifTrue: [(e parameters isNil
@@ -123,7 +125,7 @@ PlatypusExpressStatement2SmalltalkTranslater >> acceptIdentifier: e [
 		ifFalse: [self acceptTry: e referenced]
 ]
 
-{ #category : #'visit statements schema' }
+{ #category : 'visit statements schema' }
 PlatypusExpressStatement2SmalltalkTranslater >> acceptIfStatement: e [ 
 	self nextPutAll: '('.
 	self expressionTranslaterClass accept: e selector fromTranslater: self.
@@ -137,18 +139,18 @@ PlatypusExpressStatement2SmalltalkTranslater >> acceptIfStatement: e [
 	self nextPutAllCr: '].'
 ]
 
-{ #category : #'visit dictionary schema' }
+{ #category : 'visit dictionary schema' }
 PlatypusExpressStatement2SmalltalkTranslater >> acceptLocalVariable: e [ 
 	self nextPutAll: ' self '
 			, (self namesBuilder normalizedVarNameFrom: e name) , ': '
 ]
 
-{ #category : #'visit dictionary schema' }
+{ #category : 'visit dictionary schema' }
 PlatypusExpressStatement2SmalltalkTranslater >> acceptNativeAlgorithm: e [ 
 	self subclassResponsibility 
 ]
 
-{ #category : #'visit statements schema' }
+{ #category : 'visit statements schema' }
 PlatypusExpressStatement2SmalltalkTranslater >> acceptNativeCode: e [ 
 	| stmt |
 	self nextPutAllCr: '"---------- native statement ---------- "'.
@@ -158,20 +160,20 @@ PlatypusExpressStatement2SmalltalkTranslater >> acceptNativeCode: e [
 	self nextPutAllCr: stmt
 ]
 
-{ #category : #'visit statements schema' }
+{ #category : 'visit statements schema' }
 PlatypusExpressStatement2SmalltalkTranslater >> acceptOutputStatement: e [ 
 	self nextPutAll: 'self class schemaInstance splitMarkOutput: ( '.
 	self expressionTranslaterClass accept: e output fromTranslater: self.
 	self nextPutAllCr: '). '
 ]
 
-{ #category : #'visit dictionary schema' }
+{ #category : 'visit dictionary schema' }
 PlatypusExpressStatement2SmalltalkTranslater >> acceptParameterDefinition: e [ 
 	self nextPutAll: ' self '
 			, (self namesBuilder normalizedVarNameFrom: e name) , ': '
 ]
 
-{ #category : #'visit statements schema' }
+{ #category : 'visit statements schema' }
 PlatypusExpressStatement2SmalltalkTranslater >> acceptQualifiedExpression: e [ 
 	e qualifiers
 		do: [:q | 
@@ -184,7 +186,7 @@ PlatypusExpressStatement2SmalltalkTranslater >> acceptQualifiedExpression: e [
 			self nextPutAll: ') ']
 ]
 
-{ #category : #'visit statements schema' }
+{ #category : 'visit statements schema' }
 PlatypusExpressStatement2SmalltalkTranslater >> acceptRepeatStatement: e [ 
 	| whileBlock untilBlock statementsBlock first last incrVar blockHead novar |
 	novar := 'r' , e basicIdentityHash asString.
@@ -212,7 +214,7 @@ PlatypusExpressStatement2SmalltalkTranslater >> acceptRepeatStatement: e [
 		ifNotNil: [self nextPutAllCr: 'PlatypusCoreRepeatStatement ' , whileBlock , '  ' , untilBlock , ' repeat: ' , blockHead , statementsBlock , ' from: ' , first , ' to: ' , last , '.']
 ]
 
-{ #category : #'visit statements schema' }
+{ #category : 'visit statements schema' }
 PlatypusExpressStatement2SmalltalkTranslater >> acceptReturnStatement: e [ 
 	self nextPutAll: '	^ self return: ('.
 	e returned
@@ -221,19 +223,19 @@ PlatypusExpressStatement2SmalltalkTranslater >> acceptReturnStatement: e [
 	self nextPutAllCr: ').'
 ]
 
-{ #category : #'visit statements schema' }
+{ #category : 'visit statements schema' }
 PlatypusExpressStatement2SmalltalkTranslater >> acceptSkipStatement: e [ 
 	self nextPutAllCr: 'PlatypusExpressSkipStatementException signal. '
 ]
 
-{ #category : #'visit statements schema' }
+{ #category : 'visit statements schema' }
 PlatypusExpressStatement2SmalltalkTranslater >> acceptSplitmarkStatement: e [ 
 	self nextPutAll: 'self class schemaInstance pushSplitmark: ( '.
 	self expressionTranslaterClass accept: e filename fromTranslater: self.
 	self nextPutAllCr: ') append: ' , e append printString , '. '
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusExpressStatement2SmalltalkTranslater >> namesBuilder [
 	^ self requestor namesBuilder
 ]

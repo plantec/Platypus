@@ -1,19 +1,21 @@
 Class {
-	#name : #PlatypusExpressExpression2SmalltalkTranslater,
-	#superclass : #PlatypusExpressTranslater,
+	#name : 'PlatypusExpressExpression2SmalltalkTranslater',
+	#superclass : 'PlatypusExpressTranslater',
 	#instVars : [
 		'receiverName'
 	],
-	#category : #'Platypus-HW-translater-private'
+	#category : 'Platypus-HW-translater-private',
+	#package : 'Platypus',
+	#tag : 'HW-translater-private'
 }
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 PlatypusExpressExpression2SmalltalkTranslater class >> receiverName: aNameForReceiver accept: aMetaData fromTranslater: aTranslater [ 
 	(self new receiverName: aNameForReceiver fromTranslater: aTranslater)
 		acceptTry: aMetaData
 ]
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 PlatypusExpressExpression2SmalltalkTranslater class >> receiverName: aNameForReceiver accept: aMetaData fromTranslater: aTranslater resultStream: aStream [ 
 	| translater |
 	(translater := self new 
@@ -23,7 +25,7 @@ PlatypusExpressExpression2SmalltalkTranslater class >> receiverName: aNameForRec
 		^ translater
 ]
 
-{ #category : #'visit expressions schema' }
+{ #category : 'visit expressions schema' }
 PlatypusExpressExpression2SmalltalkTranslater >> acceptAggregateInitializer: e [ 
 	e contents isEmpty ifTrue: [self nextPutAll: ' Array new']
 	ifFalse: [
@@ -33,7 +35,7 @@ PlatypusExpressExpression2SmalltalkTranslater >> acceptAggregateInitializer: e [
 	self nextPutAll: '; yourself) ) ']
 ]
 
-{ #category : #'visit expressions schema' }
+{ #category : 'visit expressions schema' }
 PlatypusExpressExpression2SmalltalkTranslater >> acceptAggregateInitializerElement: e [ 
 	| vname |
 	vname := self namesBuilder uniqueBlockVarName: 'p' owner: e.
@@ -50,7 +52,7 @@ PlatypusExpressExpression2SmalltalkTranslater >> acceptAggregateInitializerEleme
 
 ]
 
-{ #category : #'visit statements schema' }
+{ #category : 'visit statements schema' }
 PlatypusExpressExpression2SmalltalkTranslater >> acceptAliasStatementVariable: e [ 
 	| vn |
 	vn := self namesBuilder
@@ -59,7 +61,7 @@ PlatypusExpressExpression2SmalltalkTranslater >> acceptAliasStatementVariable: e
 	self nextPutAll: vn , ' '
 ]
 
-{ #category : #'visit expressions schema' }
+{ #category : 'visit expressions schema' }
 PlatypusExpressExpression2SmalltalkTranslater >> acceptAndExpression: e [ 
 	self nextPutAll: ' ( '.
 	self acceptTry: e leftExpr.
@@ -68,7 +70,7 @@ PlatypusExpressExpression2SmalltalkTranslater >> acceptAndExpression: e [
 	self nextPutAll: ' ])  '
 ]
 
-{ #category : #'visit statements schema' }
+{ #category : 'visit statements schema' }
 PlatypusExpressExpression2SmalltalkTranslater >> acceptAssignable: e [ 
 	e qualifiers
 		ifEmpty: [self nextPutAll: '( '.
@@ -90,7 +92,7 @@ PlatypusExpressExpression2SmalltalkTranslater >> acceptAssignable: e [
 					self nextPutAll: ') ']]
 ]
 
-{ #category : #'visit expressions schema' }
+{ #category : 'visit expressions schema' }
 PlatypusExpressExpression2SmalltalkTranslater >> acceptAttributeQualifier: e [ 
 	| contextvn selector tmpAttr |
 	contextvn := (self namesBuilder contextArgNameFromQualifier: e) 
@@ -101,7 +103,7 @@ PlatypusExpressExpression2SmalltalkTranslater >> acceptAttributeQualifier: e [
 	self nextPutAll: selector , ' ' , contextvn
 ]
 
-{ #category : #'visit expressions schema' }
+{ #category : 'visit expressions schema' }
 PlatypusExpressExpression2SmalltalkTranslater >> acceptBinaryExpression: e [ 
 	self nextPutAll: ' ( '.
 	self acceptTry: e leftExpr.
@@ -110,7 +112,7 @@ PlatypusExpressExpression2SmalltalkTranslater >> acceptBinaryExpression: e [
 	self nextPutAll: ' )  '
 ]
 
-{ #category : #'visit dictionary schema' }
+{ #category : 'visit dictionary schema' }
 PlatypusExpressExpression2SmalltalkTranslater >> acceptDerivedAttribute: e [ 
 	| contextvn |
 	contextvn := self namesBuilder contextArgNameFromAttribute: e.
@@ -122,47 +124,47 @@ PlatypusExpressExpression2SmalltalkTranslater >> acceptDerivedAttribute: e [
 				, ' ) '
 ]
 
-{ #category : #'visit expressions schema' }
+{ #category : 'visit expressions schema' }
 PlatypusExpressExpression2SmalltalkTranslater >> acceptEConstant: e [ 
 	self nextPutAll: ' 2.71828 '
 
 ]
 
-{ #category : #'visit expressions schema' }
+{ #category : 'visit expressions schema' }
 PlatypusExpressExpression2SmalltalkTranslater >> acceptElementQualifier: e [ 
 	self nextPutAll: '  pltAt:  '.
 	self acceptTry: e index
 ]
 
-{ #category : #'visit expressions schema' }
+{ #category : 'visit expressions schema' }
 PlatypusExpressExpression2SmalltalkTranslater >> acceptEntityInstanceConstructor: e [ 
 	self error: 'deprecated'
 ]
 
-{ #category : #'visit dictionary schema' }
+{ #category : 'visit dictionary schema' }
 PlatypusExpressExpression2SmalltalkTranslater >> acceptEntityInstancesSet: e [
 	self nextPutAll: '( ', e name, ' )'.
 
 ]
 
-{ #category : #'visit expressions schema' }
+{ #category : 'visit expressions schema' }
 PlatypusExpressExpression2SmalltalkTranslater >> acceptEnumerationValue: e [ 
 	self nextPutAll: '#''' , e element asUppercase, ''''
 ]
 
-{ #category : #'visit dictionary schema' }
+{ #category : 'visit dictionary schema' }
 PlatypusExpressExpression2SmalltalkTranslater >> acceptExplicitAttribute: e [ 
 	self nextPutAll: '( '.
 	self acceptTry: PltSelfIdentifier new.
 	self nextPutAll: (e getSelectorFromNamesBuilder: self namesBuilder) , ') '
 ]
 
-{ #category : #'visit expressions schema' }
+{ #category : 'visit expressions schema' }
 PlatypusExpressExpression2SmalltalkTranslater >> acceptFalseConstant: e [ 
 	^ self acceptLiteral:e
 ]
 
-{ #category : #'visit expressions schema' }
+{ #category : 'visit expressions schema' }
 PlatypusExpressExpression2SmalltalkTranslater >> acceptGroupQualifier: e [ 
 	| grpname grpref |
 	grpref := self schemaInstance lookUpNamedTypeBN: e groupName.
@@ -171,7 +173,7 @@ PlatypusExpressExpression2SmalltalkTranslater >> acceptGroupQualifier: e [
 
 ]
 
-{ #category : #'visit expressions schema' }
+{ #category : 'visit expressions schema' }
 PlatypusExpressExpression2SmalltalkTranslater >> acceptIdentifier: e [ 
 	e referenced isPltEntityDefinition 
 		ifTrue: 
@@ -204,7 +206,7 @@ PlatypusExpressExpression2SmalltalkTranslater >> acceptIdentifier: e [
 				ifFalse: [self acceptTry: e referenced]]
 ]
 
-{ #category : #'visit expressions schema' }
+{ #category : 'visit expressions schema' }
 PlatypusExpressExpression2SmalltalkTranslater >> acceptInExpression: e [ 
 	self nextPutAll: ' ( '.
 	self acceptTry: e rightExpr.
@@ -213,7 +215,7 @@ PlatypusExpressExpression2SmalltalkTranslater >> acceptInExpression: e [
 	self nextPutAll: ' )  '
 ]
 
-{ #category : #'visit statements schema' }
+{ #category : 'visit statements schema' }
 PlatypusExpressExpression2SmalltalkTranslater >> acceptIncrementControlVariable: e [ 
 	| vn |
 	vn := self namesBuilder uniqueBlockVarName: e variableId
@@ -221,7 +223,7 @@ PlatypusExpressExpression2SmalltalkTranslater >> acceptIncrementControlVariable:
 	self nextPutAll: vn
 ]
 
-{ #category : #'visit expressions schema' }
+{ #category : 'visit expressions schema' }
 PlatypusExpressExpression2SmalltalkTranslater >> acceptInstanceConstructionExpression: e [ 
 	self nextPutAll: ' ((PlatypusComplexInstance fromRecords: ( (OrderedCollection new) add: '.
 	self acceptTry: e leftExpr.
@@ -230,13 +232,13 @@ PlatypusExpressExpression2SmalltalkTranslater >> acceptInstanceConstructionExpre
 	self nextPutAll: '; yourself)) pltAsObject )'
 ]
 
-{ #category : #'visit expressions schema' }
+{ #category : 'visit expressions schema' }
 PlatypusExpressExpression2SmalltalkTranslater >> acceptInterval: e [ 
 	self acceptTry: e expr.
 
 ]
 
-{ #category : #'visit dictionary schema' }
+{ #category : 'visit dictionary schema' }
 PlatypusExpressExpression2SmalltalkTranslater >> acceptInverseAttribute: e [ 
 	| contextvn |
 	contextvn := self namesBuilder contextArgNameFromAttribute: e.
@@ -248,7 +250,7 @@ PlatypusExpressExpression2SmalltalkTranslater >> acceptInverseAttribute: e [
 				, ' ) '
 ]
 
-{ #category : #'visit expressions schema' }
+{ #category : 'visit expressions schema' }
 PlatypusExpressExpression2SmalltalkTranslater >> acceptLikeExpression: e [ 
 	self nextPutAll: ' ( '.
 	self acceptTry: e rightExpr.
@@ -257,12 +259,12 @@ PlatypusExpressExpression2SmalltalkTranslater >> acceptLikeExpression: e [
 	self nextPutAll: ' )  '
 ]
 
-{ #category : #'visit expressions schema' }
+{ #category : 'visit expressions schema' }
 PlatypusExpressExpression2SmalltalkTranslater >> acceptLiteral: e [ 
 	^ self nextPutAll: e val printString
 ]
 
-{ #category : #'visit dictionary schema' }
+{ #category : 'visit dictionary schema' }
 PlatypusExpressExpression2SmalltalkTranslater >> acceptLocalVariable: e [ 
 	self nextPutAll: '( '.
 	self acceptTry: PltSelfIdentifier new.
@@ -270,18 +272,18 @@ PlatypusExpressExpression2SmalltalkTranslater >> acceptLocalVariable: e [
 			, ' ) '
 ]
 
-{ #category : #'visit expressions schema' }
+{ #category : 'visit expressions schema' }
 PlatypusExpressExpression2SmalltalkTranslater >> acceptMissingValue: e [ 
 	self nextPutAll: 'nil'.
 
 ]
 
-{ #category : #'visit dictionary schema' }
+{ #category : 'visit dictionary schema' }
 PlatypusExpressExpression2SmalltalkTranslater >> acceptNativeAlgorithm: e [ 
 	self subclassResponsibility 
 ]
 
-{ #category : #'visit expressions schema' }
+{ #category : 'visit expressions schema' }
 PlatypusExpressExpression2SmalltalkTranslater >> acceptNativeCode: e [ 
 	| stmt |
 	self nextPutAllCr: '"---------- native statement ---------- "'.
@@ -291,7 +293,7 @@ PlatypusExpressExpression2SmalltalkTranslater >> acceptNativeCode: e [
 	self nextPutAllCr: stmt
 ]
 
-{ #category : #'visit expressions schema' }
+{ #category : 'visit expressions schema' }
 PlatypusExpressExpression2SmalltalkTranslater >> acceptNegativeExpression: e [ 
 	self nextPutAll: '( ('. 
 	self acceptTry: e expr.
@@ -299,14 +301,14 @@ PlatypusExpressExpression2SmalltalkTranslater >> acceptNegativeExpression: e [
 
 ]
 
-{ #category : #'visit expressions schema' }
+{ #category : 'visit expressions schema' }
 PlatypusExpressExpression2SmalltalkTranslater >> acceptNotExpression: e [ 
 	self nextPutAll: '( ('.
 	self acceptTry: e expr.
 	self nextPutAll: ') not) '
 ]
 
-{ #category : #'visit expressions schema' }
+{ #category : 'visit expressions schema' }
 PlatypusExpressExpression2SmalltalkTranslater >> acceptOrExpression: e [ 
 	self nextPutAll: ' ( '.
 	self acceptTry: e leftExpr.
@@ -315,26 +317,26 @@ PlatypusExpressExpression2SmalltalkTranslater >> acceptOrExpression: e [
 	self nextPutAll: ' ])  '
 ]
 
-{ #category : #'visit dictionary schema' }
+{ #category : 'visit dictionary schema' }
 PlatypusExpressExpression2SmalltalkTranslater >> acceptParameterDefinition: e [ 
 	self nextPutAll: '( '.
 	self acceptTry: PltSelfIdentifier new.
 	self nextPutAll: (self namesBuilder normalizedVarNameFrom: e name) , ' ) '
 ]
 
-{ #category : #'visit expressions schema' }
+{ #category : 'visit expressions schema' }
 PlatypusExpressExpression2SmalltalkTranslater >> acceptPiConstant: e [ 
 	self nextPutAll: ' 3.14159 '
 ]
 
-{ #category : #'visit expressions schema' }
+{ #category : 'visit expressions schema' }
 PlatypusExpressExpression2SmalltalkTranslater >> acceptPositiveExpression: e [ 
 	self nextPutAll: '( ('.
 	self acceptTry: e expr.
 	self nextPutAll: ') abs ) '
 ]
 
-{ #category : #'visit expressions schema' }
+{ #category : 'visit expressions schema' }
 PlatypusExpressExpression2SmalltalkTranslater >> acceptQualifiedExpression: e [ 
 
 	e qualifiers do: 
@@ -348,7 +350,7 @@ PlatypusExpressExpression2SmalltalkTranslater >> acceptQualifiedExpression: e [
 			self nextPutAll: ') ']
 ]
 
-{ #category : #'visit expressions schema' }
+{ #category : 'visit expressions schema' }
 PlatypusExpressExpression2SmalltalkTranslater >> acceptQueryExpression: e [ 
 	self nextPutAll: '('.
 	self acceptTry: e aggregateSource.
@@ -367,14 +369,14 @@ PlatypusExpressExpression2SmalltalkTranslater >> acceptQueryExpression: e [
 	self nextPutAll: '])'
 ]
 
-{ #category : #'visit expressions schema' }
+{ #category : 'visit expressions schema' }
 PlatypusExpressExpression2SmalltalkTranslater >> acceptQueryVariable: e [ 
 	| vn |
 	vn := self namesBuilder uniqueBlockVarName: e variableId owner: e.
 	self nextPutAll: vn, ' '
 ]
 
-{ #category : #'visit expressions schema' }
+{ #category : 'visit expressions schema' }
 PlatypusExpressExpression2SmalltalkTranslater >> acceptRangeQualifier: e [ 
 
 	self nextPutAll: '  pltCopyFrom:  '.
@@ -383,30 +385,30 @@ PlatypusExpressExpression2SmalltalkTranslater >> acceptRangeQualifier: e [
 	self acceptTry: e index2
 ]
 
-{ #category : #'visit expressions schema' }
+{ #category : 'visit expressions schema' }
 PlatypusExpressExpression2SmalltalkTranslater >> acceptSelfIdentifier: e [ 
 	receiverName
 		ifNil: [self nextPutAll: ' self ']
 		ifNotNil: [self nextPutAll: receiverName, ' ']
 ]
 
-{ #category : #'visit expressions schema' }
+{ #category : 'visit expressions schema' }
 PlatypusExpressExpression2SmalltalkTranslater >> acceptStringLiteral: e [ 
 
 	self nextPutAll: (self unshunkedString: e val) printString
 ]
 
-{ #category : #'visit expressions schema' }
+{ #category : 'visit expressions schema' }
 PlatypusExpressExpression2SmalltalkTranslater >> acceptTrueConstant: e [ 
 	^ self acceptLiteral: e
 ]
 
-{ #category : #'visit expressions schema' }
+{ #category : 'visit expressions schema' }
 PlatypusExpressExpression2SmalltalkTranslater >> acceptUnknownConstant: e [ 
 	^ self acceptLiteral: e
 ]
 
-{ #category : #'visit expressions schema' }
+{ #category : 'visit expressions schema' }
 PlatypusExpressExpression2SmalltalkTranslater >> acceptXorExpression: e [ 
 	self nextPutAll: ' ( '.
 	self acceptTry: e leftExpr.
@@ -415,24 +417,24 @@ PlatypusExpressExpression2SmalltalkTranslater >> acceptXorExpression: e [
 	self nextPutAll: ' ])  '
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusExpressExpression2SmalltalkTranslater >> namesBuilder [
 	^ self requestor namesBuilder
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusExpressExpression2SmalltalkTranslater >> receiverName: aNameForReceiver [ 
 	receiverName := aNameForReceiver.
 
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusExpressExpression2SmalltalkTranslater >> receiverName: aNameForReceiver fromTranslater: aTranslater [ 
 	self receiverName: aNameForReceiver.
 	self fromTranslater: aTranslater 
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusExpressExpression2SmalltalkTranslater >> receiverName: aNameForReceiver fromTranslater: aTranslater resultStream: aStream [ 
 	self receiverName: aNameForReceiver.
 	self fromTranslater: aTranslater resultStream: aStream

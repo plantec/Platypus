@@ -1,13 +1,15 @@
 Class {
-	#name : #StepGenericRepositoryFileError,
-	#superclass : #StepFileError,
+	#name : 'StepGenericRepositoryFileError',
+	#superclass : 'StepFileError',
 	#instVars : [
 		'folder'
 	],
-	#category : #'Platypus-STEP-core'
+	#category : 'Platypus-STEP-core',
+	#package : 'Platypus',
+	#tag : 'STEP-core'
 }
 
-{ #category : #exceptionInstantiator }
+{ #category : 'exceptionInstantiator' }
 StepGenericRepositoryFileError class >> messageText: signalerText contents: fileContents pos: aPositionInFileContents folder: aGenericFolder [
 	| err |
 	err := super messageText: signalerText contents: fileContents pos: aPositionInFileContents .
@@ -15,12 +17,12 @@ StepGenericRepositoryFileError class >> messageText: signalerText contents: file
 	^ err
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 StepGenericRepositoryFileError >> folder [
 	^folder
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 StepGenericRepositoryFileError >> folder: anObject [
 	folder := anObject
 ]

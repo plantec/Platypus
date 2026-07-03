@@ -1,18 +1,20 @@
 Class {
-	#name : #PlatypusComplexInstance,
-	#superclass : #Object,
+	#name : 'PlatypusComplexInstance',
+	#superclass : 'Object',
 	#instVars : [
 		'records'
 	],
-	#category : #'Platypus-HW-core'
+	#category : 'Platypus-HW-core',
+	#package : 'Platypus',
+	#tag : 'HW-core'
 }
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 PlatypusComplexInstance class >> fromRecords: aListOfRecords [
 	^ self new addAllRecords: aListOfRecords
 ]
 
-{ #category : #operator }
+{ #category : 'operator' }
 PlatypusComplexInstance >> \ aClassSymbol [ 
 	| classif groupClass res resRecords curr selector o |
 	groupClass := PlatypusPharoSmalltalk at: aClassSymbol.
@@ -36,28 +38,28 @@ PlatypusComplexInstance >> \ aClassSymbol [
 	^ res
 ]
 
-{ #category : #'private adding' }
+{ #category : 'private adding' }
 PlatypusComplexInstance >> add: anObject [
 	self records add: anObject
 ]
 
-{ #category : #adding }
+{ #category : 'adding' }
 PlatypusComplexInstance >> addAllRecords: aListOfRecords [
 	aListOfRecords do: [ :rec | self addRecord: rec] 
 
 ]
 
-{ #category : #adding }
+{ #category : 'adding' }
 PlatypusComplexInstance >> addRecord: aRecord [ 
 	aRecord pltAddIntoComplexeInstance: self.
 ]
 
-{ #category : #converting }
+{ #category : 'converting' }
 PlatypusComplexInstance >> asPlatypusComplexInstance [
 	^ self
 ]
 
-{ #category : #'message handling' }
+{ #category : 'message handling' }
 PlatypusComplexInstance >> doesNotUnderstand: aMessage [ 
 	| found args newMessage wrappedSelector |
 	(found := self records reversed detect: [:rec | rec respondsTo: aMessage selector]
@@ -80,37 +82,37 @@ PlatypusComplexInstance >> doesNotUnderstand: aMessage [
 						^ aMessage sendTo: found]]
 ]
 
-{ #category : #'initialize-release' }
+{ #category : 'initialize-release' }
 PlatypusComplexInstance >> initialize [
 	super initialize.
 	records := OrderedCollection new.
 ]
 
-{ #category : #'class membership' }
+{ #category : 'class membership' }
 PlatypusComplexInstance >> isKindOf:  aClass [ 
 	(super isKindOf:  aClass ) ifTrue: [^true].
 	self records do: [:rec | (rec isKindOf: aClass) ifTrue: [^true]].
 	^ false
 ]
 
-{ #category : #'message handling' }
+{ #category : 'message handling' }
 PlatypusComplexInstance >> name [
 	^ self doesNotUnderstand: (Message selector: #name)
 ]
 
-{ #category : #adding }
+{ #category : 'adding' }
 PlatypusComplexInstance >> pltAddIntoComplexeInstance: aComplexInstance [ 
 	aComplexInstance addAllRecords: records.
 ]
 
-{ #category : #converting }
+{ #category : 'converting' }
 PlatypusComplexInstance >> pltAsObject [
 	records size = 1
 		ifTrue: [^ records first].
 	^ self
 ]
 
-{ #category : #'private adding' }
+{ #category : 'private adding' }
 PlatypusComplexInstance >> privateAddRecord: aRecord [ 
 	| classif |
 	(classif := self records detect: [:r | r isKindOf: aRecord class]
@@ -123,17 +125,17 @@ PlatypusComplexInstance >> privateAddRecord: aRecord [
 			ifNotNil: [aRecord pltLocalCopyTo: classif]
 ]
 
-{ #category : #'private accessing' }
+{ #category : 'private accessing' }
 PlatypusComplexInstance >> records [
 	^records
 ]
 
-{ #category : #'private accessing' }
+{ #category : 'private accessing' }
 PlatypusComplexInstance >> records: anObject [
 	records := anObject
 ]
 
-{ #category : #'private accessing' }
+{ #category : 'private accessing' }
 PlatypusComplexInstance >> remove: anObject [ 
 	self records remove: anObject
 ]

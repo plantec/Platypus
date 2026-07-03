@@ -1,29 +1,31 @@
 Class {
-	#name : #PlatypusPrimaryElementOpenKeywordToken,
-	#superclass : #PlatypusOpenKeywordToken,
+	#name : 'PlatypusPrimaryElementOpenKeywordToken',
+	#superclass : 'PlatypusOpenKeywordToken',
 	#instVars : [
 		'metaData'
 	],
-	#category : #'Platypus-HW-CodeTokens'
+	#category : 'Platypus-HW-CodeTokens',
+	#package : 'Platypus',
+	#tag : 'HW-CodeTokens'
 }
 
-{ #category : #'initialize/release' }
+{ #category : 'initialize/release' }
 PlatypusPrimaryElementOpenKeywordToken >> destroy [
 	metaData := nil.
 	super destroy
 ]
 
-{ #category : #Classification }
+{ #category : 'Classification' }
 PlatypusPrimaryElementOpenKeywordToken >> isPrimaryElementOpenKeyword [
 	^ true
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusPrimaryElementOpenKeywordToken >> metaData [
 	^metaData
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusPrimaryElementOpenKeywordToken >> metaData: anObject [
 	metaData := anObject
 ]

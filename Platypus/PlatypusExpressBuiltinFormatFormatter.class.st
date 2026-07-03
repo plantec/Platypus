@@ -1,13 +1,15 @@
 Class {
-	#name : #PlatypusExpressBuiltinFormatFormatter,
-	#superclass : #Object,
+	#name : 'PlatypusExpressBuiltinFormatFormatter',
+	#superclass : 'Object',
 	#instVars : [
 		'sourceFormat'
 	],
-	#category : #'Platypus-HW-interpreter'
+	#category : 'Platypus-HW-interpreter',
+	#package : 'Platypus',
+	#tag : 'HW-interpreter'
 }
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 PlatypusExpressBuiltinFormatFormatter class >> format: aNumber sourceFormat: aString [ 
 	| formatter src |
 	aString trimBoth isEmpty ifTrue: [
@@ -17,17 +19,17 @@ PlatypusExpressBuiltinFormatFormatter class >> format: aNumber sourceFormat: aSt
 	^ formatter format: aNumber
 ]
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 PlatypusExpressBuiltinFormatFormatter class >> sourceFormat: aFormat [ 
 	^ self new initializeFromSourceFormat: aFormat
 ]
 
-{ #category : #formatting }
+{ #category : 'formatting' }
 PlatypusExpressBuiltinFormatFormatter >> format: aNumber [ 
 	^ aNumber asString
 ]
 
-{ #category : #initializing }
+{ #category : 'initializing' }
 PlatypusExpressBuiltinFormatFormatter >> initializeFromSourceFormat: aSourceString [ 
 	^ self
 ]

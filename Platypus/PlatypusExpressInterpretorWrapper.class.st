@@ -1,18 +1,20 @@
 Class {
-	#name : #PlatypusExpressInterpretorWrapper,
-	#superclass : #Object,
+	#name : 'PlatypusExpressInterpretorWrapper',
+	#superclass : 'Object',
 	#instVars : [
 		'myInterpreter'
 	],
-	#category : #'Platypus-HW-interpreter'
+	#category : 'Platypus-HW-interpreter',
+	#package : 'Platypus',
+	#tag : 'HW-interpreter'
 }
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 PlatypusExpressInterpretorWrapper class >> interpreter: anExpressInterpreter [ 
 	^ self new myInterpreter: anExpressInterpreter
 ]
 
-{ #category : #'platypus interpreting' }
+{ #category : 'platypus interpreting' }
 PlatypusExpressInterpretorWrapper >> EvaluatePlatypusInterpreterNativeCode [ [	| fref |
 	fref := self filename val asFileReference.
 	fref parent parent ensureCreateDirectory.
@@ -25,7 +27,7 @@ PlatypusExpressInterpretorWrapper >> EvaluatePlatypusInterpreterNativeCode [ [	|
 	] value
 ]
 
-{ #category : #'error handling' }
+{ #category : 'error handling' }
 PlatypusExpressInterpretorWrapper >> doesNotUnderstand: message [ 
 	| v |
 	message arguments isEmpty
@@ -40,12 +42,12 @@ PlatypusExpressInterpretorWrapper >> doesNotUnderstand: message [
 	^ myInterpreter  perform: message selector withArguments: message arguments
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusExpressInterpretorWrapper >> myContext [
 	^ myInterpreter
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusExpressInterpretorWrapper >> myInterpreter: aPlatypusExpressInterpreter [ 
 	myInterpreter := aPlatypusExpressInterpreter
 ]

@@ -1,10 +1,12 @@
 Class {
-	#name : #PlatypusBuiltinDomainToken,
-	#superclass : #PlatypusKeywordToken,
-	#category : #'Platypus-HW-CodeTokens'
+	#name : 'PlatypusBuiltinDomainToken',
+	#superclass : 'PlatypusKeywordToken',
+	#category : 'Platypus-HW-CodeTokens',
+	#package : 'Platypus',
+	#tag : 'HW-CodeTokens'
 }
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 PlatypusBuiltinDomainToken >> accept: aVisitor [ 
 	^ aVisitor acceptDomain: self
 ]

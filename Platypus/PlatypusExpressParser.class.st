@@ -1,15 +1,17 @@
 Class {
-	#name : #PlatypusExpressParser,
-	#superclass : #PlatypusExpressAbstractParser,
+	#name : 'PlatypusExpressParser',
+	#superclass : 'PlatypusExpressAbstractParser',
 	#instVars : [
 		'contextsStack',
 		'errorsIndexMap',
 		'errorMessages'
 	],
-	#category : #'Platypus-HW-parsers'
+	#category : 'Platypus-HW-parsers',
+	#package : 'Platypus',
+	#tag : 'HW-parsers'
 }
 
-{ #category : #compiling }
+{ #category : 'compiling' }
 PlatypusExpressParser class >> schemaInstanceFromSource: aSource [
 	| parsingResult |
 	parsingResult := self 
@@ -20,7 +22,7 @@ PlatypusExpressParser class >> schemaInstanceFromSource: aSource [
 	^ parsingResult metaData
 ]
 
-{ #category : #'express semantic actions' }
+{ #category : 'express semantic actions' }
 PlatypusExpressParser >> abstractSupertypeConstraint: supertypeConstraintOrNil [ 
 	| supertypeConstraint |
 	supertypeConstraint := self supertypeConstraint: supertypeConstraintOrNil.
@@ -28,12 +30,12 @@ PlatypusExpressParser >> abstractSupertypeConstraint: supertypeConstraintOrNil [
 	^ supertypeConstraint
 ]
 
-{ #category : #'express semantic actions' }
+{ #category : 'express semantic actions' }
 PlatypusExpressParser >> actionBodyDecl: declarationsOrNil statements: statementsOrNil [ 
 	^ Array with: declarationsOrNil with: statementsOrNil
 ]
 
-{ #category : #'express semantic actions' }
+{ #category : 'express semantic actions' }
 PlatypusExpressParser >> aggregateInitializer: initList [ 
 	| aggrInit |
 	aggrInit := self new: PltAggregateInitializer.
@@ -41,7 +43,7 @@ PlatypusExpressParser >> aggregateInitializer: initList [
 	^ aggrInit
 ]
 
-{ #category : #'express semantic actions' }
+{ #category : 'express semantic actions' }
 PlatypusExpressParser >> aggregateInitializerElement: expression repetition: expressionOrNil [ 
 	| aggrInitElem |
 	aggrInitElem := self new: PltAggregateInitializerElement.
@@ -50,7 +52,7 @@ PlatypusExpressParser >> aggregateInitializerElement: expression repetition: exp
 	^ aggrInitElem
 ]
 
-{ #category : #'express semantic actions' }
+{ #category : 'express semantic actions' }
 PlatypusExpressParser >> aggregateType: keyIdentOrNil parameterType: parameterType [ 
 	| type |
 	type := self new: PltGeneralAggregateType.
@@ -60,14 +62,14 @@ PlatypusExpressParser >> aggregateType: keyIdentOrNil parameterType: parameterTy
 	^ type
 ]
 
-{ #category : #'express semantic actions' }
+{ #category : 'express semantic actions' }
 PlatypusExpressParser >> aliasStatement: aliasStatement statements: statements [ 
 	statements notNil ifTrue: [aliasStatement statements addAll: statements].
 	self popContext.
 	^aliasStatement
 ]
 
-{ #category : #'express semantic actions' }
+{ #category : 'express semantic actions' }
 PlatypusExpressParser >> aliasStatementVariable: anIdentifier for: assignable [ 
 	| aliasVariable aliasStatement |
 	aliasVariable := self new: PltAliasStatementVariable.
@@ -81,7 +83,7 @@ PlatypusExpressParser >> aliasStatementVariable: anIdentifier for: assignable [
 	^ aliasStatement
 ]
 
-{ #category : #'express semantic actions' }
+{ #category : 'express semantic actions' }
 PlatypusExpressParser >> arrayType: indexSpecOrNil baseType: baseType optionalOrUnique: arrayOfSymbolsOrNil [ 
 	| type |
 	type := self new: PltArrayType.
@@ -104,7 +106,7 @@ PlatypusExpressParser >> arrayType: indexSpecOrNil baseType: baseType optionalOr
 	^ type
 ]
 
-{ #category : #'express semantic actions' }
+{ #category : 'express semantic actions' }
 PlatypusExpressParser >> assignable: aCollection [ 
 	| assignable |
 	assignable := self new: PltAssignable.
@@ -117,7 +119,7 @@ PlatypusExpressParser >> assignable: aCollection [
 	^ assignable
 ]
 
-{ #category : #'express semantic actions' }
+{ #category : 'express semantic actions' }
 PlatypusExpressParser >> assignmentStatement: assignable from: expression [ 
 	| assignment |
 	assignment := self new: PltAssignmentStatement.
@@ -126,7 +128,7 @@ PlatypusExpressParser >> assignmentStatement: assignable from: expression [
 	^ assignment
 ]
 
-{ #category : #'express semantic actions' }
+{ #category : 'express semantic actions' }
 PlatypusExpressParser >> attributeName: simpleIdent groupRef: aGroupIdentOrNil [ 
 	| attribute redecl |
 	attribute := self new: PltAttribute.
@@ -142,7 +144,7 @@ PlatypusExpressParser >> attributeName: simpleIdent groupRef: aGroupIdentOrNil [
 	^ attribute
 ]
 
-{ #category : #'express semantic actions' }
+{ #category : 'express semantic actions' }
 PlatypusExpressParser >> attributeQualifier: aQualifier [ 
 	| qualifier |
 	qualifier := self new: PltAttributeQualifier.
@@ -150,7 +152,7 @@ PlatypusExpressParser >> attributeQualifier: aQualifier [
 	^ qualifier
 ]
 
-{ #category : #'express semantic actions' }
+{ #category : 'express semantic actions' }
 PlatypusExpressParser >> bagType: indexSpecOrNil baseType: baseType [ 
 	| type |
 	type := self new: PltBagType.
@@ -165,7 +167,7 @@ PlatypusExpressParser >> bagType: indexSpecOrNil baseType: baseType [
 	^ type
 ]
 
-{ #category : #'express semantic actions' }
+{ #category : 'express semantic actions' }
 PlatypusExpressParser >> beginSplitmarkStatement: stringExpression [ 
 	| splitmark |
 	splitmark := self new: PltSplitmarkStatement.
@@ -173,7 +175,7 @@ PlatypusExpressParser >> beginSplitmarkStatement: stringExpression [
 	^ splitmark
 ]
 
-{ #category : #'express semantic actions' }
+{ #category : 'express semantic actions' }
 PlatypusExpressParser >> beginSplitmarkStatement: stringExpression append: abool [
 	| splitmark |
 	splitmark := self new: PltSplitmarkStatement.
@@ -182,7 +184,7 @@ PlatypusExpressParser >> beginSplitmarkStatement: stringExpression append: abool
 	^ splitmark
 ]
 
-{ #category : #'express semantic actions' }
+{ #category : 'express semantic actions' }
 PlatypusExpressParser >> binaryLiteral: aBinary [ 
 	| lit |
 	lit := self new: PltBinaryLiteral.
@@ -190,7 +192,7 @@ PlatypusExpressParser >> binaryLiteral: aBinary [
 	^ lit
 ]
 
-{ #category : #'express semantic actions' }
+{ #category : 'express semantic actions' }
 PlatypusExpressParser >> binaryType: FixedOrNotPrecisionSpecOrNil [ 
 	| type |
 	type := self new: PltBinaryType.
@@ -200,23 +202,23 @@ PlatypusExpressParser >> binaryType: FixedOrNotPrecisionSpecOrNil [
 	^ type
 ]
 
-{ #category : #'express semantic actions' }
+{ #category : 'express semantic actions' }
 PlatypusExpressParser >> booleanType [
 	^ self new: PltBooleanType
 ]
 
-{ #category : #'result building' }
+{ #category : 'result building' }
 PlatypusExpressParser >> buildParserResultWith: aMetaData [ 
 	^ (PlatypusExpressParserResult tokenList: scanner tokenList metaData: aMetaData)
 
 ]
 
-{ #category : #'express semantic actions' }
+{ #category : 'express semantic actions' }
 PlatypusExpressParser >> cardinalityExpressionFrom: expression1 to: expression2 [ 
 	^ Array with: expression1 with: expression2
 ]
 
-{ #category : #'express semantic actions' }
+{ #category : 'express semantic actions' }
 PlatypusExpressParser >> caseAction: expressionsList statement: aStatement [ 
 	| caseAction |
 	caseAction := self new: PltCaseAction.
@@ -225,12 +227,12 @@ PlatypusExpressParser >> caseAction: expressionsList statement: aStatement [
 	^ caseAction
 ]
 
-{ #category : #'express semantic actions' }
+{ #category : 'express semantic actions' }
 PlatypusExpressParser >> caseOtherwise: aStatement [ 
 	^ aStatement
 ]
 
-{ #category : #'express semantic actions' }
+{ #category : 'express semantic actions' }
 PlatypusExpressParser >> caseStatement: caseSelectorExpression caseActions: caseActionsListOrNil caseOtherwise: caseOtherwiseOrNil [ 
 	| caseStatement |
 	caseStatement := self new: PltCaseStatement.
@@ -242,7 +244,7 @@ PlatypusExpressParser >> caseStatement: caseSelectorExpression caseActions: case
 	^ caseStatement
 ]
 
-{ #category : #'express semantic actions' }
+{ #category : 'express semantic actions' }
 PlatypusExpressParser >> compoundStatement: aCompoundStatement statements: statementsListOrNil [ 
 	statementsListOrNil notNil
 		ifTrue: [aCompoundStatement statements
@@ -251,7 +253,7 @@ PlatypusExpressParser >> compoundStatement: aCompoundStatement statements: state
 	^ aCompoundStatement
 ]
 
-{ #category : #'express semantic actions' }
+{ #category : 'express semantic actions' }
 PlatypusExpressParser >> compoundStatementBegin [
 	| compound |
 	compound := self new: PltCompoundStatement.
@@ -259,17 +261,17 @@ PlatypusExpressParser >> compoundStatementBegin [
 	^ compound
 ]
 
-{ #category : #'express semantic actions' }
+{ #category : 'express semantic actions' }
 PlatypusExpressParser >> conceptIdentifier: anIdent [ 
 	^ PlatypusExpressParsedMetaConcept ident: anIdent 
 ]
 
-{ #category : #'express semantic actions' }
+{ #category : 'express semantic actions' }
 PlatypusExpressParser >> conceptIdentifier: anIdent metaExpression: aMetaExpression [ 
 	^ PlatypusExpressParsedMetaConcept ident: anIdent metaExpression: aMetaExpression
 ]
 
-{ #category : #'express semantic actions' }
+{ #category : 'express semantic actions' }
 PlatypusExpressParser >> constantBody: ident baseType: baseType expression: initExpression [ 
 	| constant |
 	constant := self new: PltConstantDefinition.
@@ -281,19 +283,19 @@ PlatypusExpressParser >> constantBody: ident baseType: baseType expression: init
 	^ constant
 ]
 
-{ #category : #'express semantic actions' }
+{ #category : 'express semantic actions' }
 PlatypusExpressParser >> constantsDecl: constantsBodyCollectionOrNil [ 
 	constantsBodyCollectionOrNil notNil
 		ifTrue: [self currentContextDefinition setConstants: constantsBodyCollectionOrNil].
 	^ constantsBodyCollectionOrNil
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusExpressParser >> contextsStack [
 	^contextsStack
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusExpressParser >> currentAlgorithmDeclaration [
 	self contextsStack
 		reverseDo: [:c | c isPltAlgorithmDeclaration
@@ -301,12 +303,12 @@ PlatypusExpressParser >> currentAlgorithmDeclaration [
 	^ nil
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusExpressParser >> currentContext [
 	^ self contextsStack isEmpty ifFalse: [self contextsStack last]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusExpressParser >> currentContextDefinition [
 	self contextsStack
 		reverseDo: [:c | c isPltContextDefinition
@@ -314,7 +316,7 @@ PlatypusExpressParser >> currentContextDefinition [
 	^ nil
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusExpressParser >> currentNamedType [
 	self contextsStack
 		reverseDo: [:c | c isPltNamedType
@@ -322,7 +324,7 @@ PlatypusExpressParser >> currentNamedType [
 	^ nil
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusExpressParser >> currentNamedTypeOrContextDefinition [
 	self contextsStack
 		reverseDo: [:cinst | (cinst isPltContextDefinition
@@ -331,7 +333,7 @@ PlatypusExpressParser >> currentNamedTypeOrContextDefinition [
 	^ nil
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusExpressParser >> currentSchema [
 	self contextsStack
 		reverseDo: [:c | c isPltSchemaDefinition
@@ -339,7 +341,7 @@ PlatypusExpressParser >> currentSchema [
 	^ nil
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusExpressParser >> currentUniquenessRuleContainer [
 	self contextsStack
 		reverseDo: [:c | c isPltEntityDefinition
@@ -347,7 +349,7 @@ PlatypusExpressParser >> currentUniquenessRuleContainer [
 	^ nil
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusExpressParser >> currentWhereRuleContainer [
 	self contextsStack
 		reverseDo: [:c | (c isPltNamedType
@@ -356,12 +358,12 @@ PlatypusExpressParser >> currentWhereRuleContainer [
 	^ nil
 ]
 
-{ #category : #'express semantic actions' }
+{ #category : 'express semantic actions' }
 PlatypusExpressParser >> deriveClause: derivedAttributesList [ 
 	^ derivedAttributesList
 ]
 
-{ #category : #'express semantic actions' }
+{ #category : 'express semantic actions' }
 PlatypusExpressParser >> derivedAttribute: attribute baseType: baseType expression: expression [ 
 	| derivedAttribute |
 	derivedAttribute := self new: PltDerivedAttribute.
@@ -374,7 +376,7 @@ PlatypusExpressParser >> derivedAttribute: attribute baseType: baseType expressi
 	^ derivedAttribute
 ]
 
-{ #category : #'initialize-release' }
+{ #category : 'initialize-release' }
 PlatypusExpressParser >> destroy [
 	contextsStack := nil.
 	errorsIndexMap := nil.
@@ -382,7 +384,7 @@ PlatypusExpressParser >> destroy [
 	super destroy
 ]
 
-{ #category : #'express semantic actions' }
+{ #category : 'express semantic actions' }
 PlatypusExpressParser >> eConstant [
 	| lit |
 	lit := self new: PltEConstant.
@@ -390,7 +392,7 @@ PlatypusExpressParser >> eConstant [
 	^ lit
 ]
 
-{ #category : #'express semantic actions' }
+{ #category : 'express semantic actions' }
 PlatypusExpressParser >> elementQualifier: anExpression [ 
 	| qualifier |
 	qualifier := self new: PltElementQualifier.
@@ -398,7 +400,7 @@ PlatypusExpressParser >> elementQualifier: anExpression [
 	^ qualifier
 ]
 
-{ #category : #'express semantic actions' }
+{ #category : 'express semantic actions' }
 PlatypusExpressParser >> encodedStringLiteral: anEncodedString [ 
 	| lit |
 	lit := self new: PltBinaryLiteral.
@@ -406,14 +408,14 @@ PlatypusExpressParser >> encodedStringLiteral: anEncodedString [
 	^ lit
 ]
 
-{ #category : #'express semantic actions' }
+{ #category : 'express semantic actions' }
 PlatypusExpressParser >> endSplitmarkStatement [
 	| splitmark |
 	splitmark := self new: PltEndSplitmarkStatement.
 	^ splitmark
 ]
 
-{ #category : #'express semantic actions' }
+{ #category : 'express semantic actions' }
 PlatypusExpressParser >> entity: entity subSuper: anArrayOrNil explicitAttributes: explicitAttrListOrNil deriveClause: derivedClauseOrNil inverseClause: inverseClauseOrNil uniqueClause: uniqueClauseOrNil whereClause: whereClauseOrNil [ 
 	entity owner notNil
 		ifTrue: [entity owner entities add: entity].
@@ -438,7 +440,7 @@ PlatypusExpressParser >> entity: entity subSuper: anArrayOrNil explicitAttribute
 	^ entity
 ]
 
-{ #category : #'express semantic actions' }
+{ #category : 'express semantic actions' }
 PlatypusExpressParser >> entityIdentifier: anIdentifier [ 
 	| entity |
 	entity := self new: PltEntityDefinition.
@@ -452,7 +454,7 @@ PlatypusExpressParser >> entityIdentifier: anIdentifier [
 	^ entity
 ]
 
-{ #category : #'express semantic actions' }
+{ #category : 'express semantic actions' }
 PlatypusExpressParser >> entityReferenceType: anIdentifier [ 
 	| type |
 	type := self new: PltEntityDefinitionReference.
@@ -461,7 +463,7 @@ PlatypusExpressParser >> entityReferenceType: anIdentifier [
 	^ type
 ]
 
-{ #category : #'express semantic actions' }
+{ #category : 'express semantic actions' }
 PlatypusExpressParser >> entitySupertype: supertypeConstraintOrNil subtype: subtypeDeclarationOrNil [ 
 	| entity |
 	(entity := self currentNamedType)
@@ -471,7 +473,7 @@ PlatypusExpressParser >> entitySupertype: supertypeConstraintOrNil subtype: subt
 	^ Array with: supertypeConstraintOrNil with: subtypeDeclarationOrNil
 ]
 
-{ #category : #'express semantic actions' }
+{ #category : 'express semantic actions' }
 PlatypusExpressParser >> enumerationType: identList [ 
 	| type |
 	type := self new: PltEnumerationType.
@@ -480,29 +482,29 @@ PlatypusExpressParser >> enumerationType: identList [
 	^ type
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusExpressParser >> errorIndexOf: aSymbol [
 	^ self errorsIndexMap at: aSymbol ifAbsent: [0]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusExpressParser >> errorTable [
 	^ errorMessages
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusExpressParser >> errorsIndexMap [
 	^ errorsIndexMap
 ]
 
-{ #category : #'express semantic actions' }
+{ #category : 'express semantic actions' }
 PlatypusExpressParser >> escapeStatement [
 	| escape |
 	escape := self new: PltEscapeStatement.
 	^ escape
 ]
 
-{ #category : #'express semantic actions' }
+{ #category : 'express semantic actions' }
 PlatypusExpressParser >> escapedExpression: anExpression [ 
 	| expr |
 	expr := self new: PltEscapedExpression.
@@ -510,7 +512,7 @@ PlatypusExpressParser >> escapedExpression: anExpression [
 	^ expr
 ]
 
-{ #category : #'express semantic actions' }
+{ #category : 'express semantic actions' }
 PlatypusExpressParser >> explicitAttributes: attributes baseType: baseType optional: isOptional [ 
 	| attribute |
 	^ attributes collect: 
@@ -525,7 +527,7 @@ PlatypusExpressParser >> explicitAttributes: attributes baseType: baseType optio
 			attribute]
 ]
 
-{ #category : #'express semantic actions' }
+{ #category : 'express semantic actions' }
 PlatypusExpressParser >> explicitlyImportedItem: name renamedAs: localName [ 
 	| item |
 	item := self new: PltDomainEquivalentItem.
@@ -534,12 +536,12 @@ PlatypusExpressParser >> explicitlyImportedItem: name renamedAs: localName [
 	^ item
 ]
 
-{ #category : #'express semantic actions' }
+{ #category : 'express semantic actions' }
 PlatypusExpressParser >> explicitlyImportedItems: aCollectionOfDomainEquivalentItems [ 
 	^ aCollectionOfDomainEquivalentItems 
 ]
 
-{ #category : #'express semantic actions' }
+{ #category : 'express semantic actions' }
 PlatypusExpressParser >> expression: op1 and: op2 [ 
 	| expr |
 	expr := self new: PltAndExpression.
@@ -548,7 +550,7 @@ PlatypusExpressParser >> expression: op1 and: op2 [
 	^ expr
 ]
 
-{ #category : #'express semantic actions' }
+{ #category : 'express semantic actions' }
 PlatypusExpressParser >> expression: exp1 cardinality: op expression: exp2 [ 
 	| expression |
 	expression := self new: PltCardinalityExpression.
@@ -559,7 +561,7 @@ PlatypusExpressParser >> expression: exp1 cardinality: op expression: exp2 [
 	^ expression
 ]
 
-{ #category : #'express semantic actions' }
+{ #category : 'express semantic actions' }
 PlatypusExpressParser >> expression: op1 div: op2 [ 
 	| expr |
 	expr := self new: PltDivExpression.
@@ -568,7 +570,7 @@ PlatypusExpressParser >> expression: op1 div: op2 [
 	^ expr
 ]
 
-{ #category : #'express semantic actions' }
+{ #category : 'express semantic actions' }
 PlatypusExpressParser >> expression: op1 equal: op2 [ 
 	| expr |
 	expr := self new: PltEqualExpression.
@@ -577,7 +579,7 @@ PlatypusExpressParser >> expression: op1 equal: op2 [
 	^ expr
 ]
 
-{ #category : #'express semantic actions' }
+{ #category : 'express semantic actions' }
 PlatypusExpressParser >> expression: op1 expo: op2 [ 
 	| expr |
 	expr := self new: PltExpoExpression.
@@ -586,7 +588,7 @@ PlatypusExpressParser >> expression: op1 expo: op2 [
 	^ expr
 ]
 
-{ #category : #'express semantic actions' }
+{ #category : 'express semantic actions' }
 PlatypusExpressParser >> expression: op1 greaterThan: op2 [ 
 	| expr |
 	expr := self new: PltGreaterThanExpression.
@@ -595,7 +597,7 @@ PlatypusExpressParser >> expression: op1 greaterThan: op2 [
 	^ expr
 ]
 
-{ #category : #'express semantic actions' }
+{ #category : 'express semantic actions' }
 PlatypusExpressParser >> expression: op1 greaterThanOrEqual: op2 [ 
 	| expr |
 	expr := self new: PltGreaterEqualExpression.
@@ -604,7 +606,7 @@ PlatypusExpressParser >> expression: op1 greaterThanOrEqual: op2 [
 	^ expr
 ]
 
-{ #category : #'express semantic actions' }
+{ #category : 'express semantic actions' }
 PlatypusExpressParser >> expression: op1 in: op2 [ 
 	| expr |
 	expr := self new: PltInExpression.
@@ -613,7 +615,7 @@ PlatypusExpressParser >> expression: op1 in: op2 [
 	^ expr
 ]
 
-{ #category : #'express semantic actions' }
+{ #category : 'express semantic actions' }
 PlatypusExpressParser >> expression: op1 instConst: op2 [ 
 	| expr |
 	expr := self new: PltInstanceConstructionExpression.
@@ -622,7 +624,7 @@ PlatypusExpressParser >> expression: op1 instConst: op2 [
 	^ expr
 ]
 
-{ #category : #'express semantic actions' }
+{ #category : 'express semantic actions' }
 PlatypusExpressParser >> expression: op1 instEqual: op2 [ 
 	| expr |
 	expr := self new: PltInstEqualExpression.
@@ -631,7 +633,7 @@ PlatypusExpressParser >> expression: op1 instEqual: op2 [
 	^ expr
 ]
 
-{ #category : #'express semantic actions' }
+{ #category : 'express semantic actions' }
 PlatypusExpressParser >> expression: op1 instNotEqual: op2 [ 
 	| expr |
 	expr := self new: PltInstNotEqualExpression.
@@ -640,7 +642,7 @@ PlatypusExpressParser >> expression: op1 instNotEqual: op2 [
 	^ expr
 ]
 
-{ #category : #'express semantic actions' }
+{ #category : 'express semantic actions' }
 PlatypusExpressParser >> expression: op1 lessThan: op2 [ 
 	| expr |
 	expr := self new: PltLessThanExpression.
@@ -649,7 +651,7 @@ PlatypusExpressParser >> expression: op1 lessThan: op2 [
 	^ expr
 ]
 
-{ #category : #'express semantic actions' }
+{ #category : 'express semantic actions' }
 PlatypusExpressParser >> expression: op1 lessThanOrEqual: op2 [ 
 	| expr |
 	expr := self new: PltLessEqualExpression.
@@ -658,7 +660,7 @@ PlatypusExpressParser >> expression: op1 lessThanOrEqual: op2 [
 	^ expr
 ]
 
-{ #category : #'express semantic actions' }
+{ #category : 'express semantic actions' }
 PlatypusExpressParser >> expression: op1 like: op2 [ 
 	| expr |
 	expr := self new: PltLikeExpression.
@@ -667,7 +669,7 @@ PlatypusExpressParser >> expression: op1 like: op2 [
 	^ expr
 ]
 
-{ #category : #'express semantic actions' }
+{ #category : 'express semantic actions' }
 PlatypusExpressParser >> expression: op1 minus: op2 [ 
 	| expr |
 	expr := self new: PltMinusExpression.
@@ -676,7 +678,7 @@ PlatypusExpressParser >> expression: op1 minus: op2 [
 	^ expr
 ]
 
-{ #category : #'express semantic actions' }
+{ #category : 'express semantic actions' }
 PlatypusExpressParser >> expression: op1 mod: op2 [ 
 	| expr |
 	expr := self new: PltModExpression.
@@ -685,7 +687,7 @@ PlatypusExpressParser >> expression: op1 mod: op2 [
 	^ expr
 ]
 
-{ #category : #'express semantic actions' }
+{ #category : 'express semantic actions' }
 PlatypusExpressParser >> expression: op1 mult: op2 [ 
 	| expr |
 	expr := self new: PltMultExpression.
@@ -694,7 +696,7 @@ PlatypusExpressParser >> expression: op1 mult: op2 [
 	^ expr
 ]
 
-{ #category : #'express semantic actions' }
+{ #category : 'express semantic actions' }
 PlatypusExpressParser >> expression: op1 notEqual: op2 [ 
 	| expr |
 	expr := self new: PltNotEqualExpression.
@@ -703,7 +705,7 @@ PlatypusExpressParser >> expression: op1 notEqual: op2 [
 	^ expr
 ]
 
-{ #category : #'express semantic actions' }
+{ #category : 'express semantic actions' }
 PlatypusExpressParser >> expression: op1 or: op2 [ 
 	| expr |
 	expr := self new: PltOrExpression.
@@ -712,7 +714,7 @@ PlatypusExpressParser >> expression: op1 or: op2 [
 	^ expr
 ]
 
-{ #category : #'express semantic actions' }
+{ #category : 'express semantic actions' }
 PlatypusExpressParser >> expression: op1 plus: op2 [ 
 	| expr |
 	expr := self new: PltPlusExpression.
@@ -721,7 +723,7 @@ PlatypusExpressParser >> expression: op1 plus: op2 [
 	^ expr
 ]
 
-{ #category : #'express semantic actions' }
+{ #category : 'express semantic actions' }
 PlatypusExpressParser >> expression: op1 realDiv: op2 [ 
 	| expr |
 	expr := self new: PltRealDivExpression.
@@ -730,7 +732,7 @@ PlatypusExpressParser >> expression: op1 realDiv: op2 [
 	^ expr
 ]
 
-{ #category : #'express semantic actions' }
+{ #category : 'express semantic actions' }
 PlatypusExpressParser >> expression: op1 xor: op2 [ 
 	| expr |
 	expr := self new: PltXorExpression.
@@ -739,13 +741,13 @@ PlatypusExpressParser >> expression: op1 xor: op2 [
 	^ expr
 ]
 
-{ #category : #'express semantic actions' }
+{ #category : 'express semantic actions' }
 PlatypusExpressParser >> expressionBetweenParenthesis: expression [ 
 	expression setParenthesis: true.
 	^expression
 ]
 
-{ #category : #'express semantic actions' }
+{ #category : 'express semantic actions' }
 PlatypusExpressParser >> externalMetaSchema: schemaIdent [ 
 	| interface |
 	interface := self new: PltExternalMetaSchema.
@@ -754,7 +756,7 @@ PlatypusExpressParser >> externalMetaSchema: schemaIdent [
 	^ interface
 ]
 
-{ #category : #'express semantic actions' }
+{ #category : 'express semantic actions' }
 PlatypusExpressParser >> formalParameter: identList parameterType: type var: varOrNotBoolean [ 
 	| parameter |
 	^identList collect: 
@@ -768,14 +770,14 @@ PlatypusExpressParser >> formalParameter: identList parameterType: type var: var
 			parameter]
 ]
 
-{ #category : #'express semantic actions' }
+{ #category : 'express semantic actions' }
 PlatypusExpressParser >> formalParametersList: aCollectionOfCollections [ 
 	aCollectionOfCollections
 		do: [:col | self currentAlgorithmDeclaration formalParameters addAll: col].
 	^ self currentAlgorithmDeclaration formalParameters
 ]
 
-{ #category : #'express semantic actions' }
+{ #category : 'express semantic actions' }
 PlatypusExpressParser >> function: function formalParametersDecl: parametersListOrNil returnType: returnType actionBody: actionBody [ 
 	function owner notNil
 		ifTrue: [function owner algorithmes add: function].
@@ -786,7 +788,7 @@ PlatypusExpressParser >> function: function formalParametersDecl: parametersList
 	^ function
 ]
 
-{ #category : #'express semantic actions' }
+{ #category : 'express semantic actions' }
 PlatypusExpressParser >> functionIdentifier: anIdentifier [ 
 	| function |
 	function := self new: PltFunctionDeclaration.
@@ -798,7 +800,7 @@ PlatypusExpressParser >> functionIdentifier: anIdentifier [
 	^ function
 ]
 
-{ #category : #'express semantic actions' }
+{ #category : 'express semantic actions' }
 PlatypusExpressParser >> genericType: keyIdentOrNil [ 
 	| type |
 	type := self new: PltGenericType.
@@ -806,7 +808,7 @@ PlatypusExpressParser >> genericType: keyIdentOrNil [
 	^ type
 ]
 
-{ #category : #'express semantic actions' }
+{ #category : 'express semantic actions' }
 PlatypusExpressParser >> groupRef: groupIdent [ 
 	| groupRef |
 	groupRef := self new: PltGroupQualifier.
@@ -814,7 +816,7 @@ PlatypusExpressParser >> groupRef: groupIdent [
 	^ groupRef
 ]
 
-{ #category : #'express semantic actions' }
+{ #category : 'express semantic actions' }
 PlatypusExpressParser >> identifier: aString [ 
 	| ident identClass |
 	self currentContext
@@ -828,7 +830,7 @@ PlatypusExpressParser >> identifier: aString [
 	^ ident
 ]
 
-{ #category : #'express semantic actions' }
+{ #category : 'express semantic actions' }
 PlatypusExpressParser >> identifier: aString arguments: arguments [ 
 	| ident |
 	ident := self identifier: aString.
@@ -836,7 +838,7 @@ PlatypusExpressParser >> identifier: aString arguments: arguments [
 	^ ident
 ]
 
-{ #category : #'express semantic actions' }
+{ #category : 'express semantic actions' }
 PlatypusExpressParser >> ifStatement: cond then: thenStatementOrNil else: elseStatementOrNil [ 
 	| ifStatement |
 	ifStatement := self new: PltIfStatement.
@@ -848,7 +850,7 @@ PlatypusExpressParser >> ifStatement: cond then: thenStatementOrNil else: elseSt
 	^ ifStatement
 ]
 
-{ #category : #'express semantic actions' }
+{ #category : 'express semantic actions' }
 PlatypusExpressParser >> incrementControl: ident first: firstValueExpression last: lastValueExpression step: byExpressionOrNil [ 
 	| incrementControlVariable incrementControl |
 	incrementControlVariable := self new: PltIncrementControlVariable.
@@ -864,19 +866,19 @@ PlatypusExpressParser >> incrementControl: ident first: firstValueExpression las
 	^ incrementControl
 ]
 
-{ #category : #'express semantic actions' }
+{ #category : 'express semantic actions' }
 PlatypusExpressParser >> indexSpecFrom: lowIndex to: hiIndex [ 
 	^ Array with: lowIndex asBound with: hiIndex asBound
 ]
 
-{ #category : #'initialize-release' }
+{ #category : 'initialize-release' }
 PlatypusExpressParser >> initialize [
 	super initialize.
 	contextsStack := OrderedCollection new.
 	self initializeErrors
 ]
 
-{ #category : #'initialize-release' }
+{ #category : 'initialize-release' }
 PlatypusExpressParser >> initializeErrors [
 	errorsIndexMap := Dictionary new.
 	errorMessages := OrderedCollection new.
@@ -886,7 +888,7 @@ PlatypusExpressParser >> initializeErrors [
 			errorsIndexMap at: couple first put: errorMessages size]
 ]
 
-{ #category : #'express semantic actions' }
+{ #category : 'express semantic actions' }
 PlatypusExpressParser >> integerLiteral: anInteger [ 
 	| lit |
 	lit := self new: PltIntegerLiteral.
@@ -894,7 +896,7 @@ PlatypusExpressParser >> integerLiteral: anInteger [
 	^ lit
 ]
 
-{ #category : #'express semantic actions' }
+{ #category : 'express semantic actions' }
 PlatypusExpressParser >> integerType: precisionSpecOrNil [ 
 	| type |
 	type := self new: PltIntegerType.
@@ -903,7 +905,7 @@ PlatypusExpressParser >> integerType: precisionSpecOrNil [
 	^ type
 ]
 
-{ #category : #'express semantic actions' }
+{ #category : 'express semantic actions' }
 PlatypusExpressParser >> interfaceSpecification: useOrRefSymbol schema: schemaIdent interfaceList: interfacesListOrNil [ 
 	| interface |
 		useOrRefSymbol = #USED
@@ -915,7 +917,7 @@ PlatypusExpressParser >> interfaceSpecification: useOrRefSymbol schema: schemaId
 	^ interface
 ]
 
-{ #category : #'express semantic actions' }
+{ #category : 'express semantic actions' }
 PlatypusExpressParser >> intervalExpression: expression1 op: lessThanOrLessEqualSymbol1 expression: expression2 op: lessThanOrLessEqualSymbol2 expression: expression3 [ 
 	| lexpr1 lexpr2 and interval |
 	lessThanOrLessEqualSymbol1 == #<
@@ -930,7 +932,7 @@ PlatypusExpressParser >> intervalExpression: expression1 op: lessThanOrLessEqual
 	^ interval
 ]
 
-{ #category : #'express semantic actions' }
+{ #category : 'express semantic actions' }
 PlatypusExpressParser >> inverseAttribute: attribute baseType: domain for: attrIdent [ 
 	| unresolvedInverse minbound maxbound unresolvedDomain aref |
 	unresolvedInverse := self new: PltInverseAttribute.
@@ -965,12 +967,12 @@ PlatypusExpressParser >> inverseAttribute: attribute baseType: domain for: attrI
 	^ unresolvedInverse
 ]
 
-{ #category : #'express semantic actions' }
+{ #category : 'express semantic actions' }
 PlatypusExpressParser >> inverseClause: inverseAttributesList [ 
 	^ inverseAttributesList
 ]
 
-{ #category : #'express semantic actions' }
+{ #category : 'express semantic actions' }
 PlatypusExpressParser >> listType: indexSpecOrNil baseType: baseType unique: uniqueOrNil [ 
 	| type |
 	type := self new: PltListType.
@@ -988,7 +990,7 @@ PlatypusExpressParser >> listType: indexSpecOrNil baseType: baseType unique: uni
 	^ type
 ]
 
-{ #category : #'express semantic actions' }
+{ #category : 'express semantic actions' }
 PlatypusExpressParser >> localBody: identsList baseType: baseType initializer: expressionOrNil [ 
 	| local |
 	^ identsList
@@ -1003,49 +1005,49 @@ PlatypusExpressParser >> localBody: identsList baseType: baseType initializer: e
 			local]
 ]
 
-{ #category : #'express semantic actions' }
+{ #category : 'express semantic actions' }
 PlatypusExpressParser >> localDecl: declarationsOrNil [ 
 	^ declarationsOrNil
 ]
 
-{ #category : #'express semantic actions' }
+{ #category : 'express semantic actions' }
 PlatypusExpressParser >> logicalLiteral: trueFalseOrUnknown [ 
 	#(#(#true #PltTrueConstant) #(#false #PltFalseConstant) #(#unknown #PltUnknownConstant) )
 		do: [:couple | trueFalseOrUnknown == couple first
 				ifTrue: [^ (PlatypusPharoSmalltalk at: couple second) new]]
 ]
 
-{ #category : #'express semantic actions' }
+{ #category : 'express semantic actions' }
 PlatypusExpressParser >> logicalType [
 	^ self new: PltLogicalType
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusExpressParser >> lookUpIdentifierBN: anIdentifier [ 
 	^ self currentContext lookUpIdentifierBN: anIdentifier
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusExpressParser >> lookUpNamedTypeBN: anIdentifier [ 
 	^ self currentContext lookUpNamedTypeBN: anIdentifier 
 ]
 
-{ #category : #'express semantic actions' }
+{ #category : 'express semantic actions' }
 PlatypusExpressParser >> metaEntitySpec: anIdentifier namedParameters: parametersOrNil [ 
 	^ Association key: anIdentifier value: parametersOrNil
 ]
 
-{ #category : #'express semantic actions' }
+{ #category : 'express semantic actions' }
 PlatypusExpressParser >> metaEntitySpec: anIdentifier parameters: parametersOrNil [ 
 	^ Association key: anIdentifier value: parametersOrNil
 ]
 
-{ #category : #'express semantic actions' }
+{ #category : 'express semantic actions' }
 PlatypusExpressParser >> missingValue: isARedefine [ 
 	^ self new: PltMissingValue
 ]
 
-{ #category : #'express semantic actions' }
+{ #category : 'express semantic actions' }
 PlatypusExpressParser >> namedType: anIdentifier [ 
 	| type |
 	type := self new: PltNamedTypeReference.
@@ -1054,7 +1056,7 @@ PlatypusExpressParser >> namedType: anIdentifier [
 	^ type
 ]
 
-{ #category : #'express semantic actions' }
+{ #category : 'express semantic actions' }
 PlatypusExpressParser >> nativeAlgorithm: nativeAlgorithmList [ 
 	| stmt |
 	stmt := self new: PltNativeAlgorithm.
@@ -1063,7 +1065,7 @@ PlatypusExpressParser >> nativeAlgorithm: nativeAlgorithmList [
 	^ stmt
 ]
 
-{ #category : #'express semantic actions' }
+{ #category : 'express semantic actions' }
 PlatypusExpressParser >> nativeExpression: nativeAlgo [ 
 	| expr |
 	expr := self new: PltNativeExpression.
@@ -1071,7 +1073,7 @@ PlatypusExpressParser >> nativeExpression: nativeAlgo [
 	^ expr
 ]
 
-{ #category : #'express semantic actions' }
+{ #category : 'express semantic actions' }
 PlatypusExpressParser >> nativeStatement: nativeAlgo [ 
 	| stmt |
 	stmt := self new: PltNativeStatement.
@@ -1079,7 +1081,7 @@ PlatypusExpressParser >> nativeStatement: nativeAlgo [
 	^ stmt
 ]
 
-{ #category : #'express semantic actions' }
+{ #category : 'express semantic actions' }
 PlatypusExpressParser >> negativeExpression: expression [ 
 	| expr |
 	expr := self new: PltNegativeExpression.
@@ -1087,14 +1089,14 @@ PlatypusExpressParser >> negativeExpression: expression [
 	^ expr
 ]
 
-{ #category : #'result building' }
+{ #category : 'result building' }
 PlatypusExpressParser >> new: aClass [ 
 	| new |
 	new := aClass new stepInitialize.
 	^ new
 ]
 
-{ #category : #'express semantic actions' }
+{ #category : 'express semantic actions' }
 PlatypusExpressParser >> not: expression [ 
 	| expr |
 	expr := self new: PltNotExpression.
@@ -1102,17 +1104,17 @@ PlatypusExpressParser >> not: expression [
 	^ expr
 ]
 
-{ #category : #'express semantic actions' }
+{ #category : 'express semantic actions' }
 PlatypusExpressParser >> nullStatement [
 	^ self new: PltNullStatement
 ]
 
-{ #category : #'express semantic actions' }
+{ #category : 'express semantic actions' }
 PlatypusExpressParser >> numberType [
 	^ self new: PltNumberType
 ]
 
-{ #category : #'express semantic actions' }
+{ #category : 'express semantic actions' }
 PlatypusExpressParser >> outputStatement: expression [ 
 	| output |
 	output := self new: PltOutputStatement.
@@ -1120,7 +1122,7 @@ PlatypusExpressParser >> outputStatement: expression [
 	^ output
 ]
 
-{ #category : #'express semantic actions' }
+{ #category : 'express semantic actions' }
 PlatypusExpressParser >> piConstant [
 	| lit |
 	lit := self new: PltPiConstant.
@@ -1128,7 +1130,7 @@ PlatypusExpressParser >> piConstant [
 	^ lit
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusExpressParser >> popContext [
 	| last |
 	last := self contextsStack last.
@@ -1136,7 +1138,7 @@ PlatypusExpressParser >> popContext [
 	^ last
 ]
 
-{ #category : #'express semantic actions' }
+{ #category : 'express semantic actions' }
 PlatypusExpressParser >> positiveExpression: expression [ 
 	| expr |
 	expr := self new: PltPositiveExpression.
@@ -1144,12 +1146,12 @@ PlatypusExpressParser >> positiveExpression: expression [
 	^ expr
 ]
 
-{ #category : #'express semantic actions' }
+{ #category : 'express semantic actions' }
 PlatypusExpressParser >> precisionSpec: anExpression [ 
 	^ anExpression asBound
 ]
 
-{ #category : #'express semantic actions' }
+{ #category : 'express semantic actions' }
 PlatypusExpressParser >> procedure: procedure formalParametersDecl: parametersListOrNil actionBody: actionBody [ 
 	procedure owner notNil
 		ifTrue: [procedure owner algorithmes add: procedure].
@@ -1159,7 +1161,7 @@ PlatypusExpressParser >> procedure: procedure formalParametersDecl: parametersLi
 	^ procedure
 ]
 
-{ #category : #'express semantic actions' }
+{ #category : 'express semantic actions' }
 PlatypusExpressParser >> procedureCall: ident [ 
 	| proc |
 	proc := self new: PltProcedureCallStatement.
@@ -1168,7 +1170,7 @@ PlatypusExpressParser >> procedureCall: ident [
 
 ]
 
-{ #category : #'express semantic actions' }
+{ #category : 'express semantic actions' }
 PlatypusExpressParser >> procedureIdentifier: anIdentifier [ 
 	| procedure |
 	procedure := self new: PltProcedureDeclaration.
@@ -1180,12 +1182,12 @@ PlatypusExpressParser >> procedureIdentifier: anIdentifier [
 	^ procedure
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusExpressParser >> pushContext: aPltDictionaryInstance [
 	self contextsStack add: aPltDictionaryInstance
 ]
 
-{ #category : #'express semantic actions' }
+{ #category : 'express semantic actions' }
 PlatypusExpressParser >> qualifiedExpression: expression qualifiers: qualifiersList [ 
 	| expr |
 	expr := self new: PltQualifiedExpression.
@@ -1194,7 +1196,7 @@ PlatypusExpressParser >> qualifiedExpression: expression qualifiers: qualifiersL
 	^ expr
 ]
 
-{ #category : #'express semantic actions' }
+{ #category : 'express semantic actions' }
 PlatypusExpressParser >> queryExpression: queryExpression source: sourceExpression suchThat: suchThatExpression [ 
 	queryExpression setAggregateSource: sourceExpression.
 	queryExpression setSuchThat: suchThatExpression.
@@ -1202,7 +1204,7 @@ PlatypusExpressParser >> queryExpression: queryExpression source: sourceExpressi
 	^ queryExpression
 ]
 
-{ #category : #'express semantic actions' }
+{ #category : 'express semantic actions' }
 PlatypusExpressParser >> queryVariable: ident [ 
 	| queryVariable queryExpression |
 	queryVariable := self new: PltQueryVariable.
@@ -1215,12 +1217,12 @@ PlatypusExpressParser >> queryVariable: ident [
 	^ queryExpression
 ]
 
-{ #category : #'private-error handling' }
+{ #category : 'private-error handling' }
 PlatypusExpressParser >> raiseError: aSymbol [ 
 	^ self reportError: (self errorIndexOf: aSymbol)
 ]
 
-{ #category : #'express semantic actions' }
+{ #category : 'express semantic actions' }
 PlatypusExpressParser >> rangeQualifierFrom: lowExpression to: highExpression [ 
 	| range |
 	range := self new: PltRangeQualifier.
@@ -1229,7 +1231,7 @@ PlatypusExpressParser >> rangeQualifierFrom: lowExpression to: highExpression [
 	^ range
 ]
 
-{ #category : #'express semantic actions' }
+{ #category : 'express semantic actions' }
 PlatypusExpressParser >> realLiteral: aReal [ 
 	| lit |
 	lit := self new: PltRealLiteral.
@@ -1237,7 +1239,7 @@ PlatypusExpressParser >> realLiteral: aReal [
 	^ lit
 ]
 
-{ #category : #'express semantic actions' }
+{ #category : 'express semantic actions' }
 PlatypusExpressParser >> realType: precisionSpecOrNil [ 
 	| type |
 	type := self new: PltRealType.
@@ -1246,19 +1248,19 @@ PlatypusExpressParser >> realType: precisionSpecOrNil [
 	^ type
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusExpressParser >> registerIdentifier: aData named: anIdentifier [ 
 	self currentContext insertIntoIdentifiersCache: aData named: anIdentifier.
 
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusExpressParser >> registerNamedType: aData named: anIdentifier [ 
 	self currentContext insertIntoNamedTypeCache: aData named: anIdentifier.
 
 ]
 
-{ #category : #'express semantic actions' }
+{ #category : 'express semantic actions' }
 PlatypusExpressParser >> remarkReference: aRemarkToken [ 
 	| remarkRef rem keys idents iref ctxt |
 	rem := aRemarkToken lexicalElement.
@@ -1280,7 +1282,7 @@ PlatypusExpressParser >> remarkReference: aRemarkToken [
 	^ nil
 ]
 
-{ #category : #'express semantic actions' }
+{ #category : 'express semantic actions' }
 PlatypusExpressParser >> repeatStatement: incrementControlOrNil whileControl: whileExpressionOrNil untilControl: untilExpressionOrNil statements: statementsListOrNil [ 
 	| repeat |
 	repeat := self new: PltRepeatStatement.
@@ -1298,7 +1300,7 @@ PlatypusExpressParser >> repeatStatement: incrementControlOrNil whileControl: wh
 	^ repeat
 ]
 
-{ #category : #'express semantic actions' }
+{ #category : 'express semantic actions' }
 PlatypusExpressParser >> returnStatement: expressionOrNil [ 
 	| return |
 	return := self new: PltReturnStatement.
@@ -1306,7 +1308,7 @@ PlatypusExpressParser >> returnStatement: expressionOrNil [
 	^ return
 ]
 
-{ #category : #'express semantic actions' }
+{ #category : 'express semantic actions' }
 PlatypusExpressParser >> rule: rule entities: fromEntitiesList actionBody: actionBody whereClause: whereClause [ 
 	| instancesSet |
 	rule
@@ -1327,7 +1329,7 @@ PlatypusExpressParser >> rule: rule entities: fromEntitiesList actionBody: actio
 	^ rule
 ]
 
-{ #category : #'express semantic actions' }
+{ #category : 'express semantic actions' }
 PlatypusExpressParser >> ruleIdentifier: anIdentifier [ 
 	| rule |
 	rule := self new: PltGlobalRule.
@@ -1338,7 +1340,7 @@ PlatypusExpressParser >> ruleIdentifier: anIdentifier [
 	^ rule
 ]
 
-{ #category : #'express semantic actions' }
+{ #category : 'express semantic actions' }
 PlatypusExpressParser >> schema: schema interfaces: interfacesCollectionOrNil blocks: blocksCollectionOrNil [ 
 	schema setInterface: interfacesCollectionOrNil.
 	schema owner addElement: schema.
@@ -1346,7 +1348,7 @@ PlatypusExpressParser >> schema: schema interfaces: interfacesCollectionOrNil bl
 	^ schema
 ]
 
-{ #category : #'express semantic actions' }
+{ #category : 'express semantic actions' }
 PlatypusExpressParser >> schemaIdentifier: anIdentifier [ 
 	| schema |
 	schema := self new: PltSchemaDefinition.
@@ -1357,7 +1359,7 @@ PlatypusExpressParser >> schemaIdentifier: anIdentifier [
 	^ schema
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusExpressParser >> schemaInstance [
 	self contextsStack
 		reverseDo: [:c | c isPltSchemaInstance
@@ -1365,13 +1367,13 @@ PlatypusExpressParser >> schemaInstance [
 	^ nil
 ]
 
-{ #category : #'express semantic actions' }
+{ #category : 'express semantic actions' }
 PlatypusExpressParser >> schemaInstance: aCollectionOfSchemaParseResults [ 
 	^ self schemaInstance
 
 ]
 
-{ #category : #'express semantic actions' }
+{ #category : 'express semantic actions' }
 PlatypusExpressParser >> selectType: identifiersList [ 
 	| type |
 	type := self new: PltSelectType.
@@ -1382,20 +1384,20 @@ PlatypusExpressParser >> selectType: identifiersList [
 	^ type
 ]
 
-{ #category : #'express semantic actions' }
+{ #category : 'express semantic actions' }
 PlatypusExpressParser >> selfIdentifier [
 	
 	^ self currentNamedType ifNil: [PltSelfIdentifier new] ifNotNil: [self currentNamedType asSelfIdentifier]
 ]
 
-{ #category : #'result building' }
+{ #category : 'result building' }
 PlatypusExpressParser >> setScannerTokenMetaData: aMetaData [ 
 	| token |
 	(token := scanner tokenList previousPrimaryElementOpenKeywordFrom: scanner tokenList last)
 	ifNotNil: [token metaData: aMetaData]
 ]
 
-{ #category : #'express semantic actions' }
+{ #category : 'express semantic actions' }
 PlatypusExpressParser >> setType: indexSpecOrNil baseType: baseType [ 
 	| type |
 	type := self new: PltSetType.
@@ -1410,12 +1412,12 @@ PlatypusExpressParser >> setType: indexSpecOrNil baseType: baseType [
 	^ type
 ]
 
-{ #category : #'express semantic actions' }
+{ #category : 'express semantic actions' }
 PlatypusExpressParser >> skipStatement [
 	^ self new: PltSkipStatement
 ]
 
-{ #category : #'express semantic actions' }
+{ #category : 'express semantic actions' }
 PlatypusExpressParser >> stringLiteral: aString [ 
 	| lit |
 	lit := self new: PltStringLiteral.
@@ -1426,7 +1428,7 @@ PlatypusExpressParser >> stringLiteral: aString [
 	^ lit
 ]
 
-{ #category : #'express semantic actions' }
+{ #category : 'express semantic actions' }
 PlatypusExpressParser >> stringType: FixedOrNotPrecisionSpecOrNil [ 
 	| type |
 	type := self new: PltStringType.
@@ -1436,20 +1438,20 @@ PlatypusExpressParser >> stringType: FixedOrNotPrecisionSpecOrNil [
 	^ type
 ]
 
-{ #category : #'express semantic actions' }
+{ #category : 'express semantic actions' }
 PlatypusExpressParser >> subtypeDeclaration: anIdentifiersList [ 
 	^ anIdentifiersList
 
 ]
 
-{ #category : #'express semantic actions' }
+{ #category : 'express semantic actions' }
 PlatypusExpressParser >> subtypeIdentifier: anIdentifier [ 
 	| |
 	^ self namedType: anIdentifier.
 
 ]
 
-{ #category : #'express semantic actions' }
+{ #category : 'express semantic actions' }
 PlatypusExpressParser >> supertypeConstraint: supertypeExpressionOrNil [ 
 	| supertypeConstraint eref |
 	supertypeConstraint := self new: PltSupertypeConstraint.
@@ -1462,7 +1464,7 @@ PlatypusExpressParser >> supertypeConstraint: supertypeExpressionOrNil [
 	^ supertypeConstraint
 ]
 
-{ #category : #'express semantic actions' }
+{ #category : 'express semantic actions' }
 PlatypusExpressParser >> supertypeEntityReference: anIdentifier [ 
 	| subEntityRef |
 	subEntityRef := self new: PltSubEntityRefExpression.
@@ -1471,7 +1473,7 @@ PlatypusExpressParser >> supertypeEntityReference: anIdentifier [
 	^ subEntityRef
 ]
 
-{ #category : #'express semantic actions' }
+{ #category : 'express semantic actions' }
 PlatypusExpressParser >> supertypeExpression: supertypeExpression1 and: supertypeExpression2 [ 
 	| andSupertype |
 	andSupertype := self new: PltAndSupertype.
@@ -1480,7 +1482,7 @@ PlatypusExpressParser >> supertypeExpression: supertypeExpression1 and: supertyp
 	^ andSupertype
 ]
 
-{ #category : #'express semantic actions' }
+{ #category : 'express semantic actions' }
 PlatypusExpressParser >> supertypeExpression: supertypeExpression1 andor: supertypeExpression2 [ 
 	| andSupertype |
 	andSupertype := self new: PltAndorSupertype.
@@ -1489,7 +1491,7 @@ PlatypusExpressParser >> supertypeExpression: supertypeExpression1 andor: supert
 	^ andSupertype
 ]
 
-{ #category : #'express semantic actions' }
+{ #category : 'express semantic actions' }
 PlatypusExpressParser >> supertypeOneofExpression: identifiersList [ 
 	| oneofSupertypeExpression |
 	oneofSupertypeExpression := self new: PltOneofSupertypeExpression.
@@ -1497,7 +1499,7 @@ PlatypusExpressParser >> supertypeOneofExpression: identifiersList [
 	^ oneofSupertypeExpression
 ]
 
-{ #category : #'express semantic actions' }
+{ #category : 'express semantic actions' }
 PlatypusExpressParser >> type: aDefinedType underlyingType: underlyingType whereClause: whereClauseOrNil [ 
 	| enumVal |
 	aDefinedType setDomain: underlyingType.
@@ -1517,7 +1519,7 @@ PlatypusExpressParser >> type: aDefinedType underlyingType: underlyingType where
 	^ aDefinedType
 ]
 
-{ #category : #'express semantic actions' }
+{ #category : 'express semantic actions' }
 PlatypusExpressParser >> typeIdentifier: anIdentifier [ 
 	| type |
 	type := self new: PltDefinedType.
@@ -1530,7 +1532,7 @@ PlatypusExpressParser >> typeIdentifier: anIdentifier [
 	^ type
 ]
 
-{ #category : #'express semantic actions' }
+{ #category : 'express semantic actions' }
 PlatypusExpressParser >> typeMapFrom: aListOfIdent to: anExpression [ 
 	| sch |
 	(sch := self currentSchema) isNil
@@ -1539,7 +1541,7 @@ PlatypusExpressParser >> typeMapFrom: aListOfIdent to: anExpression [
 				addTypeMap: (PltMetaMappingDefinition definitionPath: aListOfIdent metaExpression: anExpression)]
 ]
 
-{ #category : #'express semantic actions' }
+{ #category : 'express semantic actions' }
 PlatypusExpressParser >> typeMapWhere: aWhereRule to: anExpression [
 	| sch |
 	(sch := self currentSchema) isNil
@@ -1548,7 +1550,7 @@ PlatypusExpressParser >> typeMapWhere: aWhereRule to: anExpression [
 				addTypeMap: (PltMetaMappingRule typeMapWhere: aWhereRule whereValue  to: anExpression)]
 ]
 
-{ #category : #'express semantic actions' }
+{ #category : 'express semantic actions' }
 PlatypusExpressParser >> uniqueAttributesList: anIdentifiersCollection head: anIdentOrNil [ 
 	| uniquenessRule ref |
 	uniquenessRule := self new: PltUniquenessRule.
@@ -1567,17 +1569,17 @@ PlatypusExpressParser >> uniqueAttributesList: anIdentifiersCollection head: anI
 	^ uniquenessRule
 ]
 
-{ #category : #'express semantic actions' }
+{ #category : 'express semantic actions' }
 PlatypusExpressParser >> uniqueClause: UniqueRules [ 
 	^ UniqueRules
 ]
 
-{ #category : #'express semantic actions' }
+{ #category : 'express semantic actions' }
 PlatypusExpressParser >> whereClause: whereRules [ 
 	^ whereRules
 ]
 
-{ #category : #'express semantic actions' }
+{ #category : 'express semantic actions' }
 PlatypusExpressParser >> whereRule: anExpression head: anIdentOrNil [ 
 	| rule |
 	rule := self new: PltWhereRule.

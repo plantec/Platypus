@@ -1,6 +1,6 @@
 Class {
-	#name : #PTsNumberedNameFunction,
-	#superclass : #PlatypusCoreAlgorithmDeclaration,
+	#name : 'PTsNumberedNameFunction',
+	#superclass : 'PlatypusCoreAlgorithmDeclaration',
 	#instVars : [
 		'nb',
 		'prefix',
@@ -8,38 +8,40 @@ Class {
 		'nbstr',
 		'posFirst'
 	],
-	#category : #'Platypus-ExpressToolsboxFunctionsSchema'
+	#category : 'Platypus-ExpressToolsboxFunctionsSchema',
+	#package : 'Platypus',
+	#tag : 'ExpressToolsboxFunctionsSchema'
 }
 
-{ #category : #'platypus-generated-platypus-signature' }
+{ #category : 'platypus-generated-platypus-signature' }
 PTsNumberedNameFunction class >> iso10303P11Translater [
 	^ 'Platypus (c) LISYC EA3883, Universite de Bretagne occidentale. Brest.'
 
 
 ]
 
-{ #category : #'platypus-generated-meta-data-accessing' }
+{ #category : 'platypus-generated-meta-data-accessing' }
 PTsNumberedNameFunction class >> schemaDefinition [
 	^ PTsExpressToolsboxFunctionsSchemaDefinition singleton
 
 
 ]
 
-{ #category : #'platypus-generated-platypus-signature' }
+{ #category : 'platypus-generated-platypus-signature' }
 PTsNumberedNameFunction class >> translatedFromISO10303P11 [
 	^ true
 
 
 ]
 
-{ #category : #'platypus-generated-platypus-signature' }
+{ #category : 'platypus-generated-platypus-signature' }
 PTsNumberedNameFunction class >> vwNamespaceName [
 	^ #PTs
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 PTsNumberedNameFunction >> fromValues: values [
 	self nb: (values at: 1).
 	self prefix: (values at: 2).
@@ -48,7 +50,7 @@ PTsNumberedNameFunction >> fromValues: values [
 
 ]
 
-{ #category : #'platypus-generated-invoking' }
+{ #category : 'platypus-generated-invoking' }
 PTsNumberedNameFunction >> invoke [
 	" ---------- locals assignments ----------"
 
@@ -87,21 +89,21 @@ PTsNumberedNameFunction >> invoke [
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 PTsNumberedNameFunction >> nb [
 	^ nb
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 PTsNumberedNameFunction >> nb: anInteger [
 	nb := anInteger
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 PTsNumberedNameFunction >> nb: anInteger prefix: aString suffix: aString1 [
 	self nb: anInteger.
 	self prefix: aString.
@@ -110,56 +112,56 @@ PTsNumberedNameFunction >> nb: anInteger prefix: aString suffix: aString1 [
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 PTsNumberedNameFunction >> nbstr [
 	^ nbstr
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 PTsNumberedNameFunction >> nbstr: aString [
 	nbstr := aString
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 PTsNumberedNameFunction >> posFirst [
 	^ posFirst
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 PTsNumberedNameFunction >> posFirst: anInteger [
 	posFirst := anInteger
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 PTsNumberedNameFunction >> prefix [
 	^ prefix
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 PTsNumberedNameFunction >> prefix: aString [
 	prefix := aString
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 PTsNumberedNameFunction >> suffix [
 	^ suffix
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 PTsNumberedNameFunction >> suffix: aString1 [
 	suffix := aString1
 

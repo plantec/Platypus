@@ -1,6 +1,6 @@
 Class {
-	#name : #PlatypusNativeCodeInterpretor,
-	#superclass : #Object,
+	#name : 'PlatypusNativeCodeInterpretor',
+	#superclass : 'Object',
 	#instVars : [
 		'receiver',
 		'requestor',
@@ -9,10 +9,12 @@ Class {
 		'replacementPositions',
 		'announcer'
 	],
-	#category : #'Platypus-HW-interpreter'
+	#category : 'Platypus-HW-interpreter',
+	#package : 'Platypus',
+	#tag : 'HW-interpreter'
 }
 
-{ #category : #private }
+{ #category : 'private' }
 PlatypusNativeCodeInterpretor class >> methodFrom: aString class: aClass requestor: aRequestor ifFail: failBlock [ 
 	| methodNode compiler |
 	(compiler := Smalltalk compilerClass new)
@@ -25,13 +27,13 @@ PlatypusNativeCodeInterpretor class >> methodFrom: aString class: aClass request
 	^ methodNode
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusNativeCodeInterpretor >> announcer [ 
 
 	^ announcer ifNil: [ announcer := Announcer new ]
 ]
 
-{ #category : #'requestor error notification' }
+{ #category : 'requestor error notification' }
 PlatypusNativeCodeInterpretor >> correctFrom: begin to: end with: correctWord [ 
 	| offset |
 	offset := self notificationOffsetAt: begin.
@@ -51,12 +53,12 @@ PlatypusNativeCodeInterpretor >> correctFrom: begin to: end with: correctWord [
 				with: correctWord]
 ]
 
-{ #category : #'requestor error notification' }
+{ #category : 'requestor error notification' }
 PlatypusNativeCodeInterpretor >> deselect [
 	^ requestor deselect
 ]
 
-{ #category : #interpreting }
+{ #category : 'interpreting' }
 PlatypusNativeCodeInterpretor >> evaluate: e interpretor: anInterpretor requestor: aRequestor [ 
 	| method |
 	receiver := PlatypusExpressInterpretorWrapper interpreter: anInterpretor.
@@ -74,7 +76,7 @@ PlatypusNativeCodeInterpretor >> evaluate: e interpretor: anInterpretor requesto
 	^ self evaluateMethod: method
 ]
 
-{ #category : #interpreting }
+{ #category : 'interpreting' }
 PlatypusNativeCodeInterpretor >> evaluateMethod: aMethod [ 
 	| selector |
 	selector := #EvaluatePlatypusInterpreterNativeCode.
@@ -83,13 +85,13 @@ PlatypusNativeCodeInterpretor >> evaluateMethod: aMethod [
 	^ receiver EvaluatePlatypusInterpreterNativeCode
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusNativeCodeInterpretor >> getText [ 
 
 	^ source copy
 ]
 
-{ #category : #private }
+{ #category : 'private' }
 PlatypusNativeCodeInterpretor >> methodFrom: aString class: aClass requestor: aRequestor ifFail: failBlock [ 
 	| methodNode compiler |
 	(compiler := Smalltalk compilerClass new)
@@ -102,7 +104,7 @@ PlatypusNativeCodeInterpretor >> methodFrom: aString class: aClass requestor: aR
 	^ methodNode
 ]
 
-{ #category : #'requestor error notification' }
+{ #category : 'requestor error notification' }
 PlatypusNativeCodeInterpretor >> notificationOffsetAt: location [ 
 	| offset |
 	offset := (self text asString findString: source).
@@ -114,7 +116,7 @@ PlatypusNativeCodeInterpretor >> notificationOffsetAt: location [
 	^ offset
 ]
 
-{ #category : #'requestor error notification' }
+{ #category : 'requestor error notification' }
 PlatypusNativeCodeInterpretor >> notify: error at: location in: stream [ 
 	| window |
 	window := (StandardWindow labelled: error)
@@ -131,7 +133,7 @@ PlatypusNativeCodeInterpretor >> notify: error at: location in: stream [
 	PlatypusNativeCodeErrorException signal: 'error while evaluating ''' , stream contents , ''''
 ]
 
-{ #category : #private }
+{ #category : 'private' }
 PlatypusNativeCodeInterpretor >> preparse [
 	| ori beginReplPos vname replString |
 	preparsed := ReadWriteStream on: String new.
@@ -158,12 +160,12 @@ PlatypusNativeCodeInterpretor >> preparse [
 	^ preparsed contents
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusNativeCodeInterpretor >> replacementPositions: aCollection [ 
 	replacementPositions := aCollection
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusNativeCodeInterpretor >> requestor: aRequestor [ 
 	requestor := TamTextMorph
 				on: self
@@ -175,32 +177,32 @@ PlatypusNativeCodeInterpretor >> requestor: aRequestor [
 	requestor changed: #contents
 ]
 
-{ #category : #'requestor error notification' }
+{ #category : 'requestor error notification' }
 PlatypusNativeCodeInterpretor >> select [
 	^ requestor select
 ]
 
-{ #category : #'requestor error notification' }
+{ #category : 'requestor error notification' }
 PlatypusNativeCodeInterpretor >> selectFrom: begin to: end [ 
 	^ requestor selectFrom: begin  to: end 
 ]
 
-{ #category : #'requestor error notification' }
+{ #category : 'requestor error notification' }
 PlatypusNativeCodeInterpretor >> selectInvisiblyFrom: begin to: end [ 
 	^ requestor selectInvisiblyFrom: begin to: end 
 ]
 
-{ #category : #'requestor error notification' }
+{ #category : 'requestor error notification' }
 PlatypusNativeCodeInterpretor >> selectionInterval [
 	^ requestor selectionInterval
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusNativeCodeInterpretor >> tempNames [
 	^ #()
 ]
 
-{ #category : #'requestor error notification' }
+{ #category : 'requestor error notification' }
 PlatypusNativeCodeInterpretor >> text [
 	^ requestor text
 ]

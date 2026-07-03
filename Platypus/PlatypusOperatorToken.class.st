@@ -1,15 +1,17 @@
 Class {
-	#name : #PlatypusOperatorToken,
-	#superclass : #PlatypusKeywordToken,
-	#category : #'Platypus-HW-CodeTokens'
+	#name : 'PlatypusOperatorToken',
+	#superclass : 'PlatypusKeywordToken',
+	#category : 'Platypus-HW-CodeTokens',
+	#package : 'Platypus',
+	#tag : 'HW-CodeTokens'
 }
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 PlatypusOperatorToken >> accept: aVisitor [ 
 	^ aVisitor acceptOperator: self
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 PlatypusOperatorToken >> isOperator [
 	^true
 ]

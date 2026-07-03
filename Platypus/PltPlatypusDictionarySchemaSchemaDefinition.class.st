@@ -538,571 +538,573 @@ END_SCHEMA;
 </ISO10303-11-EXPRESS>
 "
 Class {
-	#name : #PltPlatypusDictionarySchemaSchemaDefinition,
-	#superclass : #PlatypusCoreSchema,
-	#category : #'Platypus-PlatypusDictionarySchemaSchema'
+	#name : 'PltPlatypusDictionarySchemaSchemaDefinition',
+	#superclass : 'PlatypusCoreSchema',
+	#category : 'Platypus-PlatypusDictionarySchemaSchema',
+	#package : 'Platypus',
+	#tag : 'PlatypusDictionarySchemaSchema'
 }
 
-{ #category : #'platypus-generated-platypus-signature' }
+{ #category : 'platypus-generated-platypus-signature' }
 PltPlatypusDictionarySchemaSchemaDefinition class >> iso10303P11Translater [
 	^ 'Platypus (c) LISYC EA3883, Universite de Bretagne occidentale. Brest.'
 
 
 ]
 
-{ #category : #'platypus-generated-platypus-signature' }
+{ #category : 'platypus-generated-platypus-signature' }
 PltPlatypusDictionarySchemaSchemaDefinition class >> translatedFromISO10303P11 [
 	^ true
 
 
 ]
 
-{ #category : #'platypus-generated-platypus-signature' }
+{ #category : 'platypus-generated-platypus-signature' }
 PltPlatypusDictionarySchemaSchemaDefinition class >> vwNamespaceName [
 	^ #Platypus
 
 
 ]
 
-{ #category : #'platypus-generated-context-accessing' }
+{ #category : 'platypus-generated-context-accessing' }
 PltPlatypusDictionarySchemaSchemaDefinition >> context [
 	^ self schemaInstance context
 
 
 ]
 
-{ #category : #'platypus-generated-entities' }
+{ #category : 'platypus-generated-entities' }
 PltPlatypusDictionarySchemaSchemaDefinition >> entityDefinition1 [
 	^ #(#entity_instance #PltEntityInstance)
 
 
 ]
 
-{ #category : #'platypus-generated-entities' }
+{ #category : 'platypus-generated-entities' }
 PltPlatypusDictionarySchemaSchemaDefinition >> entityDefinition10 [
 	^ #(#include_schema #PltIncludeSchema)
 
 
 ]
 
-{ #category : #'platypus-generated-entities' }
+{ #category : 'platypus-generated-entities' }
 PltPlatypusDictionarySchemaSchemaDefinition >> entityDefinition11 [
 	^ #(#used_schema #PltUsedSchema)
 
 
 ]
 
-{ #category : #'platypus-generated-entities' }
+{ #category : 'platypus-generated-entities' }
 PltPlatypusDictionarySchemaSchemaDefinition >> entityDefinition12 [
 	^ #(#referenced_schema #PltReferencedSchema)
 
 
 ]
 
-{ #category : #'platypus-generated-entities' }
+{ #category : 'platypus-generated-entities' }
 PltPlatypusDictionarySchemaSchemaDefinition >> entityDefinition13 [
 	^ #(#external_meta_schema #PltExternalMetaSchema)
 
 
 ]
 
-{ #category : #'platypus-generated-entities' }
+{ #category : 'platypus-generated-entities' }
 PltPlatypusDictionarySchemaSchemaDefinition >> entityDefinition14 [
 	^ #(#algorithm_declaration #PltAlgorithmDeclaration)
 
 
 ]
 
-{ #category : #'platypus-generated-entities' }
+{ #category : 'platypus-generated-entities' }
 PltPlatypusDictionarySchemaSchemaDefinition >> entityDefinition15 [
 	^ #(#native_code #PltNativeCode)
 
 
 ]
 
-{ #category : #'platypus-generated-entities' }
+{ #category : 'platypus-generated-entities' }
 PltPlatypusDictionarySchemaSchemaDefinition >> entityDefinition16 [
 	^ #(#native_algorithm #PltNativeAlgorithm)
 
 
 ]
 
-{ #category : #'platypus-generated-entities' }
+{ #category : 'platypus-generated-entities' }
 PltPlatypusDictionarySchemaSchemaDefinition >> entityDefinition17 [
 	^ #(#procedure_declaration #PltProcedureDeclaration)
 
 
 ]
 
-{ #category : #'platypus-generated-entities' }
+{ #category : 'platypus-generated-entities' }
 PltPlatypusDictionarySchemaSchemaDefinition >> entityDefinition18 [
 	^ #(#function_declaration #PltFunctionDeclaration)
 
 
 ]
 
-{ #category : #'platypus-generated-entities' }
+{ #category : 'platypus-generated-entities' }
 PltPlatypusDictionarySchemaSchemaDefinition >> entityDefinition19 [
 	^ #(#bound #PltBound)
 
 
 ]
 
-{ #category : #'platypus-generated-entities' }
+{ #category : 'platypus-generated-entities' }
 PltPlatypusDictionarySchemaSchemaDefinition >> entityDefinition2 [
 	^ #(#sdai_instance #PltSdaiInstance)
 
 
 ]
 
-{ #category : #'platypus-generated-entities' }
+{ #category : 'platypus-generated-entities' }
 PltPlatypusDictionarySchemaSchemaDefinition >> entityDefinition20 [
 	^ #(#integer_bound #PltIntegerBound)
 
 
 ]
 
-{ #category : #'platypus-generated-entities' }
+{ #category : 'platypus-generated-entities' }
 PltPlatypusDictionarySchemaSchemaDefinition >> entityDefinition21 [
 	^ #(#population_dependent_bound #PltPopulationDependentBound)
 
 
 ]
 
-{ #category : #'platypus-generated-entities' }
+{ #category : 'platypus-generated-entities' }
 PltPlatypusDictionarySchemaSchemaDefinition >> entityDefinition22 [
 	^ #(#enumeration_type #PltEnumerationType)
 
 
 ]
 
-{ #category : #'platypus-generated-entities' }
+{ #category : 'platypus-generated-entities' }
 PltPlatypusDictionarySchemaSchemaDefinition >> entityDefinition23 [
 	^ #(#named_type #PltNamedType)
 
 
 ]
 
-{ #category : #'platypus-generated-entities' }
+{ #category : 'platypus-generated-entities' }
 PltPlatypusDictionarySchemaSchemaDefinition >> entityDefinition24 [
 	^ #(#dictionary_instance_reference #PltDictionaryInstanceReference)
 
 
 ]
 
-{ #category : #'platypus-generated-entities' }
+{ #category : 'platypus-generated-entities' }
 PltPlatypusDictionarySchemaSchemaDefinition >> entityDefinition25 [
 	^ #(#named_type_reference #PltNamedTypeReference)
 
 
 ]
 
-{ #category : #'platypus-generated-entities' }
+{ #category : 'platypus-generated-entities' }
 PltPlatypusDictionarySchemaSchemaDefinition >> entityDefinition26 [
 	^ #(#attribute_reference #PltAttributeReference)
 
 
 ]
 
-{ #category : #'platypus-generated-entities' }
+{ #category : 'platypus-generated-entities' }
 PltPlatypusDictionarySchemaSchemaDefinition >> entityDefinition27 [
 	^ #(#entity_definition_reference #PltEntityDefinitionReference)
 
 
 ]
 
-{ #category : #'platypus-generated-entities' }
+{ #category : 'platypus-generated-entities' }
 PltPlatypusDictionarySchemaSchemaDefinition >> entityDefinition28 [
 	^ #(#defined_type_reference #PltDefinedTypeReference)
 
 
 ]
 
-{ #category : #'platypus-generated-entities' }
+{ #category : 'platypus-generated-entities' }
 PltPlatypusDictionarySchemaSchemaDefinition >> entityDefinition29 [
 	^ #(#where_rule #PltWhereRule)
 
 
 ]
 
-{ #category : #'platypus-generated-entities' }
+{ #category : 'platypus-generated-entities' }
 PltPlatypusDictionarySchemaSchemaDefinition >> entityDefinition3 [
 	^ #(#dictionary_instance #PltDictionaryInstance)
 
 
 ]
 
-{ #category : #'platypus-generated-entities' }
+{ #category : 'platypus-generated-entities' }
 PltPlatypusDictionarySchemaSchemaDefinition >> entityDefinition30 [
 	^ #(#select_type #PltSelectType)
 
 
 ]
 
-{ #category : #'platypus-generated-entities' }
+{ #category : 'platypus-generated-entities' }
 PltPlatypusDictionarySchemaSchemaDefinition >> entityDefinition31 [
 	^ #(#defined_type #PltDefinedType)
 
 
 ]
 
-{ #category : #'platypus-generated-entities' }
+{ #category : 'platypus-generated-entities' }
 PltPlatypusDictionarySchemaSchemaDefinition >> entityDefinition32 [
 	^ #(#entity_definition #PltEntityDefinition)
 
 
 ]
 
-{ #category : #'platypus-generated-entities' }
+{ #category : 'platypus-generated-entities' }
 PltPlatypusDictionarySchemaSchemaDefinition >> entityDefinition33 [
 	^ #(#supertype_constraint #PltSupertypeConstraint)
 
 
 ]
 
-{ #category : #'platypus-generated-entities' }
+{ #category : 'platypus-generated-entities' }
 PltPlatypusDictionarySchemaSchemaDefinition >> entityDefinition34 [
 	^ #(#supertype_expression #PltSupertypeExpression)
 
 
 ]
 
-{ #category : #'platypus-generated-entities' }
+{ #category : 'platypus-generated-entities' }
 PltPlatypusDictionarySchemaSchemaDefinition >> entityDefinition35 [
 	^ #(#sub_entity_ref_expression #PltSubEntityRefExpression)
 
 
 ]
 
-{ #category : #'platypus-generated-entities' }
+{ #category : 'platypus-generated-entities' }
 PltPlatypusDictionarySchemaSchemaDefinition >> entityDefinition36 [
 	^ #(#binary_supertype_expression #PltBinarySupertypeExpression)
 
 
 ]
 
-{ #category : #'platypus-generated-entities' }
+{ #category : 'platypus-generated-entities' }
 PltPlatypusDictionarySchemaSchemaDefinition >> entityDefinition37 [
 	^ #(#andor_supertype #PltAndorSupertype)
 
 
 ]
 
-{ #category : #'platypus-generated-entities' }
+{ #category : 'platypus-generated-entities' }
 PltPlatypusDictionarySchemaSchemaDefinition >> entityDefinition38 [
 	^ #(#and_supertype #PltAndSupertype)
 
 
 ]
 
-{ #category : #'platypus-generated-entities' }
+{ #category : 'platypus-generated-entities' }
 PltPlatypusDictionarySchemaSchemaDefinition >> entityDefinition39 [
 	^ #(#oneof_supertype_expression #PltOneofSupertypeExpression)
 
 
 ]
 
-{ #category : #'platypus-generated-entities' }
+{ #category : 'platypus-generated-entities' }
 PltPlatypusDictionarySchemaSchemaDefinition >> entityDefinition4 [
 	^ #(#session_instance #PltSessionInstance)
 
 
 ]
 
-{ #category : #'platypus-generated-entities' }
+{ #category : 'platypus-generated-entities' }
 PltPlatypusDictionarySchemaSchemaDefinition >> entityDefinition40 [
 	^ #(#uniqueness_rule #PltUniquenessRule)
 
 
 ]
 
-{ #category : #'platypus-generated-entities' }
+{ #category : 'platypus-generated-entities' }
 PltPlatypusDictionarySchemaSchemaDefinition >> entityDefinition41 [
 	^ #(#attribute #PltAttribute)
 
 
 ]
 
-{ #category : #'platypus-generated-entities' }
+{ #category : 'platypus-generated-entities' }
 PltPlatypusDictionarySchemaSchemaDefinition >> entityDefinition42 [
 	^ #(#aggregate_initializer_domain #PltAggregateInitializerDomain)
 
 
 ]
 
-{ #category : #'platypus-generated-entities' }
+{ #category : 'platypus-generated-entities' }
 PltPlatypusDictionarySchemaSchemaDefinition >> entityDefinition43 [
 	^ #(#aggregate_type #PltAggregateType)
 
 
 ]
 
-{ #category : #'platypus-generated-entities' }
+{ #category : 'platypus-generated-entities' }
 PltPlatypusDictionarySchemaSchemaDefinition >> entityDefinition44 [
 	^ #(#general_aggregate_type #PltGeneralAggregateType)
 
 
 ]
 
-{ #category : #'platypus-generated-entities' }
+{ #category : 'platypus-generated-entities' }
 PltPlatypusDictionarySchemaSchemaDefinition >> entityDefinition45 [
 	^ #(#aggregation_type #PltAggregationType)
 
 
 ]
 
-{ #category : #'platypus-generated-entities' }
+{ #category : 'platypus-generated-entities' }
 PltPlatypusDictionarySchemaSchemaDefinition >> entityDefinition46 [
 	^ #(#array_type #PltArrayType)
 
 
 ]
 
-{ #category : #'platypus-generated-entities' }
+{ #category : 'platypus-generated-entities' }
 PltPlatypusDictionarySchemaSchemaDefinition >> entityDefinition47 [
 	^ #(#variable_size_aggregation_type #PltVariableSizeAggregationType)
 
 
 ]
 
-{ #category : #'platypus-generated-entities' }
+{ #category : 'platypus-generated-entities' }
 PltPlatypusDictionarySchemaSchemaDefinition >> entityDefinition48 [
 	^ #(#list_type #PltListType)
 
 
 ]
 
-{ #category : #'platypus-generated-entities' }
+{ #category : 'platypus-generated-entities' }
 PltPlatypusDictionarySchemaSchemaDefinition >> entityDefinition49 [
 	^ #(#bag_type #PltBagType)
 
 
 ]
 
-{ #category : #'platypus-generated-entities' }
+{ #category : 'platypus-generated-entities' }
 PltPlatypusDictionarySchemaSchemaDefinition >> entityDefinition5 [
 	^ #(#domain_equivalent_item #PltDomainEquivalentItem)
 
 
 ]
 
-{ #category : #'platypus-generated-entities' }
+{ #category : 'platypus-generated-entities' }
 PltPlatypusDictionarySchemaSchemaDefinition >> entityDefinition50 [
 	^ #(#set_type #PltSetType)
 
 
 ]
 
-{ #category : #'platypus-generated-entities' }
+{ #category : 'platypus-generated-entities' }
 PltPlatypusDictionarySchemaSchemaDefinition >> entityDefinition51 [
 	^ #(#simple_type #PltSimpleType)
 
 
 ]
 
-{ #category : #'platypus-generated-entities' }
+{ #category : 'platypus-generated-entities' }
 PltPlatypusDictionarySchemaSchemaDefinition >> entityDefinition52 [
 	^ #(#string_type #PltStringType)
 
 
 ]
 
-{ #category : #'platypus-generated-entities' }
+{ #category : 'platypus-generated-entities' }
 PltPlatypusDictionarySchemaSchemaDefinition >> entityDefinition53 [
 	^ #(#binary_type #PltBinaryType)
 
 
 ]
 
-{ #category : #'platypus-generated-entities' }
+{ #category : 'platypus-generated-entities' }
 PltPlatypusDictionarySchemaSchemaDefinition >> entityDefinition54 [
 	^ #(#number_type #PltNumberType)
 
 
 ]
 
-{ #category : #'platypus-generated-entities' }
+{ #category : 'platypus-generated-entities' }
 PltPlatypusDictionarySchemaSchemaDefinition >> entityDefinition55 [
 	^ #(#real_type #PltRealType)
 
 
 ]
 
-{ #category : #'platypus-generated-entities' }
+{ #category : 'platypus-generated-entities' }
 PltPlatypusDictionarySchemaSchemaDefinition >> entityDefinition56 [
 	^ #(#integer_type #PltIntegerType)
 
 
 ]
 
-{ #category : #'platypus-generated-entities' }
+{ #category : 'platypus-generated-entities' }
 PltPlatypusDictionarySchemaSchemaDefinition >> entityDefinition57 [
 	^ #(#logical_type #PltLogicalType)
 
 
 ]
 
-{ #category : #'platypus-generated-entities' }
+{ #category : 'platypus-generated-entities' }
 PltPlatypusDictionarySchemaSchemaDefinition >> entityDefinition58 [
 	^ #(#boolean_type #PltBooleanType)
 
 
 ]
 
-{ #category : #'platypus-generated-entities' }
+{ #category : 'platypus-generated-entities' }
 PltPlatypusDictionarySchemaSchemaDefinition >> entityDefinition59 [
 	^ #(#constant_definition #PltConstantDefinition)
 
 
 ]
 
-{ #category : #'platypus-generated-entities' }
+{ #category : 'platypus-generated-entities' }
 PltPlatypusDictionarySchemaSchemaDefinition >> entityDefinition6 [
 	^ #(#context_definition #PltContextDefinition)
 
 
 ]
 
-{ #category : #'platypus-generated-entities' }
+{ #category : 'platypus-generated-entities' }
 PltPlatypusDictionarySchemaSchemaDefinition >> entityDefinition60 [
 	^ #(#local_variable #PltLocalVariable)
 
 
 ]
 
-{ #category : #'platypus-generated-entities' }
+{ #category : 'platypus-generated-entities' }
 PltPlatypusDictionarySchemaSchemaDefinition >> entityDefinition61 [
 	^ #(#parameter_definition #PltParameterDefinition)
 
 
 ]
 
-{ #category : #'platypus-generated-entities' }
+{ #category : 'platypus-generated-entities' }
 PltPlatypusDictionarySchemaSchemaDefinition >> entityDefinition62 [
 	^ #(#generic_type #PltGenericType)
 
 
 ]
 
-{ #category : #'platypus-generated-entities' }
+{ #category : 'platypus-generated-entities' }
 PltPlatypusDictionarySchemaSchemaDefinition >> entityDefinition63 [
 	^ #(#remark #PltRemark)
 
 
 ]
 
-{ #category : #'platypus-generated-entities' }
+{ #category : 'platypus-generated-entities' }
 PltPlatypusDictionarySchemaSchemaDefinition >> entityDefinition64 [
 	^ #(#tail_remark #PltTailRemark)
 
 
 ]
 
-{ #category : #'platypus-generated-entities' }
+{ #category : 'platypus-generated-entities' }
 PltPlatypusDictionarySchemaSchemaDefinition >> entityDefinition65 [
 	^ #(#embedded_remark #PltEmbeddedRemark)
 
 
 ]
 
-{ #category : #'platypus-generated-entities' }
+{ #category : 'platypus-generated-entities' }
 PltPlatypusDictionarySchemaSchemaDefinition >> entityDefinition66 [
 	^ #(#remark_reference #PltRemarkReference)
 
 
 ]
 
-{ #category : #'platypus-generated-entities' }
+{ #category : 'platypus-generated-entities' }
 PltPlatypusDictionarySchemaSchemaDefinition >> entityDefinition67 [
 	^ #(#meta_concept_definition #PltMetaConceptDefinition)
 
 
 ]
 
-{ #category : #'platypus-generated-entities' }
+{ #category : 'platypus-generated-entities' }
 PltPlatypusDictionarySchemaSchemaDefinition >> entityDefinition68 [
 	^ #(#derived_attribute #PltDerivedAttribute)
 
 
 ]
 
-{ #category : #'platypus-generated-entities' }
+{ #category : 'platypus-generated-entities' }
 PltPlatypusDictionarySchemaSchemaDefinition >> entityDefinition69 [
 	^ #(#explicit_attribute #PltExplicitAttribute)
 
 
 ]
 
-{ #category : #'platypus-generated-entities' }
+{ #category : 'platypus-generated-entities' }
 PltPlatypusDictionarySchemaSchemaDefinition >> entityDefinition7 [
 	^ #(#statements_container #PltStatementsContainer)
 
 
 ]
 
-{ #category : #'platypus-generated-entities' }
+{ #category : 'platypus-generated-entities' }
 PltPlatypusDictionarySchemaSchemaDefinition >> entityDefinition70 [
 	^ #(#inverse_attribute #PltInverseAttribute)
 
 
 ]
 
-{ #category : #'platypus-generated-entities' }
+{ #category : 'platypus-generated-entities' }
 PltPlatypusDictionarySchemaSchemaDefinition >> entityDefinition71 [
 	^ #(#meta_mapping_rule #PltMetaMappingRule)
 
 
 ]
 
-{ #category : #'platypus-generated-entities' }
+{ #category : 'platypus-generated-entities' }
 PltPlatypusDictionarySchemaSchemaDefinition >> entityDefinition72 [
 	^ #(#meta_mapping_definition #PltMetaMappingDefinition)
 
 
 ]
 
-{ #category : #'platypus-generated-entities' }
+{ #category : 'platypus-generated-entities' }
 PltPlatypusDictionarySchemaSchemaDefinition >> entityDefinition73 [
 	^ #(#schema_definition #PltSchemaDefinition)
 
 
 ]
 
-{ #category : #'platypus-generated-entities' }
+{ #category : 'platypus-generated-entities' }
 PltPlatypusDictionarySchemaSchemaDefinition >> entityDefinition8 [
 	^ #(#global_rule #PltGlobalRule)
 
 
 ]
 
-{ #category : #'platypus-generated-entities' }
+{ #category : 'platypus-generated-entities' }
 PltPlatypusDictionarySchemaSchemaDefinition >> entityDefinition9 [
 	^ #(#external_schema #PltExternalSchema)
 
 
 ]
 
-{ #category : #'platypus-generated-entities' }
+{ #category : 'platypus-generated-entities' }
 PltPlatypusDictionarySchemaSchemaDefinition >> entityDefinitionCount [
 	^ 73
 
 
 ]
 
-{ #category : #'platypus-generated-functions' }
+{ #category : 'platypus-generated-functions' }
 PltPlatypusDictionarySchemaSchemaDefinition >> functionDeclaration1 [ ^ #( #'schema_instance_from_ref' #PltSchemaInstanceFromRefFunction )
 
 
 ]
 
-{ #category : #'platypus-generated-functions' }
+{ #category : 'platypus-generated-functions' }
 PltPlatypusDictionarySchemaSchemaDefinition >> functionDeclarationCount [
 	^ 0
 
 
 ]
 
-{ #category : #'platypus-generated-meta-data-accessing' }
+{ #category : 'platypus-generated-meta-data-accessing' }
 PltPlatypusDictionarySchemaSchemaDefinition >> schemaInstanceClassName [
 	^ #PltPlatypusMetaSchemasSchemaInstance
 

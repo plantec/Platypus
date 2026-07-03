@@ -1,18 +1,20 @@
 Class {
-	#name : #PlatypusModelContentsSemanticChecker,
-	#superclass : #PlatypusModelContentsChecker,
+	#name : 'PlatypusModelContentsSemanticChecker',
+	#superclass : 'PlatypusModelContentsChecker',
 	#instVars : [
 		'currInstance',
 		'domainStack'
 	],
-	#category : #'Platypus-HW-visitors'
+	#category : 'Platypus-HW-visitors',
+	#package : 'Platypus',
+	#tag : 'HW-visitors'
 }
 
-{ #category : #'platypus-generated-visitingPlatypusDictionarySchema' }
+{ #category : 'platypus-generated-visitingPlatypusDictionarySchema' }
 PlatypusModelContentsSemanticChecker >> acceptEntityInstance: e [
 ]
 
-{ #category : #'visit expressions schema' }
+{ #category : 'visit expressions schema' }
 PlatypusModelContentsSemanticChecker >> acceptExpression: e [ 
 	| valueDomain declaredDomain |
 	e computedDomain
@@ -28,12 +30,12 @@ PlatypusModelContentsSemanticChecker >> acceptExpression: e [
 							self registerError: (PlatypusModelContentsSemanticCheckerError metaData: e  message: 'incompatible value, ' , domainStack top value , ': declared domain: ' , declaredDomain errorQualifier , '; found domain: ' , valueDomain errorQualifier)]]]
 ]
 
-{ #category : #'visit population schema' }
+{ #category : 'visit population schema' }
 PlatypusModelContentsSemanticChecker >> acceptExternalRepresentation: e [ 
 	e records acceptTry: self
 ]
 
-{ #category : #'visit population schema' }
+{ #category : 'visit population schema' }
 PlatypusModelContentsSemanticChecker >> acceptInternalRepresentation: e [ 
 	| entityDef |
 	currInstance := e.
@@ -47,12 +49,12 @@ PlatypusModelContentsSemanticChecker >> acceptInternalRepresentation: e [
 		numberOfAttributes: entityDef numberOfInheritedExplicitAttributes
 ]
 
-{ #category : #'visit population schema' }
+{ #category : 'visit population schema' }
 PlatypusModelContentsSemanticChecker >> acceptModelContents: e [ 
 	super acceptModelContents: e
 ]
 
-{ #category : #'visit population schema' }
+{ #category : 'visit population schema' }
 PlatypusModelContentsSemanticChecker >> acceptSimpleRecord: e [ 
 	| entityDef |
 	currInstance := e.
@@ -63,17 +65,17 @@ PlatypusModelContentsSemanticChecker >> acceptSimpleRecord: e [
 		numberOfAttributes: entityDef numberOfExplicitAttributes
 ]
 
-{ #category : #'visit population schema' }
+{ #category : 'visit population schema' }
 PlatypusModelContentsSemanticChecker >> acceptUserDefinedApplicationInstance: e [ 
 
 ]
 
-{ #category : #'visit population schema' }
+{ #category : 'visit population schema' }
 PlatypusModelContentsSemanticChecker >> acceptUserDefinedHeaderInstance: e [ 
 
 ]
 
-{ #category : #'visit generic' }
+{ #category : 'visit generic' }
 PlatypusModelContentsSemanticChecker >> checksValues: aListOfExpressions attributesAccessor: accessorSymbol numberOfAttributes: numberOfAttributes [ 
 	| pos value esize |
 	(esize := aListOfExpressions size) ~= numberOfAttributes
@@ -98,13 +100,13 @@ PlatypusModelContentsSemanticChecker >> checksValues: aListOfExpressions attribu
 					pos := pos + 1]]
 ]
 
-{ #category : #'initialize/release' }
+{ #category : 'initialize/release' }
 PlatypusModelContentsSemanticChecker >> initialize [
 	domainStack := PlatypusStack new.
 	super initialize
 ]
 
-{ #category : #'visit generic' }
+{ #category : 'visit generic' }
 PlatypusModelContentsSemanticChecker >> lookUpAndCacheAcceptSelectorOfClass: aClass [ 
 	| currClass selector str |
 	currClass := aClass.

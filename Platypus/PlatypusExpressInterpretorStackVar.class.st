@@ -1,13 +1,15 @@
 Class {
-	#name : #PlatypusExpressInterpretorStackVar,
-	#superclass : #PlatypusExpressInterpretorStackElement,
+	#name : 'PlatypusExpressInterpretorStackVar',
+	#superclass : 'PlatypusExpressInterpretorStackElement',
 	#instVars : [
 		'val'
 	],
-	#category : #'Platypus-HW-interpreter'
+	#category : 'Platypus-HW-interpreter',
+	#package : 'Platypus',
+	#tag : 'HW-interpreter'
 }
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 PlatypusExpressInterpretorStackVar class >> interpretor: anInterpretor [ 
 	^ self
 		var: PltAnonymousVariable default
@@ -15,7 +17,7 @@ PlatypusExpressInterpretorStackVar class >> interpretor: anInterpretor [
 		interpretor: anInterpretor
 ]
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 PlatypusExpressInterpretorStackVar class >> val: aValue interpretor: anInterpretor [ 
 	^self 
 		var: PltAnonymousVariable default
@@ -23,12 +25,12 @@ PlatypusExpressInterpretorStackVar class >> val: aValue interpretor: anInterpret
 		interpretor: anInterpretor
 ]
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 PlatypusExpressInterpretorStackVar class >> var: aData val: aValue interpretor: anInterpretor [ 
 	^ self new var: aData val: aValue interpretor: anInterpretor 
 ]
 
-{ #category : #interpreting }
+{ #category : 'interpreting' }
 PlatypusExpressInterpretorStackVar >> assign: aValue [ 
 	| varDomain assigned |
 	self interpretor checkAssignmentOf: aValue to: self var.
@@ -37,7 +39,7 @@ PlatypusExpressInterpretorStackVar >> assign: aValue [
 	^ self fastAssign: assigned
 ]
 
-{ #category : #copying }
+{ #category : 'copying' }
 PlatypusExpressInterpretorStackVar >> deepCopy [
 	| n |
 	n := super deepCopy.
@@ -45,13 +47,13 @@ PlatypusExpressInterpretorStackVar >> deepCopy [
 	^ n
 ]
 
-{ #category : #interpreting }
+{ #category : 'interpreting' }
 PlatypusExpressInterpretorStackVar >> fastAssign: aValue [ 
 	self val: aValue.
 	^ aValue
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusExpressInterpretorStackVar >> val [
 	val ifNotNil: [
 		val isPltValue
@@ -60,18 +62,18 @@ PlatypusExpressInterpretorStackVar >> val [
 	^ val
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusExpressInterpretorStackVar >> val: anObject [ 
 	val := anObject
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusExpressInterpretorStackVar >> var: aData val: aValue interpretor: anInterpretor [ 
 	super var: aData interpretor: anInterpretor.
 	self val: aValue
 ]
 
-{ #category : #copying }
+{ #category : 'copying' }
 PlatypusExpressInterpretorStackVar >> veryDeepCopy [
 	| n |
 	n := super veryDeepCopy.

@@ -1,19 +1,21 @@
 Class {
-	#name : #PlatypusCoreRepositoryStepFileWriter,
-	#superclass : #PlatypusCoreRepositoryAbstractVisitor,
+	#name : 'PlatypusCoreRepositoryStepFileWriter',
+	#superclass : 'PlatypusCoreRepositoryAbstractVisitor',
 	#instVars : [
 		'stream'
 	],
-	#category : #'Platypus-HW-core'
+	#category : 'Platypus-HW-core',
+	#package : 'Platypus',
+	#tag : 'HW-core'
 }
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 PlatypusCoreRepositoryStepFileWriter class >> folder: aRepository [ 
 	^ self new folder: aRepository
 		
 ]
 
-{ #category : #'data encoding' }
+{ #category : 'data encoding' }
 PlatypusCoreRepositoryStepFileWriter >> doAggregation: a [  
 	stream nextPut: $(.
 	a
@@ -22,12 +24,12 @@ PlatypusCoreRepositoryStepFileWriter >> doAggregation: a [
 	stream nextPut: $)
 ]
 
-{ #category : #'data encoding' }
+{ #category : 'data encoding' }
 PlatypusCoreRepositoryStepFileWriter >> doBoolean: b [ 
 	self doLogical: b
 ]
 
-{ #category : #'data encoding' }
+{ #category : 'data encoding' }
 PlatypusCoreRepositoryStepFileWriter >> doEnumeration: e [ 
 	e isNil
 		ifTrue: [stream nextPut: $$]
@@ -36,12 +38,12 @@ PlatypusCoreRepositoryStepFileWriter >> doEnumeration: e [
 			stream nextPut: $.]
 ]
 
-{ #category : #'data encoding' }
+{ #category : 'data encoding' }
 PlatypusCoreRepositoryStepFileWriter >> doExternalRepresentation: inst [ 
 self error: 'not implemented'
 ]
 
-{ #category : #'data encoding' }
+{ #category : 'data encoding' }
 PlatypusCoreRepositoryStepFileWriter >> doFolder [
 	| dateTime instances |
 	dateTime := DateAndTime now.
@@ -67,14 +69,14 @@ PlatypusCoreRepositoryStepFileWriter >> doFolder [
 	stream nextPut: Character cr
 ]
 
-{ #category : #'data encoding' }
+{ #category : 'data encoding' }
 PlatypusCoreRepositoryStepFileWriter >> doInstanceRef: i [
 	stream nextPut: $#.
 	folder
 		ifNotNil: [stream nextPutAll: (folder oidOf: i) printString]
 ]
 
-{ #category : #'data encoding' }
+{ #category : 'data encoding' }
 PlatypusCoreRepositoryStepFileWriter >> doInternalRepresentation: inst [ 
 	| currToken entityDef getterSymbol |
 	stream nextPut: $#.
@@ -93,7 +95,7 @@ PlatypusCoreRepositoryStepFileWriter >> doInternalRepresentation: inst [
 	stream nextPutAll: ');'
 ]
 
-{ #category : #'data encoding' }
+{ #category : 'data encoding' }
 PlatypusCoreRepositoryStepFileWriter >> doLogical: l [ 
 	stream nextPut: $..
 	l = #unknow
@@ -104,24 +106,24 @@ PlatypusCoreRepositoryStepFileWriter >> doLogical: l [
 	stream nextPut: $.
 ]
 
-{ #category : #'data encoding' }
+{ #category : 'data encoding' }
 PlatypusCoreRepositoryStepFileWriter >> doNullValue: e [
 	stream nextPut: $$
 ]
 
-{ #category : #'data encoding' }
+{ #category : 'data encoding' }
 PlatypusCoreRepositoryStepFileWriter >> doNumber: n [
 	stream nextPutAll: n printString
 ]
 
-{ #category : #'data encoding' }
+{ #category : 'data encoding' }
 PlatypusCoreRepositoryStepFileWriter >> doObject: o [ 
 	(o isKindOf: PlatypusSchemaWrapper)
 		ifTrue: [self doObject: o linkedMetaData]
 		ifFalse: [stream nextPutAll: '#' , (self oidOf: o) asString]
 ]
 
-{ #category : #'data encoding' }
+{ #category : 'data encoding' }
 PlatypusCoreRepositoryStepFileWriter >> doString: s [
 	stream nextPut: $'.
 	s
@@ -132,7 +134,7 @@ PlatypusCoreRepositoryStepFileWriter >> doString: s [
 	stream nextPut: $'
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusCoreRepositoryStepFileWriter >> flushedContents [
 	| contents |
 	contents := stream contents.
@@ -140,23 +142,23 @@ PlatypusCoreRepositoryStepFileWriter >> flushedContents [
 	^ contents
 ]
 
-{ #category : #'initialize/release' }
+{ #category : 'initialize/release' }
 PlatypusCoreRepositoryStepFileWriter >> initialize [
 	super initialize.
 	stream := WriteStream on: String new.
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusCoreRepositoryStepFileWriter >> metaDataSchemaInstance [
 	^ folder  metaDataSchemaInstance
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusCoreRepositoryStepFileWriter >> namesBuilder [
 	^ folder namesBuilder
 ]
 
-{ #category : #'file in-out' }
+{ #category : 'file in-out' }
 PlatypusCoreRepositoryStepFileWriter >> stepFileOut: aFilename [ 
 	| out |
 	(out :=  (Filename named: aFilename) writeStream)
@@ -164,17 +166,17 @@ PlatypusCoreRepositoryStepFileWriter >> stepFileOut: aFilename [
 				ensure: [out close]]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusCoreRepositoryStepFileWriter >> stream [
 	^ stream
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusCoreRepositoryStepFileWriter >> stream: aStream [
 	 stream := aStream
 ]
 
-{ #category : #'data encoding' }
+{ #category : 'data encoding' }
 PlatypusCoreRepositoryStepFileWriter >> toStream: out [ 
 	| |
 	stream := out.

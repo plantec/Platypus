@@ -1,57 +1,59 @@
 Class {
-	#name : #PlatypusAttributeIdentification,
-	#superclass : #Object,
+	#name : 'PlatypusAttributeIdentification',
+	#superclass : 'Object',
 	#instVars : [
 		'definition',
 		'globalPos',
 		'localPos'
 	],
-	#category : #'Platypus-HW-interpreter'
+	#category : 'Platypus-HW-interpreter',
+	#package : 'Platypus',
+	#tag : 'HW-interpreter'
 }
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 PlatypusAttributeIdentification class >> definition: aPltAttribute globalPos: gpos localPos: lpos [
 	^ self new definition: aPltAttribute globalPos: gpos localPos: lpos
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusAttributeIdentification >> definition [
 	^definition
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusAttributeIdentification >> definition: anObject [
 	definition := anObject
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusAttributeIdentification >> definition: aPltAttribute globalPos: gpos localPos: lpos [ 
 	self definition: aPltAttribute.
 	self globalPos: gpos.
 	self localPos: lpos 
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusAttributeIdentification >> globalPos [
 	^globalPos
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusAttributeIdentification >> globalPos: anObject [
 	globalPos := anObject
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusAttributeIdentification >> localPos [
 	^localPos
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusAttributeIdentification >> localPos: anObject [
 	localPos := anObject
 ]
 
-{ #category : #printing }
+{ #category : 'printing' }
 PlatypusAttributeIdentification >> printOn: aStream [ 
 	aStream nextPutAll: self class name , '('.
 	self definition owner name printOn: aStream.

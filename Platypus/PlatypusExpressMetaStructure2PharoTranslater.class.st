@@ -1,10 +1,12 @@
 Class {
-	#name : #PlatypusExpressMetaStructure2PharoTranslater,
-	#superclass : #PlatypusExpressStructure2PharoTranslater,
-	#category : #'Platypus-HW-translater-private'
+	#name : 'PlatypusExpressMetaStructure2PharoTranslater',
+	#superclass : 'PlatypusExpressStructure2PharoTranslater',
+	#category : 'Platypus-HW-translater-private',
+	#package : 'Platypus',
+	#tag : 'HW-translater-private'
 }
 
-{ #category : #'generating from schemaInstance' }
+{ #category : 'generating from schemaInstance' }
 PlatypusExpressMetaStructure2PharoTranslater >> buildInitializeMethodFromSchemaInstance: e [ 
 	| selector clsName code |
 	clsName := e generatedClassName.

@@ -1,14 +1,16 @@
 Class {
-	#name : #PlatypusExpressInterpretorStackIndexedElement,
-	#superclass : #PlatypusExpressInterpretorStackElement,
+	#name : 'PlatypusExpressInterpretorStackIndexedElement',
+	#superclass : 'PlatypusExpressInterpretorStackElement',
 	#instVars : [
 		'aggr',
 		'idx'
 	],
-	#category : #'Platypus-HW-interpreter'
+	#category : 'Platypus-HW-interpreter',
+	#package : 'Platypus',
+	#tag : 'HW-interpreter'
 }
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 PlatypusExpressInterpretorStackIndexedElement class >> var: aData aggr: anAggregateData idx: anInteger interpretor: anInterpretor [ 
 	^ self new
 		var: aData
@@ -17,27 +19,27 @@ PlatypusExpressInterpretorStackIndexedElement class >> var: aData aggr: anAggreg
 		interpretor: anInterpretor
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusExpressInterpretorStackIndexedElement >> aggr [
 	^aggr
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusExpressInterpretorStackIndexedElement >> aggr: anObject [
 	aggr := anObject
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusExpressInterpretorStackIndexedElement >> aggrPosition [
 	^ self aggrPositionFromIndex: self idx
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusExpressInterpretorStackIndexedElement >> aggrPositionFromIndex: anInteger [ 
 	^ self aggr: self aggr positionFromIndex: anInteger
 ]
 
-{ #category : #interpreting }
+{ #category : 'interpreting' }
 PlatypusExpressInterpretorStackIndexedElement >> assign: aValue [ 
 	| varDomain assigned |
 	self interpretor checkAssignmentOf: aValue to: self var.
@@ -46,7 +48,7 @@ PlatypusExpressInterpretorStackIndexedElement >> assign: aValue [
 	^ self fastAssign: assigned
 ]
 
-{ #category : #copying }
+{ #category : 'copying' }
 PlatypusExpressInterpretorStackIndexedElement >> deepCopy [
 	| n |
 	n := super deepCopy.
@@ -54,35 +56,35 @@ PlatypusExpressInterpretorStackIndexedElement >> deepCopy [
 	^ n
 ]
 
-{ #category : #interpreting }
+{ #category : 'interpreting' }
 PlatypusExpressInterpretorStackIndexedElement >> fastAssign: aValue [ 
 	self aggr at: idx put: aValue.
 	^ aValue
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusExpressInterpretorStackIndexedElement >> idx [
 	^idx
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusExpressInterpretorStackIndexedElement >> idx: anObject [
 	idx := anObject
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusExpressInterpretorStackIndexedElement >> val [
 	^ self aggr at: self aggrPosition
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusExpressInterpretorStackIndexedElement >> var: aData aggr: anAggregateData idx: anInteger interpretor: anInterpretor [ 
 	super var: aData interpretor: anInterpretor.
 	self aggr: anAggregateData.
 	self idx: anInteger
 ]
 
-{ #category : #copying }
+{ #category : 'copying' }
 PlatypusExpressInterpretorStackIndexedElement >> veryDeepCopy [
 	| n |
 	n := super veryDeepCopy.

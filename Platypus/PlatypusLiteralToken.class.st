@@ -1,15 +1,17 @@
 Class {
-	#name : #PlatypusLiteralToken,
-	#superclass : #PlatypusGenericToken,
-	#category : #'Platypus-HW-CodeTokens'
+	#name : 'PlatypusLiteralToken',
+	#superclass : 'PlatypusGenericToken',
+	#category : 'Platypus-HW-CodeTokens',
+	#package : 'Platypus',
+	#tag : 'HW-CodeTokens'
 }
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 PlatypusLiteralToken >> accept: aVisitor [ 
 	^ aVisitor acceptLiteral: self
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 PlatypusLiteralToken >> isStepLiteral [
 	^ true
 ]

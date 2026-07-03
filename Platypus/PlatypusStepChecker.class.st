@@ -1,15 +1,17 @@
 Class {
-	#name : #PlatypusStepChecker,
-	#superclass : #PlatypusStepOnePassAbstractVisitor,
-	#category : #'Platypus-HW-visitors'
+	#name : 'PlatypusStepChecker',
+	#superclass : 'PlatypusStepOnePassAbstractVisitor',
+	#category : 'Platypus-HW-visitors',
+	#package : 'Platypus',
+	#tag : 'HW-visitors'
 }
 
-{ #category : #checking }
+{ #category : 'checking' }
 PlatypusStepChecker class >> checks: metaData [ 
 	^ self new checks: metaData
 ]
 
-{ #category : #'visit generic' }
+{ #category : 'visit generic' }
 PlatypusStepChecker >> checks: aMetaData [ 
 	self subclassResponsibility
 ]

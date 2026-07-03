@@ -7,8 +7,8 @@ END_ENTITY;
 </ISO10303-11-EXPRESS>
 "
 Class {
-	#name : #PltAnonymousVariable,
-	#superclass : #PltDictionaryInstance,
+	#name : 'PltAnonymousVariable',
+	#superclass : 'PltDictionaryInstance',
 	#instVars : [
 		'domain'
 	],
@@ -18,71 +18,73 @@ Class {
 	#classInstVars : [
 		'default'
 	],
-	#category : #'Platypus-PlatypusStatementsSchemaSchema'
+	#category : 'Platypus-PlatypusStatementsSchemaSchema',
+	#package : 'Platypus',
+	#tag : 'PlatypusStatementsSchemaSchema'
 }
 
-{ #category : #'platypus-generated-context-accessing' }
+{ #category : 'platypus-generated-context-accessing' }
 PltAnonymousVariable class >> context [ ^ self schemaDefinition context
 
 
 ]
 
-{ #category : #'platypus-generated-platypus-signature' }
+{ #category : 'platypus-generated-platypus-signature' }
 PltAnonymousVariable class >> iso10303P11Translater [
 	^ 'Platypus (c) LISYC EA3883, Universite de Bretagne occidentale. Brest.'
 
 
 ]
 
-{ #category : #'platypus-generated-meta-data-accessing' }
+{ #category : 'platypus-generated-meta-data-accessing' }
 PltAnonymousVariable class >> platypusMetaData [ 	^ self schemaDefinition metaDataFor: self name asSymbol
 
 
 ]
 
-{ #category : #'platypus-generated-meta-data-accessing' }
+{ #category : 'platypus-generated-meta-data-accessing' }
 PltAnonymousVariable class >> schemaDefinition [
 	^ PltPlatypusStatementsSchemaSchemaDefinition singleton
 
 
 ]
 
-{ #category : #'platypus-generated-meta-data-accessing' }
+{ #category : 'platypus-generated-meta-data-accessing' }
 PltAnonymousVariable class >> schemaInstance [
 	^ PltPlatypusMetaSchemasSchemaInstance singleton
 
 
 ]
 
-{ #category : #'platypus-generated-platypus-signature' }
+{ #category : 'platypus-generated-platypus-signature' }
 PltAnonymousVariable class >> translatedFromISO10303P11 [
 	^ true
 
 
 ]
 
-{ #category : #'platypus-generated-platypus-signature' }
+{ #category : 'platypus-generated-platypus-signature' }
 PltAnonymousVariable class >> vwNamespaceName [
 	^ #Platypus
 
 
 ]
 
-{ #category : #'platypus-generated-visiting' }
+{ #category : 'platypus-generated-visiting' }
 PltAnonymousVariable >> accept: aVisitor [
 	^ aVisitor acceptAnonymousVariable: self
 
 
 ]
 
-{ #category : #'platypus-generated-copying' }
+{ #category : 'platypus-generated-copying' }
 PltAnonymousVariable >> anonymousVariableCopyTo: another [
 	another fastSetDomain: self domain
 
 
 ]
 
-{ #category : #'platypus-generated-group-accessing' }
+{ #category : 'platypus-generated-group-accessing' }
 PltAnonymousVariable >> anonymousVariableFromValues: values [
 	| valuesloc |
 	valuesloc := values asOrderedCollection.
@@ -92,7 +94,7 @@ PltAnonymousVariable >> anonymousVariableFromValues: values [
 
 ]
 
-{ #category : #'platypus-generated-group-accessing' }
+{ #category : 'platypus-generated-group-accessing' }
 PltAnonymousVariable >> anonymousVariableToValues: values [
 	values add: self domain.
 	^ values
@@ -100,63 +102,63 @@ PltAnonymousVariable >> anonymousVariableToValues: values [
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 PltAnonymousVariable >> domain [
 	^ domain
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 PltAnonymousVariable >> domain: aPltParameterType [
 	domain := aPltParameterType
 
 
 ]
 
-{ #category : #'platypus-generated-with-context-accessing' }
+{ #category : 'platypus-generated-with-context-accessing' }
 PltAnonymousVariable >> domainUsingContext: aContext [
 	^ self domain
 
 
 ]
 
-{ #category : #'platypus-generated-fast-set-accessing' }
+{ #category : 'platypus-generated-fast-set-accessing' }
 PltAnonymousVariable >> fastSetDomain: aPltParameterType [
 	domain := aPltParameterType
 
 
 ]
 
-{ #category : #'platypus-generated-group-accessing' }
+{ #category : 'platypus-generated-group-accessing' }
 PltAnonymousVariable >> fromValues: values [
 	^ self anonymousVariableFromValues: (super fromValues: values)
 
 
 ]
 
-{ #category : #'platypus-generated-classifying' }
+{ #category : 'platypus-generated-classifying' }
 PltAnonymousVariable >> isPltAnonymousVariable [
 	^ true
 
 
 ]
 
-{ #category : #'platypus-generated-group-accessing' }
+{ #category : 'platypus-generated-group-accessing' }
 PltAnonymousVariable >> localFromValues: values [
 	^ self anonymousVariableFromValues: values
 
 
 ]
 
-{ #category : #'platypus-generated-group-accessing' }
+{ #category : 'platypus-generated-group-accessing' }
 PltAnonymousVariable >> localToValues: values [
 	^ self anonymousVariableToValues: values
 
 
 ]
 
-{ #category : #'platypus-generated-copying' }
+{ #category : 'platypus-generated-copying' }
 PltAnonymousVariable >> pltCopyGroup: aClassSymbol to: anObject [
 	self class name == aClassSymbol
 		ifTrue: [ self pltCopyTo: anObject ]
@@ -165,7 +167,7 @@ PltAnonymousVariable >> pltCopyGroup: aClassSymbol to: anObject [
 
 ]
 
-{ #category : #'platypus-generated-copying' }
+{ #category : 'platypus-generated-copying' }
 PltAnonymousVariable >> pltCopyTo: another [
 	super pltCopyTo: another.
 	self anonymousVariableCopyTo: another
@@ -173,21 +175,21 @@ PltAnonymousVariable >> pltCopyTo: another [
 
 ]
 
-{ #category : #'platypus-generated-copying' }
+{ #category : 'platypus-generated-copying' }
 PltAnonymousVariable >> pltLocalCopyTo: another [
 	self anonymousVariableCopyTo: another
 
 
 ]
 
-{ #category : #'platypus-generated-set-accessing' }
+{ #category : 'platypus-generated-set-accessing' }
 PltAnonymousVariable >> setDomain: aPltParameterType [
 	self domain: aPltParameterType
 
 
 ]
 
-{ #category : #'platypus-generated-initializing' }
+{ #category : 'platypus-generated-initializing' }
 PltAnonymousVariable >> stepInitialize [
 	super stepInitialize.
 	domain := nil
@@ -195,7 +197,7 @@ PltAnonymousVariable >> stepInitialize [
 
 ]
 
-{ #category : #'platypus-generated-group-accessing' }
+{ #category : 'platypus-generated-group-accessing' }
 PltAnonymousVariable >> toValues: values [
 	^ self anonymousVariableToValues: (super toValues: values)
 

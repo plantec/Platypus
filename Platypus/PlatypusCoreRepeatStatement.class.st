@@ -1,21 +1,23 @@
 Class {
-	#name : #PlatypusCoreRepeatStatement,
-	#superclass : #PlatypusCoreStatement,
+	#name : 'PlatypusCoreRepeatStatement',
+	#superclass : 'PlatypusCoreStatement',
 	#instVars : [
 		'incrControlBlock',
 		'untilControlBlock',
 		'whileControlBlock'
 	],
-	#category : #'Platypus-HW-core'
+	#category : 'Platypus-HW-core',
+	#package : 'Platypus',
+	#tag : 'HW-core'
 }
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 PlatypusCoreRepeatStatement class >> repeat: aBlock [ 
 	^ (self new )
 		repeat: aBlock
 ]
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 PlatypusCoreRepeatStatement class >> repeat: aBlock from: start to: stop [ 
 	^ (self new )
 		repeat: aBlock
@@ -23,13 +25,13 @@ PlatypusCoreRepeatStatement class >> repeat: aBlock from: start to: stop [
 		to: stop
 ]
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 PlatypusCoreRepeatStatement class >> untilControlBlock: untilBlock repeat: aBlock [ 
 	^ (self new untilControlBlock: untilBlock)
 		repeat: aBlock
 ]
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 PlatypusCoreRepeatStatement class >> untilControlBlock: untilBlock repeat: aBlock from: start to: stop [ 
 	^ (self new untilControlBlock: untilBlock)
 		repeat: aBlock
@@ -37,13 +39,13 @@ PlatypusCoreRepeatStatement class >> untilControlBlock: untilBlock repeat: aBloc
 		to: stop
 ]
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 PlatypusCoreRepeatStatement class >> whileControlBlock: whileBlock repeat: aBlock [ 
 	^ (self new whileControlBlock: whileBlock )
 		repeat: aBlock
 ]
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 PlatypusCoreRepeatStatement class >> whileControlBlock: whileBlock repeat: aBlock from: start to: stop [ 
 	^ (self new whileControlBlock: whileBlock )
 		repeat: aBlock
@@ -51,18 +53,18 @@ PlatypusCoreRepeatStatement class >> whileControlBlock: whileBlock repeat: aBloc
 		to: stop
 ]
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 PlatypusCoreRepeatStatement class >> whileControlBlock: whileBlock untilControlBlock: untilBlock repeat: aBlock [
 	^(self new whileControlBlock: whileBlock untilControlBlock: untilBlock) repeat: aBlock
 ]
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 PlatypusCoreRepeatStatement class >> whileControlBlock: whileBlock untilControlBlock: untilBlock repeat: aBlock from: start to: stop [
 	^(self new whileControlBlock: whileBlock untilControlBlock: untilBlock) 
 		repeat: aBlock from: start to: stop
 ]
 
-{ #category : #evaluating }
+{ #category : 'evaluating' }
 PlatypusCoreRepeatStatement >> repeat: aBlock [ 
 	| done skip |
 	done := false.
@@ -78,7 +80,7 @@ PlatypusCoreRepeatStatement >> repeat: aBlock [
 				do: [done := true]]
 ]
 
-{ #category : #evaluating }
+{ #category : 'evaluating' }
 PlatypusCoreRepeatStatement >> repeat: aBlock from: start to: stop [ 
 	| skip |
 	start
@@ -97,30 +99,30 @@ PlatypusCoreRepeatStatement >> repeat: aBlock from: start to: stop [
 				do: [^ nil]]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusCoreRepeatStatement >> untilControlBlock [
 	^ untilControlBlock
 		ifNil: [[:p | false]]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusCoreRepeatStatement >> untilControlBlock: untilBlock [ 
 	untilControlBlock := untilBlock.
 
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusCoreRepeatStatement >> whileControlBlock [
 	^ whileControlBlock
 		ifNil: [[:p |true]]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusCoreRepeatStatement >> whileControlBlock: whileBlock [ 
 	whileControlBlock := whileBlock
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusCoreRepeatStatement >> whileControlBlock: whileBlock untilControlBlock: untilBlock [ 
 	untilControlBlock := untilBlock.
 	whileControlBlock := whileBlock

@@ -1,14 +1,16 @@
 Class {
-	#name : #PlatypusExpressInterpretorStackAttribute,
-	#superclass : #PlatypusExpressInterpretorStackElement,
+	#name : 'PlatypusExpressInterpretorStackAttribute',
+	#superclass : 'PlatypusExpressInterpretorStackElement',
 	#instVars : [
 		'record',
 		'pos'
 	],
-	#category : #'Platypus-HW-interpreter'
+	#category : 'Platypus-HW-interpreter',
+	#package : 'Platypus',
+	#tag : 'HW-interpreter'
 }
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 PlatypusExpressInterpretorStackAttribute class >> var: aData record: aRecord pos: anInteger interpretor: anInterpretor [ 
 	^ self new
 		var: aData
@@ -17,7 +19,7 @@ PlatypusExpressInterpretorStackAttribute class >> var: aData record: aRecord pos
 		interpretor: anInterpretor
 ]
 
-{ #category : #interpreting }
+{ #category : 'interpreting' }
 PlatypusExpressInterpretorStackAttribute >> assign: aValue [ 
 	| varDomain assigned |
 	self interpretor checkAssignmentOf: aValue to: self var.
@@ -27,7 +29,7 @@ PlatypusExpressInterpretorStackAttribute >> assign: aValue [
 	^ self fastAssign: assigned
 ]
 
-{ #category : #copying }
+{ #category : 'copying' }
 PlatypusExpressInterpretorStackAttribute >> deepCopy [
 	| n |
 	n := super deepCopy.
@@ -35,33 +37,33 @@ PlatypusExpressInterpretorStackAttribute >> deepCopy [
 	^ n
 ]
 
-{ #category : #interpreting }
+{ #category : 'interpreting' }
 PlatypusExpressInterpretorStackAttribute >> fastAssign: aValue [ 
 	self record parameters at: self pos put: aValue.
 	^ aValue
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusExpressInterpretorStackAttribute >> pos [
 	^pos
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusExpressInterpretorStackAttribute >> pos: anObject [
 	pos := anObject
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusExpressInterpretorStackAttribute >> record [
 	^record
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusExpressInterpretorStackAttribute >> record: anObject [
 	record := anObject
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusExpressInterpretorStackAttribute >> val [
 	| fetched attrDef |
 	(fetched := self record parameters at: pos)
@@ -70,14 +72,14 @@ PlatypusExpressInterpretorStackAttribute >> val [
 	^ fetched
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusExpressInterpretorStackAttribute >> var: aData record: aRecord pos: anInteger interpretor: anInterpretor [ 
 	super var: aData interpretor: anInterpretor.
 	self record: aRecord.
 	self pos: anInteger
 ]
 
-{ #category : #copying }
+{ #category : 'copying' }
 PlatypusExpressInterpretorStackAttribute >> veryDeepCopy [
 	| n |
 	n := super veryDeepCopy.

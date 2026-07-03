@@ -1,15 +1,17 @@
 Class {
-	#name : #PlatypusCloseDelimToken,
-	#superclass : #PlatypusDelimToken,
-	#category : #'Platypus-HW-CodeTokens'
+	#name : 'PlatypusCloseDelimToken',
+	#superclass : 'PlatypusDelimToken',
+	#category : 'Platypus-HW-CodeTokens',
+	#package : 'Platypus',
+	#tag : 'HW-CodeTokens'
 }
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 PlatypusCloseDelimToken >> accept: aVisitor [ 
 	^ aVisitor acceptCloseDelim: self
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 PlatypusCloseDelimToken >> isCloseDelim [
 	^ true
 ]

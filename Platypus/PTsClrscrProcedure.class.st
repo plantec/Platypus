@@ -1,38 +1,40 @@
 Class {
-	#name : #PTsClrscrProcedure,
-	#superclass : #PlatypusCoreAlgorithmDeclaration,
-	#category : #'Platypus-ExpressToolsboxFunctionsSchema'
+	#name : 'PTsClrscrProcedure',
+	#superclass : 'PlatypusCoreAlgorithmDeclaration',
+	#category : 'Platypus-ExpressToolsboxFunctionsSchema',
+	#package : 'Platypus',
+	#tag : 'ExpressToolsboxFunctionsSchema'
 }
 
-{ #category : #'platypus-generated-platypus-signature' }
+{ #category : 'platypus-generated-platypus-signature' }
 PTsClrscrProcedure class >> iso10303P11Translater [
 	^ 'Platypus (c) LISYC EA3883, Universite de Bretagne occidentale. Brest.'
 
 
 ]
 
-{ #category : #'platypus-generated-meta-data-accessing' }
+{ #category : 'platypus-generated-meta-data-accessing' }
 PTsClrscrProcedure class >> schemaDefinition [
 	^ PTsExpressToolsboxFunctionsSchemaDefinition singleton
 
 
 ]
 
-{ #category : #'platypus-generated-platypus-signature' }
+{ #category : 'platypus-generated-platypus-signature' }
 PTsClrscrProcedure class >> translatedFromISO10303P11 [
 	^ true
 
 
 ]
 
-{ #category : #'platypus-generated-platypus-signature' }
+{ #category : 'platypus-generated-platypus-signature' }
 PTsClrscrProcedure class >> vwNamespaceName [
 	^ #PTs
 
 
 ]
 
-{ #category : #'platypus-generated-invoking' }
+{ #category : 'platypus-generated-invoking' }
 PTsClrscrProcedure >> invoke [
 	" ---------- locals assignments ----------"
 

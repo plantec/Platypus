@@ -1,10 +1,12 @@
 Class {
-	#name : #StepScanner,
-	#superclass : #SmaCCScanner,
-	#category : #'Platypus-STEP-core'
+	#name : 'StepScanner',
+	#superclass : 'SmaCCScanner',
+	#category : 'Platypus-STEP-core',
+	#package : 'Platypus',
+	#tag : 'STEP-core'
 }
 
-{ #category : #'generated-initialization' }
+{ #category : 'generated-initialization' }
 StepScanner class >> initializeKeywordMap [
 	keywordMap := Dictionary new.
 	#(#(25 'END_SCOPE' 5) #(25 'SCOPE' 2) #(26 '.F.' 13) #(26 '.T.' 16) #(26 '.U.' 11))
@@ -12,7 +14,7 @@ StepScanner class >> initializeKeywordMap [
 	^ keywordMap
 ]
 
-{ #category : #'generated-comments' }
+{ #category : 'generated-comments' }
 StepScanner class >> scannerDefinitionComment [
 
 	"<annotation>		: 		[\<] ;
@@ -28,7 +30,7 @@ StepScanner class >> scannerDefinitionComment [
 <whitespace>		:		\s+	;"
 ]
 
-{ #category : #scanning }
+{ #category : 'scanning' }
 StepScanner >> annotation [
 	[ 
 	self step.
@@ -36,22 +38,22 @@ StepScanner >> annotation [
 	^ self whitespace 
 ]
 
-{ #category : #'generated-tokens' }
+{ #category : 'generated-tokens' }
 StepScanner >> emptySymbolTokenId [
 	^58
 ]
 
-{ #category : #'generated-tokens' }
+{ #category : 'generated-tokens' }
 StepScanner >> errorTokenId [
 	^59
 ]
 
-{ #category : #'generated-scanner' }
+{ #category : 'generated-scanner' }
 StepScanner >> keywordFor: aString [ 
 	^aString asUppercase
 ]
 
-{ #category : #'generated-scanner' }
+{ #category : 'generated-scanner' }
 StepScanner >> scan1 [
 	[ 
 	self step.
@@ -70,7 +72,7 @@ StepScanner >> scan1 [
 	^ self reportLastMatch
 ]
 
-{ #category : #'generated-scanner' }
+{ #category : 'generated-scanner' }
 StepScanner >> scan2 [
 	[ 
 	self step.
@@ -80,7 +82,7 @@ StepScanner >> scan2 [
 	^ self reportLastMatch
 ]
 
-{ #category : #'generated-scanner' }
+{ #category : 'generated-scanner' }
 StepScanner >> scan3 [
 	[ 
 	self step.
@@ -95,7 +97,7 @@ StepScanner >> scan3 [
 	^ self reportLastMatch
 ]
 
-{ #category : #'generated-scanner' }
+{ #category : 'generated-scanner' }
 StepScanner >> scanForToken [
 	self step.
 	((currentCharacter between: $A and: $D)
@@ -415,7 +417,7 @@ StepScanner >> scanForToken [
 	^ self reportLastMatch
 ]
 
-{ #category : #scanning }
+{ #category : 'scanning' }
 StepScanner >> tailRemark [
 	^ self whitespace
 ]

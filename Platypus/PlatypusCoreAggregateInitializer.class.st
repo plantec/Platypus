@@ -1,28 +1,30 @@
 Class {
-	#name : #PlatypusCoreAggregateInitializer,
-	#superclass : #PlatypusCoreExpression,
+	#name : 'PlatypusCoreAggregateInitializer',
+	#superclass : 'PlatypusCoreExpression',
 	#instVars : [
 		'contentBlocks'
 	],
-	#category : #'Platypus-HW-core'
+	#category : 'Platypus-HW-core',
+	#package : 'Platypus',
+	#tag : 'HW-core'
 }
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 PlatypusCoreAggregateInitializer class >> collectionFrom: aListOfBlocks [ 
 	^ (self contentBlocks: aListOfBlocks) asOrderedCollection
 ]
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 PlatypusCoreAggregateInitializer class >> contentBlocks: aListOfBlocks [ 
 	^ self new contentBlocks: aListOfBlocks 
 ]
 
-{ #category : #converting }
+{ #category : 'converting' }
 PlatypusCoreAggregateInitializer >> asArray [
 	^ self asOrderedCollection asArray
 ]
 
-{ #category : #converting }
+{ #category : 'converting' }
 PlatypusCoreAggregateInitializer >> asOrderedCollection [
 	| col |
 	col := OrderedCollection new.
@@ -36,7 +38,7 @@ PlatypusCoreAggregateInitializer >> asOrderedCollection [
 	^ col
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusCoreAggregateInitializer >> contentBlocks: aListOfBlocks [
 	contentBlocks:= aListOfBlocks
 ]

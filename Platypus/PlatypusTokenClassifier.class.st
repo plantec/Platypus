@@ -1,28 +1,30 @@
 Class {
-	#name : #PlatypusTokenClassifier,
-	#superclass : #Object,
+	#name : 'PlatypusTokenClassifier',
+	#superclass : 'Object',
 	#instVars : [
 		'stringEvaluatedConditionsList',
 		'characterEvaluatedConditionsList',
 		'tokensClassByTokenValueMap',
 		'tokensClassByTokenSymbolMap'
 	],
-	#category : #'Platypus-HW-CodeTokens'
+	#category : 'Platypus-HW-CodeTokens',
+	#package : 'Platypus',
+	#tag : 'HW-CodeTokens'
 }
 
-{ #category : #adding }
+{ #category : 'adding' }
 PlatypusTokenClassifier >> classifyCharacter: aClass block: aBlock [ 
 	characterEvaluatedConditionsList
 		add: (Association key: aBlock value: aClass)
 ]
 
-{ #category : #adding }
+{ #category : 'adding' }
 PlatypusTokenClassifier >> classifyString: aClass block: aBlock [ 
 	stringEvaluatedConditionsList
 		add: (Association key: aBlock value: aClass)
 ]
 
-{ #category : #'initialize-release' }
+{ #category : 'initialize-release' }
 PlatypusTokenClassifier >> initialize [
 	super initialize.
 	stringEvaluatedConditionsList := OrderedCollection new.
@@ -32,7 +34,7 @@ PlatypusTokenClassifier >> initialize [
 
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusTokenClassifier >> tokenClassFromCharacter: aValue ifAbsent: aBlock [ 
 	| foundConditionAssoc |
 	foundConditionAssoc := characterEvaluatedConditionsList
@@ -45,7 +47,7 @@ PlatypusTokenClassifier >> tokenClassFromCharacter: aValue ifAbsent: aBlock [
 		ifAbsent: [aBlock value]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusTokenClassifier >> tokenClassFromString: aValue ifAbsent: aBlock [ 
 	| foundConditionAssoc |
 	foundConditionAssoc := stringEvaluatedConditionsList

@@ -1,103 +1,105 @@
 Class {
-	#name : #PlatypusCoreRepositoryAbstractVisitor,
-	#superclass : #Object,
+	#name : 'PlatypusCoreRepositoryAbstractVisitor',
+	#superclass : 'Object',
 	#instVars : [
 		'folder',
 		'actionMethodsIndex'
 	],
-	#category : #'Platypus-HW-core'
+	#category : 'Platypus-HW-core',
+	#package : 'Platypus',
+	#tag : 'HW-core'
 }
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 PlatypusCoreRepositoryAbstractVisitor class >> folder: aDataFolder [
 	^ self new folder:  aDataFolder
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusCoreRepositoryAbstractVisitor >> actionMethodsIndex [
 	^ actionMethodsIndex
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusCoreRepositoryAbstractVisitor >> actionMethodsIndex: anIndex [ 
 	actionMethodsIndex := anIndex
 ]
 
-{ #category : #'data encoding' }
+{ #category : 'data encoding' }
 PlatypusCoreRepositoryAbstractVisitor >> doAggregation: a [ 
 	self subclassResponsibility
 ]
 
-{ #category : #'data encoding' }
+{ #category : 'data encoding' }
 PlatypusCoreRepositoryAbstractVisitor >> doBoolean: b [
 	self subclassResponsibility
 ]
 
-{ #category : #'data encoding' }
+{ #category : 'data encoding' }
 PlatypusCoreRepositoryAbstractVisitor >> doEnumeration: e [ 
 		self subclassResponsibility
 ]
 
-{ #category : #'data encoding' }
+{ #category : 'data encoding' }
 PlatypusCoreRepositoryAbstractVisitor >> doExternalRepresentation: inst [ 
 	self subclassResponsibility
 ]
 
-{ #category : #'data encoding' }
+{ #category : 'data encoding' }
 PlatypusCoreRepositoryAbstractVisitor >> doFolder [
 self subclassResponsibility 
 ]
 
-{ #category : #'data encoding' }
+{ #category : 'data encoding' }
 PlatypusCoreRepositoryAbstractVisitor >> doInstance: inst [ 
 	(inst isKindOf: PlatypusComplexInstance)
 		ifTrue: [self doExternalRepresentation: inst]
 		ifFalse: [self doInternalRepresentation: inst]
 ]
 
-{ #category : #'data encoding' }
+{ #category : 'data encoding' }
 PlatypusCoreRepositoryAbstractVisitor >> doInstanceRef: i [ 
 		self subclassResponsibility
 ]
 
-{ #category : #'data encoding' }
+{ #category : 'data encoding' }
 PlatypusCoreRepositoryAbstractVisitor >> doInternalRepresentation: inst [ 
 	self subclassResponsibility
 ]
 
-{ #category : #'data encoding' }
+{ #category : 'data encoding' }
 PlatypusCoreRepositoryAbstractVisitor >> doLogical: l [ 
 		self subclassResponsibility
 ]
 
-{ #category : #'data encoding' }
+{ #category : 'data encoding' }
 PlatypusCoreRepositoryAbstractVisitor >> doNullValue [
 	self subclassResponsibility
 ]
 
-{ #category : #'data encoding' }
+{ #category : 'data encoding' }
 PlatypusCoreRepositoryAbstractVisitor >> doNumber: n [ 
 	self subclassResponsibility
 ]
 
-{ #category : #'data encoding' }
+{ #category : 'data encoding' }
 PlatypusCoreRepositoryAbstractVisitor >> doObject: b [ 
 	self subclassResponsibility
 ]
 
-{ #category : #'data encoding' }
+{ #category : 'data encoding' }
 PlatypusCoreRepositoryAbstractVisitor >> doSingleToken: t [ 
 	self push: OrderedCollection new.
 	self doToken: t.
 	^ self pop first
 ]
 
-{ #category : #'data encoding' }
+{ #category : 'data encoding' }
 PlatypusCoreRepositoryAbstractVisitor >> doString: s [ 
 		self subclassResponsibility
 ]
 
-{ #category : #'data encoding' }
+{ #category : 'data encoding' }
 PlatypusCoreRepositoryAbstractVisitor >> doToken: t [ 
 	t isNil
 		ifTrue: [self doNullValue: nil]
@@ -108,12 +110,12 @@ PlatypusCoreRepositoryAbstractVisitor >> doToken: t [
 	^ nil
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusCoreRepositoryAbstractVisitor >> folder: aDataFolder [
 	folder := aDataFolder
 ]
 
-{ #category : #'initialize/release' }
+{ #category : 'initialize/release' }
 PlatypusCoreRepositoryAbstractVisitor >> initialize [
 	super initialize.
 	self actionMethodsIndex: OrderedCollection new.
@@ -133,7 +135,7 @@ PlatypusCoreRepositoryAbstractVisitor >> initialize [
 		add: (Association key: Object value: #doObject:)
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusCoreRepositoryAbstractVisitor >> oidOf: anInstance [ 
 	^folder ifNil: [-1] ifNotNil: [folder oidOf: anInstance]
 ]

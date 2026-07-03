@@ -1,20 +1,22 @@
 Class {
-	#name : #PlatypusExpressTokenClassifier,
-	#superclass : #PlatypusTokenClassifier,
-	#category : #'Platypus-HW-CodeTokens'
+	#name : 'PlatypusExpressTokenClassifier',
+	#superclass : 'PlatypusTokenClassifier',
+	#category : 'Platypus-HW-CodeTokens',
+	#package : 'Platypus',
+	#tag : 'HW-CodeTokens'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusExpressTokenClassifier >> builtinFunctionsSymbols [
 	^ #(#'value_in' #'value_unique' #even #odd #blength #hiindex #rolesof #sin #valueIn #lobound #nvl #format #hibound #cos #log10 #length #tan #usedin #typeof #log2 #abs #exp #asin #sqrt #acos #exists #sizeof #log #loindex #valueUnique #atan #value )
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusExpressTokenClassifier >> builtinProceduresSymbols [
 	^ #(#remove #insert )
 ]
 
-{ #category : #'initialize/release' }
+{ #category : 'initialize/release' }
 PlatypusExpressTokenClassifier >> initialize [
 	super initialize.
 	#('[' '{' '(' '{*' )

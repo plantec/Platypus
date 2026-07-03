@@ -1,14 +1,16 @@
 Class {
-	#name : #PlatypusExpressResolver,
-	#superclass : #PlatypusExpressChecker,
+	#name : 'PlatypusExpressResolver',
+	#superclass : 'PlatypusExpressChecker',
 	#instVars : [
 		'resolutionPass',
 		'parent'
 	],
-	#category : #'Platypus-HW-visitors'
+	#category : 'Platypus-HW-visitors',
+	#package : 'Platypus',
+	#tag : 'HW-visitors'
 }
 
-{ #category : #'visit generic' }
+{ #category : 'visit generic' }
 PlatypusExpressResolver >> acceptAggregationType: e lower: l upper: u symbol: subtype flags: aCollection [ 
 	super
 		acceptAggregationType: e
@@ -23,20 +25,20 @@ PlatypusExpressResolver >> acceptAggregationType: e lower: l upper: u symbol: su
 				ifTrue: [e elementType: e elementType ref referenceOnSelf]]
 ]
 
-{ #category : #'visit expressions schema' }
+{ #category : 'visit expressions schema' }
 PlatypusExpressResolver >> acceptAssignable: e [
 	e head acceptTry: self.
 	e qualifiers acceptTry: self
 ]
 
-{ #category : #'visit dictionary schema' }
+{ #category : 'visit dictionary schema' }
 PlatypusExpressResolver >> acceptAttribute: e [ 
 	e redeclaring
 		ifNotNil: [self acceptTry: e redeclaring].
 	(e domain isPltNamedTypeReference and: [e domain ref notNil]) ifTrue: [e domain: e domain ref referenceOnSelf]
 ]
 
-{ #category : #'visit dictionary schema' }
+{ #category : 'visit dictionary schema' }
 PlatypusExpressResolver >> acceptAttributeReference: e [ 
 	| inversedEntity invKey invertedAttr |
 	e entityRef acceptTry: self.
@@ -57,7 +59,7 @@ PlatypusExpressResolver >> acceptAttributeReference: e [
 						ifTrue: [self declareWithoutError: e]]]
 ]
 
-{ #category : #'visit dictionary schema' }
+{ #category : 'visit dictionary schema' }
 PlatypusExpressResolver >> acceptConstantDefinition: e [ 
 	super acceptConstantDefinition: e.
 	e domain
@@ -67,7 +69,7 @@ PlatypusExpressResolver >> acceptConstantDefinition: e [
 	e metaConcept acceptTry: self
 ]
 
-{ #category : #'visit dictionary schema' }
+{ #category : 'visit dictionary schema' }
 PlatypusExpressResolver >> acceptDefinedType: e [ 
 	super acceptDefinedType: e.
 	e metaConcept acceptTry: self.
@@ -77,14 +79,14 @@ PlatypusExpressResolver >> acceptDefinedType: e [
 				ifTrue: [e domain: e domain ref referenceOnSelf]]
 ]
 
-{ #category : #'visit dictionary schema' }
+{ #category : 'visit dictionary schema' }
 PlatypusExpressResolver >> acceptDerivedAttribute: e [ 
 	self acceptAttribute: e.
 	super acceptDerivedAttribute: e.
 
 ]
 
-{ #category : #'visit dictionary schema' }
+{ #category : 'visit dictionary schema' }
 PlatypusExpressResolver >> acceptDictionaryInstanceReference: e [ 
 	| found |
 	resolutionPass = 1
@@ -99,12 +101,12 @@ PlatypusExpressResolver >> acceptDictionaryInstanceReference: e [
 			ifNotNil: [self declareWithoutError: e]]
 ]
 
-{ #category : #'visit dictionary schema' }
+{ #category : 'visit dictionary schema' }
 PlatypusExpressResolver >> acceptDomainEquivalentItem: e [ 
 
 ]
 
-{ #category : #'visit dictionary schema' }
+{ #category : 'visit dictionary schema' }
 PlatypusExpressResolver >> acceptEntityDefinition: e [ 
 	| sup |
 	self logInfo: '	', e class name , ': ' , e name.
@@ -128,13 +130,13 @@ PlatypusExpressResolver >> acceptEntityDefinition: e [
 	e metaConcept acceptTry: self
 ]
 
-{ #category : #'visit expressions schema' }
+{ #category : 'visit expressions schema' }
 PlatypusExpressResolver >> acceptEntityInstancesSet: e [ 
 	
 	^ self acceptTry: e entityRef
 ]
 
-{ #category : #'visit expressions schema' }
+{ #category : 'visit expressions schema' }
 PlatypusExpressResolver >> acceptEscapedExpression: e [ 
 	| resolver |
 	self parent
@@ -145,19 +147,19 @@ PlatypusExpressResolver >> acceptEscapedExpression: e [
 
 ]
 
-{ #category : #'visit dictionary schema' }
+{ #category : 'visit dictionary schema' }
 PlatypusExpressResolver >> acceptExplicitAttribute: e [ 
 	self acceptAttribute: e.
 	super acceptExplicitAttribute: e.
 
 ]
 
-{ #category : #'visit dictionary schema' }
+{ #category : 'visit dictionary schema' }
 PlatypusExpressResolver >> acceptExternalMetaSchema: e [
 	self acceptExternalSchema: e
 ]
 
-{ #category : #'visit dictionary schema' }
+{ #category : 'visit dictionary schema' }
 PlatypusExpressResolver >> acceptExternalSchema: e [ 
 	| chosen |
 	resolutionPass = 1
@@ -175,7 +177,7 @@ PlatypusExpressResolver >> acceptExternalSchema: e [
 						e nativeSchema ifNil: [^ self declareWithError: e]]].
 ]
 
-{ #category : #'visit dictionary schema' }
+{ #category : 'visit dictionary schema' }
 PlatypusExpressResolver >> acceptFunctionDeclaration: e [ 
 	super acceptFunctionDeclaration: e.
 	e returnType
@@ -185,13 +187,13 @@ PlatypusExpressResolver >> acceptFunctionDeclaration: e [
 	e metaConcept acceptTry: self
 ]
 
-{ #category : #'visit dictionary schema' }
+{ #category : 'visit dictionary schema' }
 PlatypusExpressResolver >> acceptGlobalRule: e [ 
 	super acceptGlobalRule: e.
 	e metaConcept acceptTry: self
 ]
 
-{ #category : #'visit expressions schema' }
+{ #category : 'visit expressions schema' }
 PlatypusExpressResolver >> acceptIdentifier: e [ 
 	| found |
 	resolutionPass = 1
@@ -213,19 +215,19 @@ PlatypusExpressResolver >> acceptIdentifier: e [
 	e parameters acceptTry: self
 ]
 
-{ #category : #'visit dictionary schema' }
+{ #category : 'visit dictionary schema' }
 PlatypusExpressResolver >> acceptIncludeSchema: e [
 	self acceptExternalSchema: e 
 
 ]
 
-{ #category : #'visit population schema' }
+{ #category : 'visit population schema' }
 PlatypusExpressResolver >> acceptInternalRepresentation: e [ 
 	^ e definition acceptTry: self.
 
 ]
 
-{ #category : #'visit dictionary schema' }
+{ #category : 'visit dictionary schema' }
 PlatypusExpressResolver >> acceptInverseAttribute: e [ 
 	self acceptTry: e invertedAttr.
 	self acceptAttribute: e.
@@ -234,7 +236,7 @@ PlatypusExpressResolver >> acceptInverseAttribute: e [
 
 ]
 
-{ #category : #'visit dictionary schema' }
+{ #category : 'visit dictionary schema' }
 PlatypusExpressResolver >> acceptLocalVariable: e [ 
 	super acceptLocalVariable: e.
 	e domain
@@ -243,7 +245,7 @@ PlatypusExpressResolver >> acceptLocalVariable: e [
 				ifTrue: [e domain: e domain ref referenceOnSelf]]
 ]
 
-{ #category : #'visit dictionary schema' }
+{ #category : 'visit dictionary schema' }
 PlatypusExpressResolver >> acceptMetaConceptDefinition: e [ 
 	| result metaResolContext |
 	resolutionPass = 1
@@ -263,7 +265,7 @@ PlatypusExpressResolver >> acceptMetaConceptDefinition: e [
 						ifFalse: [e haveError: false]]]
 ]
 
-{ #category : #'visit dictionary schema' }
+{ #category : 'visit dictionary schema' }
 PlatypusExpressResolver >> acceptMetaMappingDefinition: e [ 
 	| result metaResolContext |
 	resolutionPass = 1
@@ -289,7 +291,7 @@ PlatypusExpressResolver >> acceptMetaMappingDefinition: e [
 								ifFalse: [e haveError: false]]]]
 ]
 
-{ #category : #'visit dictionary schema' }
+{ #category : 'visit dictionary schema' }
 PlatypusExpressResolver >> acceptMetaMappingRule: e [ 
 	| result metaResolContext |
 	resolutionPass = 1
@@ -315,12 +317,12 @@ PlatypusExpressResolver >> acceptMetaMappingRule: e [
 						ifFalse: [e haveError: false]]]
 ]
 
-{ #category : #'visit environment schema' }
+{ #category : 'visit environment schema' }
 PlatypusExpressResolver >> acceptModelContents: e [
 
 ]
 
-{ #category : #'visit dictionary schema' }
+{ #category : 'visit dictionary schema' }
 PlatypusExpressResolver >> acceptNamedTypeReference: e [ 
 	| found |
 	resolutionPass = 1
@@ -333,7 +335,7 @@ PlatypusExpressResolver >> acceptNamedTypeReference: e [
 		ifNotNil: [self declareWithoutError: e]]
 ]
 
-{ #category : #'visit dictionary schema' }
+{ #category : 'visit dictionary schema' }
 PlatypusExpressResolver >> acceptParameterDefinition: e [ 
 	super acceptParameterDefinition: e.
 	e domain
@@ -342,13 +344,13 @@ PlatypusExpressResolver >> acceptParameterDefinition: e [
 				ifTrue: [e domain: e domain ref referenceOnSelf]]
 ]
 
-{ #category : #'visit dictionary schema' }
+{ #category : 'visit dictionary schema' }
 PlatypusExpressResolver >> acceptProcedureDeclaration: e [ 
 	super acceptProcedureDeclaration: e.
 	e metaConcept acceptTry: self
 ]
 
-{ #category : #'visit expressions schema' }
+{ #category : 'visit expressions schema' }
 PlatypusExpressResolver >> acceptQualifiedExpression: e [ 
 	| qual enumVal refed |
 	e head referenced ~= e head
@@ -378,12 +380,12 @@ PlatypusExpressResolver >> acceptQualifiedExpression: e [
 		ifTrue: [e head: e domain ref referenceOnSelf]
 ]
 
-{ #category : #'visit expressions schema' }
+{ #category : 'visit expressions schema' }
 PlatypusExpressResolver >> acceptQueryExpression: e [ 
 	super acceptQueryExpression: e
 ]
 
-{ #category : #'visit dictionary schema' }
+{ #category : 'visit dictionary schema' }
 PlatypusExpressResolver >> acceptRemarkReference: e [ 
 	| refed prefRefed |
 	super acceptRemarkReference: e.
@@ -405,14 +407,14 @@ PlatypusExpressResolver >> acceptRemarkReference: e [
 			e referenced ref: refed]
 ]
 
-{ #category : #'visit dictionary schema' }
+{ #category : 'visit dictionary schema' }
 PlatypusExpressResolver >> acceptSchemaDefinition: e [
 	self logInfo: 'schema ' , e name.
 	super acceptSchemaDefinition: e.
 	e metaConcept acceptTry: self
 ]
 
-{ #category : #'visit environment schema' }
+{ #category : 'visit environment schema' }
 PlatypusExpressResolver >> acceptSchemaInstance: e [ 
 	resolutionPass <= 1
 		ifTrue: [
@@ -428,7 +430,7 @@ PlatypusExpressResolver >> acceptSchemaInstance: e [
 
 ]
 
-{ #category : #'visit dictionary schema' }
+{ #category : 'visit dictionary schema' }
 PlatypusExpressResolver >> acceptSelectType: e [ 
 	| sel |
 	super acceptSelectType: e.
@@ -441,18 +443,18 @@ PlatypusExpressResolver >> acceptSelectType: e [
 				ifTrue: [e selections at: pos put: sel ref referenceOnSelf]]
 ]
 
-{ #category : #'visit expressions schema' }
+{ #category : 'visit expressions schema' }
 PlatypusExpressResolver >> acceptSelfIdentifier: e [ 
 
 ]
 
-{ #category : #'visit population schema' }
+{ #category : 'visit population schema' }
 PlatypusExpressResolver >> acceptSimpleRecord: e [ 
 	^ e definition acceptTry: self.
 
 ]
 
-{ #category : #'visit dictionary schema' }
+{ #category : 'visit dictionary schema' }
 PlatypusExpressResolver >> acceptSubEntityRefExpression: e [ 
 	super acceptSubEntityRefExpression: e.
 	(e entityRef notNil
@@ -461,13 +463,13 @@ PlatypusExpressResolver >> acceptSubEntityRefExpression: e [
 		ifTrue: [e entityRef: e entityRef ref referenceOnSelf]
 ]
 
-{ #category : #'visit generic' }
+{ #category : 'visit generic' }
 PlatypusExpressResolver >> acceptTry: e [
 	e removeCachedDomain.
 	^ super acceptTry: e
 ]
 
-{ #category : #'visit expressions schema' }
+{ #category : 'visit expressions schema' }
 PlatypusExpressResolver >> acceptUniquenessRuleAttributeIdentifier: e [ 
 	| redclEntity ruleAttribute |
 	e groupRefName
@@ -484,7 +486,7 @@ PlatypusExpressResolver >> acceptUniquenessRuleAttributeIdentifier: e [
 							self declareWithoutError: e]]]]
 ]
 
-{ #category : #'visit dictionary schema' }
+{ #category : 'visit dictionary schema' }
 PlatypusExpressResolver >> acceptUnresolvedSymbol: e [
 	resolutionPass > 1
 		ifTrue: [
@@ -494,12 +496,12 @@ PlatypusExpressResolver >> acceptUnresolvedSymbol: e [
 
 ]
 
-{ #category : #'visit generic' }
+{ #category : 'visit generic' }
 PlatypusExpressResolver >> checks: aMetaData [ 
 	self checksAll: (Array with: aMetaData)
 ]
 
-{ #category : #'visit generic' }
+{ #category : 'visit generic' }
 PlatypusExpressResolver >> checksAll: aCollection [ 
 	| stop prevErrsSet currErrsSet |
 	resolutionPass := 1.
@@ -520,7 +522,7 @@ PlatypusExpressResolver >> checksAll: aCollection [
 
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusExpressResolver >> interactivelyResolvedSchemaNamed: aName [ 
 	| key |
 	key := aName asUppercase .
@@ -530,7 +532,7 @@ PlatypusExpressResolver >> interactivelyResolvedSchemaNamed: aName [
 
 ]
 
-{ #category : #'visit generic' }
+{ #category : 'visit generic' }
 PlatypusExpressResolver >> lookUp: anIdent [ 
 	| found |
 	(found := self lookUpIdentifierBN: anIdent) isNil
@@ -538,7 +540,7 @@ PlatypusExpressResolver >> lookUp: anIdent [
 	^ found
 ]
 
-{ #category : #'visit generic' }
+{ #category : 'visit generic' }
 PlatypusExpressResolver >> lookUp: ident from: aMetaData [ 
 	^ aMetaData isNil
 		ifFalse: [(aMetaData lookUpIdentifierBN: ident)
@@ -547,7 +549,7 @@ PlatypusExpressResolver >> lookUp: ident from: aMetaData [
 								ifTrue: [aMetaData]]]]
 ]
 
-{ #category : #'visit generic' }
+{ #category : 'visit generic' }
 PlatypusExpressResolver >> lookUpFunctionCallOrConstructorNamed: aName [ 
 	| found |
 	found := self lookUpIdentifierBN: aName.
@@ -557,7 +559,7 @@ PlatypusExpressResolver >> lookUpFunctionCallOrConstructorNamed: aName [
 	^ found
 ]
 
-{ #category : #'visit generic' }
+{ #category : 'visit generic' }
 PlatypusExpressResolver >> lookUpIdentifierBN: aName [ 
 	| found |
 	resolutionPass = 1 ifTrue: [self halt].
@@ -568,7 +570,7 @@ PlatypusExpressResolver >> lookUpIdentifierBN: aName [
 	^ PltPlatypusExpressPrimitivesSchemaInstance lookUpIdentifierBN: aName
 ]
 
-{ #category : #'visit generic' }
+{ #category : 'visit generic' }
 PlatypusExpressResolver >> lookUpNamedTypeBN: aName [ 
 	| found |
 	visitPath
@@ -579,7 +581,7 @@ PlatypusExpressResolver >> lookUpNamedTypeBN: aName [
 		^ PltPlatypusExpressPrimitivesSchemaInstance lookUpNamedTypeBN: aName
 ]
 
-{ #category : #'visit generic' }
+{ #category : 'visit generic' }
 PlatypusExpressResolver >> lookUpPath: aListOfString [ 
 	| ident found path key |
 	ident := aListOfString first.
@@ -595,17 +597,17 @@ PlatypusExpressResolver >> lookUpPath: aListOfString [
 	^ found
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusExpressResolver >> parent [
 	^ parent
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusExpressResolver >> parent: aResolver [
 	parent := aResolver
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusExpressResolver >> visitContexts: aCollection parent: aResolver [
 	super visitContexts: aCollection.
 	self parent: aResolver

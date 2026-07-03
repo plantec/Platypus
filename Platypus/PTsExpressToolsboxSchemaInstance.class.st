@@ -515,15 +515,17 @@ END_SCHEMA;
 </ISO10303-11-EXPRESS>
 "
 Class {
-	#name : #PTsExpressToolsboxSchemaInstance,
-	#superclass : #PlatypusCoreSchemaInstance,
+	#name : 'PTsExpressToolsboxSchemaInstance',
+	#superclass : 'PlatypusCoreSchemaInstance',
 	#instVars : [
 		'context'
 	],
-	#category : #'Platypus-ExpressToolsboxSchemaInstance'
+	#category : 'Platypus-ExpressToolsboxSchemaInstance',
+	#package : 'Platypus',
+	#tag : 'ExpressToolsboxSchemaInstance'
 }
 
-{ #category : #'platypus-generated-initializing' }
+{ #category : 'platypus-generated-initializing' }
 PTsExpressToolsboxSchemaInstance class >> initialize [
 	self reinitializeSingleton.
 	self singleton buildIndexes
@@ -531,35 +533,35 @@ PTsExpressToolsboxSchemaInstance class >> initialize [
 
 ]
 
-{ #category : #'platypus-generated-platypus-signature' }
+{ #category : 'platypus-generated-platypus-signature' }
 PTsExpressToolsboxSchemaInstance class >> iso10303P11Translater [
 	^ 'Platypus (c) LISYC EA3883, Universite de Bretagne occidentale. Brest.'
 
 
 ]
 
-{ #category : #'platypus-generated-platypus-signature' }
+{ #category : 'platypus-generated-platypus-signature' }
 PTsExpressToolsboxSchemaInstance class >> translatedFromISO10303P11 [
 	^ true
 
 
 ]
 
-{ #category : #'platypus-generated-platypus-signature' }
+{ #category : 'platypus-generated-platypus-signature' }
 PTsExpressToolsboxSchemaInstance class >> vwNamespaceName [
 	^ #PTs
 
 
 ]
 
-{ #category : #'platypus-generated-context-accessing' }
+{ #category : 'platypus-generated-context-accessing' }
 PTsExpressToolsboxSchemaInstance >> context [
 	^ context
 
 
 ]
 
-{ #category : #'platypus-generated-context-accessing' }
+{ #category : 'platypus-generated-context-accessing' }
 PTsExpressToolsboxSchemaInstance >> context: aContext [
 	context := aContext.
 	super context: aContext
@@ -567,14 +569,14 @@ PTsExpressToolsboxSchemaInstance >> context: aContext [
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 PTsExpressToolsboxSchemaInstance >> externalSchemaInstanceClassNames [
 	^ #(#PltPlatypusMetaSchemasSchemaInstance)
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 PTsExpressToolsboxSchemaInstance >> namesBuilder [
 	| namesBuilder |
 	namesBuilder := self namesBuilderClass new.
@@ -587,35 +589,35 @@ PTsExpressToolsboxSchemaInstance >> namesBuilder [
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 PTsExpressToolsboxSchemaInstance >> namesBuilderClassName [
 	^ #PlatypusNamesBuilder
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 PTsExpressToolsboxSchemaInstance >> repositoryClassName [
 	^ #PTsExpressToolsboxRepository
 
 
 ]
 
-{ #category : #'platypus-generated-schemata-accessing' }
+{ #category : 'platypus-generated-schemata-accessing' }
 PTsExpressToolsboxSchemaInstance >> schemaDefinition1 [
 	^ #(#express_dictionary_queries #PTsExpressDictionaryQueriesSchemaDefinition)
 
 
 ]
 
-{ #category : #'platypus-generated-schemata-accessing' }
+{ #category : 'platypus-generated-schemata-accessing' }
 PTsExpressToolsboxSchemaInstance >> schemaDefinition2 [
 	^ #(#express_toolsbox_functions #PTsExpressToolsboxFunctionsSchemaDefinition)
 
 
 ]
 
-{ #category : #'platypus-generated-schemata-accessing' }
+{ #category : 'platypus-generated-schemata-accessing' }
 PTsExpressToolsboxSchemaInstance >> schemaDefinitionCount [
 	^ 2
 

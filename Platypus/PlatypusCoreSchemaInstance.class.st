@@ -1,6 +1,6 @@
 Class {
-	#name : #PlatypusCoreSchemaInstance,
-	#superclass : #PlatypusCoreContextDefinition,
+	#name : 'PlatypusCoreSchemaInstance',
+	#superclass : 'PlatypusCoreContextDefinition',
 	#instVars : [
 		'metaDataByClassNameIndex',
 		'altMetaDataByClassNameIndex',
@@ -8,27 +8,29 @@ Class {
 		'altClassNamesByMetaDataNameIndex',
 		'splitMarkStack'
 	],
-	#category : #'Platypus-HW-core'
+	#category : 'Platypus-HW-core',
+	#package : 'Platypus',
+	#tag : 'HW-core'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusCoreSchemaInstance class >> reinitializeSingleton [
 	singleton ifNotNil: [singleton schemaDefinitionClasses do: [:c | c reinitializeSingleton]].
 	super reinitializeSingleton
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusCoreSchemaInstance >> altClassNamesByMetaDataNameIndex [
 	^ altClassNamesByMetaDataNameIndex ifNil: [altClassNamesByMetaDataNameIndex := IdentityDictionary new]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusCoreSchemaInstance >> altMetaDataByClassNameIndex [
 
 	^ altMetaDataByClassNameIndex ifNil: [altMetaDataByClassNameIndex := IdentityDictionary new]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusCoreSchemaInstance >> alternativeIndex: aListOfAssociations [
 	altClassNamesByMetaDataNameIndex := nil.
 	altMetaDataByClassNameIndex := nil.
@@ -42,7 +44,7 @@ PlatypusCoreSchemaInstance >> alternativeIndex: aListOfAssociations [
 		
 ]
 
-{ #category : #'private initializing' }
+{ #category : 'private initializing' }
 PlatypusCoreSchemaInstance >> buildIndexes [
 	| sch schClass |
 	metaDataByClassNameIndex
@@ -67,12 +69,12 @@ PlatypusCoreSchemaInstance >> buildIndexes [
 				keysAndValuesDo: [:k :v | metaDataByClassNameIndex at: k put: v]]]  displayingProgress: 'Building meta data indexes'.
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusCoreSchemaInstance >> buildRepository [
 	^ self repositoryClass new
 ]
 
-{ #category : #'private meta data management' }
+{ #category : 'private meta data management' }
 PlatypusCoreSchemaInstance >> buildSplittedContents: baseSelector [ 
 	| result max |
 	result := WriteStream
@@ -88,7 +90,7 @@ PlatypusCoreSchemaInstance >> buildSplittedContents: baseSelector [
 	^ result contents
 ]
 
-{ #category : #'meta data accessing' }
+{ #category : 'meta data accessing' }
 PlatypusCoreSchemaInstance >> classFromEntityName: aString [
 	| key clsname |
 	key := aString asUppercase asSymbol.
@@ -96,12 +98,12 @@ PlatypusCoreSchemaInstance >> classFromEntityName: aString [
 	^ PlatypusPharoSmalltalk at: clsname
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusCoreSchemaInstance >> classNamesByMetaDataNameIndex [
 	^ classNamesByMetaDataNameIndex ifNil: [self buildIndexes. classNamesByMetaDataNameIndex]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusCoreSchemaInstance >> completeExpressSchemaCode [
 	| codeStream |
 	codeStream := WriteStream on: String new.
@@ -111,55 +113,55 @@ PlatypusCoreSchemaInstance >> completeExpressSchemaCode [
 	^ codeStream contents
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusCoreSchemaInstance >> context: aContext [ 
 	self externalSchemaInstanceClassNames
 		do: [:schi | (PlatypusPharoSmalltalk at: schi) singleton context: aContext]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusCoreSchemaInstance >> expressParserClass [
 	^ PlatypusPharoSmalltalk
 		at: #PlatypusExpressParser
 		ifAbsent: []
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusCoreSchemaInstance >> expressSchemaInstanceClass [
 	^ PlatypusPharoSmalltalk
 		at: #PltSchemaInstance
 		ifAbsent: []
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusCoreSchemaInstance >> externalSchemaInstanceClassNames [
 	^ #()
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusCoreSchemaInstance >> externalSchemaInstances [
 	^ self externalSchemaInstanceClassNames
 		collect: [:cls | PlatypusPharoSmalltalk at: cls]
 ]
 
-{ #category : #'initialize-release' }
+{ #category : 'initialize-release' }
 PlatypusCoreSchemaInstance >> initialize [
 	super initialize.
 	splitMarkStack := OrderedCollection new.
 ]
 
-{ #category : #'private splitmark stack (to be obsolete)' }
+{ #category : 'private splitmark stack (to be obsolete)' }
 PlatypusCoreSchemaInstance >> isAFileNamed: aName [ 
 	^ ( FileLocator workingDirectory / aName) exists
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusCoreSchemaInstance >> metaDataByClassNameIndex [
 	^ metaDataByClassNameIndex ifNil: 
 			[self buildIndexes.metaDataByClassNameIndex]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusCoreSchemaInstance >> metaDataFor: aSymbol [ 
 	^ self altMetaDataByClassNameIndex
 		at: aSymbol
@@ -168,18 +170,18 @@ PlatypusCoreSchemaInstance >> metaDataFor: aSymbol [
 				ifAbsent: []] 
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusCoreSchemaInstance >> metaDataForClass: aClass [ 
 	^ self metaDataFor: aClass name asSymbol
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusCoreSchemaInstance >> namesBuilderClass [
 
 	^ PlatypusPharoSmalltalk at: self namesBuilderClassName
 ]
 
-{ #category : #'private splitmark stack (to be obsolete)' }
+{ #category : 'private splitmark stack (to be obsolete)' }
 PlatypusCoreSchemaInstance >> outputFileStreamNamed: aName [ 
 	| filename dir |
 	(dir := ( FileLocator workingDirectory / self resultOutputDirectoryName) ) ensureDirectory.
@@ -187,7 +189,7 @@ PlatypusCoreSchemaInstance >> outputFileStreamNamed: aName [
 	^ filename writeStream
 ]
 
-{ #category : #'meta data accessing' }
+{ #category : 'meta data accessing' }
 PlatypusCoreSchemaInstance >> parsedMetaSchemaInstance [
 	| schemaInstance |
 	schemaInstance  := self expressParserClass schemaInstanceFromSource: self completeExpressSchemaCode.
@@ -195,7 +197,7 @@ PlatypusCoreSchemaInstance >> parsedMetaSchemaInstance [
 	^ schemaInstance
 ]
 
-{ #category : #'private splitmark stack (to be obsolete)' }
+{ #category : 'private splitmark stack (to be obsolete)' }
 PlatypusCoreSchemaInstance >> popSplitmark [
 	Transcript 
 		show: 'Writing ' withCRs , splitMarkStack last name , '\' withCRs.
@@ -203,7 +205,7 @@ PlatypusCoreSchemaInstance >> popSplitmark [
 	splitMarkStack removeLast
 ]
 
-{ #category : #'private splitmark stack (to be obsolete)' }
+{ #category : 'private splitmark stack (to be obsolete)' }
 PlatypusCoreSchemaInstance >> pushSplitmark: aFileName append: appendIt [
 	| contents oldStream |
 	contents := ''.
@@ -217,22 +219,22 @@ PlatypusCoreSchemaInstance >> pushSplitmark: aFileName append: appendIt [
 	appendIt ifTrue: [splitMarkStack last nextPutAll: contents]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusCoreSchemaInstance >> repositoryClass [
 	^ PlatypusPharoSmalltalk at: self repositoryClassName
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusCoreSchemaInstance >> repositoryClassName [
 	^ self subclassResponsibility
 ]
 
-{ #category : #'private splitmark stack (to be obsolete)' }
+{ #category : 'private splitmark stack (to be obsolete)' }
 PlatypusCoreSchemaInstance >> resultOutputDirectoryName [
 	^ 'Platypus-output'
 ]
 
-{ #category : #'private meta data management' }
+{ #category : 'private meta data management' }
 PlatypusCoreSchemaInstance >> schemaDefinitionClassInfos [
 	| result |
 	result := OrderedCollection new.
@@ -243,34 +245,34 @@ PlatypusCoreSchemaInstance >> schemaDefinitionClassInfos [
 	^ result
 ]
 
-{ #category : #'private meta data management' }
+{ #category : 'private meta data management' }
 PlatypusCoreSchemaInstance >> schemaDefinitionClasses [
 	^ self schemaDefinitionClassInfos
 		collect: [:info | PlatypusPharoSmalltalk at: info second asSymbol]
 ]
 
-{ #category : #'private meta data management' }
+{ #category : 'private meta data management' }
 PlatypusCoreSchemaInstance >> schemaDefinitionCount [
 	^ self subclassResponsibility 
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusCoreSchemaInstance >> schemaInstance [
 	^ self
 ]
 
-{ #category : #'private meta data management' }
+{ #category : 'private meta data management' }
 PlatypusCoreSchemaInstance >> schemata [
 	^ self schemaDefinitionClasses
 		collect: [:cls | cls singleton]
 ]
 
-{ #category : #'meta data accessing' }
+{ #category : 'meta data accessing' }
 PlatypusCoreSchemaInstance >> smalltalkTypeOf: aData [ 
 	^ self  namesBuilder smalltalkTypeOf: aData
 ]
 
-{ #category : #'private splitmark stack (to be obsolete)' }
+{ #category : 'private splitmark stack (to be obsolete)' }
 PlatypusCoreSchemaInstance >> splitMarkOutput: aString [
 	splitMarkStack last nextPutAll: aString
 ]

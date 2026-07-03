@@ -1,20 +1,22 @@
 Class {
-	#name : #PlatypusTailRemarkToken,
-	#superclass : #PlatypusRemarkToken,
-	#category : #'Platypus-HW-CodeTokens'
+	#name : 'PlatypusTailRemarkToken',
+	#superclass : 'PlatypusRemarkToken',
+	#category : 'Platypus-HW-CodeTokens',
+	#package : 'Platypus',
+	#tag : 'HW-CodeTokens'
 }
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 PlatypusTailRemarkToken class >> token: anObject [ 
 	^ self new lexicalElement: anObject
 ]
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 PlatypusTailRemarkToken >> accept: aVisitor [ 
 	^ aVisitor acceptTailRemark: self
 ]
 
-{ #category : #converting }
+{ #category : 'converting' }
 PlatypusTailRemarkToken >> asPltRemark [
 	| pltRem |
 	pltRem :=  PltTailRemark new.
@@ -22,12 +24,12 @@ PlatypusTailRemarkToken >> asPltRemark [
 	^pltRem
 ]
 
-{ #category : #converting }
+{ #category : 'converting' }
 PlatypusTailRemarkToken >> asString [
 	^ '--' , self lexicalElement
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 PlatypusTailRemarkToken >> isTailRemark [
 	^ true
 ]

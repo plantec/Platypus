@@ -58,117 +58,119 @@ END_SCHEMA;
 </ISO10303-11-EXPRESS>
 "
 Class {
-	#name : #PltPlatypusAggregateDataSchemaSchemaDefinition,
-	#superclass : #PlatypusCoreSchema,
-	#category : #'Platypus-PlatypusAggregateDataSchemaSchema'
+	#name : 'PltPlatypusAggregateDataSchemaSchemaDefinition',
+	#superclass : 'PlatypusCoreSchema',
+	#category : 'Platypus-PlatypusAggregateDataSchemaSchema',
+	#package : 'Platypus',
+	#tag : 'PlatypusAggregateDataSchemaSchema'
 }
 
-{ #category : #'platypus-generated-platypus-signature' }
+{ #category : 'platypus-generated-platypus-signature' }
 PltPlatypusAggregateDataSchemaSchemaDefinition class >> iso10303P11Translater [
 	^ 'Platypus (c) LISYC EA3883, Universite de Bretagne occidentale. Brest.'
 
 
 ]
 
-{ #category : #'platypus-generated-platypus-signature' }
+{ #category : 'platypus-generated-platypus-signature' }
 PltPlatypusAggregateDataSchemaSchemaDefinition class >> translatedFromISO10303P11 [
 	^ true
 
 
 ]
 
-{ #category : #'platypus-generated-platypus-signature' }
+{ #category : 'platypus-generated-platypus-signature' }
 PltPlatypusAggregateDataSchemaSchemaDefinition class >> vwNamespaceName [
 	^ #Platypus
 
 
 ]
 
-{ #category : #'platypus-generated-context-accessing' }
+{ #category : 'platypus-generated-context-accessing' }
 PltPlatypusAggregateDataSchemaSchemaDefinition >> context [
 	^ self schemaInstance context
 
 
 ]
 
-{ #category : #'platypus-generated-entities' }
+{ #category : 'platypus-generated-entities' }
 PltPlatypusAggregateDataSchemaSchemaDefinition >> entityDefinition1 [
 	^ #(#aggregate_data #PltAggregateData)
 
 
 ]
 
-{ #category : #'platypus-generated-entities' }
+{ #category : 'platypus-generated-entities' }
 PltPlatypusAggregateDataSchemaSchemaDefinition >> entityDefinition2 [
 	^ #(#aggregate_initializer #PltAggregateInitializer)
 
 
 ]
 
-{ #category : #'platypus-generated-entities' }
+{ #category : 'platypus-generated-entities' }
 PltPlatypusAggregateDataSchemaSchemaDefinition >> entityDefinition3 [
 	^ #(#aggregate_initializer_element #PltAggregateInitializerElement)
 
 
 ]
 
-{ #category : #'platypus-generated-entities' }
+{ #category : 'platypus-generated-entities' }
 PltPlatypusAggregateDataSchemaSchemaDefinition >> entityDefinition4 [
 	^ #(#aggregate_instance #PltAggregateInstance)
 
 
 ]
 
-{ #category : #'platypus-generated-entities' }
+{ #category : 'platypus-generated-entities' }
 PltPlatypusAggregateDataSchemaSchemaDefinition >> entityDefinition5 [
 	^ #(#array_instance #PltArrayInstance)
 
 
 ]
 
-{ #category : #'platypus-generated-entities' }
+{ #category : 'platypus-generated-entities' }
 PltPlatypusAggregateDataSchemaSchemaDefinition >> entityDefinition6 [
 	^ #(#variable_size_aggregation_instance #PltVariableSizeAggregationInstance)
 
 
 ]
 
-{ #category : #'platypus-generated-entities' }
+{ #category : 'platypus-generated-entities' }
 PltPlatypusAggregateDataSchemaSchemaDefinition >> entityDefinition7 [
 	^ #(#list_instance #PltListInstance)
 
 
 ]
 
-{ #category : #'platypus-generated-entities' }
+{ #category : 'platypus-generated-entities' }
 PltPlatypusAggregateDataSchemaSchemaDefinition >> entityDefinition8 [
 	^ #(#bag_instance #PltBagInstance)
 
 
 ]
 
-{ #category : #'platypus-generated-entities' }
+{ #category : 'platypus-generated-entities' }
 PltPlatypusAggregateDataSchemaSchemaDefinition >> entityDefinition9 [
 	^ #(#set_instance #PltSetInstance)
 
 
 ]
 
-{ #category : #'platypus-generated-entities' }
+{ #category : 'platypus-generated-entities' }
 PltPlatypusAggregateDataSchemaSchemaDefinition >> entityDefinitionCount [
 	^ 9
 
 
 ]
 
-{ #category : #'platypus-generated-functions' }
+{ #category : 'platypus-generated-functions' }
 PltPlatypusAggregateDataSchemaSchemaDefinition >> functionDeclarationCount [
 	^ 0
 
 
 ]
 
-{ #category : #'platypus-generated-meta-data-accessing' }
+{ #category : 'platypus-generated-meta-data-accessing' }
 PltPlatypusAggregateDataSchemaSchemaDefinition >> schemaInstanceClassName [
 	^ #PltPlatypusMetaSchemasSchemaInstance
 

@@ -2,27 +2,29 @@
 Build a repository of Platypus metamodele instances from a generic repository
 "
 Class {
-	#name : #PlatypusRepositoryBuilder,
-	#superclass : #StepGenericRepositoryAbstractVisitor,
+	#name : 'PlatypusRepositoryBuilder',
+	#superclass : 'StepGenericRepositoryAbstractVisitor',
 	#instVars : [
 		'valuesListStack',
 		'modelContents',
 		'index'
 	],
-	#category : #'Platypus-HW-STEP'
+	#category : 'Platypus-HW-STEP',
+	#package : 'Platypus',
+	#tag : 'HW-STEP'
 }
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 PlatypusRepositoryBuilder class >> folder: aDataFolder  modelContents: aModelContents [ 
 	^ self new folder: aDataFolder modelContents: aModelContents 
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusRepositoryBuilder >> dataInstances [
 	^ modelContents dataInstances
 ]
 
-{ #category : #'data encoding' }
+{ #category : 'data encoding' }
 PlatypusRepositoryBuilder >> doAggregation: aCollection [ 
 	| aggr | 
 	aggr := self new: PltListInstance.
@@ -35,18 +37,18 @@ PlatypusRepositoryBuilder >> doAggregation: aCollection [
 	self top add: aggr
 ]
 
-{ #category : #'data encoding' }
+{ #category : 'data encoding' }
 PlatypusRepositoryBuilder >> doBinary: aBinary [ 
 	self top add: (PltBinaryLiteral val: aBinary)
 
 ]
 
-{ #category : #'data encoding' }
+{ #category : 'data encoding' }
 PlatypusRepositoryBuilder >> doBoolean: b [ 
 	self doLogical: b
 ]
 
-{ #category : #'data encoding' }
+{ #category : 'data encoding' }
 PlatypusRepositoryBuilder >> doEnumeration: aString [ 
 	| domain |
 	aString = #UNKNOWN
@@ -64,7 +66,7 @@ PlatypusRepositoryBuilder >> doEnumeration: aString [
 								element: (domain domain elementSymbolCorrespondingTo: aString))]]]]
 ]
 
-{ #category : #'data encoding' }
+{ #category : 'data encoding' }
 PlatypusRepositoryBuilder >> doExternalRepresentation: inst [ 
 	index 
 		at: inst
@@ -85,7 +87,7 @@ PlatypusRepositoryBuilder >> doExternalRepresentation: inst [
 	^ inst
 ]
 
-{ #category : #'data encoding' }
+{ #category : 'data encoding' }
 PlatypusRepositoryBuilder >> doFolder [
 	| instances |
 	self push: OrderedCollection new.
@@ -101,7 +103,7 @@ PlatypusRepositoryBuilder >> doFolder [
 					modelContents add: self top removeFirst]]
 ]
 
-{ #category : #'data encoding' }
+{ #category : 'data encoding' }
 PlatypusRepositoryBuilder >> doHeaderInstance: h [ 
 	| inst values name |
 	values := h values.
@@ -127,20 +129,20 @@ PlatypusRepositoryBuilder >> doHeaderInstance: h [
 
 ]
 
-{ #category : #'data encoding' }
+{ #category : 'data encoding' }
 PlatypusRepositoryBuilder >> doInstance: inst [ 
 	(inst isKindOf: StepExternalRepresentation)
 		ifTrue: [self doExternalRepresentation: inst]
 		ifFalse: [self doInternalRepresentation: inst]
 ]
 
-{ #category : #'data encoding' }
+{ #category : 'data encoding' }
 PlatypusRepositoryBuilder >> doInstanceRef: i [ 
 	i ref ifNil: [i ref: (folder ifNotNil: [:f | f instanceLabelled: i id])].
 	self doToken: i ref
 ]
 
-{ #category : #'data encoding' }
+{ #category : 'data encoding' }
 PlatypusRepositoryBuilder >> doInternalRepresentation: inst [ 
 	index 
 		at: inst
@@ -163,7 +165,7 @@ PlatypusRepositoryBuilder >> doInternalRepresentation: inst [
 	^ inst
 ]
 
-{ #category : #'data encoding' }
+{ #category : 'data encoding' }
 PlatypusRepositoryBuilder >> doLogical: l [ 
 	self top
 		add: (l = #UNKNOWN
@@ -173,22 +175,22 @@ PlatypusRepositoryBuilder >> doLogical: l [
 						ifFalse: [PltFalseConstant new]])
 ]
 
-{ #category : #'data encoding' }
+{ #category : 'data encoding' }
 PlatypusRepositoryBuilder >> doNullValue: e [ 
 	self top add: PltMissingValue new
 ]
 
-{ #category : #'data encoding' }
+{ #category : 'data encoding' }
 PlatypusRepositoryBuilder >> doNumber: n [ 
 	self top add: (n isFloat ifTrue: [PltRealLiteral val: n] ifFalse: [PltIntegerLiteral val: n])
 ]
 
-{ #category : #'data encoding' }
+{ #category : 'data encoding' }
 PlatypusRepositoryBuilder >> doRedefinedValue: aRedefinedValue [ 
 	self top add: PltRedefinedAttributeValue new
 ]
 
-{ #category : #'data encoding' }
+{ #category : 'data encoding' }
 PlatypusRepositoryBuilder >> doSimpleRecord: aStepRecord [ 
 	| sr |
 	sr := self new: PltSimpleRecord.
@@ -202,7 +204,7 @@ PlatypusRepositoryBuilder >> doSimpleRecord: aStepRecord [
 	^ sr
 ]
 
-{ #category : #'data encoding' }
+{ #category : 'data encoding' }
 PlatypusRepositoryBuilder >> doSingleToken: t [
 	index := IdentityDictionary new.
 	folder instances 
@@ -212,18 +214,18 @@ PlatypusRepositoryBuilder >> doSingleToken: t [
 	^ super doSingleToken: t
 ]
 
-{ #category : #'data encoding' }
+{ #category : 'data encoding' }
 PlatypusRepositoryBuilder >> doString: s [ 
 	self top
 		add: ( PltStringLiteral val: s)
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusRepositoryBuilder >> enumerationTypeNamed: anIdent [ 
 	^ self schemaInstance lookUpEnumerationTypeFromElement: anIdent
 ]
 
-{ #category : #'data encoding' }
+{ #category : 'data encoding' }
 PlatypusRepositoryBuilder >> fileDescriptionHeaderInstance: description implementationLevel: implementationLevel [ 
 	| inst |
 	inst := self new: PltFileDescription.
@@ -232,7 +234,7 @@ PlatypusRepositoryBuilder >> fileDescriptionHeaderInstance: description implemen
 	^ inst
 ]
 
-{ #category : #'data encoding' }
+{ #category : 'data encoding' }
 PlatypusRepositoryBuilder >> fileNameHeaderInstance: name timeStamp: timeStamp authors: author organization: organization preprocessorVersion: preprocessorVersion originatingSystem: originatingSystem authorization: authorization [ 
 	| inst |
 	inst := self new: PltFileName.
@@ -248,7 +250,7 @@ PlatypusRepositoryBuilder >> fileNameHeaderInstance: name timeStamp: timeStamp a
 	^ inst
 ]
 
-{ #category : #'data encoding' }
+{ #category : 'data encoding' }
 PlatypusRepositoryBuilder >> fileSchemaHeaderInstance: aListOfString [ 
 	| inst |
 	inst := self new: PltFileSchema.
@@ -256,18 +258,18 @@ PlatypusRepositoryBuilder >> fileSchemaHeaderInstance: aListOfString [
 	^ inst
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusRepositoryBuilder >> folder: aDataFolder modelContents: aModelContents [
 	self folder: aDataFolder.
 	self modelContents: aModelContents
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusRepositoryBuilder >> headerInstances [
 	^ modelContents headerInstances
 ]
 
-{ #category : #'initialize-release' }
+{ #category : 'initialize-release' }
 PlatypusRepositoryBuilder >> initialize [
 	super initialize.
 	valuesListStack := PlatypusStack new.
@@ -275,7 +277,7 @@ PlatypusRepositoryBuilder >> initialize [
 
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusRepositoryBuilder >> lookUpEntityDefinitionBN: entityName [ 
 	| found type metaData |
 	self schemata
@@ -291,42 +293,42 @@ PlatypusRepositoryBuilder >> lookUpEntityDefinitionBN: entityName [
 	^ type
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusRepositoryBuilder >> modelContents [
 	^modelContents
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusRepositoryBuilder >> modelContents: anObject [
 	modelContents := anObject
 ]
 
-{ #category : #'step instance creation' }
+{ #category : 'step instance creation' }
 PlatypusRepositoryBuilder >> new: aClass [ 
 	^ aClass new stepInitialize
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusRepositoryBuilder >> pop [
 	^ valuesListStack pop
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusRepositoryBuilder >> push: anObject [ 
 	^ valuesListStack push: anObject
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusRepositoryBuilder >> schemaInstance [
 	^ self modelContents schemaInstance
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusRepositoryBuilder >> schemata [
 	^ self modelContents schemata
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusRepositoryBuilder >> top [
 	^ valuesListStack top
 ]

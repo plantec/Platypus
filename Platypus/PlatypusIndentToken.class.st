@@ -1,25 +1,27 @@
 Class {
-	#name : #PlatypusIndentToken,
-	#superclass : #PlatypusGenericToken,
-	#category : #'Platypus-HW-CodeTokens'
+	#name : 'PlatypusIndentToken',
+	#superclass : 'PlatypusGenericToken',
+	#category : 'Platypus-HW-CodeTokens',
+	#package : 'Platypus',
+	#tag : 'HW-CodeTokens'
 }
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 PlatypusIndentToken class >> new [
 	^ super new lexicalElement: String tab
 ]
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 PlatypusIndentToken >> accept: aVisitor [ 
 	^ aVisitor acceptIndent: self
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 PlatypusIndentToken >> isIndent [
 	^true
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusIndentToken >> widthOfStringForFont: textFont [ 
 	textFont notNil
 		ifTrue: [^ 50].

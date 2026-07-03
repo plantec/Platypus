@@ -1,14 +1,16 @@
 Class {
-	#name : #PlatypusInstanceReplacer,
-	#superclass : #PlatypusStepOnePassAbstractVisitor,
+	#name : 'PlatypusInstanceReplacer',
+	#superclass : 'PlatypusStepOnePassAbstractVisitor',
 	#instVars : [
 		'index',
 		'modelContents'
 	],
-	#category : #'Platypus-HW-visitors'
+	#category : 'Platypus-HW-visitors',
+	#package : 'Platypus',
+	#tag : 'HW-visitors'
 }
 
-{ #category : #'visit population schema' }
+{ #category : 'visit population schema' }
 PlatypusInstanceReplacer >> acceptAggregateData: e [ 
 	e contents 
 		doWithIndex: [:v :p |
@@ -18,7 +20,7 @@ PlatypusInstanceReplacer >> acceptAggregateData: e [
 				ifAbsent: [self acceptTry: v]]
 ]
 
-{ #category : #'visit population schema' }
+{ #category : 'visit population schema' }
 PlatypusInstanceReplacer >> acceptExternalRepresentation: e [ 
 	e records 
 		doWithIndex: [:v :p |
@@ -28,7 +30,7 @@ PlatypusInstanceReplacer >> acceptExternalRepresentation: e [
 				ifAbsent: [self acceptTry: v]]
 ]
 
-{ #category : #'visit population schema' }
+{ #category : 'visit population schema' }
 PlatypusInstanceReplacer >> acceptInternalRepresentation: e [ 
 	e parameters 
 		doWithIndex: [:v :p |
@@ -38,7 +40,7 @@ PlatypusInstanceReplacer >> acceptInternalRepresentation: e [
 				ifAbsent: [self acceptTry: v]]
 ]
 
-{ #category : #'visit population schema' }
+{ #category : 'visit population schema' }
 PlatypusInstanceReplacer >> acceptSimpleRecord: e [ 
 	e parameters 
 		doWithIndex: [:v :p |
@@ -48,12 +50,12 @@ PlatypusInstanceReplacer >> acceptSimpleRecord: e [
 				ifAbsent: [self acceptTry: v]]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusInstanceReplacer >> modelContents: anObject [
 	modelContents := anObject
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusInstanceReplacer >> remove: oldInst from: aModelContents [ 
 	| idx |
 	idx := IdentityDictionary new.
@@ -61,7 +63,7 @@ PlatypusInstanceReplacer >> remove: oldInst from: aModelContents [
 	self removeIndex: idx from: aModelContents
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusInstanceReplacer >> removeIndex: aDictionary from: aModelContents [ 
 	index := aDictionary.
 	self modelContents: aModelContents.
@@ -78,7 +80,7 @@ PlatypusInstanceReplacer >> removeIndex: aDictionary from: aModelContents [
 	
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusInstanceReplacer >> replace: oldInst with: newInst in: aModelContents [
 	self modelContents: aModelContents.
 	self replaceInIndexes: oldInst with: newInst.
@@ -88,7 +90,7 @@ PlatypusInstanceReplacer >> replace: oldInst with: newInst in: aModelContents [
 
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusInstanceReplacer >> replaceInIndexes: oldInst with: newInst [
 	| pos |
 	newInst persistentLabel: oldInst persistentLabel.
@@ -108,7 +110,7 @@ PlatypusInstanceReplacer >> replaceInIndexes: oldInst with: newInst [
 
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusInstanceReplacer >> replaceIndex: aDictionary in: aModelContents [
 	index := aDictionary.
 	self modelContents: aModelContents.

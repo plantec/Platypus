@@ -1,6 +1,6 @@
 Class {
-	#name : #PlatypusSchemaInstanceTokenizer,
-	#superclass : #PlatypusStepAbstractVisitor,
+	#name : 'PlatypusSchemaInstanceTokenizer',
+	#superclass : 'PlatypusStepAbstractVisitor',
 	#instVars : [
 		'tokenList',
 		'tokenClassifier',
@@ -9,29 +9,31 @@ Class {
 	#classVars : [
 		'Singleton'
 	],
-	#category : #'Platypus-HW-visitors'
+	#category : 'Platypus-HW-visitors',
+	#package : 'Platypus',
+	#tag : 'HW-visitors'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusSchemaInstanceTokenizer class >> singleton [
 	^ Singleton ifNil: [Singleton := self new]
 ]
 
-{ #category : #'visit aggregate data schema' }
+{ #category : 'visit aggregate data schema' }
 PlatypusSchemaInstanceTokenizer >> acceptAggregateInitializer: e [ 
 	self add: '[' asSymbol.
 	self acceptAll: e contents separator: ',' asSymbol.
 	self add: ']' asSymbol
 ]
 
-{ #category : #'visit dictionary schema' }
+{ #category : 'visit dictionary schema' }
 PlatypusSchemaInstanceTokenizer >> acceptAggregateInitializerDomain: e [ 
 	self add: '[' asSymbol.
 	self acceptAll: e types separator: ',' asSymbol.
 	self add: ']' asSymbol
 ]
 
-{ #category : #'visit expressions schema' }
+{ #category : 'visit expressions schema' }
 PlatypusSchemaInstanceTokenizer >> acceptAggregateInitializerElement: e [ 
 	e val acceptTry: self.
 	e repetition notNil
@@ -39,14 +41,14 @@ PlatypusSchemaInstanceTokenizer >> acceptAggregateInitializerElement: e [
 			e repetition acceptTry: self]
 ]
 
-{ #category : #'visit aggregate data schema' }
+{ #category : 'visit aggregate data schema' }
 PlatypusSchemaInstanceTokenizer >> acceptAggregateInstance: e [ 
 	self add: '[' asSymbol.
 	self acceptAll: e contents separator: ',' asSymbol.
 	self add: ']' asSymbol
 ]
 
-{ #category : #'visit generic' }
+{ #category : 'visit generic' }
 PlatypusSchemaInstanceTokenizer >> acceptAggregationType: e lower: l upper: u symbol: subtype flags: aCollection [ 
 	self add: subtype.
 	l notNil
@@ -63,7 +65,7 @@ PlatypusSchemaInstanceTokenizer >> acceptAggregationType: e lower: l upper: u sy
 	self acceptTry: e elementType
 ]
 
-{ #category : #'visit statements schema' }
+{ #category : 'visit statements schema' }
 PlatypusSchemaInstanceTokenizer >> acceptAliasStatement: e [ 
 	self add: #alias.
 	e variable acceptTry: self.
@@ -73,21 +75,21 @@ PlatypusSchemaInstanceTokenizer >> acceptAliasStatement: e [
 		 add: ';' asSymbol
 ]
 
-{ #category : #'visit statements schema' }
+{ #category : 'visit statements schema' }
 PlatypusSchemaInstanceTokenizer >> acceptAliasStatementVariable: e [ 
 	self add: e name;
 		 add: #for.
 	e ref acceptTry: self
 ]
 
-{ #category : #'visit generic' }
+{ #category : 'visit generic' }
 PlatypusSchemaInstanceTokenizer >> acceptAll: aCollection separator: sep [ 
 	aCollection
 		do: [:each | each acceptTry: self]
 		separatedBy: [self add: sep]
 ]
 
-{ #category : #'visit statements schema' }
+{ #category : 'visit statements schema' }
 PlatypusSchemaInstanceTokenizer >> acceptAssignmentStatement: e [ 
 	
 	e left acceptTry: self.
@@ -96,7 +98,7 @@ PlatypusSchemaInstanceTokenizer >> acceptAssignmentStatement: e [
 	self add: ';' asSymbol
 ]
 
-{ #category : #'visit dictionary schema' }
+{ #category : 'visit dictionary schema' }
 PlatypusSchemaInstanceTokenizer >> acceptAttribute: e [ 
 	self remarksBefore: e.
 	e redeclaring notNil 
@@ -109,19 +111,19 @@ PlatypusSchemaInstanceTokenizer >> acceptAttribute: e [
 	self add: e name
 ]
 
-{ #category : #'visit expressions schema' }
+{ #category : 'visit expressions schema' }
 PlatypusSchemaInstanceTokenizer >> acceptAttributeQualifier: e [ 
 	self add: '.' asSymbol;
 		 add: e attributeName
 ]
 
-{ #category : #'visit dictionary schema' }
+{ #category : 'visit dictionary schema' }
 PlatypusSchemaInstanceTokenizer >> acceptAttributeReference: e [ 
 	
 	self add: e name
 ]
 
-{ #category : #'visit expressions schema' }
+{ #category : 'visit expressions schema' }
 PlatypusSchemaInstanceTokenizer >> acceptBinaryExpression: e [ 
 	(e parenthesis notNil
 			and: [e parenthesis])
@@ -134,7 +136,7 @@ PlatypusSchemaInstanceTokenizer >> acceptBinaryExpression: e [
 		ifTrue: [self add: #')']
 ]
 
-{ #category : #'visit dictionary schema' }
+{ #category : 'visit dictionary schema' }
 PlatypusSchemaInstanceTokenizer >> acceptBinarySupertypeExpression: e [ 
 	(e parenthesis notNil
 			and: [e parenthesis])
@@ -147,7 +149,7 @@ PlatypusSchemaInstanceTokenizer >> acceptBinarySupertypeExpression: e [
 		ifTrue: [self add: #')']
 ]
 
-{ #category : #'visit dictionary schema' }
+{ #category : 'visit dictionary schema' }
 PlatypusSchemaInstanceTokenizer >> acceptBinaryType: e [ 
 	self add: #binary.
 	e width notNil
@@ -156,12 +158,12 @@ PlatypusSchemaInstanceTokenizer >> acceptBinaryType: e [
 			self add: #')']
 ]
 
-{ #category : #'visit dictionary schema' }
+{ #category : 'visit dictionary schema' }
 PlatypusSchemaInstanceTokenizer >> acceptBooleanType: e [ 
 	self add: #boolean
 ]
 
-{ #category : #'visit expressions schema' }
+{ #category : 'visit expressions schema' }
 PlatypusSchemaInstanceTokenizer >> acceptCardinalityExpression: e [ 
 	e leftExpr acceptTry: self.
 	self add: '{' asSymbol.
@@ -172,14 +174,14 @@ PlatypusSchemaInstanceTokenizer >> acceptCardinalityExpression: e [
 	e rightExpr acceptTry: self
 ]
 
-{ #category : #'visit statements schema' }
+{ #category : 'visit statements schema' }
 PlatypusSchemaInstanceTokenizer >> acceptCaseAction: e [ 
 	self acceptAll: e labels separator: ',' asSymbol.
 	self add:  ':' asSymbol.
 	e action acceptTry: self
 ]
 
-{ #category : #'visit statements schema' }
+{ #category : 'visit statements schema' }
 PlatypusSchemaInstanceTokenizer >> acceptCaseStatement: e [ 
 	self add: #case.
 	e selector acceptTry: self.
@@ -193,7 +195,7 @@ PlatypusSchemaInstanceTokenizer >> acceptCaseStatement: e [
 		 add: ';' asSymbol
 ]
 
-{ #category : #'visit statements schema' }
+{ #category : 'visit statements schema' }
 PlatypusSchemaInstanceTokenizer >> acceptCompoundStatement: e [ 
 	self add: #begin.
 	e statements acceptTry: self.
@@ -201,7 +203,7 @@ PlatypusSchemaInstanceTokenizer >> acceptCompoundStatement: e [
 		 add: ';' asSymbol
 ]
 
-{ #category : #'visit dictionary schema' }
+{ #category : 'visit dictionary schema' }
 PlatypusSchemaInstanceTokenizer >> acceptConstantDefinition: e [ 
 	self remarksBefore: e.
 	self add: e name.
@@ -213,7 +215,7 @@ PlatypusSchemaInstanceTokenizer >> acceptConstantDefinition: e [
 
 ]
 
-{ #category : #'visit dictionary schema' }
+{ #category : 'visit dictionary schema' }
 PlatypusSchemaInstanceTokenizer >> acceptContextDefinition: e [ 
 	e constants isEmpty
 		ifFalse: [self add: #constant.
@@ -225,7 +227,7 @@ PlatypusSchemaInstanceTokenizer >> acceptContextDefinition: e [
 	 e algorithmes acceptTry: self
 ]
 
-{ #category : #'visit dictionary schema' }
+{ #category : 'visit dictionary schema' }
 PlatypusSchemaInstanceTokenizer >> acceptDefinedType: e [ 
 	self remarksBefore: e.
 	self
@@ -245,7 +247,7 @@ PlatypusSchemaInstanceTokenizer >> acceptDefinedType: e [
 
 ]
 
-{ #category : #'visit dictionary schema' }
+{ #category : 'visit dictionary schema' }
 PlatypusSchemaInstanceTokenizer >> acceptDerivedAttribute: e [ 
 	self acceptAttribute: e.
 	self add: ':' asSymbol.
@@ -256,12 +258,12 @@ PlatypusSchemaInstanceTokenizer >> acceptDerivedAttribute: e [
 	self remarksAfter: e
 ]
 
-{ #category : #'visit dictionary schema' }
+{ #category : 'visit dictionary schema' }
 PlatypusSchemaInstanceTokenizer >> acceptDictionaryInstanceReference: e [ 
 	self add: e name
 ]
 
-{ #category : #'visit dictionary schema' }
+{ #category : 'visit dictionary schema' }
 PlatypusSchemaInstanceTokenizer >> acceptDomainEquivalentItem: e [ 
 	| |
 	self add: (e nativeItem name).
@@ -270,19 +272,19 @@ PlatypusSchemaInstanceTokenizer >> acceptDomainEquivalentItem: e [
 				 add: e externalItemId]
 ]
 
-{ #category : #'visit expressions schema' }
+{ #category : 'visit expressions schema' }
 PlatypusSchemaInstanceTokenizer >> acceptElementQualifier: e [ 
 	self add: '[' asSymbol.
 	e index acceptTry: self.
 	self add: ']' asSymbol
 ]
 
-{ #category : #'visit dictionary schema' }
+{ #category : 'visit dictionary schema' }
 PlatypusSchemaInstanceTokenizer >> acceptEmbeddedRemark: e [ 
 	self tokenList add: (PlatypusEmbeddedRemarkToken token: e text)
 ]
 
-{ #category : #'visit statements schema' }
+{ #category : 'visit statements schema' }
 PlatypusSchemaInstanceTokenizer >> acceptEndSplitmarkStatement: e [ 
 	self 
 		 add: '{*';
@@ -290,7 +292,7 @@ PlatypusSchemaInstanceTokenizer >> acceptEndSplitmarkStatement: e [
 		 add: '*}'
 ]
 
-{ #category : #'visit dictionary schema' }
+{ #category : 'visit dictionary schema' }
 PlatypusSchemaInstanceTokenizer >> acceptEntityDefinition: e [ 
 	| supertypes |
 	self remarksBefore: e.
@@ -332,12 +334,12 @@ PlatypusSchemaInstanceTokenizer >> acceptEntityDefinition: e [
 		add: ';' asSymbol
 ]
 
-{ #category : #'visit expressions schema' }
+{ #category : 'visit expressions schema' }
 PlatypusSchemaInstanceTokenizer >> acceptEntityInstancesSet: e [ 
 	self add: e entityRef name
 ]
 
-{ #category : #'visit dictionary schema' }
+{ #category : 'visit dictionary schema' }
 PlatypusSchemaInstanceTokenizer >> acceptEnumerationType: e [ 
 	self add: #enumeration;
 		 add: #of;
@@ -348,26 +350,26 @@ PlatypusSchemaInstanceTokenizer >> acceptEnumerationType: e [
 	self add: #')'
 ]
 
-{ #category : #'visit expressions schema' }
+{ #category : 'visit expressions schema' }
 PlatypusSchemaInstanceTokenizer >> acceptEnumerationValue: e [ 
 	self  add: e element
 ]
 
-{ #category : #'visit statements schema' }
+{ #category : 'visit statements schema' }
 PlatypusSchemaInstanceTokenizer >> acceptEscapeStatement: e [ 
 	self 
 		 add: #escape;
 		 add: ';' asSymbol
 ]
 
-{ #category : #'visit expressions schema' }
+{ #category : 'visit expressions schema' }
 PlatypusSchemaInstanceTokenizer >> acceptEscapedExpression: e [ 
 	self add: #%.
 	e expr acceptTry: self.
 	self add: #%
 ]
 
-{ #category : #'visit dictionary schema' }
+{ #category : 'visit dictionary schema' }
 PlatypusSchemaInstanceTokenizer >> acceptExplicitAttribute: e [ 
 	self acceptAttribute: e.
 	self add: ':' asSymbol.
@@ -377,7 +379,7 @@ PlatypusSchemaInstanceTokenizer >> acceptExplicitAttribute: e [
 		self remarksAfter: e
 ]
 
-{ #category : #'visit dictionary schema' }
+{ #category : 'visit dictionary schema' }
 PlatypusSchemaInstanceTokenizer >> acceptExternalSchema: e [ 
 	e isPltExternalMetaSchema
 		ifTrue: [self add: #meta]
@@ -395,13 +397,13 @@ PlatypusSchemaInstanceTokenizer >> acceptExternalSchema: e [
 	self add: ';' asSymbol
 ]
 
-{ #category : #'visit expressions schema' }
+{ #category : 'visit expressions schema' }
 PlatypusSchemaInstanceTokenizer >> acceptFalseConstant: e [ 
 	self 
 		 add: #false
 ]
 
-{ #category : #'visit dictionary schema' }
+{ #category : 'visit dictionary schema' }
 PlatypusSchemaInstanceTokenizer >> acceptFunctionDeclaration: e [ 
 	self remarksBefore: e.
 	self
@@ -431,7 +433,7 @@ PlatypusSchemaInstanceTokenizer >> acceptFunctionDeclaration: e [
 		add: ';' asSymbol
 ]
 
-{ #category : #'visit dictionary schema' }
+{ #category : 'visit dictionary schema' }
 PlatypusSchemaInstanceTokenizer >> acceptGeneralAggregateType: e [ 
 	self add: #aggregate.
 	e typeLabel notNil
@@ -441,7 +443,7 @@ PlatypusSchemaInstanceTokenizer >> acceptGeneralAggregateType: e [
 	self acceptTry: e elementType
 ]
 
-{ #category : #'visit population schema' }
+{ #category : 'visit population schema' }
 PlatypusSchemaInstanceTokenizer >> acceptGenericInstance: e [ 
 	| writer |
 	writer := PlatypusModelContentsStepWriter new.
@@ -450,7 +452,7 @@ PlatypusSchemaInstanceTokenizer >> acceptGenericInstance: e [
 	self add: writer outStream contents
 ]
 
-{ #category : #'visit dictionary schema' }
+{ #category : 'visit dictionary schema' }
 PlatypusSchemaInstanceTokenizer >> acceptGenericType: e [ 
 	self add: #generic.
 	e typeLabel notNil
@@ -458,7 +460,7 @@ PlatypusSchemaInstanceTokenizer >> acceptGenericType: e [
 				 add: e typeLabel]
 ]
 
-{ #category : #'visit dictionary schema' }
+{ #category : 'visit dictionary schema' }
 PlatypusSchemaInstanceTokenizer >> acceptGlobalRule: e [ 
 	self remarksBefore: e.
 	self
@@ -489,13 +491,13 @@ PlatypusSchemaInstanceTokenizer >> acceptGlobalRule: e [
 		add: ';' asSymbol
 ]
 
-{ #category : #'visit expressions schema' }
+{ #category : 'visit expressions schema' }
 PlatypusSchemaInstanceTokenizer >> acceptGroupQualifier: e [ 
 	self add: #\;
 		 add: e groupName
 ]
 
-{ #category : #'visit expressions schema' }
+{ #category : 'visit expressions schema' }
 PlatypusSchemaInstanceTokenizer >> acceptIdentifier: e [ 
 	self add: e name.
 	e parameters
@@ -505,7 +507,7 @@ PlatypusSchemaInstanceTokenizer >> acceptIdentifier: e [
 
 ]
 
-{ #category : #'visit statements schema' }
+{ #category : 'visit statements schema' }
 PlatypusSchemaInstanceTokenizer >> acceptIfStatement: e [ 
 	self add: #if.
 	e selector acceptTry: self.
@@ -519,13 +521,13 @@ PlatypusSchemaInstanceTokenizer >> acceptIfStatement: e [
 		 add: ';' asSymbol
 ]
 
-{ #category : #'visit dictionary schema' }
+{ #category : 'visit dictionary schema' }
 PlatypusSchemaInstanceTokenizer >> acceptIncludeSchema: e [
 	self acceptExternalSchema: e 
 
 ]
 
-{ #category : #'visit statements schema' }
+{ #category : 'visit statements schema' }
 PlatypusSchemaInstanceTokenizer >> acceptIncrementControl: e [ 
 	e variable acceptTry: self.
 	self add: #':='.
@@ -537,17 +539,17 @@ PlatypusSchemaInstanceTokenizer >> acceptIncrementControl: e [
 			e step acceptTry: self]
 ]
 
-{ #category : #'visit statements schema' }
+{ #category : 'visit statements schema' }
 PlatypusSchemaInstanceTokenizer >> acceptIncrementControlVariable: e [ 
 	self add: e variableId
 ]
 
-{ #category : #'visit dictionary schema' }
+{ #category : 'visit dictionary schema' }
 PlatypusSchemaInstanceTokenizer >> acceptIntegerBound: e [ 
 	self add: e boundValue printString
 ]
 
-{ #category : #'visit dictionary schema' }
+{ #category : 'visit dictionary schema' }
 PlatypusSchemaInstanceTokenizer >> acceptIntegerType: e [ 
 	self add: #integer.
 	e precision notNil
@@ -556,7 +558,7 @@ PlatypusSchemaInstanceTokenizer >> acceptIntegerType: e [
 			self add: #')']
 ]
 
-{ #category : #'visit expressions schema' }
+{ #category : 'visit expressions schema' }
 PlatypusSchemaInstanceTokenizer >> acceptInterval: e [ 
 	| andExpression left right |
 	andExpression := e expr.
@@ -571,7 +573,7 @@ PlatypusSchemaInstanceTokenizer >> acceptInterval: e [
 	self add: '}' asSymbol
 ]
 
-{ #category : #'visit dictionary schema' }
+{ #category : 'visit dictionary schema' }
 PlatypusSchemaInstanceTokenizer >> acceptInverseAttribute: e [ 
 	self acceptAttribute: e.
 	self add: ':' asSymbol.
@@ -602,13 +604,13 @@ PlatypusSchemaInstanceTokenizer >> acceptInverseAttribute: e [
 		self remarksAfter: e
 ]
 
-{ #category : #'visit expressions schema' }
+{ #category : 'visit expressions schema' }
 PlatypusSchemaInstanceTokenizer >> acceptLiteral: e [ 
 	self literalEncoder doToken: e val.
 	self add: self literalEncoder flushedContents
 ]
 
-{ #category : #'visit dictionary schema' }
+{ #category : 'visit dictionary schema' }
 PlatypusSchemaInstanceTokenizer >> acceptLocalVariable: e [ 
 	self add: e name;
 		 add:  ':' asSymbol.
@@ -619,19 +621,19 @@ PlatypusSchemaInstanceTokenizer >> acceptLocalVariable: e [
 	self add: ';' asSymbol
 ]
 
-{ #category : #'visit dictionary schema' }
+{ #category : 'visit dictionary schema' }
 PlatypusSchemaInstanceTokenizer >> acceptLogicalType: e [ 
 	self add: #logical
 ]
 
-{ #category : #'visit dictionary schema' }
+{ #category : 'visit dictionary schema' }
 PlatypusSchemaInstanceTokenizer >> acceptMetaConceptDefinition: e [ 
 	self add: #'{'.
 	e metaExpression acceptTry: self.
 	self add: #'}'
 ]
 
-{ #category : #'visit dictionary schema' }
+{ #category : 'visit dictionary schema' }
 PlatypusSchemaInstanceTokenizer >> acceptMetaMappingDefinition: e [ 
 	self add: #map.
 	e definitionPath
@@ -645,7 +647,7 @@ PlatypusSchemaInstanceTokenizer >> acceptMetaMappingDefinition: e [
 		 add: #';'
 ]
 
-{ #category : #'visit dictionary schema' }
+{ #category : 'visit dictionary schema' }
 PlatypusSchemaInstanceTokenizer >> acceptMetaMappingRule: e [ 
 	self add: #map.
 	self add: #to.
@@ -657,23 +659,23 @@ PlatypusSchemaInstanceTokenizer >> acceptMetaMappingRule: e [
 		 add: #';'
 ]
 
-{ #category : #'visit expressions schema' }
+{ #category : 'visit expressions schema' }
 PlatypusSchemaInstanceTokenizer >> acceptMissingValue: e [ 
 	self add: '?' asSymbol
 ]
 
-{ #category : #'visit dictionary schema' }
+{ #category : 'visit dictionary schema' }
 PlatypusSchemaInstanceTokenizer >> acceptNamedTypeReference: e [ 
 	self add: e name.
 ]
 
-{ #category : #'visit dictionary schema' }
+{ #category : 'visit dictionary schema' }
 PlatypusSchemaInstanceTokenizer >> acceptNativeAlgorithme: e [ 
 
 	e implementations do: [:i | i acceptTry: self]
 ]
 
-{ #category : #'visit dictionary schema' }
+{ #category : 'visit dictionary schema' }
 PlatypusSchemaInstanceTokenizer >> acceptNativeCode: e [ 
 	self add: '(*#'.
 	(e languageSignature notNil
@@ -684,29 +686,29 @@ PlatypusSchemaInstanceTokenizer >> acceptNativeCode: e [
 
 ]
 
-{ #category : #'visit expressions schema' }
+{ #category : 'visit expressions schema' }
 PlatypusSchemaInstanceTokenizer >> acceptNativeExpression: e [ 
 	e source acceptTry: self.
 	
 ]
 
-{ #category : #'visit statements schema' }
+{ #category : 'visit statements schema' }
 PlatypusSchemaInstanceTokenizer >> acceptNativeStatement: e [ 
 	e source acceptTry: self.
 
 ]
 
-{ #category : #'visit statements schema' }
+{ #category : 'visit statements schema' }
 PlatypusSchemaInstanceTokenizer >> acceptNullStatement: e [ 
 	self add: ';' asSymbol
 ]
 
-{ #category : #'visit dictionary schema' }
+{ #category : 'visit dictionary schema' }
 PlatypusSchemaInstanceTokenizer >> acceptNumberType: e [ 
 	self add: #number
 ]
 
-{ #category : #'visit dictionary schema' }
+{ #category : 'visit dictionary schema' }
 PlatypusSchemaInstanceTokenizer >> acceptOneofSupertypeExpression: e [ 
 	self 
 		 add: e operatorSymbol;
@@ -715,7 +717,7 @@ PlatypusSchemaInstanceTokenizer >> acceptOneofSupertypeExpression: e [
 	self add: #')'
 ]
 
-{ #category : #'visit statements schema' }
+{ #category : 'visit statements schema' }
 PlatypusSchemaInstanceTokenizer >> acceptOutputStatement: e [ 
 	self 
 		 add: #|.
@@ -724,7 +726,7 @@ PlatypusSchemaInstanceTokenizer >> acceptOutputStatement: e [
 		 add: ';' asSymbol
 ]
 
-{ #category : #'visit dictionary schema' }
+{ #category : 'visit dictionary schema' }
 PlatypusSchemaInstanceTokenizer >> acceptParameterDefinition: e [ 
 	e byCopy
 		ifFalse: [self add: #var].
@@ -733,13 +735,13 @@ PlatypusSchemaInstanceTokenizer >> acceptParameterDefinition: e [
 	self acceptTry: e domain
 ]
 
-{ #category : #'visit statements schema' }
+{ #category : 'visit statements schema' }
 PlatypusSchemaInstanceTokenizer >> acceptProcedureCallStatement: e [
 	super acceptProcedureCallStatement: e.
 	self add: ';' asSymbol
 ]
 
-{ #category : #'visit dictionary schema' }
+{ #category : 'visit dictionary schema' }
 PlatypusSchemaInstanceTokenizer >> acceptProcedureDeclaration: e [ 
 	self remarksBefore: e.
 	self
@@ -767,7 +769,7 @@ PlatypusSchemaInstanceTokenizer >> acceptProcedureDeclaration: e [
 		add: ';' asSymbol
 ]
 
-{ #category : #'visit expressions schema' }
+{ #category : 'visit expressions schema' }
 PlatypusSchemaInstanceTokenizer >> acceptQueryExpression: e [ 
 	self 
 		 add: #query;
@@ -780,13 +782,13 @@ PlatypusSchemaInstanceTokenizer >> acceptQueryExpression: e [
 	self add: #')'
 ]
 
-{ #category : #'visit expressions schema' }
+{ #category : 'visit expressions schema' }
 PlatypusSchemaInstanceTokenizer >> acceptQueryVariable: e [ 
 	self 
 		 add: e variableId
 ]
 
-{ #category : #'visit expressions schema' }
+{ #category : 'visit expressions schema' }
 PlatypusSchemaInstanceTokenizer >> acceptRangeQualifier: e [ 
 	self add: '[' asSymbol.
 	e index1 acceptTry: self.
@@ -795,7 +797,7 @@ PlatypusSchemaInstanceTokenizer >> acceptRangeQualifier: e [
 	self add: ']' asSymbol
 ]
 
-{ #category : #'visit dictionary schema' }
+{ #category : 'visit dictionary schema' }
 PlatypusSchemaInstanceTokenizer >> acceptRealType: e [ 
 	self add: #real.
 	(e precision notNil)
@@ -804,23 +806,23 @@ PlatypusSchemaInstanceTokenizer >> acceptRealType: e [
 			self add: #')']
 ]
 
-{ #category : #'visit expressions schema' }
+{ #category : 'visit expressions schema' }
 PlatypusSchemaInstanceTokenizer >> acceptRedefinedAttributeValue: e [ 
 	^ self add: #'*'
 ]
 
-{ #category : #'visit dictionary schema' }
+{ #category : 'visit dictionary schema' }
 PlatypusSchemaInstanceTokenizer >> acceptReferencedSchema: e [
 	self acceptIncludeSchema: e 
 
 ]
 
-{ #category : #'visit dictionary schema' }
+{ #category : 'visit dictionary schema' }
 PlatypusSchemaInstanceTokenizer >> acceptRemarkReference: e [ 
 	e remark acceptTry: self
 ]
 
-{ #category : #'visit statements schema' }
+{ #category : 'visit statements schema' }
 PlatypusSchemaInstanceTokenizer >> acceptRepeatStatement: e [ 
 	self add: #repeat.
 	e incrControl notNil
@@ -838,7 +840,7 @@ PlatypusSchemaInstanceTokenizer >> acceptRepeatStatement: e [
 		 add: ';' asSymbol
 ]
 
-{ #category : #'visit statements schema' }
+{ #category : 'visit statements schema' }
 PlatypusSchemaInstanceTokenizer >> acceptReturnStatement: e [ 
 	self 
 		 add: #return.
@@ -849,7 +851,7 @@ PlatypusSchemaInstanceTokenizer >> acceptReturnStatement: e [
 	self add: ';' asSymbol
 ]
 
-{ #category : #'visit dictionary schema' }
+{ #category : 'visit dictionary schema' }
 PlatypusSchemaInstanceTokenizer >> acceptSchemaDefinition: e [ 
 	self remarksBefore: e.
 	self add: #schema;
@@ -863,7 +865,7 @@ PlatypusSchemaInstanceTokenizer >> acceptSchemaDefinition: e [
 	self addEol; add: #'end_schema'; add: ';' asSymbol; addEol
 ]
 
-{ #category : #'visit dictionary schema' }
+{ #category : 'visit dictionary schema' }
 PlatypusSchemaInstanceTokenizer >> acceptSelectType: e [ 
 	self add: #select.
 	self add: #'('.
@@ -873,25 +875,25 @@ PlatypusSchemaInstanceTokenizer >> acceptSelectType: e [
 	self add: #')'
 ]
 
-{ #category : #'visit expressions schema' }
+{ #category : 'visit expressions schema' }
 PlatypusSchemaInstanceTokenizer >> acceptSelfIdentifier: e [ 
 	self  add: #self
 ]
 
-{ #category : #'visit expressions schema' }
+{ #category : 'visit expressions schema' }
 PlatypusSchemaInstanceTokenizer >> acceptSimpleUnaryExpression: e [ 
 	self add: e operatorSymbol.
 	e expr acceptTry: self
 ]
 
-{ #category : #'visit statements schema' }
+{ #category : 'visit statements schema' }
 PlatypusSchemaInstanceTokenizer >> acceptSkipStatement: e [ 
 	self 
 		 add: #skip;
 		 add: ';' asSymbol
 ]
 
-{ #category : #'visit statements schema' }
+{ #category : 'visit statements schema' }
 PlatypusSchemaInstanceTokenizer >> acceptSplitmarkStatement: e [ 
 	self add: #'{*';
 		 add: #splitmark.
@@ -900,7 +902,7 @@ PlatypusSchemaInstanceTokenizer >> acceptSplitmarkStatement: e [
 	self add: #'*}'
 ]
 
-{ #category : #'visit dictionary schema' }
+{ #category : 'visit dictionary schema' }
 PlatypusSchemaInstanceTokenizer >> acceptStringType: e [ 
 	self add: #string.
 	e width notNil
@@ -909,12 +911,12 @@ PlatypusSchemaInstanceTokenizer >> acceptStringType: e [
 			self add: #')']
 ]
 
-{ #category : #'visit dictionary schema' }
+{ #category : 'visit dictionary schema' }
 PlatypusSchemaInstanceTokenizer >> acceptSubEntityRefExpression: e [ 
 	self add: e entityRef name
 ]
 
-{ #category : #'visit dictionary schema' }
+{ #category : 'visit dictionary schema' }
 PlatypusSchemaInstanceTokenizer >> acceptSupertypeConstraint: e [ 
 	(e constrained ref notNil and: [e constrained ref instantiable])
 		ifTrue: [self add: #supertype]
@@ -927,18 +929,18 @@ PlatypusSchemaInstanceTokenizer >> acceptSupertypeConstraint: e [
 			self add: #')']
 ]
 
-{ #category : #'visit dictionary schema' }
+{ #category : 'visit dictionary schema' }
 PlatypusSchemaInstanceTokenizer >> acceptTailRemark: e [ 
 	self tokenList add: (PlatypusTailRemarkToken token: e text)
 ]
 
-{ #category : #'visit expressions schema' }
+{ #category : 'visit expressions schema' }
 PlatypusSchemaInstanceTokenizer >> acceptTrueConstant: e [ 
 	self 
 		 add: #true
 ]
 
-{ #category : #'visit expressions schema' }
+{ #category : 'visit expressions schema' }
 PlatypusSchemaInstanceTokenizer >> acceptTypedExpression: e [ 
 	self add: e domain name;
 		 add: #'('.
@@ -946,7 +948,7 @@ PlatypusSchemaInstanceTokenizer >> acceptTypedExpression: e [
 	self add: #')'
 ]
 
-{ #category : #'visit dictionary schema' }
+{ #category : 'visit dictionary schema' }
 PlatypusSchemaInstanceTokenizer >> acceptUniquenessRule: e [ 
 	self remarksBefore: e.
 		e label notNil 
@@ -960,19 +962,19 @@ PlatypusSchemaInstanceTokenizer >> acceptUniquenessRule: e [
 	self remarksAfter: e
 ]
 
-{ #category : #'visit expressions schema' }
+{ #category : 'visit expressions schema' }
 PlatypusSchemaInstanceTokenizer >> acceptUnknownConstant: e [ 
 	self 
 		 add: #unknown
 ]
 
-{ #category : #'visit dictionary schema' }
+{ #category : 'visit dictionary schema' }
 PlatypusSchemaInstanceTokenizer >> acceptUsedSchema: e [
 	self acceptIncludeSchema: e 
 
 ]
 
-{ #category : #'visit dictionary schema' }
+{ #category : 'visit dictionary schema' }
 PlatypusSchemaInstanceTokenizer >> acceptWhereRule: e [ 
 	self remarksBefore: e.
 	e label notNil 
@@ -985,7 +987,7 @@ PlatypusSchemaInstanceTokenizer >> acceptWhereRule: e [
 	self remarksAfter: e
 ]
 
-{ #category : #adding }
+{ #category : 'adding' }
 PlatypusSchemaInstanceTokenizer >> add: aLexicalElement [ 
 	| tokenClass |
 	tokenClass := tokenClassifier tokenClassFromString: aLexicalElement
@@ -993,45 +995,45 @@ PlatypusSchemaInstanceTokenizer >> add: aLexicalElement [
 	self tokenList add: (tokenClass token: aLexicalElement)
 ]
 
-{ #category : #adding }
+{ #category : 'adding' }
 PlatypusSchemaInstanceTokenizer >> addAll: aCollection [
 	aCollection do: [:e | self add: e]
 ]
 
-{ #category : #adding }
+{ #category : 'adding' }
 PlatypusSchemaInstanceTokenizer >> addEol [
 	self tokenList add: PlatypusEolToken new
 ]
 
-{ #category : #initializing }
+{ #category : 'initializing' }
 PlatypusSchemaInstanceTokenizer >> initialize [
 	tokenList := PlatypusTokenList new.
 	tokenClassifier := PlatypusExpressTokenClassifier new.
 	super initialize
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusSchemaInstanceTokenizer >> literalEncoder [
 	^ literalEncoder
 		ifNil: [literalEncoder := PlatypusCoreRepositoryStepFileWriter new]
 ]
 
-{ #category : #'visit dictionary schema' }
+{ #category : 'visit dictionary schema' }
 PlatypusSchemaInstanceTokenizer >> remarksAfter: e [ 
 	(e relatedRemarks select: [:r | r isPltTailRemark]) acceptTry: self
 ]
 
-{ #category : #'visit dictionary schema' }
+{ #category : 'visit dictionary schema' }
 PlatypusSchemaInstanceTokenizer >> remarksBefore: e [ 
 	(e relatedRemarks select: [:r | r isPltEmbeddedRemark]) acceptTry: self
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusSchemaInstanceTokenizer >> tokenList [
 	^ tokenList
 ]
 
-{ #category : #'public tokenizing' }
+{ #category : 'public tokenizing' }
 PlatypusSchemaInstanceTokenizer >> tokenize: anPlatypusDictionaryInstance [ 
 	tokenList := PlatypusTokenList new.
 	self acceptTry: anPlatypusDictionaryInstance.

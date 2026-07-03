@@ -1,50 +1,52 @@
 Class {
-	#name : #PTsInheritedAttributesFunction,
-	#superclass : #PlatypusCoreAlgorithmDeclaration,
+	#name : 'PTsInheritedAttributesFunction',
+	#superclass : 'PlatypusCoreAlgorithmDeclaration',
 	#instVars : [
 		'e',
 		'res',
 		'allsups'
 	],
-	#category : #'Platypus-ExpressDictionaryQueriesSchema'
+	#category : 'Platypus-ExpressDictionaryQueriesSchema',
+	#package : 'Platypus',
+	#tag : 'ExpressDictionaryQueriesSchema'
 }
 
-{ #category : #'platypus-generated-platypus-signature' }
+{ #category : 'platypus-generated-platypus-signature' }
 PTsInheritedAttributesFunction class >> iso10303P11Translater [
 	^ 'Platypus (c) LISYC EA3883, Universite de Bretagne occidentale. Brest.'
 
 
 ]
 
-{ #category : #'platypus-generated-meta-data-accessing' }
+{ #category : 'platypus-generated-meta-data-accessing' }
 PTsInheritedAttributesFunction class >> schemaDefinition [
 	^ PTsExpressDictionaryQueriesSchemaDefinition singleton
 
 
 ]
 
-{ #category : #'platypus-generated-platypus-signature' }
+{ #category : 'platypus-generated-platypus-signature' }
 PTsInheritedAttributesFunction class >> translatedFromISO10303P11 [
 	^ true
 
 
 ]
 
-{ #category : #'platypus-generated-platypus-signature' }
+{ #category : 'platypus-generated-platypus-signature' }
 PTsInheritedAttributesFunction class >> vwNamespaceName [
 	^ #PTs
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 PTsInheritedAttributesFunction >> allsups [
 	^ allsups
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 PTsInheritedAttributesFunction >> allsups: aListOfPTsEntityDefinition [
 	allsups := aListOfPTsEntityDefinition
 		ifNil: [ OrderedCollection new ]
@@ -53,28 +55,28 @@ PTsInheritedAttributesFunction >> allsups: aListOfPTsEntityDefinition [
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 PTsInheritedAttributesFunction >> e [
 	^ e
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 PTsInheritedAttributesFunction >> e: aPTsEntityDefinition [
 	e := aPTsEntityDefinition
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 PTsInheritedAttributesFunction >> fromValues: values [
 	self e: (values at: 1)
 
 
 ]
 
-{ #category : #'platypus-generated-invoking' }
+{ #category : 'platypus-generated-invoking' }
 PTsInheritedAttributesFunction >> invoke [
 	" ---------- locals assignments ----------"
 
@@ -105,14 +107,14 @@ PTsInheritedAttributesFunction >> invoke [
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 PTsInheritedAttributesFunction >> res [
 	^ res
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 PTsInheritedAttributesFunction >> res: aListOfPTsAttribute [
 	res := aListOfPTsAttribute ifNil: [ OrderedCollection new ] ifNotNil: [ aListOfPTsAttribute as: OrderedCollection ]
 

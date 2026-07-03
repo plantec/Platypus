@@ -1,106 +1,108 @@
 Class {
-	#name : #StepGenericRepositoryAbstractVisitor,
-	#superclass : #StepCoreObject,
+	#name : 'StepGenericRepositoryAbstractVisitor',
+	#superclass : 'StepCoreObject',
 	#instVars : [
 		'folder',
 		'actionMethodsIndex'
 	],
-	#category : #'Platypus-STEP-core'
+	#category : 'Platypus-STEP-core',
+	#package : 'Platypus',
+	#tag : 'STEP-core'
 }
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 StepGenericRepositoryAbstractVisitor class >> folder: aDataFolder [
 	^ self new folder:  aDataFolder
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 StepGenericRepositoryAbstractVisitor >> actionMethodsIndex [
 	^ actionMethodsIndex
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 StepGenericRepositoryAbstractVisitor >> actionMethodsIndex: anIndex [ 
 	actionMethodsIndex := anIndex
 ]
 
-{ #category : #'data encoding' }
+{ #category : 'data encoding' }
 StepGenericRepositoryAbstractVisitor >> doAggregation: a [ 
 	self subclassResponsibility
 ]
 
-{ #category : #'data encoding' }
+{ #category : 'data encoding' }
 StepGenericRepositoryAbstractVisitor >> doBoolean: b [
 	self subclassResponsibility
 ]
 
-{ #category : #'data encoding' }
+{ #category : 'data encoding' }
 StepGenericRepositoryAbstractVisitor >> doEnumeration: e [ 
 		self subclassResponsibility
 ]
 
-{ #category : #'data encoding' }
+{ #category : 'data encoding' }
 StepGenericRepositoryAbstractVisitor >> doExternalRepresentation: inst [ 
 	self subclassResponsibility
 ]
 
-{ #category : #'data encoding' }
+{ #category : 'data encoding' }
 StepGenericRepositoryAbstractVisitor >> doFolder [
 	self subclassResponsibility 
 ]
 
-{ #category : #'data encoding' }
+{ #category : 'data encoding' }
 StepGenericRepositoryAbstractVisitor >> doInstance: inst [ 
 	self subclassResponsibility 
 ]
 
-{ #category : #'data encoding' }
+{ #category : 'data encoding' }
 StepGenericRepositoryAbstractVisitor >> doInstanceRef: i [ 
 		self subclassResponsibility
 ]
 
-{ #category : #'data encoding' }
+{ #category : 'data encoding' }
 StepGenericRepositoryAbstractVisitor >> doInternalRepresentation: inst [ 
 	self subclassResponsibility
 ]
 
-{ #category : #'data encoding' }
+{ #category : 'data encoding' }
 StepGenericRepositoryAbstractVisitor >> doLogical: l [ 
 		self subclassResponsibility
 ]
 
-{ #category : #'data encoding' }
+{ #category : 'data encoding' }
 StepGenericRepositoryAbstractVisitor >> doNullValue [
 	self subclassResponsibility
 ]
 
-{ #category : #'data encoding' }
+{ #category : 'data encoding' }
 StepGenericRepositoryAbstractVisitor >> doNumber: n [ 
 	self subclassResponsibility
 ]
 
-{ #category : #'data encoding' }
+{ #category : 'data encoding' }
 StepGenericRepositoryAbstractVisitor >> doObject: b [ 
 	self error: 'Unknown data kind'
 ]
 
-{ #category : #'data encoding' }
+{ #category : 'data encoding' }
 StepGenericRepositoryAbstractVisitor >> doRedefinedValue: e [ 
 	self subclassResponsibility
 ]
 
-{ #category : #'data encoding' }
+{ #category : 'data encoding' }
 StepGenericRepositoryAbstractVisitor >> doSingleToken: t [ 
 	self push: OrderedCollection new.
 	self doToken: t.
 	^ self pop first
 ]
 
-{ #category : #'data encoding' }
+{ #category : 'data encoding' }
 StepGenericRepositoryAbstractVisitor >> doString: s [ 
 		self subclassResponsibility
 ]
 
-{ #category : #'data encoding' }
+{ #category : 'data encoding' }
 StepGenericRepositoryAbstractVisitor >> doToken: t [ 
 	(t = $$ or: [t isNil])
 		ifTrue: [self doNullValue: nil]
@@ -111,12 +113,12 @@ StepGenericRepositoryAbstractVisitor >> doToken: t [
 	^ nil
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 StepGenericRepositoryAbstractVisitor >> folder: aDataFolder [
 	folder := aDataFolder
 ]
 
-{ #category : #'initialize/release' }
+{ #category : 'initialize/release' }
 StepGenericRepositoryAbstractVisitor >> initialize [
 	super initialize.
 	self actionMethodsIndex: OrderedCollection new.
@@ -146,7 +148,7 @@ StepGenericRepositoryAbstractVisitor >> initialize [
 		add: (Association key: Object value: #doObject:)
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 StepGenericRepositoryAbstractVisitor >> oidOf: anInstance [ 
 	^folder ifNil: [-1] ifNotNil: [folder oidOf: anInstance]
 ]

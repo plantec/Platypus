@@ -434,15 +434,17 @@ END_SCHEMA;
 </ISO10303-11-EXPRESS>
 "
 Class {
-	#name : #PltPlatypusExpressPrimitivesSchemaInstance,
-	#superclass : #PlatypusCoreSchemaInstance,
+	#name : 'PltPlatypusExpressPrimitivesSchemaInstance',
+	#superclass : 'PlatypusCoreSchemaInstance',
 	#instVars : [
 		'context'
 	],
-	#category : #'Platypus-PlatypusExpressPrimitivesSchemaInstance'
+	#category : 'Platypus-PlatypusExpressPrimitivesSchemaInstance',
+	#package : 'Platypus',
+	#tag : 'PlatypusExpressPrimitivesSchemaInstance'
 }
 
-{ #category : #'platypus-generated-initializing' }
+{ #category : 'platypus-generated-initializing' }
 PltPlatypusExpressPrimitivesSchemaInstance class >> bootstraps [
 	self reinitializeSingleton.
 	self singleton buildIndexes
@@ -450,35 +452,35 @@ PltPlatypusExpressPrimitivesSchemaInstance class >> bootstraps [
 
 ]
 
-{ #category : #'platypus-generated-platypus-signature' }
+{ #category : 'platypus-generated-platypus-signature' }
 PltPlatypusExpressPrimitivesSchemaInstance class >> iso10303P11Translater [
 	^ 'Platypus (c) LISYC EA3883, Universite de Bretagne occidentale. Brest.'
 
 
 ]
 
-{ #category : #'platypus-generated-platypus-signature' }
+{ #category : 'platypus-generated-platypus-signature' }
 PltPlatypusExpressPrimitivesSchemaInstance class >> translatedFromISO10303P11 [
 	^ true
 
 
 ]
 
-{ #category : #'platypus-generated-platypus-signature' }
+{ #category : 'platypus-generated-platypus-signature' }
 PltPlatypusExpressPrimitivesSchemaInstance class >> vwNamespaceName [
 	^ #Platypus
 
 
 ]
 
-{ #category : #'platypus-generated-context-accessing' }
+{ #category : 'platypus-generated-context-accessing' }
 PltPlatypusExpressPrimitivesSchemaInstance >> context [
 	^ context
 
 
 ]
 
-{ #category : #'platypus-generated-context-accessing' }
+{ #category : 'platypus-generated-context-accessing' }
 PltPlatypusExpressPrimitivesSchemaInstance >> context: aContext [
 	context := aContext.
 	super context: aContext
@@ -486,14 +488,14 @@ PltPlatypusExpressPrimitivesSchemaInstance >> context: aContext [
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 PltPlatypusExpressPrimitivesSchemaInstance >> externalSchemaInstanceClassNames [
 	^ #()
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 PltPlatypusExpressPrimitivesSchemaInstance >> namesBuilder [
 	| namesBuilder |
 	namesBuilder := self namesBuilderClass new.
@@ -506,28 +508,28 @@ PltPlatypusExpressPrimitivesSchemaInstance >> namesBuilder [
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 PltPlatypusExpressPrimitivesSchemaInstance >> namesBuilderClassName [
 	^ #PlatypusNamesBuilder
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 PltPlatypusExpressPrimitivesSchemaInstance >> repositoryClassName [
 	^ #PltPlatypusExpressPrimitivesRepository
 
 
 ]
 
-{ #category : #'platypus-generated-schemata-accessing' }
+{ #category : 'platypus-generated-schemata-accessing' }
 PltPlatypusExpressPrimitivesSchemaInstance >> schemaDefinition1 [
 	^ #(#EXPRESS_builtins #PltExpressBuiltinsSchemaDefinition)
 
 
 ]
 
-{ #category : #'platypus-generated-schemata-accessing' }
+{ #category : 'platypus-generated-schemata-accessing' }
 PltPlatypusExpressPrimitivesSchemaInstance >> schemaDefinitionCount [
 	^ 1
 

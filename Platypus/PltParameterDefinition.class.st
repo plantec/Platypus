@@ -10,217 +10,219 @@ END_ENTITY;
 </ISO10303-11-EXPRESS>
 "
 Class {
-	#name : #PltParameterDefinition,
-	#superclass : #PltDictionaryInstance,
+	#name : 'PltParameterDefinition',
+	#superclass : 'PltDictionaryInstance',
 	#instVars : [
 		'domain',
 		'byCopy',
 		'name'
 	],
-	#category : #'Platypus-PlatypusDictionarySchemaSchema'
+	#category : 'Platypus-PlatypusDictionarySchemaSchema',
+	#package : 'Platypus',
+	#tag : 'PlatypusDictionarySchemaSchema'
 }
 
-{ #category : #'platypus-generated-context-accessing' }
+{ #category : 'platypus-generated-context-accessing' }
 PltParameterDefinition class >> context [ ^ self schemaDefinition context
 
 
 ]
 
-{ #category : #'platypus-generated-platypus-signature' }
+{ #category : 'platypus-generated-platypus-signature' }
 PltParameterDefinition class >> iso10303P11Translater [
 	^ 'Platypus (c) LISYC EA3883, Universite de Bretagne occidentale. Brest.'
 
 
 ]
 
-{ #category : #'platypus-generated-meta-data-accessing' }
+{ #category : 'platypus-generated-meta-data-accessing' }
 PltParameterDefinition class >> platypusMetaData [ 	^ self schemaDefinition metaDataFor: self name asSymbol
 
 
 ]
 
-{ #category : #'platypus-generated-meta-data-accessing' }
+{ #category : 'platypus-generated-meta-data-accessing' }
 PltParameterDefinition class >> schemaDefinition [
 	^ PltPlatypusDictionarySchemaSchemaDefinition singleton
 
 
 ]
 
-{ #category : #'platypus-generated-meta-data-accessing' }
+{ #category : 'platypus-generated-meta-data-accessing' }
 PltParameterDefinition class >> schemaInstance [
 	^ PltPlatypusMetaSchemasSchemaInstance singleton
 
 
 ]
 
-{ #category : #'platypus-generated-platypus-signature' }
+{ #category : 'platypus-generated-platypus-signature' }
 PltParameterDefinition class >> translatedFromISO10303P11 [
 	^ true
 
 
 ]
 
-{ #category : #'platypus-generated-platypus-signature' }
+{ #category : 'platypus-generated-platypus-signature' }
 PltParameterDefinition class >> vwNamespaceName [
 	^ #Platypus
 
 
 ]
 
-{ #category : #'platypus-generated-visiting' }
+{ #category : 'platypus-generated-visiting' }
 PltParameterDefinition >> accept: aVisitor [
 	^ aVisitor acceptParameterDefinition: self
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 PltParameterDefinition >> byCopy [
 	^ byCopy
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 PltParameterDefinition >> byCopy: aBoolean [
 	byCopy := aBoolean
 
 
 ]
 
-{ #category : #'platypus-generated-with-context-accessing' }
+{ #category : 'platypus-generated-with-context-accessing' }
 PltParameterDefinition >> byCopyUsingContext: aContext [
 	^ self byCopy
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 PltParameterDefinition >> domain [
 	^ domain
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 PltParameterDefinition >> domain: aPltParameterType [
 	domain := aPltParameterType
 
 
 ]
 
-{ #category : #'platypus-generated-with-context-accessing' }
+{ #category : 'platypus-generated-with-context-accessing' }
 PltParameterDefinition >> domainUsingContext: aContext [
 	^ self domain
 
 
 ]
 
-{ #category : #'platypus-generated-fast-set-accessing' }
+{ #category : 'platypus-generated-fast-set-accessing' }
 PltParameterDefinition >> fastSetByCopy: aBoolean [
 	byCopy := aBoolean
 
 
 ]
 
-{ #category : #'platypus-generated-fast-set-accessing' }
+{ #category : 'platypus-generated-fast-set-accessing' }
 PltParameterDefinition >> fastSetDomain: aPltParameterType [
 	domain := aPltParameterType
 
 
 ]
 
-{ #category : #'platypus-generated-fast-set-accessing' }
+{ #category : 'platypus-generated-fast-set-accessing' }
 PltParameterDefinition >> fastSetName: aString [
 	name := aString
 
 
 ]
 
-{ #category : #'platypus-generated-fast-set-accessing' }
+{ #category : 'platypus-generated-fast-set-accessing' }
 PltParameterDefinition >> fastSetOwner: aPltAlgorithmDeclaration [
 	owner := aPltAlgorithmDeclaration
 
 
 ]
 
-{ #category : #'platypus-generated-group-accessing' }
+{ #category : 'platypus-generated-group-accessing' }
 PltParameterDefinition >> fromValues: values [
 	^ self parameterDefinitionFromValues: (super fromValues: values)
 
 
 ]
 
-{ #category : #'platypus-generated-classifying' }
+{ #category : 'platypus-generated-classifying' }
 PltParameterDefinition >> isPltParameterDefinition [
 	^ true
 
 
 ]
 
-{ #category : #'platypus-generated-group-accessing' }
+{ #category : 'platypus-generated-group-accessing' }
 PltParameterDefinition >> localFromValues: values [
 	^ self parameterDefinitionFromValues: values
 
 
 ]
 
-{ #category : #'platypus-generated-group-accessing' }
+{ #category : 'platypus-generated-group-accessing' }
 PltParameterDefinition >> localToValues: values [
 	^ self parameterDefinitionToValues: values
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 PltParameterDefinition >> name [
 	^ name
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 PltParameterDefinition >> name: aString [
 	name := aString
 
 
 ]
 
-{ #category : #'platypus-generated-with-context-accessing' }
+{ #category : 'platypus-generated-with-context-accessing' }
 PltParameterDefinition >> nameUsingContext: aContext [
 	^ self name
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 PltParameterDefinition >> owner [
 	^ owner
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 PltParameterDefinition >> owner: aPltAlgorithmDeclaration [
 	owner := aPltAlgorithmDeclaration
 
 
 ]
 
-{ #category : #'platypus-generated-group-accessing' }
+{ #category : 'platypus-generated-group-accessing' }
 PltParameterDefinition >> owner: aPltAlgorithmDeclaration name: aString byCopy: aBoolean domain: aPltParameterType [ 	self setOwner:aPltAlgorithmDeclaration.	self setName:aString.	self setByCopy:aBoolean.	self setDomain:aPltParameterType.
 
 
 ]
 
-{ #category : #'platypus-generated-with-context-accessing' }
+{ #category : 'platypus-generated-with-context-accessing' }
 PltParameterDefinition >> ownerUsingContext: aContext [
 	^ self owner
 
 
 ]
 
-{ #category : #'platypus-generated-copying' }
+{ #category : 'platypus-generated-copying' }
 PltParameterDefinition >> parameterDefinitionCopyTo: another [
 	another fastSetOwner: self owner.
 	another fastSetName: self name.
@@ -230,7 +232,7 @@ PltParameterDefinition >> parameterDefinitionCopyTo: another [
 
 ]
 
-{ #category : #'platypus-generated-group-accessing' }
+{ #category : 'platypus-generated-group-accessing' }
 PltParameterDefinition >> parameterDefinitionFromValues: values [
 	| valuesloc |
 	valuesloc := values asOrderedCollection.
@@ -243,7 +245,7 @@ PltParameterDefinition >> parameterDefinitionFromValues: values [
 
 ]
 
-{ #category : #'platypus-generated-group-accessing' }
+{ #category : 'platypus-generated-group-accessing' }
 PltParameterDefinition >> parameterDefinitionToValues: values [
 	values add: self owner.
 	values add: self name.
@@ -254,7 +256,7 @@ PltParameterDefinition >> parameterDefinitionToValues: values [
 
 ]
 
-{ #category : #'platypus-generated-copying' }
+{ #category : 'platypus-generated-copying' }
 PltParameterDefinition >> pltCopyGroup: aClassSymbol to: anObject [
 	self class name == aClassSymbol
 		ifTrue: [ self pltCopyTo: anObject ]
@@ -263,7 +265,7 @@ PltParameterDefinition >> pltCopyGroup: aClassSymbol to: anObject [
 
 ]
 
-{ #category : #'platypus-generated-copying' }
+{ #category : 'platypus-generated-copying' }
 PltParameterDefinition >> pltCopyTo: another [
 	super pltCopyTo: another.
 	self parameterDefinitionCopyTo: another
@@ -271,42 +273,42 @@ PltParameterDefinition >> pltCopyTo: another [
 
 ]
 
-{ #category : #'platypus-generated-copying' }
+{ #category : 'platypus-generated-copying' }
 PltParameterDefinition >> pltLocalCopyTo: another [
 	self parameterDefinitionCopyTo: another
 
 
 ]
 
-{ #category : #'platypus-generated-set-accessing' }
+{ #category : 'platypus-generated-set-accessing' }
 PltParameterDefinition >> setByCopy: aBoolean [
 	self byCopy: aBoolean
 
 
 ]
 
-{ #category : #'platypus-generated-set-accessing' }
+{ #category : 'platypus-generated-set-accessing' }
 PltParameterDefinition >> setDomain: aPltParameterType [
 	self domain: aPltParameterType
 
 
 ]
 
-{ #category : #'platypus-generated-set-accessing' }
+{ #category : 'platypus-generated-set-accessing' }
 PltParameterDefinition >> setName: aString [
 	self name: aString
 
 
 ]
 
-{ #category : #'platypus-generated-set-accessing' }
+{ #category : 'platypus-generated-set-accessing' }
 PltParameterDefinition >> setOwner: aPltAlgorithmDeclaration [
 	self owner: aPltAlgorithmDeclaration
 
 
 ]
 
-{ #category : #'platypus-generated-initializing' }
+{ #category : 'platypus-generated-initializing' }
 PltParameterDefinition >> stepInitialize [
 	super stepInitialize.
 	owner := nil.
@@ -317,7 +319,7 @@ PltParameterDefinition >> stepInitialize [
 
 ]
 
-{ #category : #'platypus-generated-group-accessing' }
+{ #category : 'platypus-generated-group-accessing' }
 PltParameterDefinition >> toValues: values [
 	^ self parameterDefinitionToValues: (super toValues: values)
 

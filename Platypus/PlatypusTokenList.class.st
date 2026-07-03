@@ -1,50 +1,52 @@
 Class {
-	#name : #PlatypusTokenList,
-	#superclass : #Object,
+	#name : 'PlatypusTokenList',
+	#superclass : 'Object',
 	#instVars : [
 		'tokens'
 	],
-	#category : #'Platypus-HW-CodeTokens'
+	#category : 'Platypus-HW-CodeTokens',
+	#package : 'Platypus',
+	#tag : 'HW-CodeTokens'
 }
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 PlatypusTokenList class >> tokens: aDLinkedList [
 	^ self new tokens: aDLinkedList
 ]
 
-{ #category : #adding }
+{ #category : 'adding' }
 PlatypusTokenList >> add: aToken [ 
 	tokens
 		add: aToken
 ]
 
-{ #category : #adding }
+{ #category : 'adding' }
 PlatypusTokenList >> addAll: anotherTokenList [ 
 	^ tokens addAll: anotherTokenList tokens
 ]
 
-{ #category : #adding }
+{ #category : 'adding' }
 PlatypusTokenList >> addAll: anotherList before: oldObject [ 
 	^ tokens addAll: anotherList beforeIndex: (tokens indexOf: oldObject)
 ]
 
-{ #category : #adding }
+{ #category : 'adding' }
 PlatypusTokenList >> addFirst: aToken [ 
 	tokens addFirst: aToken
 ]
 
-{ #category : #converting }
+{ #category : 'converting' }
 PlatypusTokenList >> asArray [
 	^ self tokens asArray
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusTokenList >> at: pos [
 
 	^ tokens at: pos
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusTokenList >> beginningOfLineFrom: aNode [ 
 	| currNode whiteSpaceTouched |
 	aNode isNil
@@ -66,12 +68,12 @@ PlatypusTokenList >> beginningOfLineFrom: aNode [
 	^ aNode
 ]
 
-{ #category : #updating }
+{ #category : 'updating' }
 PlatypusTokenList >> calculate [
 	^ self
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusTokenList >> closeTokenFrom: aNode [ 
 	| currLevel curr |
 	currLevel := 0.
@@ -89,22 +91,22 @@ PlatypusTokenList >> closeTokenFrom: aNode [
 	^ nil
 ]
 
-{ #category : #enumerating }
+{ #category : 'enumerating' }
 PlatypusTokenList >> collect: aBlock [ 
 	^ self class tokens: (tokens collect: aBlock)
 ]
 
-{ #category : #copying }
+{ #category : 'copying' }
 PlatypusTokenList >> copy [
 	^ Error signal: 'a ' , self class name , ' can''t be copied'
 ]
 
-{ #category : #copying }
+{ #category : 'copying' }
 PlatypusTokenList >> copyEmpty [
 	^ self class new 
 ]
 
-{ #category : #copying }
+{ #category : 'copying' }
 PlatypusTokenList >> copyWithoutBlankFrom: startNode to: stopNode [ 
 	| selection node |
 	selection := self copyEmpty.
@@ -121,28 +123,28 @@ PlatypusTokenList >> copyWithoutBlankFrom: startNode to: stopNode [
 	node := node next] repeat
 ]
 
-{ #category : #'initialize/release' }
+{ #category : 'initialize/release' }
 PlatypusTokenList >> destroy [
 	self tokens destroy.
 	super destroy
 ]
 
-{ #category : #enumerating }
+{ #category : 'enumerating' }
 PlatypusTokenList >> detect: aBlock [ 
 	^ tokens detect: aBlock ifNone: []
 ]
 
-{ #category : #enumerating }
+{ #category : 'enumerating' }
 PlatypusTokenList >> detect: aBlock ifNone: noneBlock [
 	^ tokens detect: aBlock ifNone: noneBlock
 ]
 
-{ #category : #enumerating }
+{ #category : 'enumerating' }
 PlatypusTokenList >> do: aBlock [ 
 	^ tokens do: aBlock
 ]
 
-{ #category : #enumerating }
+{ #category : 'enumerating' }
 PlatypusTokenList >> do: aBlock from: startNode to: stopNode [ 
 	| currNode endNode |
 	currNode := startNode.
@@ -154,7 +156,7 @@ PlatypusTokenList >> do: aBlock from: startNode to: stopNode [
 		ifTrue: [aBlock value: endNode]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusTokenList >> endOfLineFrom: aNode [ 
 	| currNode whiteSpaceTouched prev |
 	aNode isNil
@@ -179,35 +181,35 @@ PlatypusTokenList >> endOfLineFrom: aNode [
 	^ prev
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusTokenList >> first [
 	^ tokens isEmpty ifTrue: [nil]
 	ifFalse: [tokens first]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusTokenList >> indexOf: aNode [
 	^ tokens indexOf: aNode
 ]
 
-{ #category : #'initialize/release' }
+{ #category : 'initialize/release' }
 PlatypusTokenList >> initialize [
 	super initialize.
 	tokens := PltDLinkedList new
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 PlatypusTokenList >> isEmpty [
 	^tokens isEmpty
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusTokenList >> last [
 	^ tokens isEmpty
 		ifFalse: [tokens last]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusTokenList >> nextFrom: aNode satisfying: aBlock [ 
 	| currNode |
 	currNode := aNode.
@@ -218,7 +220,7 @@ PlatypusTokenList >> nextFrom: aNode satisfying: aBlock [
 	^ nil
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusTokenList >> nextNonBlankFrom: aNode [ 
 ^ self
 		nextFrom: aNode
@@ -227,7 +229,7 @@ PlatypusTokenList >> nextNonBlankFrom: aNode [
 
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusTokenList >> nextOpenKeywordFrom: aNode [ 
 	| currNode |
 	currNode := aNode.
@@ -238,7 +240,7 @@ PlatypusTokenList >> nextOpenKeywordFrom: aNode [
 	^ nil
 ]
 
-{ #category : #updating }
+{ #category : 'updating' }
 PlatypusTokenList >> noEndingEol [
 	[self last notNil
 		and: [self last isEol]]
@@ -246,19 +248,19 @@ PlatypusTokenList >> noEndingEol [
 
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 PlatypusTokenList >> notEmpty [
 	^ self isEmpty not
 ]
 
-{ #category : #updating }
+{ #category : 'updating' }
 PlatypusTokenList >> onlyOneEndingEol [
 	self noEndingEol .
 	self last
 		ifNotNil: [self add: PlatypusEolToken new]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusTokenList >> previousCloseKeywordFrom: aNode [ 
 	^ self
 		previousFrom: aNode
@@ -266,7 +268,7 @@ PlatypusTokenList >> previousCloseKeywordFrom: aNode [
 
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusTokenList >> previousFrom: aNode satisfying: aBlock [ 
 	| currNode |
 	currNode := aNode.
@@ -277,20 +279,20 @@ PlatypusTokenList >> previousFrom: aNode satisfying: aBlock [
 	^ nil
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusTokenList >> previousKeywordFrom: aNode [ 
 	^ self previousFrom: aNode satisfying: [:n | n isKeyword]
 
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusTokenList >> previousNonBlankFrom: aNode [ 
 	^ self
 		previousFrom: aNode
 		satisfying: [:n | n isBlank not]	
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusTokenList >> previousOpenKeywordFrom: aNode [ 
 	^ self
 		previousFrom: aNode
@@ -298,14 +300,14 @@ PlatypusTokenList >> previousOpenKeywordFrom: aNode [
 
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusTokenList >> previousPrimaryElementCloseKeywordFrom: aNode [ 
 	^ self
 		previousFrom: aNode
 		satisfying: [:n | n isPrimaryElementCloseKeyword]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusTokenList >> previousPrimaryElementOpenKeywordFrom: aNode [ 
 	^ self
 		previousFrom: aNode
@@ -313,7 +315,7 @@ PlatypusTokenList >> previousPrimaryElementOpenKeywordFrom: aNode [
 
 ]
 
-{ #category : #removing }
+{ #category : 'removing' }
 PlatypusTokenList >> removeFrom: firstNode to: lastNode [ 
 	^ tokens
 		replaceFromNode: firstNode
@@ -321,13 +323,13 @@ PlatypusTokenList >> removeFrom: firstNode to: lastNode [
 		with: self copyEmpty
 ]
 
-{ #category : #removing }
+{ #category : 'removing' }
 PlatypusTokenList >> removeLast [
 	^ tokens removeLast
 	
 ]
 
-{ #category : #removing }
+{ #category : 'removing' }
 PlatypusTokenList >> replaceFromNode: startNode toNode: stopNode with: replacementList [ 
 	startNode ifNil: [self addAll: replacementList]
 	ifNotNil: [
@@ -337,22 +339,22 @@ PlatypusTokenList >> replaceFromNode: startNode toNode: stopNode with: replaceme
 		with: replacementList]
 ]
 
-{ #category : #enumerating }
+{ #category : 'enumerating' }
 PlatypusTokenList >> reverseDo: aBlock [ 
 	^ tokens reverseDo: aBlock
 ]
 
-{ #category : #enumerating }
+{ #category : 'enumerating' }
 PlatypusTokenList >> select: aBlock [ 
 	^ self class tokens: (tokens select: aBlock)
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusTokenList >> size [
 	^ tokens size
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusTokenList >> sizeFrom: first to: last [ 
 	| currNode count |
 	currNode := first.
@@ -363,7 +365,7 @@ PlatypusTokenList >> sizeFrom: first to: last [
 	^ count
 ]
 
-{ #category : #printing }
+{ #category : 'printing' }
 PlatypusTokenList >> textWithStreamClass: aStreamClass [
 	^ self
 		textWithStreamClass: aStreamClass
@@ -371,7 +373,7 @@ PlatypusTokenList >> textWithStreamClass: aStreamClass [
 		to: nil
 ]
 
-{ #category : #printing }
+{ #category : 'printing' }
 PlatypusTokenList >> textWithStreamClass: aStreamClass from: startNode to: stopNode [ 
 	| stream result |
 	stream := aStreamClass on: Text new.
@@ -388,18 +390,18 @@ PlatypusTokenList >> textWithStreamClass: aStreamClass from: startNode to: stopN
 	^ result contents
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusTokenList >> tokens [
 	^tokens
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusTokenList >> tokens: aCollection [ 
 	tokens := aCollection.
 
 ]
 
-{ #category : #updating }
+{ #category : 'updating' }
 PlatypusTokenList >> updateAllTokensPositions [
 	| startPos |
 	startPos := 1.
@@ -408,13 +410,13 @@ PlatypusTokenList >> updateAllTokensPositions [
 
 ]
 
-{ #category : #printing }
+{ #category : 'printing' }
 PlatypusTokenList >> writeOn: aStream [
 	^self writeOn: aStream from: self first to: nil
 
 ]
 
-{ #category : #printing }
+{ #category : 'printing' }
 PlatypusTokenList >> writeOn: aStream from: startNode to: stopNode [ 
 	self
 		do: [:d | aStream nextPutAll: d asString]

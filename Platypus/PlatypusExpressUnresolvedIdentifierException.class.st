@@ -1,5 +1,7 @@
 Class {
-	#name : #PlatypusExpressUnresolvedIdentifierException,
-	#superclass : #PlatypusExpressInterpretorException,
-	#category : #'Platypus-HW-interpreter'
+	#name : 'PlatypusExpressUnresolvedIdentifierException',
+	#superclass : 'PlatypusExpressInterpretorException',
+	#category : 'Platypus-HW-interpreter',
+	#package : 'Platypus',
+	#tag : 'HW-interpreter'
 }

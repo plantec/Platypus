@@ -1,20 +1,22 @@
 Class {
-	#name : #PlatypusBuiltinFunctionToken,
-	#superclass : #PlatypusKeywordToken,
-	#category : #'Platypus-HW-CodeTokens'
+	#name : 'PlatypusBuiltinFunctionToken',
+	#superclass : 'PlatypusKeywordToken',
+	#category : 'Platypus-HW-CodeTokens',
+	#package : 'Platypus',
+	#tag : 'HW-CodeTokens'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusBuiltinFunctionToken class >> tokenStyle [
 	^#(#blue #normal)
 ]
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 PlatypusBuiltinFunctionToken >> accept: aVisitor [ 
 	^ aVisitor acceptBuiltinFunction: self
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 PlatypusBuiltinFunctionToken >> isBuiltinFunction [
 	^true
 ]

@@ -1,35 +1,37 @@
 Class {
-	#name : #StepInstanceReference,
-	#superclass : #StepCoreObject,
+	#name : 'StepInstanceReference',
+	#superclass : 'StepCoreObject',
 	#instVars : [
 		'id',
 		'ref'
 	],
-	#category : #'Platypus-STEP-core'
+	#category : 'Platypus-STEP-core',
+	#package : 'Platypus',
+	#tag : 'STEP-core'
 }
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 StepInstanceReference class >> id: anInteger [  ^self new id: anInteger
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 StepInstanceReference >> id [	^id
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 StepInstanceReference >> id: anObject [	id := anObject
 ]
 
-{ #category : #printing }
+{ #category : 'printing' }
 StepInstanceReference >> printOn: aStream [  aStream nextPut: $#.  id printOn: aStream.
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 StepInstanceReference >> ref [
 	^ref
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 StepInstanceReference >> ref: anObject [
 	ref := anObject
 ]

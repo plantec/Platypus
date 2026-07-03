@@ -1,22 +1,24 @@
 Class {
-	#name : #PlatypusIdentifierToken,
-	#superclass : #PlatypusGenericToken,
-	#category : #'Platypus-HW-CodeTokens'
+	#name : 'PlatypusIdentifierToken',
+	#superclass : 'PlatypusGenericToken',
+	#category : 'Platypus-HW-CodeTokens',
+	#package : 'Platypus',
+	#tag : 'HW-CodeTokens'
 }
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 PlatypusIdentifierToken >> accept: aVisitor [ 
 	^ aVisitor acceptIdentifier: self
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 PlatypusIdentifierToken >> isEquivalentTo: anotherToken [ 
 	^ ((anotherToken isKindOf: self class)
 			or: [self isKindOf: anotherToken class])
 		and: [self asString asUppercase = anotherToken asString asUppercase]
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 PlatypusIdentifierToken >> isIdentifier [
 	^true
 ]

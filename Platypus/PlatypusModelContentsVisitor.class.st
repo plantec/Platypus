@@ -1,13 +1,15 @@
 Class {
-	#name : #PlatypusModelContentsVisitor,
-	#superclass : #PlatypusStepOnePassAbstractVisitor,
+	#name : 'PlatypusModelContentsVisitor',
+	#superclass : 'PlatypusStepOnePassAbstractVisitor',
 	#instVars : [
 		'modelContents'
 	],
-	#category : #'Platypus-HW-visitors'
+	#category : 'Platypus-HW-visitors',
+	#package : 'Platypus',
+	#tag : 'HW-visitors'
 }
 
-{ #category : #checking }
+{ #category : 'checking' }
 PlatypusModelContentsVisitor class >> checks: metaData [ 
 	^ self
 		checks: metaData
@@ -15,31 +17,31 @@ PlatypusModelContentsVisitor class >> checks: metaData [
 
 ]
 
-{ #category : #checking }
+{ #category : 'checking' }
 PlatypusModelContentsVisitor class >> checks: metaData owners: ownerPath [ 
 	| checker |
 	checker := self new visitContexts: ownerPath.
 	^ checker checks: metaData
 ]
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 PlatypusModelContentsVisitor class >> modelContents: aModelContents [
 	^ self new modelContents: aModelContents
 	
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusModelContentsVisitor >> checks: data [ 
 	data acceptTry: self.
 
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusModelContentsVisitor >> modelContents [
 	^ modelContents
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusModelContentsVisitor >> modelContents: aModelContents [
 	modelContents := aModelContents
 ]

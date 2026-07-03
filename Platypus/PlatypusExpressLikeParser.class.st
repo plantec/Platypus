@@ -1,10 +1,12 @@
 Class {
-	#name : #PlatypusExpressLikeParser,
-	#superclass : #SmaCCParser,
-	#category : #'Platypus-HW-parsers'
+	#name : 'PlatypusExpressLikeParser',
+	#superclass : 'SmaCCParser',
+	#category : 'Platypus-HW-parsers',
+	#package : 'Platypus',
+	#tag : 'HW-parsers'
 }
 
-{ #category : #'generated-comments' }
+{ #category : 'generated-comments' }
 PlatypusExpressLikeParser class >> parserDefinitionComment [
 
 	"Source
@@ -21,59 +23,59 @@ Char
 "
 ]
 
-{ #category : #'generated-accessing' }
+{ #category : 'generated-accessing' }
 PlatypusExpressLikeParser class >> scannerClass [
 	^PlatypusExpressLikeScanner
 ]
 
-{ #category : #'generated-starting states' }
+{ #category : 'generated-starting states' }
 PlatypusExpressLikeParser class >> startingStateForSource [
 	^1
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 PlatypusExpressLikeParser >> reduceActionForChar1: nodes [ 
 	^'[a-zA-Z]'
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 PlatypusExpressLikeParser >> reduceActionForChar2: nodes [ 
 	^'[A-Z]'
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 PlatypusExpressLikeParser >> reduceActionForChar3: nodes [ 
 	^'[a-zA-Z0-9]'
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 PlatypusExpressLikeParser >> reduceActionForChar4: nodes [ 
 	^(nodes at: 1) value asString
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 PlatypusExpressLikeParser >> reduceActionForChar5: nodes [ 
 	^(nodes at: 1) value allButFirst
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 PlatypusExpressLikeParser >> reduceActionForRepeatXXChar1: nodes [ 
 	^OrderedCollection new
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 PlatypusExpressLikeParser >> reduceActionForRepeatXXChar2: nodes [ 
 	^(nodes at: 1)
 		add: (nodes at: 2);
 		yourself
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 PlatypusExpressLikeParser >> reduceActionForSource1: nodes [ 
 	^(nodes at: 1) value
 ]
 
-{ #category : #'generated-tables' }
+{ #category : 'generated-tables' }
 PlatypusExpressLikeParser >> reduceTable [
 	^#(
 #(6 1 #reduceActionForSource1:)
@@ -88,7 +90,7 @@ PlatypusExpressLikeParser >> reduceTable [
 )
 ]
 
-{ #category : #'generated-tables' }
+{ #category : 'generated-tables' }
 PlatypusExpressLikeParser >> transitionTable [
 	^#(
 #(3 34 1 34 2 34 3 34 4 34 5 9 6 13 9 34 10)

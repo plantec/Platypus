@@ -1,13 +1,15 @@
 Class {
-	#name : #PlatypusStepCheckerError,
-	#superclass : #PlatypusVisitorError,
+	#name : 'PlatypusStepCheckerError',
+	#superclass : 'PlatypusVisitorError',
 	#instVars : [
 		'stepFolder'
 	],
-	#category : #'Platypus-HW-visitors'
+	#category : 'Platypus-HW-visitors',
+	#package : 'Platypus',
+	#tag : 'HW-visitors'
 }
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 PlatypusStepCheckerError class >> error: aMessage oid: anInteger folder: aStepFolder [ 
 	| instance err |
 	instance := aStepFolder instanceAt: anInteger.
@@ -16,17 +18,17 @@ PlatypusStepCheckerError class >> error: aMessage oid: anInteger folder: aStepFo
 	^ err
 ]
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 PlatypusStepCheckerError class >> error: aMessage oid: anInteger 	repository: aPlatypusRepository [
 	^ self error: aMessage oid: anInteger folder: aPlatypusRepository
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusStepCheckerError >> stepFolder [
 	^stepFolder
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusStepCheckerError >> stepFolder: anObject [
 	stepFolder := anObject
 ]

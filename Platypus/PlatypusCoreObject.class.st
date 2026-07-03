@@ -1,15 +1,17 @@
 Class {
-	#name : #PlatypusCoreObject,
-	#superclass : #Object,
-	#category : #'Platypus-HW-core'
+	#name : 'PlatypusCoreObject',
+	#superclass : 'Object',
+	#category : 'Platypus-HW-core',
+	#package : 'Platypus',
+	#tag : 'HW-core'
 }
 
-{ #category : #'express code accessing' }
+{ #category : 'express code accessing' }
 PlatypusCoreObject class >> expressSchemaCode [
 	^ self expressSchemaCodeForClass: self 
 ]
 
-{ #category : #'express code accessing' }
+{ #category : 'express code accessing' }
 PlatypusCoreObject class >> expressSchemaCodeForClass: aClass [
 	| s i1 i2 |
 	s := aClass comment asString.
@@ -19,27 +21,27 @@ PlatypusCoreObject class >> expressSchemaCodeForClass: aClass [
 	^ s copyFrom: i1 + self expressSchemaCodeStartMark size to: i2 - 1
 ]
 
-{ #category : #'express code accessing' }
+{ #category : 'express code accessing' }
 PlatypusCoreObject class >> expressSchemaCodeStartMark [
 	^ '<ISO10303-11-EXPRESS>'
 ]
 
-{ #category : #'express code accessing' }
+{ #category : 'express code accessing' }
 PlatypusCoreObject class >> expressSchemaCodeStopMark [
 	^ '</ISO10303-11-EXPRESS>'
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 PlatypusCoreObject class >> platypusMetaData [
 	^ self schemaDefinition metaDataFor: self name asSymbol
 ]
 
-{ #category : #'platypus-signature' }
+{ #category : 'platypus-signature' }
 PlatypusCoreObject class >> vwNamespaceName [
 	^ #Platypus
 ]
 
-{ #category : #'code accessing' }
+{ #category : 'code accessing' }
 PlatypusCoreObject >> expressSchemaCode [
 	^ self class expressSchemaCode
 ]

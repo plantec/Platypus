@@ -1,10 +1,12 @@
 Class {
-	#name : #PlatypusExpressBuiltinFormatParser,
-	#superclass : #SmaCCParser,
-	#category : #'Platypus-HW-parsers'
+	#name : 'PlatypusExpressBuiltinFormatParser',
+	#superclass : 'SmaCCParser',
+	#category : 'Platypus-HW-parsers',
+	#package : 'Platypus',
+	#tag : 'HW-parsers'
 }
 
-{ #category : #generated }
+{ #category : 'generated' }
 PlatypusExpressBuiltinFormatParser class >> definitionComment [
 "#Definition extracted from old style definition comments
 <integer>			:		\d+	;
@@ -71,32 +73,32 @@ Sep
 
 ]
 
-{ #category : #'generated-accessing' }
+{ #category : 'generated-accessing' }
 PlatypusExpressBuiltinFormatParser class >> scannerClass [
 	^PlatypusExpressBuiltinFormatScanner
 ]
 
-{ #category : #generated }
+{ #category : 'generated' }
 PlatypusExpressBuiltinFormatParser class >> startingStateForRep [
 	^ 1
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 PlatypusExpressBuiltinFormatParser >> reduceActionForCPar1: nodes [
 	^ $)
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 PlatypusExpressBuiltinFormatParser >> reduceActionForDecimals1: nodes [
 	^ (nodes at: 2) value
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 PlatypusExpressBuiltinFormatParser >> reduceActionForDiezes1: nodes [
 	^ (nodes at: 1) value size
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 PlatypusExpressBuiltinFormatParser >> reduceActionForGraphRepContents1: nodes [
 	^ Array
 		with: (nodes at: 1)
@@ -106,84 +108,84 @@ PlatypusExpressBuiltinFormatParser >> reduceActionForGraphRepContents1: nodes [
 		with: (nodes at: 5)
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 PlatypusExpressBuiltinFormatParser >> reduceActionForGraphRepContents2: nodes [
 	^ Array with: (nodes at: 1) with: (nodes at: 2) with: (nodes at: 3)
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 PlatypusExpressBuiltinFormatParser >> reduceActionForGraphRepContents3: nodes [
 	^ Array with: (nodes at: 1)
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 PlatypusExpressBuiltinFormatParser >> reduceActionForOPar1: nodes [
 	^ $(
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 PlatypusExpressBuiltinFormatParser >> reduceActionForRep1: nodes [
 	^ PlatypusExpressBuiltinFormatSymbolicFormatter sourceFormat: (nodes at: 1)
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 PlatypusExpressBuiltinFormatParser >> reduceActionForRep2: nodes [
 	^ PlatypusExpressBuiltinFormatPictureFormatter sourceFormat: (nodes at: 1)
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 PlatypusExpressBuiltinFormatParser >> reduceActionForSep1: nodes [
 	^ $.
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 PlatypusExpressBuiltinFormatParser >> reduceActionForSep2: nodes [
 	^ $,
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 PlatypusExpressBuiltinFormatParser >> reduceActionForSigne1: nodes [
 	^ $+
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 PlatypusExpressBuiltinFormatParser >> reduceActionForSigne2: nodes [
 	^ $-
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 PlatypusExpressBuiltinFormatParser >> reduceActionForType1: nodes [
 	^ $I
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 PlatypusExpressBuiltinFormatParser >> reduceActionForType2: nodes [
 	^ $F
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 PlatypusExpressBuiltinFormatParser >> reduceActionForType3: nodes [
 	^ $E
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 PlatypusExpressBuiltinFormatParser >> reduceActionForWidth1: nodes [
 	^ (nodes at: 1) value
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 PlatypusExpressBuiltinFormatParser >> reduceActionFor____1: nodes [
 	^ OrderedCollection with: (nodes at: 1)
 ]
 
-{ #category : #'generated-reduction actions' }
+{ #category : 'generated-reduction actions' }
 PlatypusExpressBuiltinFormatParser >> reduceActionFor____2: nodes [
 	^ (nodes at: 1)
 		add: (nodes at: 2);
 		yourself
 ]
 
-{ #category : #generated }
+{ #category : 'generated' }
 PlatypusExpressBuiltinFormatParser >> reduceTable [
 ^#(
 	#(15 0 #nil) 
@@ -215,7 +217,7 @@ PlatypusExpressBuiltinFormatParser >> reduceTable [
 
 ]
 
-{ #category : #generated }
+{ #category : 'generated' }
 PlatypusExpressBuiltinFormatParser >> transitionTable [
 ^#(
 #[1 0 6 0 1 0 9 0 2 0 6 0 3 0 6 0 4 0 13 0 5 0 6 0 7 0 6 0 9 0 17 0 10 0 6 0 11 0 21 0 13 0 25 0 14 0 29 0 15 0 33 0 19 0 37 0 21] 

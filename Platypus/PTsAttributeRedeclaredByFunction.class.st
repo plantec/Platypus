@@ -1,51 +1,53 @@
 Class {
-	#name : #PTsAttributeRedeclaredByFunction,
-	#superclass : #PlatypusCoreAlgorithmDeclaration,
+	#name : 'PTsAttributeRedeclaredByFunction',
+	#superclass : 'PlatypusCoreAlgorithmDeclaration',
 	#instVars : [
 		'ent',
 		'testedAttrPos',
 		'attributes',
 		'testedAttr'
 	],
-	#category : #'Platypus-ExpressDictionaryQueriesSchema'
+	#category : 'Platypus-ExpressDictionaryQueriesSchema',
+	#package : 'Platypus',
+	#tag : 'ExpressDictionaryQueriesSchema'
 }
 
-{ #category : #'platypus-generated-platypus-signature' }
+{ #category : 'platypus-generated-platypus-signature' }
 PTsAttributeRedeclaredByFunction class >> iso10303P11Translater [
 	^ 'Platypus (c) LISYC EA3883, Universite de Bretagne occidentale. Brest.'
 
 
 ]
 
-{ #category : #'platypus-generated-meta-data-accessing' }
+{ #category : 'platypus-generated-meta-data-accessing' }
 PTsAttributeRedeclaredByFunction class >> schemaDefinition [
 	^ PTsExpressDictionaryQueriesSchemaDefinition singleton
 
 
 ]
 
-{ #category : #'platypus-generated-platypus-signature' }
+{ #category : 'platypus-generated-platypus-signature' }
 PTsAttributeRedeclaredByFunction class >> translatedFromISO10303P11 [
 	^ true
 
 
 ]
 
-{ #category : #'platypus-generated-platypus-signature' }
+{ #category : 'platypus-generated-platypus-signature' }
 PTsAttributeRedeclaredByFunction class >> vwNamespaceName [
 	^ #PTs
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 PTsAttributeRedeclaredByFunction >> attributes [
 	^ attributes
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 PTsAttributeRedeclaredByFunction >> attributes: aListOfPTsAttribute [
 	attributes := aListOfPTsAttribute
 		ifNil: [ OrderedCollection new ]
@@ -54,21 +56,21 @@ PTsAttributeRedeclaredByFunction >> attributes: aListOfPTsAttribute [
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 PTsAttributeRedeclaredByFunction >> ent [
 	^ ent
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 PTsAttributeRedeclaredByFunction >> ent: aPTsEntityDefinition [
 	ent := aPTsEntityDefinition
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 PTsAttributeRedeclaredByFunction >> ent: aPTsEntityDefinition testedAttrPos: anInteger [
 	self ent: aPTsEntityDefinition.
 	self testedAttrPos: anInteger
@@ -76,7 +78,7 @@ PTsAttributeRedeclaredByFunction >> ent: aPTsEntityDefinition testedAttrPos: anI
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 PTsAttributeRedeclaredByFunction >> fromValues: values [
 	self ent: (values at: 1).
 	self testedAttrPos: (values at: 2)
@@ -84,7 +86,7 @@ PTsAttributeRedeclaredByFunction >> fromValues: values [
 
 ]
 
-{ #category : #'platypus-generated-invoking' }
+{ #category : 'platypus-generated-invoking' }
 PTsAttributeRedeclaredByFunction >> invoke [
 	" ---------- locals assignments ----------"
 
@@ -142,28 +144,28 @@ PTsAttributeRedeclaredByFunction >> invoke [
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 PTsAttributeRedeclaredByFunction >> testedAttr [
 	^ testedAttr
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 PTsAttributeRedeclaredByFunction >> testedAttr: aPTsAttribute [
 	testedAttr := aPTsAttribute
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 PTsAttributeRedeclaredByFunction >> testedAttrPos [
 	^ testedAttrPos
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 PTsAttributeRedeclaredByFunction >> testedAttrPos: anInteger [
 	testedAttrPos := anInteger
 

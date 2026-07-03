@@ -1,49 +1,51 @@
 Class {
-	#name : #PTsSubtypesOfFunction,
-	#superclass : #PlatypusCoreAlgorithmDeclaration,
+	#name : 'PTsSubtypesOfFunction',
+	#superclass : 'PlatypusCoreAlgorithmDeclaration',
 	#instVars : [
 		'ent',
 		'allent'
 	],
-	#category : #'Platypus-ExpressDictionaryQueriesSchema'
+	#category : 'Platypus-ExpressDictionaryQueriesSchema',
+	#package : 'Platypus',
+	#tag : 'ExpressDictionaryQueriesSchema'
 }
 
-{ #category : #'platypus-generated-platypus-signature' }
+{ #category : 'platypus-generated-platypus-signature' }
 PTsSubtypesOfFunction class >> iso10303P11Translater [
 	^ 'Platypus (c) LISYC EA3883, Universite de Bretagne occidentale. Brest.'
 
 
 ]
 
-{ #category : #'platypus-generated-meta-data-accessing' }
+{ #category : 'platypus-generated-meta-data-accessing' }
 PTsSubtypesOfFunction class >> schemaDefinition [
 	^ PTsExpressDictionaryQueriesSchemaDefinition singleton
 
 
 ]
 
-{ #category : #'platypus-generated-platypus-signature' }
+{ #category : 'platypus-generated-platypus-signature' }
 PTsSubtypesOfFunction class >> translatedFromISO10303P11 [
 	^ true
 
 
 ]
 
-{ #category : #'platypus-generated-platypus-signature' }
+{ #category : 'platypus-generated-platypus-signature' }
 PTsSubtypesOfFunction class >> vwNamespaceName [
 	^ #PTs
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 PTsSubtypesOfFunction >> allent [
 	^ allent
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 PTsSubtypesOfFunction >> allent: aListOfPTsEntityDefinition [
 	allent := aListOfPTsEntityDefinition
 		ifNil: [ OrderedCollection new ]
@@ -52,21 +54,21 @@ PTsSubtypesOfFunction >> allent: aListOfPTsEntityDefinition [
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 PTsSubtypesOfFunction >> ent [
 	^ ent
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 PTsSubtypesOfFunction >> ent: aPTsEntityDefinition [
 	ent := aPTsEntityDefinition
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 PTsSubtypesOfFunction >> ent: aPTsEntityDefinition allent: aListOfPTsEntityDefinition [
 	self ent: aPTsEntityDefinition.
 	self allent: aListOfPTsEntityDefinition
@@ -74,7 +76,7 @@ PTsSubtypesOfFunction >> ent: aPTsEntityDefinition allent: aListOfPTsEntityDefin
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 PTsSubtypesOfFunction >> fromValues: values [
 	self ent: (values at: 1).
 	self allent: (values at: 2)
@@ -82,7 +84,7 @@ PTsSubtypesOfFunction >> fromValues: values [
 
 ]
 
-{ #category : #'platypus-generated-invoking' }
+{ #category : 'platypus-generated-invoking' }
 PTsSubtypesOfFunction >> invoke [
 	" ---------- locals assignments ----------"
 

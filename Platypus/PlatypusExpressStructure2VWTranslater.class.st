@@ -1,31 +1,33 @@
 Class {
-	#name : #PlatypusExpressStructure2VWTranslater,
-	#superclass : #PlatypusExpressStructure2SmalltalkTranslater,
+	#name : 'PlatypusExpressStructure2VWTranslater',
+	#superclass : 'PlatypusExpressStructure2SmalltalkTranslater',
 	#instVars : [
 		'level',
 		'convertCharDict'
 	],
-	#category : #'Platypus-HW-translater-private'
+	#category : 'Platypus-HW-translater-private',
+	#package : 'Platypus',
+	#tag : 'HW-translater-private'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusExpressStructure2VWTranslater class >> expressionTranslaterClassName [
 	^ #PlatypusExpressExpression2VWTranslater
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusExpressStructure2VWTranslater class >> statementTranslaterClassName [
 	^ #PlatypusExpressStatement2VWTranslater
 ]
 
-{ #category : #utilities }
+{ #category : 'utilities' }
 PlatypusExpressStructure2VWTranslater >> asXmlText: aString [ 
 	| wStr |
 	wStr := WriteStream on: (String new: aString size).
 	^ (self writeXmlText: aString on: wStr) contents
 ]
 
-{ #category : #'generating from schemaInstance' }
+{ #category : 'generating from schemaInstance' }
 PlatypusExpressStructure2VWTranslater >> buildInitializeMethodFromSchemaInstance: e [ 
 	| selector clsName code |
 	clsName := e generatedClassName.
@@ -38,7 +40,7 @@ PlatypusExpressStructure2VWTranslater >> buildInitializeMethodFromSchemaInstance
 		category: 'initializing'
 ]
 
-{ #category : #'generating from entity' }
+{ #category : 'generating from entity' }
 PlatypusExpressStructure2VWTranslater >> buildRootEntityClass [
 	super buildRootEntityClass.
 	self 
@@ -55,7 +57,7 @@ PlatypusExpressStructure2VWTranslater >> buildRootEntityClass [
 		category: 'initializing'
 ]
 
-{ #category : #utilities }
+{ #category : 'utilities' }
 PlatypusExpressStructure2VWTranslater >> commentFromMetaData: e classname: aClassName [ 
 	self tag: 'comment'
 		do: 
@@ -67,12 +69,12 @@ PlatypusExpressStructure2VWTranslater >> commentFromMetaData: e classname: aClas
 										, String cr ,PlatypusCoreObject expressSchemaCodeStopMark)]]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusExpressStructure2VWTranslater >> convertCharDict [
 	^ convertCharDict
 ]
 
-{ #category : #utilities }
+{ #category : 'utilities' }
 PlatypusExpressStructure2VWTranslater >> fileOutClassDefinition: aClassName superClassName: superClassName instVars: instVars classVars: classVars namespace: namespace packageName: packageName category: aCategoryName [ 
 	self tag: 'class'
 		do: 
@@ -93,7 +95,7 @@ PlatypusExpressStructure2VWTranslater >> fileOutClassDefinition: aClassName supe
 		category: aCategoryName
 ]
 
-{ #category : #utilities }
+{ #category : 'utilities' }
 PlatypusExpressStructure2VWTranslater >> fileOutDoIt: aSource [ 
 	self tag: 'do-it'
 		do: 
@@ -103,7 +105,7 @@ PlatypusExpressStructure2VWTranslater >> fileOutDoIt: aSource [
 
 ]
 
-{ #category : #utilities }
+{ #category : 'utilities' }
 PlatypusExpressStructure2VWTranslater >> fileOutMethodSource: aSource className: aClassName meta: isMeta packageName: packageName category: aCategorySymbol [ 
 	self
 		tag: 'methods'
@@ -119,7 +121,7 @@ PlatypusExpressStructure2VWTranslater >> fileOutMethodSource: aSource className:
 						asXmlText:aSource)]
 ]
 
-{ #category : #utilities }
+{ #category : 'utilities' }
 PlatypusExpressStructure2VWTranslater >> fileOutNamespaceDefinition: aNamespaceName imports: imports environment: envName packageName: packageName category: aCategoryName [ 
 	self tag: 'name-space'
 		do: 
@@ -133,17 +135,17 @@ PlatypusExpressStructure2VWTranslater >> fileOutNamespaceDefinition: aNamespaceN
 			self tag: 'attributes' do: [self tag: 'package' with: packageName]]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusExpressStructure2VWTranslater >> finalResultFrom: aString [ 
 	^ '<?xml version="1.0"?>' , String cr , '<st-source>' , String cr , (super  finalResultFrom: aString) , '</st-source>'
 ]
 
-{ #category : #utilities }
+{ #category : 'utilities' }
 PlatypusExpressStructure2VWTranslater >> indent [
 	level timesRepeat: [self nextPutAll: '    ']
 ]
 
-{ #category : #'initialize/release' }
+{ #category : 'initialize/release' }
 PlatypusExpressStructure2VWTranslater >> initialize [
 	super initialize.
 convertCharDict := Dictionary new.
@@ -172,7 +174,7 @@ convertCharDict := Dictionary new.
 
 ]
 
-{ #category : #utilities }
+{ #category : 'utilities' }
 PlatypusExpressStructure2VWTranslater >> mapType: aSymbol [ 
 	aSymbol == #normal
 		ifTrue: [^ #none].
@@ -181,17 +183,17 @@ PlatypusExpressStructure2VWTranslater >> mapType: aSymbol [
 	^ aSymbol
 ]
 
-{ #category : #utilities }
+{ #category : 'utilities' }
 PlatypusExpressStructure2VWTranslater >> mcCategory: aCat [ 
 	^ aCat
 ]
 
-{ #category : #utilities }
+{ #category : 'utilities' }
 PlatypusExpressStructure2VWTranslater >> qualifiedClassNameOf: e [ 
 	^ e generatedNamespaceName, '.', e generatedClassName
 ]
 
-{ #category : #utilities }
+{ #category : 'utilities' }
 PlatypusExpressStructure2VWTranslater >> tag: aString attributes: attrString with: contentString [ 
 	self indent.
 	self
@@ -207,7 +209,7 @@ PlatypusExpressStructure2VWTranslater >> tag: aString attributes: attrString wit
 		cr
 ]
 
-{ #category : #utilities }
+{ #category : 'utilities' }
 PlatypusExpressStructure2VWTranslater >> tag: aString do: aBlock [ 
 	self indent.
 	self nextPutAll: '<';
@@ -224,7 +226,7 @@ PlatypusExpressStructure2VWTranslater >> tag: aString do: aBlock [
 		 cr
 ]
 
-{ #category : #utilities }
+{ #category : 'utilities' }
 PlatypusExpressStructure2VWTranslater >> tag: aString with: contentString [ 
 	self indent.
 	self
@@ -239,7 +241,7 @@ PlatypusExpressStructure2VWTranslater >> tag: aString with: contentString [
 		cr
 ]
 
-{ #category : #utilities }
+{ #category : 'utilities' }
 PlatypusExpressStructure2VWTranslater >> writeXmlText: aString on: aWriteStream [ 
 	| cDict wStr |
 	cDict := self convertCharDict.

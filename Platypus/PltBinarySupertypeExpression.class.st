@@ -9,71 +9,73 @@ END_ENTITY;
 </ISO10303-11-EXPRESS>
 "
 Class {
-	#name : #PltBinarySupertypeExpression,
-	#superclass : #PltSupertypeExpression,
+	#name : 'PltBinarySupertypeExpression',
+	#superclass : 'PltSupertypeExpression',
 	#instVars : [
 		'rightExpr',
 		'parenthesis',
 		'leftExpr'
 	],
-	#category : #'Platypus-PlatypusDictionarySchemaSchema'
+	#category : 'Platypus-PlatypusDictionarySchemaSchema',
+	#package : 'Platypus',
+	#tag : 'PlatypusDictionarySchemaSchema'
 }
 
-{ #category : #'platypus-generated-context-accessing' }
+{ #category : 'platypus-generated-context-accessing' }
 PltBinarySupertypeExpression class >> context [ ^ self schemaDefinition context
 
 
 ]
 
-{ #category : #'platypus-generated-platypus-signature' }
+{ #category : 'platypus-generated-platypus-signature' }
 PltBinarySupertypeExpression class >> iso10303P11Translater [
 	^ 'Platypus (c) LISYC EA3883, Universite de Bretagne occidentale. Brest.'
 
 
 ]
 
-{ #category : #'platypus-generated-meta-data-accessing' }
+{ #category : 'platypus-generated-meta-data-accessing' }
 PltBinarySupertypeExpression class >> platypusMetaData [ 	^ self schemaDefinition metaDataFor: self name asSymbol
 
 
 ]
 
-{ #category : #'platypus-generated-meta-data-accessing' }
+{ #category : 'platypus-generated-meta-data-accessing' }
 PltBinarySupertypeExpression class >> schemaDefinition [
 	^ PltPlatypusDictionarySchemaSchemaDefinition singleton
 
 
 ]
 
-{ #category : #'platypus-generated-meta-data-accessing' }
+{ #category : 'platypus-generated-meta-data-accessing' }
 PltBinarySupertypeExpression class >> schemaInstance [
 	^ PltPlatypusMetaSchemasSchemaInstance singleton
 
 
 ]
 
-{ #category : #'platypus-generated-platypus-signature' }
+{ #category : 'platypus-generated-platypus-signature' }
 PltBinarySupertypeExpression class >> translatedFromISO10303P11 [
 	^ true
 
 
 ]
 
-{ #category : #'platypus-generated-platypus-signature' }
+{ #category : 'platypus-generated-platypus-signature' }
 PltBinarySupertypeExpression class >> vwNamespaceName [
 	^ #Platypus
 
 
 ]
 
-{ #category : #'platypus-generated-visiting' }
+{ #category : 'platypus-generated-visiting' }
 PltBinarySupertypeExpression >> accept: aVisitor [
 	^ aVisitor acceptBinarySupertypeExpression: self
 
 
 ]
 
-{ #category : #'platypus-generated-copying' }
+{ #category : 'platypus-generated-copying' }
 PltBinarySupertypeExpression >> binarySupertypeExpressionCopyTo: another [
 	another fastSetParenthesis: self parenthesis.
 	another fastSetLeftExpr: self leftExpr.
@@ -82,7 +84,7 @@ PltBinarySupertypeExpression >> binarySupertypeExpressionCopyTo: another [
 
 ]
 
-{ #category : #'platypus-generated-group-accessing' }
+{ #category : 'platypus-generated-group-accessing' }
 PltBinarySupertypeExpression >> binarySupertypeExpressionFromValues: values [
 	| valuesloc |
 	valuesloc := values asOrderedCollection.
@@ -94,7 +96,7 @@ PltBinarySupertypeExpression >> binarySupertypeExpressionFromValues: values [
 
 ]
 
-{ #category : #'platypus-generated-group-accessing' }
+{ #category : 'platypus-generated-group-accessing' }
 PltBinarySupertypeExpression >> binarySupertypeExpressionToValues: values [
 	values add: self parenthesis.
 	values add: self leftExpr.
@@ -104,104 +106,104 @@ PltBinarySupertypeExpression >> binarySupertypeExpressionToValues: values [
 
 ]
 
-{ #category : #'platypus-generated-fast-set-accessing' }
+{ #category : 'platypus-generated-fast-set-accessing' }
 PltBinarySupertypeExpression >> fastSetLeftExpr: aPltSupertypeExpression [
 	leftExpr := aPltSupertypeExpression
 
 
 ]
 
-{ #category : #'platypus-generated-fast-set-accessing' }
+{ #category : 'platypus-generated-fast-set-accessing' }
 PltBinarySupertypeExpression >> fastSetParenthesis: aBoolean [
 	parenthesis := aBoolean
 
 
 ]
 
-{ #category : #'platypus-generated-fast-set-accessing' }
+{ #category : 'platypus-generated-fast-set-accessing' }
 PltBinarySupertypeExpression >> fastSetRightExpr: aPltSupertypeExpression [
 	rightExpr := aPltSupertypeExpression
 
 
 ]
 
-{ #category : #'platypus-generated-group-accessing' }
+{ #category : 'platypus-generated-group-accessing' }
 PltBinarySupertypeExpression >> fromValues: values [
 	^ self binarySupertypeExpressionFromValues: (super fromValues: values)
 
 
 ]
 
-{ #category : #'platypus-generated-classifying' }
+{ #category : 'platypus-generated-classifying' }
 PltBinarySupertypeExpression >> isPltBinarySupertypeExpression [
 	^ true
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 PltBinarySupertypeExpression >> leftExpr [
 	^ leftExpr
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 PltBinarySupertypeExpression >> leftExpr: aPltSupertypeExpression [
 	leftExpr := aPltSupertypeExpression
 
 
 ]
 
-{ #category : #'platypus-generated-with-context-accessing' }
+{ #category : 'platypus-generated-with-context-accessing' }
 PltBinarySupertypeExpression >> leftExprUsingContext: aContext [
 	^ self leftExpr
 
 
 ]
 
-{ #category : #'platypus-generated-group-accessing' }
+{ #category : 'platypus-generated-group-accessing' }
 PltBinarySupertypeExpression >> localFromValues: values [
 	^ self binarySupertypeExpressionFromValues: values
 
 
 ]
 
-{ #category : #'platypus-generated-group-accessing' }
+{ #category : 'platypus-generated-group-accessing' }
 PltBinarySupertypeExpression >> localToValues: values [
 	^ self binarySupertypeExpressionToValues: values
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 PltBinarySupertypeExpression >> parenthesis [
 	^ parenthesis
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 PltBinarySupertypeExpression >> parenthesis: aBoolean [
 	parenthesis := aBoolean
 
 
 ]
 
-{ #category : #'platypus-generated-group-accessing' }
+{ #category : 'platypus-generated-group-accessing' }
 PltBinarySupertypeExpression >> parenthesis: aBoolean leftExpr: aPltSupertypeExpression rightExpr: aPltSupertypeExpression1 [ 	self setParenthesis:aBoolean.	self setLeftExpr:aPltSupertypeExpression.	self setRightExpr:aPltSupertypeExpression1.
 
 
 ]
 
-{ #category : #'platypus-generated-with-context-accessing' }
+{ #category : 'platypus-generated-with-context-accessing' }
 PltBinarySupertypeExpression >> parenthesisUsingContext: aContext [
 	^ self parenthesis
 
 
 ]
 
-{ #category : #'platypus-generated-copying' }
+{ #category : 'platypus-generated-copying' }
 PltBinarySupertypeExpression >> pltCopyGroup: aClassSymbol to: anObject [
 	self class name == aClassSymbol
 		ifTrue: [ self pltCopyTo: anObject ]
@@ -210,7 +212,7 @@ PltBinarySupertypeExpression >> pltCopyGroup: aClassSymbol to: anObject [
 
 ]
 
-{ #category : #'platypus-generated-copying' }
+{ #category : 'platypus-generated-copying' }
 PltBinarySupertypeExpression >> pltCopyTo: another [
 	super pltCopyTo: another.
 	self binarySupertypeExpressionCopyTo: another
@@ -218,56 +220,56 @@ PltBinarySupertypeExpression >> pltCopyTo: another [
 
 ]
 
-{ #category : #'platypus-generated-copying' }
+{ #category : 'platypus-generated-copying' }
 PltBinarySupertypeExpression >> pltLocalCopyTo: another [
 	self binarySupertypeExpressionCopyTo: another
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 PltBinarySupertypeExpression >> rightExpr [
 	^ rightExpr
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 PltBinarySupertypeExpression >> rightExpr: aPltSupertypeExpression [
 	rightExpr := aPltSupertypeExpression
 
 
 ]
 
-{ #category : #'platypus-generated-with-context-accessing' }
+{ #category : 'platypus-generated-with-context-accessing' }
 PltBinarySupertypeExpression >> rightExprUsingContext: aContext [
 	^ self rightExpr
 
 
 ]
 
-{ #category : #'platypus-generated-set-accessing' }
+{ #category : 'platypus-generated-set-accessing' }
 PltBinarySupertypeExpression >> setLeftExpr: aPltSupertypeExpression [
 	self leftExpr: aPltSupertypeExpression
 
 
 ]
 
-{ #category : #'platypus-generated-set-accessing' }
+{ #category : 'platypus-generated-set-accessing' }
 PltBinarySupertypeExpression >> setParenthesis: aBoolean [
 	self parenthesis: aBoolean
 
 
 ]
 
-{ #category : #'platypus-generated-set-accessing' }
+{ #category : 'platypus-generated-set-accessing' }
 PltBinarySupertypeExpression >> setRightExpr: aPltSupertypeExpression [
 	self rightExpr: aPltSupertypeExpression
 
 
 ]
 
-{ #category : #'platypus-generated-initializing' }
+{ #category : 'platypus-generated-initializing' }
 PltBinarySupertypeExpression >> stepInitialize [
 	super stepInitialize.
 	parenthesis := nil.
@@ -277,7 +279,7 @@ PltBinarySupertypeExpression >> stepInitialize [
 
 ]
 
-{ #category : #'platypus-generated-group-accessing' }
+{ #category : 'platypus-generated-group-accessing' }
 PltBinarySupertypeExpression >> toValues: values [
 	^ self binarySupertypeExpressionToValues: (super toValues: values)
 

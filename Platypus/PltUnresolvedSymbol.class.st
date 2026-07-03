@@ -1,9 +1,11 @@
 Class {
-	#name : #PltUnresolvedSymbol,
-	#superclass : #PltDictionaryInstance,
+	#name : 'PltUnresolvedSymbol',
+	#superclass : 'PltDictionaryInstance',
 	#instVars : [
 		'token',
 		'resolver'
 	],
-	#category : #'Platypus-PlatypusDictionarySchemaSchema'
+	#category : 'Platypus-PlatypusDictionarySchemaSchema',
+	#package : 'Platypus',
+	#tag : 'PlatypusDictionarySchemaSchema'
 }

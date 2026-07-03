@@ -1,5 +1,7 @@
 Class {
-	#name : #PlatypusExpressSemanticCheckerError,
-	#superclass : #PlatypusVisitorError,
-	#category : #'Platypus-HW-visitors'
+	#name : 'PlatypusExpressSemanticCheckerError',
+	#superclass : 'PlatypusVisitorError',
+	#category : 'Platypus-HW-visitors',
+	#package : 'Platypus',
+	#tag : 'HW-visitors'
 }
