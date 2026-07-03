@@ -4,11 +4,12 @@ Class {
 	#category : #'SqPlatypus-HW-tamaris'
 }
 
-{ #category : #'as yet unclassified' }
-Platypus class >> menuCommandOn: aBuilder [ 
-	<worldMenu>  
-	(aBuilder item: #'Platypus')
+{ #category : #'world menu' }
+Platypus class >> menuCommandOn: aBuilder [
+
+	<worldMenu>
+	(aBuilder item: #Platypus)
 		parent: #Tools;
-		action: [self open];  
-		icon: self taskbarIcon.  
+		action: [ self open ];
+		icon: (self iconNamed: self taskbarIconName)
 ]
