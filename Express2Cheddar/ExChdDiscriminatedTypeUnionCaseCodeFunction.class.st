@@ -20,52 +20,54 @@ END_FUNCTION;
 </ISO10303-11-EXPRESS>
 "
 Class {
-	#name : #ExChdDiscriminatedTypeUnionCaseCodeFunction,
-	#superclass : #PlatypusCoreAlgorithmDeclaration,
+	#name : 'ExChdDiscriminatedTypeUnionCaseCodeFunction',
+	#superclass : 'PlatypusCoreAlgorithmDeclaration',
 	#instVars : [
 		'u',
 		'code',
 		'allAttributes'
 	],
-	#category : #'Express2Cheddar-DiscriminatedTypeSchema'
+	#category : 'Express2Cheddar-DiscriminatedTypeSchema',
+	#package : 'Express2Cheddar',
+	#tag : 'DiscriminatedTypeSchema'
 }
 
-{ #category : #'platypus-generated-platypus-signature' }
+{ #category : 'platypus-generated-platypus-signature' }
 ExChdDiscriminatedTypeUnionCaseCodeFunction class >> iso10303P11Translater [
 	^ 'Platypus (c) LISYC EA3883, Universite de Bretagne occidentale. Brest.'
 
 
 ]
 
-{ #category : #'platypus-generated-meta-data-accessing' }
+{ #category : 'platypus-generated-meta-data-accessing' }
 ExChdDiscriminatedTypeUnionCaseCodeFunction class >> schemaDefinition [
 	^ ExChdDiscriminatedTypeSchemaDefinition singleton
 
 
 ]
 
-{ #category : #'platypus-generated-platypus-signature' }
+{ #category : 'platypus-generated-platypus-signature' }
 ExChdDiscriminatedTypeUnionCaseCodeFunction class >> translatedFromISO10303P11 [
 	^ true
 
 
 ]
 
-{ #category : #'platypus-generated-platypus-signature' }
+{ #category : 'platypus-generated-platypus-signature' }
 ExChdDiscriminatedTypeUnionCaseCodeFunction class >> vwNamespaceName [
 	^ #Express2Cheddar
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdDiscriminatedTypeUnionCaseCodeFunction >> allAttributes [
 	^ allAttributes
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdDiscriminatedTypeUnionCaseCodeFunction >> allAttributes: aListOfExChdAttribute [
 	allAttributes := aListOfExChdAttribute
 		ifNil: [ OrderedCollection new ]
@@ -74,28 +76,28 @@ ExChdDiscriminatedTypeUnionCaseCodeFunction >> allAttributes: aListOfExChdAttrib
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdDiscriminatedTypeUnionCaseCodeFunction >> code [
 	^ code
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdDiscriminatedTypeUnionCaseCodeFunction >> code: aString [
 	code := aString
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdDiscriminatedTypeUnionCaseCodeFunction >> fromValues: values [
 	self u: (values at: 1)
 
 
 ]
 
-{ #category : #'platypus-generated-invoking' }
+{ #category : 'platypus-generated-invoking' }
 ExChdDiscriminatedTypeUnionCaseCodeFunction >> invoke [
 	" ---------- locals assignments ----------"
 
@@ -142,14 +144,14 @@ ExChdDiscriminatedTypeUnionCaseCodeFunction >> invoke [
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdDiscriminatedTypeUnionCaseCodeFunction >> u [
 	^ u
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdDiscriminatedTypeUnionCaseCodeFunction >> u: aExChdDiscriminatedTypeUnionType [
 	u := aExChdDiscriminatedTypeUnionType
 

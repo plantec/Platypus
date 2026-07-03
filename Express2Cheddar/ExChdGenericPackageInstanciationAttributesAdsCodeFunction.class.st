@@ -17,52 +17,54 @@ END_FUNCTION;
 </ISO10303-11-EXPRESS>
 "
 Class {
-	#name : #ExChdGenericPackageInstanciationAttributesAdsCodeFunction,
-	#superclass : #PlatypusCoreAlgorithmDeclaration,
+	#name : 'ExChdGenericPackageInstanciationAttributesAdsCodeFunction',
+	#superclass : 'PlatypusCoreAlgorithmDeclaration',
 	#instVars : [
 		'e',
 		'result',
 		'aliases'
 	],
-	#category : #'Express2Cheddar-PackageSchema'
+	#category : 'Express2Cheddar-PackageSchema',
+	#package : 'Express2Cheddar',
+	#tag : 'PackageSchema'
 }
 
-{ #category : #'platypus-generated-platypus-signature' }
+{ #category : 'platypus-generated-platypus-signature' }
 ExChdGenericPackageInstanciationAttributesAdsCodeFunction class >> iso10303P11Translater [
 	^ 'Platypus (c) LISYC EA3883, Universite de Bretagne occidentale. Brest.'
 
 
 ]
 
-{ #category : #'platypus-generated-meta-data-accessing' }
+{ #category : 'platypus-generated-meta-data-accessing' }
 ExChdGenericPackageInstanciationAttributesAdsCodeFunction class >> schemaDefinition [
 	^ ExChdPackageSchemaDefinition singleton
 
 
 ]
 
-{ #category : #'platypus-generated-platypus-signature' }
+{ #category : 'platypus-generated-platypus-signature' }
 ExChdGenericPackageInstanciationAttributesAdsCodeFunction class >> translatedFromISO10303P11 [
 	^ true
 
 
 ]
 
-{ #category : #'platypus-generated-platypus-signature' }
+{ #category : 'platypus-generated-platypus-signature' }
 ExChdGenericPackageInstanciationAttributesAdsCodeFunction class >> vwNamespaceName [
 	^ #Express2Cheddar
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdGenericPackageInstanciationAttributesAdsCodeFunction >> aliases [
 	^ aliases
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdGenericPackageInstanciationAttributesAdsCodeFunction >> aliases: aListOfExChdCheddarDefinedType [
 	aliases := aListOfExChdCheddarDefinedType
 		ifNil: [ OrderedCollection new ]
@@ -71,28 +73,28 @@ ExChdGenericPackageInstanciationAttributesAdsCodeFunction >> aliases: aListOfExC
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdGenericPackageInstanciationAttributesAdsCodeFunction >> e [
 	^ e
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdGenericPackageInstanciationAttributesAdsCodeFunction >> e: aExChdGenericPackageInstanciation [
 	e := aExChdGenericPackageInstanciation
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdGenericPackageInstanciationAttributesAdsCodeFunction >> fromValues: values [
 	self e: (values at: 1)
 
 
 ]
 
-{ #category : #'platypus-generated-invoking' }
+{ #category : 'platypus-generated-invoking' }
 ExChdGenericPackageInstanciationAttributesAdsCodeFunction >> invoke [
 	" ---------- locals assignments ----------"
 
@@ -120,14 +122,14 @@ ExChdGenericPackageInstanciationAttributesAdsCodeFunction >> invoke [
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdGenericPackageInstanciationAttributesAdsCodeFunction >> result [
 	^ result
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdGenericPackageInstanciationAttributesAdsCodeFunction >> result: aString [
 	result := aString
 

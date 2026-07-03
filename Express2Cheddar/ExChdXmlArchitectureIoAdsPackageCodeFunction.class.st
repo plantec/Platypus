@@ -118,8 +118,8 @@ END_FUNCTION;
 </ISO10303-11-EXPRESS>
 "
 Class {
-	#name : #ExChdXmlArchitectureIoAdsPackageCodeFunction,
-	#superclass : #PlatypusCoreAlgorithmDeclaration,
+	#name : 'ExChdXmlArchitectureIoAdsPackageCodeFunction',
+	#superclass : 'PlatypusCoreAlgorithmDeclaration',
 	#instVars : [
 		'test',
 		'code',
@@ -129,45 +129,47 @@ Class {
 		'alldts',
 		'interfaces'
 	],
-	#category : #'Express2Cheddar-XmlIoSchema'
+	#category : 'Express2Cheddar-XmlIoSchema',
+	#package : 'Express2Cheddar',
+	#tag : 'XmlIoSchema'
 }
 
-{ #category : #'platypus-generated-platypus-signature' }
+{ #category : 'platypus-generated-platypus-signature' }
 ExChdXmlArchitectureIoAdsPackageCodeFunction class >> iso10303P11Translater [
 	^ 'Platypus (c) LISYC EA3883, Universite de Bretagne occidentale. Brest.'
 
 
 ]
 
-{ #category : #'platypus-generated-meta-data-accessing' }
+{ #category : 'platypus-generated-meta-data-accessing' }
 ExChdXmlArchitectureIoAdsPackageCodeFunction class >> schemaDefinition [
 	^ ExChdXmlIoSchemaDefinition singleton
 
 
 ]
 
-{ #category : #'platypus-generated-platypus-signature' }
+{ #category : 'platypus-generated-platypus-signature' }
 ExChdXmlArchitectureIoAdsPackageCodeFunction class >> translatedFromISO10303P11 [
 	^ true
 
 
 ]
 
-{ #category : #'platypus-generated-platypus-signature' }
+{ #category : 'platypus-generated-platypus-signature' }
 ExChdXmlArchitectureIoAdsPackageCodeFunction class >> vwNamespaceName [
 	^ #Express2Cheddar
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdXmlArchitectureIoAdsPackageCodeFunction >> allcls [
 	^ allcls
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdXmlArchitectureIoAdsPackageCodeFunction >> allcls: aListOfExChdAdaClass [
 	allcls := aListOfExChdAdaClass
 		ifNil: [ OrderedCollection new ]
@@ -176,14 +178,14 @@ ExChdXmlArchitectureIoAdsPackageCodeFunction >> allcls: aListOfExChdAdaClass [
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdXmlArchitectureIoAdsPackageCodeFunction >> alldts [
 	^ alldts
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdXmlArchitectureIoAdsPackageCodeFunction >> alldts: aListOfExChdDiscriminatedType [
 	alldts := aListOfExChdDiscriminatedType
 		ifNil: [ OrderedCollection new ]
@@ -192,14 +194,14 @@ ExChdXmlArchitectureIoAdsPackageCodeFunction >> alldts: aListOfExChdDiscriminate
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdXmlArchitectureIoAdsPackageCodeFunction >> allrecs [
 	^ allrecs
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdXmlArchitectureIoAdsPackageCodeFunction >> allrecs: aListOfExChdAdaClass1 [
 	allrecs := aListOfExChdAdaClass1
 		ifNil: [ OrderedCollection new ]
@@ -208,28 +210,28 @@ ExChdXmlArchitectureIoAdsPackageCodeFunction >> allrecs: aListOfExChdAdaClass1 [
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdXmlArchitectureIoAdsPackageCodeFunction >> code [
 	^ code
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdXmlArchitectureIoAdsPackageCodeFunction >> code: aString1 [
 	code := aString1
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdXmlArchitectureIoAdsPackageCodeFunction >> interfaces [
 	^ interfaces
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdXmlArchitectureIoAdsPackageCodeFunction >> interfaces: aListOfExChdAdaInterface [
 	interfaces := aListOfExChdAdaInterface
 		ifNil: [ OrderedCollection new ]
@@ -238,7 +240,7 @@ ExChdXmlArchitectureIoAdsPackageCodeFunction >> interfaces: aListOfExChdAdaInter
 
 ]
 
-{ #category : #'platypus-generated-invoking' }
+{ #category : 'platypus-generated-invoking' }
 ExChdXmlArchitectureIoAdsPackageCodeFunction >> invoke [
 	" ---------- locals assignments ----------"
 
@@ -758,14 +760,14 @@ ExChdXmlArchitectureIoAdsPackageCodeFunction >> invoke [
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdXmlArchitectureIoAdsPackageCodeFunction >> pkgs [
 	^ pkgs
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdXmlArchitectureIoAdsPackageCodeFunction >> pkgs: aListOfExChdAdaPackage [
 	pkgs := aListOfExChdAdaPackage
 		ifNil: [ OrderedCollection new ]
@@ -774,14 +776,14 @@ ExChdXmlArchitectureIoAdsPackageCodeFunction >> pkgs: aListOfExChdAdaPackage [
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdXmlArchitectureIoAdsPackageCodeFunction >> test [
 	^ test
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdXmlArchitectureIoAdsPackageCodeFunction >> test: aString [
 	test := aString
 

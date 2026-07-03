@@ -18,51 +18,53 @@ END_FUNCTION;
 </ISO10303-11-EXPRESS>
 "
 Class {
-	#name : #ExChdPackageDiscriminatedTypesFunction,
-	#superclass : #PlatypusCoreAlgorithmDeclaration,
+	#name : 'ExChdPackageDiscriminatedTypesFunction',
+	#superclass : 'PlatypusCoreAlgorithmDeclaration',
 	#instVars : [
 		'pkg',
 		'dtList'
 	],
-	#category : #'Express2Cheddar-Express2cheddarFacadeSchema'
+	#category : 'Express2Cheddar-Express2cheddarFacadeSchema',
+	#package : 'Express2Cheddar',
+	#tag : 'Express2cheddarFacadeSchema'
 }
 
-{ #category : #'platypus-generated-platypus-signature' }
+{ #category : 'platypus-generated-platypus-signature' }
 ExChdPackageDiscriminatedTypesFunction class >> iso10303P11Translater [
 	^ 'Platypus (c) LISYC EA3883, Universite de Bretagne occidentale. Brest.'
 
 
 ]
 
-{ #category : #'platypus-generated-meta-data-accessing' }
+{ #category : 'platypus-generated-meta-data-accessing' }
 ExChdPackageDiscriminatedTypesFunction class >> schemaDefinition [
 	^ ExChdExpress2cheddarFacadeSchemaDefinition singleton
 
 
 ]
 
-{ #category : #'platypus-generated-platypus-signature' }
+{ #category : 'platypus-generated-platypus-signature' }
 ExChdPackageDiscriminatedTypesFunction class >> translatedFromISO10303P11 [
 	^ true
 
 
 ]
 
-{ #category : #'platypus-generated-platypus-signature' }
+{ #category : 'platypus-generated-platypus-signature' }
 ExChdPackageDiscriminatedTypesFunction class >> vwNamespaceName [
 	^ #Express2Cheddar
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdPackageDiscriminatedTypesFunction >> dtList [
 	^ dtList
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdPackageDiscriminatedTypesFunction >> dtList: aListOfExChdDiscriminatedType [
 	dtList := aListOfExChdDiscriminatedType
 		ifNil: [ OrderedCollection new ]
@@ -71,14 +73,14 @@ ExChdPackageDiscriminatedTypesFunction >> dtList: aListOfExChdDiscriminatedType 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdPackageDiscriminatedTypesFunction >> fromValues: values [
 	self pkg: (values at: 1)
 
 
 ]
 
-{ #category : #'platypus-generated-invoking' }
+{ #category : 'platypus-generated-invoking' }
 ExChdPackageDiscriminatedTypesFunction >> invoke [
 	" ---------- locals assignments ----------"
 
@@ -111,14 +113,14 @@ ExChdPackageDiscriminatedTypesFunction >> invoke [
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdPackageDiscriminatedTypesFunction >> pkg [
 	^ pkg
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdPackageDiscriminatedTypesFunction >> pkg: aExChdAdaPackage [
 	pkg := aExChdAdaPackage
 

@@ -17,51 +17,53 @@ END_FUNCTION;
 </ISO10303-11-EXPRESS>
 "
 Class {
-	#name : #ExChdRangeTypeAdsCodeFunction,
-	#superclass : #PlatypusCoreAlgorithmDeclaration,
+	#name : 'ExChdRangeTypeAdsCodeFunction',
+	#superclass : 'PlatypusCoreAlgorithmDeclaration',
 	#instVars : [
 		'rt',
 		'r'
 	],
-	#category : #'Express2Cheddar-CheddarDomainsSchema'
+	#category : 'Express2Cheddar-CheddarDomainsSchema',
+	#package : 'Express2Cheddar',
+	#tag : 'CheddarDomainsSchema'
 }
 
-{ #category : #'platypus-generated-platypus-signature' }
+{ #category : 'platypus-generated-platypus-signature' }
 ExChdRangeTypeAdsCodeFunction class >> iso10303P11Translater [
 	^ 'Platypus (c) LISYC EA3883, Universite de Bretagne occidentale. Brest.'
 
 
 ]
 
-{ #category : #'platypus-generated-meta-data-accessing' }
+{ #category : 'platypus-generated-meta-data-accessing' }
 ExChdRangeTypeAdsCodeFunction class >> schemaDefinition [
 	^ ExChdCheddarDomainsSchemaDefinition singleton
 
 
 ]
 
-{ #category : #'platypus-generated-platypus-signature' }
+{ #category : 'platypus-generated-platypus-signature' }
 ExChdRangeTypeAdsCodeFunction class >> translatedFromISO10303P11 [
 	^ true
 
 
 ]
 
-{ #category : #'platypus-generated-platypus-signature' }
+{ #category : 'platypus-generated-platypus-signature' }
 ExChdRangeTypeAdsCodeFunction class >> vwNamespaceName [
 	^ #Express2Cheddar
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdRangeTypeAdsCodeFunction >> fromValues: values [
 	self rt: (values at: 1)
 
 
 ]
 
-{ #category : #'platypus-generated-invoking' }
+{ #category : 'platypus-generated-invoking' }
 ExChdRangeTypeAdsCodeFunction >> invoke [
 	" ---------- locals assignments ----------"
 
@@ -97,28 +99,28 @@ ExChdRangeTypeAdsCodeFunction >> invoke [
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdRangeTypeAdsCodeFunction >> r [
 	^ r
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdRangeTypeAdsCodeFunction >> r: aString [
 	r := aString
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdRangeTypeAdsCodeFunction >> rt [
 	^ rt
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdRangeTypeAdsCodeFunction >> rt: aExChdRangeType [
 	rt := aExChdRangeType
 

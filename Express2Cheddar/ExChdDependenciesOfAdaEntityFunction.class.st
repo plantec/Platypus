@@ -15,53 +15,55 @@ END_FUNCTION;
 </ISO10303-11-EXPRESS>
 "
 Class {
-	#name : #ExChdDependenciesOfAdaEntityFunction,
-	#superclass : #PlatypusCoreAlgorithmDeclaration,
+	#name : 'ExChdDependenciesOfAdaEntityFunction',
+	#superclass : 'PlatypusCoreAlgorithmDeclaration',
 	#instVars : [
 		'o',
 		't',
 		'r',
 		'attrs'
 	],
-	#category : #'Express2Cheddar-RecordAndClassSchema'
+	#category : 'Express2Cheddar-RecordAndClassSchema',
+	#package : 'Express2Cheddar',
+	#tag : 'RecordAndClassSchema'
 }
 
-{ #category : #'platypus-generated-platypus-signature' }
+{ #category : 'platypus-generated-platypus-signature' }
 ExChdDependenciesOfAdaEntityFunction class >> iso10303P11Translater [
 	^ 'Platypus (c) LISYC EA3883, Universite de Bretagne occidentale. Brest.'
 
 
 ]
 
-{ #category : #'platypus-generated-meta-data-accessing' }
+{ #category : 'platypus-generated-meta-data-accessing' }
 ExChdDependenciesOfAdaEntityFunction class >> schemaDefinition [
 	^ ExChdRecordAndClassSchemaDefinition singleton
 
 
 ]
 
-{ #category : #'platypus-generated-platypus-signature' }
+{ #category : 'platypus-generated-platypus-signature' }
 ExChdDependenciesOfAdaEntityFunction class >> translatedFromISO10303P11 [
 	^ true
 
 
 ]
 
-{ #category : #'platypus-generated-platypus-signature' }
+{ #category : 'platypus-generated-platypus-signature' }
 ExChdDependenciesOfAdaEntityFunction class >> vwNamespaceName [
 	^ #Express2Cheddar
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdDependenciesOfAdaEntityFunction >> attrs [
 	^ attrs
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdDependenciesOfAdaEntityFunction >> attrs: aListOfExChdAttribute [
 	attrs := aListOfExChdAttribute
 		ifNil: [ OrderedCollection new ]
@@ -70,7 +72,7 @@ ExChdDependenciesOfAdaEntityFunction >> attrs: aListOfExChdAttribute [
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdDependenciesOfAdaEntityFunction >> fromValues: values [
 	self o: (values at: 1).
 	self t: (values at: 2)
@@ -78,7 +80,7 @@ ExChdDependenciesOfAdaEntityFunction >> fromValues: values [
 
 ]
 
-{ #category : #'platypus-generated-invoking' }
+{ #category : 'platypus-generated-invoking' }
 ExChdDependenciesOfAdaEntityFunction >> invoke [
 	" ---------- locals assignments ----------"
 
@@ -121,21 +123,21 @@ ExChdDependenciesOfAdaEntityFunction >> invoke [
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdDependenciesOfAdaEntityFunction >> o [
 	^ o
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdDependenciesOfAdaEntityFunction >> o: aExChdContextDefinition [
 	o := aExChdContextDefinition
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdDependenciesOfAdaEntityFunction >> o: aExChdContextDefinition t: aExChdAdaEntity [
 	self o: aExChdContextDefinition.
 	self t: aExChdAdaEntity
@@ -143,14 +145,14 @@ ExChdDependenciesOfAdaEntityFunction >> o: aExChdContextDefinition t: aExChdAdaE
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdDependenciesOfAdaEntityFunction >> r [
 	^ r
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdDependenciesOfAdaEntityFunction >> r: aListOfExChdDictionaryInstance [
 	r := aListOfExChdDictionaryInstance
 		ifNil: [ OrderedCollection new ]
@@ -159,14 +161,14 @@ ExChdDependenciesOfAdaEntityFunction >> r: aListOfExChdDictionaryInstance [
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdDependenciesOfAdaEntityFunction >> t [
 	^ t
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdDependenciesOfAdaEntityFunction >> t: aExChdAdaEntity [
 	t := aExChdAdaEntity
 

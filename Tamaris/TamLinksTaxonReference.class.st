@@ -1,20 +1,22 @@
 Class {
-	#name : #TamLinksTaxonReference,
-	#superclass : #TamTaxonReference,
-	#category : 'Tamaris-Taxonomies'
+	#name : 'TamLinksTaxonReference',
+	#superclass : 'TamTaxonReference',
+	#category : 'Tamaris-Taxonomies',
+	#package : 'Tamaris',
+	#tag : 'Taxonomies'
 }
 
-{ #category : #menus }
+{ #category : 'menus' }
 TamLinksTaxonReference class >> canBeCreatedInteractively [
 	^ false
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TamLinksTaxonReference class >> externalLabel [
 	^ 'a links taxon'
 ]
 
-{ #category : #'drag and drop' }
+{ #category : 'drag and drop' }
 TamLinksTaxonReference >> acceptDroppingMorph: aTransfertMorph copy: shouldCopy [ 
 	| passenger |
 	passenger := (aTransfertMorph respondsTo: #passenger)
@@ -25,7 +27,7 @@ TamLinksTaxonReference >> acceptDroppingMorph: aTransfertMorph copy: shouldCopy 
 	^ self insertReference: passenger
 ]
 
-{ #category : #updating }
+{ #category : 'updating' }
 TamLinksTaxonReference >> cleanDuplicates [
 	| child toBeKept |
 	child := self children.
@@ -39,12 +41,12 @@ TamLinksTaxonReference >> cleanDuplicates [
 	TamManager changed: self
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TamLinksTaxonReference >> icon [
 	^TamIcons mimeIcon: '10x10/mimetypes/links_taxon'
 ]
 
-{ #category : #updating }
+{ #category : 'updating' }
 TamLinksTaxonReference >> insertReference: aReference [ 
 	| newLnk |
 	(aReference owner ~= self
@@ -58,7 +60,7 @@ TamLinksTaxonReference >> insertReference: aReference [
 	^ false
 ]
 
-{ #category : #updating }
+{ #category : 'updating' }
 TamLinksTaxonReference >> removeUnlinked [
 	| toBeRemoved lnk |
 	toBeRemoved := self children
@@ -69,7 +71,7 @@ TamLinksTaxonReference >> removeUnlinked [
 	TamManager changed: self]
 ]
 
-{ #category : #menus }
+{ #category : 'menus' }
 TamLinksTaxonReference >> specificMenu: menu shifted: b [ 
 	"Set up the menu to apply to the receiver's, honoring the  
 	#shifted boolean"

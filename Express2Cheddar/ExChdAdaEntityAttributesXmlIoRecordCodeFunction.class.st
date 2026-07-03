@@ -29,94 +29,96 @@ END_FUNCTION;
 </ISO10303-11-EXPRESS>
 "
 Class {
-	#name : #ExChdAdaEntityAttributesXmlIoRecordCodeFunction,
-	#superclass : #PlatypusCoreAlgorithmDeclaration,
+	#name : 'ExChdAdaEntityAttributesXmlIoRecordCodeFunction',
+	#superclass : 'PlatypusCoreAlgorithmDeclaration',
 	#instVars : [
 		'cip',
 		'code',
 		'attrcode'
 	],
-	#category : #'Express2Cheddar-RecordAndClassSchema'
+	#category : 'Express2Cheddar-RecordAndClassSchema',
+	#package : 'Express2Cheddar',
+	#tag : 'RecordAndClassSchema'
 }
 
-{ #category : #'platypus-generated-platypus-signature' }
+{ #category : 'platypus-generated-platypus-signature' }
 ExChdAdaEntityAttributesXmlIoRecordCodeFunction class >> iso10303P11Translater [
 	^ 'Platypus (c) LISYC EA3883, Universite de Bretagne occidentale. Brest.'
 
 
 ]
 
-{ #category : #'platypus-generated-meta-data-accessing' }
+{ #category : 'platypus-generated-meta-data-accessing' }
 ExChdAdaEntityAttributesXmlIoRecordCodeFunction class >> schemaDefinition [
 	^ ExChdRecordAndClassSchemaDefinition singleton
 
 
 ]
 
-{ #category : #'platypus-generated-platypus-signature' }
+{ #category : 'platypus-generated-platypus-signature' }
 ExChdAdaEntityAttributesXmlIoRecordCodeFunction class >> translatedFromISO10303P11 [
 	^ true
 
 
 ]
 
-{ #category : #'platypus-generated-platypus-signature' }
+{ #category : 'platypus-generated-platypus-signature' }
 ExChdAdaEntityAttributesXmlIoRecordCodeFunction class >> vwNamespaceName [
 	^ #Express2Cheddar
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdAdaEntityAttributesXmlIoRecordCodeFunction >> attrcode [
 	^ attrcode
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdAdaEntityAttributesXmlIoRecordCodeFunction >> attrcode: aString1 [
 	attrcode := aString1
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdAdaEntityAttributesXmlIoRecordCodeFunction >> cip [
 	^ cip
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdAdaEntityAttributesXmlIoRecordCodeFunction >> cip: aExChdAdaClass [
 	cip := aExChdAdaClass
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdAdaEntityAttributesXmlIoRecordCodeFunction >> code [
 	^ code
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdAdaEntityAttributesXmlIoRecordCodeFunction >> code: aString [
 	code := aString
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdAdaEntityAttributesXmlIoRecordCodeFunction >> fromValues: values [
 	self cip: (values at: 1)
 
 
 ]
 
-{ #category : #'platypus-generated-invoking' }
+{ #category : 'platypus-generated-invoking' }
 ExChdAdaEntityAttributesXmlIoRecordCodeFunction >> invoke [
 	" ---------- locals assignments ----------"
 

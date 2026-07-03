@@ -46,8 +46,8 @@ END_FUNCTION;
 </ISO10303-11-EXPRESS>
 "
 Class {
-	#name : #ExChdAdaPackageConceptsListCodeFunction,
-	#superclass : #PlatypusCoreAlgorithmDeclaration,
+	#name : 'ExChdAdaPackageConceptsListCodeFunction',
+	#superclass : 'PlatypusCoreAlgorithmDeclaration',
 	#instVars : [
 		'p',
 		'concepts',
@@ -57,73 +57,75 @@ Class {
 		'tmp',
 		'contents'
 	],
-	#category : #'Express2Cheddar-PackageSchema'
+	#category : 'Express2Cheddar-PackageSchema',
+	#package : 'Express2Cheddar',
+	#tag : 'PackageSchema'
 }
 
-{ #category : #'platypus-generated-platypus-signature' }
+{ #category : 'platypus-generated-platypus-signature' }
 ExChdAdaPackageConceptsListCodeFunction class >> iso10303P11Translater [
 	^ 'Platypus (c) LISYC EA3883, Universite de Bretagne occidentale. Brest.'
 
 
 ]
 
-{ #category : #'platypus-generated-meta-data-accessing' }
+{ #category : 'platypus-generated-meta-data-accessing' }
 ExChdAdaPackageConceptsListCodeFunction class >> schemaDefinition [
 	^ ExChdPackageSchemaDefinition singleton
 
 
 ]
 
-{ #category : #'platypus-generated-platypus-signature' }
+{ #category : 'platypus-generated-platypus-signature' }
 ExChdAdaPackageConceptsListCodeFunction class >> translatedFromISO10303P11 [
 	^ true
 
 
 ]
 
-{ #category : #'platypus-generated-platypus-signature' }
+{ #category : 'platypus-generated-platypus-signature' }
 ExChdAdaPackageConceptsListCodeFunction class >> vwNamespaceName [
 	^ #Express2Cheddar
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdAdaPackageConceptsListCodeFunction >> ads [
 	^ ads
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdAdaPackageConceptsListCodeFunction >> ads: aBoolean [
 	ads := aBoolean
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdAdaPackageConceptsListCodeFunction >> code [
 	^ code
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdAdaPackageConceptsListCodeFunction >> code: aString1 [
 	code := aString1
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdAdaPackageConceptsListCodeFunction >> concepts [
 	^ concepts
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdAdaPackageConceptsListCodeFunction >> concepts: aListOfExChdDictionaryInstance [
 	concepts := aListOfExChdDictionaryInstance
 		ifNil: [ OrderedCollection new ]
@@ -132,14 +134,14 @@ ExChdAdaPackageConceptsListCodeFunction >> concepts: aListOfExChdDictionaryInsta
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdAdaPackageConceptsListCodeFunction >> contents [
 	^ contents
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdAdaPackageConceptsListCodeFunction >> contents: aListOfExChdDictionaryInstance [ 
 	contents := aListOfExChdDictionaryInstance
 		ifNil: [ OrderedCollection new ]
@@ -148,7 +150,7 @@ ExChdAdaPackageConceptsListCodeFunction >> contents: aListOfExChdDictionaryInsta
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdAdaPackageConceptsListCodeFunction >> fromValues: values [
 	self p: (values at: 1).
 	self concepts: (values at: 2).
@@ -157,7 +159,7 @@ ExChdAdaPackageConceptsListCodeFunction >> fromValues: values [
 
 ]
 
-{ #category : #'platypus-generated-invoking' }
+{ #category : 'platypus-generated-invoking' }
 ExChdAdaPackageConceptsListCodeFunction >> invoke [
 	" ---------- locals assignments ----------"
 
@@ -227,21 +229,21 @@ ExChdAdaPackageConceptsListCodeFunction >> invoke [
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdAdaPackageConceptsListCodeFunction >> p [
 	^ p
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdAdaPackageConceptsListCodeFunction >> p: aExChdAdaPackage [
 	p := aExChdAdaPackage
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdAdaPackageConceptsListCodeFunction >> p: aExChdAdaPackage concepts: aListOfExChdDictionaryInstance ads: aBoolean [
 	self p: aExChdAdaPackage.
 	self concepts: aListOfExChdDictionaryInstance.
@@ -250,28 +252,28 @@ ExChdAdaPackageConceptsListCodeFunction >> p: aExChdAdaPackage concepts: aListOf
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdAdaPackageConceptsListCodeFunction >> result [
 	^ result
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdAdaPackageConceptsListCodeFunction >> result: aString [
 	result := aString
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdAdaPackageConceptsListCodeFunction >> tmp [
 	^ tmp
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdAdaPackageConceptsListCodeFunction >> tmp: aString2 [
 	tmp := aString2
 

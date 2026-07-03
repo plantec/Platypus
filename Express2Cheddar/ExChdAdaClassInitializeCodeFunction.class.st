@@ -45,8 +45,8 @@ END_FUNCTION;
 </ISO10303-11-EXPRESS>
 "
 Class {
-	#name : #ExChdAdaClassInitializeCodeFunction,
-	#superclass : #PlatypusCoreAlgorithmDeclaration,
+	#name : 'ExChdAdaClassInitializeCodeFunction',
+	#superclass : 'PlatypusCoreAlgorithmDeclaration',
 	#instVars : [
 		'cip',
 		'code',
@@ -54,45 +54,47 @@ Class {
 		'attrs',
 		'init'
 	],
-	#category : #'Express2Cheddar-RecordAndClassSchema'
+	#category : 'Express2Cheddar-RecordAndClassSchema',
+	#package : 'Express2Cheddar',
+	#tag : 'RecordAndClassSchema'
 }
 
-{ #category : #'platypus-generated-platypus-signature' }
+{ #category : 'platypus-generated-platypus-signature' }
 ExChdAdaClassInitializeCodeFunction class >> iso10303P11Translater [
 	^ 'Platypus (c) LISYC EA3883, Universite de Bretagne occidentale. Brest.'
 
 
 ]
 
-{ #category : #'platypus-generated-meta-data-accessing' }
+{ #category : 'platypus-generated-meta-data-accessing' }
 ExChdAdaClassInitializeCodeFunction class >> schemaDefinition [
 	^ ExChdRecordAndClassSchemaDefinition singleton
 
 
 ]
 
-{ #category : #'platypus-generated-platypus-signature' }
+{ #category : 'platypus-generated-platypus-signature' }
 ExChdAdaClassInitializeCodeFunction class >> translatedFromISO10303P11 [
 	^ true
 
 
 ]
 
-{ #category : #'platypus-generated-platypus-signature' }
+{ #category : 'platypus-generated-platypus-signature' }
 ExChdAdaClassInitializeCodeFunction class >> vwNamespaceName [
 	^ #Express2Cheddar
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdAdaClassInitializeCodeFunction >> attrs [
 	^ attrs
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdAdaClassInitializeCodeFunction >> attrs: aListOfExChdAttribute [
 	attrs := aListOfExChdAttribute
 		ifNil: [ OrderedCollection new ]
@@ -101,70 +103,70 @@ ExChdAdaClassInitializeCodeFunction >> attrs: aListOfExChdAttribute [
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdAdaClassInitializeCodeFunction >> cip [
 	^ cip
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdAdaClassInitializeCodeFunction >> cip: aExChdAdaClass [
 	cip := aExChdAdaClass
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdAdaClassInitializeCodeFunction >> code [
 	^ code
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdAdaClassInitializeCodeFunction >> code: aString [
 	code := aString
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdAdaClassInitializeCodeFunction >> fromValues: values [
 	self cip: (values at: 1)
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdAdaClassInitializeCodeFunction >> init [
 	^ init
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdAdaClassInitializeCodeFunction >> init: aString2 [
 	init := aString2
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdAdaClassInitializeCodeFunction >> innerCode [
 	^ innerCode
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdAdaClassInitializeCodeFunction >> innerCode: aString1 [
 	innerCode := aString1
 
 
 ]
 
-{ #category : #'platypus-generated-invoking' }
+{ #category : 'platypus-generated-invoking' }
 ExChdAdaClassInitializeCodeFunction >> invoke [
 	" ---------- locals assignments ----------"
 

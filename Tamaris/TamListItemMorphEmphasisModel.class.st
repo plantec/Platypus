@@ -1,6 +1,6 @@
 Class {
-	#name : #TamListItemMorphEmphasisModel,
-	#superclass : #Object,
+	#name : 'TamListItemMorphEmphasisModel',
+	#superclass : 'Object',
 	#instVars : [
 		'key',
 		'font',
@@ -12,10 +12,12 @@ Class {
 		'RedStandard',
 		'Standard'
 	],
-	#category : 'Tamaris-Event-Rules'
+	#category : 'Tamaris-Event-Rules',
+	#package : 'Tamaris',
+	#tag : 'Event-Rules'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TamListItemMorphEmphasisModel class >> blueStandard [
 	^ self
 		key: #blueStandardEmphasis
@@ -24,7 +26,7 @@ TamListItemMorphEmphasisModel class >> blueStandard [
 		emphasis: TextEmphasis normal
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TamListItemMorphEmphasisModel class >> boldBlueOnLightBlueStandard [
 	^ self
 		key: #boldBlueOnLightBlueStandardEmphasis
@@ -34,7 +36,7 @@ TamListItemMorphEmphasisModel class >> boldBlueOnLightBlueStandard [
 		emphasis: TextEmphasis bold
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TamListItemMorphEmphasisModel class >> boldBlueStandard [
 	^ self
 		key: #boldBlueStantardEmphasis
@@ -43,7 +45,7 @@ TamListItemMorphEmphasisModel class >> boldBlueStandard [
 		emphasis: TextEmphasis bold
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TamListItemMorphEmphasisModel class >> boldGreenOnLightGreenStandard [
 	^ self
 		key: #boldGreenOnLightGreenStandardEmphasis
@@ -53,7 +55,7 @@ TamListItemMorphEmphasisModel class >> boldGreenOnLightGreenStandard [
 		emphasis: TextEmphasis bold
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TamListItemMorphEmphasisModel class >> boldGreenStandard [
 	^ self
 		key: #boldGreenStandardEmphasis
@@ -62,7 +64,7 @@ TamListItemMorphEmphasisModel class >> boldGreenStandard [
 		emphasis: TextEmphasis bold
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TamListItemMorphEmphasisModel class >> boldRedStandard [
 	^ self
 		key: #boldRedStantardEmphasis
@@ -71,7 +73,7 @@ TamListItemMorphEmphasisModel class >> boldRedStandard [
 		emphasis: TextEmphasis bold
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TamListItemMorphEmphasisModel class >> boldStandard [
 	^ self
 		key: #boldStantardEmphasis
@@ -80,7 +82,7 @@ TamListItemMorphEmphasisModel class >> boldStandard [
 		emphasis: TextEmphasis bold
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TamListItemMorphEmphasisModel class >> greenStandard [
 	^ self
 		key: #greenStandardEmphasis
@@ -89,7 +91,7 @@ TamListItemMorphEmphasisModel class >> greenStandard [
 		emphasis: TextEmphasis normal
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TamListItemMorphEmphasisModel class >> italicBlueStandard [
 	^ self
 		key: #italicBlueStandardEmphasis
@@ -98,7 +100,7 @@ TamListItemMorphEmphasisModel class >> italicBlueStandard [
 		emphasis: TextEmphasis italic
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TamListItemMorphEmphasisModel class >> italicGreenStandard [
 	^ self
 		key: #italicGreenStandardEmphasis
@@ -107,7 +109,7 @@ TamListItemMorphEmphasisModel class >> italicGreenStandard [
 		emphasis: TextEmphasis italic
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TamListItemMorphEmphasisModel class >> italicRedStandard [
 	^ self
 		key: #italicRedStandardEmphasis
@@ -116,7 +118,7 @@ TamListItemMorphEmphasisModel class >> italicRedStandard [
 		emphasis: TextEmphasis italic
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TamListItemMorphEmphasisModel class >> italicStandard [
 	^ self
 		key: #italicStantardEmphasis
@@ -125,7 +127,7 @@ TamListItemMorphEmphasisModel class >> italicStandard [
 		emphasis: TextEmphasis italic
 ]
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 TamListItemMorphEmphasisModel class >> key: aSymbol textColor: aColor backgroundColor: anotherColor font: aFont emphasis: anTextEmphasis [ 
 	^ self new
 		key: aSymbol
@@ -135,7 +137,7 @@ TamListItemMorphEmphasisModel class >> key: aSymbol textColor: aColor background
 		emphasis: anTextEmphasis
 ]
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 TamListItemMorphEmphasisModel class >> key: aSymbol textColor: aColor font: aFont emphasis: anTextEmphasis [ 
 	^ self new
 		key: aSymbol
@@ -144,7 +146,7 @@ TamListItemMorphEmphasisModel class >> key: aSymbol textColor: aColor font: aFon
 		emphasis: anTextEmphasis
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TamListItemMorphEmphasisModel class >> redStandard [
 	^ RedStandard 
 		ifNil: [
@@ -156,7 +158,7 @@ TamListItemMorphEmphasisModel class >> redStandard [
 					emphasis: TextEmphasis normal]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TamListItemMorphEmphasisModel class >> standard [
 	^ Standard
 		ifNil: [Standard := self
@@ -166,13 +168,13 @@ TamListItemMorphEmphasisModel class >> standard [
 						emphasis: TextEmphasis normal]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TamListItemMorphEmphasisModel class >> standardEmphasisSet [
 	^ {#standard. #boldStandard. #boldBlueStandard. #boldBlueOnLightBlueStandard. #boldRedStandard. #italicStandard. #underlinedStandard} asSet
 
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TamListItemMorphEmphasisModel class >> underlinedStandard [
 	^ self
 		key: #underlinedStantardEmphasis
@@ -181,7 +183,7 @@ TamListItemMorphEmphasisModel class >> underlinedStandard [
 		emphasis: TextEmphasis underlined
 ]
 
-{ #category : #equality }
+{ #category : 'equality' }
 TamListItemMorphEmphasisModel >> = anObject [ 
 	(anObject isKindOf: self class)
 		ifFalse: [^ false].
@@ -189,59 +191,59 @@ TamListItemMorphEmphasisModel >> = anObject [
 		
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TamListItemMorphEmphasisModel >> backgroundColor [
 	^backgroundColor ifNil: [backgroundColor := Color transparent]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TamListItemMorphEmphasisModel >> backgroundColor: anObject [
 	backgroundColor := anObject
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TamListItemMorphEmphasisModel >> emphasis [
 	^emphasis
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TamListItemMorphEmphasisModel >> emphasis: anObject [
 	emphasis := anObject
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TamListItemMorphEmphasisModel >> emphasisCode [
 	 ^ self emphasis emphasisCode
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TamListItemMorphEmphasisModel >> font [
 	^font
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TamListItemMorphEmphasisModel >> font: anObject [
 	font := anObject
 ]
 
-{ #category : #equality }
+{ #category : 'equality' }
 TamListItemMorphEmphasisModel >> hash [
 	"Hash is re-implemented because #= is re-implemented"
 	^ key hash
 		
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TamListItemMorphEmphasisModel >> key [
 	^key
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TamListItemMorphEmphasisModel >> key: anObject [
 	key := anObject
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TamListItemMorphEmphasisModel >> key: aSymbol color: aColor backgroundColor: anotherColorOrNil font: aFont emphasis: anTextEmphasis [ 
 	self key: aSymbol.
 	self color: aColor.
@@ -250,7 +252,7 @@ TamListItemMorphEmphasisModel >> key: aSymbol color: aColor backgroundColor: ano
 	self emphasis: anTextEmphasis
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TamListItemMorphEmphasisModel >> key: aSymbol textColor: aColor backgroundColor: anotherColorOrNil font: aFont emphasis: anTextEmphasis [ 
 	self key: aSymbol.
 	self textColor: aColor.
@@ -259,7 +261,7 @@ TamListItemMorphEmphasisModel >> key: aSymbol textColor: aColor backgroundColor:
 	self emphasis: anTextEmphasis
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TamListItemMorphEmphasisModel >> key: aSymbol textColor: aColor font: aFont emphasis: anTextEmphasis [ 
 	self
 		key: aSymbol
@@ -269,17 +271,17 @@ TamListItemMorphEmphasisModel >> key: aSymbol textColor: aColor font: aFont emph
 		emphasis: anTextEmphasis
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TamListItemMorphEmphasisModel >> textColor [
 	^textColor
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TamListItemMorphEmphasisModel >> textColor: anObject [
 	textColor := anObject
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TamListItemMorphEmphasisModel >> xor: anotherListItemEmphasis [ 
 	^ self class
 		key: (self key , 'And' , anotherListItemEmphasis key capitalized) asSymbol

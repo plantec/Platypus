@@ -81,82 +81,84 @@ END_SCHEMA;
 </ISO10303-11-EXPRESS>
 "
 Class {
-	#name : #ExChdCheddarConstantsSchemaDefinition,
-	#superclass : #PlatypusCoreSchema,
-	#category : #'Express2Cheddar-CheddarConstantsSchema'
+	#name : 'ExChdCheddarConstantsSchemaDefinition',
+	#superclass : 'PlatypusCoreSchema',
+	#category : 'Express2Cheddar-CheddarConstantsSchema',
+	#package : 'Express2Cheddar',
+	#tag : 'CheddarConstantsSchema'
 }
 
-{ #category : #'platypus-generated-platypus-signature' }
+{ #category : 'platypus-generated-platypus-signature' }
 ExChdCheddarConstantsSchemaDefinition class >> iso10303P11Translater [
 	^ 'Platypus (c) LISYC EA3883, Universite de Bretagne occidentale. Brest.'
 
 
 ]
 
-{ #category : #'platypus-generated-platypus-signature' }
+{ #category : 'platypus-generated-platypus-signature' }
 ExChdCheddarConstantsSchemaDefinition class >> translatedFromISO10303P11 [
 	^ true
 
 
 ]
 
-{ #category : #'platypus-generated-platypus-signature' }
+{ #category : 'platypus-generated-platypus-signature' }
 ExChdCheddarConstantsSchemaDefinition class >> vwNamespaceName [
 	^ #Express2Cheddar
 
 
 ]
 
-{ #category : #'platypus-generated-context-accessing' }
+{ #category : 'platypus-generated-context-accessing' }
 ExChdCheddarConstantsSchemaDefinition >> context [
 	^ self schemaInstance context
 
 
 ]
 
-{ #category : #'platypus-generated-entities' }
+{ #category : 'platypus-generated-entities' }
 ExChdCheddarConstantsSchemaDefinition >> entityDefinition1 [
 	^ #(#ada_constant #ExChdAdaConstant)
 
 
 ]
 
-{ #category : #'platypus-generated-entities' }
+{ #category : 'platypus-generated-entities' }
 ExChdCheddarConstantsSchemaDefinition >> entityDefinitionCount [
 	^ 1
 
 
 ]
 
-{ #category : #'platypus-generated-functions' }
+{ #category : 'platypus-generated-functions' }
 ExChdCheddarConstantsSchemaDefinition >> functionDeclaration1 [
 	^ #(#do_comments_with #ExChdDoCommentsWithFunction)
 
 
 ]
 
-{ #category : #'platypus-generated-functions' }
+{ #category : 'platypus-generated-functions' }
 ExChdCheddarConstantsSchemaDefinition >> functionDeclaration2 [
 	^ #(#ada_constant_ads_code #ExChdAdaConstantAdsCodeFunction)
 
 
 ]
 
-{ #category : #'platypus-generated-functions' }
+{ #category : 'platypus-generated-functions' }
 ExChdCheddarConstantsSchemaDefinition >> functionDeclaration3 [
 	^ #(#ada_constant_interfaces_list #ExChdAdaConstantInterfacesListFunction)
 
 
 ]
 
-{ #category : #'platypus-generated-functions' }
+{ #category : 'platypus-generated-functions' }
 ExChdCheddarConstantsSchemaDefinition >> functionDeclarationCount [
 	^ 3
 
 
 ]
 
-{ #category : #'platypus-generated-meta-data-accessing' }
+{ #category : 'platypus-generated-meta-data-accessing' }
 ExChdCheddarConstantsSchemaDefinition >> schemaInstanceClassName [
 	^ #ExChdExpress2cheddarSchemaInstance
 

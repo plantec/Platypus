@@ -42,8 +42,8 @@ END_FUNCTION;
 </ISO10303-11-EXPRESS>
 "
 Class {
-	#name : #ExChdDiscriminatedTypeAdsCodeFunction,
-	#superclass : #PlatypusCoreAlgorithmDeclaration,
+	#name : 'ExChdDiscriminatedTypeAdsCodeFunction',
+	#superclass : 'PlatypusCoreAlgorithmDeclaration',
 	#instVars : [
 		'typ',
 		'result',
@@ -55,87 +55,89 @@ Class {
 		'domain',
 		'translAttrs'
 	],
-	#category : #'Express2Cheddar-DiscriminatedTypeSchema'
+	#category : 'Express2Cheddar-DiscriminatedTypeSchema',
+	#package : 'Express2Cheddar',
+	#tag : 'DiscriminatedTypeSchema'
 }
 
-{ #category : #'platypus-generated-platypus-signature' }
+{ #category : 'platypus-generated-platypus-signature' }
 ExChdDiscriminatedTypeAdsCodeFunction class >> iso10303P11Translater [
 	^ 'Platypus (c) LISYC EA3883, Universite de Bretagne occidentale. Brest.'
 
 
 ]
 
-{ #category : #'platypus-generated-meta-data-accessing' }
+{ #category : 'platypus-generated-meta-data-accessing' }
 ExChdDiscriminatedTypeAdsCodeFunction class >> schemaDefinition [
 	^ ExChdDiscriminatedTypeSchemaDefinition singleton
 
 
 ]
 
-{ #category : #'platypus-generated-platypus-signature' }
+{ #category : 'platypus-generated-platypus-signature' }
 ExChdDiscriminatedTypeAdsCodeFunction class >> translatedFromISO10303P11 [
 	^ true
 
 
 ]
 
-{ #category : #'platypus-generated-platypus-signature' }
+{ #category : 'platypus-generated-platypus-signature' }
 ExChdDiscriminatedTypeAdsCodeFunction class >> vwNamespaceName [
 	^ #Express2Cheddar
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdDiscriminatedTypeAdsCodeFunction >> discrimAttr [
 	^ discrimAttr
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdDiscriminatedTypeAdsCodeFunction >> discrimAttr: aExChdAttribute [
 	discrimAttr := aExChdAttribute
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdDiscriminatedTypeAdsCodeFunction >> discrimType [
 	^ discrimType
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdDiscriminatedTypeAdsCodeFunction >> discrimType: aExChdEntityInstance [
 	discrimType := aExChdEntityInstance
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdDiscriminatedTypeAdsCodeFunction >> domain [
 	^ domain
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdDiscriminatedTypeAdsCodeFunction >> domain: aExChdEntityInstance1 [
 	domain := aExChdEntityInstance1
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdDiscriminatedTypeAdsCodeFunction >> fromValues: values [
 	self typ: (values at: 1)
 
 
 ]
 
-{ #category : #'platypus-generated-invoking' }
+{ #category : 'platypus-generated-invoking' }
 ExChdDiscriminatedTypeAdsCodeFunction >> invoke [
 	" ---------- locals assignments ----------"
 
@@ -222,28 +224,28 @@ ExChdDiscriminatedTypeAdsCodeFunction >> invoke [
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdDiscriminatedTypeAdsCodeFunction >> result [
 	^ result
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdDiscriminatedTypeAdsCodeFunction >> result: aString [
 	result := aString
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdDiscriminatedTypeAdsCodeFunction >> translAttrs [
 	^ translAttrs
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdDiscriminatedTypeAdsCodeFunction >> translAttrs: aListOfExChdAttribute1 [
 	translAttrs := aListOfExChdAttribute1
 		ifNil: [ OrderedCollection new ]
@@ -252,42 +254,42 @@ ExChdDiscriminatedTypeAdsCodeFunction >> translAttrs: aListOfExChdAttribute1 [
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdDiscriminatedTypeAdsCodeFunction >> typ [
 	^ typ
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdDiscriminatedTypeAdsCodeFunction >> typ: aExChdDiscriminatedType [
 	typ := aExChdDiscriminatedType
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdDiscriminatedTypeAdsCodeFunction >> unionAttr [
 	^ unionAttr
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdDiscriminatedTypeAdsCodeFunction >> unionAttr: aExChdAttribute1 [
 	unionAttr := aExChdAttribute1
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdDiscriminatedTypeAdsCodeFunction >> unionSelections [
 	^ unionSelections
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdDiscriminatedTypeAdsCodeFunction >> unionSelections: aListOfExChdAttribute [
 	unionSelections := aListOfExChdAttribute
 		ifNil: [ OrderedCollection new ]
@@ -296,14 +298,14 @@ ExChdDiscriminatedTypeAdsCodeFunction >> unionSelections: aListOfExChdAttribute 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdDiscriminatedTypeAdsCodeFunction >> unionType [
 	^ unionType
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdDiscriminatedTypeAdsCodeFunction >> unionType: aExChdDefinedType [
 	unionType := aExChdDefinedType
 

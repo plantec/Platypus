@@ -1,23 +1,25 @@
 Class {
-	#name : #TamRootTaxonLinkReference,
-	#superclass : #TamListItemHardLinkReference,
+	#name : 'TamRootTaxonLinkReference',
+	#superclass : 'TamListItemHardLinkReference',
 	#instVars : [
 		'managerItem'
 	],
-	#category : 'Tamaris-Taxonomies'
+	#category : 'Tamaris-Taxonomies',
+	#package : 'Tamaris',
+	#tag : 'Taxonomies'
 }
 
-{ #category : #testing }
+{ #category : 'testing' }
 TamRootTaxonLinkReference >> isRootTaxonLink [
 	^true
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TamRootTaxonLinkReference >> managerItem [
 	^managerItem
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TamRootTaxonLinkReference >> managerItem: anObject [
 	managerItem := anObject
 ]

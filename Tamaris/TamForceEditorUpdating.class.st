@@ -1,5 +1,7 @@
 Class {
-	#name : #TamForceEditorUpdating,
-	#superclass : #TamAnnounce,
-	#category : 'Tamaris-Announces'
+	#name : 'TamForceEditorUpdating',
+	#superclass : 'TamAnnounce',
+	#category : 'Tamaris-Announces',
+	#package : 'Tamaris',
+	#tag : 'Announces'
 }

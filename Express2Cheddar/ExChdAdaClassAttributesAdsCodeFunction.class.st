@@ -28,80 +28,82 @@ END_FUNCTION;
 </ISO10303-11-EXPRESS>
 "
 Class {
-	#name : #ExChdAdaClassAttributesAdsCodeFunction,
-	#superclass : #PlatypusCoreAlgorithmDeclaration,
+	#name : 'ExChdAdaClassAttributesAdsCodeFunction',
+	#superclass : 'PlatypusCoreAlgorithmDeclaration',
 	#instVars : [
 		'cip',
 		'result',
 		'domain'
 	],
-	#category : #'Express2Cheddar-RecordAndClassSchema'
+	#category : 'Express2Cheddar-RecordAndClassSchema',
+	#package : 'Express2Cheddar',
+	#tag : 'RecordAndClassSchema'
 }
 
-{ #category : #'platypus-generated-platypus-signature' }
+{ #category : 'platypus-generated-platypus-signature' }
 ExChdAdaClassAttributesAdsCodeFunction class >> iso10303P11Translater [
 	^ 'Platypus (c) LISYC EA3883, Universite de Bretagne occidentale. Brest.'
 
 
 ]
 
-{ #category : #'platypus-generated-meta-data-accessing' }
+{ #category : 'platypus-generated-meta-data-accessing' }
 ExChdAdaClassAttributesAdsCodeFunction class >> schemaDefinition [
 	^ ExChdRecordAndClassSchemaDefinition singleton
 
 
 ]
 
-{ #category : #'platypus-generated-platypus-signature' }
+{ #category : 'platypus-generated-platypus-signature' }
 ExChdAdaClassAttributesAdsCodeFunction class >> translatedFromISO10303P11 [
 	^ true
 
 
 ]
 
-{ #category : #'platypus-generated-platypus-signature' }
+{ #category : 'platypus-generated-platypus-signature' }
 ExChdAdaClassAttributesAdsCodeFunction class >> vwNamespaceName [
 	^ #Express2Cheddar
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdAdaClassAttributesAdsCodeFunction >> cip [
 	^ cip
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdAdaClassAttributesAdsCodeFunction >> cip: aExChdAdaClass [
 	cip := aExChdAdaClass
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdAdaClassAttributesAdsCodeFunction >> domain [
 	^ domain
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdAdaClassAttributesAdsCodeFunction >> domain: aExChdEntityInstance [
 	domain := aExChdEntityInstance
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdAdaClassAttributesAdsCodeFunction >> fromValues: values [
 	self cip: (values at: 1)
 
 
 ]
 
-{ #category : #'platypus-generated-invoking' }
+{ #category : 'platypus-generated-invoking' }
 ExChdAdaClassAttributesAdsCodeFunction >> invoke [
 	" ---------- locals assignments ----------"
 
@@ -167,14 +169,14 @@ ExChdAdaClassAttributesAdsCodeFunction >> invoke [
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdAdaClassAttributesAdsCodeFunction >> result [
 	^ result
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdAdaClassAttributesAdsCodeFunction >> result: aString [
 	result := aString
 

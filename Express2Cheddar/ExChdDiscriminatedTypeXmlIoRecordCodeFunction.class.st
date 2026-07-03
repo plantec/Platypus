@@ -32,8 +32,8 @@ END_FUNCTION;
 </ISO10303-11-EXPRESS>
 "
 Class {
-	#name : #ExChdDiscriminatedTypeXmlIoRecordCodeFunction,
-	#superclass : #PlatypusCoreAlgorithmDeclaration,
+	#name : 'ExChdDiscriminatedTypeXmlIoRecordCodeFunction',
+	#superclass : 'PlatypusCoreAlgorithmDeclaration',
 	#instVars : [
 		'typ',
 		'code',
@@ -45,87 +45,89 @@ Class {
 		'tailsAttrs',
 		'translAttrs'
 	],
-	#category : #'Express2Cheddar-DiscriminatedTypeSchema'
+	#category : 'Express2Cheddar-DiscriminatedTypeSchema',
+	#package : 'Express2Cheddar',
+	#tag : 'DiscriminatedTypeSchema'
 }
 
-{ #category : #'platypus-generated-platypus-signature' }
+{ #category : 'platypus-generated-platypus-signature' }
 ExChdDiscriminatedTypeXmlIoRecordCodeFunction class >> iso10303P11Translater [
 	^ 'Platypus (c) LISYC EA3883, Universite de Bretagne occidentale. Brest.'
 
 
 ]
 
-{ #category : #'platypus-generated-meta-data-accessing' }
+{ #category : 'platypus-generated-meta-data-accessing' }
 ExChdDiscriminatedTypeXmlIoRecordCodeFunction class >> schemaDefinition [
 	^ ExChdDiscriminatedTypeSchemaDefinition singleton
 
 
 ]
 
-{ #category : #'platypus-generated-platypus-signature' }
+{ #category : 'platypus-generated-platypus-signature' }
 ExChdDiscriminatedTypeXmlIoRecordCodeFunction class >> translatedFromISO10303P11 [
 	^ true
 
 
 ]
 
-{ #category : #'platypus-generated-platypus-signature' }
+{ #category : 'platypus-generated-platypus-signature' }
 ExChdDiscriminatedTypeXmlIoRecordCodeFunction class >> vwNamespaceName [
 	^ #Express2Cheddar
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdDiscriminatedTypeXmlIoRecordCodeFunction >> code [
 	^ code
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdDiscriminatedTypeXmlIoRecordCodeFunction >> code: aString [
 	code := aString
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdDiscriminatedTypeXmlIoRecordCodeFunction >> discrimAttr [
 	^ discrimAttr
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdDiscriminatedTypeXmlIoRecordCodeFunction >> discrimAttr: aExChdAttribute [
 	discrimAttr := aExChdAttribute
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdDiscriminatedTypeXmlIoRecordCodeFunction >> discrimType [
 	^ discrimType
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdDiscriminatedTypeXmlIoRecordCodeFunction >> discrimType: aExChdEntityInstance [
 	discrimType := aExChdEntityInstance
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdDiscriminatedTypeXmlIoRecordCodeFunction >> fromValues: values [
 	self typ: (values at: 1)
 
 
 ]
 
-{ #category : #'platypus-generated-invoking' }
+{ #category : 'platypus-generated-invoking' }
 ExChdDiscriminatedTypeXmlIoRecordCodeFunction >> invoke [
 	" ---------- locals assignments ----------"
 
@@ -206,14 +208,14 @@ ExChdDiscriminatedTypeXmlIoRecordCodeFunction >> invoke [
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdDiscriminatedTypeXmlIoRecordCodeFunction >> tailsAttrs [
 	^ tailsAttrs
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdDiscriminatedTypeXmlIoRecordCodeFunction >> tailsAttrs: aListOfExChdAttribute1 [
 	tailsAttrs := aListOfExChdAttribute1
 		ifNil: [ OrderedCollection new ]
@@ -222,14 +224,14 @@ ExChdDiscriminatedTypeXmlIoRecordCodeFunction >> tailsAttrs: aListOfExChdAttribu
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdDiscriminatedTypeXmlIoRecordCodeFunction >> translAttrs [
 	^ translAttrs
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdDiscriminatedTypeXmlIoRecordCodeFunction >> translAttrs: aListOfExChdAttribute2 [
 	translAttrs := aListOfExChdAttribute2
 		ifNil: [ OrderedCollection new ]
@@ -238,42 +240,42 @@ ExChdDiscriminatedTypeXmlIoRecordCodeFunction >> translAttrs: aListOfExChdAttrib
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdDiscriminatedTypeXmlIoRecordCodeFunction >> typ [
 	^ typ
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdDiscriminatedTypeXmlIoRecordCodeFunction >> typ: aExChdDiscriminatedType [
 	typ := aExChdDiscriminatedType
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdDiscriminatedTypeXmlIoRecordCodeFunction >> unionAttr [
 	^ unionAttr
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdDiscriminatedTypeXmlIoRecordCodeFunction >> unionAttr: aExChdAttribute1 [
 	unionAttr := aExChdAttribute1
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdDiscriminatedTypeXmlIoRecordCodeFunction >> unionAttributes [
 	^ unionAttributes
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdDiscriminatedTypeXmlIoRecordCodeFunction >> unionAttributes: aListOfExChdAttribute [
 	unionAttributes := aListOfExChdAttribute
 		ifNil: [ OrderedCollection new ]
@@ -282,14 +284,14 @@ ExChdDiscriminatedTypeXmlIoRecordCodeFunction >> unionAttributes: aListOfExChdAt
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdDiscriminatedTypeXmlIoRecordCodeFunction >> unionType [
 	^ unionType
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdDiscriminatedTypeXmlIoRecordCodeFunction >> unionType: aExChdDefinedType [
 	unionType := aExChdDefinedType
 

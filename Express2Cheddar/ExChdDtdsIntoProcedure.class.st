@@ -23,66 +23,68 @@ END_PROCEDURE;
 </ISO10303-11-EXPRESS>
 "
 Class {
-	#name : #ExChdDtdsIntoProcedure,
-	#superclass : #PlatypusCoreAlgorithmDeclaration,
+	#name : 'ExChdDtdsIntoProcedure',
+	#superclass : 'PlatypusCoreAlgorithmDeclaration',
 	#instVars : [
 		'dir',
 		'roots',
 		'path'
 	],
-	#category : #'Express2Cheddar-Express2cheddarFacadeSchema'
+	#category : 'Express2Cheddar-Express2cheddarFacadeSchema',
+	#package : 'Express2Cheddar',
+	#tag : 'Express2cheddarFacadeSchema'
 }
 
-{ #category : #'platypus-generated-platypus-signature' }
+{ #category : 'platypus-generated-platypus-signature' }
 ExChdDtdsIntoProcedure class >> iso10303P11Translater [
 	^ 'Platypus (c) LISYC EA3883, Universite de Bretagne occidentale. Brest.'
 
 
 ]
 
-{ #category : #'platypus-generated-meta-data-accessing' }
+{ #category : 'platypus-generated-meta-data-accessing' }
 ExChdDtdsIntoProcedure class >> schemaDefinition [
 	^ ExChdExpress2cheddarFacadeSchemaDefinition singleton
 
 
 ]
 
-{ #category : #'platypus-generated-platypus-signature' }
+{ #category : 'platypus-generated-platypus-signature' }
 ExChdDtdsIntoProcedure class >> translatedFromISO10303P11 [
 	^ true
 
 
 ]
 
-{ #category : #'platypus-generated-platypus-signature' }
+{ #category : 'platypus-generated-platypus-signature' }
 ExChdDtdsIntoProcedure class >> vwNamespaceName [
 	^ #Express2Cheddar
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdDtdsIntoProcedure >> dir [
 	^ dir
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdDtdsIntoProcedure >> dir: aString [
 	dir := aString
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdDtdsIntoProcedure >> fromValues: values [
 	self dir: (values at: 1)
 
 
 ]
 
-{ #category : #'platypus-generated-invoking' }
+{ #category : 'platypus-generated-invoking' }
 ExChdDtdsIntoProcedure >> invoke [
 	" ---------- locals assignments ----------"
 
@@ -122,28 +124,28 @@ ExChdDtdsIntoProcedure >> invoke [
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdDtdsIntoProcedure >> path [
 	^ path
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdDtdsIntoProcedure >> path: aString [
 	path := aString
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdDtdsIntoProcedure >> roots [
 	^ roots
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdDtdsIntoProcedure >> roots: aListOfExChdRootDtdElement [
 	roots := aListOfExChdRootDtdElement
 		ifNil: [ OrderedCollection new ]

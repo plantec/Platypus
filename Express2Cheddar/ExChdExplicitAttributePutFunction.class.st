@@ -27,95 +27,97 @@ END_FUNCTION;
 </ISO10303-11-EXPRESS>
 "
 Class {
-	#name : #ExChdExplicitAttributePutFunction,
-	#superclass : #PlatypusCoreAlgorithmDeclaration,
+	#name : 'ExChdExplicitAttributePutFunction',
+	#superclass : 'PlatypusCoreAlgorithmDeclaration',
 	#instVars : [
 		'attr',
 		'code',
 		'prfx',
 		'domain'
 	],
-	#category : #'Express2Cheddar-RecordAndClassSchema'
+	#category : 'Express2Cheddar-RecordAndClassSchema',
+	#package : 'Express2Cheddar',
+	#tag : 'RecordAndClassSchema'
 }
 
-{ #category : #'platypus-generated-platypus-signature' }
+{ #category : 'platypus-generated-platypus-signature' }
 ExChdExplicitAttributePutFunction class >> iso10303P11Translater [
 	^ 'Platypus (c) LISYC EA3883, Universite de Bretagne occidentale. Brest.'
 
 
 ]
 
-{ #category : #'platypus-generated-meta-data-accessing' }
+{ #category : 'platypus-generated-meta-data-accessing' }
 ExChdExplicitAttributePutFunction class >> schemaDefinition [
 	^ ExChdRecordAndClassSchemaDefinition singleton
 
 
 ]
 
-{ #category : #'platypus-generated-platypus-signature' }
+{ #category : 'platypus-generated-platypus-signature' }
 ExChdExplicitAttributePutFunction class >> translatedFromISO10303P11 [
 	^ true
 
 
 ]
 
-{ #category : #'platypus-generated-platypus-signature' }
+{ #category : 'platypus-generated-platypus-signature' }
 ExChdExplicitAttributePutFunction class >> vwNamespaceName [
 	^ #Express2Cheddar
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdExplicitAttributePutFunction >> attr [
 	^ attr
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdExplicitAttributePutFunction >> attr: aExChdExplicitAttribute [
 	attr := aExChdExplicitAttribute
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdExplicitAttributePutFunction >> code [
 	^ code
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdExplicitAttributePutFunction >> code: aString [
 	code := aString
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdExplicitAttributePutFunction >> domain [
 	^ domain
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdExplicitAttributePutFunction >> domain: aExChdEntityInstance [
 	domain := aExChdEntityInstance
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdExplicitAttributePutFunction >> fromValues: values [
 	self attr: (values at: 1)
 
 
 ]
 
-{ #category : #'platypus-generated-invoking' }
+{ #category : 'platypus-generated-invoking' }
 ExChdExplicitAttributePutFunction >> invoke [
 	" ---------- locals assignments ----------"
 
@@ -159,14 +161,14 @@ ExChdExplicitAttributePutFunction >> invoke [
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdExplicitAttributePutFunction >> prfx [
 	^ prfx
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdExplicitAttributePutFunction >> prfx: aString1 [
 	prfx := aString1
 

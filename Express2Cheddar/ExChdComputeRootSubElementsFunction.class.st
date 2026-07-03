@@ -16,65 +16,67 @@ END_FUNCTION;
 </ISO10303-11-EXPRESS>
 "
 Class {
-	#name : #ExChdComputeRootSubElementsFunction,
-	#superclass : #PlatypusCoreAlgorithmDeclaration,
+	#name : 'ExChdComputeRootSubElementsFunction',
+	#superclass : 'PlatypusCoreAlgorithmDeclaration',
 	#instVars : [
 		'e',
 		'result'
 	],
-	#category : #'Express2Cheddar-CheddarDtdSchema'
+	#category : 'Express2Cheddar-CheddarDtdSchema',
+	#package : 'Express2Cheddar',
+	#tag : 'CheddarDtdSchema'
 }
 
-{ #category : #'platypus-generated-platypus-signature' }
+{ #category : 'platypus-generated-platypus-signature' }
 ExChdComputeRootSubElementsFunction class >> iso10303P11Translater [
 	^ 'Platypus (c) LISYC EA3883, Universite de Bretagne occidentale. Brest.'
 
 
 ]
 
-{ #category : #'platypus-generated-meta-data-accessing' }
+{ #category : 'platypus-generated-meta-data-accessing' }
 ExChdComputeRootSubElementsFunction class >> schemaDefinition [
 	^ ExChdCheddarDtdSchemaDefinition singleton
 
 
 ]
 
-{ #category : #'platypus-generated-platypus-signature' }
+{ #category : 'platypus-generated-platypus-signature' }
 ExChdComputeRootSubElementsFunction class >> translatedFromISO10303P11 [
 	^ true
 
 
 ]
 
-{ #category : #'platypus-generated-platypus-signature' }
+{ #category : 'platypus-generated-platypus-signature' }
 ExChdComputeRootSubElementsFunction class >> vwNamespaceName [
 	^ #Express2Cheddar
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdComputeRootSubElementsFunction >> e [
 	^ e
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdComputeRootSubElementsFunction >> e: aExChdRootDtdElement [
 	e := aExChdRootDtdElement
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdComputeRootSubElementsFunction >> fromValues: values [
 	self e: (values at: 1)
 
 
 ]
 
-{ #category : #'platypus-generated-invoking' }
+{ #category : 'platypus-generated-invoking' }
 ExChdComputeRootSubElementsFunction >> invoke [
 	" ---------- locals assignments ----------"
 
@@ -130,14 +132,14 @@ ExChdComputeRootSubElementsFunction >> invoke [
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdComputeRootSubElementsFunction >> result [
 	^ result
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdComputeRootSubElementsFunction >> result: aListOfExChdPackageDtdElement [
 	result := aListOfExChdPackageDtdElement
 		ifNil: [ OrderedCollection new ]

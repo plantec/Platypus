@@ -1,24 +1,26 @@
 Class {
-	#name : #TamPaneMorphWrapper,
-	#superclass : #TamPaneMorph,
+	#name : 'TamPaneMorphWrapper',
+	#superclass : 'TamPaneMorph',
 	#instVars : [
 		'wrapped'
 	],
-	#category : 'Tamaris-UI'
+	#category : 'Tamaris-UI',
+	#package : 'Tamaris',
+	#tag : 'UI'
 }
 
-{ #category : #'error handling' }
+{ #category : 'error handling' }
 TamPaneMorphWrapper >> doesNotUnderstand: aMessage [ 
 	^ wrapped  perform: aMessage selector withArguments: aMessage arguments
 
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TamPaneMorphWrapper >> wrapped [
 	^wrapped
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TamPaneMorphWrapper >> wrapped: anObject [ 
 	| frameImagedMorph |
 	wrapped := anObject.

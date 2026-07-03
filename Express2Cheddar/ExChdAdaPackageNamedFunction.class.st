@@ -19,52 +19,54 @@ END_FUNCTION;
 </ISO10303-11-EXPRESS>
 "
 Class {
-	#name : #ExChdAdaPackageNamedFunction,
-	#superclass : #PlatypusCoreAlgorithmDeclaration,
+	#name : 'ExChdAdaPackageNamedFunction',
+	#superclass : 'PlatypusCoreAlgorithmDeclaration',
 	#instVars : [
 		'name',
 		'packages',
 		'key'
 	],
-	#category : #'Express2Cheddar-Express2cheddarFacadeSchema'
+	#category : 'Express2Cheddar-Express2cheddarFacadeSchema',
+	#package : 'Express2Cheddar',
+	#tag : 'Express2cheddarFacadeSchema'
 }
 
-{ #category : #'platypus-generated-platypus-signature' }
+{ #category : 'platypus-generated-platypus-signature' }
 ExChdAdaPackageNamedFunction class >> iso10303P11Translater [
 	^ 'Platypus (c) LISYC EA3883, Universite de Bretagne occidentale. Brest.'
 
 
 ]
 
-{ #category : #'platypus-generated-meta-data-accessing' }
+{ #category : 'platypus-generated-meta-data-accessing' }
 ExChdAdaPackageNamedFunction class >> schemaDefinition [
 	^ ExChdExpress2cheddarFacadeSchemaDefinition singleton
 
 
 ]
 
-{ #category : #'platypus-generated-platypus-signature' }
+{ #category : 'platypus-generated-platypus-signature' }
 ExChdAdaPackageNamedFunction class >> translatedFromISO10303P11 [
 	^ true
 
 
 ]
 
-{ #category : #'platypus-generated-platypus-signature' }
+{ #category : 'platypus-generated-platypus-signature' }
 ExChdAdaPackageNamedFunction class >> vwNamespaceName [
 	^ #Express2Cheddar
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdAdaPackageNamedFunction >> fromValues: values [
 	self name: (values at: 1)
 
 
 ]
 
-{ #category : #'platypus-generated-invoking' }
+{ #category : 'platypus-generated-invoking' }
 ExChdAdaPackageNamedFunction >> invoke [
 	" ---------- locals assignments ----------"
 
@@ -104,42 +106,42 @@ ExChdAdaPackageNamedFunction >> invoke [
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdAdaPackageNamedFunction >> key [
 	^ key
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdAdaPackageNamedFunction >> key: aString [
 	key := aString
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdAdaPackageNamedFunction >> name [
 	^ name
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdAdaPackageNamedFunction >> name: aString [
 	name := aString
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdAdaPackageNamedFunction >> packages [
 	^ packages
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdAdaPackageNamedFunction >> packages: aSetOfExChdAdaPackage [
 	packages := aSetOfExChdAdaPackage ifNil: [ Set new ] ifNotNil: [ aSetOfExChdAdaPackage as: Set ]
 

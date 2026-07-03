@@ -49,8 +49,8 @@ END_FUNCTION;
 </ISO10303-11-EXPRESS>
 "
 Class {
-	#name : #ExChdAllPackagesCodeIntoFunction,
-	#superclass : #PlatypusCoreAlgorithmDeclaration,
+	#name : 'ExChdAllPackagesCodeIntoFunction',
+	#superclass : 'PlatypusCoreAlgorithmDeclaration',
 	#instVars : [
 		'ads',
 		'dir',
@@ -60,52 +60,54 @@ Class {
 		'pkgs',
 		'targetPath'
 	],
-	#category : #'Express2Cheddar-PackageSchema'
+	#category : 'Express2Cheddar-PackageSchema',
+	#package : 'Express2Cheddar',
+	#tag : 'PackageSchema'
 }
 
-{ #category : #'platypus-generated-platypus-signature' }
+{ #category : 'platypus-generated-platypus-signature' }
 ExChdAllPackagesCodeIntoFunction class >> iso10303P11Translater [
 	^ 'Platypus (c) LISYC EA3883, Universite de Bretagne occidentale. Brest.'
 
 
 ]
 
-{ #category : #'platypus-generated-meta-data-accessing' }
+{ #category : 'platypus-generated-meta-data-accessing' }
 ExChdAllPackagesCodeIntoFunction class >> schemaDefinition [
 	^ ExChdPackageSchemaDefinition singleton
 
 
 ]
 
-{ #category : #'platypus-generated-platypus-signature' }
+{ #category : 'platypus-generated-platypus-signature' }
 ExChdAllPackagesCodeIntoFunction class >> translatedFromISO10303P11 [
 	^ true
 
 
 ]
 
-{ #category : #'platypus-generated-platypus-signature' }
+{ #category : 'platypus-generated-platypus-signature' }
 ExChdAllPackagesCodeIntoFunction class >> vwNamespaceName [
 	^ #Express2Cheddar
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdAllPackagesCodeIntoFunction >> ads [
 	^ ads
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdAllPackagesCodeIntoFunction >> ads: aBoolean [
 	ads := aBoolean
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdAllPackagesCodeIntoFunction >> ads: aBoolean dir: aString targetName: aString1 [
 	self ads: aBoolean.
 	self dir: aString.
@@ -114,49 +116,49 @@ ExChdAllPackagesCodeIntoFunction >> ads: aBoolean dir: aString targetName: aStri
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdAllPackagesCodeIntoFunction >> body [
 	^ body
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdAllPackagesCodeIntoFunction >> body: aString1 [
 	body := aString1
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdAllPackagesCodeIntoFunction >> code [
 	^ code
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdAllPackagesCodeIntoFunction >> code: aString [
 	code := aString
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdAllPackagesCodeIntoFunction >> dir [
 	^ dir
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdAllPackagesCodeIntoFunction >> dir: aString [
 	dir := aString
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdAllPackagesCodeIntoFunction >> fromValues: values [
 	self ads: (values at: 1).
 	self dir: (values at: 2).
@@ -165,7 +167,7 @@ ExChdAllPackagesCodeIntoFunction >> fromValues: values [
 
 ]
 
-{ #category : #'platypus-generated-invoking' }
+{ #category : 'platypus-generated-invoking' }
 ExChdAllPackagesCodeIntoFunction >> invoke [
 	" ---------- locals assignments ----------"
 
@@ -233,14 +235,14 @@ ExChdAllPackagesCodeIntoFunction >> invoke [
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdAllPackagesCodeIntoFunction >> pkgs [
 	^ pkgs
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdAllPackagesCodeIntoFunction >> pkgs: aListOfExChdAdaPackage [
 	pkgs := aListOfExChdAdaPackage
 		ifNil: [ OrderedCollection new ]
@@ -249,28 +251,28 @@ ExChdAllPackagesCodeIntoFunction >> pkgs: aListOfExChdAdaPackage [
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdAllPackagesCodeIntoFunction >> targetName [
 	^ targetName
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdAllPackagesCodeIntoFunction >> targetName: aString1 [
 	targetName := aString1
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdAllPackagesCodeIntoFunction >> targetPath [
 	^ targetPath
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdAllPackagesCodeIntoFunction >> targetPath: aString2 [
 	targetPath := aString2
 

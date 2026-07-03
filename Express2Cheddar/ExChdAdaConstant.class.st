@@ -13,58 +13,60 @@ END_ENTITY;
 </ISO10303-11-EXPRESS>
 "
 Class {
-	#name : #ExChdAdaConstant,
-	#superclass : #PltConstantDefinition,
+	#name : 'ExChdAdaConstant',
+	#superclass : 'PltConstantDefinition',
 	#instVars : [
 		'final',
 		'otherInitializer'
 	],
-	#category : #'Express2Cheddar-CheddarConstantsSchema'
+	#category : 'Express2Cheddar-CheddarConstantsSchema',
+	#package : 'Express2Cheddar',
+	#tag : 'CheddarConstantsSchema'
 }
 
-{ #category : #'platypus-generated-platypus-signature' }
+{ #category : 'platypus-generated-platypus-signature' }
 ExChdAdaConstant class >> iso10303P11Translater [
 	^ 'Platypus (c) LISYC EA3883, Universite de Bretagne occidentale. Brest.'
 
 
 ]
 
-{ #category : #'platypus-generated-meta-data-accessing' }
+{ #category : 'platypus-generated-meta-data-accessing' }
 ExChdAdaConstant class >> schemaDefinition [
 	^ ExChdCheddarConstantsSchemaDefinition singleton
 
 
 ]
 
-{ #category : #'platypus-generated-meta-data-accessing' }
+{ #category : 'platypus-generated-meta-data-accessing' }
 ExChdAdaConstant class >> schemaInstance [
 	^ ExChdExpress2cheddarSchemaInstance singleton
 
 
 ]
 
-{ #category : #'platypus-generated-platypus-signature' }
+{ #category : 'platypus-generated-platypus-signature' }
 ExChdAdaConstant class >> translatedFromISO10303P11 [
 	^ true
 
 
 ]
 
-{ #category : #'platypus-generated-platypus-signature' }
+{ #category : 'platypus-generated-platypus-signature' }
 ExChdAdaConstant class >> vwNamespaceName [
 	^ #Express2Cheddar
 
 
 ]
 
-{ #category : #'platypus-generated-visiting' }
+{ #category : 'platypus-generated-visiting' }
 ExChdAdaConstant >> accept: aVisitor [
 	^ aVisitor acceptAdaConstant: self
 
 
 ]
 
-{ #category : #'platypus-generated-copying' }
+{ #category : 'platypus-generated-copying' }
 ExChdAdaConstant >> adaConstantCopyTo: another [
 	another fastSetFinal: self final.
 	another fastSetOtherInitializer: self otherInitializer
@@ -72,7 +74,7 @@ ExChdAdaConstant >> adaConstantCopyTo: another [
 
 ]
 
-{ #category : #'platypus-generated-group-accessing' }
+{ #category : 'platypus-generated-group-accessing' }
 ExChdAdaConstant >> adaConstantFromValues: values [
 	| valuesloc |
 	valuesloc := values asOrderedCollection.
@@ -83,7 +85,7 @@ ExChdAdaConstant >> adaConstantFromValues: values [
 
 ]
 
-{ #category : #'platypus-generated-group-accessing' }
+{ #category : 'platypus-generated-group-accessing' }
 ExChdAdaConstant >> adaConstantToValues: values [
 	values add: self final.
 	values add: self otherInitializer.
@@ -92,63 +94,63 @@ ExChdAdaConstant >> adaConstantToValues: values [
 
 ]
 
-{ #category : #'platypus-generated-deriving' }
+{ #category : 'platypus-generated-deriving' }
 ExChdAdaConstant >> adbCode [
 	^ self adbCodeUsingContext: self class context
 
 
 ]
 
-{ #category : #'platypus-generated-deriving' }
+{ #category : 'platypus-generated-deriving' }
 ExChdAdaConstant >> adbCodeUsingContext: aContext [
 	^ self adbCodeUsingContext: aContext receiver: self
 
 
 ]
 
-{ #category : #'platypus-generated-deriving' }
+{ #category : 'platypus-generated-deriving' }
 ExChdAdaConstant >> adbCodeUsingContext: aContext receiver: aReceiver [
 	^ ''
 
 
 ]
 
-{ #category : #'platypus-generated-deriving' }
+{ #category : 'platypus-generated-deriving' }
 ExChdAdaConstant >> adbInterfacesList [
 	^ self adbInterfacesListUsingContext: self class context
 
 
 ]
 
-{ #category : #'platypus-generated-deriving' }
+{ #category : 'platypus-generated-deriving' }
 ExChdAdaConstant >> adbInterfacesListUsingContext: aContext [
 	^ self adbInterfacesListUsingContext: aContext receiver: self
 
 
 ]
 
-{ #category : #'platypus-generated-deriving' }
+{ #category : 'platypus-generated-deriving' }
 ExChdAdaConstant >> adbInterfacesListUsingContext: aContext receiver: aReceiver [
 	^ Array new
 
 
 ]
 
-{ #category : #'platypus-generated-deriving' }
+{ #category : 'platypus-generated-deriving' }
 ExChdAdaConstant >> adsCode [
 	^ self adsCodeUsingContext: self class context
 
 
 ]
 
-{ #category : #'platypus-generated-deriving' }
+{ #category : 'platypus-generated-deriving' }
 ExChdAdaConstant >> adsCodeUsingContext: aContext [
 	^ self adsCodeUsingContext: aContext receiver: self
 
 
 ]
 
-{ #category : #'platypus-generated-deriving' }
+{ #category : 'platypus-generated-deriving' }
 ExChdAdaConstant >> adsCodeUsingContext: aContext receiver: aReceiver [
 	^ ExChdAdaConstantAdsCodeFunction
 		invokeFromValues:
@@ -159,21 +161,21 @@ ExChdAdaConstant >> adsCodeUsingContext: aContext receiver: aReceiver [
 
 ]
 
-{ #category : #'platypus-generated-deriving' }
+{ #category : 'platypus-generated-deriving' }
 ExChdAdaConstant >> adsInterfacesList [
 	^ self adsInterfacesListUsingContext: self class context
 
 
 ]
 
-{ #category : #'platypus-generated-deriving' }
+{ #category : 'platypus-generated-deriving' }
 ExChdAdaConstant >> adsInterfacesListUsingContext: aContext [
 	^ self adsInterfacesListUsingContext: aContext receiver: self
 
 
 ]
 
-{ #category : #'platypus-generated-deriving' }
+{ #category : 'platypus-generated-deriving' }
 ExChdAdaConstant >> adsInterfacesListUsingContext: aContext receiver: aReceiver [
 	^ ExChdAdaConstantInterfacesListFunction
 		invokeFromValues:
@@ -185,91 +187,91 @@ ExChdAdaConstant >> adsInterfacesListUsingContext: aContext receiver: aReceiver 
 
 ]
 
-{ #category : #'platypus-generated-fast-set-accessing' }
+{ #category : 'platypus-generated-fast-set-accessing' }
 ExChdAdaConstant >> fastSetFinal: aBoolean [
 	final := aBoolean
 
 
 ]
 
-{ #category : #'platypus-generated-fast-set-accessing' }
+{ #category : 'platypus-generated-fast-set-accessing' }
 ExChdAdaConstant >> fastSetOtherInitializer: aString [
 	otherInitializer := aString
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdAdaConstant >> final [
 	^ final
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdAdaConstant >> final: aBoolean [
 	final := aBoolean
 
 
 ]
 
-{ #category : #'platypus-generated-with-context-accessing' }
+{ #category : 'platypus-generated-with-context-accessing' }
 ExChdAdaConstant >> finalUsingContext: aContext [
 	^ self final
 
 
 ]
 
-{ #category : #'platypus-generated-group-accessing' }
+{ #category : 'platypus-generated-group-accessing' }
 ExChdAdaConstant >> fromValues: values [
 	^ self adaConstantFromValues: (super fromValues: values)
 
 
 ]
 
-{ #category : #'platypus-generated-classifying' }
+{ #category : 'platypus-generated-classifying' }
 ExChdAdaConstant >> isExChdAdaConstant [
 	^ true
 
 
 ]
 
-{ #category : #'platypus-generated-group-accessing' }
+{ #category : 'platypus-generated-group-accessing' }
 ExChdAdaConstant >> localFromValues: values [
 	^ self adaConstantFromValues: values
 
 
 ]
 
-{ #category : #'platypus-generated-group-accessing' }
+{ #category : 'platypus-generated-group-accessing' }
 ExChdAdaConstant >> localToValues: values [
 	^ self adaConstantToValues: values
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdAdaConstant >> otherInitializer [
 	^ otherInitializer
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdAdaConstant >> otherInitializer: aString [
 	otherInitializer := aString
 
 
 ]
 
-{ #category : #'platypus-generated-with-context-accessing' }
+{ #category : 'platypus-generated-with-context-accessing' }
 ExChdAdaConstant >> otherInitializerUsingContext: aContext [
 	^ self otherInitializer
 
 
 ]
 
-{ #category : #'platypus-generated-copying' }
+{ #category : 'platypus-generated-copying' }
 ExChdAdaConstant >> pltCopyGroup: aClassSymbol to: anObject [
 	self class name == aClassSymbol
 		ifTrue: [ self pltCopyTo: anObject ]
@@ -278,7 +280,7 @@ ExChdAdaConstant >> pltCopyGroup: aClassSymbol to: anObject [
 
 ]
 
-{ #category : #'platypus-generated-copying' }
+{ #category : 'platypus-generated-copying' }
 ExChdAdaConstant >> pltCopyTo: another [
 	super pltCopyTo: another.
 	self adaConstantCopyTo: another
@@ -286,28 +288,28 @@ ExChdAdaConstant >> pltCopyTo: another [
 
 ]
 
-{ #category : #'platypus-generated-copying' }
+{ #category : 'platypus-generated-copying' }
 ExChdAdaConstant >> pltLocalCopyTo: another [
 	self adaConstantCopyTo: another
 
 
 ]
 
-{ #category : #'platypus-generated-set-accessing' }
+{ #category : 'platypus-generated-set-accessing' }
 ExChdAdaConstant >> setFinal: aBoolean [
 	self final: aBoolean
 
 
 ]
 
-{ #category : #'platypus-generated-set-accessing' }
+{ #category : 'platypus-generated-set-accessing' }
 ExChdAdaConstant >> setOtherInitializer: aString [
 	self otherInitializer: aString
 
 
 ]
 
-{ #category : #'platypus-generated-initializing' }
+{ #category : 'platypus-generated-initializing' }
 ExChdAdaConstant >> stepInitialize [
 	super stepInitialize.
 	final := false.
@@ -316,7 +318,7 @@ ExChdAdaConstant >> stepInitialize [
 
 ]
 
-{ #category : #'platypus-generated-group-accessing' }
+{ #category : 'platypus-generated-group-accessing' }
 ExChdAdaConstant >> toValues: values [
 	^ self adaConstantToValues: (super toValues: values)
 

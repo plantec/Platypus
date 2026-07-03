@@ -20,45 +20,47 @@ END_FUNCTION;
 </ISO10303-11-EXPRESS>
 "
 Class {
-	#name : #ExChdDependenciesOfFunction,
-	#superclass : #PlatypusCoreAlgorithmDeclaration,
+	#name : 'ExChdDependenciesOfFunction',
+	#superclass : 'PlatypusCoreAlgorithmDeclaration',
 	#instVars : [
 		'o',
 		't',
 		'r'
 	],
-	#category : #'Express2Cheddar-CheddarDomainsSchema'
+	#category : 'Express2Cheddar-CheddarDomainsSchema',
+	#package : 'Express2Cheddar',
+	#tag : 'CheddarDomainsSchema'
 }
 
-{ #category : #'platypus-generated-platypus-signature' }
+{ #category : 'platypus-generated-platypus-signature' }
 ExChdDependenciesOfFunction class >> iso10303P11Translater [
 	^ 'Platypus (c) LISYC EA3883, Universite de Bretagne occidentale. Brest.'
 
 
 ]
 
-{ #category : #'platypus-generated-meta-data-accessing' }
+{ #category : 'platypus-generated-meta-data-accessing' }
 ExChdDependenciesOfFunction class >> schemaDefinition [
 	^ ExChdCheddarDomainsSchemaDefinition singleton
 
 
 ]
 
-{ #category : #'platypus-generated-platypus-signature' }
+{ #category : 'platypus-generated-platypus-signature' }
 ExChdDependenciesOfFunction class >> translatedFromISO10303P11 [
 	^ true
 
 
 ]
 
-{ #category : #'platypus-generated-platypus-signature' }
+{ #category : 'platypus-generated-platypus-signature' }
 ExChdDependenciesOfFunction class >> vwNamespaceName [
 	^ #Express2Cheddar
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdDependenciesOfFunction >> fromValues: values [
 	self o: (values at: 1).
 	self t: (values at: 2)
@@ -66,7 +68,7 @@ ExChdDependenciesOfFunction >> fromValues: values [
 
 ]
 
-{ #category : #'platypus-generated-invoking' }
+{ #category : 'platypus-generated-invoking' }
 ExChdDependenciesOfFunction >> invoke [
 	" ---------- locals assignments ----------"
 
@@ -101,21 +103,21 @@ ExChdDependenciesOfFunction >> invoke [
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdDependenciesOfFunction >> o [
 	^ o
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdDependenciesOfFunction >> o: aExChdContextDefinition [
 	o := aExChdContextDefinition
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdDependenciesOfFunction >> o: aExChdContextDefinition t: aExChdDictionaryInstance [
 	self o: aExChdContextDefinition.
 	self t: aExChdDictionaryInstance
@@ -123,14 +125,14 @@ ExChdDependenciesOfFunction >> o: aExChdContextDefinition t: aExChdDictionaryIns
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdDependenciesOfFunction >> r [
 	^ r
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdDependenciesOfFunction >> r: aListOfExChdDictionaryInstance [
 	r := aListOfExChdDictionaryInstance
 		ifNil: [ OrderedCollection new ]
@@ -139,14 +141,14 @@ ExChdDependenciesOfFunction >> r: aListOfExChdDictionaryInstance [
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdDependenciesOfFunction >> t [
 	^ t
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdDependenciesOfFunction >> t: aExChdDictionaryInstance [
 	t := aExChdDictionaryInstance
 

@@ -1,1 +1,1 @@
-Package { #name : #Express2Cheddar }
+Package { #name : 'Express2Cheddar' }

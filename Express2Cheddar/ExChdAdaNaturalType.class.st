@@ -13,82 +13,84 @@ END_ENTITY;
 </ISO10303-11-EXPRESS>
 "
 Class {
-	#name : #ExChdAdaNaturalType,
-	#superclass : #ExChdAdaPrimitiveType,
-	#category : #'Express2Cheddar-CheddarDomainsSchema'
+	#name : 'ExChdAdaNaturalType',
+	#superclass : 'ExChdAdaPrimitiveType',
+	#category : 'Express2Cheddar-CheddarDomainsSchema',
+	#package : 'Express2Cheddar',
+	#tag : 'CheddarDomainsSchema'
 }
 
-{ #category : #'platypus-generated-platypus-signature' }
+{ #category : 'platypus-generated-platypus-signature' }
 ExChdAdaNaturalType class >> iso10303P11Translater [
 	^ 'Platypus (c) LISYC EA3883, Universite de Bretagne occidentale. Brest.'
 
 
 ]
 
-{ #category : #'platypus-generated-meta-data-accessing' }
+{ #category : 'platypus-generated-meta-data-accessing' }
 ExChdAdaNaturalType class >> schemaDefinition [
 	^ ExChdCheddarDomainsSchemaDefinition singleton
 
 
 ]
 
-{ #category : #'platypus-generated-meta-data-accessing' }
+{ #category : 'platypus-generated-meta-data-accessing' }
 ExChdAdaNaturalType class >> schemaInstance [
 	^ ExChdExpress2cheddarSchemaInstance singleton
 
 
 ]
 
-{ #category : #'platypus-generated-platypus-signature' }
+{ #category : 'platypus-generated-platypus-signature' }
 ExChdAdaNaturalType class >> translatedFromISO10303P11 [
 	^ true
 
 
 ]
 
-{ #category : #'platypus-generated-platypus-signature' }
+{ #category : 'platypus-generated-platypus-signature' }
 ExChdAdaNaturalType class >> vwNamespaceName [
 	^ #Express2Cheddar
 
 
 ]
 
-{ #category : #'platypus-generated-visiting' }
+{ #category : 'platypus-generated-visiting' }
 ExChdAdaNaturalType >> accept: aVisitor [
 	^ aVisitor acceptAdaNaturalType: self
 
 
 ]
 
-{ #category : #'platypus-generated-deriving' }
+{ #category : 'platypus-generated-deriving' }
 ExChdAdaNaturalType >> adaIdent [
 	^ self adaIdentUsingContext: self class context
 
 
 ]
 
-{ #category : #'platypus-generated-deriving' }
+{ #category : 'platypus-generated-deriving' }
 ExChdAdaNaturalType >> adaIdentUsingContext: aContext [
 	^ self adaIdentUsingContext: aContext receiver: self
 
 
 ]
 
-{ #category : #'platypus-generated-deriving' }
+{ #category : 'platypus-generated-deriving' }
 ExChdAdaNaturalType >> adaIdentUsingContext: aContext receiver: aReceiver [
 	^ 'Natural'
 
 
 ]
 
-{ #category : #'platypus-generated-copying' }
+{ #category : 'platypus-generated-copying' }
 ExChdAdaNaturalType >> adaNaturalTypeCopyTo: another [
 	
 
 
 ]
 
-{ #category : #'platypus-generated-group-accessing' }
+{ #category : 'platypus-generated-group-accessing' }
 ExChdAdaNaturalType >> adaNaturalTypeFromValues: values [
 	| valuesloc |
 	valuesloc := values asOrderedCollection.
@@ -97,49 +99,49 @@ ExChdAdaNaturalType >> adaNaturalTypeFromValues: values [
 
 ]
 
-{ #category : #'platypus-generated-group-accessing' }
+{ #category : 'platypus-generated-group-accessing' }
 ExChdAdaNaturalType >> adaNaturalTypeToValues: values [
 	^ values
 
 
 ]
 
-{ #category : #'platypus-generated-deriving' }
+{ #category : 'platypus-generated-deriving' }
 ExChdAdaNaturalType >> adaRefIdent [
 	^ self adaRefIdentUsingContext: self class context
 
 
 ]
 
-{ #category : #'platypus-generated-deriving' }
+{ #category : 'platypus-generated-deriving' }
 ExChdAdaNaturalType >> adaRefIdentUsingContext: aContext [
 	^ self adaRefIdentUsingContext: aContext receiver: self
 
 
 ]
 
-{ #category : #'platypus-generated-deriving' }
+{ #category : 'platypus-generated-deriving' }
 ExChdAdaNaturalType >> adaRefIdentUsingContext: aContext receiver: aReceiver [
 	^ aReceiver adaIdentUsingContext: aContext
 
 
 ]
 
-{ #category : #'platypus-generated-deriving' }
+{ #category : 'platypus-generated-deriving' }
 ExChdAdaNaturalType >> adbInterfacesList [
 	^ self adbInterfacesListUsingContext: self class context
 
 
 ]
 
-{ #category : #'platypus-generated-deriving' }
+{ #category : 'platypus-generated-deriving' }
 ExChdAdaNaturalType >> adbInterfacesListUsingContext: aContext [
 	^ self adbInterfacesListUsingContext: aContext receiver: self
 
 
 ]
 
-{ #category : #'platypus-generated-deriving' }
+{ #category : 'platypus-generated-deriving' }
 ExChdAdaNaturalType >> adbInterfacesListUsingContext: aContext receiver: aReceiver [
 	^ PlatypusCoreAggregateInitializer
 		collectionFrom:
@@ -159,21 +161,21 @@ ExChdAdaNaturalType >> adbInterfacesListUsingContext: aContext receiver: aReceiv
 
 ]
 
-{ #category : #'platypus-generated-deriving' }
+{ #category : 'platypus-generated-deriving' }
 ExChdAdaNaturalType >> adsInterfacesList [
 	^ self adsInterfacesListUsingContext: self class context
 
 
 ]
 
-{ #category : #'platypus-generated-deriving' }
+{ #category : 'platypus-generated-deriving' }
 ExChdAdaNaturalType >> adsInterfacesListUsingContext: aContext [
 	^ self adsInterfacesListUsingContext: aContext receiver: self
 
 
 ]
 
-{ #category : #'platypus-generated-deriving' }
+{ #category : 'platypus-generated-deriving' }
 ExChdAdaNaturalType >> adsInterfacesListUsingContext: aContext receiver: aReceiver [
 	^ (PlatypusCoreAggregateInitializer
 		collectionFrom:
@@ -208,56 +210,56 @@ ExChdAdaNaturalType >> adsInterfacesListUsingContext: aContext receiver: aReceiv
 
 ]
 
-{ #category : #'platypus-generated-group-accessing' }
+{ #category : 'platypus-generated-group-accessing' }
 ExChdAdaNaturalType >> fromValues: values [
 	^ self adaNaturalTypeFromValues: (super fromValues: values)
 
 
 ]
 
-{ #category : #'platypus-generated-deriving' }
+{ #category : 'platypus-generated-deriving' }
 ExChdAdaNaturalType >> initValue [
 	^ self initValueUsingContext: self class context
 
 
 ]
 
-{ #category : #'platypus-generated-deriving' }
+{ #category : 'platypus-generated-deriving' }
 ExChdAdaNaturalType >> initValueUsingContext: aContext [
 	^ self initValueUsingContext: aContext receiver: self
 
 
 ]
 
-{ #category : #'platypus-generated-deriving' }
+{ #category : 'platypus-generated-deriving' }
 ExChdAdaNaturalType >> initValueUsingContext: aContext receiver: aReceiver [
 	^ '0'
 
 
 ]
 
-{ #category : #'platypus-generated-classifying' }
+{ #category : 'platypus-generated-classifying' }
 ExChdAdaNaturalType >> isExChdAdaNaturalType [
 	^ true
 
 
 ]
 
-{ #category : #'platypus-generated-group-accessing' }
+{ #category : 'platypus-generated-group-accessing' }
 ExChdAdaNaturalType >> localFromValues: values [
 	^ self adaNaturalTypeFromValues: values
 
 
 ]
 
-{ #category : #'platypus-generated-group-accessing' }
+{ #category : 'platypus-generated-group-accessing' }
 ExChdAdaNaturalType >> localToValues: values [
 	^ self adaNaturalTypeToValues: values
 
 
 ]
 
-{ #category : #'platypus-generated-copying' }
+{ #category : 'platypus-generated-copying' }
 ExChdAdaNaturalType >> pltCopyGroup: aClassSymbol to: anObject [
 	self class name == aClassSymbol
 		ifTrue: [ self pltCopyTo: anObject ]
@@ -266,7 +268,7 @@ ExChdAdaNaturalType >> pltCopyGroup: aClassSymbol to: anObject [
 
 ]
 
-{ #category : #'platypus-generated-copying' }
+{ #category : 'platypus-generated-copying' }
 ExChdAdaNaturalType >> pltCopyTo: another [
 	super pltCopyTo: another.
 	self adaNaturalTypeCopyTo: another
@@ -274,42 +276,42 @@ ExChdAdaNaturalType >> pltCopyTo: another [
 
 ]
 
-{ #category : #'platypus-generated-copying' }
+{ #category : 'platypus-generated-copying' }
 ExChdAdaNaturalType >> pltLocalCopyTo: another [
 	self adaNaturalTypeCopyTo: another
 
 
 ]
 
-{ #category : #'platypus-generated-deriving' }
+{ #category : 'platypus-generated-deriving' }
 ExChdAdaNaturalType >> putPrefix [
 	^ self putPrefixUsingContext: self class context
 
 
 ]
 
-{ #category : #'platypus-generated-deriving' }
+{ #category : 'platypus-generated-deriving' }
 ExChdAdaNaturalType >> putPrefixUsingContext: aContext [
 	^ self putPrefixUsingContext: aContext receiver: self
 
 
 ]
 
-{ #category : #'platypus-generated-deriving' }
+{ #category : 'platypus-generated-deriving' }
 ExChdAdaNaturalType >> putPrefixUsingContext: aContext receiver: aReceiver [
 	^ 'standards_io.natural_io.'
 
 
 ]
 
-{ #category : #'platypus-generated-initializing' }
+{ #category : 'platypus-generated-initializing' }
 ExChdAdaNaturalType >> stepInitialize [
 	super stepInitialize
 
 
 ]
 
-{ #category : #'platypus-generated-group-accessing' }
+{ #category : 'platypus-generated-group-accessing' }
 ExChdAdaNaturalType >> toValues: values [
 	^ self adaNaturalTypeToValues: (super toValues: values)
 

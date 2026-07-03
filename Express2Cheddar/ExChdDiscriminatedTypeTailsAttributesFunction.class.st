@@ -21,8 +21,8 @@ END_FUNCTION;
 </ISO10303-11-EXPRESS>
 "
 Class {
-	#name : #ExChdDiscriminatedTypeTailsAttributesFunction,
-	#superclass : #PlatypusCoreAlgorithmDeclaration,
+	#name : 'ExChdDiscriminatedTypeTailsAttributesFunction',
+	#superclass : 'PlatypusCoreAlgorithmDeclaration',
 	#instVars : [
 		'typ',
 		'unionAttr',
@@ -30,45 +30,47 @@ Class {
 		'unionAttributes',
 		'found'
 	],
-	#category : #'Express2Cheddar-DiscriminatedTypeSchema'
+	#category : 'Express2Cheddar-DiscriminatedTypeSchema',
+	#package : 'Express2Cheddar',
+	#tag : 'DiscriminatedTypeSchema'
 }
 
-{ #category : #'platypus-generated-platypus-signature' }
+{ #category : 'platypus-generated-platypus-signature' }
 ExChdDiscriminatedTypeTailsAttributesFunction class >> iso10303P11Translater [
 	^ 'Platypus (c) LISYC EA3883, Universite de Bretagne occidentale. Brest.'
 
 
 ]
 
-{ #category : #'platypus-generated-meta-data-accessing' }
+{ #category : 'platypus-generated-meta-data-accessing' }
 ExChdDiscriminatedTypeTailsAttributesFunction class >> schemaDefinition [
 	^ ExChdDiscriminatedTypeSchemaDefinition singleton
 
 
 ]
 
-{ #category : #'platypus-generated-platypus-signature' }
+{ #category : 'platypus-generated-platypus-signature' }
 ExChdDiscriminatedTypeTailsAttributesFunction class >> translatedFromISO10303P11 [
 	^ true
 
 
 ]
 
-{ #category : #'platypus-generated-platypus-signature' }
+{ #category : 'platypus-generated-platypus-signature' }
 ExChdDiscriminatedTypeTailsAttributesFunction class >> vwNamespaceName [
 	^ #Express2Cheddar
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdDiscriminatedTypeTailsAttributesFunction >> found [
 	^ found
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdDiscriminatedTypeTailsAttributesFunction >> found: aListOfExChdAttribute1 [
 	found := aListOfExChdAttribute1
 		ifNil: [ OrderedCollection new ]
@@ -77,14 +79,14 @@ ExChdDiscriminatedTypeTailsAttributesFunction >> found: aListOfExChdAttribute1 [
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdDiscriminatedTypeTailsAttributesFunction >> fromValues: values [
 	self typ: (values at: 1)
 
 
 ]
 
-{ #category : #'platypus-generated-invoking' }
+{ #category : 'platypus-generated-invoking' }
 ExChdDiscriminatedTypeTailsAttributesFunction >> invoke [
 	" ---------- locals assignments ----------"
 
@@ -132,42 +134,42 @@ ExChdDiscriminatedTypeTailsAttributesFunction >> invoke [
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdDiscriminatedTypeTailsAttributesFunction >> typ [
 	^ typ
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdDiscriminatedTypeTailsAttributesFunction >> typ: aExChdDiscriminatedType [
 	typ := aExChdDiscriminatedType
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdDiscriminatedTypeTailsAttributesFunction >> unionAttr [
 	^ unionAttr
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdDiscriminatedTypeTailsAttributesFunction >> unionAttr: aExChdAttribute [
 	unionAttr := aExChdAttribute
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdDiscriminatedTypeTailsAttributesFunction >> unionAttributes [
 	^ unionAttributes
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdDiscriminatedTypeTailsAttributesFunction >> unionAttributes: aListOfExChdAttribute [
 	unionAttributes := aListOfExChdAttribute
 		ifNil: [ OrderedCollection new ]
@@ -176,14 +178,14 @@ ExChdDiscriminatedTypeTailsAttributesFunction >> unionAttributes: aListOfExChdAt
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdDiscriminatedTypeTailsAttributesFunction >> unionType [
 	^ unionType
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdDiscriminatedTypeTailsAttributesFunction >> unionType: aExChdDefinedType [
 	unionType := aExChdDefinedType
 

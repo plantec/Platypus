@@ -23,45 +23,47 @@ END_FUNCTION;
 </ISO10303-11-EXPRESS>
 "
 Class {
-	#name : #ExChdRootDtdsFunction,
-	#superclass : #PlatypusCoreAlgorithmDeclaration,
+	#name : 'ExChdRootDtdsFunction',
+	#superclass : 'PlatypusCoreAlgorithmDeclaration',
 	#instVars : [
 		'xmlPkgs',
 		'rootNames',
 		'result'
 	],
-	#category : #'Express2Cheddar-CheddarDtdSchema'
+	#category : 'Express2Cheddar-CheddarDtdSchema',
+	#package : 'Express2Cheddar',
+	#tag : 'CheddarDtdSchema'
 }
 
-{ #category : #'platypus-generated-platypus-signature' }
+{ #category : 'platypus-generated-platypus-signature' }
 ExChdRootDtdsFunction class >> iso10303P11Translater [
 	^ 'Platypus (c) LISYC EA3883, Universite de Bretagne occidentale. Brest.'
 
 
 ]
 
-{ #category : #'platypus-generated-meta-data-accessing' }
+{ #category : 'platypus-generated-meta-data-accessing' }
 ExChdRootDtdsFunction class >> schemaDefinition [
 	^ ExChdCheddarDtdSchemaDefinition singleton
 
 
 ]
 
-{ #category : #'platypus-generated-platypus-signature' }
+{ #category : 'platypus-generated-platypus-signature' }
 ExChdRootDtdsFunction class >> translatedFromISO10303P11 [
 	^ true
 
 
 ]
 
-{ #category : #'platypus-generated-platypus-signature' }
+{ #category : 'platypus-generated-platypus-signature' }
 ExChdRootDtdsFunction class >> vwNamespaceName [
 	^ #Express2Cheddar
 
 
 ]
 
-{ #category : #'platypus-generated-invoking' }
+{ #category : 'platypus-generated-invoking' }
 ExChdRootDtdsFunction >> invoke [
 	" ---------- locals assignments ----------"
 
@@ -139,14 +141,14 @@ ExChdRootDtdsFunction >> invoke [
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdRootDtdsFunction >> result [
 	^ result
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdRootDtdsFunction >> result: aListOfExChdRootDtdElement [
 	result := aListOfExChdRootDtdElement
 		ifNil: [ OrderedCollection new ]
@@ -155,28 +157,28 @@ ExChdRootDtdsFunction >> result: aListOfExChdRootDtdElement [
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdRootDtdsFunction >> rootNames [
 	^ rootNames
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdRootDtdsFunction >> rootNames: aListOfString [
 	rootNames := aListOfString ifNil: [ OrderedCollection new ] ifNotNil: [ aListOfString as: OrderedCollection ]
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdRootDtdsFunction >> xmlPkgs [
 	^ xmlPkgs
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdRootDtdsFunction >> xmlPkgs: aListOfExChdAdaPackage [
 	xmlPkgs := aListOfExChdAdaPackage
 		ifNil: [ OrderedCollection new ]

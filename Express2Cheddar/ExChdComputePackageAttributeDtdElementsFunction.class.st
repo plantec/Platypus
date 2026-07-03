@@ -14,52 +14,54 @@ END_FUNCTION;
 </ISO10303-11-EXPRESS>
 "
 Class {
-	#name : #ExChdComputePackageAttributeDtdElementsFunction,
-	#superclass : #PlatypusCoreAlgorithmDeclaration,
+	#name : 'ExChdComputePackageAttributeDtdElementsFunction',
+	#superclass : 'PlatypusCoreAlgorithmDeclaration',
 	#instVars : [
 		'p',
 		'subs',
 		'r'
 	],
-	#category : #'Express2Cheddar-CheddarDtdSchema'
+	#category : 'Express2Cheddar-CheddarDtdSchema',
+	#package : 'Express2Cheddar',
+	#tag : 'CheddarDtdSchema'
 }
 
-{ #category : #'platypus-generated-platypus-signature' }
+{ #category : 'platypus-generated-platypus-signature' }
 ExChdComputePackageAttributeDtdElementsFunction class >> iso10303P11Translater [
 	^ 'Platypus (c) LISYC EA3883, Universite de Bretagne occidentale. Brest.'
 
 
 ]
 
-{ #category : #'platypus-generated-meta-data-accessing' }
+{ #category : 'platypus-generated-meta-data-accessing' }
 ExChdComputePackageAttributeDtdElementsFunction class >> schemaDefinition [
 	^ ExChdCheddarDtdSchemaDefinition singleton
 
 
 ]
 
-{ #category : #'platypus-generated-platypus-signature' }
+{ #category : 'platypus-generated-platypus-signature' }
 ExChdComputePackageAttributeDtdElementsFunction class >> translatedFromISO10303P11 [
 	^ true
 
 
 ]
 
-{ #category : #'platypus-generated-platypus-signature' }
+{ #category : 'platypus-generated-platypus-signature' }
 ExChdComputePackageAttributeDtdElementsFunction class >> vwNamespaceName [
 	^ #Express2Cheddar
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdComputePackageAttributeDtdElementsFunction >> fromValues: values [
 	self p: (values at: 1)
 
 
 ]
 
-{ #category : #'platypus-generated-invoking' }
+{ #category : 'platypus-generated-invoking' }
 ExChdComputePackageAttributeDtdElementsFunction >> invoke [
 	" ---------- locals assignments ----------"
 
@@ -84,28 +86,28 @@ ExChdComputePackageAttributeDtdElementsFunction >> invoke [
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdComputePackageAttributeDtdElementsFunction >> p [
 	^ p
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdComputePackageAttributeDtdElementsFunction >> p: aExChdPackageDtdElement [
 	p := aExChdPackageDtdElement
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdComputePackageAttributeDtdElementsFunction >> r [
 	^ r
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdComputePackageAttributeDtdElementsFunction >> r: aListOfExChdAttributeDtdElement [
 	r := aListOfExChdAttributeDtdElement
 		ifNil: [ OrderedCollection new ]
@@ -114,14 +116,14 @@ ExChdComputePackageAttributeDtdElementsFunction >> r: aListOfExChdAttributeDtdEl
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdComputePackageAttributeDtdElementsFunction >> subs [
 	^ subs
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdComputePackageAttributeDtdElementsFunction >> subs: aListOfExChdDtdElement [
 	subs := aListOfExChdDtdElement
 		ifNil: [ OrderedCollection new ]

@@ -1,15 +1,17 @@
 Class {
-	#name : #TamPublicLinksTaxonReference,
-	#superclass : #TamLinksTaxonReference,
-	#category : 'Tamaris-Taxonomies'
+	#name : 'TamPublicLinksTaxonReference',
+	#superclass : 'TamLinksTaxonReference',
+	#category : 'Tamaris-Taxonomies',
+	#package : 'Tamaris',
+	#tag : 'Taxonomies'
 }
 
-{ #category : #menus }
+{ #category : 'menus' }
 TamPublicLinksTaxonReference class >> canBeCreatedInteractively [
 	^ true
 ]
 
-{ #category : #updating }
+{ #category : 'updating' }
 TamPublicLinksTaxonReference >> insertReference: aReference [ 
 | result |
 (result := super insertReference: aReference ) ifTrue: [TamManager changed: self].

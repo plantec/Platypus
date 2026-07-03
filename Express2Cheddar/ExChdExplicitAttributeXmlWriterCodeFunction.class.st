@@ -26,8 +26,8 @@ END_FUNCTION;
 </ISO10303-11-EXPRESS>
 "
 Class {
-	#name : #ExChdExplicitAttributeXmlWriterCodeFunction,
-	#superclass : #PlatypusCoreAlgorithmDeclaration,
+	#name : 'ExChdExplicitAttributeXmlWriterCodeFunction',
+	#superclass : 'PlatypusCoreAlgorithmDeclaration',
 	#instVars : [
 		'prefix',
 		'attr',
@@ -35,80 +35,82 @@ Class {
 		'domain',
 		'tag'
 	],
-	#category : #'Express2Cheddar-RecordAndClassSchema'
+	#category : 'Express2Cheddar-RecordAndClassSchema',
+	#package : 'Express2Cheddar',
+	#tag : 'RecordAndClassSchema'
 }
 
-{ #category : #'platypus-generated-platypus-signature' }
+{ #category : 'platypus-generated-platypus-signature' }
 ExChdExplicitAttributeXmlWriterCodeFunction class >> iso10303P11Translater [
 	^ 'Platypus (c) LISYC EA3883, Universite de Bretagne occidentale. Brest.'
 
 
 ]
 
-{ #category : #'platypus-generated-meta-data-accessing' }
+{ #category : 'platypus-generated-meta-data-accessing' }
 ExChdExplicitAttributeXmlWriterCodeFunction class >> schemaDefinition [
 	^ ExChdRecordAndClassSchemaDefinition singleton
 
 
 ]
 
-{ #category : #'platypus-generated-platypus-signature' }
+{ #category : 'platypus-generated-platypus-signature' }
 ExChdExplicitAttributeXmlWriterCodeFunction class >> translatedFromISO10303P11 [
 	^ true
 
 
 ]
 
-{ #category : #'platypus-generated-platypus-signature' }
+{ #category : 'platypus-generated-platypus-signature' }
 ExChdExplicitAttributeXmlWriterCodeFunction class >> vwNamespaceName [
 	^ #Express2Cheddar
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdExplicitAttributeXmlWriterCodeFunction >> attr [
 	^ attr
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdExplicitAttributeXmlWriterCodeFunction >> attr: aExChdExplicitAttribute [
 	attr := aExChdExplicitAttribute
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdExplicitAttributeXmlWriterCodeFunction >> code [
 	^ code
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdExplicitAttributeXmlWriterCodeFunction >> code: aString [
 	code := aString
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdExplicitAttributeXmlWriterCodeFunction >> domain [
 	^ domain
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdExplicitAttributeXmlWriterCodeFunction >> domain: aExChdEntityInstance [
 	domain := aExChdEntityInstance
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdExplicitAttributeXmlWriterCodeFunction >> fromValues: values [
 	self prefix: (values at: 1).
 	self attr: (values at: 2)
@@ -116,7 +118,7 @@ ExChdExplicitAttributeXmlWriterCodeFunction >> fromValues: values [
 
 ]
 
-{ #category : #'platypus-generated-invoking' }
+{ #category : 'platypus-generated-invoking' }
 ExChdExplicitAttributeXmlWriterCodeFunction >> invoke [
 	" ---------- locals assignments ----------"
 
@@ -167,21 +169,21 @@ ExChdExplicitAttributeXmlWriterCodeFunction >> invoke [
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdExplicitAttributeXmlWriterCodeFunction >> prefix [
 	^ prefix
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdExplicitAttributeXmlWriterCodeFunction >> prefix: aString [
 	prefix := aString
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdExplicitAttributeXmlWriterCodeFunction >> prefix: aString attr: aExChdExplicitAttribute [
 	self prefix: aString.
 	self attr: aExChdExplicitAttribute
@@ -189,14 +191,14 @@ ExChdExplicitAttributeXmlWriterCodeFunction >> prefix: aString attr: aExChdExpli
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdExplicitAttributeXmlWriterCodeFunction >> tag [
 	^ tag
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdExplicitAttributeXmlWriterCodeFunction >> tag: aString1 [
 	tag := aString1
 

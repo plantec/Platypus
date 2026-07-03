@@ -18,52 +18,54 @@ END_FUNCTION;
 </ISO10303-11-EXPRESS>
 "
 Class {
-	#name : #ExChdComputeAttributeDtdListFromAttributeListFunction,
-	#superclass : #PlatypusCoreAlgorithmDeclaration,
+	#name : 'ExChdComputeAttributeDtdListFromAttributeListFunction',
+	#superclass : 'PlatypusCoreAlgorithmDeclaration',
 	#instVars : [
 		'owner',
 		'attrs',
 		'result'
 	],
-	#category : #'Express2Cheddar-CheddarDtdSchema'
+	#category : 'Express2Cheddar-CheddarDtdSchema',
+	#package : 'Express2Cheddar',
+	#tag : 'CheddarDtdSchema'
 }
 
-{ #category : #'platypus-generated-platypus-signature' }
+{ #category : 'platypus-generated-platypus-signature' }
 ExChdComputeAttributeDtdListFromAttributeListFunction class >> iso10303P11Translater [
 	^ 'Platypus (c) LISYC EA3883, Universite de Bretagne occidentale. Brest.'
 
 
 ]
 
-{ #category : #'platypus-generated-meta-data-accessing' }
+{ #category : 'platypus-generated-meta-data-accessing' }
 ExChdComputeAttributeDtdListFromAttributeListFunction class >> schemaDefinition [
 	^ ExChdCheddarDtdSchemaDefinition singleton
 
 
 ]
 
-{ #category : #'platypus-generated-platypus-signature' }
+{ #category : 'platypus-generated-platypus-signature' }
 ExChdComputeAttributeDtdListFromAttributeListFunction class >> translatedFromISO10303P11 [
 	^ true
 
 
 ]
 
-{ #category : #'platypus-generated-platypus-signature' }
+{ #category : 'platypus-generated-platypus-signature' }
 ExChdComputeAttributeDtdListFromAttributeListFunction class >> vwNamespaceName [
 	^ #Express2Cheddar
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdComputeAttributeDtdListFromAttributeListFunction >> attrs [
 	^ attrs
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdComputeAttributeDtdListFromAttributeListFunction >> attrs: aListOfExChdExplicitAttribute [
 	attrs := aListOfExChdExplicitAttribute
 		ifNil: [ OrderedCollection new ]
@@ -72,7 +74,7 @@ ExChdComputeAttributeDtdListFromAttributeListFunction >> attrs: aListOfExChdExpl
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdComputeAttributeDtdListFromAttributeListFunction >> fromValues: values [
 	self owner: (values at: 1).
 	self attrs: (values at: 2)
@@ -80,7 +82,7 @@ ExChdComputeAttributeDtdListFromAttributeListFunction >> fromValues: values [
 
 ]
 
-{ #category : #'platypus-generated-invoking' }
+{ #category : 'platypus-generated-invoking' }
 ExChdComputeAttributeDtdListFromAttributeListFunction >> invoke [
 	" ---------- locals assignments ----------"
 
@@ -129,21 +131,21 @@ ExChdComputeAttributeDtdListFromAttributeListFunction >> invoke [
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdComputeAttributeDtdListFromAttributeListFunction >> owner [
 	^ owner
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdComputeAttributeDtdListFromAttributeListFunction >> owner: aExChdDtdElement [
 	owner := aExChdDtdElement
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdComputeAttributeDtdListFromAttributeListFunction >> owner: aExChdDtdElement attrs: aListOfExChdExplicitAttribute [
 	self owner: aExChdDtdElement.
 	self attrs: aListOfExChdExplicitAttribute
@@ -151,14 +153,14 @@ ExChdComputeAttributeDtdListFromAttributeListFunction >> owner: aExChdDtdElement
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdComputeAttributeDtdListFromAttributeListFunction >> result [
 	^ result
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdComputeAttributeDtdListFromAttributeListFunction >> result: aListOfExChdDtdElement [
 	result := aListOfExChdDtdElement
 		ifNil: [ OrderedCollection new ]

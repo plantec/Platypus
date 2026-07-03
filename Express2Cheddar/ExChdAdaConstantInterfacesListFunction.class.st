@@ -12,74 +12,76 @@ END_FUNCTION;
 </ISO10303-11-EXPRESS>
 "
 Class {
-	#name : #ExChdAdaConstantInterfacesListFunction,
-	#superclass : #PlatypusCoreAlgorithmDeclaration,
+	#name : 'ExChdAdaConstantInterfacesListFunction',
+	#superclass : 'PlatypusCoreAlgorithmDeclaration',
 	#instVars : [
 		'r',
 		'ads',
 		'result',
 		'adaDomain'
 	],
-	#category : #'Express2Cheddar-CheddarConstantsSchema'
+	#category : 'Express2Cheddar-CheddarConstantsSchema',
+	#package : 'Express2Cheddar',
+	#tag : 'CheddarConstantsSchema'
 }
 
-{ #category : #'platypus-generated-platypus-signature' }
+{ #category : 'platypus-generated-platypus-signature' }
 ExChdAdaConstantInterfacesListFunction class >> iso10303P11Translater [
 	^ 'Platypus (c) LISYC EA3883, Universite de Bretagne occidentale. Brest.'
 
 
 ]
 
-{ #category : #'platypus-generated-meta-data-accessing' }
+{ #category : 'platypus-generated-meta-data-accessing' }
 ExChdAdaConstantInterfacesListFunction class >> schemaDefinition [
 	^ ExChdCheddarConstantsSchemaDefinition singleton
 
 
 ]
 
-{ #category : #'platypus-generated-platypus-signature' }
+{ #category : 'platypus-generated-platypus-signature' }
 ExChdAdaConstantInterfacesListFunction class >> translatedFromISO10303P11 [
 	^ true
 
 
 ]
 
-{ #category : #'platypus-generated-platypus-signature' }
+{ #category : 'platypus-generated-platypus-signature' }
 ExChdAdaConstantInterfacesListFunction class >> vwNamespaceName [
 	^ #Express2Cheddar
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdAdaConstantInterfacesListFunction >> adaDomain [
 	^ adaDomain
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdAdaConstantInterfacesListFunction >> adaDomain: aExChdEntityInstance [
 	adaDomain := aExChdEntityInstance
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdAdaConstantInterfacesListFunction >> ads [
 	^ ads
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdAdaConstantInterfacesListFunction >> ads: aBoolean [
 	ads := aBoolean
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdAdaConstantInterfacesListFunction >> fromValues: values [
 	self r: (values at: 1).
 	self ads: (values at: 2)
@@ -87,7 +89,7 @@ ExChdAdaConstantInterfacesListFunction >> fromValues: values [
 
 ]
 
-{ #category : #'platypus-generated-invoking' }
+{ #category : 'platypus-generated-invoking' }
 ExChdAdaConstantInterfacesListFunction >> invoke [
 	" ---------- locals assignments ----------"
 
@@ -113,21 +115,21 @@ ExChdAdaConstantInterfacesListFunction >> invoke [
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdAdaConstantInterfacesListFunction >> r [
 	^ r
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdAdaConstantInterfacesListFunction >> r: aExChdAdaConstant [
 	r := aExChdAdaConstant
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdAdaConstantInterfacesListFunction >> r: aExChdAdaConstant ads: aBoolean [
 	self r: aExChdAdaConstant.
 	self ads: aBoolean
@@ -135,14 +137,14 @@ ExChdAdaConstantInterfacesListFunction >> r: aExChdAdaConstant ads: aBoolean [
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdAdaConstantInterfacesListFunction >> result [
 	^ result
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdAdaConstantInterfacesListFunction >> result: aListOfExChdAdaInterface [
 	result := aListOfExChdAdaInterface
 		ifNil: [ OrderedCollection new ]

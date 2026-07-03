@@ -24,52 +24,54 @@ END_FUNCTION;
 </ISO10303-11-EXPRESS>
 "
 Class {
-	#name : #ExChdGenericPackageAliasesFunction,
-	#superclass : #PlatypusCoreAlgorithmDeclaration,
+	#name : 'ExChdGenericPackageAliasesFunction',
+	#superclass : 'PlatypusCoreAlgorithmDeclaration',
 	#instVars : [
 		'e',
 		'aliases',
 		'attrname'
 	],
-	#category : #'Express2Cheddar-PackageSchema'
+	#category : 'Express2Cheddar-PackageSchema',
+	#package : 'Express2Cheddar',
+	#tag : 'PackageSchema'
 }
 
-{ #category : #'platypus-generated-platypus-signature' }
+{ #category : 'platypus-generated-platypus-signature' }
 ExChdGenericPackageAliasesFunction class >> iso10303P11Translater [
 	^ 'Platypus (c) LISYC EA3883, Universite de Bretagne occidentale. Brest.'
 
 
 ]
 
-{ #category : #'platypus-generated-meta-data-accessing' }
+{ #category : 'platypus-generated-meta-data-accessing' }
 ExChdGenericPackageAliasesFunction class >> schemaDefinition [
 	^ ExChdPackageSchemaDefinition singleton
 
 
 ]
 
-{ #category : #'platypus-generated-platypus-signature' }
+{ #category : 'platypus-generated-platypus-signature' }
 ExChdGenericPackageAliasesFunction class >> translatedFromISO10303P11 [
 	^ true
 
 
 ]
 
-{ #category : #'platypus-generated-platypus-signature' }
+{ #category : 'platypus-generated-platypus-signature' }
 ExChdGenericPackageAliasesFunction class >> vwNamespaceName [
 	^ #Express2Cheddar
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdGenericPackageAliasesFunction >> aliases [
 	^ aliases
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdGenericPackageAliasesFunction >> aliases: aListOfExChdEntityInstance [
 	aliases := aListOfExChdEntityInstance
 		ifNil: [ OrderedCollection new ]
@@ -78,42 +80,42 @@ ExChdGenericPackageAliasesFunction >> aliases: aListOfExChdEntityInstance [
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdGenericPackageAliasesFunction >> attrname [
 	^ attrname
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdGenericPackageAliasesFunction >> attrname: aString [
 	attrname := aString
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdGenericPackageAliasesFunction >> e [
 	^ e
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdGenericPackageAliasesFunction >> e: aExChdGenericPackageInstanciation [
 	e := aExChdGenericPackageInstanciation
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdGenericPackageAliasesFunction >> fromValues: values [
 	self e: (values at: 1)
 
 
 ]
 
-{ #category : #'platypus-generated-invoking' }
+{ #category : 'platypus-generated-invoking' }
 ExChdGenericPackageAliasesFunction >> invoke [
 	" ---------- locals assignments ----------"
 

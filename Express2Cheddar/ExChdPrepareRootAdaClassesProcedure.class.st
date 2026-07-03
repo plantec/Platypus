@@ -19,50 +19,52 @@ END_PROCEDURE;
 </ISO10303-11-EXPRESS>
 "
 Class {
-	#name : #ExChdPrepareRootAdaClassesProcedure,
-	#superclass : #PlatypusCoreAlgorithmDeclaration,
+	#name : 'ExChdPrepareRootAdaClassesProcedure',
+	#superclass : 'PlatypusCoreAlgorithmDeclaration',
 	#instVars : [
 		'clslist'
 	],
-	#category : #'Express2Cheddar-Express2cheddarFacadeSchema'
+	#category : 'Express2Cheddar-Express2cheddarFacadeSchema',
+	#package : 'Express2Cheddar',
+	#tag : 'Express2cheddarFacadeSchema'
 }
 
-{ #category : #'platypus-generated-platypus-signature' }
+{ #category : 'platypus-generated-platypus-signature' }
 ExChdPrepareRootAdaClassesProcedure class >> iso10303P11Translater [
 	^ 'Platypus (c) LISYC EA3883, Universite de Bretagne occidentale. Brest.'
 
 
 ]
 
-{ #category : #'platypus-generated-meta-data-accessing' }
+{ #category : 'platypus-generated-meta-data-accessing' }
 ExChdPrepareRootAdaClassesProcedure class >> schemaDefinition [
 	^ ExChdExpress2cheddarFacadeSchemaDefinition singleton
 
 
 ]
 
-{ #category : #'platypus-generated-platypus-signature' }
+{ #category : 'platypus-generated-platypus-signature' }
 ExChdPrepareRootAdaClassesProcedure class >> translatedFromISO10303P11 [
 	^ true
 
 
 ]
 
-{ #category : #'platypus-generated-platypus-signature' }
+{ #category : 'platypus-generated-platypus-signature' }
 ExChdPrepareRootAdaClassesProcedure class >> vwNamespaceName [
 	^ #Express2Cheddar
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdPrepareRootAdaClassesProcedure >> clslist [
 	^ clslist
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdPrepareRootAdaClassesProcedure >> clslist: aListOfExChdAdaClass [
 	clslist := aListOfExChdAdaClass
 		ifNil: [ OrderedCollection new ]
@@ -71,7 +73,7 @@ ExChdPrepareRootAdaClassesProcedure >> clslist: aListOfExChdAdaClass [
 
 ]
 
-{ #category : #'platypus-generated-invoking' }
+{ #category : 'platypus-generated-invoking' }
 ExChdPrepareRootAdaClassesProcedure >> invoke [
 	" ---------- locals assignments ----------"
 

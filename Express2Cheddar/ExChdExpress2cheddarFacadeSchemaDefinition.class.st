@@ -272,131 +272,133 @@ END_SCHEMA;
 </ISO10303-11-EXPRESS>
 "
 Class {
-	#name : #ExChdExpress2cheddarFacadeSchemaDefinition,
-	#superclass : #PlatypusCoreSchema,
-	#category : #'Express2Cheddar-Express2cheddarFacadeSchema'
+	#name : 'ExChdExpress2cheddarFacadeSchemaDefinition',
+	#superclass : 'PlatypusCoreSchema',
+	#category : 'Express2Cheddar-Express2cheddarFacadeSchema',
+	#package : 'Express2Cheddar',
+	#tag : 'Express2cheddarFacadeSchema'
 }
 
-{ #category : #'platypus-generated-platypus-signature' }
+{ #category : 'platypus-generated-platypus-signature' }
 ExChdExpress2cheddarFacadeSchemaDefinition class >> iso10303P11Translater [
 	^ 'Platypus (c) LISYC EA3883, Universite de Bretagne occidentale. Brest.'
 
 
 ]
 
-{ #category : #'platypus-generated-platypus-signature' }
+{ #category : 'platypus-generated-platypus-signature' }
 ExChdExpress2cheddarFacadeSchemaDefinition class >> translatedFromISO10303P11 [
 	^ true
 
 
 ]
 
-{ #category : #'platypus-generated-platypus-signature' }
+{ #category : 'platypus-generated-platypus-signature' }
 ExChdExpress2cheddarFacadeSchemaDefinition class >> vwNamespaceName [
 	^ #Express2Cheddar
 
 
 ]
 
-{ #category : #'platypus-generated-context-accessing' }
+{ #category : 'platypus-generated-context-accessing' }
 ExChdExpress2cheddarFacadeSchemaDefinition >> context [
 	^ self schemaInstance context
 
 
 ]
 
-{ #category : #'platypus-generated-entities' }
+{ #category : 'platypus-generated-entities' }
 ExChdExpress2cheddarFacadeSchemaDefinition >> entityDefinitionCount [
 	^ 0
 
 
 ]
 
-{ #category : #'platypus-generated-functions' }
+{ #category : 'platypus-generated-functions' }
 ExChdExpress2cheddarFacadeSchemaDefinition >> functionDeclaration1 [
 	^ #(#is_of_generated_concept_kind #ExChdIsOfGeneratedConceptKindFunction)
 
 
 ]
 
-{ #category : #'platypus-generated-functions' }
+{ #category : 'platypus-generated-functions' }
 ExChdExpress2cheddarFacadeSchemaDefinition >> functionDeclaration10 [
 	^ #(#ada_entity_named #ExChdAdaEntityNamedFunction)
 
 
 ]
 
-{ #category : #'platypus-generated-functions' }
+{ #category : 'platypus-generated-functions' }
 ExChdExpress2cheddarFacadeSchemaDefinition >> functionDeclaration11 [
 	^ #(#all_ada_entities #ExChdAllAdaEntitiesFunction)
 
 
 ]
 
-{ #category : #'platypus-generated-functions' }
+{ #category : 'platypus-generated-functions' }
 ExChdExpress2cheddarFacadeSchemaDefinition >> functionDeclaration2 [
 	^ #(#all_ada_packages #ExChdAllAdaPackagesFunction)
 
 
 ]
 
-{ #category : #'platypus-generated-functions' }
+{ #category : 'platypus-generated-functions' }
 ExChdExpress2cheddarFacadeSchemaDefinition >> functionDeclaration3 [
 	^ #(#ada_package_named #ExChdAdaPackageNamedFunction)
 
 
 ]
 
-{ #category : #'platypus-generated-functions' }
+{ #category : 'platypus-generated-functions' }
 ExChdExpress2cheddarFacadeSchemaDefinition >> functionDeclaration4 [
 	^ #(#package_ada_classes #ExChdPackageAdaClassesFunction)
 
 
 ]
 
-{ #category : #'platypus-generated-functions' }
+{ #category : 'platypus-generated-functions' }
 ExChdExpress2cheddarFacadeSchemaDefinition >> functionDeclaration5 [
 	^ #(#all_ada_classes #ExChdAllAdaClassesFunction)
 
 
 ]
 
-{ #category : #'platypus-generated-functions' }
+{ #category : 'platypus-generated-functions' }
 ExChdExpress2cheddarFacadeSchemaDefinition >> functionDeclaration6 [
 	^ #(#all_ada_records #ExChdAllAdaRecordsFunction)
 
 
 ]
 
-{ #category : #'platypus-generated-functions' }
+{ #category : 'platypus-generated-functions' }
 ExChdExpress2cheddarFacadeSchemaDefinition >> functionDeclaration7 [
 	^ #(#all_ada_discriminated_types #ExChdAllAdaDiscriminatedTypesFunction)
 
 
 ]
 
-{ #category : #'platypus-generated-functions' }
+{ #category : 'platypus-generated-functions' }
 ExChdExpress2cheddarFacadeSchemaDefinition >> functionDeclaration8 [
 	^ #(#package_records #ExChdPackageRecordsFunction)
 
 
 ]
 
-{ #category : #'platypus-generated-functions' }
+{ #category : 'platypus-generated-functions' }
 ExChdExpress2cheddarFacadeSchemaDefinition >> functionDeclaration9 [
 	^ #(#package_discriminated_types #ExChdPackageDiscriminatedTypesFunction)
 
 
 ]
 
-{ #category : #'platypus-generated-functions' }
+{ #category : 'platypus-generated-functions' }
 ExChdExpress2cheddarFacadeSchemaDefinition >> functionDeclarationCount [
 	^ 11
 
 
 ]
 
-{ #category : #'platypus-generated-meta-data-accessing' }
+{ #category : 'platypus-generated-meta-data-accessing' }
 ExChdExpress2cheddarFacadeSchemaDefinition >> schemaInstanceClassName [
 	^ #ExChdExpress2cheddarSchemaInstance
 

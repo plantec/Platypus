@@ -27,51 +27,53 @@ END_FUNCTION;
 </ISO10303-11-EXPRESS>
 "
 Class {
-	#name : #ExChdAllAdaEntitiesFunction,
-	#superclass : #PlatypusCoreAlgorithmDeclaration,
+	#name : 'ExChdAllAdaEntitiesFunction',
+	#superclass : 'PlatypusCoreAlgorithmDeclaration',
 	#instVars : [
 		'entList',
 		'allPkgs'
 	],
-	#category : #'Express2Cheddar-Express2cheddarFacadeSchema'
+	#category : 'Express2Cheddar-Express2cheddarFacadeSchema',
+	#package : 'Express2Cheddar',
+	#tag : 'Express2cheddarFacadeSchema'
 }
 
-{ #category : #'platypus-generated-platypus-signature' }
+{ #category : 'platypus-generated-platypus-signature' }
 ExChdAllAdaEntitiesFunction class >> iso10303P11Translater [
 	^ 'Platypus (c) LISYC EA3883, Universite de Bretagne occidentale. Brest.'
 
 
 ]
 
-{ #category : #'platypus-generated-meta-data-accessing' }
+{ #category : 'platypus-generated-meta-data-accessing' }
 ExChdAllAdaEntitiesFunction class >> schemaDefinition [
 	^ ExChdExpress2cheddarFacadeSchemaDefinition singleton
 
 
 ]
 
-{ #category : #'platypus-generated-platypus-signature' }
+{ #category : 'platypus-generated-platypus-signature' }
 ExChdAllAdaEntitiesFunction class >> translatedFromISO10303P11 [
 	^ true
 
 
 ]
 
-{ #category : #'platypus-generated-platypus-signature' }
+{ #category : 'platypus-generated-platypus-signature' }
 ExChdAllAdaEntitiesFunction class >> vwNamespaceName [
 	^ #Express2Cheddar
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdAllAdaEntitiesFunction >> allPkgs [
 	^ allPkgs
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdAllAdaEntitiesFunction >> allPkgs: aListOfExChdAdaPackage [
 	allPkgs := aListOfExChdAdaPackage
 		ifNil: [ OrderedCollection new ]
@@ -80,14 +82,14 @@ ExChdAllAdaEntitiesFunction >> allPkgs: aListOfExChdAdaPackage [
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdAllAdaEntitiesFunction >> entList [
 	^ entList
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdAllAdaEntitiesFunction >> entList: aListOfExChdAdaEntity [
 	entList := aListOfExChdAdaEntity
 		ifNil: [ OrderedCollection new ]
@@ -96,7 +98,7 @@ ExChdAllAdaEntitiesFunction >> entList: aListOfExChdAdaEntity [
 
 ]
 
-{ #category : #'platypus-generated-invoking' }
+{ #category : 'platypus-generated-invoking' }
 ExChdAllAdaEntitiesFunction >> invoke [
 	" ---------- locals assignments ----------"
 

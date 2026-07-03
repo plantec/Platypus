@@ -33,8 +33,8 @@ updateFlag
 
 "
 Class {
-	#name : #TamListItemReference,
-	#superclass : #Object,
+	#name : 'TamListItemReference',
+	#superclass : 'Object',
 	#instVars : [
 		'owner',
 		'listLabel',
@@ -43,10 +43,12 @@ Class {
 		'showSubLists',
 		'emphasisModel'
 	],
-	#category : #'Tamaris-Taxonomies'
+	#category : 'Tamaris-Taxonomies',
+	#package : 'Tamaris',
+	#tag : 'Taxonomies'
 }
 
-{ #category : #menu }
+{ #category : 'menu' }
 TamListItemReference class >> addReferenceMenuItemToMenu: aMenu owner: anotherReference [ 
 	| |
 	(self subMenuLabelSubMenu: aMenu)
@@ -56,20 +58,20 @@ TamListItemReference class >> addReferenceMenuItemToMenu: aMenu owner: anotherRe
 		argumentList: {anotherReference}
 ]
 
-{ #category : #menu }
+{ #category : 'menu' }
 TamListItemReference class >> canNotBeCreatedInteractively [	^ true
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TamListItemReference class >> externalLabel [
 	^ self printString
 ]
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 TamListItemReference class >> from: anObject [
 ]
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 TamListItemReference class >> fromTransfertMorph: aTransfertMorph [
 	| passenger |
 	passenger := (aTransfertMorph class canUnderstand: #passenger)
@@ -78,17 +80,17 @@ TamListItemReference class >> fromTransfertMorph: aTransfertMorph [
 	^ self from: passenger
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TamListItemReference class >> longNameFirstSep [
 	^ ': '
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TamListItemReference class >> longNameSep [
 	^ '/'
 ]
 
-{ #category : #menu }
+{ #category : 'menu' }
 TamListItemReference class >> menuAddReferenceInto: aMenu owner: aListItemReference fromClasses: aCollectionOfListItemReferenceClasses [ 
 	| addable |
 	addable := aCollectionOfListItemReferenceClasses select: 
@@ -101,15 +103,15 @@ TamListItemReference class >> menuAddReferenceInto: aMenu owner: aListItemRefere
 	^aMenu
 ]
 
-{ #category : #menu }
+{ #category : 'menu' }
 TamListItemReference class >> menuAddReferenceIntoOwner: aReference [ 	aReference insertReference: self new
 ]
 
-{ #category : #menu }
+{ #category : 'menu' }
 TamListItemReference class >> subMenuLabel [	^ nil
 ]
 
-{ #category : #menu }
+{ #category : 'menu' }
 TamListItemReference class >> subMenuLabelSubMenu: aMenu [ 
 	| updatedMenu updatedMenuItem |
 	self subMenuLabel
@@ -128,12 +130,12 @@ TamListItemReference class >> subMenuLabelSubMenu: aMenu [
 
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 TamListItemReference >> <= another [
 	^ self asString < another asString
 ]
 
-{ #category : #'drag and drop' }
+{ #category : 'drag and drop' }
 TamListItemReference >> acceptDroppingMorph: transferMorph copy: shouldCopy [ 
 	| passenger |
 	(transferMorph respondsTo: #passenger)
@@ -149,34 +151,34 @@ TamListItemReference >> acceptDroppingMorph: transferMorph copy: shouldCopy [
 	^ false
 ]
 
-{ #category : #private }
+{ #category : 'private' }
 TamListItemReference >> addToParentsChain: aCollection from: aChild [
 	aCollection addFirst: self.
 	self owner
 		ifNotNil: [self owner addToParentsChain: aCollection from: self]
 ]
 
-{ #category : #updating }
+{ #category : 'updating' }
 TamListItemReference >> announce: anAnnouncement [
 	self announcer announce: anAnnouncement
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TamListItemReference >> announcer [
 	^ self taxonomyRoot announcer
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TamListItemReference >> asString [	
 	^ self asStringOrText
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TamListItemReference >> asStringOrText [	
 	^ self listLabel
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TamListItemReference >> balloonText [
 	| |
 	"^ (bt := self asStringOrText)
@@ -184,11 +186,11 @@ TamListItemReference >> balloonText [
 	^ nil
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TamListItemReference >> browserClass [	^ TamBrowser
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 TamListItemReference >> canBeMovedDown [
 	"true if self can be moved down (in my owner children collection)"
 	| moveableBrothers |
@@ -202,7 +204,7 @@ TamListItemReference >> canBeMovedDown [
 	^ false
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 TamListItemReference >> canBeMovedUp [
 	"true if self can be moved up (in my owner children collection)"
 	| moveableBrothers |
@@ -216,20 +218,20 @@ TamListItemReference >> canBeMovedUp [
 	^ false
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 TamListItemReference >> canChangeLabel [
 	"my label can be changed (not computed)"
 	^ true
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 TamListItemReference >> canHaveCachedEditor [
 	"if true, my editor will be cached by the browser so that next
 	editing will reuse cached editor"
 	^ true
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TamListItemReference >> children [
 	| subRefs |
 	self showSubLists = #never
@@ -242,30 +244,30 @@ TamListItemReference >> children [
 	^ subRefs
 ]
 
-{ #category : #'system changes handling' }
+{ #category : 'system changes handling' }
 TamListItemReference >> commentClass: class [ 
 	(class respondsTo: #platypusMetaData) ifTrue: []
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TamListItemReference >> containedLinksTo: aListItem [ 	^#()
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TamListItemReference >> contents [	^#()
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TamListItemReference >> contentsDo: aBlock [
 	self contents do: aBlock
 ]
 
-{ #category : #copying }
+{ #category : 'copying' }
 TamListItemReference >> copy [
 	^super copy
 ]
 
-{ #category : #'tam taxonomy browser' }
+{ #category : 'tam taxonomy browser' }
 TamListItemReference >> createModelHolderContaining: aMorphicModel inside: aMorph [ 
 	| holder |
 	aMorphicModel model
@@ -276,7 +278,7 @@ TamListItemReference >> createModelHolderContaining: aMorphicModel inside: aMorp
 	^ holder
 ]
 
-{ #category : #'tam taxonomy browser' }
+{ #category : 'tam taxonomy browser' }
 TamListItemReference >> createMorphHolderContaining: aMorph [ 
 	| holder |
 	holder := (PasteUpMorph new)
@@ -295,11 +297,11 @@ TamListItemReference >> createMorphHolderContaining: aMorph [
 	^holder
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TamListItemReference >> deepContainedLinksTo: aListItem [ 	^ #()
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TamListItemReference >> deepContents [
 	| subs |
 	subs := OrderedCollection new.
@@ -309,7 +311,7 @@ TamListItemReference >> deepContents [
 	^ subs
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 TamListItemReference >> deepIncludesLinkTo: aListItem [ 
 	self isReleased
 		ifFalse: [(self isLinkTo: aListItem)
@@ -320,36 +322,36 @@ TamListItemReference >> deepIncludesLinkTo: aListItem [
 	^ false
 ]
 
-{ #category : #'initialize/release' }
+{ #category : 'initialize/release' }
 TamListItemReference >> destroy [
 	localWorkspacePaneContents := nil.
 	listLabel := nil.
 	super destroy
 ]
 
-{ #category : #updating }
+{ #category : 'updating' }
 TamListItemReference >> doInternalChecking [
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TamListItemReference >> editorClass [	^ nil
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TamListItemReference >> emphasisModel [
 	^ emphasisModel
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TamListItemReference >> emphasisModel: anEmphasisModel [
 	emphasisModel := anEmphasisModel
 ]
 
-{ #category : #updating }
+{ #category : 'updating' }
 TamListItemReference >> empty [
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TamListItemReference >> findChildReferenceFromPath: aPathArray forLink: aLinkReference [ 
 	| childShortName child |
 	aPathArray
@@ -363,12 +365,12 @@ TamListItemReference >> findChildReferenceFromPath: aPathArray forLink: aLinkRef
 	^ child findChildReferenceFromPath: aPathArray allButFirst forLink: aLinkReference
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TamListItemReference >> findDeeplySuchThat: aBlock [ 
 	^ self findDeeplySuchThat: aBlock visited: Set new
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TamListItemReference >> findDeeplySuchThat: aBlock visited: aSetOfRefs [
 	| res |
 	(aSetOfRefs includes: self) ifFalse:  [aSetOfRefs add: self. (aBlock value: self)
@@ -380,14 +382,14 @@ TamListItemReference >> findDeeplySuchThat: aBlock visited: aSetOfRefs [
 	^ nil
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 TamListItemReference >> forceOkToChange [
 	"for some editor, in order to force reference deselection even if okToChange 
 	is false"
 	^ false
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TamListItemReference >> fullPathAsString [
 	| str |
 	str := ''.
@@ -397,25 +399,25 @@ TamListItemReference >> fullPathAsString [
 	^ str
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TamListItemReference >> fullPathStrings [
 	^ (self parentsChain
 		collect: [:p | p shortName])
 		, (Array with: self shortName)
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 TamListItemReference >> hasContents [
 	^self isReleased not and: [self children isEmpty not]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TamListItemReference >> haveIcon [
 	^ true
 
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TamListItemReference >> hierarchyLevel [
 	| own lvl |
 	own := self owner.
@@ -426,17 +428,17 @@ TamListItemReference >> hierarchyLevel [
 	^ lvl
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TamListItemReference >> icon [
 	^TamIcons mimeIcon: '10x10/mimetypes/file'
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 TamListItemReference >> includes: anotherReference [ 
 	^ anotherReference notNil and: [anotherReference isIncludeIn: self]
 ]
 
-{ #category : #'initialize/release' }
+{ #category : 'initialize/release' }
 TamListItemReference >> initialize [
 	super initialize.
 	showSubLists := #ifNotEmpty.
@@ -444,15 +446,15 @@ TamListItemReference >> initialize [
 
 ]
 
-{ #category : #updating }
+{ #category : 'updating' }
 TamListItemReference >> insertReference: anotherReference [ ^false
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TamListItemReference >> interPathString [	^ self wrapperClass interPathString
 ]
 
-{ #category : #updating }
+{ #category : 'updating' }
 TamListItemReference >> internalChecking [
 	self isReleased
 		ifFalse: [
@@ -463,49 +465,49 @@ TamListItemReference >> internalChecking [
 					Beeper beep]]
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 TamListItemReference >> isCopyable [
 	^ true
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 TamListItemReference >> isIncludeIn: maybeOwner [ 
 	^ maybeOwner = self
 		or: [self owner notNil
 				and: [self owner isIncludeIn: maybeOwner]]
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 TamListItemReference >> isLink [	^ false
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 TamListItemReference >> isLinkTo: aListItem [	^ false
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 TamListItemReference >> isLinkToOneOf: aListItem [ 	^ aListItem		anySatisfy: [:i | self isLinkTo: i]
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 TamListItemReference >> isLinkable [
 	^ true
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 TamListItemReference >> isMoveable [
 	"true if self can be moved as a child of another owner"
 	^ self owner isKindOf: TamTaxonReference
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 TamListItemReference >> isReleased [
 	"evalPaneContents serve as a flag for that purpose"
 
 	^localWorkspacePaneContents isNil
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 TamListItemReference >> isReleasedOrHaveReleasedOwner [
 	self isReleased
 		ifTrue: [^ true].
@@ -514,37 +516,37 @@ TamListItemReference >> isReleasedOrHaveReleasedOwner [
 	^ false
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 TamListItemReference >> isRemoveable [
 	^ (self owner isKindOf: TamTaxonReference)
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 TamListItemReference >> isRootTaxon [
 	^ false
 
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 TamListItemReference >> isRootTaxonLink [
 	^false
 ]
 
-{ #category : #classification }
+{ #category : 'classification' }
 TamListItemReference >> isTamListItemReference [
 	^ true
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 TamListItemReference >> isTaxon [	^ false
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 TamListItemReference >> isTaxonomyRoot [
 	^ self taxonomyRoot  = self
 ]
 
-{ #category : #menus }
+{ #category : 'menus' }
 TamListItemReference >> keyStroke: aCharacter from: tamuggableListMorph [ 
 	self isRemoveable
 		ifTrue: [aCharacter = $x
@@ -565,50 +567,50 @@ TamListItemReference >> keyStroke: aCharacter from: tamuggableListMorph [
 		ifTrue: [^ self subListsSwitchMenu]
 ]
 
-{ #category : #'morphic wrapper' }
+{ #category : 'morphic wrapper' }
 TamListItemReference >> labelString [	
 	^ self longName
 ]
 
-{ #category : #updating }
+{ #category : 'updating' }
 TamListItemReference >> link [
 	^ self taxonomyRoot linkListItemHere: self
 ]
 
-{ #category : #updating }
+{ #category : 'updating' }
 TamListItemReference >> linkListItemHere: aListItem [ 
 	^ owner linkListItemHere: aListItem 
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TamListItemReference >> linked [
 	^ self
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TamListItemReference >> listLabel [	
 	^listLabel ifNil: [self shortName]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TamListItemReference >> listLabel: aStringOrNil [ 	
 	listLabel := aStringOrNil
 ]
 
-{ #category : #'system changes handling' }
+{ #category : 'system changes handling' }
 TamListItemReference >> localAddClass: class [ 
 	"Include indication that a new class was created."
 
 ^ false
 ]
 
-{ #category : #'system changes handling' }
+{ #category : 'system changes handling' }
 TamListItemReference >> localChangeClass: class from: oldClass [
 	"Include indication that a new class was created."
 	^ false
 ]
 
-{ #category : #'system changes handling' }
+{ #category : 'system changes handling' }
 TamListItemReference >> localNoteRemovalOf: class [ 
 	"The class is about to be removed from the system.
 	Adjust the receiver to reflect that fact."
@@ -616,37 +618,37 @@ TamListItemReference >> localNoteRemovalOf: class [
 	^false
 ]
 
-{ #category : #'system changes handling' }
+{ #category : 'system changes handling' }
 TamListItemReference >> localRenameClass: class as: newName [ 
 	"Include indication that a new class was created."
 
 	^false
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TamListItemReference >> localWorkspacePaneContents [
 	^ localWorkspacePaneContents
 		
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TamListItemReference >> localWorkspacePaneContents: aStringOrText [ 
 	localWorkspacePaneContents
 		ifNotNil: [localWorkspacePaneContents := aStringOrText]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TamListItemReference >> longName [
 	^ String streamContents: [:strm | self longNameOn: strm]
 
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TamListItemReference >> longNameFirstSep [
 	^ self class longNameFirstSep
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TamListItemReference >> longNameOn: aStream [
 	self isReleased
 		ifTrue: [aStream nextPutAll: 'A released Tamaris reference']
@@ -660,17 +662,17 @@ TamListItemReference >> longNameOn: aStream [
 				ifFalse: [aStream nextPutAll:  self shortName]]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TamListItemReference >> longNameSep [
 	^ self class longNameSep
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TamListItemReference >> maxSubLevelDescent [
 	^ 6
 ]
 
-{ #category : #menus }
+{ #category : 'menus' }
 TamListItemReference >> menu: aMenu shifted: b [ 
 	"Set up the menu to apply to the receiver's, honoring the
 	#shifted 
@@ -728,12 +730,12 @@ TamListItemReference >> menu: aMenu shifted: b [
 	^ aMenu
 ]
 
-{ #category : #menus }
+{ #category : 'menus' }
 TamListItemReference >> menuBrowse [
 	^ self browserClass openOnReference: self
 ]
 
-{ #category : #menus }
+{ #category : 'menus' }
 TamListItemReference >> menuDelete [
 
 	| message |
@@ -744,20 +746,20 @@ TamListItemReference >> menuDelete [
 	^ false
 ]
 
-{ #category : #menus }
+{ #category : 'menus' }
 TamListItemReference >> menuExplore [	^ self explore
 ]
 
-{ #category : #menus }
+{ #category : 'menus' }
 TamListItemReference >> menuInspect [	^ self inspect
 ]
 
-{ #category : #menus }
+{ #category : 'menus' }
 TamListItemReference >> menuLink [
 	^ self link
 ]
 
-{ #category : #menus }
+{ #category : 'menus' }
 TamListItemReference >> menuRelabel [
 	| oldname newname |
 	oldname := self listLabel.
@@ -770,46 +772,46 @@ TamListItemReference >> menuRelabel [
 				ifTrue: [^ self relabelWith: newname]]
 ]
 
-{ #category : #menus }
+{ #category : 'menus' }
 TamListItemReference >> modelSpecificMenu: aMenu shifted: b [ 
 	^ nil
 ]
 
-{ #category : #updating }
+{ #category : 'updating' }
 TamListItemReference >> moveDown [
 	^ self owner moveDownReference: self
 ]
 
-{ #category : #updating }
+{ #category : 'updating' }
 TamListItemReference >> moveDownReference: aFirstLevelReference [ 	^ false
 ]
 
-{ #category : #updating }
+{ #category : 'updating' }
 TamListItemReference >> moveUp [
 	^ self owner moveUpReference: self
 ]
 
-{ #category : #updating }
+{ #category : 'updating' }
 TamListItemReference >> moveUpReference: aFirstLevelReference [ 	^ false
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TamListItemReference >> name [ 
 
 	^ self printString
 ]
 
-{ #category : #'morphic wrapper' }
+{ #category : 'morphic wrapper' }
 TamListItemReference >> newEditor [
 	^ nil
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TamListItemReference >> numberOfChildren [
 	^ self children size
 ]
 
-{ #category : #updating }
+{ #category : 'updating' }
 TamListItemReference >> on: anAnnounce send: aSelector to: aReceiver [
 	^ (self announcer weak
 		when:  anAnnounce 
@@ -817,11 +819,11 @@ TamListItemReference >> on: anAnnounce send: aSelector to: aReceiver [
 		to: aReceiver) makeWeak 
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TamListItemReference >> owner [	^ owner
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TamListItemReference >> owner: anotherReference [ 
 	owner
 		ifNotNil: [owner privateSilentlyRemove: self].
@@ -829,7 +831,7 @@ TamListItemReference >> owner: anotherReference [
 
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TamListItemReference >> parentTaxon [
 	"Return nearest parent taxon"
 	self isTaxon ifTrue: [^ self] ifFalse: [
@@ -837,7 +839,7 @@ TamListItemReference >> parentTaxon [
 	^nil
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TamListItemReference >> parentsChain [
 	"Return a collection of all my parents, up until root.
 	The first element is 
@@ -849,7 +851,7 @@ TamListItemReference >> parentsChain [
 	^ parents
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TamListItemReference >> perform: selector orSendTo: otherTarget [
 	"Selector was just chosen from a menu by a user. If can respond, then  	perform it on myself. If not, send it to otherTarget, presumably the  	editPane from which the menu was invoked."
 
@@ -858,27 +860,27 @@ TamListItemReference >> perform: selector orSendTo: otherTarget [
 		ifFalse: [ ^ otherTarget perform: selector ]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TamListItemReference >> preferredColor [
 	^ self emphasisModel ifNotNil: [:em | em textColor]
 ]
 
-{ #category : #printing }
+{ #category : 'printing' }
 TamListItemReference >> printOn: aStream [ 
 	aStream nextPutAll: '['.
 	self longName ifNotNil: [aStream nextPutAll: self longName].
 	aStream nextPutAll: ']'
 ]
 
-{ #category : #private }
+{ #category : 'private' }
 TamListItemReference >> privateSilentlyRemove: aReference [
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TamListItemReference >> receiver [	^ self 
 ]
 
-{ #category : #updating }
+{ #category : 'updating' }
 TamListItemReference >> refresh [
 	self refreshedData
 		ifTrue: [
@@ -887,19 +889,19 @@ TamListItemReference >> refresh [
 	^ false
 ]
 
-{ #category : #updating }
+{ #category : 'updating' }
 TamListItemReference >> refreshedData [
 	self children.
 	^ true
 ]
 
-{ #category : #updating }
+{ #category : 'updating' }
 TamListItemReference >> reinitializeEditor [
 	self announce: (TamReinitializeEditor new itemReference: self)
 
 ]
 
-{ #category : #updating }
+{ #category : 'updating' }
 TamListItemReference >> reinitializeEditor: aTamBrowser [
 	(aTamBrowser editorModel isNil or: [aTamBrowser editorModel okToChange])
 		ifTrue: [
@@ -910,28 +912,28 @@ TamListItemReference >> reinitializeEditor: aTamBrowser [
 					TamManager changed: self]]
 ]
 
-{ #category : #updating }
+{ #category : 'updating' }
 TamListItemReference >> relabelWith: newName [ 	self listLabel: newName.	TamManager changed: self
 ]
 
-{ #category : #updating }
+{ #category : 'updating' }
 TamListItemReference >> remove [
 	self removeSilently.
 	self treeHasChanged 
 ]
 
-{ #category : #updating }
+{ #category : 'updating' }
 TamListItemReference >> removeChild: aReference [ 
 	self removeChildSilently: aReference.
 	TamManager changed: self
 ]
 
-{ #category : #updating }
+{ #category : 'updating' }
 TamListItemReference >> removeChildSilently: aReference [ 
 
 ]
 
-{ #category : #updating }
+{ #category : 'updating' }
 TamListItemReference >> removeSilently [
 	Cursor wait
 		showWhile: [owner
@@ -939,13 +941,13 @@ TamListItemReference >> removeSilently [
 			self destroy]
 ]
 
-{ #category : #searching }
+{ #category : 'searching' }
 TamListItemReference >> selectDeeplySuchThat: aBlock [ 
 	^ self selectDeeplySuchThat: aBlock visited: Set new 
 
 ]
 
-{ #category : #searching }
+{ #category : 'searching' }
 TamListItemReference >> selectDeeplySuchThat: aBlock visited: aSetOfRefs [ 
 	| res chil |
 	res := OrderedCollection new.
@@ -960,7 +962,7 @@ TamListItemReference >> selectDeeplySuchThat: aBlock visited: aSetOfRefs [
 	^ res
 ]
 
-{ #category : #searching }
+{ #category : 'searching' }
 TamListItemReference >> selectSuchThat: aBlock [ 
 	| res |
 	res := OrderedCollection new.
@@ -970,12 +972,12 @@ TamListItemReference >> selectSuchThat: aBlock [
 	^ res
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TamListItemReference >> selected [
 	^false
 ]
 
-{ #category : #'tam taxonomy browser' }
+{ #category : 'tam taxonomy browser' }
 TamListItemReference >> selectingFrom: aTaxonomyBrowser [ 
 	| tempEditor editor |
 	(editor := aTaxonomyBrowser editorFor: self)
@@ -1016,29 +1018,29 @@ TamListItemReference >> selectingFrom: aTaxonomyBrowser [
 	^ editor
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TamListItemReference >> shortName [
 	^ listLabel
 		ifNil: [self class externalLabel]
 ]
 
-{ #category : #'sublists handling' }
+{ #category : 'sublists handling' }
 TamListItemReference >> showSubLists [
 	^ showSubLists
 ]
 
-{ #category : #'sublists handling' }
+{ #category : 'sublists handling' }
 TamListItemReference >> showSubLists: aSymbol [ 
 	"aSymbol is (#always | #never | #ifNotEmpty) "
 	showSubLists := aSymbol
 ]
 
-{ #category : #menus }
+{ #category : 'menus' }
 TamListItemReference >> specificButtonsColumn: aTaxonomyBrowser inAlignment: aButtonsAlignment [
 	^nil
 ]
 
-{ #category : #menus }
+{ #category : 'menus' }
 TamListItemReference >> specificMenu: aMenu shifted: aBoolean [ 
 	| editorModel modelMenu |
 	(editorModel := aMenu defaultTarget editorModel)
@@ -1054,7 +1056,7 @@ TamListItemReference >> specificMenu: aMenu shifted: aBoolean [
 				argumentList: #()]]
 ]
 
-{ #category : #'sublists handling' }
+{ #category : 'sublists handling' }
 TamListItemReference >> subLists [
 	| subs |
 	subs := OrderedCollection new.
@@ -1068,7 +1070,7 @@ TamListItemReference >> subLists [
 	^ subs
 ]
 
-{ #category : #'sublists handling' }
+{ #category : 'sublists handling' }
 TamListItemReference >> subListsDefsArray [
 	"return an array of array. Each element array is for one sublist and 
 	contains first a selector for sublist accessing and second a label for the sublist. 
@@ -1083,17 +1085,17 @@ TamListItemReference >> subListsDefsArray [
 	
 ]
 
-{ #category : #'sublists handling' }
+{ #category : 'sublists handling' }
 TamListItemReference >> subListsReferenceClass [
 	^Smalltalk at: self subListsReferenceClassName asSymbol
 ]
 
-{ #category : #'sublists handling' }
+{ #category : 'sublists handling' }
 TamListItemReference >> subListsReferenceClassName [
 	^#TamSubListReference
 ]
 
-{ #category : #'sublists handling' }
+{ #category : 'sublists handling' }
 TamListItemReference >> subListsSwitchMenu [
 	| menu |
 	menu := MenuMorph new.
@@ -1116,41 +1118,41 @@ TamListItemReference >> subListsSwitchMenu [
 
 ]
 
-{ #category : #'sublists handling' }
+{ #category : 'sublists handling' }
 TamListItemReference >> subReferencesOfClass: subReferenceClass [ 
 	^(self contents asArray 
 		select: [:sr | sr isReleased not and: [sr class = subReferenceClass]]) 
 			sort: [:a :b | a shortName < b shortName]
 ]
 
-{ #category : #'sublists handling' }
+{ #category : 'sublists handling' }
 TamListItemReference >> subReferencesOfKind: subReferenceClass [ 
 	^(self contents asArray 
 		select: [:sr | sr isReleased not and: [sr isKindOf: subReferenceClass]]) 
 			sort: [:a :b | a shortName < b shortName]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TamListItemReference >> taxonomyRoot [	
 	self owner isNil ifTrue: [^self].	
 	^ self owner taxonomyRoot	
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TamListItemReference >> tempNames [	^ #()
 ]
 
-{ #category : #updating }
+{ #category : 'updating' }
 TamListItemReference >> treeHasChanged [
 	self announce: (TamForceTreeUpdating new sourceHandler: self)
 ]
 
-{ #category : #updating }
+{ #category : 'updating' }
 TamListItemReference >> treeHasChangedFrom: anEditor [
 	self announce: (TamForceTreeUpdating new sourceHandler: self; codeMorph: anEditor)
 ]
 
-{ #category : #'tam taxonomy browser' }
+{ #category : 'tam taxonomy browser' }
 TamListItemReference >> unSelectingFrom: aTaxonomyBrowser [ 
 	| editor |
 	editor := aTaxonomyBrowser editor.
@@ -1172,12 +1174,12 @@ TamListItemReference >> unSelectingFrom: aTaxonomyBrowser [
 	aTaxonomyBrowser removeSpecificButtons
 ]
 
-{ #category : #updating }
+{ #category : 'updating' }
 TamListItemReference >> updateEditor: aTaxonomyBrowser [ 
 	^ true
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TamListItemReference >> wrapperClass [	
 	^TamListItemWrapper
 ]

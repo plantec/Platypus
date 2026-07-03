@@ -1,6 +1,6 @@
 Class {
-	#name : #Tamaris,
-	#superclass : #Object,
+	#name : 'Tamaris',
+	#superclass : 'Object',
 	#instVars : [
 		'mainWindow',
 		'editorSubWindows',
@@ -11,10 +11,12 @@ Class {
 	#classVars : [
 		'InitialExtent'
 	],
-	#category : 'Tamaris-UI'
+	#category : 'Tamaris-UI',
+	#package : 'Tamaris',
+	#tag : 'UI'
 }
 
-{ #category : #preferences }
+{ #category : 'preferences' }
 Tamaris class >> buttonExtent [
 	"default button extent"
 	| prefSet |
@@ -23,7 +25,7 @@ Tamaris class >> buttonExtent [
 		@ (22 max: prefSet)
 ]
 
-{ #category : #utilities }
+{ #category : 'utilities' }
 Tamaris class >> chooseFilePathMatching: patterns label: title [
 	| fd |
 	fd := FileDialogWindow basicNew
@@ -38,24 +40,24 @@ Tamaris class >> chooseFilePathMatching: patterns label: title [
 	^(UIManager default modalMorph openModal: fd) answer
 ]
 
-{ #category : #preferences }
+{ #category : 'preferences' }
 Tamaris class >> initialExtent [	
 	^ InitialExtent
 ]
 
-{ #category : #preferences }
+{ #category : 'preferences' }
 Tamaris class >> initialExtent: aPoint [ 
 	InitialExtent := aPoint
 ]
 
-{ #category : #'class initialization' }
+{ #category : 'class initialization' }
 Tamaris class >> initialize [
 	"self initialize"
 	InitialExtent := 600 @ 500.
 
 ]
 
-{ #category : #queries }
+{ #category : 'queries' }
 Tamaris class >> itemNamed: aName [
 	| map |
 	TamManager taxonomies detect: [:t | (map := t item findDeeplySuchThat: [:e | e name = aName]) notNil].
@@ -63,12 +65,12 @@ Tamaris class >> itemNamed: aName [
 
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 Tamaris class >> managerOpenCommandName [
 	^ self name 
 ]
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 Tamaris class >> open [
 	"self open"
 
@@ -77,7 +79,7 @@ Tamaris class >> open [
 	^newTaxonomiesPane buildMainWindow openInWorld
 ]
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 Tamaris class >> openInWindow: aWindow [ 
 	"self open"
 
@@ -88,12 +90,12 @@ Tamaris class >> openInWindow: aWindow [
 	^aWindow
 ]
 
-{ #category : #preferences }
+{ #category : 'preferences' }
 Tamaris class >> preferedWindowColor [
 	^ Color veryLightGray veryMuchLighter muchLighter
 ]
 
-{ #category : #'ui building' }
+{ #category : 'ui building' }
 Tamaris >> addModelItemsToWindowMenu: aMenu [ 
 	aMenu addLine.
 	aMenu
@@ -118,7 +120,7 @@ Tamaris >> addModelItemsToWindowMenu: aMenu [
 	aMenu addLine
 ]
 
-{ #category : #'ui building' }
+{ #category : 'ui building' }
 Tamaris >> buildMainWindow [
 	mainWindow := (StandardWindow labelled: self class managerOpenCommandName) model: self;
 				 yourself.
@@ -140,12 +142,12 @@ Tamaris >> buildMainWindow [
 	^ mainWindow
 ]
 
-{ #category : #'ui building' }
+{ #category : 'ui building' }
 Tamaris >> buildWindow: aWindow [ 	
 	^ self buildWindow: aWindow direction: #toRight
 ]
 
-{ #category : #'ui building' }
+{ #category : 'ui building' }
 Tamaris >> buildWindow: aWindow direction: ToRightOrToLeft [ 
 	self editorSubWindows add: aWindow.
 	TamManager openInWindow: aWindow direction: ToRightOrToLeft.
@@ -156,12 +158,12 @@ Tamaris >> buildWindow: aWindow direction: ToRightOrToLeft [
 	^ aWindow
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 Tamaris >> defaultBackgroundColor [
 	^ self class preferedWindowColor
 ]
 
-{ #category : #'initialize/release' }
+{ #category : 'initialize/release' }
 Tamaris >> destroy [
 	mainWindow
 		ifNotNil: [
@@ -176,33 +178,33 @@ Tamaris >> destroy [
 	super destroy
 ]
 
-{ #category : #'ui opening/closing' }
+{ #category : 'ui opening/closing' }
 Tamaris >> destroyAndQuit [
 mainWindow ifNotNil: [mainWindow delete].
 	self destroy
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 Tamaris >> editorSubWindows [	
 	^editorSubWindows
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 Tamaris >> initialExtent [	^ self class initialExtent
 ]
 
-{ #category : #'initialize/release' }
+{ #category : 'initialize/release' }
 Tamaris >> initialize [
 	super initialize.
 	editorSubWindows := WeakSet new.
 
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 Tamaris >> mainWindow [	^ mainWindow
 ]
 
-{ #category : #menu }
+{ #category : 'menu' }
 Tamaris >> menuRemovePane: aWindow [ 
 	| ownerWindow ownerOwnerWindow other |
 	ownerWindow := aWindow owner.
@@ -216,11 +218,11 @@ Tamaris >> menuRemovePane: aWindow [
 	self removeOtherPane: other
 ]
 
-{ #category : #menu }
+{ #category : 'menu' }
 Tamaris >> menuSplitHorizontally: aWindow [ 	self split: aWindow axe: #horizontally
 ]
 
-{ #category : #menu }
+{ #category : 'menu' }
 Tamaris >> menuSplitVertically: aWindow [ 
 	"| newPane |
 	newPane := aWindow splitVertically.
@@ -230,22 +232,22 @@ Tamaris >> menuSplitVertically: aWindow [
 
 ]
 
-{ #category : #'ui opening/closing' }
+{ #category : 'ui opening/closing' }
 Tamaris >> modelWakeUpIn: aMorph [ 
 	self mainWindow ifNotNil: [self mainWindow submorphsDo: [:sm | sm show]].
 	self editorSubWindows ifNotNil: [self editorSubWindows do: [:e | e model modelWakeUpIn: aMorph]].
 	super modelWakeUpIn: aMorph
 ]
 
-{ #category : #menu }
+{ #category : 'menu' }
 Tamaris >> perform: selector orSendTo: otherTarget [ 	"Selector was just chosen from a menu by a user. If can respond, then  	perform it on myself. If not, send it to otherTarget, presumably the  	editPane from which the menu was invoked."	(self respondsTo: selector)		ifTrue: [^ self perform: selector]		ifFalse: [^ otherTarget perform: selector]
 ]
 
-{ #category : #menu }
+{ #category : 'menu' }
 Tamaris >> rememberWindowSize [	self class initialExtent: mainWindow bounds extent
 ]
 
-{ #category : #menu }
+{ #category : 'menu' }
 Tamaris >> removeOtherPane: aWindow [ 
 	| ownerWindow ownerOwnerWindow selectionIndex pane |
 	selectionIndex := 0.
@@ -268,7 +270,7 @@ Tamaris >> removeOtherPane: aWindow [
 	self changed: #taxonomies
 ]
 
-{ #category : #'ui opening/closing' }
+{ #category : 'ui opening/closing' }
 Tamaris >> removeWindow: aWindow [ 
 	self removeDependent: aWindow model.
 	self editorSubWindows remove: aWindow ifAbsent: [].
@@ -278,13 +280,13 @@ Tamaris >> removeWindow: aWindow [
 	aWindow delete
 ]
 
-{ #category : #'initialize/release' }
+{ #category : 'initialize/release' }
 Tamaris >> setListsWidthToDefault [
 	TamManager listWidth: 120.
 	TamBrowser taxonomyListWidth: 220
 ]
 
-{ #category : #menu }
+{ #category : 'menu' }
 Tamaris >> split: aWindow axe: verticallyOrHorizontally [ 
 	| leftPane rightPane selectionIndex ownerWindow tmpPane fractions secondSubPanesDirection deltaY deltaX |
 	verticallyOrHorizontally == #vertically
@@ -338,7 +340,7 @@ Tamaris >> split: aWindow axe: verticallyOrHorizontally [
 	self changed: #taxonomies
 ]
 
-{ #category : #'ui opening/closing' }
+{ #category : 'ui opening/closing' }
 Tamaris >> windowIsClosing [
 	self destroy.
 	super windowIsClosing

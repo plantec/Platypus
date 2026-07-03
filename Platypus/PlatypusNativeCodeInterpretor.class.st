@@ -15,14 +15,15 @@ Class {
 }
 
 { #category : 'private' }
-PlatypusNativeCodeInterpretor class >> methodFrom: aString class: aClass requestor: aRequestor ifFail: failBlock [ 
+PlatypusNativeCodeInterpretor class >> methodFrom: aString class: aClass requestor: aRequestor ifFail: failBlock [
+
 	| methodNode compiler |
 	(compiler := Smalltalk compilerClass new)
-		source: 'EvaluatePlatypusInterpreterNativeCode ', aString;
+		source: 'EvaluatePlatypusInterpreterNativeCode ' , aString;
 		class: aClass;
 		requestor: aRequestor;
-		noPattern: false;
-		failBlock: [^ failBlock value].
+		isScripting: false;
+		failBlock: [ ^ failBlock value ].
 	methodNode := compiler compile.
 	^ methodNode
 ]
@@ -81,7 +82,7 @@ PlatypusNativeCodeInterpretor >> evaluateMethod: aMethod [
 	| selector |
 	selector := #EvaluatePlatypusInterpreterNativeCode.
 	receiver class addSelectorSilently: selector withMethod: aMethod.
-	self class organization classify: selector under: #'platypus interpreting'.
+	self class classify: selector under: #'platypus interpreting'.
 	^ receiver EvaluatePlatypusInterpreterNativeCode
 ]
 

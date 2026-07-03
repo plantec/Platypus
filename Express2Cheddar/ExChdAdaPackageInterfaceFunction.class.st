@@ -72,8 +72,8 @@ END_FUNCTION;
 </ISO10303-11-EXPRESS>
 "
 Class {
-	#name : #ExChdAdaPackageInterfaceFunction,
-	#superclass : #PlatypusCoreAlgorithmDeclaration,
+	#name : 'ExChdAdaPackageInterfaceFunction',
+	#superclass : 'PlatypusCoreAlgorithmDeclaration',
 	#instVars : [
 		'pkg',
 		'ads',
@@ -84,45 +84,47 @@ Class {
 		'defs',
 		'pkgKey'
 	],
-	#category : #'Express2Cheddar-PackageSchema'
+	#category : 'Express2Cheddar-PackageSchema',
+	#package : 'Express2Cheddar',
+	#tag : 'PackageSchema'
 }
 
-{ #category : #'platypus-generated-platypus-signature' }
+{ #category : 'platypus-generated-platypus-signature' }
 ExChdAdaPackageInterfaceFunction class >> iso10303P11Translater [
 	^ 'Platypus (c) LISYC EA3883, Universite de Bretagne occidentale. Brest.'
 
 
 ]
 
-{ #category : #'platypus-generated-meta-data-accessing' }
+{ #category : 'platypus-generated-meta-data-accessing' }
 ExChdAdaPackageInterfaceFunction class >> schemaDefinition [
 	^ ExChdPackageSchemaDefinition singleton
 
 
 ]
 
-{ #category : #'platypus-generated-platypus-signature' }
+{ #category : 'platypus-generated-platypus-signature' }
 ExChdAdaPackageInterfaceFunction class >> translatedFromISO10303P11 [
 	^ true
 
 
 ]
 
-{ #category : #'platypus-generated-platypus-signature' }
+{ #category : 'platypus-generated-platypus-signature' }
 ExChdAdaPackageInterfaceFunction class >> vwNamespaceName [
 	^ #Express2Cheddar
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdAdaPackageInterfaceFunction >> adbList [
 	^ adbList
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdAdaPackageInterfaceFunction >> adbList: aListOfExChdAdaInterface1 [
 	adbList := aListOfExChdAdaInterface1
 		ifNil: [ OrderedCollection new ]
@@ -131,28 +133,28 @@ ExChdAdaPackageInterfaceFunction >> adbList: aListOfExChdAdaInterface1 [
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdAdaPackageInterfaceFunction >> ads [
 	^ ads
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdAdaPackageInterfaceFunction >> ads: aBoolean [
 	ads := aBoolean
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdAdaPackageInterfaceFunction >> adsList [
 	^ adsList
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdAdaPackageInterfaceFunction >> adsList: aListOfExChdAdaInterface [
 	adsList := aListOfExChdAdaInterface
 		ifNil: [ OrderedCollection new ]
@@ -161,14 +163,14 @@ ExChdAdaPackageInterfaceFunction >> adsList: aListOfExChdAdaInterface [
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdAdaPackageInterfaceFunction >> defs [
 	^ defs
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdAdaPackageInterfaceFunction >> defs: aListOfExChdDictionaryInstance [
 	defs := aListOfExChdDictionaryInstance
 		ifNil: [ OrderedCollection new ]
@@ -177,7 +179,7 @@ ExChdAdaPackageInterfaceFunction >> defs: aListOfExChdDictionaryInstance [
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdAdaPackageInterfaceFunction >> fromValues: values [
 	self pkg: (values at: 1).
 	self ads: (values at: 2)
@@ -185,7 +187,7 @@ ExChdAdaPackageInterfaceFunction >> fromValues: values [
 
 ]
 
-{ #category : #'platypus-generated-invoking' }
+{ #category : 'platypus-generated-invoking' }
 ExChdAdaPackageInterfaceFunction >> invoke [
 	" ---------- locals assignments ----------"
 
@@ -403,21 +405,21 @@ ExChdAdaPackageInterfaceFunction >> invoke [
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdAdaPackageInterfaceFunction >> pkg [
 	^ pkg
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdAdaPackageInterfaceFunction >> pkg: aExChdAdaPackage [
 	pkg := aExChdAdaPackage
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdAdaPackageInterfaceFunction >> pkg: aExChdAdaPackage ads: aBoolean [
 	self pkg: aExChdAdaPackage.
 	self ads: aBoolean
@@ -425,28 +427,28 @@ ExChdAdaPackageInterfaceFunction >> pkg: aExChdAdaPackage ads: aBoolean [
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdAdaPackageInterfaceFunction >> pkgKey [
 	^ pkgKey
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdAdaPackageInterfaceFunction >> pkgKey: aString [
 	pkgKey := aString
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdAdaPackageInterfaceFunction >> result [
 	^ result
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdAdaPackageInterfaceFunction >> result: aListOfExChdAdaInterface3 [
 	result := aListOfExChdAdaInterface3
 		ifNil: [ OrderedCollection new ]
@@ -455,14 +457,14 @@ ExChdAdaPackageInterfaceFunction >> result: aListOfExChdAdaInterface3 [
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdAdaPackageInterfaceFunction >> wul [
 	^ wul
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdAdaPackageInterfaceFunction >> wul: aListOfExChdAdaInterface2 [
 	wul := aListOfExChdAdaInterface2
 		ifNil: [ OrderedCollection new ]

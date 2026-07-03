@@ -1,6 +1,6 @@
 Class {
-	#name : #TamGenericHierarchicalList,
-	#superclass : #TamHierarchicalList,
+	#name : 'TamGenericHierarchicalList',
+	#superclass : 'TamHierarchicalList',
 	#instVars : [
 		'mainWindow',
 		'listMorph',
@@ -15,20 +15,22 @@ Class {
 	#classVars : [
 		'InitialExtent'
 	],
-	#category : #'Tamaris-UI'
+	#category : 'Tamaris-UI',
+	#package : 'Tamaris',
+	#tag : 'UI'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TamGenericHierarchicalList class >> buttonExtent [ 
 	^ Tamaris buttonExtent
 ]
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 TamGenericHierarchicalList class >> fromFlatCollection: aCollectionOfCollections [ 
 	^ self new fromFlatCollection: aCollectionOfCollections
 ]
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 TamGenericHierarchicalList class >> fromFlatCollection: aCollectionOfCollections title: aTitle [ 
 	| aghl |
 	aghl := self new fromFlatCollection: aCollectionOfCollections.
@@ -36,7 +38,7 @@ TamGenericHierarchicalList class >> fromFlatCollection: aCollectionOfCollections
 	^ aghl
 ]
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 TamGenericHierarchicalList class >> fromFlatCollection: aCollectionOfCollections title: aTitle client: aClientModel [ 
 	| aghl |
 	aghl := self fromFlatCollection: aCollectionOfCollections title: aTitle.
@@ -44,19 +46,19 @@ TamGenericHierarchicalList class >> fromFlatCollection: aCollectionOfCollections
 	^ aghl
 ]
 
-{ #category : #examples }
+{ #category : 'examples' }
 TamGenericHierarchicalList class >> fromFlatCollectionExample [
 	| aghl |
 	aghl := self fromFlatCollection: #(#(#String 'titi' 'toto') #(#String 'titi' 'tata') #(#String 'titi' 'momo') #(#String 'kiki' 'tata') #(#String 'mimi' 'tata') #(#Integer 'titi' 'tata') #(#Class 'momo' 'tata') #(#Class 'mimi' 'tata') #(#Class 'mimi' 'riri') #(#String 'titi' 'tata') ).
 	aghl open
 ]
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 TamGenericHierarchicalList class >> fromRootListItems: aCollectionOfListItems [ 
 	^ self new rootListItems: aCollectionOfListItems
 ]
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 TamGenericHierarchicalList class >> fromRootListItems: aCollectionOfListItems title: aTitle [ 
 	| aghl |
 	aghl := self fromRootListItems: aCollectionOfListItems.
@@ -64,7 +66,7 @@ TamGenericHierarchicalList class >> fromRootListItems: aCollectionOfListItems ti
 	^ aghl
 ]
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 TamGenericHierarchicalList class >> fromRootListItems: aCollectionOfListItems title: aTitle client: aClientModel [ 
 	| aghl |
 	aghl := self fromRootListItems: aCollectionOfListItems title: aTitle.
@@ -72,12 +74,12 @@ TamGenericHierarchicalList class >> fromRootListItems: aCollectionOfListItems ti
 	^ aghl
 ]
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 TamGenericHierarchicalList class >> fromUpdateBlock: aOneArgBlock [ 
 	^ self new updateBlock: aOneArgBlock
 ]
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 TamGenericHierarchicalList class >> fromUpdateBlock: aOneArgBlock title: aTitle [
 	| aghl |
 	aghl := self fromUpdateBlock: aOneArgBlock.
@@ -85,7 +87,7 @@ TamGenericHierarchicalList class >> fromUpdateBlock: aOneArgBlock title: aTitle 
 	^ aghl
 ]
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 TamGenericHierarchicalList class >> fromUpdateBlock: aOneArgBlock title: aTitle client: aClientModel [
 	| aghl |
 	aghl := self fromUpdateBlock: aOneArgBlock title: aTitle.
@@ -93,36 +95,36 @@ TamGenericHierarchicalList class >> fromUpdateBlock: aOneArgBlock title: aTitle 
 	^ aghl
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TamGenericHierarchicalList class >> initialExtent [
 	^ InitialExtent
 				ifNil: [InitialExtent := 300 @ 400]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TamGenericHierarchicalList class >> initialExtent: aPoint [ 	InitialExtent := aPoint
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TamGenericHierarchicalList class >> openedHierarchicalLists [
 	^ ActiveWorld submorphs
 		select: [:sm | sm isSystemWindow
 				and: [sm model isKindOf: self]]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TamGenericHierarchicalList class >> openedHierarchicalListsOfClient: aClientModel [ 
 	^ self openedHierarchicalLists
 		select: [:h | h model clientModel = aClientModel]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TamGenericHierarchicalList class >> openedHierarchicalListsOfClient: aClientModel key: anObject [ 
 	^ (self openedHierarchicalListsOfClient: aClientModel)
 		select: [:h | h model key = anObject]
 ]
 
-{ #category : #'ui building' }
+{ #category : 'ui building' }
 TamGenericHierarchicalList >> addButton: formName block: aBlock balloonText: aText [ 
 	self
 		addButton: formName
@@ -132,7 +134,7 @@ TamGenericHierarchicalList >> addButton: formName block: aBlock balloonText: aTe
 		balloonText: aText
 ]
 
-{ #category : #'ui building' }
+{ #category : 'ui building' }
 TamGenericHierarchicalList >> addButton: formName target: aTarget selector: aSelector arguments: args balloonText: aText [ 
 	| btn label |
 	label := ImageMorph withForm: (TamIcons icon: formName).
@@ -150,12 +152,12 @@ TamGenericHierarchicalList >> addButton: formName target: aTarget selector: aSel
 	bottomButtons addMorph: btn
 ]
 
-{ #category : #'ui building' }
+{ #category : 'ui building' }
 TamGenericHierarchicalList >> addButton: formName target: aTarget selector: aSelector balloonText: aText [ 
 	^ self addButton: formName target: aTarget selector: aSelector arguments: {} balloonText: aText 
 ]
 
-{ #category : #'ui building' }
+{ #category : 'ui building' }
 TamGenericHierarchicalList >> addButtonLabelled: aName block: aBlock balloonText: aText [ 
 	self
 		addButtonLabelled: aName
@@ -167,7 +169,7 @@ TamGenericHierarchicalList >> addButtonLabelled: aName block: aBlock balloonText
 		balloonText: aText
 ]
 
-{ #category : #'ui building' }
+{ #category : 'ui building' }
 TamGenericHierarchicalList >> addButtonLabelled: aName target: aTarget selector: aSelector arguments: args balloonText: aText [ 
 	| btn |
 	btn := PluggableButtonMorph  new.
@@ -183,12 +185,12 @@ TamGenericHierarchicalList >> addButtonLabelled: aName target: aTarget selector:
 	bottomButtons addMorph: btn
 ]
 
-{ #category : #'ui building' }
+{ #category : 'ui building' }
 TamGenericHierarchicalList >> addButtonSpacer [
 	bottomButtons addSpacer
 ]
 
-{ #category : #'ui building' }
+{ #category : 'ui building' }
 TamGenericHierarchicalList >> addButtons [
 	bottomButtons := TamButtonsAlignmentMorph newRow.
 	bottomButtons hResizing: #spaceFill.
@@ -203,22 +205,22 @@ TamGenericHierarchicalList >> addButtons [
 	bottomButtonsRow addMorph: bottomButtons
 ]
 
-{ #category : #'ui building' }
+{ #category : 'ui building' }
 TamGenericHierarchicalList >> addExtensibleButtonSpacer [
 	bottomButtons addExtensibleSpacer
 ]
 
-{ #category : #menus }
+{ #category : 'menus' }
 TamGenericHierarchicalList >> addModelItemsToWindowMenu: aMenu [ 	aMenu addLine.	aMenu		add: 'remember window size'		target: self		action: #rememberWindowSize
 ]
 
-{ #category : #'ui building' }
+{ #category : 'ui building' }
 TamGenericHierarchicalList >> buildMainWindow [
 	^ self buildMainWindow: self mainWindowLabel
 
 ]
 
-{ #category : #'ui building' }
+{ #category : 'ui building' }
 TamGenericHierarchicalList >> buildMainWindow: title [ 
 	mainWindow := (StandardWindow labelled: title) model: self.
 	self buildWindowWithButtons: mainWindow.
@@ -229,7 +231,7 @@ TamGenericHierarchicalList >> buildMainWindow: title [
 	^mainWindow
 ]
 
-{ #category : #'ui building' }
+{ #category : 'ui building' }
 TamGenericHierarchicalList >> buildWindow: aWindow [ 
 	listMorph
 		ifNil: [listMorph := self hierarchicalListMorphClass
@@ -249,7 +251,7 @@ TamGenericHierarchicalList >> buildWindow: aWindow [
 	^ aWindow
 ]
 
-{ #category : #'ui building' }
+{ #category : 'ui building' }
 TamGenericHierarchicalList >> buildWindowWithButtons: aWindow [ 
 	| bottomButtonsRowHeight |
 	bottomButtonsRowHeight := self buttonExtent y + 16 +  1.
@@ -264,22 +266,22 @@ TamGenericHierarchicalList >> buildWindowWithButtons: aWindow [
 	^ aWindow
 ]
 
-{ #category : #'ui building' }
+{ #category : 'ui building' }
 TamGenericHierarchicalList >> buttonBlock: aBlock valueWithArguments: args [ 
 	aBlock valueWithArguments: args
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TamGenericHierarchicalList >> buttonExtent [
 	^self class buttonExtent
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TamGenericHierarchicalList >> clientModel [
 	^clientModel
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TamGenericHierarchicalList >> clientModel: anObject [ 
 	clientModel
 		ifNotNil: [clientModel removeDependent: self].
@@ -288,18 +290,18 @@ TamGenericHierarchicalList >> clientModel: anObject [
 		ifNotNil: [clientModel addDependent: self]
 ]
 
-{ #category : #'ui opening/closing' }
+{ #category : 'ui opening/closing' }
 TamGenericHierarchicalList >> close [
 	mainWindow delete
 ]
 
-{ #category : #updating }
+{ #category : 'updating' }
 TamGenericHierarchicalList >> collapseAll [
 	self listMorph toggleExpandedState: self listMorph scroller submorphs first.
 	self listMorph adjustSubmorphPositions 
 ]
 
-{ #category : #'initialize/release' }
+{ #category : 'initialize/release' }
 TamGenericHierarchicalList >> destroy [
 	mainWindow
 		ifNotNil: [mainWindow submorphs
@@ -318,7 +320,7 @@ TamGenericHierarchicalList >> destroy [
 	super destroy
 ]
 
-{ #category : #updating }
+{ #category : 'updating' }
 TamGenericHierarchicalList >> doDeeply: aBlock [ 
 	^ self rootListItems
 		do: [:e | e
@@ -327,13 +329,13 @@ TamGenericHierarchicalList >> doDeeply: aBlock [
 				]
 ]
 
-{ #category : #updating }
+{ #category : 'updating' }
 TamGenericHierarchicalList >> expandAll [
 	self listMorph expandAll
 
 ]
 
-{ #category : #updating }
+{ #category : 'updating' }
 TamGenericHierarchicalList >> fromFlatCollection: aCollection [ 
 	self
 
@@ -342,7 +344,7 @@ TamGenericHierarchicalList >> fromFlatCollection: aCollection [
 	self changed: #getList
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TamGenericHierarchicalList >> getList [
 	^self rootListItems isNil 
 		ifTrue: 
@@ -352,47 +354,47 @@ TamGenericHierarchicalList >> getList [
 				collect: [:each | each wrapperClass with: each model: nil]]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TamGenericHierarchicalList >> hierarchicalListMorphClass [
 	^ TamHierarchicalListMorph
 ]
 
-{ #category : #'ui building' }
+{ #category : 'ui building' }
 TamGenericHierarchicalList >> initialExtent [
 	^ self class initialExtent
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TamGenericHierarchicalList >> key [ 
 	^ key
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TamGenericHierarchicalList >> key: anObject [
 	key := anObject
 ]
 
-{ #category : #menus }
+{ #category : 'menus' }
 TamGenericHierarchicalList >> keyStroke: aCharacter from: tamuggableListMorph [ 
 	self unwrappedSelection notNil
 		ifTrue: [(self unwrappedSelection respondsTo: #keyStroke:from:)
 			ifTrue: [self unwrappedSelection  keyStroke: aCharacter from: tamuggableListMorph]]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TamGenericHierarchicalList >> listMorph [ 	^ listMorph
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TamGenericHierarchicalList >> mainWindow [	^mainWindow
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TamGenericHierarchicalList >> mainWindowLabel [
 	^ key ifNil: [self class name] ifNotNil: [key asString]
 ]
 
-{ #category : #menus }
+{ #category : 'menus' }
 TamGenericHierarchicalList >> menu: menu shifted: b [ 
 	"Set up the menu to apply to the receiver's, honoring the  
 	#shifted boolean"
@@ -403,7 +405,7 @@ TamGenericHierarchicalList >> menu: menu shifted: b [
 	^ menu
 ]
 
-{ #category : #updating }
+{ #category : 'updating' }
 TamGenericHierarchicalList >> noteNewSelection: aWrapper [ 
 	| oldSelection |
 	self okToChange 
@@ -415,24 +417,24 @@ TamGenericHierarchicalList >> noteNewSelection: aWrapper [
 			aWrapper notNil ifTrue: [aWrapper withoutListWrapper selectingFrom: self]]
 ]
 
-{ #category : #'ui opening/closing' }
+{ #category : 'ui opening/closing' }
 TamGenericHierarchicalList >> open [
 	self buildMainWindow openInWorld.
 
 ]
 
-{ #category : #'ui building' }
+{ #category : 'ui building' }
 TamGenericHierarchicalList >> openAsMorph [	^ self buildMainWindow openInWorld	
 ]
 
-{ #category : #'ui opening/closing' }
+{ #category : 'ui opening/closing' }
 TamGenericHierarchicalList >> openModal [
 	self buildMainWindow openInWorld.
 	[mainWindow  notNil]
 		whileTrue: [mainWindow outermostWorldMorph doOneCycle]
 ]
 
-{ #category : #'ui opening/closing' }
+{ #category : 'ui opening/closing' }
 TamGenericHierarchicalList >> openModalAndExpand [
 	self buildMainWindow openInWorld.
 	self expandAll.
@@ -440,27 +442,27 @@ TamGenericHierarchicalList >> openModalAndExpand [
 		whileTrue: [mainWindow outermostWorldMorph doOneCycle]
 ]
 
-{ #category : #menus }
+{ #category : 'menus' }
 TamGenericHierarchicalList >> rememberWindowSize [	self class initialExtent: mainWindow bounds extent
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TamGenericHierarchicalList >> rootListItems [
 	^ rootListItems
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TamGenericHierarchicalList >> rootListItems: aCollection [ 
 	rootListItems := aCollection.
 	self changed: #getList
 ]
 
-{ #category : #updating }
+{ #category : 'updating' }
 TamGenericHierarchicalList >> setFirstLevelSortBlock: aBlock [
 	sortBlock := aBlock
 ]
 
-{ #category : #updating }
+{ #category : 'updating' }
 TamGenericHierarchicalList >> sort [
 	| sb |
 	sb := self sortBlock
@@ -471,22 +473,22 @@ TamGenericHierarchicalList >> sort [
 	self changed: #getList
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TamGenericHierarchicalList >> sortBlock [
 	^ sortBlock
 ]
 
-{ #category : #updating }
+{ #category : 'updating' }
 TamGenericHierarchicalList >> stepIn: aSystemWindow [ 
 	self updateList.
 	super stepIn: aSystemWindow
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TamGenericHierarchicalList >> unwrappedSelection [	^ self getCurrentSelection ifNotNil: [self getCurrentSelection withoutListWrapper]
 ]
 
-{ #category : #updating }
+{ #category : 'updating' }
 TamGenericHierarchicalList >> update: aSymbol [ 
 	(aSymbol = self clientModel
 			or: [aSymbol = #getCurrentSelection])
@@ -494,25 +496,25 @@ TamGenericHierarchicalList >> update: aSymbol [
 	super update: aSymbol
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TamGenericHierarchicalList >> updateBlock [
 	^updateBlock
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TamGenericHierarchicalList >> updateBlock: aBlock [ 
 	updateBlock := aBlock.
 	self updateList
 ]
 
-{ #category : #updating }
+{ #category : 'updating' }
 TamGenericHierarchicalList >> updateList [
 	self updateBlock
 		ifNotNil: [self updateBlock value: self.
 			self changed: #getList]
 ]
 
-{ #category : #'ui opening/closing' }
+{ #category : 'ui opening/closing' }
 TamGenericHierarchicalList >> windowIsClosing [
 	self destroy.
 	super windowIsClosing

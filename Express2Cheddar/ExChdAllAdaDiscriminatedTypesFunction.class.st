@@ -21,51 +21,53 @@ END_FUNCTION;
 </ISO10303-11-EXPRESS>
 "
 Class {
-	#name : #ExChdAllAdaDiscriminatedTypesFunction,
-	#superclass : #PlatypusCoreAlgorithmDeclaration,
+	#name : 'ExChdAllAdaDiscriminatedTypesFunction',
+	#superclass : 'PlatypusCoreAlgorithmDeclaration',
 	#instVars : [
 		'dtList',
 		'allPkgs'
 	],
-	#category : #'Express2Cheddar-Express2cheddarFacadeSchema'
+	#category : 'Express2Cheddar-Express2cheddarFacadeSchema',
+	#package : 'Express2Cheddar',
+	#tag : 'Express2cheddarFacadeSchema'
 }
 
-{ #category : #'platypus-generated-platypus-signature' }
+{ #category : 'platypus-generated-platypus-signature' }
 ExChdAllAdaDiscriminatedTypesFunction class >> iso10303P11Translater [
 	^ 'Platypus (c) LISYC EA3883, Universite de Bretagne occidentale. Brest.'
 
 
 ]
 
-{ #category : #'platypus-generated-meta-data-accessing' }
+{ #category : 'platypus-generated-meta-data-accessing' }
 ExChdAllAdaDiscriminatedTypesFunction class >> schemaDefinition [
 	^ ExChdExpress2cheddarFacadeSchemaDefinition singleton
 
 
 ]
 
-{ #category : #'platypus-generated-platypus-signature' }
+{ #category : 'platypus-generated-platypus-signature' }
 ExChdAllAdaDiscriminatedTypesFunction class >> translatedFromISO10303P11 [
 	^ true
 
 
 ]
 
-{ #category : #'platypus-generated-platypus-signature' }
+{ #category : 'platypus-generated-platypus-signature' }
 ExChdAllAdaDiscriminatedTypesFunction class >> vwNamespaceName [
 	^ #Express2Cheddar
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdAllAdaDiscriminatedTypesFunction >> allPkgs [
 	^ allPkgs
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdAllAdaDiscriminatedTypesFunction >> allPkgs: aListOfExChdAdaPackage [
 	allPkgs := aListOfExChdAdaPackage
 		ifNil: [ OrderedCollection new ]
@@ -74,14 +76,14 @@ ExChdAllAdaDiscriminatedTypesFunction >> allPkgs: aListOfExChdAdaPackage [
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdAllAdaDiscriminatedTypesFunction >> dtList [
 	^ dtList
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdAllAdaDiscriminatedTypesFunction >> dtList: aListOfExChdDiscriminatedType [
 	dtList := aListOfExChdDiscriminatedType
 		ifNil: [ OrderedCollection new ]
@@ -90,7 +92,7 @@ ExChdAllAdaDiscriminatedTypesFunction >> dtList: aListOfExChdDiscriminatedType [
 
 ]
 
-{ #category : #'platypus-generated-invoking' }
+{ #category : 'platypus-generated-invoking' }
 ExChdAllAdaDiscriminatedTypesFunction >> invoke [
 	" ---------- locals assignments ----------"
 

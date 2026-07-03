@@ -1,38 +1,40 @@
 Class {
-	#name : #TamTaxonReference,
-	#superclass : #TamListItemReference,
+	#name : 'TamTaxonReference',
+	#superclass : 'TamListItemReference',
 	#instVars : [
 		'contents'
 	],
-	#category : 'Tamaris-Taxonomies'
+	#category : 'Tamaris-Taxonomies',
+	#package : 'Tamaris',
+	#tag : 'Taxonomies'
 }
 
-{ #category : #menus }
+{ #category : 'menus' }
 TamTaxonReference class >> canBeCreatedInteractively [	^ true
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TamTaxonReference class >> externalLabel [ 	^ 'a taxon'
 ]
 
-{ #category : #menus }
+{ #category : 'menus' }
 TamTaxonReference class >> menuAddReferenceIntoOwner: aReference [ 
 	| newRef |
 	newRef := self taxonLabel: self externalLabel.
 	aReference insertReference: newRef
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TamTaxonReference class >> subMenuLabel [
 	^ 'a taxon'
 ]
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 TamTaxonReference class >> taxonLabel: aString [ 
 	^ self new listLabel: aString
 ]
 
-{ #category : #'drag and drop' }
+{ #category : 'drag and drop' }
 TamTaxonReference >> acceptDroppingMorph: aTransfertMorph copy: shouldCopy [
 	| passenger copyIt |
 	copyIt := shouldCopy.
@@ -46,11 +48,11 @@ TamTaxonReference >> acceptDroppingMorph: aTransfertMorph copy: shouldCopy [
 	^ self insertLinkableListItemFromTransfertMorph: aTransfertMorph copy: copyIt
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TamTaxonReference >> children [	^ self contents
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TamTaxonReference >> containedLinksTo: aListItemOrACollectionOfListItems [ 
 	| listItems |
 	self isReleased ifFalse: [
@@ -62,19 +64,19 @@ TamTaxonReference >> containedLinksTo: aListItemOrACollectionOfListItems [
 	^#()
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TamTaxonReference >> contents [	^contents
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TamTaxonReference >> contents: aCollection [ 	contents := aCollection
 ]
 
-{ #category : #copying }
+{ #category : 'copying' }
 TamTaxonReference >> copy [	| copy sr |	copy  :=  super copy.	copy		contents: (self contents				collect: [:r | 					sr  :=  r copy.					sr owner: copy.					sr]).	^ copy
 ]
 
-{ #category : #'drag and drop' }
+{ #category : 'drag and drop' }
 TamTaxonReference >> copyListItemHereFromTransfertMorph: aTransfertMorph [ 
 	| aReference theCopy |
 	aReference := TamListItemReference fromTransfertMorph: aTransfertMorph.
@@ -86,7 +88,7 @@ TamTaxonReference >> copyListItemHereFromTransfertMorph: aTransfertMorph [
 			^ false]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TamTaxonReference >> deepContainedLinksTo: aListItemOrACollectionOfListItems [ 
 	| links |
 	links  :=  self containedLinksTo: aListItemOrACollectionOfListItems.
@@ -96,19 +98,19 @@ TamTaxonReference >> deepContainedLinksTo: aListItemOrACollectionOfListItems [
 	^ links
 ]
 
-{ #category : #'initialize/release' }
+{ #category : 'initialize/release' }
 TamTaxonReference >> destroy [
 	self children ifNotNil: [self children do: [:child | child destroy]].
 	contents := nil.
 	super destroy
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TamTaxonReference >> icon [
 	^TamIcons mimeIcon: '10x10/mimetypes/taxon'
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TamTaxonReference >> includesLinksTo: aListItemOrACollectionOfListItems [ 
 	| listItems |
 	self isReleased
@@ -120,18 +122,18 @@ TamTaxonReference >> includesLinksTo: aListItemOrACollectionOfListItems [
 	^ false
 ]
 
-{ #category : #'initialize/release' }
+{ #category : 'initialize/release' }
 TamTaxonReference >> initialize [	super initialize.	contents := OrderedCollection new
 ]
 
-{ #category : #'drag and drop' }
+{ #category : 'drag and drop' }
 TamTaxonReference >> insertLinkableListItemFromTransfertMorph: aTransfertMorph copy: shouldCopy [ 
 	shouldCopy
 		ifTrue: [^ self copyListItemHereFromTransfertMorph: aTransfertMorph]
 		ifFalse: [^ self moveListItemHereFromTransfertMorph: aTransfertMorph]
 ]
 
-{ #category : #updating }
+{ #category : 'updating' }
 TamTaxonReference >> insertReference: anotherReference [ 
 	anotherReference owner == self
 		ifFalse: [anotherReference owner: self.
@@ -141,32 +143,32 @@ TamTaxonReference >> insertReference: anotherReference [
 	^ false
 ]
 
-{ #category : #updating }
+{ #category : 'updating' }
 TamTaxonReference >> insertReferenceSilently: anotherReference [ 
 	anotherReference owner: self.
 	self contents add: anotherReference.
 	^ true
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 TamTaxonReference >> isTaxon [	^ true
 ]
 
-{ #category : #menus }
+{ #category : 'menus' }
 TamTaxonReference >> keyStroke: aCharacter from: tamuggableListMorph [ 
 	aCharacter = $e
 		ifTrue: [^ self menuRemoveAll].
 	^ super keyStroke: aCharacter from: tamuggableListMorph
 ]
 
-{ #category : #'drag and drop' }
+{ #category : 'drag and drop' }
 TamTaxonReference >> linkListItemHere: aListItem [
 	| link |
 	link := TamListItemSoftLinkReference from: aListItem.
 	^ self insertReference: link
 ]
 
-{ #category : #'drag and drop' }
+{ #category : 'drag and drop' }
 TamTaxonReference >> linkListItemHereFromTransfertMorph: aTransfertMorph [ 
 	| aPassenger |
 	(aTransfertMorph class canUnderstand: #passenger)
@@ -176,13 +178,13 @@ TamTaxonReference >> linkListItemHereFromTransfertMorph: aTransfertMorph [
 
 ]
 
-{ #category : #menus }
+{ #category : 'menus' }
 TamTaxonReference >> menuAddReference [	| menuAddReference |	
 	menuAddReference  :=  MenuMorph new.	
 	^ self menuAddReferenceInto: menuAddReference
 ]
 
-{ #category : #menus }
+{ #category : 'menus' }
 TamTaxonReference >> menuAddReferenceInto: aMenu [ 
 	| classes |
 	classes := OrderedCollection with: TamListItemReference.
@@ -193,7 +195,7 @@ TamTaxonReference >> menuAddReferenceInto: aMenu [
 		fromClasses: classes.
 ]
 
-{ #category : #menus }
+{ #category : 'menus' }
 TamTaxonReference >> menuRemoveAll [
 	| message |	
 	message  :=  'remove all ? '.	
@@ -201,7 +203,7 @@ TamTaxonReference >> menuRemoveAll [
 		ifTrue: [^ self removeAll]
 ]
 
-{ #category : #updating }
+{ #category : 'updating' }
 TamTaxonReference >> move: aReference before: anotherReference [ 
 	aReference ~= anotherReference ifTrue: [
 	self contents remove: aReference.
@@ -209,7 +211,7 @@ TamTaxonReference >> move: aReference before: anotherReference [
 	TamManager changed: self]
 ]
 
-{ #category : #updating }
+{ #category : 'updating' }
 TamTaxonReference >> moveDownReference: aReference [ 
 	| index moveableContents |
 	moveableContents := self contents
@@ -223,7 +225,7 @@ TamTaxonReference >> moveDownReference: aReference [
 	^ false
 ]
 
-{ #category : #'drag and drop' }
+{ #category : 'drag and drop' }
 TamTaxonReference >> moveListItemHereFromTransfertMorph: aTransfertMorph [ 
 	| aPassenger |
 	aPassenger := (aTransfertMorph class canUnderstand: #passenger)
@@ -242,7 +244,7 @@ TamTaxonReference >> moveListItemHereFromTransfertMorph: aTransfertMorph [
 	^ false
 ]
 
-{ #category : #updating }
+{ #category : 'updating' }
 TamTaxonReference >> moveUpReference: aReference [ 
 	| index moveableContents |
 	moveableContents := self contents
@@ -256,7 +258,7 @@ TamTaxonReference >> moveUpReference: aReference [
 	^ false
 ]
 
-{ #category : #private }
+{ #category : 'private' }
 TamTaxonReference >> privateSilentlyRemove: aReference [
 	contents
 			remove: aReference
@@ -264,18 +266,18 @@ TamTaxonReference >> privateSilentlyRemove: aReference [
 
 ]
 
-{ #category : #updating }
+{ #category : 'updating' }
 TamTaxonReference >> removeAll [ 
 	self children do: [:ch | ch destroy].
 	[self contents isEmpty] whileFalse: [self contents removeLast].
 	TamManager changed: self
 ]
 
-{ #category : #updating }
+{ #category : 'updating' }
 TamTaxonReference >> removeChild: aReference [ 	self contents		remove: aReference		ifAbsent: [].	super removeChild: aReference
 ]
 
-{ #category : #updating }
+{ #category : 'updating' }
 TamTaxonReference >> removeChildSilently: aReference [ 
 	self contents ifNotNil: [self contents
 		remove: aReference
@@ -283,7 +285,7 @@ TamTaxonReference >> removeChildSilently: aReference [
 	super removeChildSilently: aReference
 ]
 
-{ #category : #updating }
+{ #category : 'updating' }
 TamTaxonReference >> removeSilently [
 	contents 
 		ifNotNil: [
@@ -294,7 +296,7 @@ TamTaxonReference >> removeSilently [
 	super removeSilently
 ]
 
-{ #category : #menus }
+{ #category : 'menus' }
 TamTaxonReference >> specificMenu: menu shifted: b [ 
 	"Set up the menu to apply to the receiver's, honoring the  
 	#shifted boolean"

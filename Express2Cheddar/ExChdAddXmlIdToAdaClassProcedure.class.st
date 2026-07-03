@@ -11,94 +11,96 @@ END_PROCEDURE;
 </ISO10303-11-EXPRESS>
 "
 Class {
-	#name : #ExChdAddXmlIdToAdaClassProcedure,
-	#superclass : #PlatypusCoreAlgorithmDeclaration,
+	#name : 'ExChdAddXmlIdToAdaClassProcedure',
+	#superclass : 'PlatypusCoreAlgorithmDeclaration',
 	#instVars : [
 		'cls',
 		'idtype',
 		'idattr'
 	],
-	#category : #'Express2Cheddar-Express2cheddarFacadeSchema'
+	#category : 'Express2Cheddar-Express2cheddarFacadeSchema',
+	#package : 'Express2Cheddar',
+	#tag : 'Express2cheddarFacadeSchema'
 }
 
-{ #category : #'platypus-generated-platypus-signature' }
+{ #category : 'platypus-generated-platypus-signature' }
 ExChdAddXmlIdToAdaClassProcedure class >> iso10303P11Translater [
 	^ 'Platypus (c) LISYC EA3883, Universite de Bretagne occidentale. Brest.'
 
 
 ]
 
-{ #category : #'platypus-generated-meta-data-accessing' }
+{ #category : 'platypus-generated-meta-data-accessing' }
 ExChdAddXmlIdToAdaClassProcedure class >> schemaDefinition [
 	^ ExChdExpress2cheddarFacadeSchemaDefinition singleton
 
 
 ]
 
-{ #category : #'platypus-generated-platypus-signature' }
+{ #category : 'platypus-generated-platypus-signature' }
 ExChdAddXmlIdToAdaClassProcedure class >> translatedFromISO10303P11 [
 	^ true
 
 
 ]
 
-{ #category : #'platypus-generated-platypus-signature' }
+{ #category : 'platypus-generated-platypus-signature' }
 ExChdAddXmlIdToAdaClassProcedure class >> vwNamespaceName [
 	^ #Express2Cheddar
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdAddXmlIdToAdaClassProcedure >> cls [
 	^ cls
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdAddXmlIdToAdaClassProcedure >> cls: aExChdAdaClass [
 	cls := aExChdAdaClass
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdAddXmlIdToAdaClassProcedure >> fromValues: values [
 	self cls: (values at: 1)
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdAddXmlIdToAdaClassProcedure >> idattr [
 	^ idattr
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdAddXmlIdToAdaClassProcedure >> idattr: aExChdExplicitAttribute [
 	idattr := aExChdExplicitAttribute
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdAddXmlIdToAdaClassProcedure >> idtype [
 	^ idtype
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdAddXmlIdToAdaClassProcedure >> idtype: aExChdCheddarXmlIdType [
 	idtype := aExChdCheddarXmlIdType
 
 
 ]
 
-{ #category : #'platypus-generated-invoking' }
+{ #category : 'platypus-generated-invoking' }
 ExChdAddXmlIdToAdaClassProcedure >> invoke [
 	" ---------- locals assignments ----------"
 

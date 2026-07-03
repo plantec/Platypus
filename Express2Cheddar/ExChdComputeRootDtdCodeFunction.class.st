@@ -76,8 +76,8 @@ END_FUNCTION;
 </ISO10303-11-EXPRESS>
 "
 Class {
-	#name : #ExChdComputeRootDtdCodeFunction,
-	#superclass : #PlatypusCoreAlgorithmDeclaration,
+	#name : 'ExChdComputeRootDtdCodeFunction',
+	#superclass : 'PlatypusCoreAlgorithmDeclaration',
 	#instVars : [
 		'r',
 		's',
@@ -93,59 +93,61 @@ Class {
 		'el',
 		'inferedAttributes'
 	],
-	#category : #'Express2Cheddar-CheddarDtdSchema'
+	#category : 'Express2Cheddar-CheddarDtdSchema',
+	#package : 'Express2Cheddar',
+	#tag : 'CheddarDtdSchema'
 }
 
-{ #category : #'platypus-generated-platypus-signature' }
+{ #category : 'platypus-generated-platypus-signature' }
 ExChdComputeRootDtdCodeFunction class >> iso10303P11Translater [
 	^ 'Platypus (c) LISYC EA3883, Universite de Bretagne occidentale. Brest.'
 
 
 ]
 
-{ #category : #'platypus-generated-meta-data-accessing' }
+{ #category : 'platypus-generated-meta-data-accessing' }
 ExChdComputeRootDtdCodeFunction class >> schemaDefinition [
 	^ ExChdCheddarDtdSchemaDefinition singleton
 
 
 ]
 
-{ #category : #'platypus-generated-platypus-signature' }
+{ #category : 'platypus-generated-platypus-signature' }
 ExChdComputeRootDtdCodeFunction class >> translatedFromISO10303P11 [
 	^ true
 
 
 ]
 
-{ #category : #'platypus-generated-platypus-signature' }
+{ #category : 'platypus-generated-platypus-signature' }
 ExChdComputeRootDtdCodeFunction class >> vwNamespaceName [
 	^ #Express2Cheddar
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdComputeRootDtdCodeFunction >> acode [
 	^ acode
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdComputeRootDtdCodeFunction >> acode: aString3 [
 	acode := aString3
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdComputeRootDtdCodeFunction >> attributes [
 	^ attributes
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdComputeRootDtdCodeFunction >> attributes: aListOfExChdAttributeDtdElement [
 	attributes := aListOfExChdAttributeDtdElement
 		ifNil: [ OrderedCollection new ]
@@ -154,49 +156,49 @@ ExChdComputeRootDtdCodeFunction >> attributes: aListOfExChdAttributeDtdElement [
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdComputeRootDtdCodeFunction >> code [
 	^ code
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdComputeRootDtdCodeFunction >> code: aString1 [
 	code := aString1
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdComputeRootDtdCodeFunction >> el [
 	^ el
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdComputeRootDtdCodeFunction >> el: aExChdEntityDtdElement [
 	el := aExChdEntityDtdElement
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdComputeRootDtdCodeFunction >> fromValues: values [
 	self r: (values at: 1)
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdComputeRootDtdCodeFunction >> implicits [
 	^ implicits
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdComputeRootDtdCodeFunction >> implicits: aListOfExChdDtdElement [
 	implicits := aListOfExChdDtdElement
 		ifNil: [ OrderedCollection new ]
@@ -205,14 +207,14 @@ ExChdComputeRootDtdCodeFunction >> implicits: aListOfExChdDtdElement [
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdComputeRootDtdCodeFunction >> infered [
 	^ infered
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdComputeRootDtdCodeFunction >> infered: aListOfExChdEntityDtdElement [
 	infered := aListOfExChdEntityDtdElement
 		ifNil: [ OrderedCollection new ]
@@ -221,14 +223,14 @@ ExChdComputeRootDtdCodeFunction >> infered: aListOfExChdEntityDtdElement [
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdComputeRootDtdCodeFunction >> inferedAttributes [
 	^ inferedAttributes
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdComputeRootDtdCodeFunction >> inferedAttributes: aListOfExChdAttributeDtdElement1 [
 	inferedAttributes := aListOfExChdAttributeDtdElement1
 		ifNil: [ OrderedCollection new ]
@@ -237,7 +239,7 @@ ExChdComputeRootDtdCodeFunction >> inferedAttributes: aListOfExChdAttributeDtdEl
 
 ]
 
-{ #category : #'platypus-generated-invoking' }
+{ #category : 'platypus-generated-invoking' }
 ExChdComputeRootDtdCodeFunction >> invoke [
 	" ---------- locals assignments ----------"
 
@@ -444,42 +446,42 @@ ExChdComputeRootDtdCodeFunction >> invoke [
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdComputeRootDtdCodeFunction >> licence [
 	^ licence
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdComputeRootDtdCodeFunction >> licence: aString2 [
 	licence := aString2
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdComputeRootDtdCodeFunction >> lines [
 	^ lines
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdComputeRootDtdCodeFunction >> lines: aListOfString [
 	lines := aListOfString ifNil: [ OrderedCollection new ] ifNotNil: [ aListOfString as: OrderedCollection ]
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdComputeRootDtdCodeFunction >> pkgs [
 	^ pkgs
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdComputeRootDtdCodeFunction >> pkgs: aListOfExChdPackageDtdElement [
 	pkgs := aListOfExChdPackageDtdElement
 		ifNil: [ OrderedCollection new ]
@@ -488,42 +490,42 @@ ExChdComputeRootDtdCodeFunction >> pkgs: aListOfExChdPackageDtdElement [
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdComputeRootDtdCodeFunction >> previous [
 	^ previous
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdComputeRootDtdCodeFunction >> previous: aListOfString1 [
 	previous := aListOfString1 ifNil: [ OrderedCollection new ] ifNotNil: [ aListOfString1 as: OrderedCollection ]
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdComputeRootDtdCodeFunction >> r [
 	^ r
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdComputeRootDtdCodeFunction >> r: aExChdRootDtdElement [
 	r := aExChdRootDtdElement
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdComputeRootDtdCodeFunction >> s [
 	^ s
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdComputeRootDtdCodeFunction >> s: aString [
 	s := aString
 

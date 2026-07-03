@@ -1,15 +1,17 @@
 Class {
-	#name : #TamListItemMorphEmphasisIndex,
-	#superclass : #Object,
+	#name : 'TamListItemMorphEmphasisIndex',
+	#superclass : 'Object',
 	#instVars : [
 		'itemsByEmphasis',
 		'emphasisByItem',
 		'emphasisIndex'
 	],
-	#category : 'Tamaris-Event-Rules'
+	#category : 'Tamaris-Event-Rules',
+	#package : 'Tamaris',
+	#tag : 'Event-Rules'
 }
 
-{ #category : #'object indexing' }
+{ #category : 'object indexing' }
 TamListItemMorphEmphasisIndex >> add: anObject emphasis: aListItemMorphEmphasis [ 
 	| itemsSet |
 	self remove: anObject.
@@ -20,7 +22,7 @@ TamListItemMorphEmphasisIndex >> add: anObject emphasis: aListItemMorphEmphasis 
 	emphasisByItem at: anObject put: aListItemMorphEmphasis
 ]
 
-{ #category : #'object indexing' }
+{ #category : 'object indexing' }
 TamListItemMorphEmphasisIndex >> clear [
 	emphasisByItem
 		ifNotEmpty: [:dict | 
@@ -30,7 +32,7 @@ TamListItemMorphEmphasisIndex >> clear [
 				do: [:k | itemsByEmphasis removeKey: k]]
 ]
 
-{ #category : #'emphasis handling' }
+{ #category : 'emphasis handling' }
 TamListItemMorphEmphasisIndex >> emphasisNamed: aSymbol [ 
 	^ emphasisIndex
 		at: aSymbol
@@ -38,53 +40,53 @@ TamListItemMorphEmphasisIndex >> emphasisNamed: aSymbol [
 
 ]
 
-{ #category : #'object indexing' }
+{ #category : 'object indexing' }
 TamListItemMorphEmphasisIndex >> emphasisOf: anObject [
 	^ emphasisByItem at: anObject ifAbsent: []
 ]
 
-{ #category : #'object indexing' }
+{ #category : 'object indexing' }
 TamListItemMorphEmphasisIndex >> emphasisSet: aListItemMorphEmphasis [ 
 	^ (itemsByEmphasis
 		at: aListItemMorphEmphasis
 		ifAbsent: [Set new]) copy
 ]
 
-{ #category : #enumerating }
+{ #category : 'enumerating' }
 TamListItemMorphEmphasisIndex >> emphasisSet: aListItemMorphEmphasis collect: aBlock [ 
 	^ self emphasisSet: aListItemMorphEmphasis collect: aBlock
 ]
 
-{ #category : #enumerating }
+{ #category : 'enumerating' }
 TamListItemMorphEmphasisIndex >> emphasisSet: aListItemMorphEmphasis detect: aBlock [ 
 	^ self emphasisSet: aListItemMorphEmphasis detect: aBlock
 ]
 
-{ #category : #enumerating }
+{ #category : 'enumerating' }
 TamListItemMorphEmphasisIndex >> emphasisSet: aListItemMorphEmphasis do: aBlock [
 	self emphasisSet: aListItemMorphEmphasis do: aBlock
 ]
 
-{ #category : #enumerating }
+{ #category : 'enumerating' }
 TamListItemMorphEmphasisIndex >> emphasisSet: aListItemMorphEmphasis select: aBlock [ 
 	^ self emphasisSet: aListItemMorphEmphasis select: aBlock
 ]
 
-{ #category : #'object indexing' }
+{ #category : 'object indexing' }
 TamListItemMorphEmphasisIndex >> emptyEmphasisSet: aListItemMorphEmphasis [ 
 	| |
 	(self emphasisSet: aListItemMorphEmphasis)
 		do: [:item | self remove: item]
 ]
 
-{ #category : #'object indexing' }
+{ #category : 'object indexing' }
 TamListItemMorphEmphasisIndex >> includes: anObject [ 
 	^ emphasisByItem
 		includesKey: anObject
 
 ]
 
-{ #category : #'initialize-release' }
+{ #category : 'initialize-release' }
 TamListItemMorphEmphasisIndex >> initialize [
 	super initialize.
 	itemsByEmphasis := Dictionary new.
@@ -94,7 +96,7 @@ TamListItemMorphEmphasisIndex >> initialize [
 		do: [:std | self registerEmphasis: (TamListItemMorphEmphasisModel perform: std)]
 ]
 
-{ #category : #'emphasis handling' }
+{ #category : 'emphasis handling' }
 TamListItemMorphEmphasisIndex >> registerEmphasis: aListItemMorphEmphasis [
 	emphasisIndex
 		at: aListItemMorphEmphasis key
@@ -103,7 +105,7 @@ TamListItemMorphEmphasisIndex >> registerEmphasis: aListItemMorphEmphasis [
 	^ true
 ]
 
-{ #category : #'object indexing' }
+{ #category : 'object indexing' }
 TamListItemMorphEmphasisIndex >> remove: anObject [ 
 	itemsByEmphasis
 		keysAndValuesDo: [:k :v | v
@@ -115,7 +117,7 @@ TamListItemMorphEmphasisIndex >> remove: anObject [
 
 ]
 
-{ #category : #'object indexing' }
+{ #category : 'object indexing' }
 TamListItemMorphEmphasisIndex >> switch: anObject emphasis: aListItemMorphEmphasis [ 
 	(self includes: anObject)
 		ifTrue: [self remove: anObject]

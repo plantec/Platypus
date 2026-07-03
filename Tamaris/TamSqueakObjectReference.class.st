@@ -1,5 +1,7 @@
 Class {
-	#name : #TamSqueakObjectReference,
-	#superclass : #TamListItemReference,
-	#category : 'Tamaris-Taxonomies'
+	#name : 'TamSqueakObjectReference',
+	#superclass : 'TamListItemReference',
+	#category : 'Tamaris-Taxonomies',
+	#package : 'Tamaris',
+	#tag : 'Taxonomies'
 }

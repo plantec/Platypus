@@ -3448,15 +3448,17 @@ END_SCHEMA;
 </ISO10303-11-EXPRESS>
 "
 Class {
-	#name : #ExChdExpress2cheddarSchemaInstance,
-	#superclass : #PlatypusCoreSchemaInstance,
+	#name : 'ExChdExpress2cheddarSchemaInstance',
+	#superclass : 'PlatypusCoreSchemaInstance',
 	#instVars : [
 		'context'
 	],
-	#category : #'Express2Cheddar-Express2cheddarSchemaInstance'
+	#category : 'Express2Cheddar-Express2cheddarSchemaInstance',
+	#package : 'Express2Cheddar',
+	#tag : 'Express2cheddarSchemaInstance'
 }
 
-{ #category : #'platypus-generated-initializing' }
+{ #category : 'platypus-generated-initializing' }
 ExChdExpress2cheddarSchemaInstance class >> initialize [
 	self reinitializeSingleton.
 	self singleton buildIndexes
@@ -3464,35 +3466,35 @@ ExChdExpress2cheddarSchemaInstance class >> initialize [
 
 ]
 
-{ #category : #'platypus-generated-platypus-signature' }
+{ #category : 'platypus-generated-platypus-signature' }
 ExChdExpress2cheddarSchemaInstance class >> iso10303P11Translater [
 	^ 'Platypus (c) LISYC EA3883, Universite de Bretagne occidentale. Brest.'
 
 
 ]
 
-{ #category : #'platypus-generated-platypus-signature' }
+{ #category : 'platypus-generated-platypus-signature' }
 ExChdExpress2cheddarSchemaInstance class >> translatedFromISO10303P11 [
 	^ true
 
 
 ]
 
-{ #category : #'platypus-generated-platypus-signature' }
+{ #category : 'platypus-generated-platypus-signature' }
 ExChdExpress2cheddarSchemaInstance class >> vwNamespaceName [
 	^ #Express2Cheddar
 
 
 ]
 
-{ #category : #'platypus-generated-context-accessing' }
+{ #category : 'platypus-generated-context-accessing' }
 ExChdExpress2cheddarSchemaInstance >> context [
 	^ context
 
 
 ]
 
-{ #category : #'platypus-generated-context-accessing' }
+{ #category : 'platypus-generated-context-accessing' }
 ExChdExpress2cheddarSchemaInstance >> context: aContext [
 	context := aContext.
 	super context: aContext
@@ -3500,14 +3502,14 @@ ExChdExpress2cheddarSchemaInstance >> context: aContext [
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdExpress2cheddarSchemaInstance >> externalSchemaInstanceClassNames [
 	^ #(#PltPlatypusMetaSchemasSchemaInstance #PTsExpressToolsboxSchemaInstance)
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdExpress2cheddarSchemaInstance >> namesBuilder [
 	| namesBuilder |
 	namesBuilder := self namesBuilderClass new.
@@ -3520,84 +3522,84 @@ ExChdExpress2cheddarSchemaInstance >> namesBuilder [
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdExpress2cheddarSchemaInstance >> namesBuilderClassName [
 	^ #PlatypusNamesBuilder
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdExpress2cheddarSchemaInstance >> repositoryClassName [
 	^ #ExChdExpress2cheddarRepository
 
 
 ]
 
-{ #category : #'platypus-generated-schemata-accessing' }
+{ #category : 'platypus-generated-schemata-accessing' }
 ExChdExpress2cheddarSchemaInstance >> schemaDefinition1 [
 	^ #(#express2cheddar_facade #ExChdExpress2cheddarFacadeSchemaDefinition)
 
 
 ]
 
-{ #category : #'platypus-generated-schemata-accessing' }
+{ #category : 'platypus-generated-schemata-accessing' }
 ExChdExpress2cheddarSchemaInstance >> schemaDefinition2 [
 	^ #(#cheddar_dtd #ExChdCheddarDtdSchemaDefinition)
 
 
 ]
 
-{ #category : #'platypus-generated-schemata-accessing' }
+{ #category : 'platypus-generated-schemata-accessing' }
 ExChdExpress2cheddarSchemaInstance >> schemaDefinition3 [
 	^ #(#ada_interface #ExChdAdaInterfaceSchemaDefinition)
 
 
 ]
 
-{ #category : #'platypus-generated-schemata-accessing' }
+{ #category : 'platypus-generated-schemata-accessing' }
 ExChdExpress2cheddarSchemaInstance >> schemaDefinition4 [
 	^ #(#xml_io #ExChdXmlIoSchemaDefinition)
 
 
 ]
 
-{ #category : #'platypus-generated-schemata-accessing' }
+{ #category : 'platypus-generated-schemata-accessing' }
 ExChdExpress2cheddarSchemaInstance >> schemaDefinition5 [
 	^ #(#cheddar_domains #ExChdCheddarDomainsSchemaDefinition)
 
 
 ]
 
-{ #category : #'platypus-generated-schemata-accessing' }
+{ #category : 'platypus-generated-schemata-accessing' }
 ExChdExpress2cheddarSchemaInstance >> schemaDefinition6 [
 	^ #(#cheddar_constants #ExChdCheddarConstantsSchemaDefinition)
 
 
 ]
 
-{ #category : #'platypus-generated-schemata-accessing' }
+{ #category : 'platypus-generated-schemata-accessing' }
 ExChdExpress2cheddarSchemaInstance >> schemaDefinition7 [
 	^ #(#record_and_class #ExChdRecordAndClassSchemaDefinition)
 
 
 ]
 
-{ #category : #'platypus-generated-schemata-accessing' }
+{ #category : 'platypus-generated-schemata-accessing' }
 ExChdExpress2cheddarSchemaInstance >> schemaDefinition8 [
 	^ #(#package #ExChdPackageSchemaDefinition)
 
 
 ]
 
-{ #category : #'platypus-generated-schemata-accessing' }
+{ #category : 'platypus-generated-schemata-accessing' }
 ExChdExpress2cheddarSchemaInstance >> schemaDefinition9 [
 	^ #(#discriminated_type #ExChdDiscriminatedTypeSchemaDefinition)
 
 
 ]
 
-{ #category : #'platypus-generated-schemata-accessing' }
+{ #category : 'platypus-generated-schemata-accessing' }
 ExChdExpress2cheddarSchemaInstance >> schemaDefinitionCount [
 	^ 9
 

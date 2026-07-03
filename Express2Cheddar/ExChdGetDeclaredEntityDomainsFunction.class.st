@@ -13,51 +13,53 @@ END_FUNCTION;
 </ISO10303-11-EXPRESS>
 "
 Class {
-	#name : #ExChdGetDeclaredEntityDomainsFunction,
-	#superclass : #PlatypusCoreAlgorithmDeclaration,
+	#name : 'ExChdGetDeclaredEntityDomainsFunction',
+	#superclass : 'PlatypusCoreAlgorithmDeclaration',
 	#instVars : [
 		'pkgs',
 		'result'
 	],
-	#category : #'Express2Cheddar-CheddarDtdSchema'
+	#category : 'Express2Cheddar-CheddarDtdSchema',
+	#package : 'Express2Cheddar',
+	#tag : 'CheddarDtdSchema'
 }
 
-{ #category : #'platypus-generated-platypus-signature' }
+{ #category : 'platypus-generated-platypus-signature' }
 ExChdGetDeclaredEntityDomainsFunction class >> iso10303P11Translater [
 	^ 'Platypus (c) LISYC EA3883, Universite de Bretagne occidentale. Brest.'
 
 
 ]
 
-{ #category : #'platypus-generated-meta-data-accessing' }
+{ #category : 'platypus-generated-meta-data-accessing' }
 ExChdGetDeclaredEntityDomainsFunction class >> schemaDefinition [
 	^ ExChdCheddarDtdSchemaDefinition singleton
 
 
 ]
 
-{ #category : #'platypus-generated-platypus-signature' }
+{ #category : 'platypus-generated-platypus-signature' }
 ExChdGetDeclaredEntityDomainsFunction class >> translatedFromISO10303P11 [
 	^ true
 
 
 ]
 
-{ #category : #'platypus-generated-platypus-signature' }
+{ #category : 'platypus-generated-platypus-signature' }
 ExChdGetDeclaredEntityDomainsFunction class >> vwNamespaceName [
 	^ #Express2Cheddar
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdGetDeclaredEntityDomainsFunction >> fromValues: values [
 	self pkgs: (values at: 1)
 
 
 ]
 
-{ #category : #'platypus-generated-invoking' }
+{ #category : 'platypus-generated-invoking' }
 ExChdGetDeclaredEntityDomainsFunction >> invoke [
 	" ---------- locals assignments ----------"
 
@@ -81,14 +83,14 @@ ExChdGetDeclaredEntityDomainsFunction >> invoke [
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdGetDeclaredEntityDomainsFunction >> pkgs [
 	^ pkgs
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdGetDeclaredEntityDomainsFunction >> pkgs: aListOfExChdPackageDtdElement [
 	pkgs := aListOfExChdPackageDtdElement
 		ifNil: [ OrderedCollection new ]
@@ -97,14 +99,14 @@ ExChdGetDeclaredEntityDomainsFunction >> pkgs: aListOfExChdPackageDtdElement [
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdGetDeclaredEntityDomainsFunction >> result [
 	^ result
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdGetDeclaredEntityDomainsFunction >> result: aListOfExChdDtdElement [
 	result := aListOfExChdDtdElement
 		ifNil: [ OrderedCollection new ]

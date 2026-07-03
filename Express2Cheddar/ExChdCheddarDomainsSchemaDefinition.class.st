@@ -549,355 +549,357 @@ END_SCHEMA;
 </ISO10303-11-EXPRESS>
 "
 Class {
-	#name : #ExChdCheddarDomainsSchemaDefinition,
-	#superclass : #PlatypusCoreSchema,
-	#category : #'Express2Cheddar-CheddarDomainsSchema'
+	#name : 'ExChdCheddarDomainsSchemaDefinition',
+	#superclass : 'PlatypusCoreSchema',
+	#category : 'Express2Cheddar-CheddarDomainsSchema',
+	#package : 'Express2Cheddar',
+	#tag : 'CheddarDomainsSchema'
 }
 
-{ #category : #'platypus-generated-platypus-signature' }
+{ #category : 'platypus-generated-platypus-signature' }
 ExChdCheddarDomainsSchemaDefinition class >> iso10303P11Translater [
 	^ 'Platypus (c) LISYC EA3883, Universite de Bretagne occidentale. Brest.'
 
 
 ]
 
-{ #category : #'platypus-generated-platypus-signature' }
+{ #category : 'platypus-generated-platypus-signature' }
 ExChdCheddarDomainsSchemaDefinition class >> translatedFromISO10303P11 [
 	^ true
 
 
 ]
 
-{ #category : #'platypus-generated-platypus-signature' }
+{ #category : 'platypus-generated-platypus-signature' }
 ExChdCheddarDomainsSchemaDefinition class >> vwNamespaceName [
 	^ #Express2Cheddar
 
 
 ]
 
-{ #category : #'platypus-generated-context-accessing' }
+{ #category : 'platypus-generated-context-accessing' }
 ExChdCheddarDomainsSchemaDefinition >> context [
 	^ self schemaInstance context
 
 
 ]
 
-{ #category : #'platypus-generated-entities' }
+{ #category : 'platypus-generated-entities' }
 ExChdCheddarDomainsSchemaDefinition >> entityDefinition1 [
 	^ #(#pragma_convention #ExChdPragmaConvention)
 
 
 ]
 
-{ #category : #'platypus-generated-entities' }
+{ #category : 'platypus-generated-entities' }
 ExChdCheddarDomainsSchemaDefinition >> entityDefinition10 [
 	^ #(#cheddar_primitive_type #ExChdCheddarPrimitiveType)
 
 
 ]
 
-{ #category : #'platypus-generated-entities' }
+{ #category : 'platypus-generated-entities' }
 ExChdCheddarDomainsSchemaDefinition >> entityDefinition11 [
 	^ #(#cheddar_law_type #ExChdCheddarLawType)
 
 
 ]
 
-{ #category : #'platypus-generated-entities' }
+{ #category : 'platypus-generated-entities' }
 ExChdCheddarDomainsSchemaDefinition >> entityDefinition12 [
 	^ #(#cheddar_priority_range #ExChdCheddarPriorityRange)
 
 
 ]
 
-{ #category : #'platypus-generated-entities' }
+{ #category : 'platypus-generated-entities' }
 ExChdCheddarDomainsSchemaDefinition >> entityDefinition13 [
 	^ #(#ada_natural_type #ExChdAdaNaturalType)
 
 
 ]
 
-{ #category : #'platypus-generated-entities' }
+{ #category : 'platypus-generated-entities' }
 ExChdCheddarDomainsSchemaDefinition >> entityDefinition14 [
 	^ #(#ada_unbounded_string_type #ExChdAdaUnboundedStringType)
 
 
 ]
 
-{ #category : #'platypus-generated-entities' }
+{ #category : 'platypus-generated-entities' }
 ExChdCheddarDomainsSchemaDefinition >> entityDefinition15 [
 	^ #(#cheddar_xml_id_type #ExChdCheddarXmlIdType)
 
 
 ]
 
-{ #category : #'platypus-generated-entities' }
+{ #category : 'platypus-generated-entities' }
 ExChdCheddarDomainsSchemaDefinition >> entityDefinition16 [
 	^ #(#ada_boolean_type #ExChdAdaBooleanType)
 
 
 ]
 
-{ #category : #'platypus-generated-entities' }
+{ #category : 'platypus-generated-entities' }
 ExChdCheddarDomainsSchemaDefinition >> entityDefinition17 [
 	^ #(#ada_real_type #ExChdAdaRealType)
 
 
 ]
 
-{ #category : #'platypus-generated-entities' }
+{ #category : 'platypus-generated-entities' }
 ExChdCheddarDomainsSchemaDefinition >> entityDefinition18 [
 	^ #(#ada_double_type #ExChdAdaDoubleType)
 
 
 ]
 
-{ #category : #'platypus-generated-entities' }
+{ #category : 'platypus-generated-entities' }
 ExChdCheddarDomainsSchemaDefinition >> entityDefinition19 [
 	^ #(#ada_integer_type #ExChdAdaIntegerType)
 
 
 ]
 
-{ #category : #'platypus-generated-entities' }
+{ #category : 'platypus-generated-entities' }
 ExChdCheddarDomainsSchemaDefinition >> entityDefinition2 [
 	^ #(#ada_type #ExChdAdaType)
 
 
 ]
 
-{ #category : #'platypus-generated-entities' }
+{ #category : 'platypus-generated-entities' }
 ExChdCheddarDomainsSchemaDefinition >> entityDefinition20 [
 	^ #(#ada_named_type_reference #ExChdAdaNamedTypeReference)
 
 
 ]
 
-{ #category : #'platypus-generated-entities' }
+{ #category : 'platypus-generated-entities' }
 ExChdCheddarDomainsSchemaDefinition >> entityDefinition21 [
 	^ #(#ada_record_reference #ExChdAdaRecordReference)
 
 
 ]
 
-{ #category : #'platypus-generated-entities' }
+{ #category : 'platypus-generated-entities' }
 ExChdCheddarDomainsSchemaDefinition >> entityDefinition22 [
 	^ #(#ada_class_reference #ExChdAdaClassReference)
 
 
 ]
 
-{ #category : #'platypus-generated-entities' }
+{ #category : 'platypus-generated-entities' }
 ExChdCheddarDomainsSchemaDefinition >> entityDefinition23 [
 	^ #(#ada_primitive_class_reference #ExChdAdaPrimitiveClassReference)
 
 
 ]
 
-{ #category : #'platypus-generated-entities' }
+{ #category : 'platypus-generated-entities' }
 ExChdCheddarDomainsSchemaDefinition >> entityDefinition24 [
 	^ #(#ada_attribute_reference #ExChdAdaAttributeReference)
 
 
 ]
 
-{ #category : #'platypus-generated-entities' }
+{ #category : 'platypus-generated-entities' }
 ExChdCheddarDomainsSchemaDefinition >> entityDefinition25 [
 	^ #(#ada_array_type #ExChdAdaArrayType)
 
 
 ]
 
-{ #category : #'platypus-generated-entities' }
+{ #category : 'platypus-generated-entities' }
 ExChdCheddarDomainsSchemaDefinition >> entityDefinition26 [
 	^ #(#ada_list_type #ExChdAdaListType)
 
 
 ]
 
-{ #category : #'platypus-generated-entities' }
+{ #category : 'platypus-generated-entities' }
 ExChdCheddarDomainsSchemaDefinition >> entityDefinition27 [
 	^ #(#ada_set_type #ExChdAdaSetType)
 
 
 ]
 
-{ #category : #'platypus-generated-entities' }
+{ #category : 'platypus-generated-entities' }
 ExChdCheddarDomainsSchemaDefinition >> entityDefinition28 [
 	^ #(#ada_bag_type #ExChdAdaBagType)
 
 
 ]
 
-{ #category : #'platypus-generated-entities' }
+{ #category : 'platypus-generated-entities' }
 ExChdCheddarDomainsSchemaDefinition >> entityDefinition29 [
 	^ #(#ada_enumeration #ExChdAdaEnumeration)
 
 
 ]
 
-{ #category : #'platypus-generated-entities' }
+{ #category : 'platypus-generated-entities' }
 ExChdCheddarDomainsSchemaDefinition >> entityDefinition3 [
 	^ #(#cheddar_defined_type #ExChdCheddarDefinedType)
 
 
 ]
 
-{ #category : #'platypus-generated-entities' }
+{ #category : 'platypus-generated-entities' }
 ExChdCheddarDomainsSchemaDefinition >> entityDefinition30 [
 	^ #(#basic_ada_type_value_format #ExChdBasicAdaTypeValueFormat)
 
 
 ]
 
-{ #category : #'platypus-generated-entities' }
+{ #category : 'platypus-generated-entities' }
 ExChdCheddarDomainsSchemaDefinition >> entityDefinition31 [
 	^ #(#range_type #ExChdRangeType)
 
 
 ]
 
-{ #category : #'platypus-generated-entities' }
+{ #category : 'platypus-generated-entities' }
 ExChdCheddarDomainsSchemaDefinition >> entityDefinition32 [
 	^ #(#explicit_type_reference #ExChdExplicitTypeReference)
 
 
 ]
 
-{ #category : #'platypus-generated-entities' }
+{ #category : 'platypus-generated-entities' }
 ExChdCheddarDomainsSchemaDefinition >> entityDefinition33 [
 	^ #(#in_scope_attribute #ExChdInScopeAttribute)
 
 
 ]
 
-{ #category : #'platypus-generated-entities' }
+{ #category : 'platypus-generated-entities' }
 ExChdCheddarDomainsSchemaDefinition >> entityDefinition4 [
 	^ #(#constrained_array_type #ExChdConstrainedArrayType)
 
 
 ]
 
-{ #category : #'platypus-generated-entities' }
+{ #category : 'platypus-generated-entities' }
 ExChdCheddarDomainsSchemaDefinition >> entityDefinition5 [
 	^ #(#cheddar_entity_definition #ExChdCheddarEntityDefinition)
 
 
 ]
 
-{ #category : #'platypus-generated-entities' }
+{ #category : 'platypus-generated-entities' }
 ExChdCheddarDomainsSchemaDefinition >> entityDefinition6 [
 	^ #(#unmapped_type_reference #ExChdUnmappedTypeReference)
 
 
 ]
 
-{ #category : #'platypus-generated-entities' }
+{ #category : 'platypus-generated-entities' }
 ExChdCheddarDomainsSchemaDefinition >> entityDefinition7 [
 	^ #(#unmapped_entity_definition #ExChdUnmappedEntityDefinition)
 
 
 ]
 
-{ #category : #'platypus-generated-entities' }
+{ #category : 'platypus-generated-entities' }
 ExChdCheddarDomainsSchemaDefinition >> entityDefinition8 [
 	^ #(#basic_ada_type_getter #ExChdBasicAdaTypeGetter)
 
 
 ]
 
-{ #category : #'platypus-generated-entities' }
+{ #category : 'platypus-generated-entities' }
 ExChdCheddarDomainsSchemaDefinition >> entityDefinition9 [
 	^ #(#ada_primitive_type #ExChdAdaPrimitiveType)
 
 
 ]
 
-{ #category : #'platypus-generated-entities' }
+{ #category : 'platypus-generated-entities' }
 ExChdCheddarDomainsSchemaDefinition >> entityDefinitionCount [
 	^ 33
 
 
 ]
 
-{ #category : #'platypus-generated-functions' }
+{ #category : 'platypus-generated-functions' }
 ExChdCheddarDomainsSchemaDefinition >> functionDeclaration1 [
 	^ #(#dependencies_of #ExChdDependenciesOfFunction)
 
 
 ]
 
-{ #category : #'platypus-generated-functions' }
+{ #category : 'platypus-generated-functions' }
 ExChdCheddarDomainsSchemaDefinition >> functionDeclaration10 [
 	^ #(#domain_interfaces_list #ExChdDomainInterfacesListFunction)
 
 
 ]
 
-{ #category : #'platypus-generated-functions' }
+{ #category : 'platypus-generated-functions' }
 ExChdCheddarDomainsSchemaDefinition >> functionDeclaration2 [
 	^ #(#constrained_array_type_ads_code #ExChdConstrainedArrayTypeAdsCodeFunction)
 
 
 ]
 
-{ #category : #'platypus-generated-functions' }
+{ #category : 'platypus-generated-functions' }
 ExChdCheddarDomainsSchemaDefinition >> functionDeclaration3 [
 	^ #(#cheddar_defined_type_interfaces_list #ExChdCheddarDefinedTypeInterfacesListFunction)
 
 
 ]
 
-{ #category : #'platypus-generated-functions' }
+{ #category : 'platypus-generated-functions' }
 ExChdCheddarDomainsSchemaDefinition >> functionDeclaration4 [
 	^ #(#basic_ada_domain #ExChdBasicAdaDomainFunction)
 
 
 ]
 
-{ #category : #'platypus-generated-functions' }
+{ #category : 'platypus-generated-functions' }
 ExChdCheddarDomainsSchemaDefinition >> functionDeclaration5 [
 	^ #(#enumeration_ads_code #ExChdEnumerationAdsCodeFunction)
 
 
 ]
 
-{ #category : #'platypus-generated-functions' }
+{ #category : 'platypus-generated-functions' }
 ExChdCheddarDomainsSchemaDefinition >> functionDeclaration6 [
 	^ #(#basic_ada_expression_value_string #ExChdBasicAdaExpressionValueStringFunction)
 
 
 ]
 
-{ #category : #'platypus-generated-functions' }
+{ #category : 'platypus-generated-functions' }
 ExChdCheddarDomainsSchemaDefinition >> functionDeclaration7 [
 	^ #(#enumeration_adb_code #ExChdEnumerationAdbCodeFunction)
 
 
 ]
 
-{ #category : #'platypus-generated-functions' }
+{ #category : 'platypus-generated-functions' }
 ExChdCheddarDomainsSchemaDefinition >> functionDeclaration8 [
 	^ #(#range_type_ads_code #ExChdRangeTypeAdsCodeFunction)
 
 
 ]
 
-{ #category : #'platypus-generated-functions' }
+{ #category : 'platypus-generated-functions' }
 ExChdCheddarDomainsSchemaDefinition >> functionDeclaration9 [
 	^ #(#in_scope_attribute_init_code #ExChdInScopeAttributeInitCodeFunction)
 
 
 ]
 
-{ #category : #'platypus-generated-functions' }
+{ #category : 'platypus-generated-functions' }
 ExChdCheddarDomainsSchemaDefinition >> functionDeclarationCount [
 	^ 10
 
 
 ]
 
-{ #category : #'platypus-generated-meta-data-accessing' }
+{ #category : 'platypus-generated-meta-data-accessing' }
 ExChdCheddarDomainsSchemaDefinition >> schemaInstanceClassName [
 	^ #ExChdExpress2cheddarSchemaInstance
 

@@ -24,46 +24,48 @@ END_FUNCTION;
 </ISO10303-11-EXPRESS>
 "
 Class {
-	#name : #ExChdConceptListLocalDependenciesFunction,
-	#superclass : #PlatypusCoreAlgorithmDeclaration,
+	#name : 'ExChdConceptListLocalDependenciesFunction',
+	#superclass : 'PlatypusCoreAlgorithmDeclaration',
 	#instVars : [
 		'sch',
 		'l',
 		'wl',
 		'r'
 	],
-	#category : #'Express2Cheddar-PackageSchema'
+	#category : 'Express2Cheddar-PackageSchema',
+	#package : 'Express2Cheddar',
+	#tag : 'PackageSchema'
 }
 
-{ #category : #'platypus-generated-platypus-signature' }
+{ #category : 'platypus-generated-platypus-signature' }
 ExChdConceptListLocalDependenciesFunction class >> iso10303P11Translater [
 	^ 'Platypus (c) LISYC EA3883, Universite de Bretagne occidentale. Brest.'
 
 
 ]
 
-{ #category : #'platypus-generated-meta-data-accessing' }
+{ #category : 'platypus-generated-meta-data-accessing' }
 ExChdConceptListLocalDependenciesFunction class >> schemaDefinition [
 	^ ExChdPackageSchemaDefinition singleton
 
 
 ]
 
-{ #category : #'platypus-generated-platypus-signature' }
+{ #category : 'platypus-generated-platypus-signature' }
 ExChdConceptListLocalDependenciesFunction class >> translatedFromISO10303P11 [
 	^ true
 
 
 ]
 
-{ #category : #'platypus-generated-platypus-signature' }
+{ #category : 'platypus-generated-platypus-signature' }
 ExChdConceptListLocalDependenciesFunction class >> vwNamespaceName [
 	^ #Express2Cheddar
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdConceptListLocalDependenciesFunction >> fromValues: values [
 	self sch: (values at: 1).
 	self l: (values at: 2)
@@ -71,7 +73,7 @@ ExChdConceptListLocalDependenciesFunction >> fromValues: values [
 
 ]
 
-{ #category : #'platypus-generated-invoking' }
+{ #category : 'platypus-generated-invoking' }
 ExChdConceptListLocalDependenciesFunction >> invoke [
 	" ---------- locals assignments ----------"
 
@@ -127,14 +129,14 @@ ExChdConceptListLocalDependenciesFunction >> invoke [
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdConceptListLocalDependenciesFunction >> l [
 	^ l
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdConceptListLocalDependenciesFunction >> l: aListOfExChdDictionaryInstance [
 	l := aListOfExChdDictionaryInstance
 		ifNil: [ OrderedCollection new ]
@@ -143,14 +145,14 @@ ExChdConceptListLocalDependenciesFunction >> l: aListOfExChdDictionaryInstance [
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdConceptListLocalDependenciesFunction >> r [
 	^ r
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdConceptListLocalDependenciesFunction >> r: aListOfExChdDictionaryInstance1 [
 	r := aListOfExChdDictionaryInstance1
 		ifNil: [ OrderedCollection new ]
@@ -159,21 +161,21 @@ ExChdConceptListLocalDependenciesFunction >> r: aListOfExChdDictionaryInstance1 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdConceptListLocalDependenciesFunction >> sch [
 	^ sch
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdConceptListLocalDependenciesFunction >> sch: aExChdSchemaDefinition [
 	sch := aExChdSchemaDefinition
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdConceptListLocalDependenciesFunction >> sch: aExChdSchemaDefinition l: aListOfExChdDictionaryInstance [
 	self sch: aExChdSchemaDefinition.
 	self l: aListOfExChdDictionaryInstance
@@ -181,14 +183,14 @@ ExChdConceptListLocalDependenciesFunction >> sch: aExChdSchemaDefinition l: aLis
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdConceptListLocalDependenciesFunction >> wl [
 	^ wl
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdConceptListLocalDependenciesFunction >> wl: aListOfExChdDictionaryInstance [
 	wl := aListOfExChdDictionaryInstance
 		ifNil: [ OrderedCollection new ]

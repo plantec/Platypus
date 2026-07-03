@@ -1,493 +1,494 @@
 Class {
-	#name : #ExChdCoreEntity,
-	#superclass : #Object,
-	#category : #Express2Cheddar
+	#name : 'ExChdCoreEntity',
+	#superclass : 'Object',
+	#category : 'Express2Cheddar',
+	#package : 'Express2Cheddar'
 }
 
-{ #category : #'platypus-generated-context-accessing' }
+{ #category : 'platypus-generated-context-accessing' }
 ExChdCoreEntity class >> context [
 	^ self schemaDefinition context
 
 
 ]
 
-{ #category : #'platypus-generated-platypus-signature' }
+{ #category : 'platypus-generated-platypus-signature' }
 ExChdCoreEntity class >> iso10303P11Translater [
 	^ 'Platypus (c) LISYC EA3883, Universite de Bretagne occidentale. Brest.'
 
 
 ]
 
-{ #category : #'platypus-generated-meta-data-accessing' }
+{ #category : 'platypus-generated-meta-data-accessing' }
 ExChdCoreEntity class >> platypusMetaData [
 	^ self schemaDefinition metaDataFor: self name asSymbol
 
 
 ]
 
-{ #category : #'platypus-generated-platypus-signature' }
+{ #category : 'platypus-generated-platypus-signature' }
 ExChdCoreEntity class >> translatedFromISO10303P11 [
 	^ true
 
 
 ]
 
-{ #category : #'platypus-generated-platypus-signature' }
+{ #category : 'platypus-generated-platypus-signature' }
 ExChdCoreEntity class >> vwNamespaceName [
 	^ #Express2Cheddar
 
 
 ]
 
-{ #category : #'*Express2Cheddar-CheddarDomainsSchema-classifying' }
+{ #category : 'as yet unclassified' }
 ExChdCoreEntity >> isExChdAdaArrayType [
 	^ false
 
 
 ]
 
-{ #category : #'*Express2Cheddar-CheddarDomainsSchema-classifying' }
+{ #category : 'as yet unclassified' }
 ExChdCoreEntity >> isExChdAdaAttributeReference [
 	^ false
 
 
 ]
 
-{ #category : #'*Express2Cheddar-CheddarDomainsSchema-classifying' }
+{ #category : 'as yet unclassified' }
 ExChdCoreEntity >> isExChdAdaBagType [
 	^ false
 
 
 ]
 
-{ #category : #'*Express2Cheddar-CheddarDomainsSchema-classifying' }
+{ #category : 'as yet unclassified' }
 ExChdCoreEntity >> isExChdAdaBooleanType [
 	^ false
 
 
 ]
 
-{ #category : #'*Express2Cheddar-RecordAndClassSchema-classifying' }
+{ #category : 'as yet unclassified' }
 ExChdCoreEntity >> isExChdAdaClass [
 	^ false
 
 
 ]
 
-{ #category : #'*Express2Cheddar-CheddarDtdSchema-classifying' }
+{ #category : 'as yet unclassified' }
 ExChdCoreEntity >> isExChdAdaClassDtdElement [
 	^ false
 
 
 ]
 
-{ #category : #'*Express2Cheddar-CheddarDtdSchema-classifying' }
+{ #category : 'as yet unclassified' }
 ExChdCoreEntity >> isExChdAdaClassRefDtdElement [
 	^ false
 
 
 ]
 
-{ #category : #'*Express2Cheddar-CheddarDomainsSchema-classifying' }
+{ #category : 'as yet unclassified' }
 ExChdCoreEntity >> isExChdAdaClassReference [
 	^ false
 
 
 ]
 
-{ #category : #'*Express2Cheddar-CheddarConstantsSchema-classifying' }
+{ #category : 'as yet unclassified' }
 ExChdCoreEntity >> isExChdAdaConstant [
 	^ false
 
 
 ]
 
-{ #category : #'*Express2Cheddar-CheddarDomainsSchema-classifying' }
+{ #category : 'as yet unclassified' }
 ExChdCoreEntity >> isExChdAdaDoubleType [
 	^ false
 
 
 ]
 
-{ #category : #'*Express2Cheddar-RecordAndClassSchema-classifying' }
+{ #category : 'as yet unclassified' }
 ExChdCoreEntity >> isExChdAdaEntity [
 	^ false
 
 
 ]
 
-{ #category : #'*Express2Cheddar-CheddarDomainsSchema-classifying' }
+{ #category : 'as yet unclassified' }
 ExChdCoreEntity >> isExChdAdaEnumeration [
 	^ false
 
 
 ]
 
-{ #category : #'*Express2Cheddar-CheddarDomainsSchema-classifying' }
+{ #category : 'as yet unclassified' }
 ExChdCoreEntity >> isExChdAdaIntegerType [
 	^ false
 
 
 ]
 
-{ #category : #'*Express2Cheddar-AdaInterfaceSchema-classifying' }
+{ #category : 'as yet unclassified' }
 ExChdCoreEntity >> isExChdAdaInterface [
 	^ false
 
 
 ]
 
-{ #category : #'*Express2Cheddar-CheddarDomainsSchema-classifying' }
+{ #category : 'as yet unclassified' }
 ExChdCoreEntity >> isExChdAdaListType [
 	^ false
 
 
 ]
 
-{ #category : #'*Express2Cheddar-CheddarDomainsSchema-classifying' }
+{ #category : 'as yet unclassified' }
 ExChdCoreEntity >> isExChdAdaNamedTypeReference [
 	^ false
 
 
 ]
 
-{ #category : #'*Express2Cheddar-CheddarDomainsSchema-classifying' }
+{ #category : 'as yet unclassified' }
 ExChdCoreEntity >> isExChdAdaNaturalType [
 	^ false
 
 
 ]
 
-{ #category : #'*Express2Cheddar-PackageSchema-classifying' }
+{ #category : 'as yet unclassified' }
 ExChdCoreEntity >> isExChdAdaPackage [
 	^ false
 
 
 ]
 
-{ #category : #'*Express2Cheddar-CheddarDomainsSchema-classifying' }
+{ #category : 'as yet unclassified' }
 ExChdCoreEntity >> isExChdAdaPrimitiveClassReference [
 	^ false
 
 
 ]
 
-{ #category : #'*Express2Cheddar-CheddarDomainsSchema-classifying' }
+{ #category : 'as yet unclassified' }
 ExChdCoreEntity >> isExChdAdaPrimitiveType [
 	^ false
 
 
 ]
 
-{ #category : #'*Express2Cheddar-CheddarDomainsSchema-classifying' }
+{ #category : 'as yet unclassified' }
 ExChdCoreEntity >> isExChdAdaRealType [
 	^ false
 
 
 ]
 
-{ #category : #'*Express2Cheddar-CheddarDomainsSchema-classifying' }
+{ #category : 'as yet unclassified' }
 ExChdCoreEntity >> isExChdAdaRecordReference [
 	^ false
 
 
 ]
 
-{ #category : #'*Express2Cheddar-CheddarDomainsSchema-classifying' }
+{ #category : 'as yet unclassified' }
 ExChdCoreEntity >> isExChdAdaSetType [
 	^ false
 
 
 ]
 
-{ #category : #'*Express2Cheddar-CheddarDomainsSchema-classifying' }
+{ #category : 'as yet unclassified' }
 ExChdCoreEntity >> isExChdAdaType [
 	^ false
 
 
 ]
 
-{ #category : #'*Express2Cheddar-CheddarDomainsSchema-classifying' }
+{ #category : 'as yet unclassified' }
 ExChdCoreEntity >> isExChdAdaUnboundedStringType [
 	^ false
 
 
 ]
 
-{ #category : #'*Express2Cheddar-CheddarDtdSchema-classifying' }
+{ #category : 'as yet unclassified' }
 ExChdCoreEntity >> isExChdAttributeDtdElement [
 	^ false
 
 
 ]
 
-{ #category : #'*Express2Cheddar-CheddarDomainsSchema-classifying' }
+{ #category : 'as yet unclassified' }
 ExChdCoreEntity >> isExChdBasicAdaTypeGetter [
 	^ false
 
 
 ]
 
-{ #category : #'*Express2Cheddar-CheddarDomainsSchema-classifying' }
+{ #category : 'as yet unclassified' }
 ExChdCoreEntity >> isExChdBasicAdaTypeValueFormat [
 	^ false
 
 
 ]
 
-{ #category : #'*Express2Cheddar-CheddarDomainsSchema-classifying' }
+{ #category : 'as yet unclassified' }
 ExChdCoreEntity >> isExChdCheddarDefinedType [
 	^ false
 
 
 ]
 
-{ #category : #'*Express2Cheddar-CheddarDomainsSchema-classifying' }
+{ #category : 'as yet unclassified' }
 ExChdCoreEntity >> isExChdCheddarEntityDefinition [
 	^ false
 
 
 ]
 
-{ #category : #'*Express2Cheddar-RecordAndClassSchema-classifying' }
+{ #category : 'as yet unclassified' }
 ExChdCoreEntity >> isExChdCheddarFunctionPtr [
 	^ false
 
 
 ]
 
-{ #category : #'*Express2Cheddar-CheddarDomainsSchema-classifying' }
+{ #category : 'as yet unclassified' }
 ExChdCoreEntity >> isExChdCheddarLawType [
 	^ false
 
 
 ]
 
-{ #category : #'*Express2Cheddar-CheddarDomainsSchema-classifying' }
+{ #category : 'as yet unclassified' }
 ExChdCoreEntity >> isExChdCheddarPrimitiveType [
 	^ false
 
 
 ]
 
-{ #category : #'*Express2Cheddar-CheddarDomainsSchema-classifying' }
+{ #category : 'as yet unclassified' }
 ExChdCoreEntity >> isExChdCheddarPriorityRange [
 	^ false
 
 
 ]
 
-{ #category : #'*Express2Cheddar-CheddarDomainsSchema-classifying' }
+{ #category : 'as yet unclassified' }
 ExChdCoreEntity >> isExChdCheddarXmlIdType [
 	^ false
 
 
 ]
 
-{ #category : #'*Express2Cheddar-CheddarDtdSchema-classifying' }
+{ #category : 'as yet unclassified' }
 ExChdCoreEntity >> isExChdCollectionDtdElement [
 	^ false
 
 
 ]
 
-{ #category : #'*Express2Cheddar-CheddarDtdSchema-classifying' }
+{ #category : 'as yet unclassified' }
 ExChdCoreEntity >> isExChdCompositeDtdElement [
 	^ false
 
 
 ]
 
-{ #category : #'*Express2Cheddar-CheddarDomainsSchema-classifying' }
+{ #category : 'as yet unclassified' }
 ExChdCoreEntity >> isExChdConstrainedArrayType [
 	^ false
 
 
 ]
 
-{ #category : #'*Express2Cheddar-DiscriminatedTypeSchema-classifying' }
+{ #category : 'as yet unclassified' }
 ExChdCoreEntity >> isExChdDiscriminatedType [
 	^ false
 
 
 ]
 
-{ #category : #'*Express2Cheddar-DiscriminatedTypeSchema-classifying' }
+{ #category : 'as yet unclassified' }
 ExChdCoreEntity >> isExChdDiscriminatedTypeDiscriminant [
 	^ false
 
 
 ]
 
-{ #category : #'*Express2Cheddar-CheddarDtdSchema-classifying' }
+{ #category : 'as yet unclassified' }
 ExChdCoreEntity >> isExChdDiscriminatedTypeDtdElement [
 	^ false
 
 
 ]
 
-{ #category : #'*Express2Cheddar-CheddarDtdSchema-classifying' }
+{ #category : 'as yet unclassified' }
 ExChdCoreEntity >> isExChdDiscriminatedTypeRefDtdElement [
 	^ false
 
 
 ]
 
-{ #category : #'*Express2Cheddar-DiscriminatedTypeSchema-classifying' }
+{ #category : 'as yet unclassified' }
 ExChdCoreEntity >> isExChdDiscriminatedTypeUnion [
 	^ false
 
 
 ]
 
-{ #category : #'*Express2Cheddar-DiscriminatedTypeSchema-classifying' }
+{ #category : 'as yet unclassified' }
 ExChdCoreEntity >> isExChdDiscriminatedTypeUnionElementType [
 	^ false
 
 
 ]
 
-{ #category : #'*Express2Cheddar-DiscriminatedTypeSchema-classifying' }
+{ #category : 'as yet unclassified' }
 ExChdCoreEntity >> isExChdDiscriminatedTypeUnionType [
 	^ false
 
 
 ]
 
-{ #category : #'*Express2Cheddar-CheddarDtdSchema-classifying' }
+{ #category : 'as yet unclassified' }
 ExChdCoreEntity >> isExChdDomainDtdElement [
 	^ false
 
 
 ]
 
-{ #category : #'*Express2Cheddar-CheddarDtdSchema-classifying' }
+{ #category : 'as yet unclassified' }
 ExChdCoreEntity >> isExChdDtdElement [
 	^ false
 
 
 ]
 
-{ #category : #'*Express2Cheddar-CheddarDtdSchema-classifying' }
+{ #category : 'as yet unclassified' }
 ExChdCoreEntity >> isExChdEntityDtdElement [
 	^ false
 
 
 ]
 
-{ #category : #'*Express2Cheddar-CheddarDtdSchema-classifying' }
+{ #category : 'as yet unclassified' }
 ExChdCoreEntity >> isExChdEntityRefDtdElement [
 	^ false
 
 
 ]
 
-{ #category : #'*Express2Cheddar-CheddarDomainsSchema-classifying' }
+{ #category : 'as yet unclassified' }
 ExChdCoreEntity >> isExChdExplicitTypeReference [
 	^ false
 
 
 ]
 
-{ #category : #'*Express2Cheddar-PackageSchema-classifying' }
+{ #category : 'as yet unclassified' }
 ExChdCoreEntity >> isExChdGenericPackageInstanciation [
 	^ false
 
 
 ]
 
-{ #category : #'*Express2Cheddar-CheddarDomainsSchema-classifying' }
+{ #category : 'as yet unclassified' }
 ExChdCoreEntity >> isExChdInScopeAttribute [
 	^ false
 
 
 ]
 
-{ #category : #'*Express2Cheddar-PackageSchema-classifying' }
+{ #category : 'as yet unclassified' }
 ExChdCoreEntity >> isExChdPackageAlias [
 	^ false
 
 
 ]
 
-{ #category : #'*Express2Cheddar-CheddarDtdSchema-classifying' }
+{ #category : 'as yet unclassified' }
 ExChdCoreEntity >> isExChdPackageDtdElement [
 	^ false
 
 
 ]
 
-{ #category : #'*Express2Cheddar-CheddarDomainsSchema-classifying' }
+{ #category : 'as yet unclassified' }
 ExChdCoreEntity >> isExChdPragmaConvention [
 	^ false
 
 
 ]
 
-{ #category : #'*Express2Cheddar-CheddarDomainsSchema-classifying' }
+{ #category : 'as yet unclassified' }
 ExChdCoreEntity >> isExChdRangeType [
 	^ false
 
 
 ]
 
-{ #category : #'*Express2Cheddar-RecordAndClassSchema-classifying' }
+{ #category : 'as yet unclassified' }
 ExChdCoreEntity >> isExChdRecord [
 	^ false
 
 
 ]
 
-{ #category : #'*Express2Cheddar-CheddarDtdSchema-classifying' }
+{ #category : 'as yet unclassified' }
 ExChdCoreEntity >> isExChdRecordDtdElement [
 	^ false
 
 
 ]
 
-{ #category : #'*Express2Cheddar-CheddarDtdSchema-classifying' }
+{ #category : 'as yet unclassified' }
 ExChdCoreEntity >> isExChdRecordRefDtdElement [
 	^ false
 
 
 ]
 
-{ #category : #'*Express2Cheddar-CheddarDtdSchema-classifying' }
+{ #category : 'as yet unclassified' }
 ExChdCoreEntity >> isExChdRootDtdElement [
 	^ false
 
 
 ]
 
-{ #category : #'*Express2Cheddar-CheddarDtdSchema-classifying' }
+{ #category : 'as yet unclassified' }
 ExChdCoreEntity >> isExChdSimpleDomainDtdElement [
 	^ false
 
 
 ]
 
-{ #category : #'*Express2Cheddar-CheddarDtdSchema-classifying' }
+{ #category : 'as yet unclassified' }
 ExChdCoreEntity >> isExChdUnknownDomainDtdElement [
 	^ false
 
 
 ]
 
-{ #category : #'*Express2Cheddar-CheddarDomainsSchema-classifying' }
+{ #category : 'as yet unclassified' }
 ExChdCoreEntity >> isExChdUnmappedEntityDefinition [
 	^ false
 
 
 ]
 
-{ #category : #'*Express2Cheddar-CheddarDomainsSchema-classifying' }
+{ #category : 'as yet unclassified' }
 ExChdCoreEntity >> isExChdUnmappedTypeReference [
 	^ false
 
 
 ]
 
-{ #category : #'platypus-generated-meta-data-accessing' }
+{ #category : 'platypus-generated-meta-data-accessing' }
 ExChdCoreEntity >> platypusMetaData [
 	^ self class platypusMetaData
 

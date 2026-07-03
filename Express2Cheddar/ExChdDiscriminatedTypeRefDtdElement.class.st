@@ -9,68 +9,70 @@ END_ENTITY;
 </ISO10303-11-EXPRESS>
 "
 Class {
-	#name : #ExChdDiscriminatedTypeRefDtdElement,
-	#superclass : #ExChdEntityRefDtdElement,
-	#category : #'Express2Cheddar-CheddarDtdSchema'
+	#name : 'ExChdDiscriminatedTypeRefDtdElement',
+	#superclass : 'ExChdEntityRefDtdElement',
+	#category : 'Express2Cheddar-CheddarDtdSchema',
+	#package : 'Express2Cheddar',
+	#tag : 'CheddarDtdSchema'
 }
 
-{ #category : #'platypus-generated-platypus-signature' }
+{ #category : 'platypus-generated-platypus-signature' }
 ExChdDiscriminatedTypeRefDtdElement class >> iso10303P11Translater [
 	^ 'Platypus (c) LISYC EA3883, Universite de Bretagne occidentale. Brest.'
 
 
 ]
 
-{ #category : #'platypus-generated-meta-data-accessing' }
+{ #category : 'platypus-generated-meta-data-accessing' }
 ExChdDiscriminatedTypeRefDtdElement class >> schemaDefinition [
 	^ ExChdCheddarDtdSchemaDefinition singleton
 
 
 ]
 
-{ #category : #'platypus-generated-meta-data-accessing' }
+{ #category : 'platypus-generated-meta-data-accessing' }
 ExChdDiscriminatedTypeRefDtdElement class >> schemaInstance [
 	^ ExChdExpress2cheddarSchemaInstance singleton
 
 
 ]
 
-{ #category : #'platypus-generated-platypus-signature' }
+{ #category : 'platypus-generated-platypus-signature' }
 ExChdDiscriminatedTypeRefDtdElement class >> translatedFromISO10303P11 [
 	^ true
 
 
 ]
 
-{ #category : #'platypus-generated-platypus-signature' }
+{ #category : 'platypus-generated-platypus-signature' }
 ExChdDiscriminatedTypeRefDtdElement class >> vwNamespaceName [
 	^ #Express2Cheddar
 
 
 ]
 
-{ #category : #'platypus-generated-visiting' }
+{ #category : 'platypus-generated-visiting' }
 ExChdDiscriminatedTypeRefDtdElement >> accept: aVisitor [
 	^ aVisitor acceptDiscriminatedTypeRefDtdElement: self
 
 
 ]
 
-{ #category : #'platypus-generated-deriving' }
+{ #category : 'platypus-generated-deriving' }
 ExChdDiscriminatedTypeRefDtdElement >> asCollectionElementDtdCodeTail [
 	^ self asCollectionElementDtdCodeTailUsingContext: self class context
 
 
 ]
 
-{ #category : #'platypus-generated-deriving' }
+{ #category : 'platypus-generated-deriving' }
 ExChdDiscriminatedTypeRefDtdElement >> asCollectionElementDtdCodeTailUsingContext: aContext [
 	^ self asCollectionElementDtdCodeTailUsingContext: aContext receiver: self
 
 
 ]
 
-{ #category : #'platypus-generated-deriving' }
+{ #category : 'platypus-generated-deriving' }
 ExChdDiscriminatedTypeRefDtdElement >> asCollectionElementDtdCodeTailUsingContext: aContext receiver: aReceiver [
 	^ ('('
 		pltPlus:
@@ -83,14 +85,14 @@ ExChdDiscriminatedTypeRefDtdElement >> asCollectionElementDtdCodeTailUsingContex
 
 ]
 
-{ #category : #'platypus-generated-copying' }
+{ #category : 'platypus-generated-copying' }
 ExChdDiscriminatedTypeRefDtdElement >> discriminatedTypeRefDtdElementCopyTo: another [
 	
 
 
 ]
 
-{ #category : #'platypus-generated-group-accessing' }
+{ #category : 'platypus-generated-group-accessing' }
 ExChdDiscriminatedTypeRefDtdElement >> discriminatedTypeRefDtdElementFromValues: values [
 	| valuesloc |
 	valuesloc := values asOrderedCollection.
@@ -99,35 +101,35 @@ ExChdDiscriminatedTypeRefDtdElement >> discriminatedTypeRefDtdElementFromValues:
 
 ]
 
-{ #category : #'platypus-generated-group-accessing' }
+{ #category : 'platypus-generated-group-accessing' }
 ExChdDiscriminatedTypeRefDtdElement >> discriminatedTypeRefDtdElementToValues: values [
 	^ values
 
 
 ]
 
-{ #category : #'platypus-generated-group-accessing' }
+{ #category : 'platypus-generated-group-accessing' }
 ExChdDiscriminatedTypeRefDtdElement >> fromValues: values [
 	^ self discriminatedTypeRefDtdElementFromValues: (super fromValues: values)
 
 
 ]
 
-{ #category : #'platypus-generated-deriving' }
+{ #category : 'platypus-generated-deriving' }
 ExChdDiscriminatedTypeRefDtdElement >> inferedElement [
 	^ self inferedElementUsingContext: self class context
 
 
 ]
 
-{ #category : #'platypus-generated-deriving' }
+{ #category : 'platypus-generated-deriving' }
 ExChdDiscriminatedTypeRefDtdElement >> inferedElementUsingContext: aContext [
 	^ self inferedElementUsingContext: aContext receiver: self
 
 
 ]
 
-{ #category : #'platypus-generated-deriving' }
+{ #category : 'platypus-generated-deriving' }
 ExChdDiscriminatedTypeRefDtdElement >> inferedElementUsingContext: aContext receiver: aReceiver [
 	^ (PlatypusComplexInstance
 		fromRecords:
@@ -164,28 +166,28 @@ ExChdDiscriminatedTypeRefDtdElement >> inferedElementUsingContext: aContext rece
 
 ]
 
-{ #category : #'platypus-generated-classifying' }
+{ #category : 'platypus-generated-classifying' }
 ExChdDiscriminatedTypeRefDtdElement >> isExChdDiscriminatedTypeRefDtdElement [
 	^ true
 
 
 ]
 
-{ #category : #'platypus-generated-group-accessing' }
+{ #category : 'platypus-generated-group-accessing' }
 ExChdDiscriminatedTypeRefDtdElement >> localFromValues: values [
 	^ self discriminatedTypeRefDtdElementFromValues: values
 
 
 ]
 
-{ #category : #'platypus-generated-group-accessing' }
+{ #category : 'platypus-generated-group-accessing' }
 ExChdDiscriminatedTypeRefDtdElement >> localToValues: values [
 	^ self discriminatedTypeRefDtdElementToValues: values
 
 
 ]
 
-{ #category : #'platypus-generated-copying' }
+{ #category : 'platypus-generated-copying' }
 ExChdDiscriminatedTypeRefDtdElement >> pltCopyGroup: aClassSymbol to: anObject [
 	self class name == aClassSymbol
 		ifTrue: [ self pltCopyTo: anObject ]
@@ -194,7 +196,7 @@ ExChdDiscriminatedTypeRefDtdElement >> pltCopyGroup: aClassSymbol to: anObject [
 
 ]
 
-{ #category : #'platypus-generated-copying' }
+{ #category : 'platypus-generated-copying' }
 ExChdDiscriminatedTypeRefDtdElement >> pltCopyTo: another [
 	super pltCopyTo: another.
 	self discriminatedTypeRefDtdElementCopyTo: another
@@ -202,21 +204,21 @@ ExChdDiscriminatedTypeRefDtdElement >> pltCopyTo: another [
 
 ]
 
-{ #category : #'platypus-generated-copying' }
+{ #category : 'platypus-generated-copying' }
 ExChdDiscriminatedTypeRefDtdElement >> pltLocalCopyTo: another [
 	self discriminatedTypeRefDtdElementCopyTo: another
 
 
 ]
 
-{ #category : #'platypus-generated-initializing' }
+{ #category : 'platypus-generated-initializing' }
 ExChdDiscriminatedTypeRefDtdElement >> stepInitialize [
 	super stepInitialize
 
 
 ]
 
-{ #category : #'platypus-generated-group-accessing' }
+{ #category : 'platypus-generated-group-accessing' }
 ExChdDiscriminatedTypeRefDtdElement >> toValues: values [
 	^ self discriminatedTypeRefDtdElementToValues: (super toValues: values)
 

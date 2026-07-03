@@ -31,8 +31,8 @@ END_FUNCTION;
 </ISO10303-11-EXPRESS>
 "
 Class {
-	#name : #ExChdAdaPackageAdsCodeFunction,
-	#superclass : #PlatypusCoreAlgorithmDeclaration,
+	#name : 'ExChdAdaPackageAdsCodeFunction',
+	#superclass : 'PlatypusCoreAlgorithmDeclaration',
 	#instVars : [
 		'pkg',
 		'result',
@@ -45,45 +45,47 @@ Class {
 		'headGenericPackages',
 		'tailGenericPackages'
 	],
-	#category : #'Express2Cheddar-PackageSchema'
+	#category : 'Express2Cheddar-PackageSchema',
+	#package : 'Express2Cheddar',
+	#tag : 'PackageSchema'
 }
 
-{ #category : #'platypus-generated-platypus-signature' }
+{ #category : 'platypus-generated-platypus-signature' }
 ExChdAdaPackageAdsCodeFunction class >> iso10303P11Translater [
 	^ 'Platypus (c) LISYC EA3883, Universite de Bretagne occidentale. Brest.'
 
 
 ]
 
-{ #category : #'platypus-generated-meta-data-accessing' }
+{ #category : 'platypus-generated-meta-data-accessing' }
 ExChdAdaPackageAdsCodeFunction class >> schemaDefinition [
 	^ ExChdPackageSchemaDefinition singleton
 
 
 ]
 
-{ #category : #'platypus-generated-platypus-signature' }
+{ #category : 'platypus-generated-platypus-signature' }
 ExChdAdaPackageAdsCodeFunction class >> translatedFromISO10303P11 [
 	^ true
 
 
 ]
 
-{ #category : #'platypus-generated-platypus-signature' }
+{ #category : 'platypus-generated-platypus-signature' }
 ExChdAdaPackageAdsCodeFunction class >> vwNamespaceName [
 	^ #Express2Cheddar
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdAdaPackageAdsCodeFunction >> classes [
 	^ classes
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdAdaPackageAdsCodeFunction >> classes: aListOfExChdAdaClass [
 	classes := aListOfExChdAdaClass
 		ifNil: [ OrderedCollection new ]
@@ -92,14 +94,14 @@ ExChdAdaPackageAdsCodeFunction >> classes: aListOfExChdAdaClass [
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdAdaPackageAdsCodeFunction >> constList [
 	^ constList
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdAdaPackageAdsCodeFunction >> constList: aListOfExChdAdaConstant [
 	constList := aListOfExChdAdaConstant
 		ifNil: [ OrderedCollection new ]
@@ -108,14 +110,14 @@ ExChdAdaPackageAdsCodeFunction >> constList: aListOfExChdAdaConstant [
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdAdaPackageAdsCodeFunction >> constrainedArrays [
 	^ constrainedArrays
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdAdaPackageAdsCodeFunction >> constrainedArrays: aListOfExChdDefinedType [
 	constrainedArrays := aListOfExChdDefinedType
 		ifNil: [ OrderedCollection new ]
@@ -124,14 +126,14 @@ ExChdAdaPackageAdsCodeFunction >> constrainedArrays: aListOfExChdDefinedType [
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdAdaPackageAdsCodeFunction >> entities [
 	^ entities
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdAdaPackageAdsCodeFunction >> entities: aListOfExChdDictionaryInstance [
 	entities := aListOfExChdDictionaryInstance
 		ifNil: [ OrderedCollection new ]
@@ -140,14 +142,14 @@ ExChdAdaPackageAdsCodeFunction >> entities: aListOfExChdDictionaryInstance [
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdAdaPackageAdsCodeFunction >> fromValues: values [
 	self pkg: (values at: 1)
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdAdaPackageAdsCodeFunction >> genericPackages [
 
 	^ genericPackages
@@ -155,7 +157,7 @@ ExChdAdaPackageAdsCodeFunction >> genericPackages [
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdAdaPackageAdsCodeFunction >> genericPackages: aListOfExChdGenericPackageInstanciation [
 	genericPackages := aListOfExChdGenericPackageInstanciation
 		ifNil: [ OrderedCollection new ]
@@ -164,7 +166,7 @@ ExChdAdaPackageAdsCodeFunction >> genericPackages: aListOfExChdGenericPackageIns
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdAdaPackageAdsCodeFunction >> headGenericPackages [
 
 	^ headGenericPackages
@@ -172,7 +174,7 @@ ExChdAdaPackageAdsCodeFunction >> headGenericPackages [
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdAdaPackageAdsCodeFunction >> headGenericPackages: aListOfExChdGenericPackageInstanciation1 [
 	headGenericPackages := aListOfExChdGenericPackageInstanciation1
 		ifNil: [ OrderedCollection new ]
@@ -181,7 +183,7 @@ ExChdAdaPackageAdsCodeFunction >> headGenericPackages: aListOfExChdGenericPackag
 
 ]
 
-{ #category : #'platypus-generated-invoking' }
+{ #category : 'platypus-generated-invoking' }
 ExChdAdaPackageAdsCodeFunction >> invoke [
 	" ---------- locals assignments ----------"
 
@@ -283,28 +285,28 @@ ExChdAdaPackageAdsCodeFunction >> invoke [
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdAdaPackageAdsCodeFunction >> pkg [
 	^ pkg
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdAdaPackageAdsCodeFunction >> pkg: aExChdAdaPackage [
 	pkg := aExChdAdaPackage
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdAdaPackageAdsCodeFunction >> privateClasses [
 	^ privateClasses
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdAdaPackageAdsCodeFunction >> privateClasses: aListOfExChdAdaClass1 [
 	privateClasses := aListOfExChdAdaClass1
 		ifNil: [ OrderedCollection new ]
@@ -313,21 +315,21 @@ ExChdAdaPackageAdsCodeFunction >> privateClasses: aListOfExChdAdaClass1 [
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdAdaPackageAdsCodeFunction >> result [
 	^ result
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdAdaPackageAdsCodeFunction >> result: aString [
 	result := aString
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdAdaPackageAdsCodeFunction >> tailGenericPackages [
 
 	^ tailGenericPackages
@@ -335,7 +337,7 @@ ExChdAdaPackageAdsCodeFunction >> tailGenericPackages [
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdAdaPackageAdsCodeFunction >> tailGenericPackages: aListOfExChdGenericPackageInstanciation2 [
 	tailGenericPackages := aListOfExChdGenericPackageInstanciation2
 		ifNil: [ OrderedCollection new ]

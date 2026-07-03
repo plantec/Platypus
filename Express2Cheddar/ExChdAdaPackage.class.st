@@ -19,59 +19,61 @@ END_ENTITY;
 </ISO10303-11-EXPRESS>
 "
 Class {
-	#name : #ExChdAdaPackage,
-	#superclass : #PltSchemaDefinition,
+	#name : 'ExChdAdaPackage',
+	#superclass : 'PltSchemaDefinition',
 	#instVars : [
 		'adbInterface',
 		'adsInterface',
 		'xmlRootTags'
 	],
-	#category : #'Express2Cheddar-PackageSchema'
+	#category : 'Express2Cheddar-PackageSchema',
+	#package : 'Express2Cheddar',
+	#tag : 'PackageSchema'
 }
 
-{ #category : #'platypus-generated-platypus-signature' }
+{ #category : 'platypus-generated-platypus-signature' }
 ExChdAdaPackage class >> iso10303P11Translater [
 	^ 'Platypus (c) LISYC EA3883, Universite de Bretagne occidentale. Brest.'
 
 
 ]
 
-{ #category : #'platypus-generated-meta-data-accessing' }
+{ #category : 'platypus-generated-meta-data-accessing' }
 ExChdAdaPackage class >> schemaDefinition [
 	^ ExChdPackageSchemaDefinition singleton
 
 
 ]
 
-{ #category : #'platypus-generated-meta-data-accessing' }
+{ #category : 'platypus-generated-meta-data-accessing' }
 ExChdAdaPackage class >> schemaInstance [
 	^ ExChdExpress2cheddarSchemaInstance singleton
 
 
 ]
 
-{ #category : #'platypus-generated-platypus-signature' }
+{ #category : 'platypus-generated-platypus-signature' }
 ExChdAdaPackage class >> translatedFromISO10303P11 [
 	^ true
 
 
 ]
 
-{ #category : #'platypus-generated-platypus-signature' }
+{ #category : 'platypus-generated-platypus-signature' }
 ExChdAdaPackage class >> vwNamespaceName [
 	^ #Express2Cheddar
 
 
 ]
 
-{ #category : #'platypus-generated-visiting' }
+{ #category : 'platypus-generated-visiting' }
 ExChdAdaPackage >> accept: aVisitor [
 	^ aVisitor acceptAdaPackage: self
 
 
 ]
 
-{ #category : #'platypus-generated-copying' }
+{ #category : 'platypus-generated-copying' }
 ExChdAdaPackage >> adaPackageCopyTo: another [
 	another fastSetAdsInterface: self adsInterface.
 	another fastSetAdbInterface: self adbInterface.
@@ -80,7 +82,7 @@ ExChdAdaPackage >> adaPackageCopyTo: another [
 
 ]
 
-{ #category : #'platypus-generated-group-accessing' }
+{ #category : 'platypus-generated-group-accessing' }
 ExChdAdaPackage >> adaPackageFromValues: values [
 	| valuesloc |
 	valuesloc := values asOrderedCollection.
@@ -92,7 +94,7 @@ ExChdAdaPackage >> adaPackageFromValues: values [
 
 ]
 
-{ #category : #'platypus-generated-group-accessing' }
+{ #category : 'platypus-generated-group-accessing' }
 ExChdAdaPackage >> adaPackageToValues: values [
 	values add: self adsInterface.
 	values add: self adbInterface.
@@ -102,21 +104,21 @@ ExChdAdaPackage >> adaPackageToValues: values [
 
 ]
 
-{ #category : #'platypus-generated-deriving' }
+{ #category : 'platypus-generated-deriving' }
 ExChdAdaPackage >> adbCode [
 	^ self adbCodeUsingContext: self class context
 
 
 ]
 
-{ #category : #'platypus-generated-deriving' }
+{ #category : 'platypus-generated-deriving' }
 ExChdAdaPackage >> adbCodeUsingContext: aContext [
 	^ self adbCodeUsingContext: aContext receiver: self
 
 
 ]
 
-{ #category : #'platypus-generated-deriving' }
+{ #category : 'platypus-generated-deriving' }
 ExChdAdaPackage >> adbCodeUsingContext: aContext receiver: aReceiver [
 	^ (((((((aReceiver adbHeadUsingContext: aContext) pltPlus: '\n\nPackage Body ') pltPlus: aReceiver name)
 		pltPlus: ' is \n \n')
@@ -130,21 +132,21 @@ ExChdAdaPackage >> adbCodeUsingContext: aContext receiver: aReceiver [
 
 ]
 
-{ #category : #'platypus-generated-deriving' }
+{ #category : 'platypus-generated-deriving' }
 ExChdAdaPackage >> adbHead [
 	^ self adbHeadUsingContext: self class context
 
 
 ]
 
-{ #category : #'platypus-generated-deriving' }
+{ #category : 'platypus-generated-deriving' }
 ExChdAdaPackage >> adbHeadUsingContext: aContext [
 	^ self adbHeadUsingContext: aContext receiver: self
 
 
 ]
 
-{ #category : #'platypus-generated-deriving' }
+{ #category : 'platypus-generated-deriving' }
 ExChdAdaPackage >> adbHeadUsingContext: aContext receiver: aReceiver [
 	^ (((((((((((((((((((((((((((((((((((((((''
 		pltPlus: '------------------------------------------------------------------------------\n')
@@ -193,14 +195,14 @@ ExChdAdaPackage >> adbHeadUsingContext: aContext receiver: aReceiver [
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdAdaPackage >> adbInterface [
 	^ adbInterface
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdAdaPackage >> adbInterface: aListOfExChdAdaInterface [
 	adbInterface := aListOfExChdAdaInterface
 		ifNil: [ OrderedCollection new ]
@@ -209,28 +211,28 @@ ExChdAdaPackage >> adbInterface: aListOfExChdAdaInterface [
 
 ]
 
-{ #category : #'platypus-generated-with-context-accessing' }
+{ #category : 'platypus-generated-with-context-accessing' }
 ExChdAdaPackage >> adbInterfaceUsingContext: aContext [
 	^ self adbInterface
 
 
 ]
 
-{ #category : #'platypus-generated-deriving' }
+{ #category : 'platypus-generated-deriving' }
 ExChdAdaPackage >> adsCode [
 	^ self adsCodeUsingContext: self class context
 
 
 ]
 
-{ #category : #'platypus-generated-deriving' }
+{ #category : 'platypus-generated-deriving' }
 ExChdAdaPackage >> adsCodeUsingContext: aContext [
 	^ self adsCodeUsingContext: aContext receiver: self
 
 
 ]
 
-{ #category : #'platypus-generated-deriving' }
+{ #category : 'platypus-generated-deriving' }
 ExChdAdaPackage >> adsCodeUsingContext: aContext receiver: aReceiver [
 	^ (((((((aReceiver adsHeadUsingContext: aContext) pltPlus: '\n\nPackage ') pltPlus: aReceiver name)
 		pltPlus: ' is \n \n')
@@ -244,21 +246,21 @@ ExChdAdaPackage >> adsCodeUsingContext: aContext receiver: aReceiver [
 
 ]
 
-{ #category : #'platypus-generated-deriving' }
+{ #category : 'platypus-generated-deriving' }
 ExChdAdaPackage >> adsHead [
 	^ self adsHeadUsingContext: self class context
 
 
 ]
 
-{ #category : #'platypus-generated-deriving' }
+{ #category : 'platypus-generated-deriving' }
 ExChdAdaPackage >> adsHeadUsingContext: aContext [
 	^ self adsHeadUsingContext: aContext receiver: self
 
 
 ]
 
-{ #category : #'platypus-generated-deriving' }
+{ #category : 'platypus-generated-deriving' }
 ExChdAdaPackage >> adsHeadUsingContext: aContext receiver: aReceiver [
 	^ (((((((((((((((((((((((((((((((((((((((''
 		pltPlus: '------------------------------------------------------------------------------\n')
@@ -307,14 +309,14 @@ ExChdAdaPackage >> adsHeadUsingContext: aContext receiver: aReceiver [
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdAdaPackage >> adsInterface [
 	^ adsInterface
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdAdaPackage >> adsInterface: aListOfExChdAdaInterface [
 	adsInterface := aListOfExChdAdaInterface
 		ifNil: [ OrderedCollection new ]
@@ -323,56 +325,56 @@ ExChdAdaPackage >> adsInterface: aListOfExChdAdaInterface [
 
 ]
 
-{ #category : #'platypus-generated-with-context-accessing' }
+{ #category : 'platypus-generated-with-context-accessing' }
 ExChdAdaPackage >> adsInterfaceUsingContext: aContext [
 	^ self adsInterface
 
 
 ]
 
-{ #category : #'platypus-generated-fast-set-accessing' }
+{ #category : 'platypus-generated-fast-set-accessing' }
 ExChdAdaPackage >> fastSetAdbInterface: aListOfExChdAdaInterface [
 	adbInterface := aListOfExChdAdaInterface
 
 
 ]
 
-{ #category : #'platypus-generated-fast-set-accessing' }
+{ #category : 'platypus-generated-fast-set-accessing' }
 ExChdAdaPackage >> fastSetAdsInterface: aListOfExChdAdaInterface [
 	adsInterface := aListOfExChdAdaInterface
 
 
 ]
 
-{ #category : #'platypus-generated-fast-set-accessing' }
+{ #category : 'platypus-generated-fast-set-accessing' }
 ExChdAdaPackage >> fastSetXmlRootTags: aListOfString [
 	xmlRootTags := aListOfString
 
 
 ]
 
-{ #category : #'platypus-generated-group-accessing' }
+{ #category : 'platypus-generated-group-accessing' }
 ExChdAdaPackage >> fromValues: values [
 	^ self adaPackageFromValues: (super fromValues: values)
 
 
 ]
 
-{ #category : #'platypus-generated-deriving' }
+{ #category : 'platypus-generated-deriving' }
 ExChdAdaPackage >> inferedAdsInterfaces [
 	^ self inferedAdsInterfacesUsingContext: self class context
 
 
 ]
 
-{ #category : #'platypus-generated-deriving' }
+{ #category : 'platypus-generated-deriving' }
 ExChdAdaPackage >> inferedAdsInterfacesUsingContext: aContext [
 	^ self inferedAdsInterfacesUsingContext: aContext receiver: self
 
 
 ]
 
-{ #category : #'platypus-generated-deriving' }
+{ #category : 'platypus-generated-deriving' }
 ExChdAdaPackage >> inferedAdsInterfacesUsingContext: aContext receiver: aReceiver [
 	^ ExChdAdaPackageInterfaceFunction
 		invokeFromValues:
@@ -384,28 +386,28 @@ ExChdAdaPackage >> inferedAdsInterfacesUsingContext: aContext receiver: aReceive
 
 ]
 
-{ #category : #'platypus-generated-classifying' }
+{ #category : 'platypus-generated-classifying' }
 ExChdAdaPackage >> isExChdAdaPackage [
 	^ true
 
 
 ]
 
-{ #category : #'platypus-generated-group-accessing' }
+{ #category : 'platypus-generated-group-accessing' }
 ExChdAdaPackage >> localFromValues: values [
 	^ self adaPackageFromValues: values
 
 
 ]
 
-{ #category : #'platypus-generated-group-accessing' }
+{ #category : 'platypus-generated-group-accessing' }
 ExChdAdaPackage >> localToValues: values [
 	^ self adaPackageToValues: values
 
 
 ]
 
-{ #category : #'platypus-generated-copying' }
+{ #category : 'platypus-generated-copying' }
 ExChdAdaPackage >> pltCopyGroup: aClassSymbol to: anObject [
 	self class name == aClassSymbol
 		ifTrue: [ self pltCopyTo: anObject ]
@@ -414,7 +416,7 @@ ExChdAdaPackage >> pltCopyGroup: aClassSymbol to: anObject [
 
 ]
 
-{ #category : #'platypus-generated-copying' }
+{ #category : 'platypus-generated-copying' }
 ExChdAdaPackage >> pltCopyTo: another [
 	super pltCopyTo: another.
 	self adaPackageCopyTo: another
@@ -422,35 +424,35 @@ ExChdAdaPackage >> pltCopyTo: another [
 
 ]
 
-{ #category : #'platypus-generated-copying' }
+{ #category : 'platypus-generated-copying' }
 ExChdAdaPackage >> pltLocalCopyTo: another [
 	self adaPackageCopyTo: another
 
 
 ]
 
-{ #category : #'platypus-generated-set-accessing' }
+{ #category : 'platypus-generated-set-accessing' }
 ExChdAdaPackage >> setAdbInterface: aListOfExChdAdaInterface [
 	self adbInterface: aListOfExChdAdaInterface
 
 
 ]
 
-{ #category : #'platypus-generated-set-accessing' }
+{ #category : 'platypus-generated-set-accessing' }
 ExChdAdaPackage >> setAdsInterface: aListOfExChdAdaInterface [
 	self adsInterface: aListOfExChdAdaInterface
 
 
 ]
 
-{ #category : #'platypus-generated-set-accessing' }
+{ #category : 'platypus-generated-set-accessing' }
 ExChdAdaPackage >> setXmlRootTags: aListOfString [
 	self xmlRootTags: aListOfString
 
 
 ]
 
-{ #category : #'platypus-generated-initializing' }
+{ #category : 'platypus-generated-initializing' }
 ExChdAdaPackage >> stepInitialize [
 	super stepInitialize.
 	adsInterface := OrderedCollection new.
@@ -460,28 +462,28 @@ ExChdAdaPackage >> stepInitialize [
 
 ]
 
-{ #category : #'platypus-generated-group-accessing' }
+{ #category : 'platypus-generated-group-accessing' }
 ExChdAdaPackage >> toValues: values [
 	^ self adaPackageToValues: (super toValues: values)
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdAdaPackage >> xmlRootTags [
 	^ xmlRootTags
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdAdaPackage >> xmlRootTags: aListOfString [
 	xmlRootTags := aListOfString ifNil: [ OrderedCollection new ] ifNotNil: [ aListOfString as: OrderedCollection ]
 
 
 ]
 
-{ #category : #'platypus-generated-with-context-accessing' }
+{ #category : 'platypus-generated-with-context-accessing' }
 ExChdAdaPackage >> xmlRootTagsUsingContext: aContext [
 	^ self xmlRootTags
 

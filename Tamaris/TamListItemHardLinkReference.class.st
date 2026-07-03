@@ -1,18 +1,20 @@
 Class {
-	#name : #TamListItemHardLinkReference,
-	#superclass : #TamListItemAbstractLinkReference,
+	#name : 'TamListItemHardLinkReference',
+	#superclass : 'TamListItemAbstractLinkReference',
 	#instVars : [
 		'linked'
 	],
-	#category : 'Tamaris-Taxonomies'
+	#category : 'Tamaris-Taxonomies',
+	#package : 'Tamaris',
+	#tag : 'Taxonomies'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TamListItemHardLinkReference >> asStringOrText [
 	^ self linkPrefix , self linked  asStringOrText
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TamListItemHardLinkReference >> icon [
 	| lnk |
 	^(lnk := self linked) isReleased 
@@ -20,17 +22,17 @@ TamListItemHardLinkReference >> icon [
 		ifFalse: [lnk icon]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TamListItemHardLinkReference >> linkPrefix [
 	^ '=> '
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TamListItemHardLinkReference >> linked [
 	^ linked
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TamListItemHardLinkReference >> linked: anItem [ 
 	linked := anItem.
 	

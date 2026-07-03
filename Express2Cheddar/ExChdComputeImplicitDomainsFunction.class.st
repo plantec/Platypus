@@ -28,8 +28,8 @@ END_FUNCTION;
 </ISO10303-11-EXPRESS>
 "
 Class {
-	#name : #ExChdComputeImplicitDomainsFunction,
-	#superclass : #PlatypusCoreAlgorithmDeclaration,
+	#name : 'ExChdComputeImplicitDomainsFunction',
+	#superclass : 'PlatypusCoreAlgorithmDeclaration',
 	#instVars : [
 		'r',
 		'refed',
@@ -37,45 +37,47 @@ Class {
 		'declDomain',
 		'notDeclared'
 	],
-	#category : #'Express2Cheddar-CheddarDtdSchema'
+	#category : 'Express2Cheddar-CheddarDtdSchema',
+	#package : 'Express2Cheddar',
+	#tag : 'CheddarDtdSchema'
 }
 
-{ #category : #'platypus-generated-platypus-signature' }
+{ #category : 'platypus-generated-platypus-signature' }
 ExChdComputeImplicitDomainsFunction class >> iso10303P11Translater [
 	^ 'Platypus (c) LISYC EA3883, Universite de Bretagne occidentale. Brest.'
 
 
 ]
 
-{ #category : #'platypus-generated-meta-data-accessing' }
+{ #category : 'platypus-generated-meta-data-accessing' }
 ExChdComputeImplicitDomainsFunction class >> schemaDefinition [
 	^ ExChdCheddarDtdSchemaDefinition singleton
 
 
 ]
 
-{ #category : #'platypus-generated-platypus-signature' }
+{ #category : 'platypus-generated-platypus-signature' }
 ExChdComputeImplicitDomainsFunction class >> translatedFromISO10303P11 [
 	^ true
 
 
 ]
 
-{ #category : #'platypus-generated-platypus-signature' }
+{ #category : 'platypus-generated-platypus-signature' }
 ExChdComputeImplicitDomainsFunction class >> vwNamespaceName [
 	^ #Express2Cheddar
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdComputeImplicitDomainsFunction >> decl [
 	^ decl
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdComputeImplicitDomainsFunction >> decl: aListOfExChdDtdElement [
 	decl := aListOfExChdDtdElement
 		ifNil: [ OrderedCollection new ]
@@ -84,14 +86,14 @@ ExChdComputeImplicitDomainsFunction >> decl: aListOfExChdDtdElement [
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdComputeImplicitDomainsFunction >> declDomain [
 	^ declDomain
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdComputeImplicitDomainsFunction >> declDomain: aListOfExChdEntityInstance [
 	declDomain := aListOfExChdEntityInstance
 		ifNil: [ OrderedCollection new ]
@@ -100,14 +102,14 @@ ExChdComputeImplicitDomainsFunction >> declDomain: aListOfExChdEntityInstance [
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdComputeImplicitDomainsFunction >> fromValues: values [
 	self r: (values at: 1)
 
 
 ]
 
-{ #category : #'platypus-generated-invoking' }
+{ #category : 'platypus-generated-invoking' }
 ExChdComputeImplicitDomainsFunction >> invoke [
 	" ---------- locals assignments ----------"
 
@@ -157,14 +159,14 @@ ExChdComputeImplicitDomainsFunction >> invoke [
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdComputeImplicitDomainsFunction >> notDeclared [
 	^ notDeclared
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdComputeImplicitDomainsFunction >> notDeclared: aListOfExChdEntityRefDtdElement1 [
 	notDeclared := aListOfExChdEntityRefDtdElement1
 		ifNil: [ OrderedCollection new ]
@@ -173,28 +175,28 @@ ExChdComputeImplicitDomainsFunction >> notDeclared: aListOfExChdEntityRefDtdElem
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdComputeImplicitDomainsFunction >> r [
 	^ r
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdComputeImplicitDomainsFunction >> r: aExChdRootDtdElement [
 	r := aExChdRootDtdElement
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdComputeImplicitDomainsFunction >> refed [
 	^ refed
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdComputeImplicitDomainsFunction >> refed: aListOfExChdEntityRefDtdElement [
 	refed := aListOfExChdEntityRefDtdElement
 		ifNil: [ OrderedCollection new ]

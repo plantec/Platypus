@@ -16,59 +16,61 @@ END_FUNCTION;
 </ISO10303-11-EXPRESS>
 "
 Class {
-	#name : #ExChdDiscriminatedTypeUnionTypeInterfacesListFunction,
-	#superclass : #PlatypusCoreAlgorithmDeclaration,
+	#name : 'ExChdDiscriminatedTypeUnionTypeInterfacesListFunction',
+	#superclass : 'PlatypusCoreAlgorithmDeclaration',
 	#instVars : [
 		'd',
 		'isAds',
 		'l'
 	],
-	#category : #'Express2Cheddar-DiscriminatedTypeSchema'
+	#category : 'Express2Cheddar-DiscriminatedTypeSchema',
+	#package : 'Express2Cheddar',
+	#tag : 'DiscriminatedTypeSchema'
 }
 
-{ #category : #'platypus-generated-platypus-signature' }
+{ #category : 'platypus-generated-platypus-signature' }
 ExChdDiscriminatedTypeUnionTypeInterfacesListFunction class >> iso10303P11Translater [
 	^ 'Platypus (c) LISYC EA3883, Universite de Bretagne occidentale. Brest.'
 
 
 ]
 
-{ #category : #'platypus-generated-meta-data-accessing' }
+{ #category : 'platypus-generated-meta-data-accessing' }
 ExChdDiscriminatedTypeUnionTypeInterfacesListFunction class >> schemaDefinition [
 	^ ExChdDiscriminatedTypeSchemaDefinition singleton
 
 
 ]
 
-{ #category : #'platypus-generated-platypus-signature' }
+{ #category : 'platypus-generated-platypus-signature' }
 ExChdDiscriminatedTypeUnionTypeInterfacesListFunction class >> translatedFromISO10303P11 [
 	^ true
 
 
 ]
 
-{ #category : #'platypus-generated-platypus-signature' }
+{ #category : 'platypus-generated-platypus-signature' }
 ExChdDiscriminatedTypeUnionTypeInterfacesListFunction class >> vwNamespaceName [
 	^ #Express2Cheddar
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdDiscriminatedTypeUnionTypeInterfacesListFunction >> d [
 	^ d
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdDiscriminatedTypeUnionTypeInterfacesListFunction >> d: aExChdDiscriminatedTypeUnionType [
 	d := aExChdDiscriminatedTypeUnionType
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdDiscriminatedTypeUnionTypeInterfacesListFunction >> d: aExChdDiscriminatedTypeUnionType isAds: aBoolean [
 	self d: aExChdDiscriminatedTypeUnionType.
 	self isAds: aBoolean
@@ -76,7 +78,7 @@ ExChdDiscriminatedTypeUnionTypeInterfacesListFunction >> d: aExChdDiscriminatedT
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdDiscriminatedTypeUnionTypeInterfacesListFunction >> fromValues: values [
 	self d: (values at: 1).
 	self isAds: (values at: 2)
@@ -84,7 +86,7 @@ ExChdDiscriminatedTypeUnionTypeInterfacesListFunction >> fromValues: values [
 
 ]
 
-{ #category : #'platypus-generated-invoking' }
+{ #category : 'platypus-generated-invoking' }
 ExChdDiscriminatedTypeUnionTypeInterfacesListFunction >> invoke [
 	" ---------- locals assignments ----------"
 
@@ -121,28 +123,28 @@ ExChdDiscriminatedTypeUnionTypeInterfacesListFunction >> invoke [
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdDiscriminatedTypeUnionTypeInterfacesListFunction >> isAds [
 	^ isAds
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdDiscriminatedTypeUnionTypeInterfacesListFunction >> isAds: aBoolean [
 	isAds := aBoolean
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdDiscriminatedTypeUnionTypeInterfacesListFunction >> l [
 	^ l
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdDiscriminatedTypeUnionTypeInterfacesListFunction >> l: aListOfExChdAdaInterface [
 	l := aListOfExChdAdaInterface
 		ifNil: [ OrderedCollection new ]

@@ -35,8 +35,8 @@ END_FUNCTION;
 </ISO10303-11-EXPRESS>
 "
 Class {
-	#name : #ExChdGetReferencedEntityDomainsFunction,
-	#superclass : #PlatypusCoreAlgorithmDeclaration,
+	#name : 'ExChdGetReferencedEntityDomainsFunction',
+	#superclass : 'PlatypusCoreAlgorithmDeclaration',
 	#instVars : [
 		'pkgs',
 		'attributes',
@@ -44,45 +44,47 @@ Class {
 		'names',
 		'curr'
 	],
-	#category : #'Express2Cheddar-CheddarDtdSchema'
+	#category : 'Express2Cheddar-CheddarDtdSchema',
+	#package : 'Express2Cheddar',
+	#tag : 'CheddarDtdSchema'
 }
 
-{ #category : #'platypus-generated-platypus-signature' }
+{ #category : 'platypus-generated-platypus-signature' }
 ExChdGetReferencedEntityDomainsFunction class >> iso10303P11Translater [
 	^ 'Platypus (c) LISYC EA3883, Universite de Bretagne occidentale. Brest.'
 
 
 ]
 
-{ #category : #'platypus-generated-meta-data-accessing' }
+{ #category : 'platypus-generated-meta-data-accessing' }
 ExChdGetReferencedEntityDomainsFunction class >> schemaDefinition [
 	^ ExChdCheddarDtdSchemaDefinition singleton
 
 
 ]
 
-{ #category : #'platypus-generated-platypus-signature' }
+{ #category : 'platypus-generated-platypus-signature' }
 ExChdGetReferencedEntityDomainsFunction class >> translatedFromISO10303P11 [
 	^ true
 
 
 ]
 
-{ #category : #'platypus-generated-platypus-signature' }
+{ #category : 'platypus-generated-platypus-signature' }
 ExChdGetReferencedEntityDomainsFunction class >> vwNamespaceName [
 	^ #Express2Cheddar
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdGetReferencedEntityDomainsFunction >> attributes [
 	^ attributes
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdGetReferencedEntityDomainsFunction >> attributes: aListOfExChdAttributeDtdElement [
 	attributes := aListOfExChdAttributeDtdElement
 		ifNil: [ OrderedCollection new ]
@@ -91,28 +93,28 @@ ExChdGetReferencedEntityDomainsFunction >> attributes: aListOfExChdAttributeDtdE
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdGetReferencedEntityDomainsFunction >> curr [
 	^ curr
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdGetReferencedEntityDomainsFunction >> curr: aExChdDomainDtdElement [
 	curr := aExChdDomainDtdElement
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdGetReferencedEntityDomainsFunction >> domains [
 	^ domains
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdGetReferencedEntityDomainsFunction >> domains: aListOfExChdEntityRefDtdElement [
 	domains := aListOfExChdEntityRefDtdElement
 		ifNil: [ OrderedCollection new ]
@@ -121,14 +123,14 @@ ExChdGetReferencedEntityDomainsFunction >> domains: aListOfExChdEntityRefDtdElem
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdGetReferencedEntityDomainsFunction >> fromValues: values [
 	self pkgs: (values at: 1)
 
 
 ]
 
-{ #category : #'platypus-generated-invoking' }
+{ #category : 'platypus-generated-invoking' }
 ExChdGetReferencedEntityDomainsFunction >> invoke [
 	" ---------- locals assignments ----------"
 
@@ -223,28 +225,28 @@ ExChdGetReferencedEntityDomainsFunction >> invoke [
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdGetReferencedEntityDomainsFunction >> names [
 	^ names
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdGetReferencedEntityDomainsFunction >> names: aListOfString [
 	names := aListOfString ifNil: [ OrderedCollection new ] ifNotNil: [ aListOfString as: OrderedCollection ]
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdGetReferencedEntityDomainsFunction >> pkgs [
 	^ pkgs
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdGetReferencedEntityDomainsFunction >> pkgs: aListOfExChdPackageDtdElement [
 	pkgs := aListOfExChdPackageDtdElement
 		ifNil: [ OrderedCollection new ]

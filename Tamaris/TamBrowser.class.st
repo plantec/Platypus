@@ -1,6 +1,6 @@
 Class {
-	#name : #TamBrowser,
-	#superclass : #TamHierarchicalList,
+	#name : 'TamBrowser',
+	#superclass : 'TamHierarchicalList',
 	#instVars : [
 		'mainWindow',
 		'rootWrapper',
@@ -20,27 +20,29 @@ Class {
 		'InitialExtent',
 		'TaxonomyListWidth'
 	],
-	#category : #'Tamaris-UI'
+	#category : 'Tamaris-UI',
+	#package : 'Tamaris',
+	#tag : 'UI'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TamBrowser class >> buttonExtent [ 
 	^ Tamaris buttonExtent
 ]
 
-{ #category : #'private reference removing' }
+{ #category : 'private reference removing' }
 TamBrowser class >> destroyEditorFor: aReference [ 
 	self allInstances copy
 		do: [:brw | brw destroyEditorFor: aReference]
 ]
 
-{ #category : #'private reference removing' }
+{ #category : 'private reference removing' }
 TamBrowser class >> destroyNotSelectedEditorFor: aReference [ 
 	self allInstances copy
 		do: [:brw | brw destroyNotSelectedEditorFor: aReference]
 ]
 
-{ #category : #'dialog building' }
+{ #category : 'dialog building' }
 TamBrowser class >> genericTree: aTitle flatCollection: aCollectionOfCollection selectingBlock: selBlock client: aClientModel [ 
 	| aghl |
 	aghl := TamGenericHierarchicalList 
@@ -54,7 +56,7 @@ TamBrowser class >> genericTree: aTitle flatCollection: aCollectionOfCollection 
 	^ aghl
 ]
 
-{ #category : #'dialog building' }
+{ #category : 'dialog building' }
 TamBrowser class >> genericTree: aTitle listBlock: listBlock selectingBlock: selBlock client: aClientModel [ 
 	| aghl parentsChain |
 	(TamGenericHierarchicalList openedHierarchicalListsOfClient: aClientModel key: aTitle)
@@ -81,22 +83,22 @@ TamBrowser class >> genericTree: aTitle listBlock: listBlock selectingBlock: sel
 	^ aghl
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TamBrowser class >> initialExtent [	
 	^InitialExtent ifNil: [InitialExtent := 750@550]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TamBrowser class >> initialExtent: aPoint [ 	
 	InitialExtent := aPoint
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TamBrowser class >> localWorkspaceNumberOfLines [
 	^4
 ]
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 TamBrowser class >> onReference: aReference [ 
 	| aNewOne |
 	aNewOne := self new.
@@ -106,15 +108,15 @@ TamBrowser class >> onReference: aReference [
 	^aNewOne buildMainWindow
 ]
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 TamBrowser class >> onReference: aReference window: aWindow [ ^ self onReference: aReference window: aWindow direction: #toRight
 ]
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 TamBrowser class >> onReference: aReference window: aWindow direction: ToRightOrToLeft [ 	^ self		onReference: aReference		window: aWindow		insideManager: nil		direction: ToRightOrToLeft
 ]
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 TamBrowser class >> onReference: aReference window: aWindow insideManager: aTamManager direction: ToRightOrToLeft [ 
 	| aNewOne |
 	aNewOne := self new.
@@ -128,42 +130,42 @@ TamBrowser class >> onReference: aReference window: aWindow insideManager: aTamM
 	^aWindow
 ]
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 TamBrowser class >> open [
 	self openOnReference: TamManagerItem default taxonomy
 
 ]
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 TamBrowser class >> openOnReference: aReference [ 
 	| awindow |
 	(awindow := self onReference: aReference) openInWorld.
 	^ awindow
 ]
 
-{ #category : #'installing/desinstalling' }
+{ #category : 'installing/desinstalling' }
 TamBrowser class >> preferedWindowColor [
 	^ Color veryLightGray muchLighter
 ]
 
-{ #category : #'private reference removing' }
+{ #category : 'private reference removing' }
 TamBrowser class >> reloadEditorFor: aReference [ 
 
 	self allInstances copy
 		do: [:brw | brw reloadEditorFor: aReference ]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TamBrowser class >> taxonomyListWidth [
 	^TaxonomyListWidth ifNil: [TaxonomyListWidth := 250]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TamBrowser class >> taxonomyListWidth: anInteger [
 	TaxonomyListWidth := anInteger
 ]
 
-{ #category : #'drag and drop' }
+{ #category : 'drag and drop' }
 TamBrowser >> acceptDroppingMorph: transferMorph event: evt inMorph: dstListMorph [ 
 	| destItem shouldCopy |
 	(transferMorph respondsTo: #passenger) 
@@ -185,7 +187,7 @@ TamBrowser >> acceptDroppingMorph: transferMorph event: evt inMorph: dstListMorp
 		and: [rootWrapper acceptDroppingMorph: transferMorph copy: shouldCopy]
 ]
 
-{ #category : #'button actions' }
+{ #category : 'button actions' }
 TamBrowser >> acceptRecentsInputContent: aFragment [ 
 	self rootWrapperIsSet 
 		ifFalse: 
@@ -195,7 +197,7 @@ TamBrowser >> acceptRecentsInputContent: aFragment [
 	^true
 ]
 
-{ #category : #'ui building' }
+{ #category : 'ui building' }
 TamBrowser >> addButtons [
 	| btn |
 	({{'32x32/actions/reload'.
@@ -293,7 +295,7 @@ TamBrowser >> addButtons [
 	
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TamBrowser >> addSpecificButtonsFor: aListItemReference [ 
 	self specificButtonsAlignment addTransparentSpacer.
 	aListItemReference specificButtonsColumn: self
@@ -301,7 +303,7 @@ TamBrowser >> addSpecificButtonsFor: aListItemReference [
 
 ]
 
-{ #category : #'initialize/release' }
+{ #category : 'initialize/release' }
 TamBrowser >> allEditorsSuchThat: aBlock do: anotherBlock [
 	editorsIndex
 		ifNotNil: [ editorsIndex copy
@@ -309,19 +311,19 @@ TamBrowser >> allEditorsSuchThat: aBlock do: anotherBlock [
 						ifTrue: [anotherBlock value: v]]]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TamBrowser >> anySelectedAndRemoveable [
 	^ self removeableSelection notEmpty
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TamBrowser >> boldBlueSelection [
 		^(listMorph respondsTo: #boldBlueEmphasisSet) 
 		ifTrue: [listMorph boldBlueEmphasisSet asOrderedCollection]
 		ifFalse: [#() asOrderedCollection]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TamBrowser >> boldRedSelection [
 	^(listMorph respondsTo: #boldRedEmphasisSet) 
 		ifTrue: [listMorph boldRedEmphasisSet asOrderedCollection]
@@ -329,24 +331,24 @@ TamBrowser >> boldRedSelection [
 			[#() asOrderedCollection]
 ]
 
-{ #category : #updating }
+{ #category : 'updating' }
 TamBrowser >> boundsOf: oneOfMyMorphs updatedWith: newBounds [ 
 	oneOfMyMorphs == listMorph 
 		ifTrue: [self class taxonomyListWidth: newBounds width]
 ]
 
-{ #category : #'button actions' }
+{ #category : 'button actions' }
 TamBrowser >> browseCurrentSelection [
 	self getCurrentSelection notNil
 		ifTrue: [^ self browseSelection: self getCurrentSelection].
 
 ]
 
-{ #category : #'button actions' }
+{ #category : 'button actions' }
 TamBrowser >> browseSelection: aWrapper [	^ aWrapper withoutListWrapper menuBrowse
 ]
 
-{ #category : #'ui building' }
+{ #category : 'ui building' }
 TamBrowser >> buildMainWindow [	
 	mainWindow := (StandardWindow labelled: self mainWindowLabel)
 	model: self.
@@ -354,11 +356,11 @@ TamBrowser >> buildMainWindow [
 	^ mainWindow
 ]
 
-{ #category : #menus }
+{ #category : 'menus' }
 TamBrowser >> buildMenuBrowseSelection: aMenu [ 	^ self genericMenu: aMenu selector: #browseSelection: recursive: true
 ]
 
-{ #category : #menus }
+{ #category : 'menus' }
 TamBrowser >> buildMenuRemoveSelection: aMenu [ 
 	self 
 		genericMenu: aMenu
@@ -375,7 +377,7 @@ TamBrowser >> buildMenuRemoveSelection: aMenu [
 	^aMenu
 ]
 
-{ #category : #menus }
+{ #category : 'menus' }
 TamBrowser >> buildMenuSelection: aMenu [ 
 	^ self
 		genericMenu: aMenu
@@ -383,21 +385,21 @@ TamBrowser >> buildMenuSelection: aMenu [
 		recursive: true
 ]
 
-{ #category : #'ui building' }
+{ #category : 'ui building' }
 TamBrowser >> buildWindow: aWindow [ 	
 	^ self
 		buildWindow: aWindow
 		insideManager: nil
 ]
 
-{ #category : #'ui building' }
+{ #category : 'ui building' }
 TamBrowser >> buildWindow: aWindow direction: toRightOrToLeft [ 
 	^ self
 		buildWindow: aWindow
 		insideManager: nil
 ]
 
-{ #category : #'ui building' }
+{ #category : 'ui building' }
 TamBrowser >> buildWindow: aWindow insideManager: aManager [
 	| listBtnRowFrame listMorphFrame editorRowFrame listAndEvalPaneMorphFrame listAndEvalPaneMorph leftDelta topFrame topRowHeight |
 	topRowHeight := listBtnRowHeight + 2.
@@ -450,12 +452,12 @@ TamBrowser >> buildWindow: aWindow insideManager: aManager [
 	^ mainWindow
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TamBrowser >> buttonExtent [
 	^manager ifNil: [self class buttonExtent] ifNotNil: [manager buttonExtent]
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 TamBrowser >> canCollapseAll [
 	| topSubmorphs |
 	^ (topSubmorphs := self listMorph scroller submorphs) size > 2
@@ -463,57 +465,57 @@ TamBrowser >> canCollapseAll [
 						anySatisfy: [:sm | sm isExpanded]]
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 TamBrowser >> canInsertNewReference [
 	^true
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 TamBrowser >> canMoveDownCurrentSelection [
 	^ self haveCurrentSelection
 		and: [self unwrappedSelection canBeMovedDown]
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 TamBrowser >> canMoveUpCurrentSelection [
 	^ self haveCurrentSelection
 		and: [self unwrappedSelection canBeMovedUp]
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 TamBrowser >> canRemoveItem [
 	^self rootWrapperIsSet 
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 TamBrowser >> canSearchItemByName [
 	^self rootWrapperIsSet or: [manager notNil ]
 	
 ]
 
-{ #category : #'history-handling' }
+{ #category : 'history-handling' }
 TamBrowser >> canSelectHistoryNext [
 	^ self rootWrapperIsSet and: [self getHistory canSelectNext]
 ]
 
-{ #category : #'history-handling' }
+{ #category : 'history-handling' }
 TamBrowser >> canSelectHistoryPrev [
 	^ self rootWrapperIsSet and: [self getHistory canSelectPrev]
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 TamBrowser >> canSelectUpLevel [
 	| |
 	^ self getCurrentSelection notNil
 				and: [self getCurrentSelection withoutListWrapper hierarchyLevel > 1]
 ]
 
-{ #category : #'history-handling' }
+{ #category : 'history-handling' }
 TamBrowser >> canShowRecents [
 	^ self rootWrapperIsSet and: [self getHistory canShowRecents]
 ]
 
-{ #category : #updating }
+{ #category : 'updating' }
 TamBrowser >> checkAndClean [
 	self checkAndCleanEditorsIndex.
 	self getHistory checkAndClean.
@@ -525,7 +527,7 @@ TamBrowser >> checkAndClean [
 				ifTrue: [w delete]]
 ]
 
-{ #category : #updating }
+{ #category : 'updating' }
 TamBrowser >> checkAndCleanAfterClassRemoval [
 	self getCurrentSelection
 		ifNotNil: [(self getCurrentSelection isReleased or: [self getCurrentSelection withoutListWrapper isReleased])
@@ -534,7 +536,7 @@ TamBrowser >> checkAndCleanAfterClassRemoval [
 	self getHistory checkAndClean
 ]
 
-{ #category : #updating }
+{ #category : 'updating' }
 TamBrowser >> checkAndCleanEditorsIndex [
 	^ editorsIndex
 		ifNotNil: [editorsIndex
@@ -542,34 +544,34 @@ TamBrowser >> checkAndCleanEditorsIndex [
 						and: [k isReleased]]]
 ]
 
-{ #category : #updating }
+{ #category : 'updating' }
 TamBrowser >> collapseAll [
 	self okToChange
 		ifTrue: [self listMorph collapseAll.
 			]
 ]
 
-{ #category : #updating }
+{ #category : 'updating' }
 TamBrowser >> collapseItem: aMorph [ 
 	^ super collapseItem: aMorph
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TamBrowser >> copyPasteBuffer [
 	^ TamManager copyPasteBuffer
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TamBrowser >> copyPasteBuffer: aSet [ 
 	TamManager copyPasteBuffer: aSet
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TamBrowser >> copyPasteBufferList [
 	^ TamManager copyPasteBufferList
 ]
 
-{ #category : #'copy/paste' }
+{ #category : 'copy/paste' }
 TamBrowser >> copySelection [
 	self rootWrapper
 		ifNotNil: [
@@ -577,16 +579,16 @@ TamBrowser >> copySelection [
 				
 ]
 
-{ #category : #'copy/paste' }
+{ #category : 'copy/paste' }
 TamBrowser >> copySelection: aCollection [ 
 	TamManager copySelection: aCollection 
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TamBrowser >> currentlyExpanded [	^ listMorph currentlyExpanded
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TamBrowser >> currentlyExpanded: aCollection [ 
 	| morphList |
 	listMorph scroller removeAllMorphs.
@@ -601,12 +603,12 @@ TamBrowser >> currentlyExpanded: aCollection [
 	listMorph insertNewMorphs: morphList
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TamBrowser >> defaultBackgroundColor [
 	^Tamaris preferedWindowColor
 ]
 
-{ #category : #'initialize/release' }
+{ #category : 'initialize/release' }
 TamBrowser >> destroy [
 	self noteNewSelection: nil.
 	self destroyAllEditors.
@@ -641,13 +643,13 @@ TamBrowser >> destroy [
 	super destroy
 ]
 
-{ #category : #'initialize/release' }
+{ #category : 'initialize/release' }
 TamBrowser >> destroyAllEditors [
 	 editorsIndex ifNotNil: 
 			[ editorsIndex copy keysAndValuesDo: [:k :v | self destroyEditorFor: k]]
 ]
 
-{ #category : #'initialize/release' }
+{ #category : 'initialize/release' }
 TamBrowser >> destroyAllEditors: editorsList [
 	 editorsIndex
 		ifNotNil: [ editorsIndex copy
@@ -655,7 +657,7 @@ TamBrowser >> destroyAllEditors: editorsList [
 						ifTrue: [self destroyEditorFor: k]]]
 ]
 
-{ #category : #'initialize/release' }
+{ #category : 'initialize/release' }
 TamBrowser >> destroyAllEditorsExceptFor: aReferenceList [ 
 	 editorsIndex ifNotNil: 
 			[ editorsIndex copy keysAndValuesDo: 
@@ -663,7 +665,7 @@ TamBrowser >> destroyAllEditorsExceptFor: aReferenceList [
 					(aReferenceList includes: k) ifFalse: [self destroyEditorFor: k]]]
 ]
 
-{ #category : #'initialize/release' }
+{ #category : 'initialize/release' }
 TamBrowser >> destroyAllEditorsSuchThat: aBlock [ 
 	 editorsIndex
 		ifNotNil: [ editorsIndex copy
@@ -672,7 +674,7 @@ TamBrowser >> destroyAllEditorsSuchThat: aBlock [
 							self destroyEditorFor: k]]]
 ]
 
-{ #category : #updating }
+{ #category : 'updating' }
 TamBrowser >> destroyEditorFor: aReference [ 
 	| editor |
 	 editorsIndex
@@ -691,55 +693,55 @@ TamBrowser >> destroyEditorFor: aReference [
 					 editorsIndex removeKey: aReference]]
 ]
 
-{ #category : #updating }
+{ #category : 'updating' }
 TamBrowser >> destroyNotSelectedEditorFor: aReference [ 
 	self unwrappedSelection ~= aReference
 		ifTrue: [self destroyEditorFor: aReference. ^ true].
 	^ false
 ]
 
-{ #category : #'drag and drop' }
+{ #category : 'drag and drop' }
 TamBrowser >> dragPassengerFor: item inMorph: dragSource [ 
 	^ item complexContents withoutListWrapper
 ]
 
-{ #category : #'drag and drop' }
+{ #category : 'drag and drop' }
 TamBrowser >> dragTransferTypeForMorph: aMorph [ 
 	^ #tamaris
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TamBrowser >> editor [
 	^self editorRow ifNotNil: [self editorRow findA: TamListItemReferenceUtil subWindowClass ]
 ]
 
-{ #category : #'ui building' }
+{ #category : 'ui building' }
 TamBrowser >> editor: anEditor for: aReference [ 
 	anEditor
 		ifNotNil: [ editorsIndex at: aReference put: anEditor]
 ]
 
-{ #category : #'ui building' }
+{ #category : 'ui building' }
 TamBrowser >> editorFor: aReference [ 
 	^  editorsIndex ifNotNil: [ editorsIndex
 		at: aReference
 		ifAbsent: []]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TamBrowser >> editorModel [	^ self editor		ifNotNil: [self editor model]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TamBrowser >> editorRow [	^ editorRow
 ]
 
-{ #category : #updating }
+{ #category : 'updating' }
 TamBrowser >> expandItem: aMorph [ 
 	^ super expandItem: aMorph
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TamBrowser >> expandedItems [
 	| l |
 	l := self rootTaxon managerItem ifNotNil: [self rootTaxon managerItem currentlyExpanded].
@@ -747,7 +749,7 @@ TamBrowser >> expandedItems [
 		ifNil: [OrderedCollection new]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TamBrowser >> expandedItems: aCollection [ 
 	| item |
 	self rootTaxon ifNotNil: [
@@ -756,17 +758,17 @@ TamBrowser >> expandedItems: aCollection [
 			item currentSelection: self unwrappedSelection]]
 ]
 
-{ #category : #updating }
+{ #category : 'updating' }
 TamBrowser >> freeze [
 	self takeExpandedItems.
 
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TamBrowser >> fullPathAsStringFor: aWrapperOrReference [ 	^ aWrapperOrReference fullPathAsString.
 ]
 
-{ #category : #menus }
+{ #category : 'menus' }
 TamBrowser >> genericMenu: aMenu selector: aSelector conditionBlock: aBlock recursive: aBoolean [ 
 	self rootWrapper contents do: 
 			[:c | 
@@ -779,19 +781,19 @@ TamBrowser >> genericMenu: aMenu selector: aSelector conditionBlock: aBlock recu
 	^aMenu
 ]
 
-{ #category : #menus }
+{ #category : 'menus' }
 TamBrowser >> genericMenu: aMenu selector: aSelector recursive: aBoolean [ 
 	^ self genericMenu: aMenu selector: aSelector conditionBlock: [:r| true] recursive: aBoolean 
 
 ]
 
-{ #category : #'history-handling' }
+{ #category : 'history-handling' }
 TamBrowser >> getHistory [
 	^ TamBrowserHistoryList historyListFor: self
 
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TamBrowser >> getList [
 	rootWrapper withoutListWrapper
 		ifNotNil: [rootWrapper withoutListWrapper isReleased
@@ -803,29 +805,29 @@ TamBrowser >> getList [
 		ifFalse: [rootWrapper contents]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TamBrowser >> getRecentsInputContent [
 	^self unwrappedSelection ifNil: ['']
 		ifNotNil: [self unwrappedSelection shortName]
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 TamBrowser >> hasUnacceptedEdits [
 	^ self editorModel notNil and: [self editorModel hasUnacceptedEdits]
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 TamBrowser >> haveCurrentSelection [
 	^ self getCurrentSelection notNil
 	
 ]
 
-{ #category : #'ui building' }
+{ #category : 'ui building' }
 TamBrowser >> haveEditorFor: aReference [ 
 	^( editorsIndex at: aReference ifAbsent: []) notNil
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TamBrowser >> haveUnaccepted [
 	editorsIndex
 		keysAndValuesDo: [:k :v | v model
@@ -835,51 +837,51 @@ TamBrowser >> haveUnaccepted [
 	^ false
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TamBrowser >> hierarchicalListMorphClass [
 	^ Smalltalk
 		at: #TamHierarchicalListMorph
 		ifAbsent: [SimpleHierarchicalListMorph]
 ]
 
-{ #category : #'history-handling' }
+{ #category : 'history-handling' }
 TamBrowser >> historyAddItem: aListItemReference [ 
 	self getHistory 
 		addItem: (TamBrowserHistoryItem listItemReference: aListItemReference)
 ]
 
-{ #category : #'history-handling' }
+{ #category : 'history-handling' }
 TamBrowser >> historyItem [
 	^ self getCurrentSelection notNil
 		ifTrue: [TamBrowserHistoryItem listItemReference: self getCurrentSelection]
 ]
 
-{ #category : #'history-handling' }
+{ #category : 'history-handling' }
 TamBrowser >> historyNext [
 	self okToChange
 		ifTrue: [self getHistory selectNext.
 			]
 ]
 
-{ #category : #'history-handling' }
+{ #category : 'history-handling' }
 TamBrowser >> historyPrev [
 	self okToChange
 		ifTrue: [self getHistory selectPrev.
 			]
 ]
 
-{ #category : #'history-handling' }
+{ #category : 'history-handling' }
 TamBrowser >> historyRecents [
 	self getHistory selectFromRecentsList.
 	
 ]
 
-{ #category : #'ui building' }
+{ #category : 'ui building' }
 TamBrowser >> initialExtent [	
 	^ self class initialExtent
 ]
 
-{ #category : #'initialize/release' }
+{ #category : 'initialize/release' }
 TamBrowser >> initialize [
 	super initialize.
 	listBtnRowHeight := self buttonExtent y + 4.
@@ -887,19 +889,19 @@ TamBrowser >> initialize [
 	editorsIndex := WeakIdentityKeyDictionary new
 ]
 
-{ #category : #'history-handling' }
+{ #category : 'history-handling' }
 TamBrowser >> isBrowserHistoryItemValid: anHistoryItem [ 
 	^ anHistoryItem listItemReference  isReleasedOrHaveReleasedOwner not
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 TamBrowser >> isReleased [
 	^ editorsIndex isNil.
 
 
 ]
 
-{ #category : #menus }
+{ #category : 'menus' }
 TamBrowser >> keyStroke: aCharacter from: tamuggableListMorph [ 
 	aCharacter = $f
 		ifTrue: [^ self menuSearch].
@@ -915,7 +917,7 @@ TamBrowser >> keyStroke: aCharacter from: tamuggableListMorph [
 		ifTrue: [^ self unwrappedSelection keyStroke: aCharacter from: tamuggableListMorph]
 ]
 
-{ #category : #'subframes building' }
+{ #category : 'subframes building' }
 TamBrowser >> listAndWorkspacePaneMorphsFrameInsideManager: aManager direction: toRightOrToLeft [ 
 	^ toRightOrToLeft == #toRight
 		ifTrue: [LayoutFrame identity rightFraction: 0;
@@ -923,19 +925,19 @@ TamBrowser >> listAndWorkspacePaneMorphsFrameInsideManager: aManager direction: 
 		ifFalse: [LayoutFrame identity leftFraction: 1; leftOffset: self taxonomyListWidth negated ]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TamBrowser >> listBtnRow [	^listBtnRow
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TamBrowser >> listButtons [	^ listButtons
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TamBrowser >> listMorph [ 	^ listMorph
 ]
 
-{ #category : #'button actions' }
+{ #category : 'button actions' }
 TamBrowser >> localSearchListItemByName [
 	| pattern |
 	pattern := UIManager default request: 'item name or fragment?' translated.
@@ -944,7 +946,7 @@ TamBrowser >> localSearchListItemByName [
 	^ self localSearchListItemFromFragment: pattern
 ]
 
-{ #category : #'button actions' }
+{ #category : 'button actions' }
 TamBrowser >> localSearchListItemFromFragment: aFragment [ 
 	| toMatch founds target parents |
 	toMatch := aFragment asLowercase.
@@ -968,24 +970,24 @@ TamBrowser >> localSearchListItemFromFragment: aFragment [
 		client: self
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TamBrowser >> mainWindow [	^mainWindow
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TamBrowser >> mainWindow: aWindow [	mainWindow := aWindow
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TamBrowser >> mainWindowLabel [	
 	^ self class name , ' on: ' , self rootWrapper asString
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TamBrowser >> manager [	^ manager
 ]
 
-{ #category : #menus }
+{ #category : 'menus' }
 TamBrowser >> menu: menu shifted: b [ 
 	"Set up the menu to apply to the receiver's, honoring the #shifted  
 	boolean"
@@ -996,39 +998,39 @@ TamBrowser >> menu: menu shifted: b [
 	^ menu
 ]
 
-{ #category : #menus }
+{ #category : 'menus' }
 TamBrowser >> menuClearHistory [
 	self getHistory clearHistory.
 	self changed
 ]
 
-{ #category : #'history-handling' }
+{ #category : 'history-handling' }
 TamBrowser >> menuHistoryNextList: aMenu [ 
 	^ aMenu
 ]
 
-{ #category : #'history-handling' }
+{ #category : 'history-handling' }
 TamBrowser >> menuHistoryPrevList: aMenu [ 
 	^ aMenu
 ]
 
-{ #category : #menus }
+{ #category : 'menus' }
 TamBrowser >> menuNewReferenceFrom: aReference Into: aMenu [
 	aReference menuAddReferenceInto: aMenu.
 	aMenu addTitle: 'add reference on ...'.
 	^ aMenu
 ]
 
-{ #category : #'history-handling' }
+{ #category : 'history-handling' }
 TamBrowser >> menuRecentsList [
 	self getHistory selectFromRecentsList
 ]
 
-{ #category : #menus }
+{ #category : 'menus' }
 TamBrowser >> menuSearch [	self searchListItemByName
 ]
 
-{ #category : #menus }
+{ #category : 'menus' }
 TamBrowser >> menuSelectUpLevel: aMenu [ 
 	| owner |
 	owner := self unwrappedSelection owner.
@@ -1042,7 +1044,7 @@ TamBrowser >> menuSelectUpLevel: aMenu [
 	^aMenu
 ]
 
-{ #category : #menus }
+{ #category : 'menus' }
 TamBrowser >> menuUpLevelCurrentSelection: aMenu [ 
 	| owner |
 	owner := self unwrappedSelection owner.
@@ -1056,20 +1058,20 @@ TamBrowser >> menuUpLevelCurrentSelection: aMenu [
 	^aMenu
 ]
 
-{ #category : #'ui building' }
+{ #category : 'ui building' }
 TamBrowser >> modelEditor: anEditor for: aReference [ 
 	anEditor
 		ifNotNil: [ editorsIndex at: aReference put: anEditor]
 ]
 
-{ #category : #'ui opening/closing' }
+{ #category : 'ui opening/closing' }
 TamBrowser >> modelWakeUpIn: aMorph [ 
 	TamManager addDependent: self.
 	super modelWakeUpIn: aMorph.
 	self changed
 ]
 
-{ #category : #'button actions' }
+{ #category : 'button actions' }
 TamBrowser >> moveDownCurrentSelection [
 	| curr |
 	curr := self unwrappedSelection.
@@ -1077,7 +1079,7 @@ TamBrowser >> moveDownCurrentSelection [
 		ifTrue: [curr owner moveDownReference: curr]
 ]
 
-{ #category : #'button actions' }
+{ #category : 'button actions' }
 TamBrowser >> moveUpCurrentSelection [
 	| curr |
 	curr := self unwrappedSelection.
@@ -1085,7 +1087,7 @@ TamBrowser >> moveUpCurrentSelection [
 		ifTrue: [curr owner moveUpReference: curr]
 ]
 
-{ #category : #'button actions' }
+{ #category : 'button actions' }
 TamBrowser >> newReference [
 	| menu |
 	(self unwrappedSelection respondsTo: #menuAddReference) 
@@ -1100,19 +1102,19 @@ TamBrowser >> newReference [
 	menu invokeModal]
 ]
 
-{ #category : #'button actions' }
+{ #category : 'button actions' }
 TamBrowser >> noSearchMatchFound [
 	self inform: 'no item found'.
 	^ nil
 ]
 
-{ #category : #updating }
+{ #category : 'updating' }
 TamBrowser >> noteNewSelection: aWrapper [ 
 	(self okToChange and: [self rootWrapper notNil])
 		ifTrue: [self noteNewSelectionFromWrapper: (self wrapperOf: aWrapper)]
 ]
 
-{ #category : #updating }
+{ #category : 'updating' }
 TamBrowser >> noteNewSelection: aWrapper currentlyExpanded: aCollection [ 
 	self okToChange
 		ifTrue: [
@@ -1122,7 +1124,7 @@ TamBrowser >> noteNewSelection: aWrapper currentlyExpanded: aCollection [
 						noteNewSelectionFromWrapper: (self wrapperOf: aWrapper)]]
 ]
 
-{ #category : #updating }
+{ #category : 'updating' }
 TamBrowser >> noteNewSelectionDeeply: aWrapper [ 
 	| path pathMorph relatedWrapper adjustIt |
 	adjustIt := false.
@@ -1154,11 +1156,11 @@ TamBrowser >> noteNewSelectionDeeply: aWrapper [
 	^ true
 ]
 
-{ #category : #updating }
+{ #category : 'updating' }
 TamBrowser >> noteNewSelectionDeeplyAndCollapse: aWrapper [ 	self okToChange		ifTrue: [self noteNewSelectionDeeply: aWrapper.			listMorph expandOrCollapseCurrentMorph]
 ]
 
-{ #category : #updating }
+{ #category : 'updating' }
 TamBrowser >> noteNewSelectionFromWrapper: aWrapper [ 
 	(self okToChange
 			and: [self rootWrapper notNil])
@@ -1166,14 +1168,14 @@ TamBrowser >> noteNewSelectionFromWrapper: aWrapper [
 			super noteNewSelection: aWrapper]
 ]
 
-{ #category : #updating }
+{ #category : 'updating' }
 TamBrowser >> noteNewSelectionSilently: aWrapper [ 
 	self okToChange
 		ifTrue: [super
 				noteNewSelection: (self wrapperOf: aWrapper)]
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 TamBrowser >> okToChange [
 	| okForEditor result |
 	okForEditor := self editorModel
@@ -1188,11 +1190,11 @@ TamBrowser >> okToChange [
 	^ result
 ]
 
-{ #category : #'ui building' }
+{ #category : 'ui building' }
 TamBrowser >> openAsMorph [	^ self buildMainWindow openInWorld	
 ]
 
-{ #category : #'copy/paste' }
+{ #category : 'copy/paste' }
 TamBrowser >> pasteSelection [
 	| trs whereToPaste |
 	whereToPaste := self unwrappedSelection
@@ -1203,12 +1205,12 @@ TamBrowser >> pasteSelection [
 			whereToPaste acceptDroppingMorph: trs copy: true]
 ]
 
-{ #category : #'history-handling' }
+{ #category : 'history-handling' }
 TamBrowser >> recents [
 	^ self getHistory recents collect: [:wrapper | wrapper listItemReference]
 ]
 
-{ #category : #'button actions' }
+{ #category : 'button actions' }
 TamBrowser >> recentsListPopup [
 	| index choice recentsItems usedRecents |
 	self recents isEmpty
@@ -1223,7 +1225,7 @@ TamBrowser >> recentsListPopup [
 						noteNewSelectionDeeply: (choice linked wrapperClass with: choice linked model: nil)]]
 ]
 
-{ #category : #'history-handling' }
+{ #category : 'history-handling' }
 TamBrowser >> recentsTree [
 	| aghl |
 	aghl := self class
@@ -1243,7 +1245,7 @@ TamBrowser >> recentsTree [
 	^ aghl
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TamBrowser >> referencesWithUnacceptedEdits [
 	| unaccepted |
 	unaccepted := OrderedCollection new.
@@ -1254,20 +1256,20 @@ TamBrowser >> referencesWithUnacceptedEdits [
 	^ unaccepted
 ]
 
-{ #category : #updating }
+{ #category : 'updating' }
 TamBrowser >> reinitializeAnnounce: anAnnounce [
 	self isReleased ifTrue: [^self ].
 	self reinitializeFrom: anAnnounce itemReference
 
 ]
 
-{ #category : #'button actions' }
+{ #category : 'button actions' }
 TamBrowser >> reinitializeCurrentSelectionEditor [
 	self getCurrentSelection notNil
 		ifTrue: [^ self unwrappedSelection reinitializeEditor]
 ]
 
-{ #category : #updating }
+{ #category : 'updating' }
 TamBrowser >> reinitializeFrom: aTamListItemReference [
 	(self editorModel isNil or: [self editorModel okToChange])
 		ifTrue: [
@@ -1277,7 +1279,7 @@ TamBrowser >> reinitializeFrom: aTamListItemReference [
 					self noteNewSelection: aTamListItemReference]]
 ]
 
-{ #category : #updating }
+{ #category : 'updating' }
 TamBrowser >> reloadEditorFor: aReference [ 
 	self unwrappedSelection = aReference
 		ifTrue: [self noteNewSelection: nil.
@@ -1285,12 +1287,12 @@ TamBrowser >> reloadEditorFor: aReference [
 			self noteNewSelection: aReference]
 ]
 
-{ #category : #menus }
+{ #category : 'menus' }
 TamBrowser >> rememberWindowSize [
 	self class initialExtent: mainWindow bounds extent
 ]
 
-{ #category : #'button actions' }
+{ #category : 'button actions' }
 TamBrowser >> removeAllSelected [
 	self rootWrapper
 		ifNotNil: [(self confirm: 'remove all selected items ?' translated)
@@ -1302,7 +1304,7 @@ TamBrowser >> removeAllSelected [
 					self noteNewSelection: nil]]
 ]
 
-{ #category : #'button actions' }
+{ #category : 'button actions' }
 TamBrowser >> removeCurrentSelection [
 	| menu |
 	self rootWrapper
@@ -1323,7 +1325,7 @@ TamBrowser >> removeCurrentSelection [
 		ifNotNil: [menu popUpInWorld]
 ]
 
-{ #category : #'button actions' }
+{ #category : 'button actions' }
 TamBrowser >> removeSelection: aWrapper [ 
 	| currItem |
 	aWrapper withoutListWrapper menuDelete 
@@ -1334,7 +1336,7 @@ TamBrowser >> removeSelection: aWrapper [
 				ifNotNil: [self noteNewSelection: currItem listItemReference]]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TamBrowser >> removeSpecificButtons [
 	| buttons |
 	buttons := self specificButtonsAlignment submorphs.
@@ -1342,21 +1344,21 @@ TamBrowser >> removeSpecificButtons [
 	buttons do: [:btn | btn destroy]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TamBrowser >> removeableSelection [
 	^(self boldRedSelection, self boldBlueSelection) select: [:item | item isRemoveable]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TamBrowser >> rootTaxon [
 	^ self rootWrapper withoutListWrapper
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TamBrowser >> rootWrapper [	^ rootWrapper
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TamBrowser >> rootWrapper: aWrapper [ 
 	rootWrapper ifNotNil: [rootWrapper destroy].
 	(rootWrapper := aWrapper) ifNil: 
@@ -1364,25 +1366,25 @@ TamBrowser >> rootWrapper: aWrapper [
 			self changed: #getList]
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 TamBrowser >> rootWrapperIsSet [
 	^ self rootWrapper notNil
 ]
 
-{ #category : #'button actions' }
+{ #category : 'button actions' }
 TamBrowser >> searchListItemByName [
 	self rootWrapperIsSet 
 		ifFalse: [^manager ifNotNil: [manager  globalSearchListItemByName]].
 	^self localSearchListItemByName
 ]
 
-{ #category : #'button actions' }
+{ #category : 'button actions' }
 TamBrowser >> selectUpLevel [
 	listMorph selectedMorph
 		ifNotNil: [self noteNewSelection: self unwrappedSelection owner]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TamBrowser >> selection [
 	(self boldBlueSelection)
 				ifNotEmpty: [:selSet | ^ selSet asArray].
@@ -1391,7 +1393,7 @@ TamBrowser >> selection [
 	^ #()
 ]
 
-{ #category : #'history-handling' }
+{ #category : 'history-handling' }
 TamBrowser >> setFromBrowserHistoryItem: anHistoryItem [ 
 	| target |
 	target := 
@@ -1399,38 +1401,38 @@ TamBrowser >> setFromBrowserHistoryItem: anHistoryItem [
 	^target noteNewSelectionDeeply: anHistoryItem listItemReference
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TamBrowser >> specificButtonsAlignment [
 	^specificButtonsAlignment
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TamBrowser >> specificButtonsAlignment: aButtonsAlignment [ 
 	(specificButtonsAlignment := aButtonsAlignment) 
 
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 TamBrowser >> takeEvent: anEvent [
 	^ true
 ]
 
-{ #category : #updating }
+{ #category : 'updating' }
 TamBrowser >> takeExpandedItems [
 	self expandedItems: self currentlyExpanded
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TamBrowser >> taxonomyBrowser [
 	^ self
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TamBrowser >> taxonomyListWidth [
 	^self class taxonomyListWidth
 ]
 
-{ #category : #'button actions' }
+{ #category : 'button actions' }
 TamBrowser >> unacceptedList [
 	| index choice recentsItems list target |
 	(list := self referencesWithUnacceptedEdits) isEmpty
@@ -1446,18 +1448,18 @@ TamBrowser >> unacceptedList [
 						noteNewSelectionDeeply: (choice linked wrapperClass with: choice linked model: nil)]]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TamBrowser >> unwrappedSelection [	^ self getCurrentSelection ifNotNil: [self getCurrentSelection withoutListWrapper]
 ]
 
-{ #category : #'button actions' }
+{ #category : 'button actions' }
 TamBrowser >> upLevelCurrentSelection [
 	self selectUpLevel.
 	
 	listMorph toggleExpandedState: listMorph selectedMorph
 ]
 
-{ #category : #updating }
+{ #category : 'updating' }
 TamBrowser >> update: aSymbol [ 
 	aSymbol isTamListItemReference
 		ifTrue: [aSymbol isReleasedOrHaveReleasedOwner
@@ -1474,7 +1476,7 @@ TamBrowser >> update: aSymbol [
 	super update: aSymbol
 ]
 
-{ #category : #updating }
+{ #category : 'updating' }
 TamBrowser >> updateCodeRowFor: aWrapper [ 
 	(currentSelection notNil and: [	currentSelection isReleased not])
 		ifTrue: [currentSelection unSelectingFrom: self].
@@ -1482,19 +1484,19 @@ TamBrowser >> updateCodeRowFor: aWrapper [
 		ifTrue: [aWrapper selectingFrom: self]
 ]
 
-{ #category : #updating }
+{ #category : 'updating' }
 TamBrowser >> updateTree [
 	^ self changed: #getList.
 
 ]
 
-{ #category : #updating }
+{ #category : 'updating' }
 TamBrowser >> updateTree: anAnnounce [
 	^ self updateTree
 
 ]
 
-{ #category : #'drag and drop' }
+{ #category : 'drag and drop' }
 TamBrowser >> wantsDroppedMorph: transferMorph event: anEvent inMorph: destinationLM [ 
 	^ TamManager
 		wantsDroppedMorph: transferMorph
@@ -1502,13 +1504,13 @@ TamBrowser >> wantsDroppedMorph: transferMorph event: anEvent inMorph: destinati
 		inMorph: destinationLM
 ]
 
-{ #category : #'ui opening/closing' }
+{ #category : 'ui opening/closing' }
 TamBrowser >> windowIsClosing [
 	self destroy.
 	super windowIsClosing
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TamBrowser >> wrapperOf: aReferenceOrAWrapper [ 
 	(aReferenceOrAWrapper isKindOf: TamListItemReference)
 		ifTrue: [^ aReferenceOrAWrapper linked wrapperClass with: aReferenceOrAWrapper linked model: nil]

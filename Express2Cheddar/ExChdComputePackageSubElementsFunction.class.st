@@ -33,8 +33,8 @@ END_FUNCTION;
 </ISO10303-11-EXPRESS>
 "
 Class {
-	#name : #ExChdComputePackageSubElementsFunction,
-	#superclass : #PlatypusCoreAlgorithmDeclaration,
+	#name : 'ExChdComputePackageSubElementsFunction',
+	#superclass : 'PlatypusCoreAlgorithmDeclaration',
 	#instVars : [
 		'e',
 		'result',
@@ -42,45 +42,47 @@ Class {
 		'records',
 		'discrims'
 	],
-	#category : #'Express2Cheddar-CheddarDtdSchema'
+	#category : 'Express2Cheddar-CheddarDtdSchema',
+	#package : 'Express2Cheddar',
+	#tag : 'CheddarDtdSchema'
 }
 
-{ #category : #'platypus-generated-platypus-signature' }
+{ #category : 'platypus-generated-platypus-signature' }
 ExChdComputePackageSubElementsFunction class >> iso10303P11Translater [
 	^ 'Platypus (c) LISYC EA3883, Universite de Bretagne occidentale. Brest.'
 
 
 ]
 
-{ #category : #'platypus-generated-meta-data-accessing' }
+{ #category : 'platypus-generated-meta-data-accessing' }
 ExChdComputePackageSubElementsFunction class >> schemaDefinition [
 	^ ExChdCheddarDtdSchemaDefinition singleton
 
 
 ]
 
-{ #category : #'platypus-generated-platypus-signature' }
+{ #category : 'platypus-generated-platypus-signature' }
 ExChdComputePackageSubElementsFunction class >> translatedFromISO10303P11 [
 	^ true
 
 
 ]
 
-{ #category : #'platypus-generated-platypus-signature' }
+{ #category : 'platypus-generated-platypus-signature' }
 ExChdComputePackageSubElementsFunction class >> vwNamespaceName [
 	^ #Express2Cheddar
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdComputePackageSubElementsFunction >> classes [
 	^ classes
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdComputePackageSubElementsFunction >> classes: aListOfExChdAdaEntity [
 	classes := aListOfExChdAdaEntity
 		ifNil: [ OrderedCollection new ]
@@ -89,14 +91,14 @@ ExChdComputePackageSubElementsFunction >> classes: aListOfExChdAdaEntity [
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdComputePackageSubElementsFunction >> discrims [
 	^ discrims
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdComputePackageSubElementsFunction >> discrims: aListOfExChdDiscriminatedType [
 	discrims := aListOfExChdDiscriminatedType
 		ifNil: [ OrderedCollection new ]
@@ -105,28 +107,28 @@ ExChdComputePackageSubElementsFunction >> discrims: aListOfExChdDiscriminatedTyp
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdComputePackageSubElementsFunction >> e [
 	^ e
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdComputePackageSubElementsFunction >> e: aExChdPackageDtdElement [
 	e := aExChdPackageDtdElement
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdComputePackageSubElementsFunction >> fromValues: values [
 	self e: (values at: 1)
 
 
 ]
 
-{ #category : #'platypus-generated-invoking' }
+{ #category : 'platypus-generated-invoking' }
 ExChdComputePackageSubElementsFunction >> invoke [
 	" ---------- locals assignments ----------"
 
@@ -313,14 +315,14 @@ ExChdComputePackageSubElementsFunction >> invoke [
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdComputePackageSubElementsFunction >> records [
 	^ records
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdComputePackageSubElementsFunction >> records: aListOfExChdAdaEntity1 [
 	records := aListOfExChdAdaEntity1
 		ifNil: [ OrderedCollection new ]
@@ -329,14 +331,14 @@ ExChdComputePackageSubElementsFunction >> records: aListOfExChdAdaEntity1 [
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdComputePackageSubElementsFunction >> result [
 	^ result
 
 
 ]
 
-{ #category : #'platypus-generated-accessing' }
+{ #category : 'platypus-generated-accessing' }
 ExChdComputePackageSubElementsFunction >> result: aListOfExChdDtdElement [
 	result := aListOfExChdDtdElement
 		ifNil: [ OrderedCollection new ]
