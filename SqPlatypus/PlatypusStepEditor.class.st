@@ -4,42 +4,6 @@ Class {
 	#category : #'SqPlatypus-HW-System-Text'
 }
 
-{ #category : #'class initialization' }
-PlatypusStepEditor class >> initialize [ 
-	"Initialize the keyboard shortcut maps and the shared buffers
-	for copying text across views and managing again and undo." 
- 
-	"
-	self initialize
-	" 
-
-	self initializeCmdKeyShortcuts.
-	self initializeShiftCmdKeyShortcuts.
-
-]
-
-{ #category : #'keyboard shortcut tables' }
-PlatypusStepEditor class >> initializeCmdKeyShortcuts [
-	"Initialize the (unshifted) command-key (or alt-key) shortcut table."
-
-
-
-	"
-	self initialize
-	"
-
-	| cmds |
-	self initializeBasicCmdKeyShortcuts.
-			
-	'0123456789-=' 
-		do: [:char | cmdActions at: char asciiValue + 1 put: #changeEmphasis:].
-	
-	cmds := #($k #offerFontMenu: $u #align:  $q #querySymbol: ).
-	1 to: cmds size
-		by: 2
-		do: [:i | self cmdActions at: (cmds at: i) asciiValue + 1 put: (cmds at: i + 1)]
-]
-
 { #category : #accessing }
 PlatypusStepEditor >> editingStateClass [
 	^ PlatypusEditingState
