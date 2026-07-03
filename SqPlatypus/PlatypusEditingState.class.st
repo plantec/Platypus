@@ -1,6 +1,6 @@
 Class {
 	#name : #PlatypusEditingState,
-	#superclass : #EditingState,
+	#superclass : #RubEditingState,
 	#instVars : [
 		'selectorChooser',
 		'replaceAtEnd'
@@ -87,7 +87,7 @@ PlatypusEditingState >> mouseDown: anEvent from: aTextMorph [
 
 { #category : #chooser }
 PlatypusEditingState >> querySymbolFrom: aTextMorph [
-	| sel pref caret nextPref | 
+	| sel pref | 
 	sel := aTextMorph editor selectionInterval.
 	aTextMorph editor hasSelection
 		ifFalse: [aTextMorph editor selectPrecedingIdentifier].
