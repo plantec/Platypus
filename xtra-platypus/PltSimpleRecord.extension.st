@@ -1,48 +1,48 @@
-Extension { #name : #PltSimpleRecord }
+Extension { #name : 'PltSimpleRecord' }
 
-{ #category : #'*xtra-platypus-evaluating' }
+{ #category : '*xtra-platypus-evaluating' }
 PltSimpleRecord >> addRecordsToExternalRepresentation: externalRep [ 
 	externalRep records add: self.
 	self owner: externalRep
 ]
 
-{ #category : #'*xtra-platypus-accessing' }
+{ #category : '*xtra-platypus-accessing' }
 PltSimpleRecord >> at: pos [ 
 	^ pos <= self parameters size
 		ifTrue: [self parameters at: pos]
 		ifFalse: [self definition referenced componentList at: pos]
 ]
 
-{ #category : #'*xtra-platypus-accessing' }
+{ #category : '*xtra-platypus-accessing' }
 PltSimpleRecord >> at: position put: aValue [ 
 	self parameters at: position put: aValue
 ]
 
-{ #category : #'*xtra-platypus-type-infering' }
+{ #category : '*xtra-platypus-type-infering' }
 PltSimpleRecord >> computedDomain [
 	^ self  inferedDomain
 
 ]
 
-{ #category : #'*xtra-platypus-copying' }
+{ #category : '*xtra-platypus-copying' }
 PltSimpleRecord >> deepCopy [
 	^ self copy.
 
 ]
 
-{ #category : #'*xtra-platypus-testing' }
+{ #category : '*xtra-platypus-testing' }
 PltSimpleRecord >> definitionOk [
 	^ self definition ref notNil
 ]
 
-{ #category : #'*xtra-platypus-accessing' }
+{ #category : '*xtra-platypus-accessing' }
 PltSimpleRecord >> detectInstanceAttributeIdentification: aBlock [ 
 	(self definition referenced selectLocalAttributeIdentifications: aBlock)
 		ifNotEmpty: [:founds | ^ founds first].
 	^ nil
 ]
 
-{ #category : #'*xtra-platypus-evaluating' }
+{ #category : '*xtra-platypus-evaluating' }
 PltSimpleRecord >> equal: other [ 
 	| myParam otherParam res |
 	self == other
@@ -60,47 +60,47 @@ PltSimpleRecord >> equal: other [
 	^ PltTrueConstant new
 ]
 
-{ #category : #'*xtra-platypus-accessing' }
+{ #category : '*xtra-platypus-accessing' }
 PltSimpleRecord >> errorQualifier [
 	^ 'external instance record '
 ]
 
-{ #category : #'*xtra-platypus-type-infering' }
+{ #category : '*xtra-platypus-type-infering' }
 PltSimpleRecord >> inferedDomain [
 	^ definition
 ]
 
-{ #category : #'*xtra-platypus-accessing' }
+{ #category : '*xtra-platypus-accessing' }
 PltSimpleRecord >> inheritedDefinitions [
 	^ definition ref inheritedDefinitions
 ]
 
-{ #category : #'*xtra-platypus-accessing' }
+{ #category : '*xtra-platypus-accessing' }
 PltSimpleRecord >> interpretingContext [
 	^ self owner interpretingContext
 ]
 
-{ #category : #'*xtra-platypus-accessing' }
+{ #category : '*xtra-platypus-accessing' }
 PltSimpleRecord >> isInsideGroup: anEntityDef [ 
 	^ self definition referenced isGeneralizationOf: anEntityDef
 ]
 
-{ #category : #'*xtra-platypus-classification' }
+{ #category : '*xtra-platypus-classification' }
 PltSimpleRecord >> isPltValue [
 	^ true
 ]
 
-{ #category : #'*xtra-platypus-classification' }
+{ #category : '*xtra-platypus-classification' }
 PltSimpleRecord >> isSimpleRecord [
 	^ true
 ]
 
-{ #category : #'*xtra-platypus-accessing' }
+{ #category : '*xtra-platypus-accessing' }
 PltSimpleRecord >> owningModel [
 	^ self owner owningModel
 ]
 
-{ #category : #'*xtra-platypus-accessing' }
+{ #category : '*xtra-platypus-accessing' }
 PltSimpleRecord >> printableCode [
 	| writer |
 	writer := PlatypusModelContentsStepWriter new.
@@ -109,7 +109,7 @@ PltSimpleRecord >> printableCode [
 	^ writer outStream contents
 ]
 
-{ #category : #'*xtra-platypus-enumerating' }
+{ #category : '*xtra-platypus-enumerating' }
 PltSimpleRecord >> privateExplicitAttributesAndValuesDo: aBlock [ 
 	^ self definition referenced
 		explicitAttributesAndValuesDo: aBlock
@@ -117,14 +117,14 @@ PltSimpleRecord >> privateExplicitAttributesAndValuesDo: aBlock [
 		startingAt: 1
 ]
 
-{ #category : #'*xtra-platypus-accessing' }
+{ #category : '*xtra-platypus-accessing' }
 PltSimpleRecord >> recordsForGroup: anEntityDef [ 
 	^ (self isInsideGroup: anEntityDef)
 		ifTrue: [Set with: self]
 		ifFalse: [Set new]
 ]
 
-{ #category : #'*xtra-platypus-tamaris' }
+{ #category : '*xtra-platypus-tamaris' }
 PltSimpleRecord >> tamarisChildrenIntoOwner: anotherReference [ 
 	| subs pos elements |
 	subs := OrderedCollection new.
@@ -142,12 +142,12 @@ PltSimpleRecord >> tamarisChildrenIntoOwner: anotherReference [
 	^ subs
 ]
 
-{ #category : #'*xtra-platypus-accessing' }
+{ #category : '*xtra-platypus-accessing' }
 PltSimpleRecord >> tamarisStepValueReferenceClass [
 	^ PlatypusStepRecordReference
 ]
 
-{ #category : #'*xtra-platypus-accessing' }
+{ #category : '*xtra-platypus-accessing' }
 PltSimpleRecord >> valueOfExplicitAttributeNamed: aName [ 
 	| entDef pos |
 	(entDef := self definition ref) ifNotNil: 
@@ -156,7 +156,7 @@ PltSimpleRecord >> valueOfExplicitAttributeNamed: aName [
 	^ nil
 ]
 
-{ #category : #'*xtra-platypus-copying' }
+{ #category : '*xtra-platypus-copying' }
 PltSimpleRecord >> veryDeepCopy [
 	| n |
 	n := self copy.

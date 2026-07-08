@@ -1,11 +1,11 @@
-Extension { #name : #PltGreaterEqualExpression }
+Extension { #name : 'PltGreaterEqualExpression' }
 
-{ #category : #'*xtra-platypus-accessing' }
+{ #category : '*xtra-platypus-accessing' }
 PltGreaterEqualExpression >> operatorSymbol [
 	^ #>=
 ]
 
-{ #category : #'*xtra-platypus-express-compat' }
+{ #category : '*xtra-platypus-express-compat' }
 PltGreaterEqualExpression >> pltOperator [
 	^ '>='	
 ]

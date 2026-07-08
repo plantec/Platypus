@@ -15,16 +15,7 @@ PlatypusExpressInterpretorWrapper class >> interpreter: anExpressInterpreter [
 ]
 
 { #category : 'platypus interpreting' }
-PlatypusExpressInterpretorWrapper >> EvaluatePlatypusInterpreterNativeCode [ [	| fref |
-	fref := self filename val asFileReference.
-	fref parent parent ensureCreateDirectory.
-	fref parent ensureCreateDirectory.
-	fref ensureDelete.
-	fref ensureCreateFile.
-	fref writeStreamDo: [:fileStream | 
-		fileStream nextPutAll: self contents asClearText. 
-		fileStream flush].
-	] value
+PlatypusExpressInterpretorWrapper >> EvaluatePlatypusInterpreterNativeCode [ [ self inform: 'done'. ] value
 ]
 
 { #category : 'error handling' }

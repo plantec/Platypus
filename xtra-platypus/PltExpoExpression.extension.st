@@ -1,16 +1,16 @@
-Extension { #name : #PltExpoExpression }
+Extension { #name : 'PltExpoExpression' }
 
-{ #category : #'*xtra-platypus-type-infering' }
+{ #category : '*xtra-platypus-type-infering' }
 PltExpoExpression >> inferedDomain [
 	^ PltRealType asDomain
 ]
 
-{ #category : #'*xtra-platypus-accessing' }
+{ #category : '*xtra-platypus-accessing' }
 PltExpoExpression >> operatorSymbol [
 	^ #'**'
 ]
 
-{ #category : #'*xtra-platypus-express-compat' }
+{ #category : '*xtra-platypus-express-compat' }
 PltExpoExpression >> pltOperator [
 	^ 'raisedTo:'
 ]

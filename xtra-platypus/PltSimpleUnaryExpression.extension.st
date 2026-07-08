@@ -1,11 +1,11 @@
-Extension { #name : #PltSimpleUnaryExpression }
+Extension { #name : 'PltSimpleUnaryExpression' }
 
-{ #category : #'*xtra-platypus-instance-creation' }
+{ #category : '*xtra-platypus-instance-creation' }
 PltSimpleUnaryExpression class >> expr: anExpression [
 	^ self new expr: anExpression
 ]
 
-{ #category : #'*xtra-platypus-type-infering' }
+{ #category : '*xtra-platypus-type-infering' }
 PltSimpleUnaryExpression >> inferedDomain [
 	^ self expr computedDomain
 

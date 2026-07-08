@@ -1,6 +1,6 @@
-Extension { #name : #PltExplicitAttribute }
+Extension { #name : 'PltExplicitAttribute' }
 
-{ #category : #'*xtra-platypus-accessing' }
+{ #category : '*xtra-platypus-accessing' }
 PltExplicitAttribute >> annotation [
 	^ String 
 		streamContents: [:strm |
@@ -9,7 +9,7 @@ PltExplicitAttribute >> annotation [
 			strm nextPutAll: (self domain ifNil: ['?'] ifNotNil: [:d | d annotation])]
 ]
 
-{ #category : #'*xtra-platypus-checking' }
+{ #category : '*xtra-platypus-checking' }
 PltExplicitAttribute >> checksValueFromInstance: anInstance oid: anInteger repository: aPlatypusRepository [ 
 	| value selector entityDef |
 	selector := (self getSelectorFromNamesBuilder: aPlatypusRepository namesBuilder) asSymbol.
@@ -30,12 +30,12 @@ PltExplicitAttribute >> checksValueFromInstance: anInstance oid: anInteger repos
 	^ #()
 ]
 
-{ #category : #'*xtra-platypus-evaluating' }
+{ #category : '*xtra-platypus-evaluating' }
 PltExplicitAttribute >> defaultValue [
 	^ self domain defaultValue
 ]
 
-{ #category : #'*xtra-platypus-code-generating' }
+{ #category : '*xtra-platypus-code-generating' }
 PltExplicitAttribute >> fastSetSelectorFromNamesBuilder: aNamesBuilder [ 
 	^ aNamesBuilder
 		normalizedSetSelectorFrom: self name
@@ -43,7 +43,7 @@ PltExplicitAttribute >> fastSetSelectorFromNamesBuilder: aNamesBuilder [
 		suffix: ''
 ]
 
-{ #category : #'*xtra-platypus-code-generating' }
+{ #category : '*xtra-platypus-code-generating' }
 PltExplicitAttribute >> getSelectorFromNamesBuilder: aNamesBuilder [ 
 	^ aNamesBuilder
 		normalizedGetSelectorFrom: self name
@@ -51,17 +51,17 @@ PltExplicitAttribute >> getSelectorFromNamesBuilder: aNamesBuilder [
 		suffix: ''
 ]
 
-{ #category : #'*xtra-platypus-accessing' }
+{ #category : '*xtra-platypus-accessing' }
 PltExplicitAttribute >> initializedValue [
 	^ self domain initializedValue
 ]
 
-{ #category : #'*xtra-platypus-code-generating' }
+{ #category : '*xtra-platypus-code-generating' }
 PltExplicitAttribute >> instVarNameFromNamesBuilder: aNamesBuilder [ 
 	^ aNamesBuilder normalizedVarNameFrom: self name 
 ]
 
-{ #category : #'*xtra-platypus-checking' }
+{ #category : '*xtra-platypus-checking' }
 PltExplicitAttribute >> isRedeclaredAsDerivedInEntityDefinition: entityDef [ 
 	| canTest |
 	canTest := false.
@@ -72,7 +72,7 @@ PltExplicitAttribute >> isRedeclaredAsDerivedInEntityDefinition: entityDef [
 
 ]
 
-{ #category : #'*xtra-platypus-code-generating' }
+{ #category : '*xtra-platypus-code-generating' }
 PltExplicitAttribute >> lowSetSelectorFromNamesBuilder: aNamesBuilder [ 
 	^ aNamesBuilder
 		normalizedSetSelectorFrom: self name
@@ -80,7 +80,7 @@ PltExplicitAttribute >> lowSetSelectorFromNamesBuilder: aNamesBuilder [
 		suffix: ''
 ]
 
-{ #category : #'*xtra-platypus-code-generating' }
+{ #category : '*xtra-platypus-code-generating' }
 PltExplicitAttribute >> setSelectorFromNamesBuilder: aNamesBuilder [ 
 	^ aNamesBuilder
 		normalizedSetSelectorFrom: self name
@@ -88,7 +88,7 @@ PltExplicitAttribute >> setSelectorFromNamesBuilder: aNamesBuilder [
 		suffix: ''
 ]
 
-{ #category : #'*xtra-platypus-accessing' }
+{ #category : '*xtra-platypus-accessing' }
 PltExplicitAttribute >> tamarisStepValueReferenceClass [
 	^ PlatypusStepReference
 ]

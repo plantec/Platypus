@@ -1,14 +1,16 @@
 Class {
-	#name : #PlatypusInternalPrimitiveSchemaInstanceReference,
-	#superclass : #PlatypusSchemaInstanceReference,
+	#name : 'PlatypusInternalPrimitiveSchemaInstanceReference',
+	#superclass : 'PlatypusSchemaInstanceReference',
 	#instVars : [
 		'identifiersCache',
 		'namedTypesCache'
 	],
-	#category : #'SqPlatypus-VW-Compatibility'
+	#category : 'SqPlatypus-VW-Compatibility',
+	#package : 'SqPlatypus',
+	#tag : 'VW-Compatibility'
 }
 
-{ #category : #'private accessing' }
+{ #category : 'private accessing' }
 PlatypusInternalPrimitiveSchemaInstanceReference class >> classBlackList [
 	"self classBlackList"
 	| blackList |
@@ -20,22 +22,22 @@ PlatypusInternalPrimitiveSchemaInstanceReference class >> classBlackList [
 	^ blackList
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusInternalPrimitiveSchemaInstanceReference class >> expressPrimitiveDictionary [
 	^ self initializeExpressPrimitiveDictionaryIfNeeded
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusInternalPrimitiveSchemaInstanceReference class >> expressPrimitiveDictionaryName [
 	^ 'Platypus_Express_primitives'
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusInternalPrimitiveSchemaInstanceReference class >> expressPrimitiveSchemasCode [
  ^ PltPlatypusExpressPrimitivesSchemaInstance singleton expressSchemaCode
 ]
 
-{ #category : #initializing }
+{ #category : 'initializing' }
 PlatypusInternalPrimitiveSchemaInstanceReference class >> initializeExpressPrimitiveDictionary [
 	"self initializeExpressPrimitiveDictionary"
 
@@ -46,7 +48,7 @@ PlatypusInternalPrimitiveSchemaInstanceReference class >> initializeExpressPrimi
 	^ newref
 ]
 
-{ #category : #initializing }
+{ #category : 'initializing' }
 PlatypusInternalPrimitiveSchemaInstanceReference class >> initializeExpressPrimitiveDictionaryIfNeeded [
 	"self initializeExpressPrimitiveDictionaryIfNeeded"
 
@@ -59,7 +61,7 @@ PlatypusInternalPrimitiveSchemaInstanceReference class >> initializeExpressPrimi
 		ifFalse: [^ candidats first]
 ]
 
-{ #category : #initializing }
+{ #category : 'initializing' }
 PlatypusInternalPrimitiveSchemaInstanceReference class >> initializePharoPrimitiveDictionary [
 	"self initializePharoPrimitiveDictionary"
 
@@ -73,7 +75,7 @@ PlatypusInternalPrimitiveSchemaInstanceReference class >> initializePharoPrimiti
 
 ]
 
-{ #category : #initializing }
+{ #category : 'initializing' }
 PlatypusInternalPrimitiveSchemaInstanceReference class >> initializePharoPrimitiveDictionaryIfNeeded [
 	"self initializePharoPrimitiveDictionaryIfNeeded"
 
@@ -88,38 +90,38 @@ PlatypusInternalPrimitiveSchemaInstanceReference class >> initializePharoPrimiti
 	
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusInternalPrimitiveSchemaInstanceReference class >> lookUpExpressPrimitiveDictionary [
 	^ self allInstances copy
 		detect: [:epd | epd isExpressPrimitiveDictionary]
 		ifNone: []
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusInternalPrimitiveSchemaInstanceReference class >> lookUpPharoPrimitiveDictionary [
 	^ self allInstances copy
 		detect: [:epd | epd isPharoPrimitiveDictionary]
 		ifNone: []
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusInternalPrimitiveSchemaInstanceReference class >> lookUpPrimitiveIdentifierBN: anIdent [ 
 	| |
 	^ self expressPrimitiveDictionary lookUpIdentifierBN: anIdent 
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusInternalPrimitiveSchemaInstanceReference class >> lookUpPrimitiveNamedTypeBN: anIdent [ 
 	^ (self expressPrimitiveDictionary lookUpNamedTypeBN: anIdent)
 		
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusInternalPrimitiveSchemaInstanceReference class >> pharoPrimitiveDictionaryName [
 	^ 'Platypus_Pharo_primitives'.
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusInternalPrimitiveSchemaInstanceReference class >> pharoPrimitiveSchemasCode [
 	"self pharoPrimitiveSchemasCode"
 	| res outCat nameClassifier outN clsName clsSupName usedCat usedOutCat addedCat classBlackList |
@@ -189,7 +191,7 @@ PlatypusInternalPrimitiveSchemaInstanceReference class >> pharoPrimitiveSchemasC
 	^ res contents
 ]
 
-{ #category : #'private accessing' }
+{ #category : 'private accessing' }
 PlatypusInternalPrimitiveSchemaInstanceReference class >> systemCategoryBlackList [
 	"self systemCategoryBlackList"
 	| blackList |
@@ -201,34 +203,34 @@ PlatypusInternalPrimitiveSchemaInstanceReference class >> systemCategoryBlackLis
 	^ blackList
 ]
 
-{ #category : #copying }
+{ #category : 'copying' }
 PlatypusInternalPrimitiveSchemaInstanceReference >> copy [
 	^ self error: 'can''t copy a primitive dictionary reference'
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusInternalPrimitiveSchemaInstanceReference >> expressParserClassName [
 	^ #PlatypusExpressPrimitiveParser
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 PlatypusInternalPrimitiveSchemaInstanceReference >> isExpressPrimitiveDictionary [
 	^ self isReleased not
 		and: [self  name = self class expressPrimitiveDictionaryName]
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 PlatypusInternalPrimitiveSchemaInstanceReference >> isPharoPrimitiveDictionary [
 	^ self isReleased not
 		and: [self  name = self class pharoPrimitiveDictionaryName]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusInternalPrimitiveSchemaInstanceReference >> namesBuilder [
 	^ PlatypusNamesBuilder meta
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusInternalPrimitiveSchemaInstanceReference >> translaterForPharo [
 	^ PlatypusExpressMetaStructure2PharoTranslater 
 		namesBuilder: self namesBuilder

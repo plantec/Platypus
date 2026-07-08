@@ -1,6 +1,6 @@
 Class {
-	#name : #PlatypusExpressElementReference,
-	#superclass : #PlatypusExpressReference,
+	#name : 'PlatypusExpressElementReference',
+	#superclass : 'PlatypusExpressReference',
 	#instVars : [
 		'startNode',
 		'stopNode',
@@ -8,10 +8,12 @@ Class {
 		'metaData',
 		'generatedClassRef'
 	],
-	#category : #'SqPlatypus-HW-tamaris'
+	#category : 'SqPlatypus-HW-tamaris',
+	#package : 'SqPlatypus',
+	#tag : 'HW-tamaris'
 }
 
-{ #category : #'initialize/release' }
+{ #category : 'initialize/release' }
 PlatypusExpressElementReference >> destroy [
 	metaData 
 		ifNotNil: [
@@ -22,7 +24,7 @@ PlatypusExpressElementReference >> destroy [
 	super destroy
 ]
 
-{ #category : #checking }
+{ #category : 'checking' }
 PlatypusExpressElementReference >> doInternalChecking [
 	self knownAsInvalid
 		ifFalse: [super doInternalChecking.
@@ -30,37 +32,37 @@ PlatypusExpressElementReference >> doInternalChecking [
 			self assert: self name asUppercase = self metaData name asUppercase]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusExpressElementReference >> elementTag [ 
 	^ self lexicalElement
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusExpressElementReference >> metaData [
 	^ metaData
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusExpressElementReference >> metaData: aMetaData [
 	metaData := aMetaData
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusExpressElementReference >> name [
 	^ name
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusExpressElementReference >> name: aString [
 	 name := aString
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusExpressElementReference >> nameNode [
 	^ self tokenList nextNonBlankFrom: self subReferencesScanStart
 ]
 
-{ #category : #'code updating' }
+{ #category : 'code updating' }
 PlatypusExpressElementReference >> relabelWith: newName [ 
 	| metaDataOwner code oldOwner parserResult oldName |
 	metaDataOwner := self metaData owner.
@@ -82,7 +84,7 @@ PlatypusExpressElementReference >> relabelWith: newName [
 			self treeHasChanged]
 ]
 
-{ #category : #'code updating' }
+{ #category : 'code updating' }
 PlatypusExpressElementReference >> removeSilently [
 	self owner
 		ifNotNil: [
@@ -95,7 +97,7 @@ PlatypusExpressElementReference >> removeSilently [
 	super removeSilently
 ]
 
-{ #category : #'code updating' }
+{ #category : 'code updating' }
 PlatypusExpressElementReference >> replaceTokenListWithParserResult: aParserResult [ 
 	aParserResult metaData name asUppercase = self name asUppercase
 		ifTrue: [super replaceTokenListWithParserResult: aParserResult]
@@ -105,34 +107,34 @@ PlatypusExpressElementReference >> replaceTokenListWithParserResult: aParserResu
 
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusExpressElementReference >> schemaInstanceReference [
 	^ (self owner isKindOf: PlatypusExpressReference)
 		ifTrue: [self owner schemaInstanceReference]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusExpressElementReference >> shortName [
 	^ self name 
 
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusExpressElementReference >> startNode [
 	^ startNode
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusExpressElementReference >> startNode: aNode [
 	startNode := aNode
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusExpressElementReference >> stopNode [
 	^ stopNode 
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusExpressElementReference >> stopNode: aNode [
 	stopNode := aNode
 ]

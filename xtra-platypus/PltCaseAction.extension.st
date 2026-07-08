@@ -1,6 +1,6 @@
-Extension { #name : #PltCaseAction }
+Extension { #name : 'PltCaseAction' }
 
-{ #category : #'*xtra-platypus-testing' }
+{ #category : '*xtra-platypus-testing' }
 PltCaseAction >> alwaysReturn [
   ^ action alwaysReturn
  

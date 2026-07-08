@@ -1,13 +1,15 @@
 Class {
-	#name : #PlatypusSchemaElementReference,
-	#superclass : #PlatypusExpressElementReference,
+	#name : 'PlatypusSchemaElementReference',
+	#superclass : 'PlatypusExpressElementReference',
 	#instVars : [
 		'subContents'
 	],
-	#category : #'SqPlatypus-HW-tamaris'
+	#category : 'SqPlatypus-HW-tamaris',
+	#package : 'SqPlatypus',
+	#tag : 'HW-tamaris'
 }
 
-{ #category : #copying }
+{ #category : 'copying' }
 PlatypusSchemaElementReference >> copy [
 	| cpy |
 	cpy := super copy.
@@ -15,13 +17,13 @@ PlatypusSchemaElementReference >> copy [
 	^ cpy
 ]
 
-{ #category : #'initialize/release' }
+{ #category : 'initialize/release' }
 PlatypusSchemaElementReference >> destroy [
 	self reinitialize.
 	super destroy
 ]
 
-{ #category : #evaluating }
+{ #category : 'evaluating' }
 PlatypusSchemaElementReference >> evaluate [
 	| result value position |
 	self canEvaluate 
@@ -49,58 +51,58 @@ PlatypusSchemaElementReference >> evaluate [
 	^ result
 ]
 
-{ #category : #evaluating }
+{ #category : 'evaluating' }
 PlatypusSchemaElementReference >> evaluateAndExplore [ 
 	^ self metaData evaluateAndExplore 
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 PlatypusSchemaElementReference >> isSchemaElement [
 	^ true
 ]
 
-{ #category : #menus }
+{ #category : 'menus' }
 PlatypusSchemaElementReference >> keyStroke: aCharacter from: aListMorph [ 
 	super keyStroke: aCharacter from: aListMorph.
 
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusSchemaElementReference >> lexicalElement [
 	^ self class lexicalElement
 ]
 
-{ #category : #menus }
+{ #category : 'menus' }
 PlatypusSchemaElementReference >> menuTranslationParameters [	
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusSchemaElementReference >> modelContentsReference [
 	^ self schemaInstanceReference 
 		ifNotNil: [:schir | schir modelContentsReferences 
 			ifNotNil: [:mcrs | mcrs ifNotEmpty: [mcrs first]]]
 ]
 
-{ #category : #'initialize/release' }
+{ #category : 'initialize/release' }
 PlatypusSchemaElementReference >> reinitialize [
 	self reinitializeEvaluatedContents.
 	super reinitialize
 ]
 
-{ #category : #updating }
+{ #category : 'updating' }
 PlatypusSchemaElementReference >> reinitializeEditor [
 	self reinitialize.
 	^ super reinitializeEditor
 ]
 
-{ #category : #'initialize/release' }
+{ #category : 'initialize/release' }
 PlatypusSchemaElementReference >> reinitializeEvaluatedContents [
 	subContents ifNotNil: [subContents do: [:s | s destroy]].
 	subContents := nil.
 	super reinitializeEvaluatedContents
 ]
 
-{ #category : #updating }
+{ #category : 'updating' }
 PlatypusSchemaElementReference >> removeAt: aPosition [ 
 	| sr |
 	(self subContents removeAt: aPosition) destroy.
@@ -108,7 +110,7 @@ PlatypusSchemaElementReference >> removeAt: aPosition [
 		do: [:p | (sr := self subContents at: p) pos: sr pos - 1]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusSchemaElementReference >> smaCCStartingState [
 	| openkw |
 	openkw := self lexicalElement.
@@ -117,7 +119,7 @@ PlatypusSchemaElementReference >> smaCCStartingState [
 
 ]
 
-{ #category : #menus }
+{ #category : 'menus' }
 PlatypusSchemaElementReference >> specificMenu: menu shifted: b [ 
 	"Set up the menu to apply to the receiver's, honoring 
 	the #shifted boolean"
@@ -152,24 +154,24 @@ PlatypusSchemaElementReference >> specificMenu: menu shifted: b [
 	^ menu
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusSchemaElementReference >> startLevel [
 	^1
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusSchemaElementReference >> subContents [
 	^ subContents
 		ifNil: [subContents := OrderedCollection new].
 
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusSchemaElementReference >> subContents: aCollectionOrNil [ 
 	subContents := aCollectionOrNil
 ]
 
-{ #category : #menus }
+{ #category : 'menus' }
 PlatypusSchemaElementReference >> translateWithTranslator: aTranslator [ 
 	^ aTranslator localTranslate: self metaData 
 ]

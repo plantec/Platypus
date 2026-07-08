@@ -1,6 +1,6 @@
-Extension { #name : #PltAndExpression }
+Extension { #name : 'PltAndExpression' }
 
-{ #category : #'*xtra-platypus-accessing' }
+{ #category : '*xtra-platypus-accessing' }
 PltAndExpression >> operatorSymbol [
 	^ #and
 ]

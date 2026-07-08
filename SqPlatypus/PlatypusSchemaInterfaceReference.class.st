@@ -1,15 +1,17 @@
 Class {
-	#name : #PlatypusSchemaInterfaceReference,
-	#superclass : #PlatypusExpressLinkReference,
-	#category : #'SqPlatypus-HW-tamaris'
+	#name : 'PlatypusSchemaInterfaceReference',
+	#superclass : 'PlatypusExpressLinkReference',
+	#category : 'SqPlatypus-HW-tamaris',
+	#package : 'SqPlatypus',
+	#tag : 'HW-tamaris'
 }
 
-{ #category : #'to be classified' }
+{ #category : 'to be classified' }
 PlatypusSchemaInterfaceReference >> asStringOrText [
 	^ self linkPrefix , self linked  name
 ]
 
-{ #category : #'icon accessing' }
+{ #category : 'icon accessing' }
 PlatypusSchemaInterfaceReference >> children [
 	| lnk |
 	^ (lnk := self linked)
@@ -19,7 +21,7 @@ PlatypusSchemaInterfaceReference >> children [
 				ifFalse: [lnk nativeSchema tamarisItemRef isNil ifTrue: [#()] ifFalse: [lnk nativeSchema tamarisItemRef children]]]
 ]
 
-{ #category : #'icon accessing' }
+{ #category : 'icon accessing' }
 PlatypusSchemaInterfaceReference >> icon [
 	| lnk |
 	^ ((lnk := self linked) isNil
@@ -30,12 +32,12 @@ PlatypusSchemaInterfaceReference >> icon [
 				ifFalse: [lnk nativeSchema tamarisItemRef icon]]
 ]
 
-{ #category : #'to be classified' }
+{ #category : 'to be classified' }
 PlatypusSchemaInterfaceReference >> linkPrefix [
 	^ self linked isNil ifTrue: [''] ifFalse: [self linked  isPltUsedSchema ifTrue: ['use from '] ifFalse: [self linked isPltReferencedSchema ifTrue: ['reference from '] ifFalse: ['meta from ']]]
 ]
 
-{ #category : #'icon accessing' }
+{ #category : 'icon accessing' }
 PlatypusSchemaInterfaceReference >> selectingFrom: aTaxonomyBrowser [ 
 	| lnk |
 	((lnk := self linked) isNil
@@ -44,12 +46,12 @@ PlatypusSchemaInterfaceReference >> selectingFrom: aTaxonomyBrowser [
 	^ lnk nativeSchema tamarisItemRef selectingFrom: aTaxonomyBrowser
 ]
 
-{ #category : #'to be classified' }
+{ #category : 'to be classified' }
 PlatypusSchemaInterfaceReference >> shortName [
 	^ self linked name
 ]
 
-{ #category : #'icon accessing' }
+{ #category : 'icon accessing' }
 PlatypusSchemaInterfaceReference >> unSelectingFrom: aTaxonomyBrowser [ 
 	| lnk |
 	((lnk := self linked) isNil

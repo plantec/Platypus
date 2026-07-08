@@ -1,6 +1,6 @@
-Extension { #name : #PltVariableSizeAggregationType }
+Extension { #name : 'PltVariableSizeAggregationType' }
 
-{ #category : #'*xtra-platypus-classification' }
+{ #category : '*xtra-platypus-classification' }
 PltVariableSizeAggregationType >> isVariableSizeAggregationType [
 	^ true
 ]

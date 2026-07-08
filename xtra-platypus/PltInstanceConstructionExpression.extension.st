@@ -1,6 +1,6 @@
-Extension { #name : #PltInstanceConstructionExpression }
+Extension { #name : 'PltInstanceConstructionExpression' }
 
-{ #category : #'*xtra-platypus-type-infering' }
+{ #category : '*xtra-platypus-type-infering' }
 PltInstanceConstructionExpression >> inferedDomain [
 	| type elementsDomains |
 	elementsDomains := Set new.
@@ -12,7 +12,7 @@ PltInstanceConstructionExpression >> inferedDomain [
 
 ]
 
-{ #category : #'*xtra-platypus-accessing' }
+{ #category : '*xtra-platypus-accessing' }
 PltInstanceConstructionExpression >> operatorSymbol [
 	^ #'||'
 ]

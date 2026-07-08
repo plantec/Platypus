@@ -1,15 +1,17 @@
 Class {
-	#name : #PlatypusEntityReference,
-	#superclass : #PlatypusSchemaElementReference,
-	#category : #'SqPlatypus-HW-tamaris'
+	#name : 'PlatypusEntityReference',
+	#superclass : 'PlatypusSchemaElementReference',
+	#category : 'SqPlatypus-HW-tamaris',
+	#package : 'SqPlatypus',
+	#tag : 'HW-tamaris'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusEntityReference class >> lexicalElement [
 	^ #entity
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusEntityReference >> children [
 	^ self isReleased 
 		ifTrue: [#()]
@@ -17,7 +19,7 @@ PlatypusEntityReference >> children [
 
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusEntityReference >> collectedSubtypes [
 	| subtypes subTypesReferences newLink toBeRemove |
 	self metaData checksHierarchy
@@ -43,7 +45,7 @@ PlatypusEntityReference >> collectedSubtypes [
 	^ self subContents
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusEntityReference >> icon [
 	^ TamIcons mimeIcon: '10x10/mimetypes/blue_e'
 ]

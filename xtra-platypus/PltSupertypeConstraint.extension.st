@@ -1,6 +1,6 @@
-Extension { #name : #PltSupertypeConstraint }
+Extension { #name : 'PltSupertypeConstraint' }
 
-{ #category : #'*xtra-platypus-checking' }
+{ #category : '*xtra-platypus-checking' }
 PltSupertypeConstraint >> checksInheritance: mySuper [ 
 	^ self expr
 		ifNil: [OrderedCollection new]

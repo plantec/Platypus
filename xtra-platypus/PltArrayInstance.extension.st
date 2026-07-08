@@ -1,6 +1,6 @@
-Extension { #name : #PltArrayInstance }
+Extension { #name : 'PltArrayInstance' }
 
-{ #category : #'*xtra-platypus-updating' }
+{ #category : '*xtra-platypus-updating' }
 PltArrayInstance >> adjustLowerAndUpperBounds [
 	self lowerBound ifNil: [
 	self
@@ -10,19 +10,19 @@ PltArrayInstance >> adjustLowerAndUpperBounds [
 		upperBound: (PltIntegerLiteral val: self size)]
 ]
 
-{ #category : #'*xtra-platypus-evaluating' }
+{ #category : '*xtra-platypus-evaluating' }
 PltArrayInstance >> asArrayInstance [
 	^ self
 ]
 
-{ #category : #'*xtra-platypus-evaluating' }
+{ #category : '*xtra-platypus-evaluating' }
 PltArrayInstance >> asArrayInstanceCompatibleTo: aType interpretor: anInterpretor [ 
 	(self isCompatibleWith: aType)
 		ifTrue: [^ self].
 	^ super asArrayInstanceCompatibleTo: aType interpretor: anInterpretor
 ]
 
-{ #category : #'*xtra-platypus-evaluating' }
+{ #category : '*xtra-platypus-evaluating' }
 PltArrayInstance >> equal: other [ 
 	| res |
 	(res := super equal: other)
@@ -37,7 +37,7 @@ PltArrayInstance >> equal: other [
 	^ PltTrueConstant new
 ]
 
-{ #category : #'*xtra-platypus-type-infering' }
+{ #category : '*xtra-platypus-type-infering' }
 PltArrayInstance >> inferedDomain [
 	| aggr |
 	aggr := PltArrayType new.
@@ -48,12 +48,12 @@ PltArrayInstance >> inferedDomain [
 	^ aggr
 ]
 
-{ #category : #'*xtra-platypus-testing' }
+{ #category : '*xtra-platypus-testing' }
 PltArrayInstance >> isPltArray [
 	^ true
 ]
 
-{ #category : #'*xtra-platypus-evaluating' }
+{ #category : '*xtra-platypus-evaluating' }
 PltArrayInstance >> setQueryBoundsFromSource: anotherAggregate [ 
 	self
 		lowerBound: anotherAggregate lowerBound copy.

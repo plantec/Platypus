@@ -1,50 +1,52 @@
 Class {
-	#name : #PlatypusSchemaLinkReference,
-	#superclass : #PlatypusExpressLinkReference,
-	#category : #'SqPlatypus-HW-tamaris'
+	#name : 'PlatypusSchemaLinkReference',
+	#superclass : 'PlatypusExpressLinkReference',
+	#category : 'SqPlatypus-HW-tamaris',
+	#package : 'SqPlatypus',
+	#tag : 'HW-tamaris'
 }
 
-{ #category : #testing }
+{ #category : 'testing' }
 PlatypusSchemaLinkReference >> canBeMovedDown [ "true if self can be moved up (in my owner children
 	collection) "^ self isMoveable and: [ self owner subReferences size > 1 and: [ ( self owner subReferences indexOf: self ) < self owner subReferences size ] ] 
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 PlatypusSchemaLinkReference >> canBeMovedUp [ "true if self can be moved up (in my owner children
 	collection)"^ self isMoveable and: [ owner subReferences size > 1 and: [ ( self owner subReferences indexOf: self ) > 1 ] ] 
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusSchemaLinkReference >> contents [ 
 	^ self linked contents 
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusSchemaLinkReference >> emphasisModel [ 
 	^ self linked emphasisModel 
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 PlatypusSchemaLinkReference >> isLinkTo: anItem [ 
 	^ self linked linked = anItem linked 
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 PlatypusSchemaLinkReference >> isMoveable [ 
 	^ true 
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 PlatypusSchemaLinkReference >> isPlatypusPrimitiveSchema [ 
 	^ self linked notNil and: [ self linked isPlatypusPrimitiveSchema ] 
 ]
 
-{ #category : #updating }
+{ #category : 'updating' }
 PlatypusSchemaLinkReference >> moveDown [ 
 	^ self owner moveDownSchemaReference: self 
 ]
 
-{ #category : #updating }
+{ #category : 'updating' }
 PlatypusSchemaLinkReference >> moveUp [ 
 	^ self owner moveUpSchemaReference: self 
 ]

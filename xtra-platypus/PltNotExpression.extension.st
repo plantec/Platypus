@@ -1,6 +1,6 @@
-Extension { #name : #PltNotExpression }
+Extension { #name : 'PltNotExpression' }
 
-{ #category : #'*xtra-platypus-accessing' }
+{ #category : '*xtra-platypus-accessing' }
 PltNotExpression >> operatorSymbol [
 	^#not
 ]

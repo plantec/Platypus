@@ -1,14 +1,16 @@
 Class {
-	#name : #PlatypusStepChooserMorph,
-	#superclass : #IdentifierChooserMorph,
+	#name : 'PlatypusStepChooserMorph',
+	#superclass : 'IdentifierChooserMorph',
 	#instVars : [
 		'prefix',
 		'requestorPos'
 	],
-	#category : #'SqPlatypus-HW-System-Text'
+	#category : 'SqPlatypus-HW-System-Text',
+	#package : 'SqPlatypus',
+	#tag : 'HW-System-Text'
 }
 
-{ #category : #opening }
+{ #category : 'opening' }
 PlatypusStepChooserMorph class >> popUpPrefix: aPrefix from: aTextMorph [ 
 	Cursor wait
 		showWhile: [| selectors chooser |
@@ -27,7 +29,7 @@ PlatypusStepChooserMorph class >> popUpPrefix: aPrefix from: aTextMorph [
 			^ chooser]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusStepChooserMorph class >> selectorsFromPrefix: aPrefix from: aTextMorph [
 	"returns the value of labels from a selector prefix"
 	| cleaned |
@@ -40,7 +42,7 @@ PlatypusStepChooserMorph class >> selectorsFromPrefix: aPrefix from: aTextMorph 
 
 ]
 
-{ #category : #action }
+{ #category : 'action' }
 PlatypusStepChooserMorph >> choose: index [
 	"Set the given choice and ok."
 	requestor ifNil: [^ self delete].
@@ -51,25 +53,25 @@ PlatypusStepChooserMorph >> choose: index [
 	
 ]
 
-{ #category : #action }
+{ #category : 'action' }
 PlatypusStepChooserMorph >> close [
 	requestor 
 		ifNotNil: [requestor takeKeyboardFocus.
 			self choose: 0]
 ]
 
-{ #category : #'submorphs-add/remove' }
+{ #category : 'submorphs-add/remove' }
 PlatypusStepChooserMorph >> comeToFront [
 	super comeToFront.
 	self setPosition 
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusStepChooserMorph >> defaultBaseColor [
 	^  (self theme menuColorFor: self) muchLighter
 ]
 
-{ #category : #drawing }
+{ #category : 'drawing' }
 PlatypusStepChooserMorph >> drawCommonPrefixAreasOn: aCanvas [
 	| firstMenu firstMenuItem topLeft bottomLeft lastMenuItem |
 	requestor ifNil: [^ self].
@@ -79,7 +81,7 @@ PlatypusStepChooserMorph >> drawCommonPrefixAreasOn: aCanvas [
 
 ]
 
-{ #category : #drawing }
+{ #category : 'drawing' }
 PlatypusStepChooserMorph >> drawCommonPrefixAreasOn: aCanvas menu: aMenu [
 	| firstMenuItem topLeft bottomLeft lastMenuItem w c |
 	firstMenuItem := aMenu menuItems first.
@@ -91,20 +93,20 @@ PlatypusStepChooserMorph >> drawCommonPrefixAreasOn: aCanvas menu: aMenu [
 	aCanvas fillRectangle: (topLeft  corner: bottomLeft) color: (c alpha: 0.3)
 ]
 
-{ #category : #drawing }
+{ #category : 'drawing' }
 PlatypusStepChooserMorph >> fullDrawOn: aCanvas [
 	super fullDrawOn: aCanvas.
 	self drawCommonPrefixAreasOn: aCanvas
 	
 ]
 
-{ #category : #'ui-building' }
+{ #category : 'ui-building' }
 PlatypusStepChooserMorph >> initialize [ 
 	super initialize.
 	self maxLines: 15
 ]
 
-{ #category : #'ui-building' }
+{ #category : 'ui-building' }
 PlatypusStepChooserMorph >> newContentMorph [ 
 	| sp |
 	sp := super newContentMorph.
@@ -114,7 +116,7 @@ PlatypusStepChooserMorph >> newContentMorph [
 
 ]
 
-{ #category : #'ui-building' }
+{ #category : 'ui-building' }
 PlatypusStepChooserMorph >> nextPrefixWith: aPrefix [
 	| curr pref found lab |
 	curr := aPrefix size.
@@ -134,7 +136,7 @@ PlatypusStepChooserMorph >> nextPrefixWith: aPrefix [
 
 ]
 
-{ #category : #'ui-building' }
+{ #category : 'ui-building' }
 PlatypusStepChooserMorph >> open [
 	super open.
 	self borderStyle: ( self theme progressBarBorderStyleFor: self).
@@ -142,7 +144,7 @@ PlatypusStepChooserMorph >> open [
 
 ]
 
-{ #category : #'ui-building' }
+{ #category : 'ui-building' }
 PlatypusStepChooserMorph >> positionInRequestor [
 	| caret bottomLeft topLeft editor pos allowedArea |
 	requestor ifNil: [^self].
@@ -163,20 +165,20 @@ PlatypusStepChooserMorph >> positionInRequestor [
 
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusStepChooserMorph >> prefix: aPrefix [
 	"Set the value of labels"
 	prefix := aPrefix.
 
 ]
 
-{ #category : #'ui-building' }
+{ #category : 'ui-building' }
 PlatypusStepChooserMorph >> setPosition [
 	self position: self positionInRequestor.
 
 ]
 
-{ #category : #'stepping and presenter' }
+{ #category : 'stepping and presenter' }
 PlatypusStepChooserMorph >> step [
 	[requestorPos 
 		ifNil: [requestorPos := requestor owner position]
@@ -190,12 +192,12 @@ PlatypusStepChooserMorph >> step [
 
 ]
 
-{ #category : #'stepping and presenter' }
+{ #category : 'stepping and presenter' }
 PlatypusStepChooserMorph >> stepTime [
 	^ 500
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 PlatypusStepChooserMorph >> wantsSteps [ 
 	^ requestor notNil
 ]

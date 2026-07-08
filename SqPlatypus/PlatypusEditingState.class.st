@@ -1,14 +1,16 @@
 Class {
-	#name : #PlatypusEditingState,
-	#superclass : #RubEditingState,
+	#name : 'PlatypusEditingState',
+	#superclass : 'RubEditingState',
 	#instVars : [
 		'selectorChooser',
 		'replaceAtEnd'
 	],
-	#category : #'SqPlatypus-HW-System-Text'
+	#category : 'SqPlatypus-HW-System-Text',
+	#package : 'SqPlatypus',
+	#tag : 'HW-System-Text'
 }
 
-{ #category : #chooser }
+{ #category : 'chooser' }
 PlatypusEditingState >> chosenSelector: aSelector for: aTextMorph [
 	| newStart replacement  caret prevSelection |
 	self closeSelectorChooser.
@@ -35,30 +37,30 @@ PlatypusEditingState >> chosenSelector: aSelector for: aTextMorph [
 
 ]
 
-{ #category : #chooser }
+{ #category : 'chooser' }
 PlatypusEditingState >> closeSelectorChooser [
 	selectorChooser 
 		ifNotNil: [ [selectorChooser delete] ensure: [selectorChooser := nil] ]
 ]
 
-{ #category : #events }
+{ #category : 'events' }
 PlatypusEditingState >> focused: aBoolean from: aTextMorph [
 	super focused: aBoolean from: aTextMorph.
 	selectorChooser ifNotNil: [selectorChooser comeToFront]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusEditingState >> forceReplaceAtEnd [
 	replaceAtEnd := true
 ]
 
-{ #category : #events }
+{ #category : 'events' }
 PlatypusEditingState >> handlesKeyboard: evt from: aTextMorph [
 	^ (super handlesKeyboard: evt from: aTextMorph)
 		or: [selectorChooser notNil and: [selectorChooser handlesKeyboard: evt]]
 ]
 
-{ #category : #events }
+{ #category : 'events' }
 PlatypusEditingState >> keystroke: aKeyboardEvent from: aTextMorph [
 	| asciiValue |
 	selectorChooser 
@@ -79,13 +81,13 @@ PlatypusEditingState >> keystroke: aKeyboardEvent from: aTextMorph [
 	^ false
 ]
 
-{ #category : #events }
+{ #category : 'events' }
 PlatypusEditingState >> mouseDown: anEvent from: aTextMorph [
 	super mouseDown: anEvent from: aTextMorph.
 	self closeSelectorChooser
 ]
 
-{ #category : #chooser }
+{ #category : 'chooser' }
 PlatypusEditingState >> querySymbolFrom: aTextMorph [
 	| sel pref | 
 	sel := aTextMorph editor selectionInterval.
@@ -97,17 +99,17 @@ PlatypusEditingState >> querySymbolFrom: aTextMorph [
 
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusEditingState >> replaceAtEnd [
 	^ replaceAtEnd ifNil: [replaceAtEnd := false]
 ]
 
-{ #category : #chooser }
+{ #category : 'chooser' }
 PlatypusEditingState >> selectorChooser [
 	^ selectorChooser
 ]
 
-{ #category : #chooser }
+{ #category : 'chooser' }
 PlatypusEditingState >> updateSelectorChooserFrom: aTextMorph [
 	selectorChooser ifNil: [^ self].
 	self closeSelectorChooser.

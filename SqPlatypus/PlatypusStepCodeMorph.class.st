@@ -1,21 +1,23 @@
 Class {
-	#name : #PlatypusStepCodeMorph,
-	#superclass : #TamTextMorph,
-	#category : #'SqPlatypus-HW-System-Text'
+	#name : 'PlatypusStepCodeMorph',
+	#superclass : 'TamTextMorph',
+	#category : 'SqPlatypus-HW-System-Text',
+	#package : 'SqPlatypus',
+	#tag : 'HW-System-Text'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusStepCodeMorph >> accessibleSchemata [
 	^ self sourceHandler accessibleSchemata
 
 ]
 
-{ #category : #'error handling' }
+{ #category : 'error handling' }
 PlatypusStepCodeMorph >> notify: aString [
 	Transcript show: aString, String cr
 ]
 
-{ #category : #private }
+{ #category : 'private' }
 PlatypusStepCodeMorph >> querySymbol [
 	| ed |
 	ed := self textMorph editor.
@@ -23,22 +25,22 @@ PlatypusStepCodeMorph >> querySymbol [
 	ed querySymbol: nil 
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusStepCodeMorph >> replacementFor: aString [
 	^ self model replacementFor: aString
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusStepCodeMorph >> schemaInstance [
 	^ self sourceHandler schemaInstance
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusStepCodeMorph >> schemata [
 	^ self sourceHandler schemata
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusStepCodeMorph >> sourceHandler [
 	^ self model sourceHandler
 ]

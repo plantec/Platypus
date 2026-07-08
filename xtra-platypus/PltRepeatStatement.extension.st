@@ -1,17 +1,17 @@
-Extension { #name : #PltRepeatStatement }
+Extension { #name : 'PltRepeatStatement' }
 
-{ #category : #'*xtra-platypus-evaluating' }
+{ #category : '*xtra-platypus-evaluating' }
 PltRepeatStatement >> initializeContextInInterpretor: anInterpretor [ 
 	self incrControl
 		ifNotNil: [anInterpretor prepareIncrControl: self incrControl].
 ]
 
-{ #category : #'*xtra-platypus-evaluating' }
+{ #category : '*xtra-platypus-evaluating' }
 PltRepeatStatement >> interpretorContextClass [
 	^ PlatypusExpressInterpretorRepeatContext
 ]
 
-{ #category : #'*xtra-platypus-accessing' }
+{ #category : '*xtra-platypus-accessing' }
 PltRepeatStatement >> lookUpIdentifierBN: aName [ 
 	| upper |
 	^ self incrControl
@@ -21,7 +21,7 @@ PltRepeatStatement >> lookUpIdentifierBN: aName [
 				ifTrue: [self incrControl variable]]
 ]
 
-{ #category : #'*xtra-platypus-accessing' }
+{ #category : '*xtra-platypus-accessing' }
 PltRepeatStatement >> variableHolders [ 
 	^ self incrControl
 		ifNil: [OrderedCollection new]

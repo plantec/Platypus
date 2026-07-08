@@ -1,23 +1,25 @@
 Class {
-	#name : #PlatypusVisitorErrorWrapper,
-	#superclass : #Object,
+	#name : 'PlatypusVisitorErrorWrapper',
+	#superclass : 'Object',
 	#instVars : [
 		'wrapped'
 	],
-	#category : #'SqPlatypus-HW-CodeHolder'
+	#category : 'SqPlatypus-HW-CodeHolder',
+	#package : 'SqPlatypus',
+	#tag : 'HW-CodeHolder'
 }
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 PlatypusVisitorErrorWrapper class >> wrapped: aStepError [
 	^ self new wrapped: aStepError
 ]
 
-{ #category : #converting }
+{ #category : 'converting' }
 PlatypusVisitorErrorWrapper >> asString [
 	^ wrapped asString
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusVisitorErrorWrapper >> icon [
 	| found p |
 	p := self path.
@@ -28,23 +30,23 @@ PlatypusVisitorErrorWrapper >> icon [
 	^ found tamarisItemRef icon
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusVisitorErrorWrapper >> message [
 	^ wrapped message
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusVisitorErrorWrapper >> metaData [
 	^ wrapped metaData
 
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusVisitorErrorWrapper >> path [
 	^ wrapped path
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusVisitorErrorWrapper >> selectingFrom: aHierarchicalList [ 
 	| editor firstIndex elem |
 	editor := aHierarchicalList clientModel.
@@ -61,14 +63,14 @@ PlatypusVisitorErrorWrapper >> selectingFrom: aHierarchicalList [
 					editor selectionInterval: editor selectionInterval]]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusVisitorErrorWrapper >> unSelectingFrom: aHierarchicalList [ 
 	| editor |
 	editor := aHierarchicalList clientModel.
 	editor selectFrom: editor selectionInterval first to: editor selectionInterval first - 1
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusVisitorErrorWrapper >> wrapped: aStepError [
 	wrapped := aStepError
 ]

@@ -1,21 +1,21 @@
-Extension { #name : #PltAnonymousVariable }
+Extension { #name : 'PltAnonymousVariable' }
 
-{ #category : #'*xtra-platypus-instance-creation' }
+{ #category : '*xtra-platypus-instance-creation' }
 PltAnonymousVariable class >> default [
 	^ PltAnonymousVariable domain: PltMissingValue new
 ]
 
-{ #category : #'*xtra-platypus-instance-creation' }
+{ #category : '*xtra-platypus-instance-creation' }
 PltAnonymousVariable class >> domain: aDomain [
 	^ self new domain: aDomain
 ]
 
-{ #category : #'*xtra-platypus-interpreting' }
+{ #category : '*xtra-platypus-interpreting' }
 PltAnonymousVariable >> platypusVariable [
 	^ self
 ]
 
-{ #category : #'*xtra-platypus-type-infering' }
+{ #category : '*xtra-platypus-type-infering' }
 PltAnonymousVariable >> staticDomain [
 	^ domain computedDomain
 

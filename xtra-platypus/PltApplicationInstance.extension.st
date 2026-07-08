@@ -1,21 +1,21 @@
-Extension { #name : #PltApplicationInstance }
+Extension { #name : 'PltApplicationInstance' }
 
-{ #category : #'*xtra-platypus-type-infering' }
+{ #category : '*xtra-platypus-type-infering' }
 PltApplicationInstance >> computedDomain [
 	^ self inferedDomain
 ]
 
-{ #category : #'*xtra-platypus-evaluating' }
+{ #category : '*xtra-platypus-evaluating' }
 PltApplicationInstance >> instEqual: another [ 
 	^ PltLogicalLiteral val: self == another
 ]
 
-{ #category : #'*xtra-platypus-classification' }
+{ #category : '*xtra-platypus-classification' }
 PltApplicationInstance >> isPltValue [
 	^ true
 ]
 
-{ #category : #'*xtra-platypus-printing' }
+{ #category : '*xtra-platypus-printing' }
 PltApplicationInstance >> printOn: aStream [
 	super printOn: aStream.
 	aStream nextPut: $[.
@@ -24,7 +24,7 @@ PltApplicationInstance >> printOn: aStream [
 		
 ]
 
-{ #category : #'*xtra-platypus-accessing' }
+{ #category : '*xtra-platypus-accessing' }
 PltApplicationInstance >> printableCode [
 	| writer |
 	writer := PlatypusModelContentsStepWriter new.
@@ -33,12 +33,12 @@ PltApplicationInstance >> printableCode [
 	^ writer outStream contents
 ]
 
-{ #category : #'*xtra-platypus-data-management' }
+{ #category : '*xtra-platypus-data-management' }
 PltApplicationInstance >> updatePersistentLabelIndex: index [
 	index at: self persistentLabel put: self
 ]
 
-{ #category : #'*xtra-platypus-accessing' }
+{ #category : '*xtra-platypus-accessing' }
 PltApplicationInstance >> valueOfExplicitAttributeNamed: aName [ 
 	^ self subclassResponsibility
 ]

@@ -1,15 +1,17 @@
 Class {
-	#name : #PlatypusSchemaInstanceReference,
-	#superclass : #PlatypusExpressReference,
+	#name : 'PlatypusSchemaInstanceReference',
+	#superclass : 'PlatypusExpressReference',
 	#instVars : [
 		'schemaInstance',
 		'tokenList',
 		'modelContentsReferences'
 	],
-	#category : #'SqPlatypus-HW-tamaris'
+	#category : 'SqPlatypus-HW-tamaris',
+	#package : 'SqPlatypus',
+	#tag : 'HW-tamaris'
 }
 
-{ #category : #menus }
+{ #category : 'menus' }
 PlatypusSchemaInstanceReference class >> addReferenceFromFilenamed: aFilename intoOwner: aReference [ 
 	| initial strm |
 	initial := aFilename asFileReference basenameWithoutExtension.
@@ -23,7 +25,7 @@ PlatypusSchemaInstanceReference class >> addReferenceFromFilenamed: aFilename in
 
 ]
 
-{ #category : #menus }
+{ #category : 'menus' }
 PlatypusSchemaInstanceReference class >> addReferenceFromStream: aStream intoOwner: aReference modelName: anIdent [ 
 	| fileContents parsingResult codeHolder window newSchi |
 	fileContents := aStream contents.
@@ -45,7 +47,7 @@ PlatypusSchemaInstanceReference class >> addReferenceFromStream: aStream intoOwn
 	
 ]
 
-{ #category : #menus }
+{ #category : 'menus' }
 PlatypusSchemaInstanceReference class >> addReferenceMenuItemToMenu: aMenu owner: anotherReference [ 
 	| menuAddReference |
 	(menuAddReference := self subMenuLabelSubMenu: aMenu)
@@ -60,48 +62,48 @@ PlatypusSchemaInstanceReference class >> addReferenceMenuItemToMenu: aMenu owner
 		argumentList: {anotherReference}
 ]
 
-{ #category : #menus }
+{ #category : 'menus' }
 PlatypusSchemaInstanceReference class >> addReferenceToFromFileListTaxonFromFilenamed: aFilename [ 
 	self addReferenceFromFilenamed: aFilename intoOwner: TamManager fromFileListTaxonomy
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusSchemaInstanceReference class >> allExpressTranslaters [
 	^ PlatypusSchemaInstanceReference allSubInstances
 		select: [:d | d isReleased not
 				and: [d canBeExpressTranslater]]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusSchemaInstanceReference class >> allSchemaInstanceReferencesNamed: aName [ 
 	^ self allSchemaInstancesReferences 
 		select: [:r | r name asUppercase = aName asUppercase]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusSchemaInstanceReference class >> allSchemaInstancesReferences [
 	^ PlatypusSchemaInstanceReference allSubInstances
 		select: [:d | d isReleased not and: [d schemaInstance notNil]]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusSchemaInstanceReference class >> allSchemaReferences [
 	^ self allSchemaInstancesReferences inject: OrderedCollection new into: [:all :schir | all 
 				addAll:  schir internalSchemaReferences;
 				yourself]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusSchemaInstanceReference class >> allSchemaReferencesNamed: aName [
 	^ self allSchemaReferences select: [:r | r name asUppercase = aName asUppercase]
 ]
 
-{ #category : #menus }
+{ #category : 'menus' }
 PlatypusSchemaInstanceReference class >> canBeCreatedInteractively [
 	^ true
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusSchemaInstanceReference class >> chooseExpressTranslaterForClient: aClient selectingBlock: aBlock [ 
 	| aghl |
 	Cursor normal showWhile: 
@@ -116,7 +118,7 @@ PlatypusSchemaInstanceReference class >> chooseExpressTranslaterForClient: aClie
 			aghl openModal]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusSchemaInstanceReference class >> chooseSchemaForClient: aClient selectingBlock: aBlock candidats: aListOfSchemaRef [ 
 	^ self 
 		chooseSchemaForClient: aClient
@@ -125,7 +127,7 @@ PlatypusSchemaInstanceReference class >> chooseSchemaForClient: aClient selectin
 		title: 'EXPRESS schemata'
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusSchemaInstanceReference class >> chooseSchemaForClient: aClient selectingBlock: aBlock candidats: aListOfSchemaRef title: aTitle [ 
 	| aghl flatten |
 	Cursor normal showWhile: 
@@ -143,7 +145,7 @@ PlatypusSchemaInstanceReference class >> chooseSchemaForClient: aClient selectin
 			aghl openModalAndExpand]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusSchemaInstanceReference class >> chooseSchemaInstanceForClient: aClient selectingBlock: aBlock [ 
 	| aghl |
 	Cursor normal showWhile: 
@@ -159,7 +161,7 @@ PlatypusSchemaInstanceReference class >> chooseSchemaInstanceForClient: aClient 
 			aghl openModal]
 ]
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 PlatypusSchemaInstanceReference class >> initializePlatypusMetaSchemataIfNeeded [
 	PlatypusInternalMetaSchemaInstanceReference 
 		initializeExpressMetaDictionaryIfNeeded.
@@ -167,7 +169,7 @@ PlatypusSchemaInstanceReference class >> initializePlatypusMetaSchemataIfNeeded 
 		initializeExpressPrimitiveDictionaryIfNeeded
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusSchemaInstanceReference class >> interactivelyResolvedSchemaSatisfying: aBlock message: aMessage [
 	| chosen candidats |
 	candidats := self selectSchemaReferences: aBlock.
@@ -184,7 +186,7 @@ PlatypusSchemaInstanceReference class >> interactivelyResolvedSchemaSatisfying: 
 	^ chosen
 ]
 
-{ #category : #menus }
+{ #category : 'menus' }
 PlatypusSchemaInstanceReference class >> menuAddReferenceFromFileIntoOwner: aReference [
 	| result |
 	result := Tamaris chooseFilePathMatching: #('*.exp') label: 'Choose file to read' translated.
@@ -195,14 +197,14 @@ PlatypusSchemaInstanceReference class >> menuAddReferenceFromFileIntoOwner: aRef
 			self addReferenceFromFilenamed: result intoOwner: aReference ]
 ]
 
-{ #category : #menus }
+{ #category : 'menus' }
 PlatypusSchemaInstanceReference class >> menuAddReferenceIntoOwner: aReference [ 
 	(UIManager default request: 'Model name' initialAnswer: '')
 		ifNotNil: [:key | self owner: aReference schemaInstanceNamed: key ]
 
 ]
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 PlatypusSchemaInstanceReference class >> owner: aReference schemaInstance: aSchemaInstance [ 
 	| newRef |
 	newRef := self schemaInstance: aSchemaInstance.
@@ -210,7 +212,7 @@ PlatypusSchemaInstanceReference class >> owner: aReference schemaInstance: aSche
 	^ newRef
 ]
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 PlatypusSchemaInstanceReference class >> owner: aReference schemaInstanceNamed: key [ 
 	| newRef |
 	newRef := self schemaInstanceNamed: key.
@@ -218,17 +220,17 @@ PlatypusSchemaInstanceReference class >> owner: aReference schemaInstanceNamed: 
 	^ newRef
 ]
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 PlatypusSchemaInstanceReference class >> schemaInstance: aSchemaInstance [ 
 	^ self new schemaInstance: aSchemaInstance
 ]
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 PlatypusSchemaInstanceReference class >> schemaInstanceClass [
 	^ PltSchemaInstance
 ]
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 PlatypusSchemaInstanceReference class >> schemaInstanceNamed: aString [ 
 	| schemaInstance |
 	schemaInstance := self schemaInstanceClass new.
@@ -236,18 +238,18 @@ PlatypusSchemaInstanceReference class >> schemaInstanceNamed: aString [
 	^ self schemaInstance: schemaInstance
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusSchemaInstanceReference class >> selectSchemaReferences: aBlock [ 
 	^ self allSchemaReferences 
 		select: aBlock
 ]
 
-{ #category : #menus }
+{ #category : 'menus' }
 PlatypusSchemaInstanceReference class >> subMenuLabel [
 	^ 'an Express model  '
 ]
 
-{ #category : #'drag and drop' }
+{ #category : 'drag and drop' }
 PlatypusSchemaInstanceReference >> acceptDroppingMorph: aTransfertMorph copy: shouldCopy [ 
 	(aTransfertMorph respondsTo: #passenger) ifFalse: [^ false].
 	((aTransfertMorph passenger isKindOf: PlatypusSchemaReference) 
@@ -257,19 +259,19 @@ PlatypusSchemaInstanceReference >> acceptDroppingMorph: aTransfertMorph copy: sh
 		copy: shouldCopy
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusSchemaInstanceReference >> accessibleSchemata [
 	^self schemaInstance schemata
 ]
 
-{ #category : #updating }
+{ #category : 'updating' }
 PlatypusSchemaInstanceReference >> addModelContentsReference: newRef [ 
 	self addModelContentsReferenceSilently: newRef.
 	TamManager changed: self.
 	^ newRef
 ]
 
-{ #category : #updating }
+{ #category : 'updating' }
 PlatypusSchemaInstanceReference >> addModelContentsReferenceSilently: newRef [ 
 	| modelContents |
 	modelContents := newRef modelContents.
@@ -280,12 +282,12 @@ PlatypusSchemaInstanceReference >> addModelContentsReferenceSilently: newRef [
 	^ newRef
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusSchemaInstanceReference >> addingStartNode [
 	^ nil
 ]
 
-{ #category : #checking }
+{ #category : 'checking' }
 PlatypusSchemaInstanceReference >> allUsers [
 	| allUsers |
 	allUsers := self usersInto: Set new.
@@ -293,24 +295,24 @@ PlatypusSchemaInstanceReference >> allUsers [
 	^ allUsers
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 PlatypusSchemaInstanceReference >> canBeExpressTranslater [
 	^ self platypusInternalMetaSchemaInstanceReference metaData schemata
 		anySatisfy: [:sch | self metaData externalSchemata
 				anySatisfy: [:mySch| mySch = sch ]]
 ]
 
-{ #category : #'data checking' }
+{ #category : 'data checking' }
 PlatypusSchemaInstanceReference >> checksMetaData [
 	^ self schemaInstance checksMetaData
 ]
 
-{ #category : #'data checking' }
+{ #category : 'data checking' }
 PlatypusSchemaInstanceReference >> checksMetaDataAndExplore [
 	(self checksMetaData) explore
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusSchemaInstanceReference >> children [
 	| schemata superChildren |
 	((superChildren := super children)
@@ -323,7 +325,7 @@ PlatypusSchemaInstanceReference >> children [
 				ifNil: [#()])
 ]
 
-{ #category : #'code accessing' }
+{ #category : 'code accessing' }
 PlatypusSchemaInstanceReference >> codeStreamClassFor: aTokenList from: aStartNode to: aSopNode [ 
 	^ super
 		codeStreamClassFor: aTokenList
@@ -331,7 +333,7 @@ PlatypusSchemaInstanceReference >> codeStreamClassFor: aTokenList from: aStartNo
 		to: aSopNode
 ]
 
-{ #category : #'code updating' }
+{ #category : 'code updating' }
 PlatypusSchemaInstanceReference >> codeUpdated [
 	self modelContentsReferences 
 		do: [:mcr | 
@@ -341,21 +343,21 @@ PlatypusSchemaInstanceReference >> codeUpdated [
 
 ]
 
-{ #category : #'code updating' }
+{ #category : 'code updating' }
 PlatypusSchemaInstanceReference >> codeUpdatedOn: aDate [
 	self schemaInstance changeDate: aDate asString.
 	self codeUpdated.
 
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 PlatypusSchemaInstanceReference >> containsOrHasALinkTo: aSchemaDefinition [
 	(self subReferences anySatisfy: [:sr | sr metaData = aSchemaDefinition or: [sr isLinkTo: aSchemaDefinition]])
 		ifTrue: [ ^ true ].
 	^ false
 ]
 
-{ #category : #copying }
+{ #category : 'copying' }
 PlatypusSchemaInstanceReference >> copy [
 	| copy codeText |
 	copy := super copy.
@@ -379,7 +381,7 @@ PlatypusSchemaInstanceReference >> copy [
 	^ copy
 ]
 
-{ #category : #'initialize/release' }
+{ #category : 'initialize/release' }
 PlatypusSchemaInstanceReference >> destroy [
 	self tokenList
 		ifNotNil: [self tokenList destroy].
@@ -392,7 +394,7 @@ PlatypusSchemaInstanceReference >> destroy [
 	super destroy
 ]
 
-{ #category : #checking }
+{ #category : 'checking' }
 PlatypusSchemaInstanceReference >> doInternalChecking [
 	super doInternalChecking.
 	self assert: modelContentsReferences notNil.
@@ -415,17 +417,17 @@ PlatypusSchemaInstanceReference >> doInternalChecking [
 			mcr doInternalChecking]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusSchemaInstanceReference >> elementTag [ 
 	^ #namespace
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusSchemaInstanceReference >> expressParserClassName [
 	^ #PlatypusExpressParser
 ]
 
-{ #category : #'code accessing' }
+{ #category : 'code accessing' }
 PlatypusSchemaInstanceReference >> fullCodeString [
 	| stream |
 	stream := String new writeStream.
@@ -434,12 +436,12 @@ PlatypusSchemaInstanceReference >> fullCodeString [
 	^ stream contents
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 PlatypusSchemaInstanceReference >> haveMetaSchemata [
 	^ self metaData notNil and: [self metaData haveMetaSchemata]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusSchemaInstanceReference >> icon [
 	^ self usePlatypusPrimitiveSchema
 		ifTrue: [TamIcons mimeIcon: '10x10/mimetypes/package_yellow']
@@ -448,7 +450,7 @@ PlatypusSchemaInstanceReference >> icon [
 				ifFalse: [TamIcons mimeIcon: '10x10/mimetypes/package_blue']]
 ]
 
-{ #category : #'initialize/release' }
+{ #category : 'initialize/release' }
 PlatypusSchemaInstanceReference >> initialize [
 	tokenList := PlatypusTokenList new.
 	modelContentsReferences := OrderedCollection new.
@@ -456,7 +458,7 @@ PlatypusSchemaInstanceReference >> initialize [
 	super initialize
 ]
 
-{ #category : #'code updating' }
+{ #category : 'code updating' }
 PlatypusSchemaInstanceReference >> insertLinkReferenceFrom: aReference [ 
 	| link linkRef |
 	(aReference isKindOf: PlatypusExpressReference) 
@@ -479,14 +481,14 @@ PlatypusSchemaInstanceReference >> insertLinkReferenceFrom: aReference [
 					^ true]]
 ]
 
-{ #category : #'drag and drop' }
+{ #category : 'drag and drop' }
 PlatypusSchemaInstanceReference >> insertLinkableListItemFromTransfertMorph: aTransfertMorph copy: shouldCopy [ 
 	shouldCopy ifTrue: [self copyListItemHereFromTransfertMorph: aTransfertMorph]
 	ifFalse: [self linkListItemHereFromTransfertMorph: aTransfertMorph]
 
 ]
 
-{ #category : #'code updating' }
+{ #category : 'code updating' }
 PlatypusSchemaInstanceReference >> insertReference: anotherReference [ 
 	| parserResult code |
 	((anotherReference isKindOf: PlatypusExpressReference) 
@@ -504,42 +506,42 @@ PlatypusSchemaInstanceReference >> insertReference: anotherReference [
 	^ true
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusSchemaInstanceReference >> internalSchemaReferences [
 	^ self schemaReferences select: [:chld | chld metaData isLink not]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusSchemaInstanceReference >> internalSchemata [
 	^ self metaData internalSchemata
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 PlatypusSchemaInstanceReference >> isChangeable [ 
 	^true
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 PlatypusSchemaInstanceReference >> isCopyable [ 
 	^ true
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 PlatypusSchemaInstanceReference >> isMetaSchemaInstanceReference [
 	^ self owner = TamManager platypusMetaDefaultTaxon
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 PlatypusSchemaInstanceReference >> isMoveable [
 	^ true
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 PlatypusSchemaInstanceReference >> isSchemaInstanceReference [
 	^ true
 ]
 
-{ #category : #menus }
+{ #category : 'menus' }
 PlatypusSchemaInstanceReference >> keyStroke: aCharacter from: aListMorph [ 
 	super keyStroke: aCharacter from: aListMorph.
 	aCharacter = $n
@@ -549,32 +551,32 @@ PlatypusSchemaInstanceReference >> keyStroke: aCharacter from: aListMorph [
 
 ]
 
-{ #category : #'drag and drop' }
+{ #category : 'drag and drop' }
 PlatypusSchemaInstanceReference >> linkListItemHereFromTransfertMorph: aTransfertMorph [ 
 	self insertLinkReferenceFrom: aTransfertMorph passenger
 ]
 
-{ #category : #'sublists handling' }
+{ #category : 'sublists handling' }
 PlatypusSchemaInstanceReference >> linksReferences [
 	^ self subReferencesOfKind: PlatypusSchemaLinkReference
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusSchemaInstanceReference >> lookUpIdentifierBN: anIdent [ 
 	^ self metaData lookUpIdentifierBN: anIdent 
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusSchemaInstanceReference >> lookUpNamedTypeBN: anIdent [ 
 	^ self metaData lookUpNamedTypeBN: anIdent
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusSchemaInstanceReference >> masterModelAsStepStream [
 	^ self schemaInstance masterModelAsStepStream
 ]
 
-{ #category : #menus }
+{ #category : 'menus' }
 PlatypusSchemaInstanceReference >> menuCopyAs [
 	| parsingResult key newRef code |
 	key := UIManager default request: 'internal key ' initialAnswer: self shortName.
@@ -586,29 +588,31 @@ PlatypusSchemaInstanceReference >> menuCopyAs [
 			self owner insertReference: newRef]
 ]
 
-{ #category : #menus }
+{ #category : 'menus' }
 PlatypusSchemaInstanceReference >> menuForceTranslaterPrefix [
 	(UIManager default request: 'class and system category prefix ?' initialAnswer: self metaData translaterClassPrefix)
 		ifNotNil: [:prefix | self metaData schemaInstance namesBuilderPrefixedBy: prefix trimBoth] 
 ]
 
-{ #category : #menus }
+{ #category : 'menus' }
 PlatypusSchemaInstanceReference >> menuMetaDataToStepFile [
-	| result |
-	result := UITheme current 
-		fileSaveIn: World
-		title: 'Meta data file name'
-		extensions: #('step')
-		path: ''.
-	result ifNotNil: [[self metaDataToStream: result] ensure: [result close]]
+
+	| result fref |
+	fref := UIManager default
+		        chooseForSaveFileReference: 'Choose a file'
+		        extensions: #( '.exp' )
+		        path: FileSystem workingDirectory.
+	fref ifNotNil: [
+			result := fref writeStream.
+			[ self metaDataToStream: result ] ensure: [ result close ] ]
 ]
 
-{ #category : #menus }
+{ #category : 'menus' }
 PlatypusSchemaInstanceReference >> menuNewModelContents [
 	self newModelContents
 ]
 
-{ #category : #menus }
+{ #category : 'menus' }
 PlatypusSchemaInstanceReference >> menuNewSchema [
 	| key parsingResult source |
 	(key := UIManager default  request: 'Schema name?' initialAnswer: '')
@@ -623,13 +627,13 @@ PlatypusSchemaInstanceReference >> menuNewSchema [
 			self treeHasChanged]
 ]
 
-{ #category : #menus }
+{ #category : 'menus' }
 PlatypusSchemaInstanceReference >> menuSetTranslaterClassPrefix [
 	(UIManager default request: 'Translated class prefix?' initialAnswer: self metaData translaterClassPrefix)
 		ifNotNil: [:prefix | self metaData translaterClassPrefix: prefix trimBoth] 
 ]
 
-{ #category : #menus }
+{ #category : 'menus' }
 PlatypusSchemaInstanceReference >> menuSetTranslaterRootClassName [
 	| name |
 	(name := UIManager default request: 'Translated root class name?'
@@ -637,7 +641,7 @@ PlatypusSchemaInstanceReference >> menuSetTranslaterRootClassName [
 			ifNotEmpty: [:e | self metaData translaterRootClassName: name trimBoth]
 ]
 
-{ #category : #menus }
+{ #category : 'menus' }
 PlatypusSchemaInstanceReference >> menuSetTranslaterRootClassSystemCategory [
 	| name |
 	(name := UIManager default request: 'Translated root class system category?'
@@ -645,7 +649,7 @@ PlatypusSchemaInstanceReference >> menuSetTranslaterRootClassSystemCategory [
 			ifNotEmpty: [:e | self metaData translaterRootClassSystemCategory: name trimBoth]
 ]
 
-{ #category : #menus }
+{ #category : 'menus' }
 PlatypusSchemaInstanceReference >> menuSetTranslaterSystemCategoryPrefix [
 	| prefix |
 	(prefix := UIManager default request: 'Translated system categories prefix?'
@@ -653,42 +657,42 @@ PlatypusSchemaInstanceReference >> menuSetTranslaterSystemCategoryPrefix [
 			ifNotEmpty: [:e | self metaData translaterSystemCategoryPrefix: prefix trimBoth]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusSchemaInstanceReference >> metaData [
 	^ self schemaInstance
 ]
 
-{ #category : #menus }
+{ #category : 'menus' }
 PlatypusSchemaInstanceReference >> metaDataStream [
 	^ self metaData metaDataStream
 ]
 
-{ #category : #menus }
+{ #category : 'menus' }
 PlatypusSchemaInstanceReference >> metaDataToStepFile: aFileName [ 
 	self metaData metaDataToStepFile: aFileName
 ]
 
-{ #category : #menus }
+{ #category : 'menus' }
 PlatypusSchemaInstanceReference >> metaDataToStream: aStream [ 
 	self metaData metaDataToStream: aStream
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusSchemaInstanceReference >> modelContentsReferences [
 	^ modelContentsReferences
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusSchemaInstanceReference >> modelContentsReferences: aCollection [
 	modelContentsReferences := aCollection
 ]
 
-{ #category : #updating }
+{ #category : 'updating' }
 PlatypusSchemaInstanceReference >> moveDownReference: aReference [ 
 	^ aReference moveDown
 ]
 
-{ #category : #updating }
+{ #category : 'updating' }
 PlatypusSchemaInstanceReference >> moveDownSchemaReference: aReference [ 
 	| index |
 	index := self subReferences indexOf: aReference.
@@ -699,7 +703,7 @@ PlatypusSchemaInstanceReference >> moveDownSchemaReference: aReference [
 	^ false
 ]
 
-{ #category : #'drag and drop' }
+{ #category : 'drag and drop' }
 PlatypusSchemaInstanceReference >> moveListItemHereFromTransfertMorph: aTransfertMorph [ 
 	(self copyListItemHereFromTransfertMorph: aTransfertMorph)
 		ifTrue: [aTransfertMorph passenger remove.
@@ -707,14 +711,14 @@ PlatypusSchemaInstanceReference >> moveListItemHereFromTransfertMorph: aTransfer
 	^ false
 ]
 
-{ #category : #updating }
+{ #category : 'updating' }
 PlatypusSchemaInstanceReference >> moveUpReference: aReference [ 
 	| |
 	^ aReference moveUp
 
 ]
 
-{ #category : #updating }
+{ #category : 'updating' }
 PlatypusSchemaInstanceReference >> moveUpSchemaReference: aReference [ 
 	| index |
 	index := self subReferences indexOf: aReference.
@@ -725,12 +729,12 @@ PlatypusSchemaInstanceReference >> moveUpSchemaReference: aReference [
 	^ false
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusSchemaInstanceReference >> name [
 	^ schemaInstance name
 ]
 
-{ #category : #updating }
+{ #category : 'updating' }
 PlatypusSchemaInstanceReference >> newModelContents [
 	| modelContents newRef |
 	modelContents := PltModelContents new owner: self schemaInstance.
@@ -738,24 +742,24 @@ PlatypusSchemaInstanceReference >> newModelContents [
 	^ self addModelContentsReference: newRef
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusSchemaInstanceReference >> platypusInternalMetaSchemaInstanceReference [
 	^ PlatypusInternalMetaSchemaInstanceReference expressMetaDictionary
 ]
 
-{ #category : #menus }
+{ #category : 'menus' }
 PlatypusSchemaInstanceReference >> promote: aMetaModelSchemaInstanceReference [ 
 	aMetaModelSchemaInstanceReference storeAsMetaDataOf: self
 ]
 
-{ #category : #enumerating }
+{ #category : 'enumerating' }
 PlatypusSchemaInstanceReference >> recursivelyDo: aBlock [
 	super recursivelyDo: aBlock.
 	self modelContentsReferences do: [:mcr |
 		mcr recursivelyDo: aBlock]
 ]
 
-{ #category : #'code updating' }
+{ #category : 'code updating' }
 PlatypusSchemaInstanceReference >> relabelWith: newName [ 
 	| metaData |
 	metaData := self metaData.
@@ -763,13 +767,13 @@ PlatypusSchemaInstanceReference >> relabelWith: newName [
 	self treeHasChanged
 ]
 
-{ #category : #updating }
+{ #category : 'updating' }
 PlatypusSchemaInstanceReference >> removeAllModelContents [
 	self removeAllModelContentsOf: self modelContentsReferences 
 
 ]
 
-{ #category : #updating }
+{ #category : 'updating' }
 PlatypusSchemaInstanceReference >> removeAllModelContentsOf: aListOfModelContentsRef [ 
 	| modelContents |
 	aListOfModelContentsRef
@@ -784,13 +788,13 @@ PlatypusSchemaInstanceReference >> removeAllModelContentsOf: aListOfModelContent
 				ifNotNil: [modelContents deepDestroy]]
 ]
 
-{ #category : #updating }
+{ #category : 'updating' }
 PlatypusSchemaInstanceReference >> removeSilently [
 	self logToChangesRemoving: self oldCodeText: self codeText.
 	super removeSilently
 ]
 
-{ #category : #'code updating' }
+{ #category : 'code updating' }
 PlatypusSchemaInstanceReference >> replaceMetaDataWith: aMetaData [
 	| keptName keptExternalLinks keptModelContentsReferences |
 	keptModelContentsReferences := self modelContentsReferences.
@@ -808,61 +812,61 @@ PlatypusSchemaInstanceReference >> replaceMetaDataWith: aMetaData [
 	self metaData tamarisItemRef: self
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusSchemaInstanceReference >> rootSourceHandler [
 	^ self 
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusSchemaInstanceReference >> schemaInstance [
 	^ schemaInstance
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusSchemaInstanceReference >> schemaInstance: anObject [ 
 	schemaInstance := anObject.
 	self accept: '' notifying: nil
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusSchemaInstanceReference >> schemaInstanceReference [
 	^ self
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusSchemaInstanceReference >> schemaReferences [
 	^ self children select: [:chld | chld isLink not and: [chld isSchemaReference]]
 ]
 
-{ #category : #'sublists handling' }
+{ #category : 'sublists handling' }
 PlatypusSchemaInstanceReference >> schemataReferences [
 	^ self subReferencesOfKind: PlatypusSchemaReference
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusSchemaInstanceReference >> shortName [
 	| mdt |
 	^ (mdt := self metaData) ifNil: ['???'] ifNotNil: [mdt name]
 
 ]
 
-{ #category : #'sublists handling' }
+{ #category : 'sublists handling' }
 PlatypusSchemaInstanceReference >> showSubLists [
 	^  super showSubLists
 ]
 
-{ #category : #'code updating' }
+{ #category : 'code updating' }
 PlatypusSchemaInstanceReference >> showsUsersAsToBeChecked [
 	self allUsers
 		do: [:u | u emphasisModel: TamListItemMorphEmphasisModel boldRedStandard]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusSchemaInstanceReference >> smaCCStartingState [
 	^ self expressParserClass startingStateForSchemaInstanceEntry
 ]
 
-{ #category : #menus }
+{ #category : 'menus' }
 PlatypusSchemaInstanceReference >> specificMenu: menu shifted: b [ 
 	| menuExpress arr |
 	super specificMenu: menu shifted: b.
@@ -889,26 +893,26 @@ PlatypusSchemaInstanceReference >> specificMenu: menu shifted: b [
 	^ menu
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusSchemaInstanceReference >> startNode [
 	^ self tokenList first
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusSchemaInstanceReference >> startNode: aNode [ 
 	^ self
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusSchemaInstanceReference >> stopNode [
 	^ self tokenList last
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusSchemaInstanceReference >> stopNode: aNode [
 ]
 
-{ #category : #menus }
+{ #category : 'menus' }
 PlatypusSchemaInstanceReference >> storeAsMetaData [
 	Cursor wait
 		showWhile: [self class
@@ -918,13 +922,13 @@ PlatypusSchemaInstanceReference >> storeAsMetaData [
 					chosen promote: self]]
 ]
 
-{ #category : #menus }
+{ #category : 'menus' }
 PlatypusSchemaInstanceReference >> storeAsMetaDataHere [
 	Cursor wait
 		showWhile: [self storeAsMetaDataOf: self]
 ]
 
-{ #category : #menus }
+{ #category : 'menus' }
 PlatypusSchemaInstanceReference >> storeAsMetaDataOf: aMetaModelSchemaInstanceReference [ 
 	| newModelContents |
 	aMetaModelSchemaInstanceReference removeAllModelContents.
@@ -935,12 +939,12 @@ PlatypusSchemaInstanceReference >> storeAsMetaDataOf: aMetaModelSchemaInstanceRe
 	aMetaModelSchemaInstanceReference verifySilently
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusSchemaInstanceReference >> subElementSymbols [
 	^ Array with: PlatypusSchemaReference lexicalElement
 ]
 
-{ #category : #'sublists handling' }
+{ #category : 'sublists handling' }
 PlatypusSchemaInstanceReference >> subListsDefsArray [
 	"return an array of array. Each element array is for one sublist and 
 	contains first a selector for sublist accessing and second a label
@@ -952,43 +956,43 @@ PlatypusSchemaInstanceReference >> subListsDefsArray [
 	^ subs
 ]
 
-{ #category : #'sublists handling' }
+{ #category : 'sublists handling' }
 PlatypusSchemaInstanceReference >> subListsReferenceClassName [
 	^ #PlatypusExpressSubListReference
 ]
 
-{ #category : #'code updating' }
+{ #category : 'code updating' }
 PlatypusSchemaInstanceReference >> subReferencesScanStart [
 	^ self startNode
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusSchemaInstanceReference >> tokenList [
 	^ tokenList
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusSchemaInstanceReference >> tokenList: aTokenList [
 	tokenList := aTokenList
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusSchemaInstanceReference >> translaterForPharo [
 	^ PlatypusToPharoTranslater new
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusSchemaInstanceReference >> translaterForVisualWorks [
 	^ PlatypusToVisualWorksTranslater new
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 PlatypusSchemaInstanceReference >> usePlatypusPrimitiveSchema [
 	^ self metaData notNil
 			and: [self metaData usePlatypusPrimitiveSchema]
 ]
 
-{ #category : #checking }
+{ #category : 'checking' }
 PlatypusSchemaInstanceReference >> usersInto: aSet [ 
 	| locals |
 	(aSet includes: self) ifTrue: [ ^aSet ].
@@ -1002,12 +1006,12 @@ PlatypusSchemaInstanceReference >> usersInto: aSet [
 	^ aSet
 ]
 
-{ #category : #checking }
+{ #category : 'checking' }
 PlatypusSchemaInstanceReference >> usesSchemataOf: otherSchemaInstanceReference [ 
 	^ (self  schemaInstance externalSchemataNames intersection: otherSchemaInstanceReference schemaInstance internalSchemataNames) notEmpty
 ]
 
-{ #category : #checking }
+{ #category : 'checking' }
 PlatypusSchemaInstanceReference >> verifyModelContentsNotifying: aRequestor [
 	self modelContentsReferences 
 		do: [:mcr | 
@@ -1016,7 +1020,7 @@ PlatypusSchemaInstanceReference >> verifyModelContentsNotifying: aRequestor [
 
 ]
 
-{ #category : #checking }
+{ #category : 'checking' }
 PlatypusSchemaInstanceReference >> verifyModelContentsSilently [
 	self modelContentsReferences 
 		do: [:mcr | 
@@ -1025,7 +1029,7 @@ PlatypusSchemaInstanceReference >> verifyModelContentsSilently [
 
 ]
 
-{ #category : #checking }
+{ #category : 'checking' }
 PlatypusSchemaInstanceReference >> verifyNotifying: aRequestor [
 	| r |
 	r := self schemaInstance verifyNotifying: aRequestor.
@@ -1033,7 +1037,7 @@ PlatypusSchemaInstanceReference >> verifyNotifying: aRequestor [
 	^ r
 ]
 
-{ #category : #checking }
+{ #category : 'checking' }
 PlatypusSchemaInstanceReference >> verifySilently [
 	| r |
 	r := self schemaInstance verifySilently.
@@ -1041,7 +1045,7 @@ PlatypusSchemaInstanceReference >> verifySilently [
 	^ r
 ]
 
-{ #category : #checking }
+{ #category : 'checking' }
 PlatypusSchemaInstanceReference >> verifyUsedModelsBeforeChecking [
 	| invalidRefsStr |
 	(self externalSchemaInstancesReferences

@@ -1,6 +1,6 @@
-Extension { #name : #PltBooleanType }
+Extension { #name : 'PltBooleanType' }
 
-{ #category : #'*xtra-platypus-accessing' }
+{ #category : '*xtra-platypus-accessing' }
 PltBooleanType >> initializedValue [
 	^ PltTrueConstant new
 ]

@@ -1,16 +1,16 @@
-Extension { #name : #PltMultExpression }
+Extension { #name : 'PltMultExpression' }
 
-{ #category : #'*xtra-platypus-type-infering' }
+{ #category : '*xtra-platypus-type-infering' }
 PltMultExpression >> inferedDomain [
 	^ self arithmeticOperatorInferedDomain
 ]
 
-{ #category : #'*xtra-platypus-accessing' }
+{ #category : '*xtra-platypus-accessing' }
 PltMultExpression >> operatorSymbol [
 	^ #*
 ]
 
-{ #category : #'*xtra-platypus-express-compat' }
+{ #category : '*xtra-platypus-express-compat' }
 PltMultExpression >> pltOperator [
 	^ 'pltMult:'
 ]

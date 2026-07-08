@@ -1,6 +1,6 @@
-Extension { #name : #PltArithmeticExpression }
+Extension { #name : 'PltArithmeticExpression' }
 
-{ #category : #'*xtra-platypus-type-infering' }
+{ #category : '*xtra-platypus-type-infering' }
 PltArithmeticExpression >> arithmeticOperatorInferedDomain [
 	| infered linfered rinfered elementsDomains theElementType theAggrType |
 	linfered := self leftExpr computedDomain.

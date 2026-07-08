@@ -1,6 +1,6 @@
-Extension { #name : #PltWhereRule }
+Extension { #name : 'PltWhereRule' }
 
-{ #category : #'*xtra-platypus-accessing' }
+{ #category : '*xtra-platypus-accessing' }
 PltWhereRule >> fullyQualifiedName [
 	| qualName own |
 	own := self owner.
@@ -12,17 +12,17 @@ PltWhereRule >> fullyQualifiedName [
 	^qualName asUppercase
 ]
 
-{ #category : #'*xtra-platypus-code-generating' }
+{ #category : '*xtra-platypus-code-generating' }
 PltWhereRule >> generatedClassName [
 	^ self owner generatedClassName
 ]
 
-{ #category : #'*xtra-platypus-code-generating' }
+{ #category : '*xtra-platypus-code-generating' }
 PltWhereRule >> generatedClassNameFromNamesBuilder: aNamesBuilder [ 
 	^self owner generatedClassNameFromNamesBuilder: aNamesBuilder
 ]
 
-{ #category : #'*xtra-platypus-code-generating' }
+{ #category : '*xtra-platypus-code-generating' }
 PltWhereRule >> getSelectorFromNamesBuilder: aNamesBuilder [ 
 	^aNamesBuilder 
 		normalizedGetSelectorFrom: self name
@@ -30,7 +30,7 @@ PltWhereRule >> getSelectorFromNamesBuilder: aNamesBuilder [
 		suffix: ''
 ]
 
-{ #category : #'*xtra-platypus-code-generating' }
+{ #category : '*xtra-platypus-code-generating' }
 PltWhereRule >> getSelectorWithArgFromNamesBuilder: aNamesBuilder suffix: aSuffix [ 
 	^aNamesBuilder 
 		normalizedGetSelectorWithArgFrom: self name
@@ -38,19 +38,19 @@ PltWhereRule >> getSelectorWithArgFromNamesBuilder: aNamesBuilder suffix: aSuffi
 		suffix: aSuffix
 ]
 
-{ #category : #'*xtra-platypus-code-generating' }
+{ #category : '*xtra-platypus-code-generating' }
 PltWhereRule >> getSelectorWithContextArgFromNamesBuilder: aNamesBuilder [ 
 	^self getSelectorWithArgFromNamesBuilder: aNamesBuilder
 		suffix: 'UsingContext'
 ]
 
-{ #category : #'*xtra-platypus-accessing' }
+{ #category : '*xtra-platypus-accessing' }
 PltWhereRule >> name [
 	^ self label
 		ifNil: ['wrl' , (self owner whereRules indexOf: self) printString]
 ]
 
-{ #category : #'*xtra-platypus-accessing' }
+{ #category : '*xtra-platypus-accessing' }
 PltWhereRule >> tamarisStepValueReferenceClass [
 	^ PlatypusStepReference
 ]

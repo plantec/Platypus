@@ -1,6 +1,6 @@
-Extension { #name : #PltNegativeExpression }
+Extension { #name : 'PltNegativeExpression' }
 
-{ #category : #'*xtra-platypus-accessing' }
+{ #category : '*xtra-platypus-accessing' }
 PltNegativeExpression >> operatorSymbol [
 	^#-
 ]

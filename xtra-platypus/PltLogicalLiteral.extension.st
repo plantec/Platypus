@@ -1,6 +1,6 @@
-Extension { #name : #PltLogicalLiteral }
+Extension { #name : 'PltLogicalLiteral' }
 
-{ #category : #'*xtra-platypus-evaluating' }
+{ #category : '*xtra-platypus-evaluating' }
 PltLogicalLiteral >> < op [ 
 	op
 		ifMissing: [^ PltUnknownConstant new]
@@ -9,7 +9,7 @@ PltLogicalLiteral >> < op [
 				ifFalse: [^ PlatypusExpressInvalidArgumentException signal: 'invalid right argument']]
 ]
 
-{ #category : #'*xtra-platypus-evaluating' }
+{ #category : '*xtra-platypus-evaluating' }
 PltLogicalLiteral >> <= op [ 
 	op
 		ifMissing: [^ PltUnknownConstant new]
@@ -18,7 +18,7 @@ PltLogicalLiteral >> <= op [
 				ifFalse: [^ PlatypusExpressInvalidArgumentException signal: 'invalid right argument']]
 ]
 
-{ #category : #'*xtra-platypus-evaluating' }
+{ #category : '*xtra-platypus-evaluating' }
 PltLogicalLiteral >> > op [ 
 	op
 		ifMissing: [^ PltUnknownConstant new]
@@ -27,7 +27,7 @@ PltLogicalLiteral >> > op [
 				ifFalse: [^ PlatypusExpressInvalidArgumentException signal: 'invalid right argument']]
 ]
 
-{ #category : #'*xtra-platypus-evaluating' }
+{ #category : '*xtra-platypus-evaluating' }
 PltLogicalLiteral >> >= op [ 
 	op
 		ifMissing: [^ PltUnknownConstant new]
@@ -36,22 +36,22 @@ PltLogicalLiteral >> >= op [
 				ifFalse: [^ PlatypusExpressInvalidArgumentException signal: 'invalid right argument']]
 ]
 
-{ #category : #'*xtra-platypus-type-infering' }
+{ #category : '*xtra-platypus-type-infering' }
 PltLogicalLiteral >> inferedDomain [
 	^ PltLogicalType asDomain
 ]
 
-{ #category : #'*xtra-platypus-classification' }
+{ #category : '*xtra-platypus-classification' }
 PltLogicalLiteral >> isPltOrderedLiteral [
 	^ true
 ]
 
-{ #category : #'*xtra-platypus-evaluating' }
+{ #category : '*xtra-platypus-evaluating' }
 PltLogicalLiteral >> ordering [
 	^ self subclassResponsibility
 ]
 
-{ #category : #'*xtra-platypus-instance creation' }
+{ #category : '*xtra-platypus-instance creation' }
 PltLogicalLiteral class >> val: aBoolean [ 
 	^aBoolean == #unknown 
 		ifTrue: [PltUnknownConstant new]

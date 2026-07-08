@@ -1,32 +1,32 @@
-Extension { #name : #PltExternalRepresentation }
+Extension { #name : 'PltExternalRepresentation' }
 
-{ #category : #'*xtra-platypus-evaluating' }
+{ #category : '*xtra-platypus-evaluating' }
 PltExternalRepresentation >> addRecordsToExternalRepresentation: externalRep [ 
  	self records do: [:rec | rec copy addRecordsToExternalRepresentation: externalRep]
 ]
 
-{ #category : #'*xtra-platypus-evaluating' }
+{ #category : '*xtra-platypus-evaluating' }
 PltExternalRepresentation >> asExternalRepresentation [
 	^ self
 ]
 
-{ #category : #'*xtra-platypus-accessing' }
+{ #category : '*xtra-platypus-accessing' }
 PltExternalRepresentation >> at: pos [ 
 	^ self records at: pos
 ]
 
-{ #category : #'*xtra-platypus-accessing' }
+{ #category : '*xtra-platypus-accessing' }
 PltExternalRepresentation >> at: position put: aValue [ 
 	self records at: position put: aValue.
 	aValue owner: self
 ]
 
-{ #category : #'*xtra-platypus-copying' }
+{ #category : '*xtra-platypus-copying' }
 PltExternalRepresentation >> deepCopy [
 	^ self copy
 ]
 
-{ #category : #'*xtra-platypus-accessing' }
+{ #category : '*xtra-platypus-accessing' }
 PltExternalRepresentation >> definitionInclusiveOwnerPath [
 	| path |
 	path := OrderedCollection new.
@@ -34,23 +34,23 @@ PltExternalRepresentation >> definitionInclusiveOwnerPath [
 	^ path
 ]
 
-{ #category : #'*xtra-platypus-testing' }
+{ #category : '*xtra-platypus-testing' }
 PltExternalRepresentation >> definitionOk [
 	self records ifNil: [^ false].
 	^ self records allSatisfy: [:rec | rec definitionOk]
 ]
 
-{ #category : #'*xtra-platypus-evaluating' }
+{ #category : '*xtra-platypus-evaluating' }
 PltExternalRepresentation >> equal: other [ 
 	^ self equalExternal: other
 ]
 
-{ #category : #'*xtra-platypus-accessing' }
+{ #category : '*xtra-platypus-accessing' }
 PltExternalRepresentation >> groupClass [
 	^ PltExternalGroupRepresentation
 ]
 
-{ #category : #'*xtra-platypus-type-infering' }
+{ #category : '*xtra-platypus-type-infering' }
 PltExternalRepresentation >> inferedDomain [
 	| domains infered |
 	domains := Set new.
@@ -65,7 +65,7 @@ PltExternalRepresentation >> inferedDomain [
 	^ infered
 ]
 
-{ #category : #'*xtra-platypus-accessing' }
+{ #category : '*xtra-platypus-accessing' }
 PltExternalRepresentation >> inheritedDefinitions [
 	| res |
 	res := OrderedCollection new.
@@ -74,12 +74,12 @@ PltExternalRepresentation >> inheritedDefinitions [
 
 ]
 
-{ #category : #'*xtra-platypus-evaluating' }
+{ #category : '*xtra-platypus-evaluating' }
 PltExternalRepresentation >> instEqual: another [ 
 	^ PltLogicalLiteral val: self == another
 ]
 
-{ #category : #'*xtra-platypus-accessing' }
+{ #category : '*xtra-platypus-accessing' }
 PltExternalRepresentation >> isInsideGroup: anEntityDef [ 
 	| |
 	self records
@@ -88,7 +88,7 @@ PltExternalRepresentation >> isInsideGroup: anEntityDef [
 	^ false
 ]
 
-{ #category : #'*xtra-platypus-accessing' }
+{ #category : '*xtra-platypus-accessing' }
 PltExternalRepresentation >> localDefinitions [
 	| res |
 	res := OrderedCollection new.
@@ -96,12 +96,12 @@ PltExternalRepresentation >> localDefinitions [
 	^ res
 ]
 
-{ #category : #'*xtra-platypus-accessing' }
+{ #category : '*xtra-platypus-accessing' }
 PltExternalRepresentation >> recordsForGroup: anEntityDef [ 
 	^ self recordsForGroup: anEntityDef into: Set new
 ]
 
-{ #category : #'*xtra-platypus-accessing' }
+{ #category : '*xtra-platypus-accessing' }
 PltExternalRepresentation >> recordsForGroup: anEntityDef into: aCollection [ 
 	self records
 		do: [:rec | (rec isInsideGroup: anEntityDef)
@@ -110,7 +110,7 @@ PltExternalRepresentation >> recordsForGroup: anEntityDef into: aCollection [
 	^ aCollection
 ]
 
-{ #category : #'*xtra-platypus-evaluating' }
+{ #category : '*xtra-platypus-evaluating' }
 PltExternalRepresentation >> stackElementOfExplicitAttribute: attr interpretor: anInterpretor [ 
 	| anonymousVar allAttrIdentif identif def sorted |
 	sorted := self records asArray
@@ -131,7 +131,7 @@ PltExternalRepresentation >> stackElementOfExplicitAttribute: attr interpretor: 
 	^ nil
 ]
 
-{ #category : #'*xtra-platypus-tamaris' }
+{ #category : '*xtra-platypus-tamaris' }
 PltExternalRepresentation >> tamarisChildrenIntoOwner: anotherReference [ 
 	| subs pos |
 	subs := OrderedCollection new.
@@ -148,12 +148,12 @@ PltExternalRepresentation >> tamarisChildrenIntoOwner: anotherReference [
 	^ subs
 ]
 
-{ #category : #'*xtra-platypus-accessing' }
+{ #category : '*xtra-platypus-accessing' }
 PltExternalRepresentation >> tamarisStepValueReferenceClass [
 	^ PlatypusStepInstanceReference 
 ]
 
-{ #category : #'*xtra-platypus-evaluating' }
+{ #category : '*xtra-platypus-evaluating' }
 PltExternalRepresentation >> valueOfExplicitAttributeNamed: aName [ 
 	| sorted res |
 	sorted := self records asArray 

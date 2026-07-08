@@ -1,11 +1,11 @@
-Extension { #name : #PltInternalRepresentation }
+Extension { #name : 'PltInternalRepresentation' }
 
-{ #category : #'*xtra-platypus-evaluating' }
+{ #category : '*xtra-platypus-evaluating' }
 PltInternalRepresentation >> addRecordsToExternalRepresentation: externalRep [ 
 	self asExternalRepresentation records do: [:rec | rec addRecordsToExternalRepresentation: externalRep]
 ]
 
-{ #category : #'*xtra-platypus-accessing' }
+{ #category : '*xtra-platypus-accessing' }
 PltInternalRepresentation >> asExternalRepresentation [
 	| records pos externalRep |
 	records := OrderedCollection new.
@@ -23,99 +23,99 @@ PltInternalRepresentation >> asExternalRepresentation [
 	^ externalRep
 ]
 
-{ #category : #'*xtra-platypus-accessing' }
+{ #category : '*xtra-platypus-accessing' }
 PltInternalRepresentation >> at: pos [ 
 	^ pos <= self parameters size
 		ifTrue: [self parameters at: pos]
 		ifFalse: [self definition referenced fullInheritedComponentList at: pos]
 ]
 
-{ #category : #'*xtra-platypus-accessing' }
+{ #category : '*xtra-platypus-accessing' }
 PltInternalRepresentation >> at: position put: aValue [
 	self parameters at: position put: aValue
 ]
 
-{ #category : #'*xtra-platypus-copying' }
+{ #category : '*xtra-platypus-copying' }
 PltInternalRepresentation >> deepCopy [
 	^ self copy.
 
 ]
 
-{ #category : #'*xtra-platypus-accessing' }
+{ #category : '*xtra-platypus-accessing' }
 PltInternalRepresentation >> definitionInclusiveOwnerPath [
 	^ self definition inclusiveOwnerPath
 ]
 
-{ #category : #'*xtra-platypus-testing' }
+{ #category : '*xtra-platypus-testing' }
 PltInternalRepresentation >> definitionOk [
 	^ self definition notNil and: [self definition ref notNil and: [self definition ref owner notNil]]
 ]
 
-{ #category : #'*xtra-platypus-accessing' }
+{ #category : '*xtra-platypus-accessing' }
 PltInternalRepresentation >> detectInstanceAttributeIdentification: aBlock [ 
 	(self definition referenced selectInheritedExplicitAttributeIdentifications: aBlock)
 		ifNotEmpty: [:founds | ^ founds last].
 	^ nil
 ]
 
-{ #category : #'*xtra-platypus-evaluating' }
+{ #category : '*xtra-platypus-evaluating' }
 PltInternalRepresentation >> equal: other [ 
 ^ self equalInternal: other
 ]
 
-{ #category : #'*xtra-platypus-accessing' }
+{ #category : '*xtra-platypus-accessing' }
 PltInternalRepresentation >> groupClass [
 	^ PltInternalGroupRepresentation
 ]
 
-{ #category : #'*xtra-platypus-type-infering' }
+{ #category : '*xtra-platypus-type-infering' }
 PltInternalRepresentation >> inferedDomain [
 	^ self definition computedDomain
 
 ]
 
-{ #category : #'*xtra-platypus-accessing' }
+{ #category : '*xtra-platypus-accessing' }
 PltInternalRepresentation >> inheritedDefinitions [
 	^ definition ref isNil ifTrue: [#()] ifFalse: [definition ref inheritedDefinitions]
 ]
 
-{ #category : #'*xtra-platypus-evaluating' }
+{ #category : '*xtra-platypus-evaluating' }
 PltInternalRepresentation >> instEqual: another [ 
 	^ PltLogicalLiteral val: self = another
 ]
 
-{ #category : #'*xtra-platypus-accessing' }
+{ #category : '*xtra-platypus-accessing' }
 PltInternalRepresentation >> isInsideGroup: anEntityDef [  
 	^ self definition == anEntityDef
 
 ]
 
-{ #category : #'*xtra-platypus-accessing' }
+{ #category : '*xtra-platypus-accessing' }
 PltInternalRepresentation >> localDefinitions [
 	^ OrderedCollection with: definition ref
 ]
 
-{ #category : #'*xtra-platypus-accessing' }
+{ #category : '*xtra-platypus-accessing' }
 PltInternalRepresentation >> numberOfAttributesUntilGroup: groupEntityDef [ 
 	^ self definition referenced numberOfAttributesUntilGroup: groupEntityDef
 ]
 
-{ #category : #'*xtra-platypus-enumerating' }
+{ #category : '*xtra-platypus-enumerating' }
 PltInternalRepresentation >> privateExplicitAttributesAndValuesDo: aBlock [ 
 	^ self privateInternalExplicitAttributesAndValuesDo: aBlock
 ]
 
-{ #category : #'*xtra-platypus-accessing' }
+{ #category : '*xtra-platypus-accessing' }
 PltInternalRepresentation >> records [
 	^ Array with: self
 ]
 
-{ #category : #'*xtra-platypus-accessing' }
+{ #category : '*xtra-platypus-accessing' }
 PltInternalRepresentation >> startAttributePrevPosition [
 	^ 0
 ]
 
-{ #category : #'*xtra-platypus-tamaris' }
+{ #category : '*xtra-platypus-tamaris' }
 PltInternalRepresentation >> tamarisChildrenIntoOwner: anotherReference [ 
 	| subs pos elements |
 	subs := OrderedCollection new.
@@ -134,17 +134,17 @@ PltInternalRepresentation >> tamarisChildrenIntoOwner: anotherReference [
 	^ subs
 ]
 
-{ #category : #'*xtra-platypus-accessing' }
+{ #category : '*xtra-platypus-accessing' }
 PltInternalRepresentation >> tamarisStepValueReferenceClass [
 	^ PlatypusStepInstanceReference
 ]
 
-{ #category : #'*xtra-platypus-accessing' }
+{ #category : '*xtra-platypus-accessing' }
 PltInternalRepresentation >> unwrappedParameters [
 	^ self parameters
 ]
 
-{ #category : #'*xtra-platypus-accessing' }
+{ #category : '*xtra-platypus-accessing' }
 PltInternalRepresentation >> valueOfExplicitAttributeNamed: aName [ 
 	| entDef pos  |
 	(entDef := self definition ref)
@@ -153,7 +153,7 @@ PltInternalRepresentation >> valueOfExplicitAttributeNamed: aName [
 	^ nil
 ]
 
-{ #category : #'*xtra-platypus-copying' }
+{ #category : '*xtra-platypus-copying' }
 PltInternalRepresentation >> veryDeepCopy [
 	| n |
 	n := super veryDeepCopy.
@@ -161,7 +161,7 @@ PltInternalRepresentation >> veryDeepCopy [
 	^ n
 ]
 
-{ #category : #'*xtra-platypus-accessing' }
+{ #category : '*xtra-platypus-accessing' }
 PltInternalRepresentation >> wrappedParameters [
 	^ self parameters
 ]

@@ -1,6 +1,6 @@
-Extension { #name : #Array }
+Extension { #name : 'Array' }
 
-{ #category : #'*xtra-platypus-express-compat' }
+{ #category : '*xtra-platypus-express-compat' }
 Array >> isPltArray [
 	^ true
 ]

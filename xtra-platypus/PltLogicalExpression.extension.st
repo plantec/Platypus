@@ -1,6 +1,6 @@
-Extension { #name : #PltLogicalExpression }
+Extension { #name : 'PltLogicalExpression' }
 
-{ #category : #'*xtra-platypus-type-infering' }
+{ #category : '*xtra-platypus-type-infering' }
 PltLogicalExpression >> inferedDomain [
 	^ PltLogicalType asDomain
 ]

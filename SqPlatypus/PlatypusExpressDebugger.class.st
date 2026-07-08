@@ -1,6 +1,6 @@
 Class {
-	#name : #PlatypusExpressDebugger,
-	#superclass : #PlatypusExpressEditor,
+	#name : 'PlatypusExpressDebugger',
+	#superclass : 'PlatypusExpressEditor',
 	#instVars : [
 		'debuggingContextRow',
 		'contextsListRow',
@@ -23,10 +23,12 @@ Class {
 		'overContextDataIndex',
 		'result'
 	],
-	#category : #'SqPlatypus-HW-CodeHolder'
+	#category : 'SqPlatypus-HW-CodeHolder',
+	#package : 'SqPlatypus',
+	#tag : 'HW-CodeHolder'
 }
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 PlatypusExpressDebugger class >> interpretor: anInterpretor statementOrExpression: aMetaData [
 	| debugger |
 	debugger := PlatypusExpressDebugger sourceHandler: anInterpretor currentSourceHandler.
@@ -37,7 +39,7 @@ PlatypusExpressDebugger class >> interpretor: anInterpretor statementOrExpressio
 	
 ]
 
-{ #category : #debugging }
+{ #category : 'debugging' }
 PlatypusExpressDebugger >> aboutToAccept: aMetaData [ 
 	| maybeNewSourceHandler |
 	self beforeAccepting.
@@ -57,7 +59,7 @@ PlatypusExpressDebugger >> aboutToAccept: aMetaData [
 				ifTrue: [overContextDataIndex := nil]]
 ]
 
-{ #category : #'ui building' }
+{ #category : 'ui building' }
 PlatypusExpressDebugger >> addButtonsinAlignment: aButtonsAlignment [ 
 	| button |
 	button := PluggableButtonMorph
@@ -92,7 +94,7 @@ PlatypusExpressDebugger >> addButtonsinAlignment: aButtonsAlignment [
 	super addButtonsinAlignment: aButtonsAlignment
 ]
 
-{ #category : #debugging }
+{ #category : 'debugging' }
 PlatypusExpressDebugger >> beforeAccepting [
 	
 	[self changed: #contextsList.
@@ -108,13 +110,13 @@ PlatypusExpressDebugger >> beforeAccepting [
 							, ' "\ ' withCRs]
 ]
 
-{ #category : #debugging }
+{ #category : 'debugging' }
 PlatypusExpressDebugger >> beforeAccepting: aMetaData [
 	currentInterpreterMetaData := aMetaData.
 	self beforeAccepting
 ]
 
-{ #category : #'ui building' }
+{ #category : 'ui building' }
 PlatypusExpressDebugger >> buildMainWindow [
 	mainWindow := super buildMainWindow.
 	debuggingContextRow := TamListItemReferenceUtil subWindowClass model: self.
@@ -156,22 +158,22 @@ PlatypusExpressDebugger >> buildMainWindow [
 	^ mainWindow
 ]
 
-{ #category : #debugging }
+{ #category : 'debugging' }
 PlatypusExpressDebugger >> canShowIntoButton [
 	^ currentInterpreterMetaData notNil
 ]
 
-{ #category : #debugging }
+{ #category : 'debugging' }
 PlatypusExpressDebugger >> canShowOverButton [
 	^ currentInterpreterMetaData notNil
 ]
 
-{ #category : #debugging }
+{ #category : 'debugging' }
 PlatypusExpressDebugger >> canShowProceedButton [
 	^ currentInterpreterMetaData notNil
 ]
 
-{ #category : #'selected context data handling' }
+{ #category : 'selected context data handling' }
 PlatypusExpressDebugger >> changedSelectedContextDataIndex: anInteger [ 
 	| |
 	selectedContextDataIndex := anInteger.
@@ -181,7 +183,7 @@ PlatypusExpressDebugger >> changedSelectedContextDataIndex: anInteger [
 
 ]
 
-{ #category : #'contexts list handling' }
+{ #category : 'contexts list handling' }
 PlatypusExpressDebugger >> changedSelectedContextIndex: anInteger [ 
 	| maybeNewSourceHandler |
 	anInteger > 0 ifFalse: [^self].
@@ -195,32 +197,32 @@ PlatypusExpressDebugger >> changedSelectedContextIndex: anInteger [
 	self selectCode
 ]
 
-{ #category : #'self stack data handling' }
+{ #category : 'self stack data handling' }
 PlatypusExpressDebugger >> changedSelfStackDataIndex: anInteger [ 
 	selfStackDataIndex := anInteger.
 	self changed: #selfStackDataIndex.
 
 ]
 
-{ #category : #'satck data handling' }
+{ #category : 'satck data handling' }
 PlatypusExpressDebugger >> changedStackDataIndex: anInteger [ 
 	stackDataIndex := anInteger.
 	self changed: #stackDataIndex.
 
 ]
 
-{ #category : #'ui building' }
+{ #category : 'ui building' }
 PlatypusExpressDebugger >> codeRowLayoutFrame [
 	^ LayoutFrame identity topOffset: codeBtnRowHeight; bottomOffset: (self debuggingContextRowHight ) negated
 		
 ]
 
-{ #category : #'ui building' }
+{ #category : 'ui building' }
 PlatypusExpressDebugger >> contentsMorphLayoutFrame [
 	^ LayoutFrame identity
 ]
 
-{ #category : #'selected context data handling' }
+{ #category : 'selected context data handling' }
 PlatypusExpressDebugger >> contextDataList [
 	| interprContext |
 	selectedContextIndex > 0 ifFalse: [^#()].
@@ -228,7 +230,7 @@ PlatypusExpressDebugger >> contextDataList [
 	^interprContext dataIndex keys asOrderedCollection collect: [:e | e name]
 ]
 
-{ #category : #'selected context data handling' }
+{ #category : 'selected context data handling' }
 PlatypusExpressDebugger >> contextDataListMorph [
 	^ PluggableListMorph
 		on: self
@@ -239,12 +241,12 @@ PlatypusExpressDebugger >> contextDataListMorph [
 		keystroke: #arrowKey:from:
 ]
 
-{ #category : #'contexts list handling' }
+{ #category : 'contexts list handling' }
 PlatypusExpressDebugger >> contextsList [
 	^ interpreter contextsStack
 ]
 
-{ #category : #'contexts list handling' }
+{ #category : 'contexts list handling' }
 PlatypusExpressDebugger >> contextsListMorph [
 	^ PluggableListMorph
 		on: self
@@ -253,46 +255,46 @@ PlatypusExpressDebugger >> contextsListMorph [
 		changeSelected: #changedSelectedContextIndex:
 ]
 
-{ #category : #'ui building' }
+{ #category : 'ui building' }
 PlatypusExpressDebugger >> contextsListRowHight [
 	^ 120
 ]
 
-{ #category : #'ui building' }
+{ #category : 'ui building' }
 PlatypusExpressDebugger >> contextsListRowLayoutFrame [
 	^ LayoutFrame identity topOffset: TamListItemReferenceUtil subFrameBorderDelta; bottomOffset: (TamListItemReferenceUtil subFrameBorderDelta + self contextsListRowHight) negated.
 		
 ]
 
-{ #category : #'ui building' }
+{ #category : 'ui building' }
 PlatypusExpressDebugger >> debuggingContextRowHight [
 	^ 200
 ]
 
-{ #category : #'ui building' }
+{ #category : 'ui building' }
 PlatypusExpressDebugger >> debuggingContextRowLayoutFrame [
 	^ LayoutFrame identity topOffset: (self debuggingContextRowHight)
 ]
 
-{ #category : #debugging }
+{ #category : 'debugging' }
 PlatypusExpressDebugger >> doInto [
 	currentInterpreterMetaData := nil
 ]
 
-{ #category : #debugging }
+{ #category : 'debugging' }
 PlatypusExpressDebugger >> doOver [
 	overContextDataIndex := selectedContextDataIndex.
 	currentInterpreterMetaData := nil
 ]
 
-{ #category : #debugging }
+{ #category : 'debugging' }
 PlatypusExpressDebugger >> doProceed [
 	currentInterpreterMetaData := nil.
 	interpreter debugger: nil.
 	mainWindow delete
 ]
 
-{ #category : #debugging }
+{ #category : 'debugging' }
 PlatypusExpressDebugger >> evaluate [
 	| metaData |
 	sourceHandler
@@ -306,7 +308,7 @@ PlatypusExpressDebugger >> evaluate [
 				logged: false]
 ]
 
-{ #category : #debugging }
+{ #category : 'debugging' }
 PlatypusExpressDebugger >> evaluate: aStream [ 
 	| metaData |
 	sourceHandler
@@ -320,64 +322,64 @@ PlatypusExpressDebugger >> evaluate: aStream [
 			self inform: 'Done']
 ]
 
-{ #category : #'contexts list handling' }
+{ #category : 'contexts list handling' }
 PlatypusExpressDebugger >> getSelectedContext [
 	^ self selectedContextIndex = 0
 		ifFalse: [self contextsList at: self selectedContextIndex]
 ]
 
-{ #category : #'selected context data handling' }
+{ #category : 'selected context data handling' }
 PlatypusExpressDebugger >> getSelectedContextData [
 	self selectedContextDataIndex = 0
 		ifTrue: [^ nil].
 	^ self contextDataList at: self selectedContextDataIndex
 ]
 
-{ #category : #'initialize/release' }
+{ #category : 'initialize/release' }
 PlatypusExpressDebugger >> initialize [
 	super initialize.
 	interpreter := PlatypusExpressInterpretor new debugger: self.
 prevSelectedContextIndex := 0.
 ]
 
-{ #category : #debugging }
+{ #category : 'debugging' }
 PlatypusExpressDebugger >> interpreter: anInterpretor [ 
 	interpreter := anInterpretor
 ]
 
-{ #category : #'ui building' }
+{ #category : 'ui building' }
 PlatypusExpressDebugger >> intoButtonLabel [
 	^ 'Into'
 ]
 
-{ #category : #'ui building' }
+{ #category : 'ui building' }
 PlatypusExpressDebugger >> messageBrowserRowTopRow [
 	^ debuggingContextRow
 ]
 
-{ #category : #'ui building' }
+{ #category : 'ui building' }
 PlatypusExpressDebugger >> overButtonLabel [
 	^ 'Over'
 ]
 
-{ #category : #'ui building' }
+{ #category : 'ui building' }
 PlatypusExpressDebugger >> proceedButtonLabel [
 	^ 'Proceed'
 ]
 
-{ #category : #debugging }
+{ #category : 'debugging' }
 PlatypusExpressDebugger >> result [
 	^ result
 ]
 
-{ #category : #debugging }
+{ #category : 'debugging' }
 PlatypusExpressDebugger >> run [
 	sourceHandler ifNotNil: [
 	]
 	
 ]
 
-{ #category : #debugging }
+{ #category : 'debugging' }
 PlatypusExpressDebugger >> selectCode [
 	currentInterpreterMetaData
 		ifNotNil: [self selectCode: currentInterpreterMetaData selectionString startingAt: self selectionInterval first.
@@ -387,24 +389,24 @@ PlatypusExpressDebugger >> selectCode [
 					Transcript show: self selectionInterval printString , String cr]]
 ]
 
-{ #category : #'selected context data handling' }
+{ #category : 'selected context data handling' }
 PlatypusExpressDebugger >> selectedContextDataIndex [
 	^ selectedContextDataIndex
 		ifNil: [selectedContextDataIndex := 0]
 ]
 
-{ #category : #'ui building' }
+{ #category : 'ui building' }
 PlatypusExpressDebugger >> selectedContextDataRowLayoutFrame [
 	^ LayoutFrame identity rightFraction: 0.333; rightOffset: TamListItemReferenceUtil subFrameBorderDelta negated
 ]
 
-{ #category : #'contexts list handling' }
+{ #category : 'contexts list handling' }
 PlatypusExpressDebugger >> selectedContextIndex [
 	^ selectedContextIndex
 		ifNil: [selectedContextIndex := 0]
 ]
 
-{ #category : #'selected context value handling' }
+{ #category : 'selected context value handling' }
 PlatypusExpressDebugger >> selectedContextValueContents [
 	| ident |
 	^ (ident := self getSelectedContextData)
@@ -412,12 +414,12 @@ PlatypusExpressDebugger >> selectedContextValueContents [
 		ifNotNil: [(self getSelectedContext dataNamed: ident) val asClearText]
 ]
 
-{ #category : #'selected context value handling' }
+{ #category : 'selected context value handling' }
 PlatypusExpressDebugger >> selectedContextValueContents: aStringOrText notifying: aRequestor [ 
 	 selectedContextValueTextMorph acceptContents: aStringOrText
 ]
 
-{ #category : #'selected context value handling' }
+{ #category : 'selected context value handling' }
 PlatypusExpressDebugger >> selectedContextValueMorph [
 	^ selectedContextValueTextMorph ifNil: [selectedContextValueTextMorph := TamTextMorph
 		on: self
@@ -427,29 +429,29 @@ PlatypusExpressDebugger >> selectedContextValueMorph [
 		menu: nil]
 ]
 
-{ #category : #'ui building' }
+{ #category : 'ui building' }
 PlatypusExpressDebugger >> selectedContextValueRowLayoutFrame [
 	^ LayoutFrame identity leftFraction: 0.333; rightFraction: 0.666; rightOffset: TamListItemReferenceUtil subFrameBorderDelta negated
 ]
 
-{ #category : #'ui building' }
+{ #category : 'ui building' }
 PlatypusExpressDebugger >> selectedContextsAndStacksLayoutFrame [
 	^ LayoutFrame identity topFraction: 1; topOffset: self contextsListRowHight negated
 		
 ]
 
-{ #category : #'self stack data handling' }
+{ #category : 'self stack data handling' }
 PlatypusExpressDebugger >> selfStackDataIndex [
 	^ selfStackDataIndex
 		ifNil: [selfStackDataIndex := 0]
 ]
 
-{ #category : #'self stack data handling' }
+{ #category : 'self stack data handling' }
 PlatypusExpressDebugger >> selfStackDataList [
 	^ interpreter selfStack collect: [:s | s printableCode]
 ]
 
-{ #category : #'self stack data handling' }
+{ #category : 'self stack data handling' }
 PlatypusExpressDebugger >> selfStackDataListMorph [
 	^ PluggableListMorph
 		on: self
@@ -460,24 +462,24 @@ menu: nil
 		keystroke: #arrowKey:from:
 ]
 
-{ #category : #'ui building' }
+{ #category : 'ui building' }
 PlatypusExpressDebugger >> selfStackDataRowLayoutFrame [
 	^ LayoutFrame identity topFraction: 0.5; topOffset: TamListItemReferenceUtil subFrameBorderDelta
 		
 ]
 
-{ #category : #'satck data handling' }
+{ #category : 'satck data handling' }
 PlatypusExpressDebugger >> stackDataIndex [
 	^ stackDataIndex
 		ifNil: [stackDataIndex := 0]
 ]
 
-{ #category : #'satck data handling' }
+{ #category : 'satck data handling' }
 PlatypusExpressDebugger >> stackDataList [
 	^ interpreter stack
 ]
 
-{ #category : #'satck data handling' }
+{ #category : 'satck data handling' }
 PlatypusExpressDebugger >> stackDataListMorph [
 	^ PluggableListMorph
 		on: self
@@ -488,12 +490,12 @@ PlatypusExpressDebugger >> stackDataListMorph [
 		keystroke: #arrowKey:from:
 ]
 
-{ #category : #'ui building' }
+{ #category : 'ui building' }
 PlatypusExpressDebugger >> stackDataRowLayoutFrame [
 	^ LayoutFrame identity bottomFraction: 0.5
 ]
 
-{ #category : #'ui building' }
+{ #category : 'ui building' }
 PlatypusExpressDebugger >> stacksRowLayoutFrame [
 	^ LayoutFrame identity leftFraction: 0.666
 		

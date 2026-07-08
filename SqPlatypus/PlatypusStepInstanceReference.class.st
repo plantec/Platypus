@@ -1,15 +1,17 @@
 Class {
-	#name : #PlatypusStepInstanceReference,
-	#superclass : #PlatypusStepReference,
-	#category : #'SqPlatypus-HW-tamaris'
+	#name : 'PlatypusStepInstanceReference',
+	#superclass : 'PlatypusStepReference',
+	#category : 'SqPlatypus-HW-tamaris',
+	#package : 'SqPlatypus',
+	#tag : 'HW-tamaris'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusStepInstanceReference >> elementTag [
 	^ #dataEntity
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 PlatypusStepInstanceReference >> hasContents [
 	self value ifNil: [^ false].
 	self value persistentLabel 
@@ -18,7 +20,7 @@ PlatypusStepInstanceReference >> hasContents [
 	^ super hasContents
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusStepInstanceReference >> icon [	
 	self value persistentLabel 
 		ifNotEmpty: [
@@ -29,29 +31,29 @@ PlatypusStepInstanceReference >> icon [
 		ifFalse: [TamIcons mimeIcon: '10x10/mimetypes/green_sphere']
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 PlatypusStepInstanceReference >> isChangeable [ 
 	^ self modelContents notNil and: [self modelContents includesInstance: self value]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusStepInstanceReference >> modelContents [
 	(self owner isKindOf: [PlatypusStepReference])
 		ifFalse: [^ self value ifNotNil: [:v | v owningModel ] ].
 	^ super modelContents
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusStepInstanceReference >> parserStartingState [
 	^ StepParser startingStateForDataEntity
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusStepInstanceReference >> schemaInstance [
 	^ self value schemaInstance
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusStepInstanceReference >> shortName [
 	^ String streamContents: [:strm | | lab |
 		[lab := self value persistentLabel] on: Error do: [].
@@ -62,7 +64,7 @@ PlatypusStepInstanceReference >> shortName [
 		strm nextPutAll: (self codeText asString contractTo: 100)]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusStepInstanceReference >> subReferences [
 	self value persistentLabel 
 		ifNotEmpty: [

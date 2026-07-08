@@ -1,6 +1,6 @@
-Extension { #name : #PltAttributeQualifier }
+Extension { #name : 'PltAttributeQualifier' }
 
-{ #category : #'*xtra-platypus-type-infering' }
+{ #category : '*xtra-platypus-type-infering' }
 PltAttributeQualifier >> inferedDomainWith: currDomain [ 
 	| attr |
 	currDomain isPltEntityDefinition
@@ -10,7 +10,7 @@ PltAttributeQualifier >> inferedDomainWith: currDomain [
 		ifNotNil: [^ attr computedDomain]
 ]
 
-{ #category : #'*xtra-platypus-accessing' }
+{ #category : '*xtra-platypus-accessing' }
 PltAttributeQualifier >> name [
 	^ self attributeName
 ]

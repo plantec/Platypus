@@ -1,6 +1,6 @@
-Extension { #name : #PltStatementsContainer }
+Extension { #name : 'PltStatementsContainer' }
 
-{ #category : #'*xtra-platypus-evaluating' }
+{ #category : '*xtra-platypus-evaluating' }
 PltStatementsContainer >> args: argsArray [ 
 	| args |
 	args := ''.
@@ -10,25 +10,25 @@ PltStatementsContainer >> args: argsArray [
 	^ self evaluate: '(' , args , ')'
 ]
 
-{ #category : #'*xtra-platypus-evaluating' }
+{ #category : '*xtra-platypus-evaluating' }
 PltStatementsContainer >> arguments [ 
 	| itemRef |
 	^ (itemRef := self tamarisItemRef) ifNotNil: [itemRef interactiveCallArguments]
 ]
 
-{ #category : #'*xtra-platypus-evaluating' }
+{ #category : '*xtra-platypus-evaluating' }
 PltStatementsContainer >> arguments: aString [ 
 	| itemRef |
 	^ (itemRef := self tamarisItemRef)
 		ifNotNil: [itemRef interactiveCallArguments: aString]
 ]
 
-{ #category : #'*xtra-platypus-accessing' }
+{ #category : '*xtra-platypus-accessing' }
 PltStatementsContainer >> bindings [
 	^ super bindings , self locals 
 ]
 
-{ #category : #'*xtra-platypus-evaluating' }
+{ #category : '*xtra-platypus-evaluating' }
 PltStatementsContainer >> evaluate [
 	| argsSql args |
 	args := ''.
@@ -48,7 +48,7 @@ PltStatementsContainer >> evaluate [
 	^ self evaluate: args
 ]
 
-{ #category : #'*xtra-platypus-evaluating' }
+{ #category : '*xtra-platypus-evaluating' }
 PltStatementsContainer >> evaluate: args [ 
 	| call |
 	Cursor wait
@@ -64,18 +64,18 @@ PltStatementsContainer >> evaluate: args [
 				logged: false]
 ]
 
-{ #category : #'*xtra-platypus-evaluating' }
+{ #category : '*xtra-platypus-evaluating' }
 PltStatementsContainer >> evaluateAndExplore [
 	^ self evaluateAndExplore: ''
 ]
 
-{ #category : #'*xtra-platypus-evaluating' }
+{ #category : '*xtra-platypus-evaluating' }
 PltStatementsContainer >> evaluateAndExplore: args [
 
 	^ (self evaluate: args) inspect
 ]
 
-{ #category : #'*xtra-platypus-evaluating' }
+{ #category : '*xtra-platypus-evaluating' }
 PltStatementsContainer >> initializeContextInInterpretor: anInterpretor [ 
 	super initializeContextInInterpretor: anInterpretor.
 	self locals
@@ -83,7 +83,7 @@ PltStatementsContainer >> initializeContextInInterpretor: anInterpretor [
 
 ]
 
-{ #category : #'*xtra-platypus-data-management' }
+{ #category : '*xtra-platypus-data-management' }
 PltStatementsContainer >> rebuildLocalCaches [
 	super rebuildLocalCaches.
 	self locals do: [:loc | self insertIntoCache: loc]

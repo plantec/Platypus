@@ -1,10 +1,12 @@
 Class {
-	#name : #PlatypusSubCommandLineHandler,
-	#superclass : #PlatypusCommandLineHandler,
-	#category : #'SqPlatypus-HW-CommandLine'
+	#name : 'PlatypusSubCommandLineHandler',
+	#superclass : 'PlatypusCommandLineHandler',
+	#category : 'SqPlatypus-HW-CommandLine',
+	#package : 'SqPlatypus',
+	#tag : 'HW-CommandLine'
 }
 
-{ #category : #activation }
+{ #category : 'activation' }
 PlatypusSubCommandLineHandler >> activate [
 
 ]

@@ -1,27 +1,27 @@
-Extension { #name : #PltExternalGroupRepresentation }
+Extension { #name : 'PltExternalGroupRepresentation' }
 
-{ #category : #'*xtra-platypus-accessing' }
+{ #category : '*xtra-platypus-accessing' }
 PltExternalGroupRepresentation >> addRecordsToExternalRepresentation: externalRep [ 
 	self records
 		do: [:rec | rec copy addRecordsToExternalRepresentation: externalRep]
 ]
 
-{ #category : #'*xtra-platypus-evaluating' }
+{ #category : '*xtra-platypus-evaluating' }
 PltExternalGroupRepresentation >> asExternalRepresentation [
 	^ self
 ]
 
-{ #category : #'*xtra-platypus-evaluating' }
+{ #category : '*xtra-platypus-evaluating' }
 PltExternalGroupRepresentation >> equal: other [ 
 	^ self equalExternal: other
 ]
 
-{ #category : #'*xtra-platypus-accessing' }
+{ #category : '*xtra-platypus-accessing' }
 PltExternalGroupRepresentation >> groupClass [
 	^ PltExternalGroupRepresentation
 ]
 
-{ #category : #'*xtra-platypus-type-infering' }
+{ #category : '*xtra-platypus-type-infering' }
 PltExternalGroupRepresentation >> inferedDomain [
 	| domains infered |
 	domains := Set new.
@@ -34,7 +34,7 @@ PltExternalGroupRepresentation >> inferedDomain [
 	^ infered
 ]
 
-{ #category : #'*xtra-platypus-evaluating' }
+{ #category : '*xtra-platypus-evaluating' }
 PltExternalGroupRepresentation >> instEqual: other [ 
 	| otherRecs myRecords otherRecords foundEqual |
 	self groupClass == other groupClass
@@ -65,18 +65,18 @@ PltExternalGroupRepresentation >> instEqual: other [
 				and: [otherRecords isEmpty])
 ]
 
-{ #category : #'*xtra-platypus-accessing' }
+{ #category : '*xtra-platypus-accessing' }
 PltExternalGroupRepresentation >> interpretingContext [
 	^ self instRef interpretingContext
 ]
 
-{ #category : #'*xtra-platypus-accessing' }
+{ #category : '*xtra-platypus-accessing' }
 PltExternalGroupRepresentation >> records [
 	^ recordsCache
 		ifNil: [recordsCache := self instRef recordsForGroup: self definition into: OrderedCollection new]
 ]
 
-{ #category : #'*xtra-platypus-accessing' }
+{ #category : '*xtra-platypus-accessing' }
 PltExternalGroupRepresentation >> recordsForGroup: anEntityDef into: aCollection [ 
 	self records
 		do: [:rec | (rec isInsideGroup: anEntityDef)

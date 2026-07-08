@@ -1,6 +1,6 @@
-Extension { #name : #PltAggrUnaryExpression }
+Extension { #name : 'PltAggrUnaryExpression' }
 
-{ #category : #'*xtra-platypus-type-infering' }
+{ #category : '*xtra-platypus-type-infering' }
 PltAggrUnaryExpression >> inferedDomain [
 	| aggr |
 	aggr := PltGeneralAggregateType new.

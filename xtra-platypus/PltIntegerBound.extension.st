@@ -1,11 +1,11 @@
-Extension { #name : #PltIntegerBound }
+Extension { #name : 'PltIntegerBound' }
 
-{ #category : #'*xtra-platypus-converting' }
+{ #category : '*xtra-platypus-converting' }
 PltIntegerBound >> asInteger [
 	^ self boundValue
 ]
 
-{ #category : #'*xtra-platypus-type-infering' }
+{ #category : '*xtra-platypus-type-infering' }
 PltIntegerBound >> inferedDomain [
 	^ PltIntegerType asDomain
 ]

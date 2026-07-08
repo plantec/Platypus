@@ -1,6 +1,6 @@
-Extension { #name : #PltSubEntityRefExpression }
+Extension { #name : 'PltSubEntityRefExpression' }
 
-{ #category : #'*xtra-platypus-checking' }
+{ #category : '*xtra-platypus-checking' }
 PltSubEntityRefExpression >> checksSubtypesInheritance: mySuper [ 
 	| err |
 	self entityRef referenced ifNotNil: [(self entityRef referenced isDirectSubtypeOf: mySuper)

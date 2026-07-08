@@ -1,6 +1,6 @@
-Extension { #name : #PltGroupRepresentation }
+Extension { #name : 'PltGroupRepresentation' }
 
-{ #category : #'*xtra-platypus-copying' }
+{ #category : '*xtra-platypus-copying' }
 PltGroupRepresentation >> deepCopy [
 	| n |
 	n := super copy.

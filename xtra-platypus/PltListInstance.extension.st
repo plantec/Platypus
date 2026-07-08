@@ -1,6 +1,6 @@
-Extension { #name : #PltListInstance }
+Extension { #name : 'PltListInstance' }
 
-{ #category : #'*xtra-platypus-accessing' }
+{ #category : '*xtra-platypus-accessing' }
 PltListInstance >> add: newObject beforeIndex: index [ 
 	index <= 0
 		ifTrue: [self contents addFirst: newObject]
@@ -9,24 +9,24 @@ PltListInstance >> add: newObject beforeIndex: index [
 				ifFalse: [self contents add: newObject afterIndex: index]]
 ]
 
-{ #category : #'*xtra-platypus-converting' }
+{ #category : '*xtra-platypus-converting' }
 PltListInstance >> asListInstance [
 	^ self
 ]
 
-{ #category : #'*xtra-platypus-evaluating' }
+{ #category : '*xtra-platypus-evaluating' }
 PltListInstance >> asListInstanceCompatibleTo: aType interpretor: anInterpretor [ 
 	(self isCompatibleWith: aType)
 		ifTrue: [^ self].
 	^ super asListInstanceCompatibleTo: aType interpretor: anInterpretor
 ]
 
-{ #category : #'*xtra-platypus-accessing' }
+{ #category : '*xtra-platypus-accessing' }
 PltListInstance >> contentsList [
 	^ OrderedCollection newFrom: contents
 ]
 
-{ #category : #'*xtra-platypus-type-infering' }
+{ #category : '*xtra-platypus-type-infering' }
 PltListInstance >> inferedDomain [
 	| aggr |
 	aggr := PltListType new.
@@ -37,7 +37,7 @@ PltListInstance >> inferedDomain [
 	^ aggr
 ]
 
-{ #category : #'*xtra-platypus-accessing' }
+{ #category : '*xtra-platypus-accessing' }
 PltListInstance >> removeAt: index [ 
 	^ self contents removeAt: index 
 

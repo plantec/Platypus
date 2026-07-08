@@ -1,6 +1,6 @@
-Extension { #name : #PltSetType }
+Extension { #name : 'PltSetType' }
 
-{ #category : #'*xtra-platypus-evaluating' }
+{ #category : '*xtra-platypus-evaluating' }
 PltSetType >> assignableValueFrom: aValue interpretor: anInterpretor [ 
 	^ aValue asSetInstanceCompatibleTo: self interpretor: anInterpretor
 ]

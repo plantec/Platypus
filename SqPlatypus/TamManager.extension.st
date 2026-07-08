@@ -1,6 +1,6 @@
-Extension { #name : #TamManager }
+Extension { #name : 'TamManager' }
 
-{ #category : #'*sqplatypus-hw-accessing' }
+{ #category : '*sqplatypus-hw-accessing' }
 TamManager class >> platypusMetaDefaultTaxon [
 	^ TamManagerItem platypusMetaDefaultTaxon
 ]

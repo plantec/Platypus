@@ -1,6 +1,6 @@
-Extension { #name : #PltAndorSupertype }
+Extension { #name : 'PltAndorSupertype' }
 
-{ #category : #'*xtra-platypus-accessing' }
+{ #category : '*xtra-platypus-accessing' }
 PltAndorSupertype >> operatorSymbol [
 	^ #andor
 ]

@@ -1,15 +1,17 @@
 Class {
-	#name : #PlatypusGenerateAdaCommandLineHandler,
-	#superclass : #PlatypusSubCommandLineHandler,
-	#category : #'SqPlatypus-HW-CommandLine'
+	#name : 'PlatypusGenerateAdaCommandLineHandler',
+	#superclass : 'PlatypusSubCommandLineHandler',
+	#category : 'SqPlatypus-HW-CommandLine',
+	#package : 'SqPlatypus',
+	#tag : 'HW-CommandLine'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusGenerateAdaCommandLineHandler class >> commandName [
 	^ 'generate'
 ]
 
-{ #category : #activation }
+{ #category : 'activation' }
 PlatypusGenerateAdaCommandLineHandler >> activate [
 	super activate.
 	self optionAt: 'to' ifAbsent: [ self exitFailure: 'Platypus: error: to option absent. Target no specified' ].
@@ -21,7 +23,7 @@ PlatypusGenerateAdaCommandLineHandler >> activate [
 			self exitFailure: 'Platypus: error: to option: unknown target ''' , subconf , '''' ]
 ]
 
-{ #category : #activation }
+{ #category : 'activation' }
 PlatypusGenerateAdaCommandLineHandler >> generateToCheddar [
 	| targetDirectory |
 	targetDirectory := self baseDirectory / 'generated-code'.

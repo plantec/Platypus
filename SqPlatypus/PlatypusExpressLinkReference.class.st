@@ -1,31 +1,33 @@
 Class {
-	#name : #PlatypusExpressLinkReference,
-	#superclass : #TamListItemHardLinkReference,
-	#category : #'SqPlatypus-HW-tamaris'
+	#name : 'PlatypusExpressLinkReference',
+	#superclass : 'TamListItemHardLinkReference',
+	#category : 'SqPlatypus-HW-tamaris',
+	#package : 'SqPlatypus',
+	#tag : 'HW-tamaris'
 }
 
-{ #category : #updating }
+{ #category : 'updating' }
 PlatypusExpressLinkReference >> cleanAllEvaluations [
 
 ]
 
-{ #category : #checking }
+{ #category : 'checking' }
 PlatypusExpressLinkReference >> doInternalChecking [
 	self assert: self metaData notNil.
 	self assert: self metaData tamarisItemRef notNil.
 	self metaData tamarisItemRef doInternalChecking
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusExpressLinkReference >> findExpressReferenceDeeplySuchThat: aBlock [ 
 	^ self linked findExpressReferenceDeeplySuchThat: aBlock 
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusExpressLinkReference >> metaData [ ^ self linked metaData 
 ]
 
-{ #category : #enumerating }
+{ #category : 'enumerating' }
 PlatypusExpressLinkReference >> recursivelyDo: aBlock [
 	 
 ]

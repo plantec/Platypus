@@ -1,10 +1,12 @@
 Class {
-	#name : #PlatypusExpressSubListReference,
-	#superclass : #TamSubListReference,
-	#category : #'SqPlatypus-HW-tamaris'
+	#name : 'PlatypusExpressSubListReference',
+	#superclass : 'TamSubListReference',
+	#category : 'SqPlatypus-HW-tamaris',
+	#package : 'SqPlatypus',
+	#tag : 'HW-tamaris'
 }
 
-{ #category : #updating }
+{ #category : 'updating' }
 PlatypusExpressSubListReference >> cleanAllEvaluations [
 	self children
 		do: [:chl | chl  cleanAllEvaluations].
@@ -12,25 +14,25 @@ PlatypusExpressSubListReference >> cleanAllEvaluations [
 		ifTrue: [ self linked cleanAllEvaluations]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusExpressSubListReference >> codeHolderClassName [ ^ #PlatypusExpressCodeHolder 
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 PlatypusExpressSubListReference >> isSchemaReference [
 	^ false
 ]
 
-{ #category : #menus }
+{ #category : 'menus' }
 PlatypusExpressSubListReference >> keyStroke: aCharacter from: aListMorph [ super keyStroke: aCharacter from: aListMorph . aCharacter = $p ifTrue: [ ^ self menuCodePane ] 
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusExpressSubListReference >> startLevel [
 	^ 1
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusExpressSubListReference >> tokenList [
 	| tl |
 	tl := PlatypusTokenList new.

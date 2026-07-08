@@ -1,6 +1,6 @@
-Extension { #name : #PltIntegerLiteral }
+Extension { #name : 'PltIntegerLiteral' }
 
-{ #category : #'*xtra-platypus-parsing' }
+{ #category : '*xtra-platypus-parsing' }
 PltIntegerLiteral >> asBound [
 	| bound |
 	bound := PltIntegerBound new.
@@ -8,17 +8,17 @@ PltIntegerLiteral >> asBound [
 	^ bound
 ]
 
-{ #category : #'*xtra-platypus-evaluating' }
+{ #category : '*xtra-platypus-evaluating' }
 PltIntegerLiteral >> asIntegerLiteral [
 	^ self
 ]
 
-{ #category : #'*xtra-platypus-evaluating' }
+{ #category : '*xtra-platypus-evaluating' }
 PltIntegerLiteral >> asIntegerLiteralCompatibleTo: anIntegerType interpretor: anInterpretor [ 
 	^ PltIntegerLiteral val: self val asInteger
 ]
 
-{ #category : #'*xtra-platypus-type-infering' }
+{ #category : '*xtra-platypus-type-infering' }
 PltIntegerLiteral >> inferedDomain [
 	^ PltIntegerType asDomain
 ]

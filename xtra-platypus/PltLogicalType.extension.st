@@ -1,11 +1,11 @@
-Extension { #name : #PltLogicalType }
+Extension { #name : 'PltLogicalType' }
 
-{ #category : #'*xtra-platypus-accessing' }
+{ #category : '*xtra-platypus-accessing' }
 PltLogicalType >> initializedValue [
 	^ PltTrueConstant new
 ]
 
-{ #category : #'*xtra-platypus-testing' }
+{ #category : '*xtra-platypus-testing' }
 PltLogicalType >> isGeneralizationOf: otherType [ 
 	^ otherType isKindOf: self class
 ]

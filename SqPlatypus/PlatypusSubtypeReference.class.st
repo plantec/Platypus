@@ -1,13 +1,15 @@
 Class {
-	#name : #PlatypusSubtypeReference,
-	#superclass : #PlatypusExpressLinkReference,
-	#category : #'SqPlatypus-HW-tamaris'
+	#name : 'PlatypusSubtypeReference',
+	#superclass : 'PlatypusExpressLinkReference',
+	#category : 'SqPlatypus-HW-tamaris',
+	#package : 'SqPlatypus',
+	#tag : 'HW-tamaris'
 }
 
-{ #category : #testing }
+{ #category : 'testing' }
 PlatypusSubtypeReference >> isMoveable [ ^ false 
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 PlatypusSubtypeReference >> isRemoveable [ ^ false 
 ]

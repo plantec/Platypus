@@ -1,15 +1,17 @@
 Class {
-	#name : #PlatypusSchemaReference,
-	#superclass : #PlatypusExpressElementReference,
-	#category : #'SqPlatypus-HW-tamaris'
+	#name : 'PlatypusSchemaReference',
+	#superclass : 'PlatypusExpressElementReference',
+	#category : 'SqPlatypus-HW-tamaris',
+	#package : 'SqPlatypus',
+	#tag : 'HW-tamaris'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusSchemaReference class >> lexicalElement [
 	^#'schema'
 ]
 
-{ #category : #'drag and drop' }
+{ #category : 'drag and drop' }
 PlatypusSchemaReference >> acceptDroppingMorph: aTransfertMorph copy: shouldCopy [ 
 	(aTransfertMorph respondsTo: #passenger) ifFalse: [^false].
 	(aTransfertMorph passenger isKindOf: PlatypusSchemaElementReference) 
@@ -20,12 +22,12 @@ PlatypusSchemaReference >> acceptDroppingMorph: aTransfertMorph copy: shouldCopy
 ^ false
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusSchemaReference >> accessibleSchemata [
 	^self schemaInstance schemata
 ]
 
-{ #category : #'code updating' }
+{ #category : 'code updating' }
 PlatypusSchemaReference >> buildSubReferencesFrom: start to: stop addingOrReplacing: addingReplacingOrReplacingAllSymbol [ 
 	| newLink |
 	super
@@ -40,7 +42,7 @@ PlatypusSchemaReference >> buildSubReferencesFrom: start to: stop addingOrReplac
 			self subReferences add: newLink]
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 PlatypusSchemaReference >> canBeMovedDown [
 	"true if self can be moved up (in my owner children
 	collection) "
@@ -50,7 +52,7 @@ PlatypusSchemaReference >> canBeMovedDown [
 				< self owner subReferences size]]
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 PlatypusSchemaReference >> canBeMovedUp [
 	"true if self can be moved up (in my owner children
 	collection)"
@@ -60,12 +62,12 @@ PlatypusSchemaReference >> canBeMovedUp [
 						> 1]]
 ]
 
-{ #category : #'code accessing' }
+{ #category : 'code accessing' }
 PlatypusSchemaReference >> codeStreamClassFor: aTokenList from: aStartNode to: aSopNode [ 
 	^ super codeStreamClassFor: aTokenList from: aStartNode to: aSopNode 
 ]
 
-{ #category : #checking }
+{ #category : 'checking' }
 PlatypusSchemaReference >> doInternalChecking [
 	super doInternalChecking.
 	self knownAsInvalid
@@ -75,7 +77,7 @@ PlatypusSchemaReference >> doInternalChecking [
 						ifNotNil: [self assert: sch owner notNil]]]
 ]
 
-{ #category : #menus }
+{ #category : 'menus' }
 PlatypusSchemaReference >> elementKindStartContentsFor: elementKindSymbol name: aName [ 
 	elementKindSymbol == #type
 		ifTrue: [^ ('	type ' , aName , ' = string; \	end_type;') withCRs].
@@ -90,27 +92,27 @@ PlatypusSchemaReference >> elementKindStartContentsFor: elementKindSymbol name: 
 	^ ('	' , elementKindSymbol , ' ' , aName , ';\	end_' , elementKindSymbol , ' ;') withCRs
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusSchemaReference >> entities [
 	^ self metaData entities
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusSchemaReference >> entitiesReferences [
 	^self subReferencesOfKind: PlatypusEntityReference
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusSchemaReference >> functionsReferences [
 	^self subReferencesOfKind: PlatypusFunctionReference
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 PlatypusSchemaReference >> haveMetaSchemata [
 	^ self metaData notNil and: [self metaData haveMetaSchemata]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusSchemaReference >> icon [
 	^ (self isPlatypusPrimitiveSchema
 			or: [self usePlatypusPrimitiveSchemata])
@@ -120,7 +122,7 @@ PlatypusSchemaReference >> icon [
 				ifFalse: [TamIcons mimeIcon: '10x10/mimetypes/schema']]
 ]
 
-{ #category : #'code updating' }
+{ #category : 'code updating' }
 PlatypusSchemaReference >> insertReference: anotherReference [ 
 	| parserResult code |
 	((anotherReference isKindOf: PlatypusExpressReference)
@@ -138,22 +140,22 @@ PlatypusSchemaReference >> insertReference: anotherReference [
 	^ true
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 PlatypusSchemaReference >> isMoveable [
 	^ true
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 PlatypusSchemaReference >> isPlatypusPrimitiveSchema [
 	^ self metaData notNil and: [self metaData isPlatypusPrimitiveSchema]
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 PlatypusSchemaReference >> isSchemaReference [
 	^ true
 ]
 
-{ #category : #menus }
+{ #category : 'menus' }
 PlatypusSchemaReference >> menuEvaluateAllRules [
 	self rules
 		do: [:r | 
@@ -161,7 +163,7 @@ PlatypusSchemaReference >> menuEvaluateAllRules [
 			r evaluate]
 ]
 
-{ #category : #menus }
+{ #category : 'menus' }
 PlatypusSchemaReference >> menuNewElement: elementKind [ 
 	| key startContents startingStateSelector parserResult |
 	(key := UIManager default request: 'new ' , elementKind , ' name' initialAnswer: '')
@@ -176,67 +178,67 @@ PlatypusSchemaReference >> menuNewElement: elementKind [
 			self treeHasChanged]
 ]
 
-{ #category : #menus }
+{ #category : 'menus' }
 PlatypusSchemaReference >> menuNewEntity [
 	^ self menuNewElement: #entity
 ]
 
-{ #category : #menus }
+{ #category : 'menus' }
 PlatypusSchemaReference >> menuNewFunction [
 	^ self menuNewElement: #function
 ]
 
-{ #category : #menus }
+{ #category : 'menus' }
 PlatypusSchemaReference >> menuNewProcedure [
 	^ self menuNewElement: #procedure
 ]
 
-{ #category : #menus }
+{ #category : 'menus' }
 PlatypusSchemaReference >> menuNewRule [
 	^ self menuNewElement: #rule
 ]
 
-{ #category : #menus }
+{ #category : 'menus' }
 PlatypusSchemaReference >> menuNewType [
 	^ self menuNewElement: #type
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusSchemaReference >> moveDown [
 	^ self owner moveDownSchemaReference: self
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusSchemaReference >> moveUp [
 	^ self owner moveUpSchemaReference: self
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusSchemaReference >> proceduresReferences [
 	^self subReferencesOfKind: PlatypusProcedureReference
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusSchemaReference >> rules [
 	^ self subReferences select: [:sr | sr isKindOf: PlatypusRuleReference]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusSchemaReference >> rulesReferences [
 	^self subReferencesOfKind: PlatypusRuleReference
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusSchemaReference >> schemaInterfacesReferences [
 	^ self subReferencesOfKind: PlatypusSchemaInterfaceReference
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusSchemaReference >> smaCCStartingState [
 	^ self expressParserClass startingStateForSchemaEntry
 ]
 
-{ #category : #menus }
+{ #category : 'menus' }
 PlatypusSchemaReference >> specificMenu: menu shifted: b [ 
 	"Set up the menu to apply to the receiver's, honoring 
 	the #shifted boolean"
@@ -265,12 +267,12 @@ PlatypusSchemaReference >> specificMenu: menu shifted: b [
 	^ menu
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusSchemaReference >> subElementSymbols [
 	^ PlatypusSchemaElementReference allSubclasses collect: [ :c | c lexicalElement]
 ]
 
-{ #category : #'sublists handling' }
+{ #category : 'sublists handling' }
 PlatypusSchemaReference >> subListsDefsArray [
 	"return an array of array. Each element array is for one
 	sublist and 
@@ -283,17 +285,17 @@ PlatypusSchemaReference >> subListsDefsArray [
 	^ subs
 ]
 
-{ #category : #'sublists handling' }
+{ #category : 'sublists handling' }
 PlatypusSchemaReference >> subListsReferenceClassName [
 	^#PlatypusExpressSubListReference
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusSchemaReference >> typesReferences [
 	^self subReferencesOfKind: PlatypusTypeReference
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 PlatypusSchemaReference >> usePlatypusPrimitiveSchemata [
 	^ self metaData notNil and: [self metaData usePlatypusPrimitiveSchemata]
 ]

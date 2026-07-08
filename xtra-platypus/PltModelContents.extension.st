@@ -1,6 +1,6 @@
-Extension { #name : #PltModelContents }
+Extension { #name : 'PltModelContents' }
 
-{ #category : #'*xtra-platypus-accessing' }
+{ #category : '*xtra-platypus-accessing' }
 PltModelContents >> add: anEntityInstance [
 	(self includesInstance: anEntityInstance)
 		ifTrue: [^ self].
@@ -15,7 +15,7 @@ PltModelContents >> add: anEntityInstance [
 	
 ]
 
-{ #category : #'*xtra-platypus-accessing' }
+{ #category : '*xtra-platypus-accessing' }
 PltModelContents >> addToIndexes: anEntityInstance withPosition: aPosition [
 	self entitiesByInstanceIndex at: anEntityInstance referenced ifAbsentPut: Set new.
 	self positionByDataInstanceIndex at: anEntityInstance put: aPosition.
@@ -32,7 +32,7 @@ PltModelContents >> addToIndexes: anEntityInstance withPosition: aPosition [
 		ifFalse: [self dataInstancesByLabelIndex at: anEntityInstance persistentLabel put: anEntityInstance]
 ]
 
-{ #category : #'*xtra-platypus-data-management' }
+{ #category : '*xtra-platypus-data-management' }
 PltModelContents >> asStepStream [
 	| strm |
 	strm := ReadWriteStream on: String new.
@@ -41,12 +41,12 @@ PltModelContents >> asStepStream [
 
 ]
 
-{ #category : #'*xtra-platypus-accessing' }
+{ #category : '*xtra-platypus-accessing' }
 PltModelContents >> at: position [
 	^ self dataInstances at: position 
 ]
 
-{ #category : #'*xtra-platypus-accessing' }
+{ #category : '*xtra-platypus-accessing' }
 PltModelContents >> at: position put: aNewOne [ 
 	| old oid |
 	self halt.
@@ -59,7 +59,7 @@ PltModelContents >> at: position put: aNewOne [
 			aNewOne owningModel: self]
 ]
 
-{ #category : #'*xtra-platypus-data-management' }
+{ #category : '*xtra-platypus-data-management' }
 PltModelContents >> buildDataInstancesIndexes [
 	self dataInstancesByLabelIndex: Dictionary new.
 	self entitiesByInstanceIndex: IdentityDictionary new.
@@ -69,37 +69,37 @@ PltModelContents >> buildDataInstancesIndexes [
 		doWithIndex: [:v :p | v ifNotNil: [self addToIndexes: v withPosition: p]]
 ]
 
-{ #category : #'*xtra-platypus-accessing' }
+{ #category : '*xtra-platypus-accessing' }
 PltModelContents >> dataInstances [
 	^ dataInstances
 ]
 
-{ #category : #'*xtra-platypus-accessing' }
+{ #category : '*xtra-platypus-accessing' }
 PltModelContents >> dataInstances: aCollection [ 
 	dataInstances := aCollection
 ]
 
-{ #category : #'*xtra-platypus-accessing' }
+{ #category : '*xtra-platypus-accessing' }
 PltModelContents >> dataInstancesByEntityIndex [
 	^ dataInstancesByEntityIndex
 ]
 
-{ #category : #'*xtra-platypus-accessing' }
+{ #category : '*xtra-platypus-accessing' }
 PltModelContents >> dataInstancesByEntityIndex: anObject [ 
 	dataInstancesByEntityIndex := anObject
 ]
 
-{ #category : #'*xtra-platypus-accessing' }
+{ #category : '*xtra-platypus-accessing' }
 PltModelContents >> dataInstancesByLabelIndex [
 	^ dataInstancesByLabelIndex
 ]
 
-{ #category : #'*xtra-platypus-accessing' }
+{ #category : '*xtra-platypus-accessing' }
 PltModelContents >> dataInstancesByLabelIndex: anObject [
 	dataInstancesByLabelIndex := anObject
 ]
 
-{ #category : #'*xtra-platypus-initialize-release' }
+{ #category : '*xtra-platypus-initialize-release' }
 PltModelContents >> destroyInstances [
 	headerInstances ifNotNil: [headerInstances do: [:i | i destroy]].
 	dataInstances ifNotNil: [dataInstances do: [:i | i destroy]].
@@ -107,17 +107,17 @@ PltModelContents >> destroyInstances [
 	positionByDataInstanceIndex := nil
 ]
 
-{ #category : #'*xtra-platypus-accessing' }
+{ #category : '*xtra-platypus-accessing' }
 PltModelContents >> entitiesByInstanceIndex [
 	^entitiesByInstanceIndex
 ]
 
-{ #category : #'*xtra-platypus-accessing' }
+{ #category : '*xtra-platypus-accessing' }
 PltModelContents >> entitiesByInstanceIndex: anObject [
 	entitiesByInstanceIndex := anObject
 ]
 
-{ #category : #'*xtra-platypus-accessing' }
+{ #category : '*xtra-platypus-accessing' }
 PltModelContents >> fileSchema [
 	^ self headerInstances
 		ifNotNil: [self headerInstances
@@ -125,13 +125,13 @@ PltModelContents >> fileSchema [
 				ifNone: []]
 ]
 
-{ #category : #'*xtra-platypus-initialize-release' }
+{ #category : '*xtra-platypus-initialize-release' }
 PltModelContents >> finalize [
 	self destroy.
 	super finalize
 ]
 
-{ #category : #'*xtra-platypus-checking' }
+{ #category : '*xtra-platypus-checking' }
 PltModelContents >> forgetAllErrors [ 
 	self schemaInstance ifNil: [^ self ].
 	self schemaInstance forgetAllErrorsOf: self.
@@ -142,37 +142,37 @@ PltModelContents >> forgetAllErrors [
 	
 ]
 
-{ #category : #'*xtra-platypus-testing' }
+{ #category : '*xtra-platypus-testing' }
 PltModelContents >> haveMetaConceptDefinitions [
 	^ self dataInstances
 		anySatisfy: [:inst | (inst isPltInternalRepresentation
 					and: [inst definition name asUppercase = PltMetaConceptDefinition platypusMetaData name asUppercase])] 
 ]
 
-{ #category : #'*xtra-platypus-accessing' }
+{ #category : '*xtra-platypus-accessing' }
 PltModelContents >> headerInstances [
 	^ headerInstances
 ]
 
-{ #category : #'*xtra-platypus-accessing' }
+{ #category : '*xtra-platypus-accessing' }
 PltModelContents >> headerInstances: aCollection [ 
 	headerInstances := aCollection.
 
 ]
 
-{ #category : #'*xtra-platypus-accessing' }
+{ #category : '*xtra-platypus-accessing' }
 PltModelContents >> includesInstance: anEntityInstance [
 	self entitiesByInstanceIndex ifNil: [^false].
 	^ self entitiesByInstanceIndex includesKey: anEntityInstance.
 
 ]
 
-{ #category : #'*xtra-platypus-accessing' }
+{ #category : '*xtra-platypus-accessing' }
 PltModelContents >> indexOf: anInstance [
 	^ self positionByDataInstanceIndex at: anInstance ifAbsent: [0]
 ]
 
-{ #category : #'*xtra-platypus-initialize-release' }
+{ #category : '*xtra-platypus-initialize-release' }
 PltModelContents >> initialize [
 	super initialize.
 	headerInstances := OrderedCollection new.
@@ -184,17 +184,17 @@ PltModelContents >> initialize [
 
 ]
 
-{ #category : #'*xtra-platypus-accessing' }
+{ #category : '*xtra-platypus-accessing' }
 PltModelContents >> instanceLabelled: aLabel [
 	^ self dataInstancesByLabelIndex at: aLabel ifAbsent: []
 ]
 
-{ #category : #'*xtra-platypus-testing' }
+{ #category : '*xtra-platypus-testing' }
 PltModelContents >> isEmpty [
 	^ dataInstances isEmpty
 ]
 
-{ #category : #'*xtra-platypus-accessing' }
+{ #category : '*xtra-platypus-accessing' }
 PltModelContents >> lookUpEntityDefinitionBN: aName [ 
 	| found |
 	self schemata do: 
@@ -204,7 +204,7 @@ PltModelContents >> lookUpEntityDefinitionBN: aName [
 	^ nil
 ]
 
-{ #category : #'*xtra-platypus-accessing' }
+{ #category : '*xtra-platypus-accessing' }
 PltModelContents >> lookUpNamedTypeBN: aName [ 
 	| found |
 	self schemata
@@ -213,12 +213,12 @@ PltModelContents >> lookUpNamedTypeBN: aName [
 	^ nil
 ]
 
-{ #category : #'*xtra-platypus-accessing' }
+{ #category : '*xtra-platypus-accessing' }
 PltModelContents >> newPersistentLabel [
 	^ (self newPersistentLabelFrom: dataInstances size + 1) asString
 ]
 
-{ #category : #'*xtra-platypus-accessing' }
+{ #category : '*xtra-platypus-accessing' }
 PltModelContents >> newPersistentLabelFrom: anInteger [
 	| ca |
 	ca := anInteger.
@@ -227,22 +227,22 @@ PltModelContents >> newPersistentLabelFrom: anInteger [
 	^ ca 
 ]
 
-{ #category : #'*xtra-platypus-testing' }
+{ #category : '*xtra-platypus-testing' }
 PltModelContents >> notEmpty [
 	^ dataInstances notEmpty
 ]
 
-{ #category : #'*xtra-platypus-accessing' }
+{ #category : '*xtra-platypus-accessing' }
 PltModelContents >> positionByDataInstanceIndex [
 	^ positionByDataInstanceIndex ifNil: [positionByDataInstanceIndex := IdentityDictionary new]
 ]
 
-{ #category : #'*xtra-platypus-accessing' }
+{ #category : '*xtra-platypus-accessing' }
 PltModelContents >> positionByDataInstanceIndex: anObject [
 	positionByDataInstanceIndex := anObject
 ]
 
-{ #category : #'*xtra-platypus-accessing' }
+{ #category : '*xtra-platypus-accessing' }
 PltModelContents >> privateRemove: anEntityInstance [
 	| pos |
 	pos := self indexOf: anEntityInstance.
@@ -252,30 +252,30 @@ PltModelContents >> privateRemove: anEntityInstance [
 
 ]
 
-{ #category : #'*xtra-platypus-accessing' }
+{ #category : '*xtra-platypus-accessing' }
 PltModelContents >> recordComputedInstances [
 	^ recordComputedInstances ifNil: [recordComputedInstances := true ]
 ]
 
-{ #category : #'*xtra-platypus-accessing' }
+{ #category : '*xtra-platypus-accessing' }
 PltModelContents >> recordComputedInstances: aBoolean [
 	recordComputedInstances := aBoolean
 ]
 
-{ #category : #'*xtra-platypus-accessing' }
+{ #category : '*xtra-platypus-accessing' }
 PltModelContents >> remove: anEntityInstance [
 	PlatypusInstanceReplacer new remove: anEntityInstance from: self.
 
 ]
 
-{ #category : #'*xtra-platypus-data-management' }
+{ #category : '*xtra-platypus-data-management' }
 PltModelContents >> removeAll [
 	self destroyInstances.
 	self initialize.
 	self buildDataInstancesIndexes
 ]
 
-{ #category : #'*xtra-platypus-data-management' }
+{ #category : '*xtra-platypus-data-management' }
 PltModelContents >> removeComputedInstances [
 	| temporaries idx |
 	temporaries := self dataInstances select: [:v | v notNil and: [ v isComputed] ].
@@ -284,7 +284,7 @@ PltModelContents >> removeComputedInstances [
 	self removeIndex: idx
 ]
 
-{ #category : #'*xtra-platypus-accessing' }
+{ #category : '*xtra-platypus-accessing' }
 PltModelContents >> removeFromIndexes: anEntityInstance [ 
 	| entities s |
 	self positionByDataInstanceIndex removeKey: anEntityInstance ifAbsent: [].
@@ -302,34 +302,34 @@ PltModelContents >> removeFromIndexes: anEntityInstance [
 		ifFalse: [self dataInstancesByLabelIndex removeKey: anEntityInstance persistentLabel ifAbsent: []]
 ]
 
-{ #category : #'*xtra-platypus-data-management' }
+{ #category : '*xtra-platypus-data-management' }
 PltModelContents >> removeFromOwner [
 	self owner ifNil: [^ self ].
 	self owner removeModelContents: self
 
 ]
 
-{ #category : #'*xtra-platypus-data-management' }
+{ #category : '*xtra-platypus-data-management' }
 PltModelContents >> removeIndex: anIndex [
 	PlatypusInstanceReplacer new removeIndex: anIndex from: self 
 ]
 
-{ #category : #'*xtra-platypus-accessing' }
+{ #category : '*xtra-platypus-accessing' }
 PltModelContents >> replace: old with: new [
 	PlatypusInstanceReplacer new replace: old with: new in: self 
 ]
 
-{ #category : #'*xtra-platypus-data-management' }
+{ #category : '*xtra-platypus-data-management' }
 PltModelContents >> replaceIndex: anIndex [
 	PlatypusInstanceReplacer new replaceIndex: anIndex in: self 
 ]
 
-{ #category : #'*xtra-platypus-data-management' }
+{ #category : '*xtra-platypus-data-management' }
 PltModelContents >> resolves [
 	^ self resolvesNotifying: nil
 ]
 
-{ #category : #'*xtra-platypus-data-management' }
+{ #category : '*xtra-platypus-data-management' }
 PltModelContents >> resolvesMetaConceptDefinitions [
 	| metaRefs evalResult newInst interpreter instDefinition metaExpression toBeRecord |
 	metaRefs := OrderedCollection new.
@@ -358,12 +358,12 @@ PltModelContents >> resolvesMetaConceptDefinitions [
 	self tamarisItemRef removeSubReferences
 ]
 
-{ #category : #'*xtra-platypus-data-management' }
+{ #category : '*xtra-platypus-data-management' }
 PltModelContents >> resolvesMetaMappingRules [
 	PlatypusModelContentsMetaDefinitionsBuilder new acceptModelContents: self
 ]
 
-{ #category : #'*xtra-platypus-data-management' }
+{ #category : '*xtra-platypus-data-management' }
 PltModelContents >> resolvesNotifying: aRequestor [
 	| checker |
 	checker := PlatypusModelContentsResolver new.
@@ -372,12 +372,12 @@ PltModelContents >> resolvesNotifying: aRequestor [
 	^ checker haveError not
 ]
 
-{ #category : #'*xtra-platypus-accessing' }
+{ #category : '*xtra-platypus-accessing' }
 PltModelContents >> schemaInstance [ 
 	^ self owner
 ]
 
-{ #category : #'*xtra-platypus-accessing' }
+{ #category : '*xtra-platypus-accessing' }
 PltModelContents >> schemata [
 	| fileSchema declaredSchemata sch |
 	declaredSchemata := OrderedCollection new.
@@ -392,12 +392,12 @@ PltModelContents >> schemata [
 	^ declaredSchemata
 ]
 
-{ #category : #'*xtra-platypus-data-management' }
+{ #category : '*xtra-platypus-data-management' }
 PltModelContents >> semanticChecks [
 	^ self semanticChecksNotifying: nil
 ]
 
-{ #category : #'*xtra-platypus-data-management' }
+{ #category : '*xtra-platypus-data-management' }
 PltModelContents >> semanticChecksNotifying: aRequestor [
 	| checker |
 	checker := PlatypusModelContentsSemanticChecker new.
@@ -406,7 +406,7 @@ PltModelContents >> semanticChecksNotifying: aRequestor [
 	^ checker haveError not
 ]
 
-{ #category : #'*xtra-platypus-accessing' }
+{ #category : '*xtra-platypus-accessing' }
 PltModelContents >> sortedDataInstances [ 
 	^ (self dataInstances select: [:e | e notNil]) asArray sort: [:a :b |
 			(a persistentLabel isAllDigits and: [b persistentLabel isAllDigits])
@@ -414,13 +414,13 @@ PltModelContents >> sortedDataInstances [
 				ifFalse: [a persistentLabel  < b persistentLabel]]
 ]
 
-{ #category : #'*xtra-platypus-data-management' }
+{ #category : '*xtra-platypus-data-management' }
 PltModelContents >> stepWriteIntoStream: aStream [ 
 	self stepWriteIntoStream: aStream useP21Syntax: true
 
 ]
 
-{ #category : #'*xtra-platypus-data-management' }
+{ #category : '*xtra-platypus-data-management' }
 PltModelContents >> stepWriteIntoStream: aStream useP21Syntax: aBoolean [ 
 	Cursor write showWhile: [
 		PlatypusModelContentsStepWriter new
@@ -429,14 +429,14 @@ PltModelContents >> stepWriteIntoStream: aStream useP21Syntax: aBoolean [
 			p21Syntax: aBoolean]
 ]
 
-{ #category : #'*xtra-platypus-accessing' }
+{ #category : '*xtra-platypus-accessing' }
 PltModelContents >> subInstancesOf: entity [ 
 	^ self dataInstancesByEntityIndex
 		at: entity
 		ifAbsent: [Set new]
 ]
 
-{ #category : #'*xtra-platypus-tamaris' }
+{ #category : '*xtra-platypus-tamaris' }
 PltModelContents >> tamarisChildrenIntoOwner: ownerRef [
 	| children |
 	dataInstances ifNil: [ ^OrderedCollection new ].
@@ -447,7 +447,7 @@ PltModelContents >> tamarisChildrenIntoOwner: ownerRef [
 	^ children
 ]
 
-{ #category : #'*xtra-platypus-checking' }
+{ #category : '*xtra-platypus-checking' }
 PltModelContents >> verifyNotifying: aRequestor [
 	self forgetAllErrors.
 	self validationDate: DateAndTime now asString.
@@ -457,7 +457,7 @@ PltModelContents >> verifyNotifying: aRequestor [
 	^ self validationResult
 ]
 
-{ #category : #'*xtra-platypus-checking' }
+{ #category : '*xtra-platypus-checking' }
 PltModelContents >> verifySilently [
 	^ self verifyNotifying: nil
 ]

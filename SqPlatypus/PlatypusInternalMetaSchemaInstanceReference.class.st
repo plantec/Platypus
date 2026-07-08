@@ -1,22 +1,24 @@
 Class {
-	#name : #PlatypusInternalMetaSchemaInstanceReference,
-	#superclass : #PlatypusSchemaInstanceReference,
-	#category : #'SqPlatypus-HW-tamaris'
+	#name : 'PlatypusInternalMetaSchemaInstanceReference',
+	#superclass : 'PlatypusSchemaInstanceReference',
+	#category : 'SqPlatypus-HW-tamaris',
+	#package : 'SqPlatypus',
+	#tag : 'HW-tamaris'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusInternalMetaSchemaInstanceReference class >> expressMetaDictionary [ ^ self initializeExpressMetaDictionaryIfNeeded 
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusInternalMetaSchemaInstanceReference class >> expressMetaDictionaryName [ ^ 'Platypus_meta_schemas' 
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusInternalMetaSchemaInstanceReference class >> expressMetaSchemasCode [ ^ PltPlatypusMetaSchemasSchemaInstance singleton expressSchemaCode 
 ]
 
-{ #category : #initializing }
+{ #category : 'initializing' }
 PlatypusInternalMetaSchemaInstanceReference class >> initializeExpressMetaDictionary [
 	"self initializeExpressMetaDictionary"
 
@@ -27,7 +29,7 @@ PlatypusInternalMetaSchemaInstanceReference class >> initializeExpressMetaDictio
 	^ newref
 ]
 
-{ #category : #initializing }
+{ #category : 'initializing' }
 PlatypusInternalMetaSchemaInstanceReference class >> initializeExpressMetaDictionaryIfNeeded [
 	"self initializeExpressMetaDictionaryIfNeeded"
 	| candidats |
@@ -38,25 +40,25 @@ PlatypusInternalMetaSchemaInstanceReference class >> initializeExpressMetaDictio
 		ifFalse: [^ candidats first] 
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusInternalMetaSchemaInstanceReference class >> lookUpExpressMetaDictionary [
 	^ self allInstances copy detect: [:epd | epd isMetaSchemaInstanceReference]
 		ifNone: []
 ]
 
-{ #category : #copying }
+{ #category : 'copying' }
 PlatypusInternalMetaSchemaInstanceReference >> copy [ ^ self error: 'can''t copy a meta dictionary reference' 
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusInternalMetaSchemaInstanceReference >> expressParserClassName [ ^ #PlatypusExpressPrimitiveParser 
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 PlatypusInternalMetaSchemaInstanceReference >> isExpressMetaDictionary [ ^ self isReleased not and: [ self name = self class expressMetaDictionaryName ] 
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusInternalMetaSchemaInstanceReference >> namesBuilder [
 	^ PlatypusNamesBuilder meta
 ]

@@ -1,6 +1,6 @@
 Class {
-	#name : #PlatypusCodeMorph,
-	#superclass : #StringHolderFromPharo4,
+	#name : 'PlatypusCodeMorph',
+	#superclass : 'StringHolderFromPharo4',
 	#instVars : [
 		'mainWindow',
 		'mainPane',
@@ -11,10 +11,12 @@ Class {
 	#classVars : [
 		'InitialExtent'
 	],
-	#category : #'SqPlatypus-HW-CodeHolder'
+	#category : 'SqPlatypus-HW-CodeHolder',
+	#package : 'SqPlatypus',
+	#tag : 'HW-CodeHolder'
 }
 
-{ #category : #utilities }
+{ #category : 'utilities' }
 PlatypusCodeMorph class >> cleanCommentsOf: aTextOrString [ 
 	| level loop prevChar inStream outputStream currentCharacter inComment |
 	level := 1.
@@ -48,7 +50,7 @@ PlatypusCodeMorph class >> cleanCommentsOf: aTextOrString [
 	^ outputStream contents
 ]
 
-{ #category : #utilities }
+{ #category : 'utilities' }
 PlatypusCodeMorph class >> code: codeString match: aMatchString [ 
 	^ self
 		code: codeString
@@ -63,7 +65,7 @@ PlatypusCodeMorph class >> code: codeString match: aMatchString [
 
 ]
 
-{ #category : #utilities }
+{ #category : 'utilities' }
 PlatypusCodeMorph class >> code: codeString match: aMatchString startingAt: firstPos [ 
 	| csize msize mpos cpos startCodePos stopCodePos cleanedCode cleanedMatchString |
 	cleanedCode := codeString asString asUppercase.
@@ -100,40 +102,40 @@ PlatypusCodeMorph class >> code: codeString match: aMatchString startingAt: firs
 		with: stopCodePos
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusCodeMorph class >> codeFont [
 	^ StandardFonts codeFont
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusCodeMorph class >> initialExtent [
 	^ InitialExtent
 		ifNil: [InitialExtent := 800@600]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusCodeMorph class >> initialExtent: aPoint [ 
 	InitialExtent := aPoint
 ]
 
-{ #category : #'message handling' }
+{ #category : 'message handling' }
 PlatypusCodeMorph class >> perform: selector orSendTo: otherTarget [ 
 	(self respondsTo: selector)
 		ifTrue: [^ self perform: selector]
 		ifFalse: [^ otherTarget perform: selector]
 ]
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 PlatypusCodeMorph class >> sourceHandler: aSourceHandler [ 
 	^ self new sourceHandler: aSourceHandler
 ]
 
-{ #category : #'code updating' }
+{ #category : 'code updating' }
 PlatypusCodeMorph >> accept [
 	^ contentsMorph accept
 ]
 
-{ #category : #menu }
+{ #category : 'menu' }
 PlatypusCodeMorph >> addModelItemsToWindowMenu: aMenu [ 
 	aMenu addLine.
 	aMenu
@@ -142,19 +144,19 @@ PlatypusCodeMorph >> addModelItemsToWindowMenu: aMenu [
 		action: #rememberWindowSize
 ]
 
-{ #category : #'morphic wrapper' }
+{ #category : 'morphic wrapper' }
 PlatypusCodeMorph >> asMorph [
 	^ self buildMainWindow
 
 ]
 
-{ #category : #'code updating' }
+{ #category : 'code updating' }
 PlatypusCodeMorph >> broadcastChanged [
 	^ self sourceHandler 
 		ifNotNil: [:sh | sh treeHasChangedFrom: self]
 ]
 
-{ #category : #'ui building' }
+{ #category : 'ui building' }
 PlatypusCodeMorph >> buildMainWindow [
 	mainWindow := (StandardWindow labelled: self labelString)
 				model: self.
@@ -171,7 +173,7 @@ PlatypusCodeMorph >> buildMainWindow [
 	^ mainWindow
 ]
 
-{ #category : #'ui building' }
+{ #category : 'ui building' }
 PlatypusCodeMorph >> buildTamarisWindow [
 	mainWindow := (StandardWindow labelled: self labelString)
 				model: self.
@@ -191,22 +193,22 @@ PlatypusCodeMorph >> buildTamarisWindow [
 	^ mainWindow
 ]
 
-{ #category : #'code updating' }
+{ #category : 'code updating' }
 PlatypusCodeMorph >> canBeUpdated [
 	^ mainWindow notNil and: [mainWindow owner notNil]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusCodeMorph >> codeFont [
 	^ self class codeFont
 ]
 
-{ #category : #'code accessing' }
+{ #category : 'code accessing' }
 PlatypusCodeMorph >> codeMatch: aMatchString [ 
 	^ self class code: self contents string match: aMatchString
 ]
 
-{ #category : #'code accessing' }
+{ #category : 'code accessing' }
 PlatypusCodeMorph >> codeMatch: aMatchString startingAt: pointPos [ 
 	^ self class
 		code: self contents
@@ -214,12 +216,12 @@ PlatypusCodeMorph >> codeMatch: aMatchString startingAt: pointPos [
 		startingAt: (pointPos > 0 ifTrue: [pointPos] ifFalse: [1])
 ]
 
-{ #category : #'ui building' }
+{ #category : 'ui building' }
 PlatypusCodeMorph >> codeRowLayoutFrame [
 	^ LayoutFrame identity
 ]
 
-{ #category : #'code accessing' }
+{ #category : 'code accessing' }
 PlatypusCodeMorph >> codeSelectionInterval: aStringOrText startingAt: startPos [ 
 	| matchResult matchString |
 	matchString := aStringOrText
@@ -230,14 +232,14 @@ PlatypusCodeMorph >> codeSelectionInterval: aStringOrText startingAt: startPos [
 	^ matchResult first
 ]
 
-{ #category : #'code accessing' }
+{ #category : 'code accessing' }
 PlatypusCodeMorph >> codeString [
 	^ self sourceHandler
 		ifNil: ['']
 		ifNotNil: [self sourceHandler codeString]
 ]
 
-{ #category : #'code accessing' }
+{ #category : 'code accessing' }
 PlatypusCodeMorph >> codeText [
 	^ self sourceHandler 
 		ifNil: ['']
@@ -245,7 +247,7 @@ PlatypusCodeMorph >> codeText [
 
 ]
 
-{ #category : #'code updating' }
+{ #category : 'code updating' }
 PlatypusCodeMorph >> contents: input notifying: aRequestor [ 
 	"The retrieved information has changed and its source must now 
 	be updated. The information can be a variety of things, 
@@ -266,7 +268,7 @@ PlatypusCodeMorph >> contents: input notifying: aRequestor [
 	^ false
 ]
 
-{ #category : #menu }
+{ #category : 'menu' }
 PlatypusCodeMorph >> contentsMenu: aMenu shifted: shifted [ 
 	"Note that unless we override perform:orSendTo:,  
 	PluggableTextController  
@@ -280,7 +282,7 @@ PlatypusCodeMorph >> contentsMenu: aMenu shifted: shifted [
 
 ]
 
-{ #category : #'ui building' }
+{ #category : 'ui building' }
 PlatypusCodeMorph >> contentsMorph [
 	| txtClass |
 	contentsMorph isNil
@@ -294,12 +296,12 @@ PlatypusCodeMorph >> contentsMorph [
 	^ contentsMorph
 ]
 
-{ #category : #'ui building' }
+{ #category : 'ui building' }
 PlatypusCodeMorph >> contentsMorphLayoutFrame [
 		^(LayoutFrame identity)
 ]
 
-{ #category : #'initialize/release' }
+{ #category : 'initialize/release' }
 PlatypusCodeMorph >> destroy [
 
 	mainWindow
@@ -320,7 +322,7 @@ PlatypusCodeMorph >> destroy [
 	super destroy
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusCodeMorph >> errors [
 	| errs testste result |
 	errs := self sourceHandler
@@ -335,7 +337,7 @@ PlatypusCodeMorph >> errors [
 	^ result
 ]
 
-{ #category : #'code updating' }
+{ #category : 'code updating' }
 PlatypusCodeMorph >> forceUpdate [
 	self sourceHandler reinitializeLabelSilently.
 	self contentsMorph hasUnacceptedEdits
@@ -346,35 +348,35 @@ PlatypusCodeMorph >> forceUpdate [
 	self changed: #contents"
 ]
 
-{ #category : #'code updating' }
+{ #category : 'code updating' }
 PlatypusCodeMorph >> forceUpdate: anAnnounce [
 	anAnnounce sourceHandler  = self sourceHandler
 		ifTrue: [self forceUpdate]
 ]
 
-{ #category : #'ui building' }
+{ #category : 'ui building' }
 PlatypusCodeMorph >> initialExtent [
 	^ self class initialExtent
 ]
 
-{ #category : #'code updating' }
+{ #category : 'code updating' }
 PlatypusCodeMorph >> keystrokeInContentsMorph [
 
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusCodeMorph >> labelString [
 	^ self sourceHandler notNil
 		ifTrue: [self class name , ' on: ' , self sourceHandler labelString]
 		ifFalse: [self class name]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusCodeMorph >> mainWindow [
 	^ mainWindow
 ]
 
-{ #category : #'error handling' }
+{ #category : 'error handling' }
 PlatypusCodeMorph >> notify: errorMessage at: location [
 	| repl |
 	self contentsMorph selectFrom: location to: location - 1.
@@ -386,32 +388,32 @@ PlatypusCodeMorph >> notify: errorMessage at: location [
 
 ]
 
-{ #category : #'morphic wrapper' }
+{ #category : 'morphic wrapper' }
 PlatypusCodeMorph >> openAsMorph [
 	^ self asMorph openInWorld.
 
 ]
 
-{ #category : #'message handling' }
+{ #category : 'message handling' }
 PlatypusCodeMorph >> perform: selector orSendTo: otherTarget [ 
 	(self respondsTo: selector)
 		ifTrue: [^ self perform: selector]
 		ifFalse: [^ otherTarget perform: selector]
 ]
 
-{ #category : #menu }
+{ #category : 'menu' }
 PlatypusCodeMorph >> rememberWindowSize [
 	self class initialExtent: mainWindow bounds extent
 ]
 
-{ #category : #'code accessing' }
+{ #category : 'code accessing' }
 PlatypusCodeMorph >> selectCode: aStringOrText [ 
 	^ self selectCode: aStringOrText startingAt: 1 
 
 
 ]
 
-{ #category : #'code accessing' }
+{ #category : 'code accessing' }
 PlatypusCodeMorph >> selectCode: aStringOrText startingAt: startPos [ 
 	| matchResult matchString |
 	matchString := aStringOrText
@@ -422,14 +424,14 @@ PlatypusCodeMorph >> selectCode: aStringOrText startingAt: startPos [
 
 ]
 
-{ #category : #'code accessing' }
+{ #category : 'code accessing' }
 PlatypusCodeMorph >> selectCodeFromPoint: aStringOrText [ 
 	| |
 	^ self selectCode: aStringOrText startingAt: self selectionInterval first
 
 ]
 
-{ #category : #'code accessing' }
+{ #category : 'code accessing' }
 PlatypusCodeMorph >> selectFrom: startPos to: stopPos [ 
 	self contentsMorph
 		selectionInterval: (startPos to: stopPos).
@@ -439,23 +441,23 @@ PlatypusCodeMorph >> selectFrom: startPos to: stopPos [
 	self contentsMorph scrollSelectionIntoView
 ]
 
-{ #category : #'code accessing' }
+{ #category : 'code accessing' }
 PlatypusCodeMorph >> selectionInterval [
 	^ self contentsMorph selectionInterval
 ]
 
-{ #category : #'code accessing' }
+{ #category : 'code accessing' }
 PlatypusCodeMorph >> selectionInterval: anInterval [
 	self contentsMorph selectionInterval: anInterval.
 
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusCodeMorph >> sourceHandler [
 	^sourceHandler
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusCodeMorph >> sourceHandler: anObject [ 
 	sourceHandler == anObject 
 		ifFalse: 	[
@@ -467,14 +469,14 @@ PlatypusCodeMorph >> sourceHandler: anObject [
 			self changed: #contents]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusCodeMorph >> sourceHandlerSilently: anObject contents: aString [ 
 	sourceHandler := anObject.
 	self acceptContents: aString.
 	self changed: #contents
 ]
 
-{ #category : #'code updating' }
+{ #category : 'code updating' }
 PlatypusCodeMorph >> treeUpdated: anAnnounce [
 	self sourceHandler ifNil: [^ self].
 	self sourceHandler isReleased ifTrue: [^self ].
@@ -483,19 +485,19 @@ PlatypusCodeMorph >> treeUpdated: anAnnounce [
 
 ]
 
-{ #category : #'code updating' }
+{ #category : 'code updating' }
 PlatypusCodeMorph >> updateCodePaneIfNeeded [
 	
 ]
 
-{ #category : #'code updating' }
+{ #category : 'code updating' }
 PlatypusCodeMorph >> verify [
 	self sourceHandler verify.
 	self updateMessagesBrowser
 
 ]
 
-{ #category : #'ui opening/closing' }
+{ #category : 'ui opening/closing' }
 PlatypusCodeMorph >> windowIsClosing [
 	self destroy.
 	super windowIsClosing

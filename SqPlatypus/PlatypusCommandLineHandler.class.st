@@ -1,26 +1,28 @@
 Class {
-	#name : #PlatypusCommandLineHandler,
-	#superclass : #BasicCommandLineHandler,
-	#category : #'SqPlatypus-HW-CommandLine'
+	#name : 'PlatypusCommandLineHandler',
+	#superclass : 'BasicCommandLineHandler',
+	#category : 'SqPlatypus-HW-CommandLine',
+	#package : 'SqPlatypus',
+	#tag : 'HW-CommandLine'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusCommandLineHandler class >> commandName [
 	^ 'platypus'
 ]
 
-{ #category : #'handler selection' }
+{ #category : 'handler selection' }
 PlatypusCommandLineHandler class >> isResponsibleFor: aCommandLineArguments [
 	^ aCommandLineArguments includesSubCommand: self commandName
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusCommandLineHandler >> baseDirectory [
 
 	^ (OSEnvironment current at: 'PWD') asFileReference 
 ]
 
-{ #category : #private }
+{ #category : 'private' }
 PlatypusCommandLineHandler >> subCommandsRoot [
 	^ PlatypusSubCommandLineHandler
 ]

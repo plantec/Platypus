@@ -1,16 +1,16 @@
-Extension { #name : #PltDivExpression }
+Extension { #name : 'PltDivExpression' }
 
-{ #category : #'*xtra-platypus-type-infering' }
+{ #category : '*xtra-platypus-type-infering' }
 PltDivExpression >> inferedDomain [
 	^ PltIntegerType asDomain
 ]
 
-{ #category : #'*xtra-platypus-accessing' }
+{ #category : '*xtra-platypus-accessing' }
 PltDivExpression >> operatorSymbol [
 	^#'/'
 ]
 
-{ #category : #'*xtra-platypus-express-compat' }
+{ #category : '*xtra-platypus-express-compat' }
 PltDivExpression >> pltOperator [
 	^ '/'
 ]

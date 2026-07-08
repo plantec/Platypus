@@ -1,6 +1,6 @@
-Extension { #name : #PltCaseStatement }
+Extension { #name : 'PltCaseStatement' }
 
-{ #category : #'*xtra-platypus-testing' }
+{ #category : '*xtra-platypus-testing' }
 PltCaseStatement >> alwaysReturn [
 
   self caseOtherwise ifNil: [^ false].

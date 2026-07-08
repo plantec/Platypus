@@ -1,5 +1,7 @@
 Class {
-	#name : #PlatypusWeakIdentityKeyDictionary,
-	#superclass : #WeakIdentityKeyDictionary,
-	#category : #'SqPlatypus-VW-Compatibility'
+	#name : 'PlatypusWeakIdentityKeyDictionary',
+	#superclass : 'WeakIdentityKeyDictionary',
+	#category : 'SqPlatypus-VW-Compatibility',
+	#package : 'SqPlatypus',
+	#tag : 'VW-Compatibility'
 }

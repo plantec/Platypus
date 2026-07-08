@@ -1,6 +1,6 @@
-Extension { #name : #PltIfStatement }
+Extension { #name : 'PltIfStatement' }
 
-{ #category : #'*xtra-platypus-testing' }
+{ #category : '*xtra-platypus-testing' }
 PltIfStatement >> alwaysReturn [
 	self elseStatements
 		ifNotNil: [

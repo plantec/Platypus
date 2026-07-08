@@ -1,6 +1,6 @@
-Extension { #name : #PltXorExpression }
+Extension { #name : 'PltXorExpression' }
 
-{ #category : #'*xtra-platypus-accessing' }
+{ #category : '*xtra-platypus-accessing' }
 PltXorExpression >> operatorSymbol [
 	^ #xor
 ]

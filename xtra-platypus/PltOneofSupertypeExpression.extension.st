@@ -1,6 +1,6 @@
-Extension { #name : #PltOneofSupertypeExpression }
+Extension { #name : 'PltOneofSupertypeExpression' }
 
-{ #category : #'*xtra-platypus-checking' }
+{ #category : '*xtra-platypus-checking' }
 PltOneofSupertypeExpression >> checksSubtypesInheritance: mySuper [
 	| result |
 	result := OrderedCollection new.
@@ -8,7 +8,7 @@ PltOneofSupertypeExpression >> checksSubtypesInheritance: mySuper [
 	^ result
 ]
 
-{ #category : #'*xtra-platypus-accessing' }
+{ #category : '*xtra-platypus-accessing' }
 PltOneofSupertypeExpression >> operatorSymbol [
 	^#oneof
 ]

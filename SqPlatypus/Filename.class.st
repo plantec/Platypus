@@ -1,33 +1,35 @@
 Class {
-	#name : #Filename,
-	#superclass : #Object,
+	#name : 'Filename',
+	#superclass : 'Object',
 	#instVars : [
 		'publicName'
 	],
-	#category : #'SqPlatypus-VW-Compatibility'
+	#category : 'SqPlatypus-VW-Compatibility',
+	#package : 'SqPlatypus',
+	#tag : 'VW-Compatibility'
 }
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 Filename class >> named: str [ 
 	^ self new publicName: str
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 Filename >> publicName [
 	^publicName
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 Filename >> publicName: aName [ 
 	publicName := aName
 ]
 
-{ #category : #'stream creation' }
+{ #category : 'stream creation' }
 Filename >> readStream [
 	^ self publicName asFileReference readStream
 ]
 
-{ #category : #'stream creation' }
+{ #category : 'stream creation' }
 Filename >> writeStream [
 
 	^ self publicName asFileReference writeStream

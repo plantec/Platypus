@@ -1,24 +1,24 @@
-Extension { #name : #PltQueryExpression }
+Extension { #name : 'PltQueryExpression' }
 
-{ #category : #'*xtra-platypus-accessing' }
+{ #category : '*xtra-platypus-accessing' }
 PltQueryExpression >> identifiersCache [
 	^ identifiersCache
 		ifNil: [identifiersCache := Dictionary new]
 ]
 
-{ #category : #'*xtra-platypus-evaluating' }
+{ #category : '*xtra-platypus-evaluating' }
 PltQueryExpression >> initializeContextInInterpretor: anInterpretor [ 
 	self aggregateSource acceptTry: anInterpretor.
 	anInterpretor currentContext aggregateSource: anInterpretor pop.
 	anInterpretor declareQueryVariable: self variable
 ]
 
-{ #category : #'*xtra-platypus-evaluating' }
+{ #category : '*xtra-platypus-evaluating' }
 PltQueryExpression >> interpretorContextClass [
 	^ PlatypusExpressInterpretorQueryContext
 ]
 
-{ #category : #'*xtra-platypus-accessing' }
+{ #category : '*xtra-platypus-accessing' }
 PltQueryExpression >> lookUpIdentifierBN: aName [
 	| upper |
 	upper := aName asUppercase.
@@ -26,7 +26,7 @@ PltQueryExpression >> lookUpIdentifierBN: aName [
  
 ]
 
-{ #category : #'*xtra-platypus-code-generating' }
+{ #category : '*xtra-platypus-code-generating' }
 PltQueryExpression >> variableHolders [
 	^ OrderedCollection with: variable 
 ]

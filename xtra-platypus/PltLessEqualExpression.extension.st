@@ -1,11 +1,11 @@
-Extension { #name : #PltLessEqualExpression }
+Extension { #name : 'PltLessEqualExpression' }
 
-{ #category : #'*xtra-platypus-accessing' }
+{ #category : '*xtra-platypus-accessing' }
 PltLessEqualExpression >> operatorSymbol [
 	^ #'<='
 ]
 
-{ #category : #'*xtra-platypus-express-compat' }
+{ #category : '*xtra-platypus-express-compat' }
 PltLessEqualExpression >> pltOperator [
 	^ '<='
 ]

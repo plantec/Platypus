@@ -1,6 +1,6 @@
-Extension { #name : #String }
+Extension { #name : 'String' }
 
-{ #category : #'*xtra-platypus-tamaris' }
+{ #category : '*xtra-platypus-tamaris' }
 String >> asIdentifier: shouldBeCapitalized [
 	"Return a legal identifier, with first character in upper case if shouldBeCapitalized is true, else lower case.  This will always return a legal identifier, even for an empty string"
 	"
@@ -25,17 +25,17 @@ String >> asIdentifier: shouldBeCapitalized [
 
 ]
 
-{ #category : #'*xtra-platypus-express-compat' }
+{ #category : '*xtra-platypus-express-compat' }
 String >> pltAt: anIndex [ 
 	^ self copyFrom:  anIndex to: anIndex
 ]
 
-{ #category : #'*xtra-platypus-express-compat' }
+{ #category : '*xtra-platypus-express-compat' }
 String >> pltPlus: anotherString [ 
 	^ self , anotherString
 ]
 
-{ #category : #'*xtra-platypus-evaluating' }
+{ #category : '*xtra-platypus-evaluating' }
 String >> unformattedString [
 	| resStream nbAntiSlash curr |
 	resStream := WriteStream on: String new.

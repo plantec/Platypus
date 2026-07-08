@@ -167,7 +167,7 @@ StepAbstractRepository >> resolvesInstanceReferencesOf: instance [
 { #category : 'file in/out' }
 StepAbstractRepository >> stepFileIn: aFilename [ 
 	| stream |
-	(stream := (Filename named: aFilename) readStream)
+	(stream := aFilename asFileReference readStream)
 		ifNotNil: [[self parseStream: stream]
 				ensure: [stream close]]
 ]

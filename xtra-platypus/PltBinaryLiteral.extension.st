@@ -1,6 +1,6 @@
-Extension { #name : #PltBinaryLiteral }
+Extension { #name : 'PltBinaryLiteral' }
 
-{ #category : #'*xtra-platypus-type-infering' }
+{ #category : '*xtra-platypus-type-infering' }
 PltBinaryLiteral >> inferedDomain [
 	^ PltBinaryType asDomain
 ]

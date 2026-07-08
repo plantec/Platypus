@@ -9,17 +9,19 @@ targetDirectory
 
 "
 Class {
-	#name : #PlatypusHelpCommandLineHandler,
-	#superclass : #PlatypusSubCommandLineHandler,
-	#category : #'SqPlatypus-HW-CommandLine'
+	#name : 'PlatypusHelpCommandLineHandler',
+	#superclass : 'PlatypusSubCommandLineHandler',
+	#category : 'SqPlatypus-HW-CommandLine',
+	#package : 'SqPlatypus',
+	#tag : 'HW-CommandLine'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusHelpCommandLineHandler class >> commandName [
 	^ 'help'
 ]
 
-{ #category : #activation }
+{ #category : 'activation' }
 PlatypusHelpCommandLineHandler >> activate [
 	super activate.
 	self stdout <<  'Platypus/Cheddar script help' << String cr.

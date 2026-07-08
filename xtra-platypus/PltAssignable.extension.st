@@ -1,6 +1,6 @@
-Extension { #name : #PltAssignable }
+Extension { #name : 'PltAssignable' }
 
-{ #category : #'*xtra-platypus-type-infering' }
+{ #category : '*xtra-platypus-type-infering' }
 PltAssignable >> staticDomain [
 	| currDomain |
 	currDomain := self head computedDomain.

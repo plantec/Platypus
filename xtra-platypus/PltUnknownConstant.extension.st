@@ -1,16 +1,16 @@
-Extension { #name : #PltUnknownConstant }
+Extension { #name : 'PltUnknownConstant' }
 
-{ #category : #'*xtra-platypus-evaluating' }
+{ #category : '*xtra-platypus-evaluating' }
 PltUnknownConstant >> and: op [ 
 	^ self
 ]
 
-{ #category : #'*xtra-platypus-evaluating' }
+{ #category : '*xtra-platypus-evaluating' }
 PltUnknownConstant >> equal: op [ 
 	^ self
 ]
 
-{ #category : #'*xtra-platypus-logical-controlling' }
+{ #category : '*xtra-platypus-logical-controlling' }
 PltUnknownConstant >> ifFalseConstant: falseAlternativeBlock [ 
 	"Answer the value of falseAlternativeBlock. Execution does not  
 	actually reach here because the expression is compiled in-line."
@@ -18,7 +18,7 @@ PltUnknownConstant >> ifFalseConstant: falseAlternativeBlock [
 
 ]
 
-{ #category : #'*xtra-platypus-logical-controlling' }
+{ #category : '*xtra-platypus-logical-controlling' }
 PltUnknownConstant >> ifFalseConstant: falseAlternativeBlock ifTrueConstant: trueAlternativeBlock [ 
 	"Answer the value of falseAlternativeBlock. Execution does not  
 	actually reach here because the expression is compiled in-line."
@@ -26,7 +26,7 @@ PltUnknownConstant >> ifFalseConstant: falseAlternativeBlock ifTrueConstant: tru
 
 ]
 
-{ #category : #'*xtra-platypus-logical-controlling' }
+{ #category : '*xtra-platypus-logical-controlling' }
 PltUnknownConstant >> ifFalseConstant: falseAlternativeBlock ifTrueConstant: trueAlternativeBlock ifUnknownConstant: unknBlock [ 
 	"Answer the value of falseAlternativeBlock. Execution does not  
 	actually reach here because the expression is compiled in-line."
@@ -34,7 +34,7 @@ PltUnknownConstant >> ifFalseConstant: falseAlternativeBlock ifTrueConstant: tru
 
 ]
 
-{ #category : #'*xtra-platypus-logical-controlling' }
+{ #category : '*xtra-platypus-logical-controlling' }
 PltUnknownConstant >> ifFalseConstant: alternativeBlock ifUnknownConstant: unknBlock [ 
 	"Answer the value of alternativeBlock. Execution does not actually  
 	reach here because the expression is compiled in-line."
@@ -42,7 +42,7 @@ PltUnknownConstant >> ifFalseConstant: alternativeBlock ifUnknownConstant: unknB
 
 ]
 
-{ #category : #'*xtra-platypus-logical-controlling' }
+{ #category : '*xtra-platypus-logical-controlling' }
 PltUnknownConstant >> ifFalseOrUnknownConstant: alternativeBlock [ 
 	"Answer the value of alternativeBlock. Execution does not actually  
 	reach here because the expression is compiled in-line."
@@ -50,7 +50,7 @@ PltUnknownConstant >> ifFalseOrUnknownConstant: alternativeBlock [
 
 ]
 
-{ #category : #'*xtra-platypus-logical-controlling' }
+{ #category : '*xtra-platypus-logical-controlling' }
 PltUnknownConstant >> ifTrueConstant: trueAlternativeBlock [ 
 	"Answer the value of falseAlternativeBlock. Execution does not  
 	actually reach here because the expression is compiled in-line."
@@ -58,7 +58,7 @@ PltUnknownConstant >> ifTrueConstant: trueAlternativeBlock [
 
 ]
 
-{ #category : #'*xtra-platypus-logical-controlling' }
+{ #category : '*xtra-platypus-logical-controlling' }
 PltUnknownConstant >> ifTrueConstant: trueAlternativeBlock ifFalseConstant: falseAlternativeBlock [ 
 	"Answer the value of falseAlternativeBlock. Execution does not  
 	actually reach here because the expression is compiled in-line."
@@ -66,7 +66,7 @@ PltUnknownConstant >> ifTrueConstant: trueAlternativeBlock ifFalseConstant: fals
 
 ]
 
-{ #category : #'*xtra-platypus-logical-controlling' }
+{ #category : '*xtra-platypus-logical-controlling' }
 PltUnknownConstant >> ifTrueConstant: trueAlternativeBlock ifFalseConstant: falseAlternativeBlock ifUnknownConstant: unknBlock [ 
 	"Answer the value of falseAlternativeBlock. Execution does not  
 	actually reach here because the expression is compiled in-line."
@@ -74,7 +74,7 @@ PltUnknownConstant >> ifTrueConstant: trueAlternativeBlock ifFalseConstant: fals
 
 ]
 
-{ #category : #'*xtra-platypus-logical-controlling' }
+{ #category : '*xtra-platypus-logical-controlling' }
 PltUnknownConstant >> ifTrueConstant: alternativeBlock ifUnknownConstant: unknBlock [ 
 	"Since the condition is false, answer the value of the false alternative,  
 	which is nil. Execution does not actually reach here because the  
@@ -83,27 +83,27 @@ PltUnknownConstant >> ifTrueConstant: alternativeBlock ifUnknownConstant: unknBl
 
 ]
 
-{ #category : #'*xtra-platypus-evaluating' }
+{ #category : '*xtra-platypus-evaluating' }
 PltUnknownConstant >> not [
 	^self
 ]
 
-{ #category : #'*xtra-platypus-evaluating' }
+{ #category : '*xtra-platypus-evaluating' }
 PltUnknownConstant >> or: op [ 
 	^ self
 ]
 
-{ #category : #'*xtra-platypus-evaluating' }
+{ #category : '*xtra-platypus-evaluating' }
 PltUnknownConstant >> ordering [
 	^ 2
 ]
 
-{ #category : #'*xtra-platypus-accessing' }
+{ #category : '*xtra-platypus-accessing' }
 PltUnknownConstant >> val [
 	^ #unknown
 ]
 
-{ #category : #'*xtra-platypus-evaluating' }
+{ #category : '*xtra-platypus-evaluating' }
 PltUnknownConstant >> xor: op [ 
 	^self
 ]

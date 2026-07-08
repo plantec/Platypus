@@ -1,6 +1,6 @@
-Extension { #name : #PltReturnStatement }
+Extension { #name : 'PltReturnStatement' }
 
-{ #category : #'*xtra-platypus-testing' }
+{ #category : '*xtra-platypus-testing' }
 PltReturnStatement >> alwaysReturn [ 
 	^ true
 ]

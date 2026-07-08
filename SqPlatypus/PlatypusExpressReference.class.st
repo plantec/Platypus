@@ -1,14 +1,16 @@
 Class {
-	#name : #PlatypusExpressReference,
-	#superclass : #PlatypusListItemReference,
+	#name : 'PlatypusExpressReference',
+	#superclass : 'PlatypusListItemReference',
 	#instVars : [
 		'subReferences',
 		'interactiveCallArguments'
 	],
-	#category : #'SqPlatypus-HW-tamaris'
+	#category : 'SqPlatypus-HW-tamaris',
+	#package : 'SqPlatypus',
+	#tag : 'HW-tamaris'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusExpressReference class >> elementClassFromSyntaxicSymbol: aSymbol [ 
 	aSymbol == #schema
 		ifTrue: [^ PlatypusSchemaReference].
@@ -24,12 +26,12 @@ PlatypusExpressReference class >> elementClassFromSyntaxicSymbol: aSymbol [
 		ifTrue: [^ PlatypusRuleReference]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusExpressReference class >> saveOutputDirectoryName [
 	^ 'Platypus-schemata'
 ]
 
-{ #category : #'code updating' }
+{ #category : 'code updating' }
 PlatypusExpressReference >> accept: input notifying: aRequestor [ 
 	| result users |
 	users := self schemaInstanceReference allUsers.
@@ -60,7 +62,7 @@ PlatypusExpressReference >> accept: input notifying: aRequestor [
 
 ]
 
-{ #category : #'code updating' }
+{ #category : 'code updating' }
 PlatypusExpressReference >> addFromTokenList: aTokenList [ 
 	| start stop |
 	aTokenList addFirst: PlatypusEolToken new;
@@ -81,22 +83,22 @@ PlatypusExpressReference >> addFromTokenList: aTokenList [
 	^ true
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusExpressReference >> addingStartNode [
 	^ self tokenList beginningOfLineFrom: (self tokenList previousPrimaryElementCloseKeywordFrom: self stopNode)
 ]
 
-{ #category : #'morphic wrapper' }
+{ #category : 'morphic wrapper' }
 PlatypusExpressReference >> asMorph [
 	^ self newEditor asMorph
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusExpressReference >> bindings [
 	^ self metaData bindings
 ]
 
-{ #category : #'code updating' }
+{ #category : 'code updating' }
 PlatypusExpressReference >> buildSubReferencesFrom: start to: stop addingOrReplacing: addingReplacingOrReplacingAllSymbol [ 
 	| oldContentsByClassIndexes key curr currNameNode newElementClass oldReference elementReference currKeyOldsReferencesList adding |
 	oldContentsByClassIndexes := IdentityDictionary new.
@@ -163,7 +165,7 @@ PlatypusExpressReference >> buildSubReferencesFrom: start to: stop addingOrRepla
 									sr owner removeChildSilently: sr]]]]
 ]
 
-{ #category : #'code accessing' }
+{ #category : 'code accessing' }
 PlatypusExpressReference >> codeStreamClass [
 	^ self
 		codeStreamClassFor: self tokenList
@@ -172,7 +174,7 @@ PlatypusExpressReference >> codeStreamClass [
 
 ]
 
-{ #category : #'code accessing' }
+{ #category : 'code accessing' }
 PlatypusExpressReference >> codeStreamClassFor: tokenList from: startNode to: stopNode [ 
 	| currNode count |
 	tokenList notNil
@@ -190,7 +192,7 @@ PlatypusExpressReference >> codeStreamClassFor: tokenList from: startNode to: st
 	^ WriteStream
 ]
 
-{ #category : #'code accessing' }
+{ #category : 'code accessing' }
 PlatypusExpressReference >> codeString [
 	^ self isReleased
 		ifTrue: ['']
@@ -201,14 +203,14 @@ PlatypusExpressReference >> codeString [
 		stream: String new writeStream]
 ]
 
-{ #category : #'code accessing' }
+{ #category : 'code accessing' }
 PlatypusExpressReference >> codeText [
 	^ self isReleased ifTrue: ['']
 		ifFalse: [self codeTextWithStreamClass: self codeStreamClass].
 
 ]
 
-{ #category : #'code accessing' }
+{ #category : 'code accessing' }
 PlatypusExpressReference >> codeTextFrom: startNode to: stopNode stream: aStream [ 
 	^ self tokenList
 		writeOn: aStream
@@ -216,7 +218,7 @@ PlatypusExpressReference >> codeTextFrom: startNode to: stopNode stream: aStream
 		to: (self tokenList endOfLineFrom: stopNode)
 ]
 
-{ #category : #'code accessing' }
+{ #category : 'code accessing' }
 PlatypusExpressReference >> codeTextFrom: startNode to: stopNode streamClass: aStreamClass [ 
 	^ self tokenList
 		textWithStreamClass: aStreamClass
@@ -224,7 +226,7 @@ PlatypusExpressReference >> codeTextFrom: startNode to: stopNode streamClass: aS
 		to: (self tokenList endOfLineFrom: stopNode)
 ]
 
-{ #category : #'code accessing' }
+{ #category : 'code accessing' }
 PlatypusExpressReference >> codeTextWithStream: aStream [ 
 	^ self
 		codeTextFrom: self startNode
@@ -232,7 +234,7 @@ PlatypusExpressReference >> codeTextWithStream: aStream [
 		stream: aStream
 ]
 
-{ #category : #'code accessing' }
+{ #category : 'code accessing' }
 PlatypusExpressReference >> codeTextWithStreamClass: aStreamClass [
 	^ self
 		codeTextFrom: self startNode
@@ -240,24 +242,24 @@ PlatypusExpressReference >> codeTextWithStreamClass: aStreamClass [
 		streamClass: aStreamClass
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusExpressReference >> contents [
 	^ self subReferences ifNil: [#()]
 ]
 
-{ #category : #'drag and drop' }
+{ #category : 'drag and drop' }
 PlatypusExpressReference >> copyListItemHereFromTransfertMorph: aTransfertMorph [ 
 	| aSchemaReference |
 	aSchemaReference := aTransfertMorph passenger.
 	^ self insertReference: aSchemaReference
 ]
 
-{ #category : #'code accessing' }
+{ #category : 'code accessing' }
 PlatypusExpressReference >> decorationMaxSize [
 	^ 7000
 ]
 
-{ #category : #'initialize/release' }
+{ #category : 'initialize/release' }
 PlatypusExpressReference >> destroy [
 	self subReferences
 				do: [:r | r destroy].
@@ -265,51 +267,51 @@ PlatypusExpressReference >> destroy [
 	super destroy
 ]
 
-{ #category : #checking }
+{ #category : 'checking' }
 PlatypusExpressReference >> doInternalChecking [
 	self assert: self metaData notNil.
 	self assert: self metaData tamarisItemRef = self
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusExpressReference >> doItContext [
 	^ self metaData
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusExpressReference >> editorClass [
 	^ PlatypusExpressEditor
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusExpressReference >> elementClassFromSyntaxicSymbol: aSymbol [ 
 	^ self class elementClassFromSyntaxicSymbol: aSymbol
 ]
 
-{ #category : #'code updating' }
+{ #category : 'code updating' }
 PlatypusExpressReference >> emptyModelContentsSubReferences [
 	self schemaInstanceReference modelContentsReferences
 		do: [:mcr | mcr removeSubReferencesSilently]
 ]
 
-{ #category : #evaluating }
+{ #category : 'evaluating' }
 PlatypusExpressReference >> evaluate [
 	^ nil
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusExpressReference >> externalSchemaInstances [
 	^ self schemaInstanceReference metaData externalSchemaInstances
 
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusExpressReference >> externalSchemaInstancesReferences [
 	^ self externalSchemaInstances
 		collect: [:e | e tamarisItemRef]
 ]
 
-{ #category : #searching }
+{ #category : 'searching' }
 PlatypusExpressReference >> findExpressReferenceDeeplySuchThat: aBlock [ 
 	| res |
 	self isReleased
@@ -321,93 +323,93 @@ PlatypusExpressReference >> findExpressReferenceDeeplySuchThat: aBlock [
 	^ nil
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 PlatypusExpressReference >> forceOkToChange [
 	^ true
 ]
 
-{ #category : #'code accessing' }
+{ #category : 'code accessing' }
 PlatypusExpressReference >> fullCodeString [
 	^ self codeString
 ]
 
-{ #category : #'generated code' }
+{ #category : 'generated code' }
 PlatypusExpressReference >> generatedRootClassSystemCategory [
 	^ self metaData rootClassSystemCategory asSymbol
 ]
 
-{ #category : #'generated code' }
+{ #category : 'generated code' }
 PlatypusExpressReference >> generatedRootClassSystemCategoryExists [
 	^ (Smalltalk organization listAtCategoryNamed: self generatedRootClassSystemCategory) notEmpty
 ]
 
-{ #category : #'generated code' }
+{ #category : 'generated code' }
 PlatypusExpressReference >> generatedSystemCategory [
 	^ self metaData generatedSystemCategory asSymbol
 ]
 
-{ #category : #'generated code' }
+{ #category : 'generated code' }
 PlatypusExpressReference >> generatedSystemCategoryExists [
 	^ (Smalltalk organization listAtCategoryNamed: self generatedSystemCategory) notEmpty
 ]
 
-{ #category : #'initialize/release' }
+{ #category : 'initialize/release' }
 PlatypusExpressReference >> initialize [
 	super initialize.
 	subReferences := OrderedCollection new
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusExpressReference >> interactiveCallArguments [
 	^ interactiveCallArguments
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusExpressReference >> interactiveCallArguments: aString [
 	 interactiveCallArguments := aString
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 PlatypusExpressReference >> isCopyable [
 	^ false
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 PlatypusExpressReference >> isEditable [
 	^true
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 PlatypusExpressReference >> isMoveable [
 	^ false
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 PlatypusExpressReference >> isRemoveable [
 	^ true
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 PlatypusExpressReference >> isSchema [
 	^ false
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 PlatypusExpressReference >> isSchemaElement [
 	^false
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 PlatypusExpressReference >> isSchemaInstanceReference [
 	^ false
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 PlatypusExpressReference >> isSchemaReference [
 	^ false
 ]
 
-{ #category : #menus }
+{ #category : 'menus' }
 PlatypusExpressReference >> keyStroke: aCharacter from: aListMorph [ 
 	super keyStroke: aCharacter from: aListMorph.
 	aCharacter = $B
@@ -422,23 +424,23 @@ PlatypusExpressReference >> keyStroke: aCharacter from: aListMorph [
 		ifTrue: [^ self translateAndFileItIn]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusExpressReference >> lexicalElement [
 	^ self class lexicalElement
 ]
 
-{ #category : #'smalltalk changes logging' }
+{ #category : 'smalltalk changes logging' }
 PlatypusExpressReference >> logToChangesAdding: aReference [ 
 	self logToChangesKey: 'Adding'  element: aReference longName codeText: aReference codeText  
 
 ]
 
-{ #category : #'smalltalk changes logging' }
+{ #category : 'smalltalk changes logging' }
 PlatypusExpressReference >> logToChangesKey: aChangeKey element: elementName codeText: aStringOrText [ 
 	ChangesLog default logChange: '----Platypus: ' , aChangeKey , String cr , elementName , String cr , aStringOrText ,String cr,  '----'
 ]
 
-{ #category : #'smalltalk changes logging' }
+{ #category : 'smalltalk changes logging' }
 PlatypusExpressReference >> logToChangesRemoving: aReference oldCodeText: aStringOrText [ 
 	self
 		logToChangesKey: 'Removing'
@@ -446,7 +448,7 @@ PlatypusExpressReference >> logToChangesRemoving: aReference oldCodeText: aStrin
 		codeText: aStringOrText
 ]
 
-{ #category : #'smalltalk changes logging' }
+{ #category : 'smalltalk changes logging' }
 PlatypusExpressReference >> logToChangesUpdating: aReference [ 
 	self
 		logToChangesKey: 'Updating'
@@ -454,7 +456,7 @@ PlatypusExpressReference >> logToChangesUpdating: aReference [
 		codeText: aReference codeString
 ]
 
-{ #category : #menus }
+{ #category : 'menus' }
 PlatypusExpressReference >> menuBrowseGenerated [
 	| genClassName cls |
 	genClassName := self metaData generatedClassName.
@@ -462,7 +464,7 @@ PlatypusExpressReference >> menuBrowseGenerated [
 	cls browse
 ]
 
-{ #category : #menus }
+{ #category : 'menus' }
 PlatypusExpressReference >> menuRelabel [
 	| oldname newname |
 	oldname := self metaData name.
@@ -476,7 +478,7 @@ PlatypusExpressReference >> menuRelabel [
 					^ self relabelWith: newname]]
 ]
 
-{ #category : #menus }
+{ #category : 'menus' }
 PlatypusExpressReference >> menuSave [
 	| fileName  |
 	fileName := self saveFullPath.
@@ -489,21 +491,23 @@ PlatypusExpressReference >> menuSave [
 		fileStream flush]
 ]
 
-{ #category : #menus }
+{ #category : 'menus' }
 PlatypusExpressReference >> menuSaveAs [
-	| result |
-	result := UITheme current
-		fileSaveIn: World
-		title: 'File name'
-		extensions: #('exp')
-		path: ''.
-	result
-		ifNotNil: [ 
-			[ result nextPutAll: (self codeString copy replaceAll: Character cr with: Character lf) ]
+
+	| result fref |
+	fref := UIManager default
+		        chooseForSaveFileReference: 'Choose a file'
+		        extensions: #( '.exp' )
+		        path: FileSystem workingDirectory.
+	fref ifNotNil: [
+			result := fref writeStream.
+			[
+				result nextPutAll:
+					(self codeString copy replaceAll: Character cr with: Character lf) ]
 				ensure: [ result close ] ]
 ]
 
-{ #category : #menus }
+{ #category : 'menus' }
 PlatypusExpressReference >> menuTranslate2Pharo [
 	| result fileName |
 	Transcript show: 'Translating ' , self listLabel , '...'.
@@ -520,7 +524,7 @@ PlatypusExpressReference >> menuTranslate2Pharo [
 	Transcript show: String cr
 ]
 
-{ #category : #menus }
+{ #category : 'menus' }
 PlatypusExpressReference >> menuTranslate2VisualWorks [
 	| result fileName |
 	Transcript show: 'Translating ' , self listLabel , '...'.
@@ -537,27 +541,27 @@ PlatypusExpressReference >> menuTranslate2VisualWorks [
 	Transcript show: String cr
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusExpressReference >> metaData [
 	^ nil
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusExpressReference >> modelContents [
 	^ nil
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusExpressReference >> modelContentsReferences [
 	^ self schemaInstanceReference  modelContentsReferences
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusExpressReference >> namesBuilder [
 	^ self metaData schemaInstance namesBuilder
 ]
 
-{ #category : #'morphic wrapper' }
+{ #category : 'morphic wrapper' }
 PlatypusExpressReference >> newEditor [
 	| editor |
 	editor := self editorClass new.
@@ -568,25 +572,25 @@ PlatypusExpressReference >> newEditor [
 	^ editor mainWindow 
 ]
 
-{ #category : #'code accessing' }
+{ #category : 'code accessing' }
 PlatypusExpressReference >> prettyPrintedExpressCode [
 	^ self metaData prettyPrintedExpressCode
 ]
 
-{ #category : #'initialize/release' }
+{ #category : 'initialize/release' }
 PlatypusExpressReference >> reinitialize [
 	self subReferences do: [:r | r destroy].
 	self subReferences: OrderedCollection new
 ]
 
-{ #category : #'code updating' }
+{ #category : 'code updating' }
 PlatypusExpressReference >> relabelWith: aName [ 
 	self metaData renameWith: aName.
 	super relabelWith: aName.
 
 ]
 
-{ #category : #updating }
+{ #category : 'updating' }
 PlatypusExpressReference >> remove [
 	| oldOwner |
 	self schemaInstanceReference showsUsersAsToBeChecked.
@@ -597,13 +601,13 @@ PlatypusExpressReference >> remove [
 	self treeHasChanged
 ]
 
-{ #category : #'code updating' }
+{ #category : 'code updating' }
 PlatypusExpressReference >> removeAll [
 	self subReferences: OrderedCollection new.
 	self treeHasChanged 
 ]
 
-{ #category : #'code updating' }
+{ #category : 'code updating' }
 PlatypusExpressReference >> removeChildSilently: aReference [ 
 	aReference isLink
 		ifTrue: [(self metaData respondsTo: #removeElement:)
@@ -621,7 +625,7 @@ PlatypusExpressReference >> removeChildSilently: aReference [
 	super removeChildSilently: aReference
 ]
 
-{ #category : #'code updating' }
+{ #category : 'code updating' }
 PlatypusExpressReference >> replaceMetaDataWith: aMetaData [ 
 	self metaData owner removeElement: self metaData.
 	self metaData deepDestroy.
@@ -629,7 +633,7 @@ PlatypusExpressReference >> replaceMetaDataWith: aMetaData [
 	self metaData tamarisItemRef: self
 ]
 
-{ #category : #'code updating' }
+{ #category : 'code updating' }
 PlatypusExpressReference >> replaceTokenListWithParserResult: aParserResult [ 
 	| start stop |
 	self replaceMetaDataWith: aParserResult metaData.
@@ -650,7 +654,7 @@ PlatypusExpressReference >> replaceTokenListWithParserResult: aParserResult [
 	^ true
 ]
 
-{ #category : #menus }
+{ #category : 'menus' }
 PlatypusExpressReference >> saveFullPath [
 	| path |
 	path := (FileSystem disk workingDirectory) / self class saveOutputDirectoryName.
@@ -658,109 +662,109 @@ PlatypusExpressReference >> saveFullPath [
 	^ path
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusExpressReference >> schemaInstance [
 	^ self schemaInstanceReference schemaInstance
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusExpressReference >> selectionString [
 	^ self codeString
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusExpressReference >> smaCCStartingState [
 	^ self subclassResponsibility
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusExpressReference >> specificButtonsColumn: aTaxonomyBrowser inAlignment: aButtonsAlignment [ 
 	aTaxonomyBrowser editorModel ifNotNil: [aTaxonomyBrowser editorModel  addButtonsinAlignment: aButtonsAlignment.
 	aButtonsAlignment addSpacer].
 	^aButtonsAlignment
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusExpressReference >> startLevel [
 	^ 0
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusExpressReference >> startNode [
 	^ self subclassResponsibility
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusExpressReference >> stopNode [
 	^ self subclassResponsibility
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusExpressReference >> subElementSymbols [
 	^ PlatypusSchemaElementReference allSubclasses
 		collect: [:c | c lexicalElement]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusExpressReference >> subReferences [
 	^ subReferences
 		ifNil: [OrderedCollection new]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusExpressReference >> subReferences: anObject [
 	subReferences := anObject
 ]
 
-{ #category : #'code updating' }
+{ #category : 'code updating' }
 PlatypusExpressReference >> subReferencesScanStart [
 	^  (self tokenList nextOpenKeywordFrom: self startNode) next
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusExpressReference >> tamarisItemRef [
 	^ self
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusExpressReference >> tokenList [
 	^ self schemaInstanceReference ifNotNil: [self schemaInstanceReference tokenList]
 ]
 
-{ #category : #menus }
+{ #category : 'menus' }
 PlatypusExpressReference >> translateAndFileItIn [
 	| src  |
 	src := self translated2Pharo.
 	CodeImporter evaluateString: src
 ]
 
-{ #category : #menus }
+{ #category : 'menus' }
 PlatypusExpressReference >> translateWithTranslator: aTranslator [ 
 	^ aTranslator translate: self metaData 
 ]
 
-{ #category : #menus }
+{ #category : 'menus' }
 PlatypusExpressReference >> translated2Pharo [
 	^ self translateWithTranslator: self translaterForPharo .
 
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusExpressReference >> translaterForPharo [
 	^ self rootDictionaryReference translaterForPharo
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusExpressReference >> translaterForVisualWorks [
 	^ self rootDictionaryReference translaterForVisualWorks
 ]
 
-{ #category : #'code updating' }
+{ #category : 'code updating' }
 PlatypusExpressReference >> updateWithParserResult: aParserResult [
 	^ self updateWithParserResult: aParserResult notifying: nil
 ]
 
-{ #category : #'code updating' }
+{ #category : 'code updating' }
 PlatypusExpressReference >> updateWithParserResult: aParserResult notifying: aRequestor [
 	| r |
 	aParserResult tokenList noEndingEol.
@@ -783,7 +787,7 @@ PlatypusExpressReference >> updateWithParserResult: aParserResult notifying: aRe
 
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusExpressReference >> users [
 	| allSchemaInstanceRefs |
 	allSchemaInstanceRefs := PlatypusSchemaInstanceReference 
@@ -797,7 +801,7 @@ PlatypusExpressReference >> users [
 					notEmpty]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusExpressReference >> usersAsMeta [
 	| allSchemaInstanceRefs |
 	allSchemaInstanceRefs := PlatypusSchemaInstanceReference 

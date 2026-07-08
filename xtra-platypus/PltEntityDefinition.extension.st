@@ -1,11 +1,11 @@
-Extension { #name : #PltEntityDefinition }
+Extension { #name : 'PltEntityDefinition' }
 
-{ #category : #'*xtra-platypus-accessing' }
+{ #category : '*xtra-platypus-accessing' }
 PltEntityDefinition >> annotation [
 	^ self name
 ]
 
-{ #category : #'*xtra-platypus-accessing' }
+{ #category : '*xtra-platypus-accessing' }
 PltEntityDefinition >> attributeBN: aName [ 
 	| upper |
 	upper := aName asUppercase.
@@ -13,7 +13,7 @@ PltEntityDefinition >> attributeBN: aName [
 		attributesReverseDetect: [:attr | attr name asUppercase = upper]
 ]
 
-{ #category : #'*xtra-platypus-enumerating' }
+{ #category : '*xtra-platypus-enumerating' }
 PltEntityDefinition >> attributesReverseDetect: aBlock [ 
 	self attributes ifNotNil: [self attributes
 		reverseDo: [:attr | (aBlock value: attr)
@@ -21,20 +21,20 @@ PltEntityDefinition >> attributesReverseDetect: aBlock [
 	^ nil
 ]
 
-{ #category : #'*xtra-platypus-enumerating' }
+{ #category : '*xtra-platypus-enumerating' }
 PltEntityDefinition >> attributesReverseDo: aBlock [ 
 	self attributes
 		reverseDo: [:attr | aBlock value: attr].
 
 ]
 
-{ #category : #'*xtra-platypus-accessing' }
+{ #category : '*xtra-platypus-accessing' }
 PltEntityDefinition >> bindings [
 	^ self inheritedExplicitAttributes, self owner bindings 
 
 ]
 
-{ #category : #'*xtra-platypus-checking' }
+{ #category : '*xtra-platypus-checking' }
 PltEntityDefinition >> buildAttributesNamesSetIndex: namesSetIndex [ 
 	| key |
 	
@@ -49,7 +49,7 @@ PltEntityDefinition >> buildAttributesNamesSetIndex: namesSetIndex [
 				add: a]
 ]
 
-{ #category : #'*xtra-platypus-accessing' }
+{ #category : '*xtra-platypus-accessing' }
 PltEntityDefinition >> buildFullInheritedDerivedAttributeList: aCollection [ 
 	self supertypes
 		do: [:st | st ref buildFullInheritedDerivedAttributeList: aCollection].
@@ -57,7 +57,7 @@ PltEntityDefinition >> buildFullInheritedDerivedAttributeList: aCollection [
 	^ aCollection
 ]
 
-{ #category : #'*xtra-platypus-accessing' }
+{ #category : '*xtra-platypus-accessing' }
 PltEntityDefinition >> buildFullInheritedExplicitAttributeList: aCollection [
 	self supertypes ifNotNil: [
 		self supertypes
@@ -66,7 +66,7 @@ PltEntityDefinition >> buildFullInheritedExplicitAttributeList: aCollection [
 	^ aCollection
 ]
 
-{ #category : #'*xtra-platypus-accessing' }
+{ #category : '*xtra-platypus-accessing' }
 PltEntityDefinition >> buildFullInheritedInverseAttributeList: aCollection [ 
 	self supertypes
 		do: [:st | st ref buildFullInheritedInverseAttributeList: aCollection].
@@ -74,7 +74,7 @@ PltEntityDefinition >> buildFullInheritedInverseAttributeList: aCollection [
 	^ aCollection
 ]
 
-{ #category : #'*xtra-platypus-accessing' }
+{ #category : '*xtra-platypus-accessing' }
 PltEntityDefinition >> buildFullInheritedWhereRuleList: aCollection [ 
 	self supertypes
 		do: [:st | st ref buildFullInheritedWhereRuleList: aCollection].
@@ -82,17 +82,17 @@ PltEntityDefinition >> buildFullInheritedWhereRuleList: aCollection [
 	^ aCollection
 ]
 
-{ #category : #'*xtra-platypus-testing' }
+{ #category : '*xtra-platypus-testing' }
 PltEntityDefinition >> canBeAssignedWith: otherType [ 
 	^ otherType isAssignableToEntityDefinition: self
 ]
 
-{ #category : #'*xtra-platypus-evaluating' }
+{ #category : '*xtra-platypus-evaluating' }
 PltEntityDefinition >> canHaveArguments [
 	^ true
 ]
 
-{ #category : #'*xtra-platypus-checking' }
+{ #category : '*xtra-platypus-checking' }
 PltEntityDefinition >> checksAttributesNames [
 	| namesSetIndex errorsIndex |
 	namesSetIndex := Dictionary new.
@@ -101,13 +101,13 @@ PltEntityDefinition >> checksAttributesNames [
 
 ]
 
-{ #category : #'*xtra-platypus-checking' }
+{ #category : '*xtra-platypus-checking' }
 PltEntityDefinition >> checksAttributesNamesSetIndex: namesSetIndex errors: errorsIndex [ 
 	^ self checksAttributesNamesSetIndex: namesSetIndex errors: errorsIndex visited: Set new 
 
 ]
 
-{ #category : #'*xtra-platypus-checking' }
+{ #category : '*xtra-platypus-checking' }
 PltEntityDefinition >> checksAttributesNamesSetIndex: namesSetIndex errors: errorsIndex visited: visitedSet [ 
 	| errMessage namesSetIndex2 visitedSet2 |
 	(visitedSet includes: self)
@@ -133,7 +133,7 @@ PltEntityDefinition >> checksAttributesNamesSetIndex: namesSetIndex errors: erro
 	^ errorsIndex
 ]
 
-{ #category : #'*xtra-platypus-checking' }
+{ #category : '*xtra-platypus-checking' }
 PltEntityDefinition >> checksHierarchy [
 	| errPathStack |
 	errPathStack := OrderedCollection new.
@@ -141,7 +141,7 @@ PltEntityDefinition >> checksHierarchy [
 		ifFalse: [errPathStack]
 ]
 
-{ #category : #'*xtra-platypus-checking' }
+{ #category : '*xtra-platypus-checking' }
 PltEntityDefinition >> checksHierarchy: pathStack errorStack: errPathStack [ 
 	| res |
 	res := true.
@@ -162,7 +162,7 @@ PltEntityDefinition >> checksHierarchy: pathStack errorStack: errPathStack [
 	^ res
 ]
 
-{ #category : #'*xtra-platypus-checking' }
+{ #category : '*xtra-platypus-checking' }
 PltEntityDefinition >> checksHierarchy: pathStack errorStack: errPathStack visited: visitedSet [ 
 	| res |
 	res := true.
@@ -184,7 +184,7 @@ PltEntityDefinition >> checksHierarchy: pathStack errorStack: errPathStack visit
 	^ res
 ]
 
-{ #category : #'*xtra-platypus-checking' }
+{ #category : '*xtra-platypus-checking' }
 PltEntityDefinition >> checksHierarchyReportAndSetErrorStack: errPathStack [ 
 	| res |
 	(res := self checksHierarchy: OrderedCollection new errorStack: errPathStack)
@@ -196,12 +196,12 @@ PltEntityDefinition >> checksHierarchyReportAndSetErrorStack: errPathStack [
 	^ res
 ]
 
-{ #category : #'*xtra-platypus-checking' }
+{ #category : '*xtra-platypus-checking' }
 PltEntityDefinition >> checksHierarchySetErrorStack: errPathStack [ 
 	^ self checksHierarchy: OrderedCollection new errorStack: errPathStack
 ]
 
-{ #category : #'*xtra-platypus-accessing' }
+{ #category : '*xtra-platypus-accessing' }
 PltEntityDefinition >> componentList [
 	| components |
 	components := OrderedCollection new.
@@ -212,24 +212,24 @@ PltEntityDefinition >> componentList [
 	^ components
 ]
 
-{ #category : #'*xtra-platypus-evaluating' }
+{ #category : '*xtra-platypus-evaluating' }
 PltEntityDefinition >> defaultValue [
 	^ PltMissingValue new
 ]
 
-{ #category : #'*xtra-platypus-accessing' }
+{ #category : '*xtra-platypus-accessing' }
 PltEntityDefinition >> derivedAttributes [
 	^ self attributes ifNil: [#()]
 		ifNotNil: [
 		self attributes select: [:a | a isPltDerivedAttribute]]
 ]
 
-{ #category : #'*xtra-platypus-accessing' }
+{ #category : '*xtra-platypus-accessing' }
 PltEntityDefinition >> destroySubtypes [
 	subtypes := nil
 ]
 
-{ #category : #'*xtra-platypus-evaluating' }
+{ #category : '*xtra-platypus-evaluating' }
 PltEntityDefinition >> emptyExternalRepresentation [
 	| inst |
 	inst := PltExternalRepresentation new.
@@ -237,7 +237,7 @@ PltEntityDefinition >> emptyExternalRepresentation [
 	^ inst
 ]
 
-{ #category : #'*xtra-platypus-evaluating' }
+{ #category : '*xtra-platypus-evaluating' }
 PltEntityDefinition >> emptyInternalRepresentation [
 	| inst |
 	inst := PltInternalRepresentation new.
@@ -247,7 +247,7 @@ PltEntityDefinition >> emptyInternalRepresentation [
 	^ inst
 ]
 
-{ #category : #'*xtra-platypus-evaluating' }
+{ #category : '*xtra-platypus-evaluating' }
 PltEntityDefinition >> emptyRecord [
 	| inst |
 	inst := PltSimpleRecord new.
@@ -257,14 +257,14 @@ PltEntityDefinition >> emptyRecord [
 	^ inst
 ]
 
-{ #category : #'*xtra-platypus-evaluating' }
+{ #category : '*xtra-platypus-evaluating' }
 PltEntityDefinition >> emptyRecordsInto: aCollection [
 	self supertypes do: [ :st | st ref  emptyRecordsInto: aCollection].
 	aCollection add: self emptyRecord.
 
 ]
 
-{ #category : #'*xtra-platypus-accessing' }
+{ #category : '*xtra-platypus-accessing' }
 PltEntityDefinition >> entityDefinitionOfGroupNamed: anIdent [ 
 	| found |
 	self name asUppercase = anIdent asUppercase
@@ -275,14 +275,14 @@ PltEntityDefinition >> entityDefinitionOfGroupNamed: anIdent [
 	^ nil
 ]
 
-{ #category : #'*xtra-platypus-accessing' }
+{ #category : '*xtra-platypus-accessing' }
 PltEntityDefinition >> explicitAttributes [
 	self attributes ifNil: [^ #() ].
 	^ self attributes
 		select: [:a | a isPltExplicitAttribute]
 ]
 
-{ #category : #'*xtra-platypus-enumerating' }
+{ #category : '*xtra-platypus-enumerating' }
 PltEntityDefinition >> explicitAttributesAndValuesDo: aBlock values: parameters startingAt: startAttributePosition [ 
 	self explicitAttributesWithIndexDo: 
 			[:attr :pos | 
@@ -290,14 +290,14 @@ PltEntityDefinition >> explicitAttributesAndValuesDo: aBlock values: parameters 
 				ifTrue: [aBlock value: attr value: (parameters at: pos)]]
 ]
 
-{ #category : #'*xtra-platypus-enumerating' }
+{ #category : '*xtra-platypus-enumerating' }
 PltEntityDefinition >> explicitAttributesDo: aBlock [ 
 	self attributes ifNotNil: [self attributes 
 		do: [:attr | attr isPltExplicitAttribute
 				ifTrue: [aBlock value: attr]]]
 ]
 
-{ #category : #'*xtra-platypus-enumerating' }
+{ #category : '*xtra-platypus-enumerating' }
 PltEntityDefinition >> explicitAttributesDo: aBlock separatedBy: aSepBlock [
 	| count pos |
 	count := 0.
@@ -310,7 +310,7 @@ PltEntityDefinition >> explicitAttributesDo: aBlock separatedBy: aSepBlock [
 				ifTrue: [pos := pos + 1. aBlock value: attr]. pos < count ifTrue: [aSepBlock value] ] ]
 ]
 
-{ #category : #'*xtra-platypus-enumerating' }
+{ #category : '*xtra-platypus-enumerating' }
 PltEntityDefinition >> explicitAttributesWithIndexDo: aBlock [ 
 	self attributes ifNotNil: 
 			[self attributes withIndexDo: 
@@ -318,7 +318,7 @@ PltEntityDefinition >> explicitAttributesWithIndexDo: aBlock [
 					attr isPltExplicitAttribute ifTrue: [aBlock value: attr value: idx]]]
 ]
 
-{ #category : #'*xtra-platypus-accessing' }
+{ #category : '*xtra-platypus-accessing' }
 PltEntityDefinition >> fullInheritedComponentList [
 	| fullInheritedComponents |
 	fullInheritedComponents := OrderedCollection new.
@@ -329,12 +329,12 @@ PltEntityDefinition >> fullInheritedComponentList [
 	^ fullInheritedComponents
 ]
 
-{ #category : #'*xtra-platypus-accessing' }
+{ #category : '*xtra-platypus-accessing' }
 PltEntityDefinition >> inheritancePath [
 	^ self inheritancePathInto: OrderedCollection new
 ]
 
-{ #category : #'*xtra-platypus-accessing' }
+{ #category : '*xtra-platypus-accessing' }
 PltEntityDefinition >> inheritancePathInto: aCollection [ 
 	(aCollection includes: self)
 		ifFalse: [aCollection add: self.
@@ -344,14 +344,14 @@ PltEntityDefinition >> inheritancePathInto: aCollection [
 	^ aCollection
 ]
 
-{ #category : #'*xtra-platypus-enumerating' }
+{ #category : '*xtra-platypus-enumerating' }
 PltEntityDefinition >> inheritedAttributesDo: aBlock [ 
 	^ self
 		inheritedAttributesDo: aBlock
 		separatedBy: []
 ]
 
-{ #category : #'*xtra-platypus-enumerating' }
+{ #category : '*xtra-platypus-enumerating' }
 PltEntityDefinition >> inheritedAttributesDo: aBlock separatedBy: aSepBlock [ 
 	| done |
 	done := false.
@@ -369,7 +369,7 @@ PltEntityDefinition >> inheritedAttributesDo: aBlock separatedBy: aSepBlock [
 	^ done
 ]
 
-{ #category : #'*xtra-platypus-enumerating' }
+{ #category : '*xtra-platypus-enumerating' }
 PltEntityDefinition >> inheritedAttributesReverseDetect: aBlock [ 
 	| found |
 	(found := self attributesReverseDetect: aBlock)
@@ -380,14 +380,14 @@ PltEntityDefinition >> inheritedAttributesReverseDetect: aBlock [
 	^ found
 ]
 
-{ #category : #'*xtra-platypus-enumerating' }
+{ #category : '*xtra-platypus-enumerating' }
 PltEntityDefinition >> inheritedAttributesReverseDo: aBlock [ 
 	self attributesReverseDo: aBlock.
 	self supertypes
 		reverseDo: [:st | st ref inheritedAttributesReverseDo: aBlock]
 ]
 
-{ #category : #'*xtra-platypus-enumerating' }
+{ #category : '*xtra-platypus-enumerating' }
 PltEntityDefinition >> inheritedDefinitions [
 | res |
 res := OrderedCollection new.
@@ -395,31 +395,31 @@ self inheritedDefinitionsDo: [:d | res add: d].
 ^ res
 ]
 
-{ #category : #'*xtra-platypus-enumerating' }
+{ #category : '*xtra-platypus-enumerating' }
 PltEntityDefinition >> inheritedDefinitionsDo: aBlock [
 	self supertypes
 		do: [:st | st ref inheritedDefinitionsDo: aBlock].
 	aBlock value: self
 ]
 
-{ #category : #'*xtra-platypus-accessing' }
+{ #category : '*xtra-platypus-accessing' }
 PltEntityDefinition >> inheritedExplicitAttributes [
 	^ self buildFullInheritedExplicitAttributeList: OrderedCollection new
 ]
 
-{ #category : #'*xtra-platypus-enumerating' }
+{ #category : '*xtra-platypus-enumerating' }
 PltEntityDefinition >> inheritedExplicitAttributesDo: aBlock [ 
 	^ self
 		inheritedExplicitAttributesDo: aBlock
 		separatedBy: []
 ]
 
-{ #category : #'*xtra-platypus-enumerating' }
+{ #category : '*xtra-platypus-enumerating' }
 PltEntityDefinition >> inheritedExplicitAttributesDo: aBlock separatedBy: aSepBlock [ 
 	^ self inheritedExplicitAttributesDo: aBlock separatedBy: aSepBlock doneFor: Set new
 ]
 
-{ #category : #'*xtra-platypus-enumerating' }
+{ #category : '*xtra-platypus-enumerating' }
 PltEntityDefinition >> inheritedExplicitAttributesDo: aBlock separatedBy: aSepBlock doneFor: aSet [
 	| done attrs |
 	done := false.
@@ -445,17 +445,17 @@ PltEntityDefinition >> inheritedExplicitAttributesDo: aBlock separatedBy: aSepBl
 	^ done
 ]
 
-{ #category : #'*xtra-platypus-testing' }
+{ #category : '*xtra-platypus-testing' }
 PltEntityDefinition >> inheritsFrom: anEntityDefinition [ 
 	^ self isSpecializationOfEntityDefinition: anEntityDefinition 
 ]
 
-{ #category : #'*xtra-platypus-testing' }
+{ #category : '*xtra-platypus-testing' }
 PltEntityDefinition >> inheritsFromEntityDefinitionNamed: aName [
 	^ self isSpecializationOfEntityDefinitionNamed: aName
 ]
 
-{ #category : #'*xtra-platypus-evaluating' }
+{ #category : '*xtra-platypus-evaluating' }
 PltEntityDefinition >> initializeContextInInterpretor: anInterpretor [ 
 	| stackVal args |
 	stackVal := anInterpretor argsStackTop.
@@ -474,19 +474,19 @@ PltEntityDefinition >> initializeContextInInterpretor: anInterpretor [
 	super initializeContextInInterpretor: anInterpretor
 ]
 
-{ #category : #'*xtra-platypus-accessing' }
+{ #category : '*xtra-platypus-accessing' }
 PltEntityDefinition >> inverseAttributes [
 	^ self attributes ifNil: [#()]
 		ifNotNil: [self attributes  
 		select: [:a | a isPltInverseAttribute]]
 ]
 
-{ #category : #'*xtra-platypus-testing' }
+{ #category : '*xtra-platypus-testing' }
 PltEntityDefinition >> isAssignableToEntityDefinition: anEntityDefinition [ 
 	^ (self inheritsFrom: anEntityDefinition) or: [anEntityDefinition inheritsFrom: self]
 ]
 
-{ #category : #'*xtra-platypus-accessing' }
+{ #category : '*xtra-platypus-accessing' }
 PltEntityDefinition >> isAttributeRedeclared: anAttribute [ 
 	self inheritedAttributesDo: [: attr | 
 		(attr redeclaring notNil
@@ -495,28 +495,28 @@ PltEntityDefinition >> isAttributeRedeclared: anAttribute [
 
 ]
 
-{ #category : #'*xtra-platypus-testing' }
+{ #category : '*xtra-platypus-testing' }
 PltEntityDefinition >> isCompatibleWith: otherType [ 
 	^ otherType isCompatibleWithEntityDefinition: self.
 
 ]
 
-{ #category : #'*xtra-platypus-testing' }
+{ #category : '*xtra-platypus-testing' }
 PltEntityDefinition >> isCompatibleWithEntityDefinition: anEntityDefinition [ 
 	^ (self inheritancePath asSet intersection: anEntityDefinition inheritancePath asSet) notEmpty
 ]
 
-{ #category : #'*xtra-platypus-testing' }
+{ #category : '*xtra-platypus-testing' }
 PltEntityDefinition >> isDirectSubtypeOf: parent [ 
 	^ self supertypes anySatisfy: [:st | st ref == parent]
 ]
 
-{ #category : #'*xtra-platypus-testing' }
+{ #category : '*xtra-platypus-testing' }
 PltEntityDefinition >> isGeneralizationOf: otherType [
 	^ otherType isSpecializationOfEntityDefinition: self.
 ]
 
-{ #category : #'*xtra-platypus-testing' }
+{ #category : '*xtra-platypus-testing' }
 PltEntityDefinition >> isSpecializationOfEntityDefinition: anEntityDefinition [ 
 	self == anEntityDefinition
 		ifTrue: [^ true]
@@ -527,7 +527,7 @@ PltEntityDefinition >> isSpecializationOfEntityDefinition: anEntityDefinition [
 	^ false
 ]
 
-{ #category : #'*xtra-platypus-testing' }
+{ #category : '*xtra-platypus-testing' }
 PltEntityDefinition >> isSpecializationOfEntityDefinitionNamed: aName [
 	| key |
 	key := aName asUppercase.
@@ -540,12 +540,12 @@ PltEntityDefinition >> isSpecializationOfEntityDefinitionNamed: aName [
 	^ false
 ]
 
-{ #category : #'*xtra-platypus-accessing' }
+{ #category : '*xtra-platypus-accessing' }
 PltEntityDefinition >> key [
 ^ self name asUppercase
 ]
 
-{ #category : #'*xtra-platypus-accessing' }
+{ #category : '*xtra-platypus-accessing' }
 PltEntityDefinition >> lookUpAttributeBN: aName [ 
 	| upper |
 	upper := aName asUppercase.
@@ -553,12 +553,12 @@ PltEntityDefinition >> lookUpAttributeBN: aName [
 
 ]
 
-{ #category : #'*xtra-platypus-accessing' }
+{ #category : '*xtra-platypus-accessing' }
 PltEntityDefinition >> lookUpIdentifierBN: aName [ 
 	^ self lookUpAttributeBN: aName
 ]
 
-{ #category : #'*xtra-platypus-accessing' }
+{ #category : '*xtra-platypus-accessing' }
 PltEntityDefinition >> lookUpSupertypeBN: aName [ 
 	| key found |
 	key := aName asUppercase.
@@ -569,14 +569,14 @@ PltEntityDefinition >> lookUpSupertypeBN: aName [
 				ifNotNil: [^ found]]
 ]
 
-{ #category : #'*xtra-platypus-data-management' }
+{ #category : '*xtra-platypus-data-management' }
 PltEntityDefinition >> moveInto: aContextDefinition [ 
 	aContextDefinition entities add: self.
 	self owner: aContextDefinition.
 	self updateSupertypes.
 ]
 
-{ #category : #'*xtra-platypus-accessing' }
+{ #category : '*xtra-platypus-accessing' }
 PltEntityDefinition >> numberOfAttributesUntilGroup: groupEntityDef [ 
 	| nb |
 	self ~= groupEntityDef
@@ -588,7 +588,7 @@ PltEntityDefinition >> numberOfAttributesUntilGroup: groupEntityDef [
 	^ 0
 ]
 
-{ #category : #'*xtra-platypus-private-accessing' }
+{ #category : '*xtra-platypus-private-accessing' }
 PltEntityDefinition >> numberOfAttributesUntilGroup: groupEntityDef fromSubtype: subTypeEntityDef [ 
 	| nb |
 	self == groupEntityDef
@@ -601,7 +601,7 @@ PltEntityDefinition >> numberOfAttributesUntilGroup: groupEntityDef fromSubtype:
 	^ 0
 ]
 
-{ #category : #'*xtra-platypus-accessing' }
+{ #category : '*xtra-platypus-accessing' }
 PltEntityDefinition >> numberOfExplicitAttributes [
 	| count |
 	count := 0.
@@ -610,7 +610,7 @@ PltEntityDefinition >> numberOfExplicitAttributes [
 	^ count
 ]
 
-{ #category : #'*xtra-platypus-accessing' }
+{ #category : '*xtra-platypus-accessing' }
 PltEntityDefinition >> numberOfInheritedExplicitAttributes [
 	| count |
 	count := 0.
@@ -619,7 +619,7 @@ PltEntityDefinition >> numberOfInheritedExplicitAttributes [
 	
 ]
 
-{ #category : #'*xtra-platypus-accessing' }
+{ #category : '*xtra-platypus-accessing' }
 PltEntityDefinition >> positionOfExplicitAttributeNamed: anIdent [ 
 	| key pos foundPos |
 	pos := foundPos := 0.
@@ -631,7 +631,7 @@ PltEntityDefinition >> positionOfExplicitAttributeNamed: anIdent [
 	^ foundPos
 ]
 
-{ #category : #'*xtra-platypus-accessing' }
+{ #category : '*xtra-platypus-accessing' }
 PltEntityDefinition >> positionOfInheritedAttributeNamed: anIdent [ 
 	| key pos foundPos |
 	pos := foundPos := 0.
@@ -642,31 +642,31 @@ PltEntityDefinition >> positionOfInheritedAttributeNamed: anIdent [
 	^ foundPos
 ]
 
-{ #category : #'*xtra-platypus-accessing' }
+{ #category : '*xtra-platypus-accessing' }
 PltEntityDefinition >> referenceClass [
 	^ PltEntityDefinitionReference
 ]
 
-{ #category : #'*xtra-platypus-data-management' }
+{ #category : '*xtra-platypus-data-management' }
 PltEntityDefinition >> removeFrom: acontextDefinition [ 
 	acontextDefinition removeEntityDefinition: self.
 
 ]
 
-{ #category : #'*xtra-platypus-data-management' }
+{ #category : '*xtra-platypus-data-management' }
 PltEntityDefinition >> removeSubtype: anEntityDefinition [ 
 	self subtypes
 		removeAllSuchThat: [:st | st referenced == anEntityDefinition]
 
 ]
 
-{ #category : #'*xtra-platypus-data-management' }
+{ #category : '*xtra-platypus-data-management' }
 PltEntityDefinition >> renameWith: aString [
 	self owner renameEntityDefinition: self with: aString.
 
 ]
 
-{ #category : #'*xtra-platypus-accessing' }
+{ #category : '*xtra-platypus-accessing' }
 PltEntityDefinition >> selectAttributeIdentifications: aBlock startPosition: start [ 
 	| result pos |
 	result := OrderedCollection new.
@@ -685,7 +685,7 @@ PltEntityDefinition >> selectAttributeIdentifications: aBlock startPosition: sta
 	^ result
 ]
 
-{ #category : #'*xtra-platypus-accessing' }
+{ #category : '*xtra-platypus-accessing' }
 PltEntityDefinition >> selectInheritedExplicitAttributeIdentifications: aBlock [ 
 	| attrs globalStart |
 	attrs := OrderedCollection new.
@@ -698,23 +698,23 @@ PltEntityDefinition >> selectInheritedExplicitAttributeIdentifications: aBlock [
 	^ attrs
 ]
 
-{ #category : #'*xtra-platypus-accessing' }
+{ #category : '*xtra-platypus-accessing' }
 PltEntityDefinition >> selectLocalAttributeIdentifications: aBlock [
 	^ self selectAttributeIdentifications: aBlock startPosition: 1
 ]
 
-{ #category : #'*xtra-platypus-type-infering' }
+{ #category : '*xtra-platypus-type-infering' }
 PltEntityDefinition >> staticDomain [
 	^ self
 ]
 
-{ #category : #'*xtra-platypus-accessing' }
+{ #category : '*xtra-platypus-accessing' }
 PltEntityDefinition >> subtypes [
 	^ subtypes
 		ifNil: [subtypes := OrderedCollection  new]
 ]
 
-{ #category : #'*xtra-platypus-data-management' }
+{ #category : '*xtra-platypus-data-management' }
 PltEntityDefinition >> takeSubtype: anNamedTypeReference [ 
 	| key |
 	key := anNamedTypeReference name asUppercase.
@@ -724,7 +724,7 @@ PltEntityDefinition >> takeSubtype: anNamedTypeReference [
 		add: (anNamedTypeReference)
 ]
 
-{ #category : #'*xtra-platypus-data-management' }
+{ #category : '*xtra-platypus-data-management' }
 PltEntityDefinition >> updateSupertypes [
 	self supertypes
 		do: [:s | s ref

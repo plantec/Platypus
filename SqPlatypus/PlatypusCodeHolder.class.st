@@ -1,6 +1,6 @@
 Class {
-	#name : #PlatypusCodeHolder,
-	#superclass : #PlatypusCodeMorph,
+	#name : 'PlatypusCodeHolder',
+	#superclass : 'PlatypusCodeMorph',
 	#instVars : [
 		'codeBtnRow',
 		'codeBtnRowHeight',
@@ -11,10 +11,12 @@ Class {
 		'messagesBrowserLayoutFrame',
 		'errorSplitter'
 	],
-	#category : #'SqPlatypus-HW-CodeHolder'
+	#category : 'SqPlatypus-HW-CodeHolder',
+	#package : 'SqPlatypus',
+	#tag : 'HW-CodeHolder'
 }
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 PlatypusCodeHolder class >> openWithSourceHandler: aSourceHandler windowLabel: aLabel [ 
 	| window codeHolder |
 	codeHolder := self sourceHandler: aSourceHandler.
@@ -24,7 +26,7 @@ PlatypusCodeHolder class >> openWithSourceHandler: aSourceHandler windowLabel: a
 	^ codeHolder
 ]
 
-{ #category : #'ui building' }
+{ #category : 'ui building' }
 PlatypusCodeHolder >> addButtons [
 	codeButtons := TamButtonsAlignmentMorph newRow.
 	codeButtons vResizing: #shrinkWrap.
@@ -33,12 +35,12 @@ PlatypusCodeHolder >> addButtons [
 
 ]
 
-{ #category : #'ui building' }
+{ #category : 'ui building' }
 PlatypusCodeHolder >> addButtonsinAlignment: aButtonsAlignment [ 
 
 ]
 
-{ #category : #'ui building' }
+{ #category : 'ui building' }
 PlatypusCodeHolder >> buildMainWindow [
 	mainWindow := super buildMainWindow.
 	codeBtnRow := TamButtonsAlignmentMorph typicalRowOwner.
@@ -52,7 +54,7 @@ PlatypusCodeHolder >> buildMainWindow [
 	^ mainWindow
 ]
 
-{ #category : #'ui building' }
+{ #category : 'ui building' }
 PlatypusCodeHolder >> buildTamarisWindow [
 	mainWindow := super buildMainWindow.
 	codeBtnRow := TamButtonsAlignmentMorph typicalRowOwner.
@@ -64,22 +66,22 @@ PlatypusCodeHolder >> buildTamarisWindow [
 	^ mainWindow
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusCodeHolder >> codeButtons [ 
 	^ codeButtons
 ]
 
-{ #category : #'ui building' }
+{ #category : 'ui building' }
 PlatypusCodeHolder >> codeRowLayoutFrame [
 	^ LayoutFrame identity topOffset: codeBtnRowHeight
 ]
 
-{ #category : #'code accessing' }
+{ #category : 'code accessing' }
 PlatypusCodeHolder >> contents: aText [
 	Cursor wait showWhile: [ ^ super contents: aText "(self highlight: aText)" ]
 ]
 
-{ #category : #'initialize/release' }
+{ #category : 'initialize/release' }
 PlatypusCodeHolder >> destroy [
 	codeButtons
 		ifNotNil: [codeButtons destroy.
@@ -99,13 +101,13 @@ PlatypusCodeHolder >> destroy [
 	super destroy
 ]
 
-{ #category : #'code accessing' }
+{ #category : 'code accessing' }
 PlatypusCodeHolder >> getFullText [
 	self acceptContents: self codeText.
 	self changed: #contents
 ]
 
-{ #category : #'ui updating' }
+{ #category : 'ui updating' }
 PlatypusCodeHolder >> hideMessagesBrowser [
 	messagesBrowserRow
 		ifNotNil: [(messagesBrowserLayoutFrame := messagesBrowserRow layoutFrame)
@@ -119,7 +121,7 @@ PlatypusCodeHolder >> hideMessagesBrowser [
 			mainPane updatePanesFromSubmorphs]
 ]
 
-{ #category : #'ui updating' }
+{ #category : 'ui updating' }
 PlatypusCodeHolder >> hideOrShowMessageBrowser [
 	| rootsMessages |
 	self messagesBrowser
@@ -130,34 +132,34 @@ PlatypusCodeHolder >> hideOrShowMessageBrowser [
 	self changed: #hideOrShowMessageBrowser
 ]
 
-{ #category : #'initialize/release' }
+{ #category : 'initialize/release' }
 PlatypusCodeHolder >> initialize [
 	super initialize. 
 	codeBtnRowHeight := Tamaris buttonExtent y + 8.
 	messagesBrowserHeight := 65
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusCodeHolder >> isCodeCompletionAllowed [
 	^ false
 ]
 
-{ #category : #'ui updating' }
+{ #category : 'ui updating' }
 PlatypusCodeHolder >> messageBrowserRowTopRow [
 	^ codeRow
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusCodeHolder >> messagesBrowser [
 	^ messagesBrowser
 ]
 
-{ #category : #'ui building' }
+{ #category : 'ui building' }
 PlatypusCodeHolder >> messagesBrowserLayoutFrame [
 	^ LayoutFrame identity topFraction: 2/3
 ]
 
-{ #category : #menu }
+{ #category : 'menu' }
 PlatypusCodeHolder >> openFile [
 	| result |
 	result := Tamaris
@@ -172,7 +174,7 @@ PlatypusCodeHolder >> openFile [
 			self hasUnacceptedEdits: true]
 ]
 
-{ #category : #'ui updating' }
+{ #category : 'ui updating' }
 PlatypusCodeHolder >> showMessagesBrowser [
 	messagesBrowserRow
 		ifNil: [messagesBrowserRow := TamListItemReferenceUtil subWindowClass model: self.
@@ -187,19 +189,19 @@ PlatypusCodeHolder >> showMessagesBrowser [
 					mainPane layoutChanged]]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusCodeHolder >> sourceHandlerSilently: anObject contents: aString [ 
 	super sourceHandlerSilently: anObject contents: aString.
 	self updateMessagesBrowser
 ]
 
-{ #category : #'code updating' }
+{ #category : 'code updating' }
 PlatypusCodeHolder >> updateCodePaneIfNeeded [
 	self codeButtons
 		ifNotNil: [self codeButtons updateIfNeeded]
 ]
 
-{ #category : #'error handling' }
+{ #category : 'error handling' }
 PlatypusCodeHolder >> updateMessagesBrowser [
 	self messagesBrowser
 		ifNotNil: [self messagesBrowser

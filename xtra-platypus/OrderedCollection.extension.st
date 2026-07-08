@@ -1,6 +1,6 @@
-Extension { #name : #OrderedCollection }
+Extension { #name : 'OrderedCollection' }
 
-{ #category : #'*xtra-platypus-express-compat' }
+{ #category : '*xtra-platypus-express-compat' }
 OrderedCollection >> pltAdd: newObject beforeIndex: index [ 
 	index <= 0
 		ifTrue: [self addFirst: newObject]

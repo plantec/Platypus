@@ -1,15 +1,17 @@
 Class {
-	#name : #PlatypusStepReference,
-	#superclass : #PlatypusListItemReference,
+	#name : 'PlatypusStepReference',
+	#superclass : 'PlatypusListItemReference',
 	#instVars : [
 		'pos',
 		'subReferences',
 		'attrOrRuleOrValue'
 	],
-	#category : #'SqPlatypus-HW-tamaris'
+	#category : 'SqPlatypus-HW-tamaris',
+	#package : 'SqPlatypus',
+	#tag : 'HW-tamaris'
 }
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 PlatypusStepReference class >> owner: anotherRef position: anInteger [ 
 	^ self
 		owner: anotherRef
@@ -17,7 +19,7 @@ PlatypusStepReference class >> owner: anotherRef position: anInteger [
 		attributeOrRule: nil
 ]
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 PlatypusStepReference class >> owner: anotherRef position: aPosition attributeOrRule: anAttribute [ 
 	^ self new
 		owner: anotherRef
@@ -25,7 +27,7 @@ PlatypusStepReference class >> owner: anotherRef position: aPosition attributeOr
 		attributeOrRule: anAttribute
 ]
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 PlatypusStepReference class >> owner: anotherRef position: aPosition value: aValue [ 
 	^ self new
 		owner: anotherRef
@@ -34,7 +36,7 @@ PlatypusStepReference class >> owner: anotherRef position: aPosition value: aVal
 
 ]
 
-{ #category : #updating }
+{ #category : 'updating' }
 PlatypusStepReference >> accept: input notifying: aRequestor [ 
 	| result stream instancier folder |
 	self isChangeable 
@@ -62,7 +64,7 @@ PlatypusStepReference >> accept: input notifying: aRequestor [
 	^result
 ]
 
-{ #category : #updating }
+{ #category : 'updating' }
 PlatypusStepReference >> addAllSubReferences: aListOfReference [
 	aListOfReference
 		ifNotEmpty: [
@@ -70,13 +72,13 @@ PlatypusStepReference >> addAllSubReferences: aListOfReference [
 			subReferences addAll: aListOfReference]
 ]
 
-{ #category : #updating }
+{ #category : 'updating' }
 PlatypusStepReference >> addSubReference: aReference [
 	self privateEnsureSubReferences.
 	subReferences add: aReference
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusStepReference >> at: position [
 	| v |
 	^ (v := self value) 
@@ -84,28 +86,28 @@ PlatypusStepReference >> at: position [
 		ifNotMissing: [v at: position]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusStepReference >> at: position put: newValue [ 
 	self value at: position put: newValue.
 
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusStepReference >> attrOrRuleOrValue [
 	^ attrOrRuleOrValue 
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusStepReference >> attrOrRuleOrValue: anAttributeOrWhereRuleOrValue [
 	attrOrRuleOrValue := anAttributeOrWhereRuleOrValue
 ]
 
-{ #category : #updating }
+{ #category : 'updating' }
 PlatypusStepReference >> buildSubReferencesSilently [
 	self subReferences: (self value ifNil: [#()] ifNotNil: [:v | v tamarisChildrenIntoOwner: self])
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 PlatypusStepReference >> canEvaluate [
 	attrOrRuleOrValue 
 		ifNotNil: [
@@ -116,18 +118,18 @@ PlatypusStepReference >> canEvaluate [
 			
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusStepReference >> children [
 	^ self subReferences
 	
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusStepReference >> codeText [
 	^  self codeText: self useP21Syntax
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusStepReference >> codeText: p21Syntax [ 
 	| val |
 	self isReleased
@@ -145,19 +147,19 @@ PlatypusStepReference >> codeText: p21Syntax [
 		ifFalse: [^ val prettyPrintedExpressCode]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusStepReference >> editorClass [
 	^ PlatypusInstanceEditor
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusStepReference >> elementTag [
 	self value isPltGenericInstance 
 		ifTrue: [^ #dataEntity].
 	^ #parameter
 ]
 
-{ #category : #updating }
+{ #category : 'updating' }
 PlatypusStepReference >> evaluate [
 	self canEvaluate ifFalse: [^ self ].
 	self knownAsInvalid
@@ -178,17 +180,17 @@ PlatypusStepReference >> evaluate [
 							TamManager changed: self]]]
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 PlatypusStepReference >> hasContents [
 	^ subReferences notNil and: [subReferences notEmpty]
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 PlatypusStepReference >> hasSubReferences [
 	^ subReferences notNil 
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusStepReference >> icon [
 	attrOrRuleOrValue 
 		ifNotNil: [
@@ -203,7 +205,7 @@ PlatypusStepReference >> icon [
 	^ TamIcons mimeIcon: '10x10/mimetypes/step_value'
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 PlatypusStepReference >> isChangeable [
 	(self owner isKindOf: PlatypusStepReference)
 		ifFalse: [^false ].
@@ -221,55 +223,52 @@ PlatypusStepReference >> isChangeable [
 	^ true
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 PlatypusStepReference >> isModelContentsReference [
 	^ false
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 PlatypusStepReference >> isPltValue [
 	^ attrOrRuleOrValue notNil
 		and: [attrOrRuleOrValue isPltValue]
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 PlatypusStepReference >> isRemoveable [
 	^ attrOrRuleOrValue isNil
 ]
 
-{ #category : #'file in/out' }
+{ #category : 'file in/out' }
 PlatypusStepReference >> menuStepWrite [
-	| stream fullFilename result |
-	fullFilename := UITheme current
-				fileSaveIn: World
-				title: 'File name'
-				extensions: #('step' )
-				path: ''.
-	fullFilename
-		ifNotNil: [[stream := (Filename named: fullFilename) writeStream.
-			result := self stepWriteIntoStream: stream]
-				ensure: [stream close]].
-	^ result	
 
+	| result fref |
+	fref := UIManager default
+		        chooseForSaveFileReference: 'Choose a file'
+		        extensions: #( '.step' )
+		        path: FileSystem workingDirectory.
+	fref ifNotNil: [
+			result := fref writeStream.
+			[ self stepWriteIntoStream: result ] ensure: [ result close ] ]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusStepReference >> metaData [
 	^ self value
 
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusStepReference >> modelContents [
 	^ self modelContentsReference ifNotNil: [:mdr | mdr  modelContents]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusStepReference >> modelContentsReference [
 	^ self owner modelContentsReference
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusStepReference >> newEditor [
 	| editor |
 	editor := self editorClass new.
@@ -280,7 +279,7 @@ PlatypusStepReference >> newEditor [
 	^ editor mainWindow
 ]
 
-{ #category : #updating }
+{ #category : 'updating' }
 PlatypusStepReference >> owner: anotherRef position: anInteger [ 
 	self
 		owner: anotherRef
@@ -288,7 +287,7 @@ PlatypusStepReference >> owner: anotherRef position: anInteger [
 		attributeOrRule: nil
 ]
 
-{ #category : #updating }
+{ #category : 'updating' }
 PlatypusStepReference >> owner: anotherRef position: anInteger attributeOrRule: anAttributeOrARule [ 
 	self owner: anotherRef.
 	self pos: anInteger.
@@ -296,7 +295,7 @@ PlatypusStepReference >> owner: anotherRef position: anInteger attributeOrRule: 
 
 ]
 
-{ #category : #updating }
+{ #category : 'updating' }
 PlatypusStepReference >> owner: anotherRef position: anInteger value: aValue [ 
 	self owner: anotherRef;
 		 pos: anInteger;
@@ -304,7 +303,7 @@ PlatypusStepReference >> owner: anotherRef position: anInteger value: aValue [
 
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusStepReference >> owningInstanceReference [
 	self value isPltGenericInstance
 		ifTrue: [^ self].
@@ -313,7 +312,7 @@ PlatypusStepReference >> owningInstanceReference [
 
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusStepReference >> owningInstanceReferenceOfValue: aValue [
 	self value = aValue
 		ifTrue: [^ self].
@@ -321,49 +320,49 @@ PlatypusStepReference >> owningInstanceReferenceOfValue: aValue [
 		ifNotNil: [ :o | o owningInstanceReferenceOfValue: aValue]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusStepReference >> parserStartingState [
 	^ self value isPltGenericInstance 
 		ifTrue: [StepParser startingStateForDataEntity]
 		ifFalse: [StepParser startingStateForParameter]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusStepReference >> pos [
 	^ pos
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusStepReference >> pos: anObject [ 
 	pos := anObject
 ]
 
-{ #category : #updating }
+{ #category : 'updating' }
 PlatypusStepReference >> privateEnsureSubReferences [
 	subReferences ifNil: [subReferences := OrderedCollection new].
 
 ]
 
-{ #category : #updating }
+{ #category : 'updating' }
 PlatypusStepReference >> reinitializeEditor [
 	self removeSubReferencesSilently.
 	self reinitializeLabelSilently.
 	super reinitializeEditor
 ]
 
-{ #category : #updating }
+{ #category : 'updating' }
 PlatypusStepReference >> reinitializeLabel [
 	self reinitializeLabelSilently.
 	TamManager changed: self
 ]
 
-{ #category : #updating }
+{ #category : 'updating' }
 PlatypusStepReference >> reinitializeLabelSilently [
 	listLabel := nil.
 
 ]
 
-{ #category : #updating }
+{ #category : 'updating' }
 PlatypusStepReference >> removeAt: position [ 
 	| sr |
 	subReferences ifNil: [^ self].
@@ -374,21 +373,21 @@ PlatypusStepReference >> removeAt: position [
 
 ]
 
-{ #category : #updating }
+{ #category : 'updating' }
 PlatypusStepReference >> removeSilently [
 	pos
 		ifNotNil: [(self owner removeAt: pos) ].
 	^ super removeSilently
 ]
 
-{ #category : #updating }
+{ #category : 'updating' }
 PlatypusStepReference >> removeSubReferences [
 	subReferences
 		ifNotNil: [self removeSubReferencesSilently.
 			TamManager changed: self]
 ]
 
-{ #category : #updating }
+{ #category : 'updating' }
 PlatypusStepReference >> removeSubReferencesSilently [
 	subReferences
 		ifNotNil: [
@@ -397,7 +396,7 @@ PlatypusStepReference >> removeSubReferencesSilently [
 			subReferences := nil]
 ]
 
-{ #category : #updating }
+{ #category : 'updating' }
 PlatypusStepReference >> replace: aValue at: aPosition with: aNewValue [
 	(self value isPltSetInstance or: [self value isPltBagInstance])
 		ifTrue: [self value replace: aValue with: aNewValue]
@@ -406,7 +405,7 @@ PlatypusStepReference >> replace: aValue at: aPosition with: aNewValue [
 
 ]
 
-{ #category : #updating }
+{ #category : 'updating' }
 PlatypusStepReference >> replaceTokenListWithParserResult: result [ 
 	result
 		ifNotNil: [ | inst |
@@ -427,14 +426,14 @@ PlatypusStepReference >> replaceTokenListWithParserResult: result [
 	^ false
 ]
 
-{ #category : #'tam taxonomy browser' }
+{ #category : 'tam taxonomy browser' }
 PlatypusStepReference >> selectingFrom: aTaxonomyBrowser [
 	subReferences
 		ifNil: [self buildSubReferencesSilently].
 	super selectingFrom: aTaxonomyBrowser
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusStepReference >> shortName [
 	attrOrRuleOrValue 
 		ifNil: [^ self codeText asString contractTo: 100].
@@ -449,13 +448,13 @@ PlatypusStepReference >> shortName [
 
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusStepReference >> specificButtonsColumn: aTaxonomyBrowser inAlignment: aButtonsAlignment [ 
 	aTaxonomyBrowser editorModel addButtonsinAlignment: aButtonsAlignment.
 	^aButtonsAlignment
 ]
 
-{ #category : #menus }
+{ #category : 'menus' }
 PlatypusStepReference >> specificMenu: menu shifted: b [ 
 	"Set up the menu to apply to the receiver's, honoring 
 	the #shifted boolean"
@@ -474,20 +473,20 @@ PlatypusStepReference >> specificMenu: menu shifted: b [
 	^ menu
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusStepReference >> subReferences [
 	^ subReferences
 		ifNil: [OrderedCollection new]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusStepReference >> subReferences: aCollection [
 	aCollection 
 		ifNotEmpty: [subReferences := aCollection]
 		ifEmpty: [self removeSubReferencesSilently]
 ]
 
-{ #category : #updating }
+{ #category : 'updating' }
 PlatypusStepReference >> updateAllReferences [
 	| owningIRef owningInst |
 	owningIRef := self owningInstanceReference.
@@ -501,12 +500,12 @@ PlatypusStepReference >> updateAllReferences [
 	TamManager changed: self modelContentsReference
 ]
 
-{ #category : #updating }
+{ #category : 'updating' }
 PlatypusStepReference >> updateListLabel [
 	listLabel := self shortName
 ]
 
-{ #category : #updating }
+{ #category : 'updating' }
 PlatypusStepReference >> updateRecursively [
 	self recursivelyDo: [:r | | d v |
 		[
@@ -525,42 +524,42 @@ PlatypusStepReference >> updateRecursively [
 			do: [r owner removeSubReferencesSilently]]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusStepReference >> useP21Syntax [
 	^ self modelContentsReference useP21Syntax
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusStepReference >> useP21Syntax: anObject [ 
 	self modelContentsReference useP21Syntax: anObject 
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusStepReference >> value [
 	^ self isPltValue
 		ifTrue: [attrOrRuleOrValue]
 		ifFalse: [[self owner at: pos] on: Error do: []]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusStepReference >> value: aValue [
 	attrOrRuleOrValue := aValue
 
 ]
 
-{ #category : #checking }
+{ #category : 'checking' }
 PlatypusStepReference >> verifyNotifying: aRequestor [
 	^ self modelContents verifyNotifying: aRequestor
 
 ]
 
-{ #category : #checking }
+{ #category : 'checking' }
 PlatypusStepReference >> verifySilently [
 	^ self modelContents verifySilently
 
 ]
 
-{ #category : #'file in/out' }
+{ #category : 'file in/out' }
 PlatypusStepReference >> writeIntoStream: aStream [ 
 	| code |
 	code := self codeText asString.

@@ -1,6 +1,6 @@
-Extension { #name : #PltDerivedAttribute }
+Extension { #name : 'PltDerivedAttribute' }
 
-{ #category : #'*xtra-platypus-accessing' }
+{ #category : '*xtra-platypus-accessing' }
 PltDerivedAttribute >> tamarisStepValueReferenceClass [
 	^ PlatypusStepReference
 ]

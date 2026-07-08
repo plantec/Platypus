@@ -1,13 +1,13 @@
-Extension { #name : #PltAggregateInitializer }
+Extension { #name : 'PltAggregateInitializer' }
 
-{ #category : #'*xtra-platypus-accessing' }
+{ #category : '*xtra-platypus-accessing' }
 PltAggregateInitializer >> add: anElement [ 
 	| el |
 	el := PltAggregateInitializerElement val: anElement.
 	self contents add: el
 ]
 
-{ #category : #'*xtra-platypus-accessing' }
+{ #category : '*xtra-platypus-accessing' }
 PltAggregateInitializer >> add: anElement beforeIndex: index [ 
 	| nelem elPos updatedElem updatedElemRep |
 	nelem := PltAggregateInitializerElement val: anElement.
@@ -28,13 +28,13 @@ PltAggregateInitializer >> add: anElement beforeIndex: index [
 					self contents add: nelem afterIndex: elPos key - 1]]
 ]
 
-{ #category : #'*xtra-platypus-accessing' }
+{ #category : '*xtra-platypus-accessing' }
 PltAggregateInitializer >> addAll: aCollection [ 
 	aCollection do: [ :el | self add: el]
 
 ]
 
-{ #category : #'*xtra-platypus-evaluating' }
+{ #category : '*xtra-platypus-evaluating' }
 PltAggregateInitializer >> addElementsTo: anotherAggregate elementType: aType if: ifBlock interpretor: anInterpretor [ 
 	self contents
 		do: [:e | e
@@ -45,14 +45,14 @@ PltAggregateInitializer >> addElementsTo: anotherAggregate elementType: aType if
 	^ anotherAggregate
 ]
 
-{ #category : #'*xtra-platypus-evaluating' }
+{ #category : '*xtra-platypus-evaluating' }
 PltAggregateInitializer >> addElementsTo: anotherAggregate elementType: aType  interpretor: anInterpretor [
 	self contents
 		do: [:e | e addElementsTo: anotherAggregate elementType: aType  interpretor: anInterpretor].
 	^ anotherAggregate
 ]
 
-{ #category : #'*xtra-platypus-evaluating' }
+{ #category : '*xtra-platypus-evaluating' }
 PltAggregateInitializer >> addElementsTo: anotherAggregate from: idx1 to: idx2 elementType: aType if: ifBlock interpretor: anInterpretor [ 
 	| passed pos element taken takenHere oldSize newSize |
 	passed := 0.
@@ -81,7 +81,7 @@ PltAggregateInitializer >> addElementsTo: anotherAggregate from: idx1 to: idx2 e
 	^ anotherAggregate
 ]
 
-{ #category : #'*xtra-platypus-evaluating' }
+{ #category : '*xtra-platypus-evaluating' }
 PltAggregateInitializer >> addElementsTo: anotherAggregate from: idx1 to: idx2 elementType: aType interpretor: anInterpretor [ 
 	| passed pos element taken takenHere oldSize newSize |
 	passed := 0.
@@ -109,25 +109,25 @@ PltAggregateInitializer >> addElementsTo: anotherAggregate from: idx1 to: idx2 e
 	^ anotherAggregate
 ]
 
-{ #category : #'*xtra-platypus-updating' }
+{ #category : '*xtra-platypus-updating' }
 PltAggregateInitializer >> adjustLowerAndUpperBounds [
 
 ]
 
-{ #category : #'*xtra-platypus-accessing' }
+{ #category : '*xtra-platypus-accessing' }
 PltAggregateInitializer >> at: anIndex [ 
 	| elem |
 	elem := self elementAt: anIndex.
 	^ elem val
 ]
 
-{ #category : #'*xtra-platypus-accessing' }
+{ #category : '*xtra-platypus-accessing' }
 PltAggregateInitializer >> at: index put: anObject [ 
 	self removeAt: index.
 	self add: anObject beforeIndex: index
 ]
 
-{ #category : #'*xtra-platypus-accessing' }
+{ #category : '*xtra-platypus-accessing' }
 PltAggregateInitializer >> contentsList [
 	| list |
 	list := OrderedCollection new.
@@ -135,19 +135,19 @@ PltAggregateInitializer >> contentsList [
 	^ list
 ]
 
-{ #category : #'*xtra-platypus-enumerating' }
+{ #category : '*xtra-platypus-enumerating' }
 PltAggregateInitializer >> do: aBlock [ 
 	^ self contents do: [ :el | el do: aBlock]
 ]
 
-{ #category : #'*xtra-platypus-accessing' }
+{ #category : '*xtra-platypus-accessing' }
 PltAggregateInitializer >> elementAt: anIndex [ 
 	| pos |
 	pos := self elementPositionForIndex: anIndex.
 	^ self contents at: pos key
 ]
 
-{ #category : #'*xtra-platypus-accessing' }
+{ #category : '*xtra-platypus-accessing' }
 PltAggregateInitializer >> elementPositionForIndex: anIndex [ 
 	| pos idx elem rep remainder |
 	remainder := anIndex.
@@ -162,7 +162,7 @@ PltAggregateInitializer >> elementPositionForIndex: anIndex [
 	^ idx -> remainder
 ]
 
-{ #category : #'*xtra-platypus-evaluating' }
+{ #category : '*xtra-platypus-evaluating' }
 PltAggregateInitializer >> equal: other [ 
 	| res |
 	other isPltAggregateData
@@ -183,7 +183,7 @@ PltAggregateInitializer >> equal: other [
 	^ PltTrueConstant new
 ]
 
-{ #category : #'*xtra-platypus-type-infering' }
+{ #category : '*xtra-platypus-type-infering' }
 PltAggregateInitializer >> inferedDomain [
 	| elType elementsDomains |
 	elementsDomains := Set new.
@@ -198,7 +198,7 @@ PltAggregateInitializer >> inferedDomain [
 
 ]
 
-{ #category : #'*xtra-platypus-accessing' }
+{ #category : '*xtra-platypus-accessing' }
 PltAggregateInitializer >> occurrencesOf: anElement [ 
 	| e count |
 	e := anElement isPltAggregateInitializerElement
@@ -211,12 +211,12 @@ PltAggregateInitializer >> occurrencesOf: anElement [
 	^ count
 ]
 
-{ #category : #'*xtra-platypus-accessing' }
+{ #category : '*xtra-platypus-accessing' }
 PltAggregateInitializer >> pltNativeValue [
 	^ self
 ]
 
-{ #category : #'*xtra-platypus-accessing' }
+{ #category : '*xtra-platypus-accessing' }
 PltAggregateInitializer >> removeAt: index [ 
 	| elPos elem |
 	elPos := self elementPositionForIndex: index.
@@ -226,7 +226,7 @@ PltAggregateInitializer >> removeAt: index [
 	elem repetitionValue: elem repetitionValue - 1
 ]
 
-{ #category : #'*xtra-platypus-accessing' }
+{ #category : '*xtra-platypus-accessing' }
 PltAggregateInitializer >> size [
 	| size pos elem |
 	size := 0.

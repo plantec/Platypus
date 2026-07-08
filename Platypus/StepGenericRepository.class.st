@@ -37,7 +37,7 @@ StepGenericRepository >> notify: error at: location in: stream [
 				copyReplaceFrom: location
 				to: location - 1
 				with: '******' , error , '->'.
-	(errorOut := (Filename named: (errFilename := self class name , '.error')) 
+	(errorOut := (errFilename := self class name , '.error') asFileReference
 				writeStream) ifNotNil: 
 				[
 				[errorOut nextPutAll: contentsWithError.

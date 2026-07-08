@@ -1,16 +1,16 @@
-Extension { #name : #PltLocalVariable }
+Extension { #name : 'PltLocalVariable' }
 
-{ #category : #'*xtra-platypus-evaluating' }
+{ #category : '*xtra-platypus-evaluating' }
 PltLocalVariable >> defaultValue [
 	^ self domain defaultValue
 ]
 
-{ #category : #'*xtra-platypus-accessing' }
+{ #category : '*xtra-platypus-accessing' }
 PltLocalVariable >> errorQualifier [
 	^ super errorQualifier , ' ''' , self name, ''''
 ]
 
-{ #category : #'*xtra-platypus-type-infering' }
+{ #category : '*xtra-platypus-type-infering' }
 PltLocalVariable >> staticDomain [
 	^ self domain computedDomain
 

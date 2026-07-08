@@ -1,30 +1,32 @@
 Class {
-	#name : #PlatypusStepRecordReference,
-	#superclass : #PlatypusStepReference,
-	#category : #'SqPlatypus-HW-tamaris'
+	#name : 'PlatypusStepRecordReference',
+	#superclass : 'PlatypusStepReference',
+	#category : 'SqPlatypus-HW-tamaris',
+	#package : 'SqPlatypus',
+	#tag : 'HW-tamaris'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusStepRecordReference >> elementTag [
 	^ #simpleRecord
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 PlatypusStepRecordReference >> isChangeable [ 
 	^ true
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusStepRecordReference >> parserStartingState [
 	^ StepParser startingStateForSimpleRecordEntry
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusStepRecordReference >> shortName [
 	^ self codeText asString contractTo: 100
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusStepRecordReference >> value [
 	^ self owner at: pos
 ]

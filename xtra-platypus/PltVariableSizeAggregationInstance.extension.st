@@ -1,6 +1,6 @@
-Extension { #name : #PltVariableSizeAggregationInstance }
+Extension { #name : 'PltVariableSizeAggregationInstance' }
 
-{ #category : #'*xtra-platypus-converting' }
+{ #category : '*xtra-platypus-converting' }
 PltVariableSizeAggregationInstance >> asListInstance [
 	^ PltListInstance new contents: self contentsList
 	

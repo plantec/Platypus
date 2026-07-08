@@ -1,10 +1,12 @@
 Class {
-	#name : #PlatypusInstanceEditor,
-	#superclass : #PlatypusCodeHolder,
-	#category : #'SqPlatypus-HW-CodeHolder'
+	#name : 'PlatypusInstanceEditor',
+	#superclass : 'PlatypusCodeHolder',
+	#category : 'SqPlatypus-HW-CodeHolder',
+	#package : 'SqPlatypus',
+	#tag : 'HW-CodeHolder'
 }
 
-{ #category : #'ui building' }
+{ #category : 'ui building' }
 PlatypusInstanceEditor >> addButtonsinAlignment: aButtonsAlignment [ 
 	| btn |
 	super addButtonsinAlignment: aButtonsAlignment.
@@ -28,7 +30,7 @@ PlatypusInstanceEditor >> addButtonsinAlignment: aButtonsAlignment [
 					aButtonsAlignment addMorph: btn]]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusInstanceEditor >> codeTextFromInstance: anInstance [
 	^ String streamContents: [:strm |
 		PlatypusModelContentsStepWriter new
@@ -39,7 +41,7 @@ PlatypusInstanceEditor >> codeTextFromInstance: anInstance [
 			annote: true]
 ]
 
-{ #category : #menu }
+{ #category : 'menu' }
 PlatypusInstanceEditor >> contentsMenu: aMenu shifted: shifted [ 
 	| m |
 	m := super contentsMenu: aMenu shifted: shifted.
@@ -48,53 +50,55 @@ PlatypusInstanceEditor >> contentsMenu: aMenu shifted: shifted [
 
 ]
 
-{ #category : #evaluation }
+{ #category : 'evaluation' }
 PlatypusInstanceEditor >> doItContext [
 	^ self sourceHandler
 ]
 
-{ #category : #evaluation }
+{ #category : 'evaluation' }
 PlatypusInstanceEditor >> doItReceiver [
 	^ self 
 ]
 
-{ #category : #evaluating }
+{ #category : 'evaluating' }
 PlatypusInstanceEditor >> evaluate [
 	^ self sourceHandler evaluate
 ]
 
-{ #category : #menu }
+{ #category : 'menu' }
 PlatypusInstanceEditor >> menuStepWrite [
-	| stream result fullFilename |
+
+	| stream |
 	(self sourceHandler isKindOf: PlatypusModelContentsReference)
-		ifTrue: [self sourceHandler menuStepWrite]
-		ifFalse: [fullFilename := UITheme current
-						fileSaveIn: World
-						title: 'File name'
-						extensions: #('step' ) 
-						path: ''.
-			fullFilename
-				ifNotNil: [[stream := (Filename named: fullFilename) writeStream.
-					stream
-						nextPutAll: (String
-								readFrom: (ReadStream on: self contentsMorph getText asString))]
-						ensure: [stream
-								ifNotNil: [stream close]]]]
+		ifTrue: [ self sourceHandler menuStepWrite ]
+		ifFalse: [
+				| fref |
+				fref := UIManager default
+					        chooseForSaveFileReference: 'Choose a file'
+					        extensions: #( '.step' )
+					        path: FileSystem workingDirectory.
+				fref ifNotNil: [
+						[
+							stream := fref writeStream.
+							stream nextPutAll:
+								(String readFrom:
+									 (ReadStream on: self contentsMorph getText asString)) ]
+							ensure: [ stream ifNotNil: [ stream close ] ] ] ]
 ]
 
-{ #category : #menu }
+{ #category : 'menu' }
 PlatypusInstanceEditor >> menuSwitchP21Syntax [
 	self swithP21Syntax.
 	self acceptContents: self codeText.
 	self changed: #contents
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusInstanceEditor >> modelContents [  
 	^ self sourceHandler modelContents  
 ]
 
-{ #category : #menu }
+{ #category : 'menu' }
 PlatypusInstanceEditor >> openFile [
 	| result |
 	result := Tamaris
@@ -109,7 +113,7 @@ PlatypusInstanceEditor >> openFile [
 			"self hasUnacceptedEdits: true"]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusInstanceEditor >> possibleReplacementsFromPrefix: aPrefix [
 	"returns the value of labels from a selector prefix"
 	| names schemata entities key |
@@ -125,7 +129,7 @@ PlatypusInstanceEditor >> possibleReplacementsFromPrefix: aPrefix [
 			ifEmpty: [names]]) asArray sort.
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusInstanceEditor >> replacementFor: aString [
 	^ (self schemaInstance lookUpEntityDefinitionBN: aString)
 		ifNotNil: [:ent | | inst |
@@ -141,24 +145,24 @@ PlatypusInstanceEditor >> replacementFor: aString [
 				strm cr ] ]
 ]
 
-{ #category : #menu }
+{ #category : 'menu' }
 PlatypusInstanceEditor >> saveAs [
 	^ self menuStepWrite
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusInstanceEditor >> schemaInstance [ 
 	^ self sourceHandler schemaInstance 
 ]
 
-{ #category : #'ui building' }
+{ #category : 'ui building' }
 PlatypusInstanceEditor >> showAcceptButton [
 	^ self sourceHandler notNil
 				and: [self sourceHandler modelContents notNil
 						and: [self hasUnacceptedEdits]]
 ]
 
-{ #category : #'ui building' }
+{ #category : 'ui building' }
 PlatypusInstanceEditor >> showChecksButton [
 	^ self sourceHandler notNil
 		and: [self showAcceptButton not 
@@ -166,29 +170,29 @@ PlatypusInstanceEditor >> showChecksButton [
 				and: [self sourceHandler knownAsInvalid]]]
 ]
 
-{ #category : #'ui building' }
+{ #category : 'ui building' }
 PlatypusInstanceEditor >> showEvaluateButton [
 	^( ((self sourceHandler notNil and: [self sourceHandler canEvaluate]) and: [self sourceHandler knownAsInvalid not]))
 		and: [self showAcceptButton not]
 ]
 
-{ #category : #'ui building' }
+{ #category : 'ui building' }
 PlatypusInstanceEditor >> showSaveButton [
 	^ (self sourceHandler isKindOf: PlatypusModelContentsReference)
 ]
 
-{ #category : #'ui building' }
+{ #category : 'ui building' }
 PlatypusInstanceEditor >> showSwitchP21SyntaxButton [
 	^ self sourceHandler notNil
 		"and: [self sourceHandler value isValue not]"
 ]
 
-{ #category : #menu }
+{ #category : 'menu' }
 PlatypusInstanceEditor >> swithP21Syntax [
 	self useP21Syntax: self useP21Syntax not
 ]
 
-{ #category : #'code updating' }
+{ #category : 'code updating' }
 PlatypusInstanceEditor >> update: aSymbol [ 
 	| doUpdate |
 	doUpdate := false.
@@ -210,12 +214,12 @@ PlatypusInstanceEditor >> update: aSymbol [
 	self updateMessagesBrowser
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusInstanceEditor >> useP21Syntax [
 	^ self sourceHandler useP21Syntax
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusInstanceEditor >> useP21Syntax: aBoolean [ 
 	self sourceHandler useP21Syntax: aBoolean
 ]

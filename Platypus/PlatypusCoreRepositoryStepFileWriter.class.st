@@ -160,8 +160,10 @@ PlatypusCoreRepositoryStepFileWriter >> namesBuilder [
 
 { #category : 'file in-out' }
 PlatypusCoreRepositoryStepFileWriter >> stepFileOut: aFilename [ 
-	| out |
-	(out :=  (Filename named: aFilename) writeStream)
+	| out fref |
+	fref := aFilename asFileReference. 
+	fref deleteIfAbsent: [ ].
+	(out := fref writeStream)
 		ifNotNil: [[out nextPutAll: stream contents]
 				ensure: [out close]]
 ]

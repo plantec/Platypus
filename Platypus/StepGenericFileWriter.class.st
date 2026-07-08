@@ -153,8 +153,10 @@ StepGenericFileWriter >> initialize [
 
 { #category : 'file in-out' }
 StepGenericFileWriter >> stepFileOut: aFilename [ 
-	| out |
-	(out := (Filename named: aFilename) writeStream)
+	| out fref |
+	fref := aFilename asFileReference. 
+	fref deleteIfAbsent: [ ].
+	(out := fref writeStream)
 		ifNotNil: [[self doFolder.
 			out nextPutAll: stream contents]
 				ensure: [out close]]

@@ -1,6 +1,6 @@
-Extension { #name : #PltInExpression }
+Extension { #name : 'PltInExpression' }
 
-{ #category : #'*xtra-platypus-accessing' }
+{ #category : '*xtra-platypus-accessing' }
 PltInExpression >> operatorSymbol [
 	^ #in
 ]

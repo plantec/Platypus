@@ -1,6 +1,6 @@
-Extension { #name : #PltEnumerationType }
+Extension { #name : 'PltEnumerationType' }
 
-{ #category : #'*xtra-platypus-accessing' }
+{ #category : '*xtra-platypus-accessing' }
 PltEnumerationType >> annotation [
 	^ String streamContents: [:strm |
 		self elements
@@ -11,12 +11,12 @@ PltEnumerationType >> annotation [
 			separatedBy: [strm nextPutAll: ' or '] ]
 ]
 
-{ #category : #'*xtra-platypus-copying' }
+{ #category : '*xtra-platypus-copying' }
 PltEnumerationType >> deepCopy [
 	^ self copy
 ]
 
-{ #category : #'*xtra-platypus-testing' }
+{ #category : '*xtra-platypus-testing' }
 PltEnumerationType >> elementSymbolCorrespondingTo: aString [
 	| key |
 	key := aString asUppercase.
@@ -25,20 +25,20 @@ PltEnumerationType >> elementSymbolCorrespondingTo: aString [
 		ifNone: []
 ]
 
-{ #category : #'*xtra-platypus-testing' }
+{ #category : '*xtra-platypus-testing' }
 PltEnumerationType >> hasElementNamed: aString [ 
 	^ (self elementSymbolCorrespondingTo: aString) notNil
 
 ]
 
-{ #category : #'*xtra-platypus-accessing' }
+{ #category : '*xtra-platypus-accessing' }
 PltEnumerationType >> initializedValue [
 	^ PltEnumerationValue 
 			domain: (PltDefinedTypeReference ref: self owner)
 			element: (self elements first)
 ]
 
-{ #category : #'*xtra-platypus-accessing' }
+{ #category : '*xtra-platypus-accessing' }
 PltEnumerationType >> lookUpIdentifierBN: aName [ 
 	| el key found |
 	key := aName asUppercase.

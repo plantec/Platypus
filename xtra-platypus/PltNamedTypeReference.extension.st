@@ -1,6 +1,6 @@
-Extension { #name : #PltNamedTypeReference }
+Extension { #name : 'PltNamedTypeReference' }
 
-{ #category : #'*xtra-platypus-accessing' }
+{ #category : '*xtra-platypus-accessing' }
 PltNamedTypeReference >> errorQualifier [
 	^ 'named type ''' , self name, ''''
 ]

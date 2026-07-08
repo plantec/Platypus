@@ -1,6 +1,6 @@
-Extension { #name : #PltUsedSchema }
+Extension { #name : 'PltUsedSchema' }
 
-{ #category : #'*xtra-platypus-accessing' }
+{ #category : '*xtra-platypus-accessing' }
 PltUsedSchema >> selectionString [
 	^ 'USE ' , super selectionString
 ]

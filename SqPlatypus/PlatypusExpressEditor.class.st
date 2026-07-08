@@ -1,20 +1,22 @@
 Class {
-	#name : #PlatypusExpressEditor,
-	#superclass : #PlatypusCodeHolder,
-	#category : #'SqPlatypus-HW-CodeHolder'
+	#name : 'PlatypusExpressEditor',
+	#superclass : 'PlatypusCodeHolder',
+	#category : 'SqPlatypus-HW-CodeHolder',
+	#package : 'SqPlatypus',
+	#tag : 'HW-CodeHolder'
 }
 
-{ #category : #updating }
+{ #category : 'updating' }
 PlatypusExpressEditor class >> changed: anObject [ 
 	super changed: anObject
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusExpressEditor class >> evaluatorClass [
 	^ PlatypusExpressInterpretor
 ]
 
-{ #category : #'ui building' }
+{ #category : 'ui building' }
 PlatypusExpressEditor >> addButtonsinAlignment: aButtonsAlignment [ 
 	| btn |
 	super addButtonsinAlignment: aButtonsAlignment.
@@ -38,13 +40,13 @@ PlatypusExpressEditor >> addButtonsinAlignment: aButtonsAlignment [
 					aButtonsAlignment addMorph: btn]]
 ]
 
-{ #category : #'ui building' }
+{ #category : 'ui building' }
 PlatypusExpressEditor >> contentsMorphLayoutFrame [
 	^ LayoutFrame identity
 		
 ]
 
-{ #category : #evaluation }
+{ #category : 'evaluation' }
 PlatypusExpressEditor >> debugIt [
 	| debugger |
 	debugger := PlatypusExpressDebugger  sourceHandler: self sourceHandler.
@@ -53,27 +55,27 @@ PlatypusExpressEditor >> debugIt [
 		evaluate: (ReadStream on: (self codeText copyFrom: self selectionInterval first to: self selectionInterval last) asString)
 ]
 
-{ #category : #evaluation }
+{ #category : 'evaluation' }
 PlatypusExpressEditor >> doItContext [
 	^ self sourceHandler metaData
 ]
 
-{ #category : #evaluation }
+{ #category : 'evaluation' }
 PlatypusExpressEditor >> doItReceiver [
 	^ self 
 ]
 
-{ #category : #'code evaluating' }
+{ #category : 'code evaluating' }
 PlatypusExpressEditor >> evaluate [
 	^ self sourceHandler evaluate
 ]
 
-{ #category : #'code evaluating' }
+{ #category : 'code evaluating' }
 PlatypusExpressEditor >> evaluateAndExplore [
 	^ self sourceHandler evaluateAndExplore 
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusExpressEditor >> possibleReplacementsFromPrefix: aPrefix [
 	"returns the value of labels from a selector prefix"
 	| key elements |
@@ -85,12 +87,12 @@ PlatypusExpressEditor >> possibleReplacementsFromPrefix: aPrefix [
 
 ]
 
-{ #category : #'pretty printing' }
+{ #category : 'pretty printing' }
 PlatypusExpressEditor >> prettyPrint [
 	self prettyPrintCode
 ]
 
-{ #category : #'pretty printing' }
+{ #category : 'pretty printing' }
 PlatypusExpressEditor >> prettyPrintCode [
 	| ppTokenList |
 	self sourceHandler notNil
@@ -100,7 +102,7 @@ PlatypusExpressEditor >> prettyPrintCode [
 	^ ''
 ]
 
-{ #category : #'pretty printing' }
+{ #category : 'pretty printing' }
 PlatypusExpressEditor >> prettyPrintTokenList: aTokenList [ 
 	| code ppTokenList streamClass |
 	Cursor wait
@@ -123,17 +125,17 @@ PlatypusExpressEditor >> prettyPrintTokenList: aTokenList [
 			^ code]
 ]
 
-{ #category : #'pretty printing' }
+{ #category : 'pretty printing' }
 PlatypusExpressEditor >> prettyPrintWithColor [
 	self prettyPrintCode
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusExpressEditor >> replacementFor: aString [
 	^ aString
 ]
 
-{ #category : #'pretty printing' }
+{ #category : 'pretty printing' }
 PlatypusExpressEditor >> reversePrintCode [
 	| ppTokenList |
 	self sourceHandler notNil
@@ -143,22 +145,22 @@ PlatypusExpressEditor >> reversePrintCode [
 	^ ''
 ]
 
-{ #category : #menu }
+{ #category : 'menu' }
 PlatypusExpressEditor >> saveAs [
 	^ self sourceHandler menuSaveAs
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusExpressEditor >> schemaInstance [ 
 	^ self sourceHandler schemaInstance
 ]
 
-{ #category : #'ui building' }
+{ #category : 'ui building' }
 PlatypusExpressEditor >> showAcceptButton [
 	^ self sourceHandler notNil and: [self hasUnacceptedEdits]
 ]
 
-{ #category : #'ui building' }
+{ #category : 'ui building' }
 PlatypusExpressEditor >> showChecksButton [
 	^ self sourceHandler notNil
 		and: [self showAcceptButton not
@@ -166,7 +168,7 @@ PlatypusExpressEditor >> showChecksButton [
 						and: [self sourceHandler knownAsInvalid ]]]
 ]
 
-{ #category : #'ui building' }
+{ #category : 'ui building' }
 PlatypusExpressEditor >> showEvaluateButton [
 	^ self sourceHandler notNil
 		and: [self showAcceptButton not
@@ -176,19 +178,19 @@ PlatypusExpressEditor >> showEvaluateButton [
 							and: [self sourceHandler metaData isPltStatementsContainer]]]]]
 ]
 
-{ #category : #'ui building' }
+{ #category : 'ui building' }
 PlatypusExpressEditor >> showPrettyPrintCodeButton [
 	^ self sourceHandler notNil
 		and: [self sourceHandler isEditable]
 ]
 
-{ #category : #'code accessing' }
+{ #category : 'code accessing' }
 PlatypusExpressEditor >> text [
 	^ self codeText
 
 ]
 
-{ #category : #evaluation }
+{ #category : 'evaluation' }
 PlatypusExpressEditor >> update: aSymbol [ 
 	self hasUnacceptedEdits
 		ifTrue: [^ false].

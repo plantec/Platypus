@@ -1,27 +1,29 @@
 Class {
-	#name : #Logical,
-	#superclass : #Object,
-	#category : #'SqPlatypus-HW-unimplemented'
+	#name : 'Logical',
+	#superclass : 'Object',
+	#category : 'SqPlatypus-HW-unimplemented',
+	#package : 'SqPlatypus',
+	#tag : 'HW-unimplemented'
 }
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 Logical class >> initializedInstance [
 	^ nil
 ]
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 Logical class >> new [
 	self error: 'You may not create any more Logical - this is three-valued logic'
 ]
 
-{ #category : #'logical operations' }
+{ #category : 'logical operations' }
 Logical >> & aLogical [ 
 	"Evaluating conjunction. Evaluate the argument. Then answer true if  
 	both the receiver and the argument are true."
 	self subclassResponsibility
 ]
 
-{ #category : #'logical operations' }
+{ #category : 'logical operations' }
 Logical >> ==> aBlock [
 	"this is material implication, a ==> b, also known as:
 			b if a 
@@ -43,7 +45,7 @@ Logical >> ==> aBlock [
 	^self not or: [aBlock value]
 ]
 
-{ #category : #controlling }
+{ #category : 'controlling' }
 Logical >> and: alternativeBlock [ 
 	"Nonevaluating conjunction. If the receiver is true, answer the value of 
 	the argument, alternativeBlock; otherwise answer false without 
@@ -52,7 +54,7 @@ Logical >> and: alternativeBlock [
 	self subclassResponsibility
 ]
 
-{ #category : #controlling }
+{ #category : 'controlling' }
 Logical >> and: block1 and: block2 [
 	"Nonevaluating conjunction without deep nesting.
 	The receiver is evaluated, followed by the blocks in order.
@@ -66,7 +68,7 @@ Logical >> and: block1 and: block2 [
 	^ true
 ]
 
-{ #category : #controlling }
+{ #category : 'controlling' }
 Logical >> and: block1 and: block2 and: block3 [
 	"Nonevaluating conjunction without deep nesting.
 	The receiver is evaluated, followed by the blocks in order.
@@ -81,7 +83,7 @@ Logical >> and: block1 and: block2 and: block3 [
 	^ true
 ]
 
-{ #category : #controlling }
+{ #category : 'controlling' }
 Logical >> and: block1 and: block2 and: block3 and: block4 [
 	"Nonevaluating conjunction without deep nesting.
 	The receiver is evaluated, followed by the blocks in order.
@@ -97,31 +99,31 @@ Logical >> and: block1 and: block2 and: block3 and: block4 [
 	^ true
 ]
 
-{ #category : #printing }
+{ #category : 'printing' }
 Logical >> basicType [
 	"Answer a symbol representing the inherent type of the receiver"
 	^ #Logical
 ]
 
-{ #category : #copying }
+{ #category : 'copying' }
 Logical >> clone [ 
 	"Receiver has two concrete subclasses, True and False.
 	Only one instance of each should be made, so return self."
 ]
 
-{ #category : #copying }
+{ #category : 'copying' }
 Logical >> deepCopy [ 
 	"Receiver has two concrete subclasses, True and False.
 	Only one instance of each should be made, so return self."
 ]
 
-{ #category : #'logical operations' }
+{ #category : 'logical operations' }
 Logical >> eqv: aLogical [
 	"Answer true if the receiver is equivalent to aBoolean."
 	^ self == aLogical
 ]
 
-{ #category : #controlling }
+{ #category : 'controlling' }
 Logical >> ifFalse: alternativeBlock [ 
 	"If the receiver is true (i.e., the condition is true), then the value is the 
 	true alternative, which is nil. Otherwise answer the result of evaluating 
@@ -132,20 +134,20 @@ Logical >> ifFalse: alternativeBlock [
 	self subclassResponsibility
 ]
 
-{ #category : #controlling }
+{ #category : 'controlling' }
 Logical >> ifFalse: falseAlternativeBlock ifTrue: trueAlternativeBlock [ 
 	"Same as ifTrue:ifFalse:."
 
 	self subclassResponsibility
 ]
 
-{ #category : #controlling }
+{ #category : 'controlling' }
 Logical >> ifFalse: falseAlternativeBlock ifTrue: trueAlternativeBlock ifUnknown: unknownAlternativeBlock [ 
 	"Same as ifTrue:ifFalse:."
 	self subclassResponsibility
 ]
 
-{ #category : #controlling }
+{ #category : 'controlling' }
 Logical >> ifTrue: alternativeBlock [ 
 	"If the receiver is false (i.e., the condition is false), then the value is the 
 	false alternative, which is nil. Otherwise answer the result of evaluating 
@@ -156,7 +158,7 @@ Logical >> ifTrue: alternativeBlock [
 	self subclassResponsibility
 ]
 
-{ #category : #controlling }
+{ #category : 'controlling' }
 Logical >> ifTrue: trueAlternativeBlock ifFalse: falseAlternativeBlock [
 	"If the receiver is true (i.e., the condition is true), then answer the value 
 	of the argument trueAlternativeBlock. If the receiver is false, answer the 
@@ -167,7 +169,7 @@ Logical >> ifTrue: trueAlternativeBlock ifFalse: falseAlternativeBlock [
 	self subclassResponsibility
 ]
 
-{ #category : #controlling }
+{ #category : 'controlling' }
 Logical >> ifTrue: trueAlternativeBlock ifFalse: falseAlternativeBlock ifUnknown: unknownAlternativeBlock [
 	"If the receiver is true (i.e., the condition is true), then answer the value  
 	of the argument trueAlternativeBlock. If the receiver is false, answer the 
@@ -177,7 +179,7 @@ Logical >> ifTrue: trueAlternativeBlock ifFalse: falseAlternativeBlock ifUnknown
 	self subclassResponsibility
 ]
 
-{ #category : #controlling }
+{ #category : 'controlling' }
 Logical >> ifUnknown: alternativeBlock [ 
 	"If the receiver is true (i.e., the condition is true), then the value is the  
 	true alternative, which is nil. Otherwise answer the result of evaluating  
@@ -187,13 +189,13 @@ Logical >> ifUnknown: alternativeBlock [
 	self subclassResponsibility
 ]
 
-{ #category : #misc }
+{ #category : 'misc' }
 Logical >> newTileMorphRepresentative [
 	^ TileMorph new addArrows; setLiteral: self
 
 ]
 
-{ #category : #'logical operations' }
+{ #category : 'logical operations' }
 Logical >> not [
 	"Negation. Answer true if the receiver is false, answer false if the 
 	receiver is true."
@@ -201,7 +203,7 @@ Logical >> not [
 	self subclassResponsibility
 ]
 
-{ #category : #controlling }
+{ #category : 'controlling' }
 Logical >> or: alternativeBlock [ 
 	"Nonevaluating disjunction. If the receiver is false, answer the value of 
 	the argument, alternativeBlock; otherwise answer true without 
@@ -210,7 +212,7 @@ Logical >> or: alternativeBlock [
 	self subclassResponsibility
 ]
 
-{ #category : #controlling }
+{ #category : 'controlling' }
 Logical >> or: block1 or: block2 [
 	"Nonevaluating alternation without deep nesting.
 	The receiver is evaluated, followed by the blocks in order.
@@ -224,7 +226,7 @@ Logical >> or: block1 or: block2 [
 	^ false
 ]
 
-{ #category : #controlling }
+{ #category : 'controlling' }
 Logical >> or: block1 or: block2 or: block3 [
 	"Nonevaluating alternation without deep nesting.
 	The receiver is evaluated, followed by the blocks in order.
@@ -239,7 +241,7 @@ Logical >> or: block1 or: block2 or: block3 [
 	^ false
 ]
 
-{ #category : #controlling }
+{ #category : 'controlling' }
 Logical >> or: block1 or: block2 or: block3 or: block4 [
 	"Nonevaluating alternation without deep nesting.
 	The receiver is evaluated, followed by the blocks in order.
@@ -255,36 +257,36 @@ Logical >> or: block1 or: block2 or: block3 or: block4 [
 	^ false
 ]
 
-{ #category : #copying }
+{ #category : 'copying' }
 Logical >> shallowCopy [ 
 	"Receiver has two concrete subclasses, True and False.
 	Only one instance of each should be made, so return self."
 ]
 
-{ #category : #'printing-sixx' }
+{ #category : 'printing-sixx' }
 Logical >> sixxContentOn: aStream indent: level context: dictionary [
 	aStream nextPutAll: self storeString
 ]
 
-{ #category : #printing }
+{ #category : 'printing' }
 Logical >> storeOn: aStream [ 
 	"Refer to the comment in Object|storeOn:."
 
 	self printOn: aStream
 ]
 
-{ #category : #copying }
+{ #category : 'copying' }
 Logical >> veryDeepCopyWith: deepCopier [
 	"Return self.  I can't be copied.  Do not record me."
 ]
 
-{ #category : #'logical operations' }
+{ #category : 'logical operations' }
 Logical >> xor: aLogical [ 
 	"Exclusive OR. Answer true if the receiver is not equivalent to aBoolean."
 	^ (self == aLogical) not
 ]
 
-{ #category : #'logical operations' }
+{ #category : 'logical operations' }
 Logical >> | aLogical [ 
 	"Evaluating disjunction (OR). Evaluate the argument. Then answer true  
 	if either the receiver or the argument is true."

@@ -1,6 +1,6 @@
-Extension { #name : #PltRangeQualifier }
+Extension { #name : 'PltRangeQualifier' }
 
-{ #category : #'*xtra-platypus-type-infering' }
+{ #category : '*xtra-platypus-type-infering' }
 PltRangeQualifier >> inferedDomainWith: currDomain [ 
 	currDomain isPltAggregateOrStringType
 		ifFalse: [^ PltGenericType asDomain].

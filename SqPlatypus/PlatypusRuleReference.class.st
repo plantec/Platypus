@@ -1,25 +1,27 @@
 Class {
-	#name : #PlatypusRuleReference,
-	#superclass : #PlatypusSchemaElementReference,
-	#category : #'SqPlatypus-HW-tamaris'
+	#name : 'PlatypusRuleReference',
+	#superclass : 'PlatypusSchemaElementReference',
+	#category : 'SqPlatypus-HW-tamaris',
+	#package : 'SqPlatypus',
+	#tag : 'HW-tamaris'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusRuleReference class >> lexicalElement [
 	^ #rule
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 PlatypusRuleReference >> canEvaluate [
 	^ true
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusRuleReference >> children [
 	^ self subContents
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusRuleReference >> icon [
 	^ TamIcons mimeIcon: '10x10/mimetypes/blue_r'
 ]

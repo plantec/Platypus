@@ -1,29 +1,31 @@
 Class {
-	#name : #PlatypusCommand,
-	#superclass : #Object,
+	#name : 'PlatypusCommand',
+	#superclass : 'Object',
 	#instVars : [
 		'haveError'
 	],
-	#category : #'SqPlatypus-HW-CommandLine'
+	#category : 'SqPlatypus-HW-CommandLine',
+	#package : 'SqPlatypus',
+	#tag : 'HW-CommandLine'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusCommand >> haveError [
 	^ haveError
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusCommand >> haveError: aBoolean [
 	haveError := aBoolean
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 PlatypusCommand >> initialize [
 	super initialize.
 	haveError := false
 ]
 
-{ #category : #'error handling' }
+{ #category : 'error handling' }
 PlatypusCommand >> notify: aMessage [ 
 	| m |
 	self haveError:  true.
@@ -32,7 +34,7 @@ PlatypusCommand >> notify: aMessage [
 	Stdio stdout nextPutAll: m
 ]
 
-{ #category : #'error handling' }
+{ #category : 'error handling' }
 PlatypusCommand >> notify: aMessage at: aPosition [
 	| m |
 	self haveError:  true.
@@ -41,7 +43,7 @@ PlatypusCommand >> notify: aMessage at: aPosition [
 	Stdio stdout nextPutAll: m
 ]
 
-{ #category : #commands }
+{ #category : 'commands' }
 PlatypusCommand >> updateSchemaFrom: aFilePath [
 	| elemName ref contents |
 	ref := aFilePath asFileReference.

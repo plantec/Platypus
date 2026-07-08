@@ -1,21 +1,23 @@
 Class {
-	#name : #PlatypusCompileSchemaCommandLineHandler,
-	#superclass : #PlatypusSubCommandLineHandler,
-	#category : #'SqPlatypus-HW-CommandLine'
+	#name : 'PlatypusCompileSchemaCommandLineHandler',
+	#superclass : 'PlatypusSubCommandLineHandler',
+	#category : 'SqPlatypus-HW-CommandLine',
+	#package : 'SqPlatypus',
+	#tag : 'HW-CommandLine'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusCompileSchemaCommandLineHandler class >> commandName [
 	^ 'compile'
 ]
 
-{ #category : #activation }
+{ #category : 'activation' }
 PlatypusCompileSchemaCommandLineHandler >> activate [
 	super activate.
 	self parseInputFiles 
 ]
 
-{ #category : #activation }
+{ #category : 'activation' }
 PlatypusCompileSchemaCommandLineHandler >> parseInputFiles [
 	| inputFile elemName command |
 	super activate.

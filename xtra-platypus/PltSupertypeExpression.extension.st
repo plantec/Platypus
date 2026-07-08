@@ -1,6 +1,6 @@
-Extension { #name : #PltSupertypeExpression }
+Extension { #name : 'PltSupertypeExpression' }
 
-{ #category : #'*xtra-platypus-checking' }
+{ #category : '*xtra-platypus-checking' }
 PltSupertypeExpression >> checksSubtypesInheritance: mySuper [
  
 ]

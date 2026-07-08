@@ -1,22 +1,22 @@
-Extension { #name : #PltStringType }
+Extension { #name : 'PltStringType' }
 
-{ #category : #'*xtra-platypus-evaluating' }
+{ #category : '*xtra-platypus-evaluating' }
 PltStringType >> assignableValueFrom: aValue interpretor: anInterpretor [ 
 	^ aValue asStringLiteralCompatibleTo: self interpretor: anInterpretor
 ]
 
-{ #category : #'*xtra-platypus-type-infering' }
+{ #category : '*xtra-platypus-type-infering' }
 PltStringType >> elementType [
 	^ self computedDomain
 
 ]
 
-{ #category : #'*xtra-platypus-accessing' }
+{ #category : '*xtra-platypus-accessing' }
 PltStringType >> initializedValue [
 	^ PltStringLiteral val: ''
 ]
 
-{ #category : #'*xtra-platypus-classification' }
+{ #category : '*xtra-platypus-classification' }
 PltStringType >> isPltNumberOrStringType [
 	^ true
 ]

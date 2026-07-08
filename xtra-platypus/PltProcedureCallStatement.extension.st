@@ -1,6 +1,6 @@
-Extension { #name : #PltProcedureCallStatement }
+Extension { #name : 'PltProcedureCallStatement' }
 
-{ #category : #'*xtra-platypus-testing' }
+{ #category : '*xtra-platypus-testing' }
 PltProcedureCallStatement >> isDebugged [
 	^ false
 ]

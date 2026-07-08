@@ -1,39 +1,41 @@
 Class {
-	#name : #PlatypusListItemReference,
-	#superclass : #TamListItemReference,
-	#category : #'SqPlatypus-HW-tamaris'
+	#name : 'PlatypusListItemReference',
+	#superclass : 'TamListItemReference',
+	#category : 'SqPlatypus-HW-tamaris',
+	#package : 'SqPlatypus',
+	#tag : 'HW-tamaris'
 }
 
-{ #category : #menu }
+{ #category : 'menu' }
 PlatypusListItemReference class >> subMenuLabel [
 	^nil
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 PlatypusListItemReference >> canEvaluate [
 	^ false
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 PlatypusListItemReference >> canHaveCachedEditor [
 	"if true, my editor will be cached by the browser so that next editing  
 	will reuse cached editor"
 	^ false
 ]
 
-{ #category : #updating }
+{ #category : 'updating' }
 PlatypusListItemReference >> cleanAllEvaluations [
 	self children do: [:c | c cleanAllEvaluations ].
 	self reinitializeEvaluatedContents.
 	self treeHasChanged 
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusListItemReference >> codeText [
 	^ self codeString
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusListItemReference >> emphasisModel [
 	self metaData ifNil: [^ TamListItemMorphEmphasisModel boldRedStandard].
 	 ^ self metaData  errors
@@ -42,29 +44,29 @@ PlatypusListItemReference >> emphasisModel [
 
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusListItemReference >> errors [
 	^ self metaData ifNil: [#()] ifNotNil: [:md | md errors]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusListItemReference >> expressParserClass [
 	^ SmalltalkImage  current classNamed: self expressParserClassName asSymbol
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusListItemReference >> expressParserClassName [
 	^ self rootDictionaryReference expressParserClassName
 ]
 
-{ #category : #updating }
+{ #category : 'updating' }
 PlatypusListItemReference >> isInSubTreeOf: anotherReference [
 	self = anotherReference ifTrue: [^ true].(self owner isKindOf: PlatypusListItemReference) ifFalse: [^ false].
 	^ self owner  isInSubTreeOf: anotherReference.
 
 ]
 
-{ #category : #menus }
+{ #category : 'menus' }
 PlatypusListItemReference >> keyStroke: aCharacter from: aListMorph [ 
 	super keyStroke: aCharacter from: aListMorph.
 	aCharacter = $p
@@ -72,18 +74,18 @@ PlatypusListItemReference >> keyStroke: aCharacter from: aListMorph [
 
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 PlatypusListItemReference >> knownAsInvalid [
 	^ self metaData isNil or: [self metaData errors notEmpty]
 ]
 
-{ #category : #menus }
+{ #category : 'menus' }
 PlatypusListItemReference >> menuCleanAllEvaluations [
 	self cleanAllEvaluations.
 
 ]
 
-{ #category : #menus }
+{ #category : 'menus' }
 PlatypusListItemReference >> menuCodePane [
 	| codePane |
 	codePane := self editorClass new sourceHandler: self.
@@ -91,7 +93,7 @@ PlatypusListItemReference >> menuCodePane [
 	^ codePane openAsMorph
 ]
 
-{ #category : #enumerating }
+{ #category : 'enumerating' }
 PlatypusListItemReference >> recursivelyDo: aBlock [
 	aBlock value: self.
 	self subReferences 
@@ -99,43 +101,43 @@ PlatypusListItemReference >> recursivelyDo: aBlock [
 
 ]
 
-{ #category : #'initialize/release' }
+{ #category : 'initialize/release' }
 PlatypusListItemReference >> reinitialize [
 
 ]
 
-{ #category : #updating }
+{ #category : 'updating' }
 PlatypusListItemReference >> reinitializeEvaluatedContents [
 
 ]
 
-{ #category : #updating }
+{ #category : 'updating' }
 PlatypusListItemReference >> reinitializeLabelSilently [
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusListItemReference >> rootDictionaryReference [
 	^ self schemaInstanceReference
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusListItemReference >> schemaInstanceReference [ 
 	^ self owner schemaInstanceReference 
 ]
 
-{ #category : #checking }
+{ #category : 'checking' }
 PlatypusListItemReference >> verify [
 	self verifySilently.
 	self treeHasChanged 
 	
 ]
 
-{ #category : #checking }
+{ #category : 'checking' }
 PlatypusListItemReference >> verifySilently [
 	
 ]
 
-{ #category : #checking }
+{ #category : 'checking' }
 PlatypusListItemReference >> verifyUsedModelsBeforeChecking [
 	^ self schemaInstanceReference verifyUsedModelsBeforeChecking
 ]

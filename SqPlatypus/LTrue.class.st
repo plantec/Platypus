@@ -1,10 +1,12 @@
 Class {
-	#name : #LTrue,
-	#superclass : #Logical,
-	#category : #'SqPlatypus-HW-unimplemented'
+	#name : 'LTrue',
+	#superclass : 'Logical',
+	#category : 'SqPlatypus-HW-unimplemented',
+	#package : 'SqPlatypus',
+	#tag : 'HW-unimplemented'
 }
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 LTrue class >> initializedInstance [
 
 	^ Smalltalk
@@ -12,14 +14,14 @@ LTrue class >> initializedInstance [
 		ifAbsentPut: [self basicNew]
 ]
 
-{ #category : #'logical operations' }
+{ #category : 'logical operations' }
 LTrue >> & alternativeObject [ 
 	"Evaluating conjunction -- answer alternativeObject since receiver is true."
 
 	^alternativeObject
 ]
 
-{ #category : #controlling }
+{ #category : 'controlling' }
 LTrue >> and: alternativeBlock [ 
 	"Nonevaluating conjunction -- answer the value of alternativeBlock since
 	the receiver is true."
@@ -27,7 +29,7 @@ LTrue >> and: alternativeBlock [
 	^alternativeBlock value
 ]
 
-{ #category : #controlling }
+{ #category : 'controlling' }
 LTrue >> ifFalse: alternativeBlock [ 
 	"Since the condition is true, the value is the true alternative, which is nil. 
 	Execution does not actually reach here because the expression is compiled 
@@ -36,7 +38,7 @@ LTrue >> ifFalse: alternativeBlock [
 	^nil
 ]
 
-{ #category : #controlling }
+{ #category : 'controlling' }
 LTrue >> ifFalse: falseAlternativeBlock ifTrue: trueAlternativeBlock [ 
 	"Answer the value of trueAlternativeBlock. Execution does not 
 	actually reach here because the expression is compiled in-line."
@@ -44,7 +46,7 @@ LTrue >> ifFalse: falseAlternativeBlock ifTrue: trueAlternativeBlock [
 	^trueAlternativeBlock value
 ]
 
-{ #category : #controlling }
+{ #category : 'controlling' }
 LTrue >> ifTrue: alternativeBlock [ 
 	"Answer the value of alternativeBlock. Execution does not actually 
 	reach here because the expression is compiled in-line."
@@ -52,7 +54,7 @@ LTrue >> ifTrue: alternativeBlock [
 	^alternativeBlock value
 ]
 
-{ #category : #controlling }
+{ #category : 'controlling' }
 LTrue >> ifTrue: trueAlternativeBlock ifFalse: falseAlternativeBlock [ 
 	"Answer with the value of trueAlternativeBlock. Execution does not 
 	actually reach here because the expression is compiled in-line."
@@ -60,27 +62,27 @@ LTrue >> ifTrue: trueAlternativeBlock ifFalse: falseAlternativeBlock [
 	^trueAlternativeBlock value
 ]
 
-{ #category : #'logical operations' }
+{ #category : 'logical operations' }
 LTrue >> not [
 	"Negation--answer false since the receiver is true."
 
 	^false
 ]
 
-{ #category : #controlling }
+{ #category : 'controlling' }
 LTrue >> or: alternativeBlock [ 
 	"Nonevaluating disjunction -- answer true since the receiver is true."
 
 	^self
 ]
 
-{ #category : #printing }
+{ #category : 'printing' }
 LTrue >> printOn: aStream [ 
 
 	aStream nextPutAll: 'true'
 ]
 
-{ #category : #'logical operations' }
+{ #category : 'logical operations' }
 LTrue >> | aBoolean [ 
 	"Evaluating disjunction (OR) -- answer true since the receiver is true."
 

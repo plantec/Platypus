@@ -1,20 +1,22 @@
 Class {
-	#name : #PlatypusStepEditor,
-	#superclass : #RubTextEditor,
-	#category : #'SqPlatypus-HW-System-Text'
+	#name : 'PlatypusStepEditor',
+	#superclass : 'RubTextEditor',
+	#category : 'SqPlatypus-HW-System-Text',
+	#package : 'SqPlatypus',
+	#tag : 'HW-System-Text'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusStepEditor >> editingStateClass [
 	^ PlatypusEditingState
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PlatypusStepEditor >> schemaInstance [
 	^ self model schemaInstance
 ]
 
-{ #category : #'new selection' }
+{ #category : 'new selection' }
 PlatypusStepEditor >> selectPrecedingIdentifier [
 	"Invisibly select the identifier that ends at the end of the selection, if any."
 

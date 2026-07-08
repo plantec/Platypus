@@ -1,6 +1,6 @@
-Extension { #name : #PltReferencedSchema }
+Extension { #name : 'PltReferencedSchema' }
 
-{ #category : #'*xtra-platypus-accessing' }
+{ #category : '*xtra-platypus-accessing' }
 PltReferencedSchema >> selectionString [
 	^ 'REFERENCE ' , super selectionString
 ]

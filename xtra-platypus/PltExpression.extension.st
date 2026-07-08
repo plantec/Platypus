@@ -1,16 +1,16 @@
-Extension { #name : #PltExpression }
+Extension { #name : 'PltExpression' }
 
-{ #category : #'*xtra-platypus-checking' }
+{ #category : '*xtra-platypus-checking' }
 PltExpression >> alwaysReturn [
 	^ false
 ]
 
-{ #category : #'*xtra-platypus-converting' }
+{ #category : '*xtra-platypus-converting' }
 PltExpression >> asAggregateInitializerElement [
 	^ PltAggregateInitializerElement val: self
 ]
 
-{ #category : #'*xtra-platypus-parsing' }
+{ #category : '*xtra-platypus-parsing' }
 PltExpression >> asBound [
 	| bound |
 	bound := PltPopulationDependentBound new.
@@ -18,22 +18,22 @@ PltExpression >> asBound [
 	^ bound
 ]
 
-{ #category : #'*xtra-platypus-evaluating' }
+{ #category : '*xtra-platypus-evaluating' }
 PltExpression >> assignValue: anObject [ 
 	^ false
 ]
 
-{ #category : #'*xtra-platypus-accessing' }
+{ #category : '*xtra-platypus-accessing' }
 PltExpression >> cachedDomain [
 	^ cachedDomain
 ]
 
-{ #category : #'*xtra-platypus-accessing' }
+{ #category : '*xtra-platypus-accessing' }
 PltExpression >> cachedDomain: aDomain [ 
 	cachedDomain := aDomain
 ]
 
-{ #category : #'*xtra-platypus-type-infering' }
+{ #category : '*xtra-platypus-type-infering' }
 PltExpression >> computedDomain [
 	| sd |
 	(sd := self cachedDomain)
@@ -43,19 +43,19 @@ PltExpression >> computedDomain [
 			^ sd
 ]
 
-{ #category : #'*xtra-platypus-accessing' }
+{ #category : '*xtra-platypus-accessing' }
 PltExpression >> errorQualifier [
 	self isPltValue
 		ifTrue: [^ super errorQualifier , ' ' , self printableCode].
 	^ super errorQualifier , ' ''' , self prettyPrintedExpressCode , ''''
 ]
 
-{ #category : #'*xtra-platypus-type-infering' }
+{ #category : '*xtra-platypus-type-infering' }
 PltExpression >> inferedDomain [
 	^ PltGenericType asDomain
 ]
 
-{ #category : #'*xtra-platypus-accessing' }
+{ #category : '*xtra-platypus-accessing' }
 PltExpression >> printableCode [
 	self isPltValue
 		ifTrue: [| writer | 
@@ -66,22 +66,22 @@ PltExpression >> printableCode [
 	^ super printableCode
 ]
 
-{ #category : #'*xtra-platypus-accessing' }
+{ #category : '*xtra-platypus-accessing' }
 PltExpression >> removeCachedDomain [
 	self cachedDomain: nil
 ]
 
-{ #category : #'*xtra-platypus-evaluating' }
+{ #category : '*xtra-platypus-evaluating' }
 PltExpression >> rolesOf: anInstanceReference in: aSetOfString [
 
 ]
 
-{ #category : #'*xtra-platypus-evaluating' }
+{ #category : '*xtra-platypus-evaluating' }
 PltExpression >> rolesValue: anInstanceReference roleSchema: schemaKey roleEntity: entityKey roleAttribute: attributeKey in: resultSet [
 
 ]
 
-{ #category : #'*xtra-platypus-accessing' }
+{ #category : '*xtra-platypus-accessing' }
 PltExpression >> setParenthesis: aBoolean [ 
 	"ignored here (see PltBinaryExpression)"
 	^ self

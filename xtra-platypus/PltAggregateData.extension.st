@@ -1,6 +1,6 @@
-Extension { #name : #PltAggregateData }
+Extension { #name : 'PltAggregateData' }
 
-{ #category : #'*xtra-platypus-evaluating' }
+{ #category : '*xtra-platypus-evaluating' }
 PltAggregateData >> addElementsTo: anotherAggregate elementType: aType if: ifBlock interpretor: anInterpretor [ 
 	^ self
 		addElementsTo: anotherAggregate
@@ -11,7 +11,7 @@ PltAggregateData >> addElementsTo: anotherAggregate elementType: aType if: ifBlo
 		interpretor: anInterpretor
 ]
 
-{ #category : #'*xtra-platypus-evaluating' }
+{ #category : '*xtra-platypus-evaluating' }
 PltAggregateData >> addElementsTo: anotherAggregate elementType: aType  interpretor: anInterpretor [
 	^ self
 		addElementsTo: anotherAggregate
@@ -21,7 +21,7 @@ PltAggregateData >> addElementsTo: anotherAggregate elementType: aType  interpre
 		 interpretor: anInterpretor
 ]
 
-{ #category : #'*xtra-platypus-evaluating' }
+{ #category : '*xtra-platypus-evaluating' }
 PltAggregateData >> addElementsTo: anotherAggregate from: idx1 to: idx2 elementType: aType if: ifBlock interpretor: anInterpretor [ 
 	| pos maxi mySize curr |
 	pos := 1.
@@ -35,12 +35,12 @@ PltAggregateData >> addElementsTo: anotherAggregate from: idx1 to: idx2 elementT
 	^ anotherAggregate
 ]
 
-{ #category : #'*xtra-platypus-evaluating' }
+{ #category : '*xtra-platypus-evaluating' }
 PltAggregateData >> addElementsTo: anotherAggregate from: idx1 to: idx2 elementType: aType interpretor: anInterpretor [ 
 	^ self addElementsTo: anotherAggregate from: idx1 to: idx2 elementType: aType if: [:el | true] interpretor: anInterpretor 
 ]
 
-{ #category : #'*xtra-platypus-evaluating' }
+{ #category : '*xtra-platypus-evaluating' }
 PltAggregateData >> addFirst: anElement interpretor: anInterpretor [ 
 	| r |
 	r := self class new.
@@ -52,7 +52,7 @@ PltAggregateData >> addFirst: anElement interpretor: anInterpretor [
 	^ r
 ]
 
-{ #category : #'*xtra-platypus-evaluating' }
+{ #category : '*xtra-platypus-evaluating' }
 PltAggregateData >> asArrayInstanceCompatibleTo: aType interpretor: anInterpretor [ 
 	| r fetchedLower lower fetchedUpper upper |
 	r := PltArrayInstance new.
@@ -85,7 +85,7 @@ PltAggregateData >> asArrayInstanceCompatibleTo: aType interpretor: anInterpreto
 	^ r
 ]
 
-{ #category : #'*xtra-platypus-evaluating' }
+{ #category : '*xtra-platypus-evaluating' }
 PltAggregateData >> asBagInstanceCompatibleTo: aType interpretor: anInterpretor [ 
 	^ self 
 	asVariableSizeAggregationInstanceOfClass: PltBagInstance 
@@ -94,7 +94,7 @@ PltAggregateData >> asBagInstanceCompatibleTo: aType interpretor: anInterpretor 
 
 ]
 
-{ #category : #'*xtra-platypus-evaluating' }
+{ #category : '*xtra-platypus-evaluating' }
 PltAggregateData >> asListInstanceCompatibleTo: aType interpretor: anInterpretor [ 
 	^ self
 		asVariableSizeAggregationInstanceOfClass: PltListInstance
@@ -102,7 +102,7 @@ PltAggregateData >> asListInstanceCompatibleTo: aType interpretor: anInterpretor
 		interpretor: anInterpretor
 ]
 
-{ #category : #'*xtra-platypus-evaluating' }
+{ #category : '*xtra-platypus-evaluating' }
 PltAggregateData >> asSetInstanceCompatibleTo: aType interpretor: anInterpretor [ 
 	^ self  
 	asVariableSizeAggregationInstanceOfClass: PltSetInstance  
@@ -111,7 +111,7 @@ PltAggregateData >> asSetInstanceCompatibleTo: aType interpretor: anInterpretor 
 
 ]
 
-{ #category : #'*xtra-platypus-evaluating' }
+{ #category : '*xtra-platypus-evaluating' }
 PltAggregateData >> asVariableSizeAggregationInstanceOfClass: aClass compatibleTo: aType interpretor: anInterpretor [ 
 	| r |
 	r := aClass new.
@@ -139,12 +139,12 @@ PltAggregateData >> asVariableSizeAggregationInstanceOfClass: aClass compatibleT
 
 ]
 
-{ #category : #'*xtra-platypus-accessing' }
+{ #category : '*xtra-platypus-accessing' }
 PltAggregateData >> contentsList [
 	^ self contents
 ]
 
-{ #category : #'*xtra-platypus-evaluating' }
+{ #category : '*xtra-platypus-evaluating' }
 PltAggregateData >> copyFrom: idx1 to: idx2 [ 
 	| r |
 	r := self class new.
@@ -156,7 +156,7 @@ PltAggregateData >> copyFrom: idx1 to: idx2 [
 	^ r
 ]
 
-{ #category : #'*xtra-platypus-evaluating' }
+{ #category : '*xtra-platypus-evaluating' }
 PltAggregateData >> equal: other [ 
 	self class = other class
 		ifFalse: [^ PltLogicalLiteral val: false].
@@ -169,7 +169,7 @@ PltAggregateData >> equal: other [
 	^ PltLogicalLiteral val: true
 ]
 
-{ #category : #'*xtra-platypus-evaluating' }
+{ #category : '*xtra-platypus-evaluating' }
 PltAggregateData >> includesVal: aValue [
 	| res | 
 	self contents asOrderedCollection do: [ :e | (res := e instEqual: aValue) ifTrueConstant: [ ^ res ] ].
@@ -177,7 +177,7 @@ PltAggregateData >> includesVal: aValue [
 	^ PltFalseConstant new 
 ]
 
-{ #category : #'*xtra-platypus-type-infering' }
+{ #category : '*xtra-platypus-type-infering' }
 PltAggregateData >> inferedElementType [
 	| elType elementsDomains |
 	elementsDomains := Set new.
@@ -193,12 +193,12 @@ PltAggregateData >> inferedElementType [
 
 ]
 
-{ #category : #'*xtra-platypus-classification' }
+{ #category : '*xtra-platypus-classification' }
 PltAggregateData >> isPltValue [
 	^ true
 ]
 
-{ #category : #'*xtra-platypus-evaluating' }
+{ #category : '*xtra-platypus-evaluating' }
 PltAggregateData >> isSubsetOf: anotherAggregate interpretor: anInterpretor [ 
 	"The receiver is a subset of anotherAggregate if and only if, for any  
 	element e which occurs n times in the receiver, e occurs at least n times in  
@@ -212,7 +212,7 @@ PltAggregateData >> isSubsetOf: anotherAggregate interpretor: anInterpretor [
 	^ PltTrueConstant new
 ]
 
-{ #category : #'*xtra-platypus-evaluating' }
+{ #category : '*xtra-platypus-evaluating' }
 PltAggregateData >> isSupersetOf: anotherAggregate interpretor: anInterpretor [ 
 	"The receiver is a superset of anotherAggregate if and only if, for any  
 	element e which occurs n times in the anotherAggregate, e occurs at least 
@@ -227,12 +227,12 @@ PltAggregateData >> isSupersetOf: anotherAggregate interpretor: anInterpretor [
 	^ PltTrueConstant new
 ]
 
-{ #category : #'*xtra-platypus-accessing' }
+{ #category : '*xtra-platypus-accessing' }
 PltAggregateData >> lowerBound [
 	^ PltIntegerLiteral val: 0
 ]
 
-{ #category : #'*xtra-platypus-evaluating' }
+{ #category : '*xtra-platypus-evaluating' }
 PltAggregateData >> minus: anotherAggregateOrElement interpretor: anInterpretor [ 
 	"Answer the set theoretic difference of two collections."
 	| r |
@@ -245,7 +245,7 @@ PltAggregateData >> minus: anotherAggregateOrElement interpretor: anInterpretor 
 	^ r
 ]
 
-{ #category : #'*xtra-platypus-evaluating' }
+{ #category : '*xtra-platypus-evaluating' }
 PltAggregateData >> mult: anotherAggregate interpretor: anInterpretor [ 
 	"Answer the set theoretic difference of two collections."
 	| r |
@@ -260,22 +260,22 @@ PltAggregateData >> mult: anotherAggregate interpretor: anInterpretor [
 	^ r
 ]
 
-{ #category : #'*xtra-platypus-accessing' }
+{ #category : '*xtra-platypus-accessing' }
 PltAggregateData >> occurrencesOf: anElement [ 
 	^ self contents occurrencesOf: anElement 
 ]
 
-{ #category : #'*xtra-platypus-accessing' }
+{ #category : '*xtra-platypus-accessing' }
 PltAggregateData >> pltAdd: newObject beforeIndex: index [ 
 	self add: newObject beforeIndex: index 
 ]
 
-{ #category : #'*xtra-platypus-accessing' }
+{ #category : '*xtra-platypus-accessing' }
 PltAggregateData >> pltNativeValue [
 	^ self contents
 ]
 
-{ #category : #'*xtra-platypus-evaluating' }
+{ #category : '*xtra-platypus-evaluating' }
 PltAggregateData >> plus: anotherAggregateOrElement interpretor: anInterpretor [ 
 	| r |
 	r := self class new.
@@ -293,7 +293,7 @@ PltAggregateData >> plus: anotherAggregateOrElement interpretor: anInterpretor [
 ^ r
 ]
 
-{ #category : #'*xtra-platypus-evaluating' }
+{ #category : '*xtra-platypus-evaluating' }
 PltAggregateData >> range: interval [
 	| r |
 	r := self class new.
@@ -305,7 +305,7 @@ PltAggregateData >> range: interval [
 	^ r
 ]
 
-{ #category : #'*xtra-platypus-evaluating' }
+{ #category : '*xtra-platypus-evaluating' }
 PltAggregateData >> range: interval interpretor: anInterpretor [ 
 	| r |
 	r := self class new.
@@ -319,14 +319,14 @@ PltAggregateData >> range: interval interpretor: anInterpretor [
 
 ]
 
-{ #category : #'*xtra-platypus-evaluating' }
+{ #category : '*xtra-platypus-evaluating' }
 PltAggregateData >> rolesOf: anInstanceReference in: aSetOfString [ 
 	self contents
 		do: [:e | e rolesOf: anInstanceReference in: aSetOfString]
 
 ]
 
-{ #category : #'*xtra-platypus-evaluating' }
+{ #category : '*xtra-platypus-evaluating' }
 PltAggregateData >> rolesValue: anInstanceReference roleSchema: schemaKey roleEntity: entityKey roleAttribute: attributeKey in: resultSet [
 	self contents
 		do: [:e | (e
@@ -339,24 +339,24 @@ PltAggregateData >> rolesValue: anInstanceReference roleSchema: schemaKey roleEn
 
 ]
 
-{ #category : #'*xtra-platypus-evaluating' }
+{ #category : '*xtra-platypus-evaluating' }
 PltAggregateData >> setQueryBoundsFromSource: anotherAggregate [
 	self lowerBound: (PltIntegerLiteral val: 0).
 	self upperBound: anotherAggregate upperBound copy.
 
 ]
 
-{ #category : #'*xtra-platypus-accessing' }
+{ #category : '*xtra-platypus-accessing' }
 PltAggregateData >> size [
 	^ self contents size
 ]
 
-{ #category : #'*xtra-platypus-accessing' }
+{ #category : '*xtra-platypus-accessing' }
 PltAggregateData >> tamarisStepValueReferenceClass [
 	^ PlatypusStepReference
 ]
 
-{ #category : #'*xtra-platypus-accessing' }
+{ #category : '*xtra-platypus-accessing' }
 PltAggregateData >> upperBound [
 	^ PltMissingValue new
 ]

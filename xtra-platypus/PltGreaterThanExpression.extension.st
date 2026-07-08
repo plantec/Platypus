@@ -1,11 +1,11 @@
-Extension { #name : #PltGreaterThanExpression }
+Extension { #name : 'PltGreaterThanExpression' }
 
-{ #category : #'*xtra-platypus-accessing' }
+{ #category : '*xtra-platypus-accessing' }
 PltGreaterThanExpression >> operatorSymbol [
 	^ #>
 ]
 
-{ #category : #'*xtra-platypus-express-compat' }
+{ #category : '*xtra-platypus-express-compat' }
 PltGreaterThanExpression >> pltOperator [
 	^ '>'
 ]

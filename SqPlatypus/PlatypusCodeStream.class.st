@@ -1,13 +1,15 @@
 Class {
-	#name : #PlatypusCodeStream,
-	#superclass : #TextStream,
+	#name : 'PlatypusCodeStream',
+	#superclass : 'TextStream',
 	#instVars : [
 		'tokensStyleMap'
 	],
-	#category : #'SqPlatypus-HW-GenericTokens'
+	#category : 'SqPlatypus-HW-GenericTokens',
+	#package : 'SqPlatypus',
+	#tag : 'HW-GenericTokens'
 }
 
-{ #category : #'data get/put' }
+{ #category : 'data get/put' }
 PlatypusCodeStream >> nextPutAll: aCollection endingAt: aPosition [
 	"Optimized access to get around Text at:Put: overhead"
 	| n |
@@ -22,7 +24,7 @@ PlatypusCodeStream >> nextPutAll: aCollection endingAt: aPosition [
 	position := position + n
 ]
 
-{ #category : #'color/style' }
+{ #category : 'color/style' }
 PlatypusCodeStream >> tokensStyleMap [
 	"Answer the map to use to determine colors and styles"
 	| colorAndEmphasis |
@@ -46,7 +48,7 @@ PlatypusCodeStream >> tokensStyleMap [
 			tokensStyleMap]
 ]
 
-{ #category : #'color/style' }
+{ #category : 'color/style' }
 PlatypusCodeStream >> withColor: color emphasis: emphasisSymbol do: aBlock [ 
 	"Evaluate the given block with the given color and style text 
 	attribute"
@@ -62,7 +64,7 @@ PlatypusCodeStream >> withColor: color emphasis: emphasisSymbol do: aBlock [
 	^ self withAttributes: attributes contents do: aBlock
 ]
 
-{ #category : #'color/style' }
+{ #category : 'color/style' }
 PlatypusCodeStream >> withStyleFor: aClass do: aBlock [ 
 	"Evaluate aBlock with appropriate emphasis and color for the 
 	given element"
@@ -76,7 +78,7 @@ PlatypusCodeStream >> withStyleFor: aClass do: aBlock [
 		do: aBlock
 ]
 
-{ #category : #'color/style' }
+{ #category : 'color/style' }
 PlatypusCodeStream >> withStyleInfo: colorAndStyle do: aBlock [ 
 	"Evaluate aBlock with appropriate emphasis and color for the given
 	element"

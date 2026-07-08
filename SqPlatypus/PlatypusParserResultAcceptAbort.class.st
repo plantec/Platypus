@@ -1,15 +1,17 @@
 Class {
-	#name : #PlatypusParserResultAcceptAbort,
-	#superclass : #Error,
+	#name : 'PlatypusParserResultAcceptAbort',
+	#superclass : 'Error',
 	#instVars : [
 		'requestor',
 		'metaData',
 		'position'
 	],
-	#category : #'SqPlatypus-HW-tamaris'
+	#category : 'SqPlatypus-HW-tamaris',
+	#package : 'SqPlatypus',
+	#tag : 'HW-tamaris'
 }
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 PlatypusParserResultAcceptAbort class >> requestor: aRequestor metaData: aMetaData message: aMessage position: aPosition [ 
 	^ self new
 		requestor: aRequestor
@@ -18,14 +20,14 @@ PlatypusParserResultAcceptAbort class >> requestor: aRequestor metaData: aMetaDa
 		position: aPosition
 ]
 
-{ #category : #exceptionDescription }
+{ #category : 'exceptionDescription' }
 PlatypusParserResultAcceptAbort >> defaultAction [
 	requestor
 		ifNil: [^ super defaultAction]
 		ifNotNil: [requestor notify: self messageText at: position]
 ]
 
-{ #category : #acessing }
+{ #category : 'acessing' }
 PlatypusParserResultAcceptAbort >> requestor: aRequestor metaData: aMetaData message: aMessage position: aPosition [ 
 	requestor := aRequestor.
 	metaData := aMetaData.

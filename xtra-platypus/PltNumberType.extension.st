@@ -1,11 +1,11 @@
-Extension { #name : #PltNumberType }
+Extension { #name : 'PltNumberType' }
 
-{ #category : #'*xtra-platypus-testing' }
+{ #category : '*xtra-platypus-testing' }
 PltNumberType >> isGeneralizationOf: otherType [ 
 	^ otherType isKindOf: self class
 ]
 
-{ #category : #'*xtra-platypus-classification' }
+{ #category : '*xtra-platypus-classification' }
 PltNumberType >> isPltNumberOrStringType [
 	^ true
 ]

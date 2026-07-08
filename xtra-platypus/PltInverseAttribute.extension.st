@@ -1,6 +1,6 @@
-Extension { #name : #PltInverseAttribute }
+Extension { #name : 'PltInverseAttribute' }
 
-{ #category : #'*xtra-platypus-type-infering' }
+{ #category : '*xtra-platypus-type-infering' }
 PltInverseAttribute >> staticDomain [
 	| stdom |
 	self minCardinality
@@ -16,7 +16,7 @@ PltInverseAttribute >> staticDomain [
 
 ]
 
-{ #category : #'*xtra-platypus-accessing' }
+{ #category : '*xtra-platypus-accessing' }
 PltInverseAttribute >> tamarisStepValueReferenceClass [
 	^ PlatypusStepReference
 ]

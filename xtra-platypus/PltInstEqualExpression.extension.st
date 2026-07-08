@@ -1,11 +1,11 @@
-Extension { #name : #PltInstEqualExpression }
+Extension { #name : 'PltInstEqualExpression' }
 
-{ #category : #'*xtra-platypus-accessing' }
+{ #category : '*xtra-platypus-accessing' }
 PltInstEqualExpression >> operatorSymbol [
 	^ #':=:'
 ]
 
-{ #category : #'*xtra-platypus-express-compat' }
+{ #category : '*xtra-platypus-express-compat' }
 PltInstEqualExpression >> pltOperator [
 	^ '=='
 ]

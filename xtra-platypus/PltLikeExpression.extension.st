@@ -1,6 +1,6 @@
-Extension { #name : #PltLikeExpression }
+Extension { #name : 'PltLikeExpression' }
 
-{ #category : #'*xtra-platypus-accessing' }
+{ #category : '*xtra-platypus-accessing' }
 PltLikeExpression >> operatorSymbol [
 	^ #like
 ]

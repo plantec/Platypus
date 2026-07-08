@@ -1,21 +1,21 @@
-Extension { #name : #PltGenericInstance }
+Extension { #name : 'PltGenericInstance' }
 
-{ #category : #'*xtra-platypus-evaluating' }
+{ #category : '*xtra-platypus-evaluating' }
 PltGenericInstance >> asExternalRepresentation [
 	^ self subclassResponsibility 
 ]
 
-{ #category : #'*xtra-platypus-evaluating' }
+{ #category : '*xtra-platypus-evaluating' }
 PltGenericInstance >> assignableValue [
 	^ self
 ]
 
-{ #category : #'*xtra-platypus-data-management' }
+{ #category : '*xtra-platypus-data-management' }
 PltGenericInstance >> becomeInstance: other [ 
 	self owningModel replace: self with: other 
 ]
 
-{ #category : #'*xtra-platypus-accessing' }
+{ #category : '*xtra-platypus-accessing' }
 PltGenericInstance >> buildGroup: anEntityDef [ 
 	| grp |
 	grp := self groupClass new.
@@ -24,17 +24,17 @@ PltGenericInstance >> buildGroup: anEntityDef [
 	^ grp
 ]
 
-{ #category : #'*xtra-platypus-accessing' }
+{ #category : '*xtra-platypus-accessing' }
 PltGenericInstance >> computed [
 	^ computed ifNil: [ computed := false ]
 ]
 
-{ #category : #'*xtra-platypus-accessing' }
+{ #category : '*xtra-platypus-accessing' }
 PltGenericInstance >> computed: aBoolean [
 	computed := aBoolean
 ]
 
-{ #category : #'*xtra-platypus-copying' }
+{ #category : '*xtra-platypus-copying' }
 PltGenericInstance >> deepCopy [
 	| n |
 	n := self copy.
@@ -42,12 +42,12 @@ PltGenericInstance >> deepCopy [
 	^ n	
 ]
 
-{ #category : #'*xtra-platypus-accessing' }
+{ #category : '*xtra-platypus-accessing' }
 PltGenericInstance >> definitionInclusiveOwnerPath [
 	^ self subclassResponsibility 
 ]
 
-{ #category : #'*xtra-platypus-accessing' }
+{ #category : '*xtra-platypus-accessing' }
 PltGenericInstance >> entityDefinitionOfGroupNamed: anIdent [ 
 	| found |
 	self records
@@ -56,7 +56,7 @@ PltGenericInstance >> entityDefinitionOfGroupNamed: anIdent [
 	^ nil
 ]
 
-{ #category : #'*xtra-platypus-evaluating' }
+{ #category : '*xtra-platypus-evaluating' }
 PltGenericInstance >> equalExternal: other [ 
 	| otherRecs myRecords otherRecords foundEqual |
 	self groupClass == other groupClass
@@ -87,7 +87,7 @@ PltGenericInstance >> equalExternal: other [
 				and: [otherRecords isEmpty])
 ]
 
-{ #category : #'*xtra-platypus-evaluating' }
+{ #category : '*xtra-platypus-evaluating' }
 PltGenericInstance >> equalInternal: other [ 
 	| myParam otherParam res |
 	self groupClass == other groupClass
@@ -110,17 +110,17 @@ PltGenericInstance >> equalInternal: other [
 
 ]
 
-{ #category : #'*xtra-platypus-accessing' }
+{ #category : '*xtra-platypus-accessing' }
 PltGenericInstance >> errorQualifier [
 	^ '#' , self persistentLabel 
 ]
 
-{ #category : #'*xtra-platypus-enumerating' }
+{ #category : '*xtra-platypus-enumerating' }
 PltGenericInstance >> explicitAttributesAndValuesDo: aBlock [ 
 	self records do: [ :rec | rec privateExplicitAttributesAndValuesDo: aBlock]
 ]
 
-{ #category : #'*xtra-platypus-accessing' }
+{ #category : '*xtra-platypus-accessing' }
 PltGenericInstance >> getInstanceAttributeIdentification: aBlock [ 
 	| sorted found |
 	sorted := self records asArray
@@ -131,27 +131,27 @@ PltGenericInstance >> getInstanceAttributeIdentification: aBlock [
 	^ nil
 ]
 
-{ #category : #'*xtra-platypus-accessing' }
+{ #category : '*xtra-platypus-accessing' }
 PltGenericInstance >> interpretingContext [
 	^ self
 ]
 
-{ #category : #'*xtra-platypus-testing' }
+{ #category : '*xtra-platypus-testing' }
 PltGenericInstance >> isComputed [
 	^ self computed 
 ]
 
-{ #category : #'*xtra-platypus-accessing' }
+{ #category : '*xtra-platypus-accessing' }
 PltGenericInstance >> markAsComputed [
 	computed := true
 ]
 
-{ #category : #'*xtra-platypus-accessing' }
+{ #category : '*xtra-platypus-accessing' }
 PltGenericInstance >> markAsPersistent [
 	computed := false
 ]
 
-{ #category : #'*xtra-platypus-enumerating' }
+{ #category : '*xtra-platypus-enumerating' }
 PltGenericInstance >> privateInternalExplicitAttributesAndValuesDo: aBlock [ 
 	^ self definition referenced 
 		explicitAttributesAndValuesDo: aBlock
@@ -159,12 +159,12 @@ PltGenericInstance >> privateInternalExplicitAttributesAndValuesDo: aBlock [
 		startingAt: self startAttributePrevPosition + 1
 ]
 
-{ #category : #'*xtra-platypus-accessing' }
+{ #category : '*xtra-platypus-accessing' }
 PltGenericInstance >> records [
 	^ self subclassResponsibility 
 ]
 
-{ #category : #'*xtra-platypus-evaluating' }
+{ #category : '*xtra-platypus-evaluating' }
 PltGenericInstance >> rolesOf: anInstanceReference in: aSetOfString [ 
 	self 
 		explicitAttributesAndValuesDo: [:attrDef :val | val isPltGenericInstance
@@ -173,7 +173,7 @@ PltGenericInstance >> rolesOf: anInstanceReference in: aSetOfString [
 								add: (PltStringLiteral val: attrDef fullyQualifiedName)]]]
 ]
 
-{ #category : #'*xtra-platypus-evaluating' }
+{ #category : '*xtra-platypus-evaluating' }
 PltGenericInstance >> rolesValue: aGenericInstance roleSchema: schemaKey roleEntity: entityKey roleAttribute: attributeKey in: resultSet [ 
 	| currDef |
 	self records
@@ -193,12 +193,12 @@ PltGenericInstance >> rolesValue: aGenericInstance roleSchema: schemaKey roleEnt
 						startingAt: 1]]
 ]
 
-{ #category : #'*xtra-platypus-accessing' }
+{ #category : '*xtra-platypus-accessing' }
 PltGenericInstance >> selectionString [
 	^ self printableCode
 ]
 
-{ #category : #'*xtra-platypus-evaluating' }
+{ #category : '*xtra-platypus-evaluating' }
 PltGenericInstance >> stackElementOfExplicitAttribute: attr interpretor: anInterpretor [ 
 	| anonymousVar allAttrIdentif identif def |
 	allAttrIdentif := self definition referenced
@@ -213,13 +213,13 @@ PltGenericInstance >> stackElementOfExplicitAttribute: attr interpretor: anInter
 		interpretor: anInterpretor
 ]
 
-{ #category : #'*xtra-platypus-data-management' }
+{ #category : '*xtra-platypus-data-management' }
 PltGenericInstance >> updatePersistentLabelIndex: index [ 
 	super updatePersistentLabelIndex: index.
 	self instanceScope ifNotNil: [self instanceScope updatePersistentLabelIndex: index]
 ]
 
-{ #category : #'*xtra-platypus-copying' }
+{ #category : '*xtra-platypus-copying' }
 PltGenericInstance >> veryDeepCopy [
 	| n |
 	n := self copy.

@@ -1,5 +1,7 @@
 Class {
-	#name : #PlatypusSchemaWrapper,
-	#superclass : #PlatypusExpressWrapper,
-	#category : #'SqPlatypus-HW-tamaris'
+	#name : 'PlatypusSchemaWrapper',
+	#superclass : 'PlatypusExpressWrapper',
+	#category : 'SqPlatypus-HW-tamaris',
+	#package : 'SqPlatypus',
+	#tag : 'HW-tamaris'
 }

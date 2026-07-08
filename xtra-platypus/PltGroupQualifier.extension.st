@@ -1,6 +1,6 @@
-Extension { #name : #PltGroupQualifier }
+Extension { #name : 'PltGroupQualifier' }
 
-{ #category : #'*xtra-platypus-type-infering' }
+{ #category : '*xtra-platypus-type-infering' }
 PltGroupQualifier >> inferedDomainWith: currDomain [ 
 	currDomain referenced isPltEntityDefinition
 		ifFalse: [^ PltGenericType asDomain].

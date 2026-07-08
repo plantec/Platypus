@@ -1,1 +1,1 @@
-Package { #name : #SqPlatypus }
+Package { #name : 'SqPlatypus' }

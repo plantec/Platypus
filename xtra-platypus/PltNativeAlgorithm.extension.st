@@ -1,11 +1,11 @@
-Extension { #name : #PltNativeAlgorithm }
+Extension { #name : 'PltNativeAlgorithm' }
 
-{ #category : #'*xtra-platypus-testing' }
+{ #category : '*xtra-platypus-testing' }
 PltNativeAlgorithm >> alwaysReturn [
 	^ self havePlatypusInterpreterCode
 ]
 
-{ #category : #'*xtra-platypus-data-management' }
+{ #category : '*xtra-platypus-data-management' }
 PltNativeAlgorithm >> buildNativeCodesFromString: aString [ 
 	| code pos size withSignature curr s |
 	code := PltNativeCode new.
@@ -27,31 +27,31 @@ PltNativeAlgorithm >> buildNativeCodesFromString: aString [
 	self implementations add: code
 ]
 
-{ #category : #'*xtra-platypus-testing' }
+{ #category : '*xtra-platypus-testing' }
 PltNativeAlgorithm >> havePlatypusInterpreterCode [
 	^ self platypusInterpreterCode notNil
 ]
 
-{ #category : #'*xtra-platypus-testing' }
+{ #category : '*xtra-platypus-testing' }
 PltNativeAlgorithm >> isDebugged [
 	^ false
 ]
 
-{ #category : #'*xtra-platypus-accessing' }
+{ #category : '*xtra-platypus-accessing' }
 PltNativeAlgorithm >> pharoCode [
 	^ self implementations
 		detect: [:nc | nc isPharoCode]
 		ifNone: []
 ]
 
-{ #category : #'*xtra-platypus-accessing' }
+{ #category : '*xtra-platypus-accessing' }
 PltNativeAlgorithm >> platypusInterpreterCode [
 	^ self implementations
 		detect: [:nc | nc isPlatypusInterpreterCode]
 		ifNone: []
 ]
 
-{ #category : #'*xtra-platypus-accessing' }
+{ #category : '*xtra-platypus-accessing' }
 PltNativeAlgorithm >> visualWorksCode [
 	^ self implementations
 		detect: [:nc | nc isVisualWorksCode]
